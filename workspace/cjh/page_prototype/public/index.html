@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公告事件提取 · 三栏骨架（D1）</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>公告事件提取与核验 · 展示骨架</h1>
+  <span id="modeBadge" class="mode-badge">未加载</span>
+  <span class="meta" id="runMeta">D1 骨架 · 独立本地原型</span>
+</header>
+<div id="simBanner" class="sim-banner">⚠ 模拟数据 —— 当前展示内容全部为模拟接口返回，不得计入真实成绩</div>
+
+<main>
+  <!-- 栏一：上传 -->
+  <section class="col">
+    <h2>① 上传</h2>
+    <div class="body">
+      <div class="drop" id="drop">
+        <div>点击或拖入公告文件</div>
+        <div class="hint">支持 .txt（D1 仅入口；.pdf/.docx 解析属 D2）</div>
+      </div>
+      <input type="file" id="fileInput" accept=".txt" hidden>
+      <div id="fileList"></div>
+      <div class="dataset-row">
+        <select id="datasetSel" class="sel"></select>
+        <button class="btn" id="loadBtn">加载</button>
+      </div>
+      <button class="btn ghost" id="resetBtn">清空</button>
+    </div>
+  </section>
+
+  <!-- 栏二：结果 -->
+  <section class="col">
+    <h2>② 抽取结果 <span id="evCount" class="meta"></span></h2>
+    <div class="body" id="results">
+      <div class="empty">尚未加载数据——先上传文件或选择数据集加载</div>
+    </div>
+  </section>
+
+  <!-- 栏三：证据 -->
+  <section class="col">
+    <h2>③ 证据 <span id="srcCount" class="meta"></span></h2>
+    <div class="body" id="evidences">
+      <div class="empty">加载结果后此处显示证据列表</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  状态约定：成功 / 失败 / 无法读取 / 待复核 / 模拟 ｜ 字段值均挂 evidence_id 出处锚点 ｜ 数据契约见 docs/API.md
+</footer>
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>

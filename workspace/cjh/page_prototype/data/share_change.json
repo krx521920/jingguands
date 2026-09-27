@@ -1,0 +1,28 @@
+{
+  "run_id": "mock-run-0002",
+  "schema_version": "0.1",
+  "data_mode": "simulated",
+  "source_file": {
+    "file_id": "mock-file-002",
+    "filename": "股权变动公告样例.txt",
+    "parse_status": "success"
+  },
+  "events": [
+    {
+      "event_id": "evt-0101",
+      "event_type": "share_change",
+      "status": "success",
+      "fields": {
+        "holder":        { "value": "模拟股东丙", "evidence_id": "ev-0101" },
+        "shares_before": { "value": 50000000, "unit": "股", "normalized": 50000000, "evidence_id": "ev-0101" },
+        "shares_after":  { "value": 42000000, "unit": "股", "normalized": 42000000, "evidence_id": "ev-0102" },
+        "change_reason": { "value": "大宗交易减持（模拟）", "evidence_id": "ev-0102" },
+        "announce_date": { "value": "2026-09-25", "normalized": "2026-09-25", "evidence_id": "ev-0101" }
+      }
+    }
+  ],
+  "evidences": [
+    { "evidence_id": "ev-0101", "block_id": "blk-0021", "page": 2, "bbox": null, "quote": "（模拟原文）股东丙于 2026-09-25 前持有本公司 50,000,000 股，占总股本……" },
+    { "evidence_id": "ev-0102", "block_id": "blk-0023", "page": 2, "bbox": null, "quote": "（模拟原文）本次变动后，股东丙持有 42,000,000 股，变动方式为大宗交易……" }
+  ]
+}
