@@ -108,3 +108,20 @@ cell
 - 方：将状态和单位映射到统一枚举，补充兼容测试。
 - 陈：确认页面可以消费统一状态和证据结构，并提交D1页面骨架。
 - 评测：接口冻结后重跑D1验证，保留v0.1.1作为集成前基线。
+
+## Update: Zhang parser artifact received
+
+- Branch: `zhangzhibo`, commit `74e6eee9c029e54932bfeb2405634ddb7fa081e6`.
+- Artifact: uploaded ZIP containing parser source, evidence schema, one text-PDF parse JSON, four page evidence images, and checkers.
+- Executed: `tools/check_evidence.py` against the parse JSON and matching notice PDF.
+- Result: 71 blocks, 71 self-consistent, 100.0%.
+
+### Compatibility result
+
+- Zhang `doc.doc_id`, `file_sha256`, `page_count` can supply Wei `source.file_id`, `file_sha256`, and `parse_meta.page_count`.
+- Zhang `block_id`, `page`, `bbox`, and `text` can map to Wei `provenance.block_id`, `page`, `region`, and `quote`.
+- The mapping is structurally clear but not yet implemented in code.
+- Zhang already defines table and cell evidence; Wei's D1 provenance schema does not yet carry those fields.
+- No table cells are present in the current four-page notice sample, so table-cell integration remains untested.
+
+Updated artifact progress: 4/6 personal artifacts landed (evaluation, Wei, Zhang, Fang). Chen D1 is still absent and joint integration has not run.
