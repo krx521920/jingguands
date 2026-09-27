@@ -1,11 +1,12 @@
 {
   "status": "PASS",
   "samples": 3,
-  "fields": 38,
-  "confirmed": 36,
-  "notDisclosed": 1,
+  "fields": 40,
+  "confirmed": 37,
+  "notDisclosed": 2,
   "notApplicable": 1,
-  "evidenceBearing": 36,
-  "boundaryChecks": 4,
+  "evidenceBearing": 37,
+  "boundaryChecks": 5,
+  "semanticChecks": 3,
   "errors": []
 }

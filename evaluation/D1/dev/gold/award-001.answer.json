@@ -149,33 +149,24 @@
       ]
     },
     "formal_award_notice_received": {
-      "value": true,
-      "raw_value": "中标",
-      "normalized_value": "true",
-      "status": "confirmed",
-      "evidence": [
-        {
-          "document_id": "D1-AWD-001",
-          "page": 1,
-          "source_type": "paragraph",
-          "excerpt": "公司中标武汉市新洲区人民医院整体外迁项目",
-          "bbox": null,
-          "table": null,
-          "cell": null
-        }
-      ]
+      "value": null,
+      "raw_value": null,
+      "normalized_value": null,
+      "status": "not_disclosed",
+      "reason": "notice_receipt_not_disclosed",
+      "evidence": []
     },
     "contract_signed": {
       "value": true,
       "raw_value": "已签署合同",
-      "normalized_value": "true",
+      "normalized_value": true,
       "status": "confirmed",
       "evidence": [
         {
           "document_id": "D1-AWD-001",
           "page": 1,
           "source_type": "paragraph",
-          "excerpt": "并与承包人签署了合同",
+          "excerpt": "并与承包人武汉建工集团股份有限公司新洲分公司签署了……合同",
           "bbox": null,
           "table": null,
           "cell": null
@@ -236,7 +227,8 @@
   "review": {
     "annotator": "pending",
     "reviewer": "pending",
-    "version": "0.1",
+    "version": "0.1.1",
     "reviewed_at": null
-  }
+  },
+  "dataset_version": "0.1.1"
 }

@@ -5,7 +5,7 @@ import path from 'node:path'
 const root = path.resolve(import.meta.dirname, '..')
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'dev/manifest.json'), 'utf8'))
 const errors = []
-const summary = { samples: 0, fields: 0, confirmed: 0, notDisclosed: 0, notApplicable: 0, evidenceBearing: 0, boundaryChecks: 0 }
+const summary = { samples: 0, fields: 0, confirmed: 0, notDisclosed: 0, notApplicable: 0, evidenceBearing: 0, boundaryChecks: 0, semanticChecks: 0 }
 
 for (const item of manifest.items) {
   const raw = JSON.parse(fs.readFileSync(path.join(root, 'dev', item.raw), 'utf8'))
@@ -38,6 +38,12 @@ check(award.fields.award_status.value === 'contract_signed', 'public award fixtu
 check(award.fields.contract_signed.value === true, 'public award fixture must record the signed contract')
 check(award.fields.recognized_revenue.status === 'not_applicable', 'award must not recognize revenue')
 check(award.fields.price_adjustment_status.status === 'not_disclosed', 'undisclosed adjustment must remain not_disclosed')
+check(award.fields.formal_award_notice_received.status === 'not_disclosed', 'formal award notice receipt must remain not_disclosed')
+const pledgeGold = JSON.parse(fs.readFileSync(path.join(root, 'dev/gold/pledge-001.answer.json'), 'utf8'))
+summary.semanticChecks += 3
+if (pledgeGold.fields.pledged_shares_current_components.value.length !== 3) errors.push('pledge components must contain three rows')
+if (pledgeGold.fields.pledged_shares_current_total.value !== 7800000) errors.push('pledge current total must equal 7800000')
+if (!pledgeGold.fields.current_pledge_ratio_of_pledgor_holdings_pct || !pledgeGold.fields.current_pledge_ratio_of_total_share_capital_pct) errors.push('pledge ratio fields must use explicit denominator names')
 
 const result = { status: errors.length === 0 ? 'PASS' : 'FAIL', ...summary, errors }
 fs.mkdirSync(path.join(root, 'evidence'), { recursive: true })

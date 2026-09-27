@@ -1,6 +1,6 @@
 {
-  "dataset_id": "financial-events-d1-dev-v0.1",
-  "version": "0.1.0",
+  "dataset_id": "financial-events-d1-dev-v0.1.1",
+  "version": "0.1.1",
   "created_on": "2026-09-27",
   "source_policy": "public_cninfo_disclosures",
   "items": [
@@ -31,5 +31,13 @@
       "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-24/1225582697.PDF",
       "source_hash": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802"
     }
+  ],
+  "updated_on": "2026-09-27",
+  "changes": [
+    "correct award notice receipt to not_disclosed",
+    "split current pledge components and total",
+    "replace synthesized pledgee evidence with table evidence",
+    "rename pledge current ratio fields",
+    "add semantic validation"
   ]
 }

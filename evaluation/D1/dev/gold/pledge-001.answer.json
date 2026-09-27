@@ -45,26 +45,6 @@
         }
       ]
     },
-    "pledged_shares_current": {
-      "value": 7800000,
-      "raw_value": "2,100,000股 / 2,650,000股 / 3,050,000股",
-      "normalized_value": "7800000",
-      "status": "confirmed",
-      "evidence": [
-        {
-          "document_id": "D1-PLD-001",
-          "page": 1,
-          "source_type": "table",
-          "excerpt": "合计7,800,000股",
-          "bbox": null,
-          "table": null,
-          "cell": null
-        }
-      ],
-      "unit": "share",
-      "scope": "current",
-      "derived_sum": true
-    },
     "pledged_shares_cumulative": {
       "value": 50350000,
       "raw_value": "50,350,000股",
@@ -102,42 +82,6 @@
       ],
       "unit": "share",
       "scope": "before"
-    },
-    "ratio_of_holdings_current_pct": {
-      "value": 8.92,
-      "raw_value": "8.92%",
-      "normalized_value": "8.92",
-      "status": "confirmed",
-      "evidence": [
-        {
-          "document_id": "D1-PLD-001",
-          "page": 1,
-          "source_type": "table",
-          "excerpt": "占其所持股份比例8.92%",
-          "bbox": null,
-          "table": null,
-          "cell": null
-        }
-      ],
-      "denominator": "pledgor_holdings"
-    },
-    "ratio_of_total_share_capital_current_pct": {
-      "value": 3.66,
-      "raw_value": "3.66%",
-      "normalized_value": "3.66",
-      "status": "confirmed",
-      "evidence": [
-        {
-          "document_id": "D1-PLD-001",
-          "page": 1,
-          "source_type": "table",
-          "excerpt": "占公司总股本比例3.66%",
-          "bbox": null,
-          "table": null,
-          "cell": null
-        }
-      ],
-      "denominator": "total_share_capital"
     },
     "cumulative_ratio_of_holdings_pct": {
       "value": 57.58,
@@ -191,12 +135,166 @@
           "cell": null
         }
       ]
+    },
+    "pledgee": {
+      "value": [
+        "建德市新安小额贷款股份有限公司",
+        "海宁鸿丰小额贷款股份有限公司",
+        "苏州市吴中典当有限责任公司"
+      ],
+      "raw_value": [
+        "建德市新安小额贷款股份有限公司",
+        "海宁鸿丰小额贷款股份有限公司",
+        "苏州市吴中典当有限责任公司"
+      ],
+      "normalized_value": [
+        "建德市新安小额贷款股份有限公司",
+        "海宁鸿丰小额贷款股份有限公司",
+        "苏州市吴中典当有限责任公司"
+      ],
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "质权人：建德市新安小额贷款股份有限公司",
+          "bbox": null,
+          "table": "本次股份质押基本情况",
+          "cell": "质押明细第1行·质权人"
+        },
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "质权人：海宁鸿丰小额贷款股份有限公司",
+          "bbox": null,
+          "table": "本次股份质押基本情况",
+          "cell": "质押明细第2行·质权人"
+        },
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "质权人：苏州市吴中典当有限责任公司",
+          "bbox": null,
+          "table": "本次股份质押基本情况",
+          "cell": "质押明细第3行·质权人"
+        }
+      ]
+    },
+    "pledged_shares_current_components": {
+      "value": [
+        2100000,
+        2650000,
+        3050000
+      ],
+      "raw_value": [
+        "2,100,000股",
+        "2,650,000股",
+        "3,050,000股"
+      ],
+      "normalized_value": [
+        "2100000",
+        "2650000",
+        "3050000"
+      ],
+      "status": "confirmed",
+      "unit": "share",
+      "scope": "current",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "2,100,000",
+          "bbox": null,
+          "table": "本次股份质押基本情况",
+          "cell": "质押明细第1行·本次质押数量"
+        },
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "2,650,000",
+          "bbox": null,
+          "table": "本次股份质押基本情况",
+          "cell": "质押明细第2行·本次质押数量"
+        },
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "3,050,000",
+          "bbox": null,
+          "table": "本次股份质押基本情况",
+          "cell": "质押明细第3行·本次质押数量"
+        }
+      ]
+    },
+    "pledged_shares_current_total": {
+      "value": 7800000,
+      "raw_value": "7,800,000股",
+      "normalized_value": "7800000",
+      "status": "confirmed",
+      "unit": "share",
+      "scope": "current_total",
+      "derived": true,
+      "formula": "sum(pledged_shares_current_components)",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "合计 7,800,000",
+          "bbox": null,
+          "table": "本次股份质押基本情况",
+          "cell": "合计行·本次质押数量"
+        }
+      ]
+    },
+    "current_pledge_ratio_of_pledgor_holdings_pct": {
+      "value": 8.92,
+      "raw_value": "8.92%",
+      "normalized_value": "8.92",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "占其所持股份比例8.92%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "pledgor_holdings"
+    },
+    "current_pledge_ratio_of_total_share_capital_pct": {
+      "value": 3.66,
+      "raw_value": "3.66%",
+      "normalized_value": "3.66",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "占公司总股本比例3.66%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "total_share_capital"
     }
   },
   "review": {
     "annotator": "pending",
     "reviewer": "pending",
-    "version": "0.1",
+    "version": "0.1.1",
     "reviewed_at": null
-  }
+  },
+  "dataset_version": "0.1.1"
 }

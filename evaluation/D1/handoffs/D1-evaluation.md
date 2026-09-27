@@ -21,6 +21,10 @@ Run: `node evaluation/D1/tests/validate-d1.mjs`
 
 Expected: validation status PASS, three samples, explicit boundary checks for award status, contract signature, revenue recognition, and undisclosed price adjustment.
 
+## Self-audit correction
+
+D1 v0.1.1 corrects inferred award notice receipt, pledge component/evidence separation, and ambiguous ratio field names. See `CHANGELOG.md`.
+
 ## Open items
 
 - Complete second-person review of the three public Gold answers.
