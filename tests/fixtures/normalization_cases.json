@@ -1,0 +1,96 @@
+[
+  {
+    "id": "01-yuan",
+    "inputs": [
+      { "kind": "amount", "rawText": "交易金额为12.34元", "rawValue": "12.34", "sourceUnit": "元", "qualifier": "exact", "scope": "single", "status": "present", "denominator": null }
+    ],
+    "expected": [
+      { "value": "12.34", "unit": "元", "status": "present", "qualifier": "exact", "scope": "single", "denominator": null }
+    ]
+  },
+  {
+    "id": "02-wanyuan-approx",
+    "inputs": [
+      { "kind": "amount", "rawText": "金额约1.25万元", "rawValue": "1.25", "sourceUnit": "万元", "qualifier": "approx", "scope": "single", "status": "present", "denominator": null }
+    ],
+    "expected": [
+      { "value": "12500", "unit": "元", "status": "present", "qualifier": "approx", "scope": "single", "denominator": null }
+    ]
+  },
+  {
+    "id": "03-yiyuan-upper-bound",
+    "inputs": [
+      { "kind": "amount", "rawText": "金额不超过0.15亿元", "rawValue": "0.15", "sourceUnit": "亿元", "qualifier": "at_most", "scope": "cumulative", "status": "present", "denominator": null }
+    ],
+    "expected": [
+      { "value": "15000000", "unit": "元", "status": "present", "qualifier": "at_most", "scope": "cumulative", "denominator": null }
+    ]
+  },
+  {
+    "id": "04-share",
+    "inputs": [
+      { "kind": "shares", "rawText": "本次质押123股", "rawValue": "123", "sourceUnit": "股", "qualifier": "exact", "scope": "single", "status": "present", "denominator": null }
+    ],
+    "expected": [
+      { "value": "123", "unit": "股", "status": "present", "qualifier": "exact", "scope": "single", "denominator": null }
+    ]
+  },
+  {
+    "id": "05-wanshare-cumulative",
+    "inputs": [
+      { "kind": "shares", "rawText": "累计质押1.25万股", "rawValue": "1.25", "sourceUnit": "万股", "qualifier": "exact", "scope": "cumulative", "status": "present", "denominator": null }
+    ],
+    "expected": [
+      { "value": "12500", "unit": "股", "status": "present", "qualifier": "exact", "scope": "cumulative", "denominator": null }
+    ]
+  },
+  {
+    "id": "06-yishare-negative",
+    "inputs": [
+      { "kind": "shares", "rawText": "本次变动-0.00000001亿股", "rawValue": "-0.00000001", "sourceUnit": "亿股", "qualifier": "exact", "scope": "single", "status": "present", "denominator": null }
+    ],
+    "expected": [
+      { "value": "-1", "unit": "股", "status": "present", "qualifier": "exact", "scope": "single", "denominator": null }
+    ]
+  },
+  {
+    "id": "07-ratio-total-capital",
+    "inputs": [
+      { "kind": "ratio", "rawText": "本次质押占公司总股本2.5%", "rawValue": "2.5", "sourceUnit": "%", "qualifier": "exact", "scope": "single", "status": "present", "denominator": { "kind": "total_share_capital", "definition": "本公告时点公司总股本" } }
+    ],
+    "expected": [
+      { "value": "2.5", "unit": "%", "status": "present", "qualifier": "exact", "scope": "single", "denominator": { "kind": "total_share_capital", "definition": "本公告时点公司总股本" } }
+    ]
+  },
+  {
+    "id": "08-two-ratio-denominators",
+    "inputs": [
+      { "kind": "ratio", "rawText": "累计质押占该股东所持股份20%", "rawValue": "20", "sourceUnit": "%", "qualifier": "exact", "scope": "cumulative", "status": "present", "denominator": { "kind": "holder_shares", "definition": "本公告时点该质押股东所持股份" } },
+      { "kind": "ratio", "rawText": "交易金额占期末归母净资产3.25%", "rawValue": "3.25", "sourceUnit": "%", "qualifier": "exact", "scope": "single", "status": "present", "denominator": { "kind": "net_assets", "definition": "报告期末归属于母公司股东的净资产" } }
+    ],
+    "expected": [
+      { "value": "20", "unit": "%", "status": "present", "qualifier": "exact", "scope": "cumulative", "denominator": { "kind": "holder_shares", "definition": "本公告时点该质押股东所持股份" } },
+      { "value": "3.25", "unit": "%", "status": "present", "qualifier": "exact", "scope": "single", "denominator": { "kind": "net_assets", "definition": "报告期末归属于母公司股东的净资产" } }
+    ]
+  },
+  {
+    "id": "09-missing-vs-zero",
+    "inputs": [
+      { "kind": "amount", "rawText": null, "rawValue": null, "sourceUnit": null, "qualifier": null, "scope": "unknown", "status": "not_mentioned", "denominator": null },
+      { "kind": "shares", "rawText": "本次质押股数为0股", "rawValue": "0", "sourceUnit": "股", "qualifier": "exact", "scope": "single", "status": "explicit_zero", "denominator": null }
+    ],
+    "expected": [
+      { "value": null, "unit": "元", "status": "not_mentioned", "qualifier": null, "scope": "unknown", "denominator": null },
+      { "value": "0", "unit": "股", "status": "explicit_zero", "qualifier": "exact", "scope": "single", "denominator": null }
+    ]
+  },
+  {
+    "id": "10-unreadable",
+    "inputs": [
+      { "kind": "ratio", "rawText": "扫描件比例单元格无法辨认", "rawValue": null, "sourceUnit": null, "qualifier": null, "scope": "unknown", "status": "unreadable", "denominator": null }
+    ],
+    "expected": [
+      { "value": null, "unit": "%", "status": "unreadable", "qualifier": null, "scope": "unknown", "denominator": null }
+    ]
+  }
+]
