@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "finstruct/evidence.v0.2.json",
+  "title": "解析出处结构 evidence/0.2",
+  "description": "解析层交给下游的中间表示。每个块与单元格自带 region 坐标，供抽取层锚定、展示层高亮。v0.2 相对 v0.1 的变更：bbox 改名 region、新增 text_raw、新增 doc.file_id、新增顶层 handoff —— 均为对齐全队公共契约 interface/event-envelope.schema.json v0.1。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "doc", "pages", "reading_order", "handoff", "quality"],
+  "properties": {
+    "schema_version": { "const": "evidence/0.2" },
+    "doc": { "$ref": "#/$defs/Doc" },
+    "pages": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/Page" } },
+    "reading_order": {
+      "type": "array",
+      "description": "按阅读顺序排列的 block_id。必须与 pages 中出现的 block_id 集合完全一致。",
+      "items": { "type": "string" }
+    },
+    "handoff": { "$ref": "#/$defs/Handoff" },
+    "quality": { "$ref": "#/$defs/Quality" }
+  },
+  "$defs": {
+    "Region": {
+      "type": "array",
+      "description": "[left, top, right, bottom]，单位 PDF 点（1pt=1/72 英寸），原点页面左上角，y 轴向下为正。字段名与全队契约的 provenance.region 一致。下游换算：屏幕坐标 = region / [page.width, page.height] × 显示尺寸。",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "type": "number" }
+    },
+    "CoordSystem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "origin", "field", "order"],
+      "description": "坐标语义声明。全队契约的 region 未声明单位与原点，这里补齐，下游渲染高亮必须按它换算。",
+      "properties": {
+        "unit": { "const": "pdf_point" },
+        "unit_zh": { "type": "string" },
+        "origin": { "const": "top_left" },
+        "origin_zh": { "type": "string" },
+        "field": { "const": "region" },
+        "order": { "type": "array", "items": { "type": "string" } },
+        "normalize_hint": { "type": "string" }
+      }
+    },
+    "Doc": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["doc_id", "file_id", "file_name", "file_sha256", "page_count", "parsed_at", "parser", "coord_system"],
+      "properties": {
+        "doc_id": {
+          "type": "string",
+          "description": "由 file_sha256 前 8 位派生，不使用文件名 —— 防同名串证据（团队 D10）",
+          "pattern": "^d[0-9a-f]{8}$"
+        },
+        "file_id": {
+          "type": "string",
+          "description": "全队契约 source.file_id 的形态",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "file_name": { "type": "string" },
+        "file_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "file_size": { "type": ["integer", "null"] },
+        "page_count": { "type": "integer", "minimum": 1 },
+        "parsed_at": { "type": "string", "description": "ISO 8601，带时区" },
+        "parser": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version"],
+          "properties": { "name": { "type": "string" }, "version": { "type": "string" } }
+        },
+        "coord_system": { "$ref": "#/$defs/CoordSystem" }
+      }
+    },
+    "Block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["block_id", "page", "type", "role", "text", "text_raw", "region", "source"],
+      "properties": {
+        "block_id": { "type": "string", "description": "全局唯一且稳定；抽取层把它填进 provenance.block_id" },
+        "page": { "type": "integer", "minimum": 1 },
+        "type": { "const": "TEXT" },
+        "role": {
+          "enum": ["TITLE", "SECTION", "BODY", "HEADER", "FOOTER", "FOOTNOTE"],
+          "description": "HEADER/FOOTER 已移出正文流但保留，因为页眉页脚可能承载日期等信息"
+        },
+        "text": {
+          "type": "string",
+          "description": "拼接后的可读文本，跨行处可能补空格。供模型与展示使用，**不要**用它当 quote"
+        },
+        "text_raw": {
+          "type": "string",
+          "description": "按阅读顺序直接拼接原始字符、不插入任何字符，因此保证是原文子串。全队契约要求 provenance.quote 必须是原文子串，**quote 取这个字段**"
+        },
+        "region": { "$ref": "#/$defs/Region" },
+        "font_size": { "type": ["number", "null"] },
+        "source": {
+          "enum": ["TEXT_LAYER", "OCR_OS", "VLM"],
+          "description": "这段文本来自哪条通道。出处可核验的前提是说清来源。"
+        },
+        "ocr_confidence": { "type": ["number", "null"] },
+        "degraded": { "type": "boolean" },
+        "missing_reason": {
+          "type": ["string", "null"],
+          "enum": ["NOT_PARSED", "ILLEGIBLE", "DEGRADED", null],
+          "description": "缺出处的原因码。缺出处必须能被统计，不能静默。"
+        },
+        "table_ref": {
+          "type": ["object", "null"],
+          "description": "若该块来自表格单元格，指向具体行列；D1 暂为 null",
+          "properties": {
+            "table_id": { "type": "string" },
+            "row": { "type": "integer" },
+            "col": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "Cell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["doc_id", "table_id", "page", "row", "col", "text", "region"],
+      "description": "表格单元格。cell 级出处与 block 级分开统计（团队指标要求）。",
+      "properties": {
+        "doc_id": { "type": "string" },
+        "table_id": { "type": "string" },
+        "page": { "type": "integer", "minimum": 1 },
+        "row": { "type": "integer", "minimum": 0 },
+        "col": { "type": "integer", "minimum": 0 },
+        "rowspan": { "type": "integer", "minimum": 1 },
+        "colspan": { "type": "integer", "minimum": 1 },
+        "is_header": { "type": "boolean" },
+        "header_path": { "type": ["string", "null"], "description": "多层表头拼成的完整列名，如「本次质押/股数」" },
+        "text": { "type": "string" },
+        "region": { "$ref": "#/$defs/Region" },
+        "degraded": { "type": "boolean" }
+      }
+    },
+    "Table": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["table_id", "page", "region", "n_rows", "n_cols", "cells"],
+      "properties": {
+        "table_id": { "type": "string" },
+        "page": { "type": "integer", "minimum": 1 },
+        "region": { "$ref": "#/$defs/Region" },
+        "n_rows": { "type": "integer", "minimum": 0 },
+        "n_cols": { "type": "integer", "minimum": 0 },
+        "cells": { "type": "array", "items": { "$ref": "#/$defs/Cell" } },
+        "continued_from": { "type": ["string", "null"], "description": "跨页续表：指向上/下一页的 table_id" },
+        "quality": {
+          "type": "object",
+          "properties": {
+            "self_check": { "enum": ["PASS", "WARN", "FAIL"] },
+            "warnings": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "Page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["page", "form", "width", "height", "blocks"],
+      "properties": {
+        "page": { "type": "integer", "minimum": 1 },
+        "form": {
+          "enum": ["TEXT", "SCANNED", "MIXED"],
+          "description": "逐页判定，不按整份文档判定 —— 一份 PDF 常前几页有文本层、附页是扫描件"
+        },
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "form_evidence": {
+          "type": "object",
+          "description": "形态判定的判据留痕，便于首测出错时定位是哪一项导致的",
+          "properties": {
+            "text_chars": { "type": "integer" },
+            "text_area_ratio": { "type": "number" },
+            "image_area_ratio": { "type": "number" },
+            "ink_ratio": { "type": ["number", "null"] },
+            "rule": { "type": ["string", "null"] },
+            "thresholds": { "type": "object" }
+          }
+        },
+        "blocks": { "type": "array", "items": { "$ref": "#/$defs/Block" } },
+        "tables": { "type": "array", "items": { "$ref": "#/$defs/Table" } }
+      }
+    },
+    "Handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_contract", "source", "provenance_from_block", "blocks_path", "warnings"],
+      "description": "交给抽取层的对接块。source 可原样拷进事件信封，避免字段名靠猜。",
+      "properties": {
+        "target_contract": { "type": "string" },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["file_id", "file_name", "file_sha256", "parse_meta"],
+          "description": "字段集严格等于全队契约的 source。注意 parse_meta 只含 parser_version/page_count —— 契约 schema 对 parse_meta 设了 additionalProperties:false，写入 blocks 会导致校验失败（契约 README 与 schema 在此处自相矛盾，已反馈）。",
+          "properties": {
+            "file_id": { "type": "string" },
+            "file_name": { "type": "string" },
+            "file_sha256": { "type": "string" },
+            "parse_meta": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["parser_version", "page_count"],
+              "properties": {
+                "parser_version": { "type": "string" },
+                "page_count": { "type": "integer", "minimum": 1 }
+              }
+            }
+          }
+        },
+        "provenance_from_block": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "抽取层组装 provenance 时的取法，不需要猜字段名",
+          "properties": {
+            "block_id": { "type": "string" },
+            "page": { "type": "string" },
+            "region": { "type": "string" },
+            "quote": { "type": "string" }
+          }
+        },
+        "blocks_path": { "type": "string" },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "Quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["degraded", "degrade_reasons", "warnings"],
+      "properties": {
+        "degraded": { "type": "boolean", "description": "有任一环节降级即为 true —— 失败即降级，绝不静默" },
+        "degrade_reasons": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

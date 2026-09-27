@@ -1,0 +1,1649 @@
+{
+  "schema_version": "evidence/0.2",
+  "doc": {
+    "doc_id": "d116fbfae",
+    "file_id": "sha256:116fbfae5544558d2f61a2d4cb349ff63fa3b9c409adf3dc0ea3ff445f708009",
+    "file_name": "附件1通知.pdf",
+    "file_sha256": "116fbfae5544558d2f61a2d4cb349ff63fa3b9c409adf3dc0ea3ff445f708009",
+    "file_size": 246012,
+    "page_count": 4,
+    "parsed_at": "2026-09-27T17:58:32+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.2.0"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 756,
+        "text_area_ratio": 0.3014,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "blocks": [
+        {
+          "block_id": "d116fbfae_p001_b00001",
+          "page": 1,
+          "type": "TEXT",
+          "role": "TITLE",
+          "text": "关于举办2026年北京市大学生金融人工智能竞赛的通知",
+          "text_raw": "关于举办2026年北京市大学生金融人工智能竞赛的通知",
+          "region": [
+            122.16,
+            78.53,
+            473.16,
+            127.73
+          ],
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00002",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "各普通高等学校:",
+          "text_raw": "各普通高等学校:",
+          "region": [
+            90.0,
+            140.38,
+            180.0,
+            152.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00003",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "为贯彻落实《教育强国建设规划纲要(2024一2035年)》及三年行动计划，",
+          "text_raw": "为贯彻落实《教育强国建设规划纲要(2024一2035年)》及三年行动计划，",
+          "region": [
+            111.0,
+            163.78,
+            505.2,
+            175.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00004",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "提升本市大学生跨学科创新思维、算法实践能力与团队协作精神，推动金融学科内涵升级与产教深度融合，为首都金融人工智能高质量发展和新质生产力培育输送兼具金融素养与智能技术能力的创新型人才。现举办北京市大学生金融人工智能竞赛。",
+          "text_raw": "提升本市大学生跨学科创新思维、算法实践能力与团队协作精神，推动金融学科内涵升级与产教深度融合，为首都金融人工智能高质量发展和新质生产力培育输送兼具金融素养与智能技术能力的创新型人才。现举办北京市大学生金融人工智能竞赛。",
+          "region": [
+            90.0,
+            187.18,
+            505.32,
+            269.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00005",
+          "page": 1,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "一、组织机构",
+          "text_raw": "一、组织机构",
+          "region": [
+            111.0,
+            280.68,
+            183.0,
+            292.68
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00006",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "竞赛每年举办一次，由北京市教育委员会指导，中央财经大学、新时代高校",
+          "text_raw": "竞赛每年举办一次，由北京市教育委员会指导，中央财经大学、新时代高校",
+          "region": [
+            111.0,
+            304.18,
+            505.32,
+            316.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00007",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "“金融强国”育人共同体主办，中央财经大学金融学院、人工智能研究院、金融人工智能北京市重点实验室共同承办。",
+          "text_raw": "“金融强国”育人共同体主办，中央财经大学金融学院、人工智能研究院、金融人工智能北京市重点实验室共同承办。",
+          "region": [
+            90.0,
+            327.58,
+            505.32,
+            362.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00008",
+          "page": 1,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "二、竞赛内容",
+          "text_raw": "二、竞赛内容",
+          "region": [
+            111.0,
+            374.28,
+            183.0,
+            386.28
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00009",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "竞赛以“金融投研智能体构建”为主题，面向金融研究、投资分析和风险研",
+          "text_raw": "竞赛以“金融投研智能体构建”为主题，面向金融研究、投资分析和风险研",
+          "region": [
+            111.0,
+            397.78,
+            505.32,
+            409.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00010",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "判等实际业务场景，组织参赛团队设计并实现能够在受控数据环境中完成信息检索、数据处理、逻辑核验、量化计算和报告生成等任务的智能体系统。竞赛重点考察参赛作品对金融数据的准确处理能力、复杂任务的组织执行能力、分析结论的准确性和专业性，以及运行过程的可验证、可追溯和可复现程度。",
+          "text_raw": "判等实际业务场景，组织参赛团队设计并实现能够在受控数据环境中完成信息检索、数据处理、逻辑核验、量化计算和报告生成等任务的智能体系统。竞赛重点考察参赛作品对金融数据的准确处理能力、复杂任务的组织执行能力、分析结论的准确性和专业性，以及运行过程的可验证、可追溯和可复现程度。",
+          "region": [
+            90.0,
+            421.18,
+            505.32,
+            503.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00011",
+          "page": 1,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(一)选题列表",
+          "text_raw": "(一)选题列表",
+          "region": [
+            111.0,
+            515.0,
+            183.0,
+            527.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00012",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "金融投研工作涉及材料整理、数据提取、财务分析、产业研究、估值测算和",
+          "text_raw": "金融投研工作涉及材料整理、数据提取、财务分析、产业研究、估值测算和",
+          "region": [
+            111.0,
+            538.18,
+            505.32,
+            550.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00013",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "投资判断等多个环节。参赛团队应结合真实或模拟真实的金融业务材料，运用大语言模型、文档解析、结构化检索、程序化计算、财务模型和引用管理等技术，构建能够稳定完成投研任务的系统。参赛作品可从以下方向中选择一项或多项开展设计。",
+          "text_raw": "投资判断等多个环节。参赛团队应结合真实或模拟真实的金融业务材料，运用大语言模型、文档解析、结构化检索、程序化计算、财务模型和引用管理等技术，构建能够稳定完成投研任务的系统。参赛作品可从以下方向中选择一项或多项开展设计。",
+          "region": [
+            90.0,
+            561.58,
+            510.0,
+            643.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00014",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "1.数据结构化提取。从非标准化公告、扫描文件和复杂表格中提取质押、中",
+          "text_raw": "1.数据结构化提取。从非标准化公告、扫描文件和复杂表格中提取质押、中",
+          "region": [
+            111.0,
+            655.18,
+            505.32,
+            667.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00015",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "标、股权变动等关键字段，并按照规定的数据结构输出。重点考察字段提取的完整性、格式规范性、表格解析准确性和结果一致性。",
+          "text_raw": "标、股权变动等关键字段，并按照规定的数据结构输出。重点考察字段提取的完整性、格式规范性、表格解析准确性和结果一致性。",
+          "region": [
+            90.0,
+            678.58,
+            505.32,
+            713.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00016",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "2.上市公司财务报告分析。从年度报告、半年度报告和季度报告等材料中提",
+          "text_raw": "2.上市公司财务报告分析。从年度报告、半年度报告和季度报告等材料中提",
+          "region": [
+            111.0,
+            725.38,
+            505.32,
+            737.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p001_b00017",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "取相关财务指标，分析业绩变化原因及异常信号。重点考察财务数据提取及同比、",
+          "text_raw": "取相关财务指标，分析业绩变化原因及异常信号。重点考察财务数据提取及同比、",
+          "region": [
+            90.0,
+            748.78,
+            511.32,
+            760.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 2,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 902,
+        "text_area_ratio": 0.3419,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "blocks": [
+        {
+          "block_id": "d116fbfae_p002_b00001",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "环比计算的准确性，以及对非经常性损益、会计口径变化和利润与现金流背离等问题的识别能力。",
+          "text_raw": "环比计算的准确性，以及对非经常性损益、会计口径变化和利润与现金流背离等问题的识别能力。",
+          "region": [
+            90.0,
+            77.98,
+            505.32,
+            113.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00002",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "3.产业链影响分析。围绕原材料价格、供需变化、政策调整或重大事件，分",
+          "text_raw": "3.产业链影响分析。围绕原材料价格、供需变化、政策调整或重大事件，分",
+          "region": [
+            111.0,
+            124.78,
+            505.32,
+            136.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00003",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "析相关因素沿产业链向中下游传导的路径及其对企业经营和盈利的影响。重点考察产业分析逻辑、证据完整性、量化方法合理性和结论适用边界。",
+          "text_raw": "析相关因素沿产业链向中下游传导的路径及其对企业经营和盈利的影响。重点考察产业分析逻辑、证据完整性、量化方法合理性和结论适用边界。",
+          "region": [
+            90.0,
+            148.18,
+            505.32,
+            183.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00004",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "4.自动化估值建模。根据财务数据、经营假设和可比公司信息，建立现金流",
+          "text_raw": "4.自动化估值建模。根据财务数据、经营假设和可比公司信息，建立现金流",
+          "region": [
+            111.0,
+            194.98,
+            505.32,
+            206.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00005",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "折现或相对估值模型，形成估值区间并开展敏感性分析。重点考察模型结构、假设依据、财务勾稽关系、估值结果合理性和敏感性分析完整性。",
+          "text_raw": "折现或相对估值模型，形成估值区间并开展敏感性分析。重点考察模型结构、假设依据、财务勾稽关系、估值结果合理性和敏感性分析完整性。",
+          "region": [
+            90.0,
+            218.38,
+            505.32,
+            253.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00006",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "5.研究报告纠错核查。依据原始财务材料，对给定研究报告草稿中的收入、",
+          "text_raw": "5.研究报告纠错核查。依据原始财务材料，对给定研究报告草稿中的收入、",
+          "region": [
+            111.0,
+            265.18,
+            507.48,
+            277.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00007",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "利润、估值倍数、单位、统计口径和引用等内容进行核查，识别错误并提出修改意见。重点考察错误识别的准确性和覆盖率、误报控制、来源定位以及修改建议的可执行性。",
+          "text_raw": "利润、估值倍数、单位、统计口径和引用等内容进行核查，识别错误并提出修改意见。重点考察错误识别的准确性和覆盖率、误报控制、来源定位以及修改建议的可执行性。",
+          "region": [
+            90.0,
+            288.58,
+            505.32,
+            347.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00008",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "6.买方投资备忘录编制。综合财务报告、公司公告、行业数据、新闻和估值",
+          "text_raw": "6.买方投资备忘录编制。综合财务报告、公司公告、行业数据、新闻和估值",
+          "region": [
+            111.0,
+            358.78,
+            505.32,
+            370.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00009",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "信息，形成面向买方机构的投资备忘录。重点考察投资逻辑、事实依据、风险因素、反向验证条件和持续跟踪指标的完整性。",
+          "text_raw": "信息，形成面向买方机构的投资备忘录。重点考察投资逻辑、事实依据、风险因素、反向验证条件和持续跟踪指标的完整性。",
+          "region": [
+            90.0,
+            382.18,
+            505.32,
+            417.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00010",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "7.研究报告质量评估。对多份候选研究报告或由智能体生成的研究报告进行",
+          "text_raw": "7.研究报告质量评估。对多份候选研究报告或由智能体生成的研究报告进行",
+          "region": [
+            111.0,
+            428.98,
+            505.32,
+            440.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00011",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "质量评价，为报告筛选、修改和复核提供依据。重点考察评价指标的专业性、评分结果的稳定性、评估效率以及对人工复核和交互式分析的支持能力。",
+          "text_raw": "质量评价，为报告筛选、修改和复核提供依据。重点考察评价指标的专业性、评分结果的稳定性、评估效率以及对人工复核和交互式分析的支持能力。",
+          "region": [
+            90.0,
+            452.38,
+            505.32,
+            487.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00012",
+          "page": 2,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(二)技术要求",
+          "text_raw": "(二)技术要求",
+          "region": [
+            111.0,
+            499.41,
+            183.0,
+            511.41
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00013",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "参赛作品应至少使用一个大语言模型作为核心推理引擎，鼓励采用国产模型;",
+          "text_raw": "参赛作品应至少使用一个大语言模型作为核心推理引擎，鼓励采用国产模型;",
+          "region": [
+            111.0,
+            522.58,
+            511.32,
+            534.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p002_b00014",
+          "page": 2,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "最终成果应以结构化数据、表格或分析报告等形式呈现，不得仅提交自然语言对话记录;参赛作品须在封闭或半封闭数据环境中运行，完整记录文件访问、工具调用、计算过程和结果生成情况，确保数据来源可核验、执行过程可追溯、运行结果可复现;参赛作品须同步提交与现场展示版本一致的完整源代码，包括智能体编排框架、Tool、Prompt、Skill、MCP、数据处理和日志记录等核心模块，并提供依赖文件及运行说明，确保评审方能够在指定环境中复现核心任务流程和输出结果;第三方模型权重及商业软件源代码可不提交，但须说明其名称、版本、调用方式及使用范围;使用第三方开源项目、模型、数据或代码的，应在项目说明中列明名称、版本、来源、许可证及具体使用范围，不得将第三方成果冒充为",
+          "text_raw": "最终成果应以结构化数据、表格或分析报告等形式呈现，不得仅提交自然语言对话记录;参赛作品须在封闭或半封闭数据环境中运行，完整记录文件访问、工具调用、计算过程和结果生成情况，确保数据来源可核验、执行过程可追溯、运行结果可复现;参赛作品须同步提交与现场展示版本一致的完整源代码，包括智能体编排框架、Tool、Prompt、Skill、MCP、数据处理和日志记录等核心模块，并提供依赖文件及运行说明，确保评审方能够在指定环境中复现核心任务流程和输出结果;第三方模型权重及商业软件源代码可不提交，但须说明其名称、版本、调用方式及使用范围;使用第三方开源项目、模型、数据或代码的，应在项目说明中列明名称、版本、来源、许可证及具体使用范围，不得将第三方成果冒充为",
+          "region": [
+            90.0,
+            545.98,
+            505.32,
+            745.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 3,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 666,
+        "text_area_ratio": 0.2538,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "blocks": [
+        {
+          "block_id": "d116fbfae_p003_b00001",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "自主开发成果。",
+          "text_raw": "自主开发成果。",
+          "region": [
+            90.0,
+            77.98,
+            174.0,
+            89.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00002",
+          "page": 3,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(三)作品设计与评测要求",
+          "text_raw": "(三)作品设计与评测要求",
+          "region": [
+            111.0,
+            101.61,
+            243.0,
+            113.61
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00003",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "参赛作品应立足真实金融投研场景，突出金融专业性、分析严谨性和风险审",
+          "text_raw": "参赛作品应立足真实金融投研场景，突出金融专业性、分析严谨性和风险审",
+          "region": [
+            111.0,
+            124.78,
+            505.32,
+            136.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00004",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "慎性。涉及估值或投资判断的，应说明主要假设、适用范围和风险因素，并明确区分事实、推论与观点。竞赛将综合评估作品的任务完成度、数据与计算准确性、分析逻辑严密性、证据支撑充分性、结果稳定性、方案创新性和实际应用价值，并结合现场展示及答辩情况进行评价。",
+          "text_raw": "慎性。涉及估值或投资判断的，应说明主要假设、适用范围和风险因素，并明确区分事实、推论与观点。竞赛将综合评估作品的任务完成度、数据与计算准确性、分析逻辑严密性、证据支撑充分性、结果稳定性、方案创新性和实际应用价值，并结合现场展示及答辩情况进行评价。",
+          "region": [
+            90.0,
+            148.18,
+            511.32,
+            230.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00005",
+          "page": 3,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "三、参赛对象与报名条件",
+          "text_raw": "三、参赛对象与报名条件",
+          "region": [
+            111.0,
+            241.68,
+            243.0,
+            253.68
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00006",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "竞赛面向北京地区普通高等学校在校本科生，以北京市高校学生为主，采取",
+          "text_raw": "竞赛面向北京地区普通高等学校在校本科生，以北京市高校学生为主，采取",
+          "region": [
+            111.0,
+            265.18,
+            505.32,
+            277.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00007",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "学生自由组队、线上方式进行报名，具体报名条件如下:",
+          "text_raw": "学生自由组队、线上方式进行报名，具体报名条件如下:",
+          "region": [
+            90.0,
+            288.58,
+            384.0,
+            300.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00008",
+          "page": 3,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(一)参赛团队",
+          "text_raw": "(一)参赛团队",
+          "region": [
+            111.0,
+            312.21,
+            183.0,
+            324.21
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00009",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "每队3-5人，每人只能参加1支队伍;队伍名单一经确认不能更改，否则视",
+          "text_raw": "每队3-5人，每人只能参加1支队伍;队伍名单一经确认不能更改，否则视",
+          "region": [
+            111.0,
+            335.38,
+            505.19,
+            347.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00010",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "为放弃参赛资格。",
+          "text_raw": "为放弃参赛资格。",
+          "region": [
+            90.0,
+            358.78,
+            186.0,
+            370.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00011",
+          "page": 3,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(二)指导老师",
+          "text_raw": "(二)指导老师",
+          "region": [
+            111.0,
+            382.41,
+            183.0,
+            394.41
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00012",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "晋级决赛的队伍需配备指导老师，每队指导老师1人，每位老师最多指导3",
+          "text_raw": "晋级决赛的队伍需配备指导老师，每队指导老师1人，每位老师最多指导3",
+          "region": [
+            111.0,
+            405.58,
+            504.0,
+            417.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00013",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "支队伍。",
+          "text_raw": "支队伍。",
+          "region": [
+            90.0,
+            428.98,
+            138.0,
+            440.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00014",
+          "page": 3,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(三)提交要求",
+          "text_raw": "(三)提交要求",
+          "region": [
+            111.0,
+            452.61,
+            183.0,
+            464.61
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00015",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "初赛阶段，参赛团队应通过竞赛指定平台提交项目计划书和项目介绍视频。",
+          "text_raw": "初赛阶段，参赛团队应通过竞赛指定平台提交项目计划书和项目介绍视频。",
+          "region": [
+            111.0,
+            475.78,
+            507.0,
+            487.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00016",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "项目计划书应为PDF格式;项目介绍视频应为MP4格式，时长不超过5分钟，文件大小不超过500MB。其他要求以竞赛组委会通知为准。",
+          "text_raw": "项目计划书应为PDF格式;项目介绍视频应为MP4格式，时长不超过5分钟，文件大小不超过500MB。其他要求以竞赛组委会通知为准。",
+          "region": [
+            90.0,
+            499.18,
+            505.32,
+            534.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00017",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "决赛阶段，参赛团队应提交最终报告书、可运行的系统原型(Web界面或命令",
+          "text_raw": "决赛阶段，参赛团队应提交最终报告书、可运行的系统原型(Web界面或命令",
+          "region": [
+            111.0,
+            545.98,
+            505.32,
+            557.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00018",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "行均可)、完整源代码及运行说明、评审现场可实时处理的样例数据，并参加现场展示和答辩。源代码应包括任务编排、工具调用、提示指令、数据处理和日志记录等核心模块，并附依赖文件及操作说明，确保评审人员能够复现主要任务流程和输出结果。",
+          "text_raw": "行均可)、完整源代码及运行说明、评审现场可实时处理的样例数据，并参加现场展示和答辩。源代码应包括任务编排、工具调用、提示指令、数据处理和日志记录等核心模块，并附依赖文件及操作说明，确保评审人员能够复现主要任务流程和输出结果。",
+          "region": [
+            90.0,
+            569.38,
+            505.32,
+            651.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00019",
+          "page": 3,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "四、赛程赛制",
+          "text_raw": "四、赛程赛制",
+          "region": [
+            111.0,
+            662.88,
+            183.0,
+            674.88
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00020",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "竞赛分为宣传、报名、备赛、初赛和决赛等阶段，具体安排如下:",
+          "text_raw": "竞赛分为宣传、报名、备赛、初赛和决赛等阶段，具体安排如下:",
+          "region": [
+            111.0,
+            686.38,
+            453.0,
+            698.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00021",
+          "page": 3,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(一)竞赛宣讲与宣传",
+          "text_raw": "(一)竞赛宣讲与宣传",
+          "region": [
+            111.0,
+            710.0,
+            219.0,
+            722.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p003_b00022",
+          "page": 3,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "本次竞赛坚持学生自愿参加的原则，由所在学校统一组织报名。请各参赛学",
+          "text_raw": "本次竞赛坚持学生自愿参加的原则，由所在学校统一组织报名。请各参赛学",
+          "region": [
+            111.0,
+            733.18,
+            505.32,
+            745.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 4,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 708,
+        "text_area_ratio": 0.244,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "blocks": [
+        {
+          "block_id": "d116fbfae_p004_b00001",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "校确定一名校方联络员，并于2026年9月4日前将加盖校级赛事管理部门公章的回执表扫描件发送至联系人邮箱jrrgznjs@cufe.edu.cn。竞赛组委会将组织召开大赛工作交流会，就竞赛主旨、内容、赛程、设备条件、竞赛案例等方面对拟参赛高校代表进行指导和宣讲。同时也便于同步竞赛相关信息。",
+          "text_raw": "校确定一名校方联络员，并于2026年9月4日前将加盖校级赛事管理部门公章的回执表扫描件发送至联系人邮箱jrrgznjs@cufe.edu.cn。竞赛组委会将组织召开大赛工作交流会，就竞赛主旨、内容、赛程、设备条件、竞赛案例等方面对拟参赛高校代表进行指导和宣讲。同时也便于同步竞赛相关信息。",
+          "region": [
+            90.0,
+            77.98,
+            505.32,
+            160.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00002",
+          "page": 4,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(二)报名参赛和作品提交",
+          "text_raw": "(二)报名参赛和作品提交",
+          "region": [
+            111.0,
+            171.81,
+            243.0,
+            183.81
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00003",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "各参赛高校组织学生线上报名参赛，报名链接为:https://app.cufe.edu.cn/scenes/Aljc9u。以每支参赛队伍为单位填写报名信息，并按照要求上传相关证明材料(校园卡或加盖学校公章的学生证照片)。报名时间为9月10日至10月11日,报名审核通过后即为报名成功，可提交参赛作品，作品提交截止时间为10月18日。",
+          "text_raw": "各参赛高校组织学生线上报名参赛，报名链接为:https://app.cufe.edu.cn/scenes/Aljc9u。以每支参赛队伍为单位填写报名信息，并按照要求上传相关证明材料(校园卡或加盖学校公章的学生证照片)。报名时间为9月10日至10月11日,报名审核通过后即为报名成功，可提交参赛作品，作品提交截止时间为10月18日。",
+          "region": [
+            90.0,
+            194.98,
+            505.32,
+            300.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00004",
+          "page": 4,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(三)初赛评审阶段",
+          "text_raw": "(三)初赛评审阶段",
+          "region": [
+            111.0,
+            312.21,
+            207.0,
+            324.21
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00005",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "基于专家指导委员会确定的标准，竞赛组委会组织专家进行评审，选出入围",
+          "text_raw": "基于专家指导委员会确定的标准，竞赛组委会组织专家进行评审，选出入围",
+          "region": [
+            114.0,
+            335.38,
+            505.32,
+            347.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00006",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "决赛的参赛队伍。预计11月中旬公布入围决赛的队伍名单和决赛日程。",
+          "text_raw": "决赛的参赛队伍。预计11月中旬公布入围决赛的队伍名单和决赛日程。",
+          "region": [
+            90.0,
+            358.78,
+            468.0,
+            370.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00007",
+          "page": 4,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "(四)决赛环节",
+          "text_raw": "(四)决赛环节",
+          "region": [
+            111.0,
+            382.41,
+            183.0,
+            394.41
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00008",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "拟于11月底举办决赛，现场展示投研智能体逻辑和表现，并接受现场答辩",
+          "text_raw": "拟于11月底举办决赛，现场展示投研智能体逻辑和表现，并接受现场答辩",
+          "region": [
+            114.0,
+            405.58,
+            504.0,
+            417.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00009",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "评审组的提问。由现场答辩评审组评选出获奖团队。",
+          "text_raw": "评审组的提问。由现场答辩评审组评选出获奖团队。",
+          "region": [
+            90.0,
+            428.98,
+            366.0,
+            440.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00010",
+          "page": 4,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "五、奖项设置",
+          "text_raw": "五、奖项设置",
+          "region": [
+            111.0,
+            452.28,
+            183.0,
+            464.28
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00011",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "拟设置特等奖1名、一等奖3名、二等奖5名、三等奖10名，优秀指导老",
+          "text_raw": "拟设置特等奖1名、一等奖3名、二等奖5名、三等奖10名，优秀指导老",
+          "region": [
+            111.0,
+            475.78,
+            505.32,
+            487.78
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00012",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "师奖和优秀组织奖。其中，特等奖1万元，一等奖5000元、二等奖3000元、三等奖1000元，形式可考虑现金或等值的token（具体以竞赛后续公告为准）。同时，获奖队伍有推荐至金融机构实习的机会。",
+          "text_raw": "师奖和优秀组织奖。其中，特等奖1万元，一等奖5000元、二等奖3000元、三等奖1000元，形式可考虑现金或等值的token（具体以竞赛后续公告为准）。同时，获奖队伍有推荐至金融机构实习的机会。",
+          "region": [
+            90.0,
+            499.18,
+            505.32,
+            557.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00013",
+          "page": 4,
+          "type": "TEXT",
+          "role": "SECTION",
+          "text": "六、联系方式",
+          "text_raw": "六、联系方式",
+          "region": [
+            111.0,
+            569.28,
+            183.0,
+            581.28
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00014",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "联系邮箱:jrrgznjs@cufe.edu.cn",
+          "text_raw": "联系邮箱:jrrgznjs@cufe.edu.cn",
+          "region": [
+            111.0,
+            592.78,
+            248.84,
+            604.78
+          ],
+          "font_size": 6.95,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00015",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "联系人:高老师，010-61776049、18801098262",
+          "text_raw": "联系人:高老师，010-61776049、18801098262",
+          "region": [
+            111.0,
+            616.18,
+            351.0,
+            628.18
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00016",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "竞赛组委会秘书处地址:",
+          "text_raw": "竞赛组委会秘书处地址:",
+          "region": [
+            111.0,
+            639.58,
+            237.0,
+            651.58
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00017",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "北京市昌平区沙河高教园中央财经大学3号学院楼金融学院",
+          "text_raw": "北京市昌平区沙河高教园中央财经大学3号学院楼金融学院",
+          "region": [
+            111.0,
+            662.98,
+            423.0,
+            674.98
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "d116fbfae_p004_b00018",
+          "page": 4,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "(邮政编码:102206)。",
+          "text_raw": "(邮政编码:102206)。",
+          "region": [
+            111.0,
+            686.38,
+            225.0,
+            698.38
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        }
+      ],
+      "tables": []
+    }
+  ],
+  "reading_order": [
+    "d116fbfae_p001_b00001",
+    "d116fbfae_p001_b00002",
+    "d116fbfae_p001_b00003",
+    "d116fbfae_p001_b00004",
+    "d116fbfae_p001_b00005",
+    "d116fbfae_p001_b00006",
+    "d116fbfae_p001_b00007",
+    "d116fbfae_p001_b00008",
+    "d116fbfae_p001_b00009",
+    "d116fbfae_p001_b00010",
+    "d116fbfae_p001_b00011",
+    "d116fbfae_p001_b00012",
+    "d116fbfae_p001_b00013",
+    "d116fbfae_p001_b00014",
+    "d116fbfae_p001_b00015",
+    "d116fbfae_p001_b00016",
+    "d116fbfae_p001_b00017",
+    "d116fbfae_p002_b00001",
+    "d116fbfae_p002_b00002",
+    "d116fbfae_p002_b00003",
+    "d116fbfae_p002_b00004",
+    "d116fbfae_p002_b00005",
+    "d116fbfae_p002_b00006",
+    "d116fbfae_p002_b00007",
+    "d116fbfae_p002_b00008",
+    "d116fbfae_p002_b00009",
+    "d116fbfae_p002_b00010",
+    "d116fbfae_p002_b00011",
+    "d116fbfae_p002_b00012",
+    "d116fbfae_p002_b00013",
+    "d116fbfae_p002_b00014",
+    "d116fbfae_p003_b00001",
+    "d116fbfae_p003_b00002",
+    "d116fbfae_p003_b00003",
+    "d116fbfae_p003_b00004",
+    "d116fbfae_p003_b00005",
+    "d116fbfae_p003_b00006",
+    "d116fbfae_p003_b00007",
+    "d116fbfae_p003_b00008",
+    "d116fbfae_p003_b00009",
+    "d116fbfae_p003_b00010",
+    "d116fbfae_p003_b00011",
+    "d116fbfae_p003_b00012",
+    "d116fbfae_p003_b00013",
+    "d116fbfae_p003_b00014",
+    "d116fbfae_p003_b00015",
+    "d116fbfae_p003_b00016",
+    "d116fbfae_p003_b00017",
+    "d116fbfae_p003_b00018",
+    "d116fbfae_p003_b00019",
+    "d116fbfae_p003_b00020",
+    "d116fbfae_p003_b00021",
+    "d116fbfae_p003_b00022",
+    "d116fbfae_p004_b00001",
+    "d116fbfae_p004_b00002",
+    "d116fbfae_p004_b00003",
+    "d116fbfae_p004_b00004",
+    "d116fbfae_p004_b00005",
+    "d116fbfae_p004_b00006",
+    "d116fbfae_p004_b00007",
+    "d116fbfae_p004_b00008",
+    "d116fbfae_p004_b00009",
+    "d116fbfae_p004_b00010",
+    "d116fbfae_p004_b00011",
+    "d116fbfae_p004_b00012",
+    "d116fbfae_p004_b00013",
+    "d116fbfae_p004_b00014",
+    "d116fbfae_p004_b00015",
+    "d116fbfae_p004_b00016",
+    "d116fbfae_p004_b00017",
+    "d116fbfae_p004_b00018"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:116fbfae5544558d2f61a2d4cb349ff63fa3b9c409adf3dc0ea3ff445f708009",
+      "file_name": "附件1通知.pdf",
+      "file_sha256": "116fbfae5544558d2f61a2d4cb349ff63fa3b9c409adf3dc0ea3ff445f708009",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.2.0",
+        "page_count": 4
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw"
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 未提供：契约 schema 对 parse_meta 设了 additionalProperties:false，写入会导致校验失败。块数据在 pages[].blocks[]。",
+      "region 的坐标语义（单位 pt、原点左上、顺序 left/top/right/bottom）由本文档 doc.coord_system 声明；契约 schema 未声明，建议在契约侧补一行说明。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [],
+    "warnings": []
+  }
+}
