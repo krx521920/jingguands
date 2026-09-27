@@ -1,0 +1,35 @@
+{
+  "run_id": "20260927T071004-pledge-98e3",
+  "is_mock": false,
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "model": "deepseek-chat",
+  "request": {
+    "system_prompt": "你是上市公司公告事件抽取器。从用户给出的公告正文中抽取一个事件，严格输出 JSON，不要输出任何其他文字。\n\n事件类型：pledge\n需要抽取的字段（只允许这些字段名）：\n- pledgor（text）\n- pledgee（text）\n- pledged_shares（shares）\n- pledged_ratio（percent）\n- pledge_amount（cny）\n- start_date（date）\n- end_date（date）\n- purpose（text）\n- announcement_date（date）\n\n输出 JSON 结构（events 数组放一个事件对象）：\n{\"events\":[{\"event_id\":\"E01\",\"event_type\":\"pledge\",\"fields\":{...},\"extraction_method\":\"model\",\"notes\":null}]}\n\n每个字段的值必须是：\n{\"raw_value\":\"原文原样字符串或null\",\"value\":标准化数值或null,\"unit\":\"单位\",\"standardized\":true或false,\"status\":\"extracted|not_mentioned|unreadable|needs_review\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"原文子串\"}],\"denominator\":null或\"shares_held\"或\"total_shares\",\"cumulative\":null,\"note\":null}\n\n硬性规则：\n1. 原文未提及的字段：status=\"not_mentioned\"，value 必须为 null——禁止填 0。\n2. status=\"extracted\" 的字段必须至少给一条 provenance，quote 必须是正文的连续子串。\n3. 数值标准化：股→股（万股×10000）；金额→元（万元×10000，亿元×100000000）；百分比→数值（\"16.67%\"→16.67）；日期→\"YYYY-MM-DD\"。\n4. 换算依据不足时 standardized=false 且 status=\"needs_review\"，不要猜测。\n5. 比例字段必须给 denominator：\"占其所持股份比例\"→\"shares_held\"，\"占总股本比例\"→\"total_shares\"。\n6. 累计口径数据（如累计质押）抽取时 cumulative=true，单次口径 cumulative=false。",
+    "user_message_chars": 538,
+    "temperature": 0,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "response": {
+    "content": "{\"events\":[{\"event_id\":\"E01\",\"event_type\":\"pledge\",\"fields\":{\"pledgor\":{\"raw_value\":\"张某\",\"value\":\"张某\",\"unit\":null,\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"股东名称：张某\"}],\"denominator\":null,\"cumulative\":null,\"note\":null},\"pledgee\":{\"raw_value\":\"中国示例银行股份有限公司上海分行\",\"value\":\"中国示例银行股份有限公司上海分行\",\"unit\":null,\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"质权人：中国示例银行股份有限公司上海分行\"}],\"denominator\":null,\"cumulative\":null,\"note\":null},\"pledged_shares\":{\"raw_value\":\"20,000,000股\",\"value\":20000000,\"unit\":\"股\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"质押股数：20,000,000股\"}],\"denominator\":null,\"cumulative\":false,\"note\":null},\"pledged_ratio\":{\"raw_value\":\"16.67%\",\"value\":16.67,\"unit\":\"%\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"占其所持股份比例：16.67%\"}],\"denominator\":\"shares_held\",\"cumulative\":false,\"note\":null},\"pledge_amount\":{\"raw_value\":null,\"value\":null,\"unit\":null,\"standardized\":false,\"status\":\"not_mentioned\",\"provenance\":[],\"denominator\":null,\"cumulative\":null,\"note\":null},\"start_date\":{\"raw_value\":\"2026年9月24日\",\"value\":\"2026-09-24\",\"unit\":null,\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"质押起始日：2026年9月24日\"}],\"denominator\":null,\"cumulative\":null,\"note\":null},\"end_date\":{\"raw_value\":\"2027年9月23日\",\"value\":\"2027-09-23\",\"unit\":null,\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"质押到期日：2027年9月23日\"}],\"denominator\":null,\"cumulative\":null,\"note\":null},\"purpose\":{\"raw_value\":\"补充流动资金\",\"value\":\"补充流动资金\",\"unit\":null,\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"质押融资资金用途：补充流动资金\"}],\"denominator\":null,\"cumulative\":null,\"note\":null},\"announcement_date\":{\"raw_value\":\"2026年9月26日\",\"value\":\"2026-09-26\",\"unit\":null,\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":null,\"page\":1,\"region\":null,\"quote\":\"2026年9月26日\"}],\"denominator\":null,\"cumulative\":null,\"note\":null}},\"extraction_method\":\"model\",\"notes\":null}]}",
+    "usage": {
+      "prompt_tokens": 768,
+      "completion_tokens": 727,
+      "total_tokens": 1495,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 768
+    },
+    "http_status": 200,
+    "dropped_response_format": false
+  },
+  "error": null,
+  "timing": {
+    "total_ms": 2561,
+    "call_ms": 217
+  },
+  "created_at": "2026-09-27T07:10:04.051Z"
+}

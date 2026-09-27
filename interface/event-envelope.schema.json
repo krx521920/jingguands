@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/krx521920/jingguands/interface/event-envelope.schema.json",
+  "title": "Jingguan event envelope v0.1",
+  "description": "可信公告事件提取——单文档事件抽取输出契约。字段注册表与语义见 interface/README.md。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "is_mock", "source", "events", "run_meta"],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "run_id": { "type": "string", "minLength": 1 },
+    "is_mock": { "type": "boolean" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file_name"],
+      "properties": {
+        "file_id": { "type": ["string", "null"] },
+        "file_name": { "type": "string" },
+        "file_sha256": { "type": ["string", "null"] },
+        "parse_meta": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "parser_version": { "type": ["string", "null"] },
+            "page_count": { "type": ["integer", "null"], "minimum": 1 }
+          }
+        }
+      }
+    },
+    "events": { "type": "array", "items": { "$ref": "#/$defs/event" } },
+    "run_meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entry": { "enum": ["cli", "web", "tool"] },
+        "model": { "type": ["string", "null"] },
+        "started_at": { "type": "string" },
+        "duration_ms": { "type": ["integer", "null"], "minimum": 0 },
+        "errors": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["page", "quote"],
+      "properties": {
+        "block_id": { "type": ["string", "null"], "description": "解析侧供给的稳定块标识（张智博 D2+）" },
+        "page": { "type": "integer", "minimum": 1 },
+        "region": {
+          "type": ["array", "null"],
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "[x1,y1,x2,y2] 页面区域坐标（解析侧 D2+ 供给）"
+        },
+        "quote": { "type": "string", "minLength": 1, "description": "原文子串，禁止事后按数字反搜" }
+      }
+    },
+    "field_value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw_value", "value", "unit", "status", "provenance"],
+      "properties": {
+        "raw_value": { "type": ["string", "null"] },
+        "value": { "type": ["number", "string", "boolean", "null"] },
+        "unit": { "enum": ["shares", "cny", "percent", "date", "text", "count"] },
+        "standardized": { "type": "boolean" },
+        "status": { "enum": ["extracted", "not_mentioned", "unreadable", "needs_review"] },
+        "provenance": { "type": "array", "items": { "$ref": "#/$defs/provenance" } },
+        "denominator": { "enum": ["shares_held", "total_shares", null] },
+        "cumulative": { "type": ["boolean", "null"] },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "event_type", "fields"],
+      "properties": {
+        "event_id": { "type": "string", "pattern": "^E[0-9]+$" },
+        "event_type": { "enum": ["pledge", "equity_change", "bid_won"] },
+        "fields": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/field_value" }
+        },
+        "extraction_method": { "enum": ["model", "rule", "hybrid", "mock"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

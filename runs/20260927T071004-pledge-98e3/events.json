@@ -1,0 +1,186 @@
+{
+  "schema_version": "0.1",
+  "run_id": "20260927T071004-pledge-98e3",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:b36fb365da941b94",
+    "file_name": "pledge_sample_01.txt",
+    "file_sha256": "b36fb365da941b94ce21368d0d43faea991a40100bd6587edfcaf8b1d141d2e9",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "pledgor": {
+          "raw_value": "张某",
+          "value": "张某",
+          "unit": null,
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "quote": "股东名称：张某"
+            }
+          ],
+          "denominator": null,
+          "cumulative": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "中国示例银行股份有限公司上海分行",
+          "value": "中国示例银行股份有限公司上海分行",
+          "unit": null,
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "quote": "质权人：中国示例银行股份有限公司上海分行"
+            }
+          ],
+          "denominator": null,
+          "cumulative": null,
+          "note": null
+        },
+        "pledged_shares": {
+          "raw_value": "20,000,000股",
+          "value": 20000000,
+          "unit": "股",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "quote": "质押股数：20,000,000股"
+            }
+          ],
+          "denominator": null,
+          "cumulative": false,
+          "note": null
+        },
+        "pledged_ratio": {
+          "raw_value": "16.67%",
+          "value": 16.67,
+          "unit": "%",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "quote": "占其所持股份比例：16.67%"
+            }
+          ],
+          "denominator": "shares_held",
+          "cumulative": false,
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": null,
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "cumulative": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
+          "unit": null,
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "quote": "质押起始日：2026年9月24日"
+            }
+          ],
+          "denominator": null,
+          "cumulative": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2027年9月23日",
+          "value": "2027-09-23",
+          "unit": null,
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "quote": "质押到期日：2027年9月23日"
+            }
+          ],
+          "denominator": null,
+          "cumulative": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "补充流动资金",
+          "value": "补充流动资金",
+          "unit": null,
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "quote": "质押融资资金用途：补充流动资金"
+            }
+          ],
+          "denominator": null,
+          "cumulative": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月26日",
+          "value": "2026-09-26",
+          "unit": null,
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "quote": "2026年9月26日"
+            }
+          ],
+          "denominator": null,
+          "cumulative": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-09-27T07:10:04.051Z",
+    "duration_ms": 2561,
+    "errors": []
+  }
+}

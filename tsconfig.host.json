@@ -376,6 +376,7 @@
     { "path": "./packages/shell/tool-bash" },
     { "path": "./packages/deliverables/tool-present" },
     { "path": "./packages/deliverables/workspace-changes" },
+    { "path": "./packages/jingguan/core" },
     { "path": "./packages/fs/fs" },
     { "path": "./packages/fs/fs-local" },
     { "path": "./packages/fs/fs-observation-policy" },
