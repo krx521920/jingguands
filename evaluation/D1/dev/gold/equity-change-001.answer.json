@@ -1,0 +1,270 @@
+{
+  "case_id": "D1-EQC-001",
+  "event_type": "equity_change",
+  "company": "南京诺唯赞生物科技股份有限公司",
+  "status": "completed",
+  "canonical_event_id": "D1-EQC-001-E1",
+  "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225581464.PDF",
+  "source_hash": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+  "fields": {
+    "actor": {
+      "value": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+      "raw_value": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+      "normalized_value": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 2,
+          "source_type": "table",
+          "excerpt": "股东名称国寿成达（上海）健康产业股权投资中心（有限合伙）",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "direction": {
+      "value": "decrease",
+      "raw_value": "减持",
+      "normalized_value": "decrease",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 2,
+          "source_type": "table",
+          "excerpt": "通过集中竞价及大宗交易方式合计减持公司股份15,509,550股",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "change_methods": {
+      "value": [
+        "centralized_bidding",
+        "block_trade"
+      ],
+      "raw_value": "集中竞价和大宗交易",
+      "normalized_value": [
+        "centralized_bidding",
+        "block_trade"
+      ],
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 2,
+          "source_type": "table",
+          "excerpt": "通过集中竞价和大宗交易的方式减持",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "change_shares": {
+      "value": 15509550,
+      "raw_value": "15,509,550股",
+      "normalized_value": "15509550",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 2,
+          "source_type": "table",
+          "excerpt": "合计减持公司股份15,509,550股",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "unit": "share"
+    },
+    "ratio_change_pct": {
+      "value": 3,
+      "raw_value": "3%",
+      "normalized_value": "3",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 2,
+          "source_type": "table",
+          "excerpt": "占公司当前总股本的3%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "current_total_share_capital"
+    },
+    "shares_before": {
+      "value": 36103002,
+      "raw_value": "36,103,002股",
+      "normalized_value": "36103002",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 2,
+          "source_type": "table",
+          "excerpt": "本次减持计划实施前持有公司股份36,103,002股",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "unit": "share"
+    },
+    "ratio_before_pct": {
+      "value": 6.9834,
+      "raw_value": "6.9834%",
+      "normalized_value": "6.9834",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 2,
+          "source_type": "table",
+          "excerpt": "占公司总股本的6.9834%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "total_share_capital"
+    },
+    "shares_after": {
+      "value": 20593452,
+      "raw_value": "20,593,452股",
+      "normalized_value": "20593452",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 3,
+          "source_type": "table",
+          "excerpt": "当前持股数量20,593,452股",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "unit": "share"
+    },
+    "ratio_after_pct": {
+      "value": 3.9834,
+      "raw_value": "3.9834%",
+      "normalized_value": "3.9834",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 3,
+          "source_type": "table",
+          "excerpt": "当前持股比例3.9834%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "total_share_capital"
+    },
+    "event_start_date": {
+      "value": "2026-07-22",
+      "raw_value": "2026年7月22日",
+      "normalized_value": "2026-07-22",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 3,
+          "source_type": "table",
+          "excerpt": "减持期间2026年7月22日～2026年9月23日",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "event_end_date": {
+      "value": "2026-09-23",
+      "raw_value": "2026年9月23日",
+      "normalized_value": "2026-09-23",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 3,
+          "source_type": "table",
+          "excerpt": "本次减持计划已于2026年9月23日实施完毕",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "change_reason": {
+      "value": "股东自身资金需求",
+      "raw_value": "因股东自身资金需求",
+      "normalized_value": "自身资金需求",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 1,
+          "source_type": "paragraph",
+          "excerpt": "因股东自身资金需求",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "disposal_amount": {
+      "value": "269259097.17",
+      "raw_value": "269,259,097.17元",
+      "normalized_value": "269259097.17",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 3,
+          "source_type": "table",
+          "excerpt": "减持总金额269,259,097.17元",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "currency": "CNY"
+    },
+    "price_range": {
+      "value": "15.70-23.01",
+      "raw_value": "15.70～23.01元/股",
+      "normalized_value": "15.70-23.01",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-EQC-001",
+          "page": 3,
+          "source_type": "table",
+          "excerpt": "减持价格区间15.70～23.01元/股",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "currency": "CNY",
+      "unit": "yuan_per_share"
+    }
+  },
+  "review": {
+    "annotator": "pending",
+    "reviewer": "pending",
+    "version": "0.1",
+    "reviewed_at": null
+  }
+}

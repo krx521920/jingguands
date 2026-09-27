@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvaluationEventAnswer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "event_type",
+    "company",
+    "status",
+    "canonical_event_id",
+    "fields",
+    "review"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "pledge",
+        "equity_change",
+        "award_contract"
+      ]
+    },
+    "company": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "canonical_event_id": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "annotator",
+        "reviewer",
+        "version",
+        "reviewed_at"
+      ],
+      "properties": {
+        "annotator": {
+          "type": "string"
+        },
+        "reviewer": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "reviewed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

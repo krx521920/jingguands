@@ -1,0 +1,202 @@
+{
+  "case_id": "D1-PLD-001",
+  "event_type": "pledge",
+  "company": "北京万集科技股份有限公司",
+  "status": "active",
+  "canonical_event_id": "D1-PLD-001-E1",
+  "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225582749.PDF",
+  "source_hash": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+  "fields": {
+    "pledgor": {
+      "value": "翟军",
+      "raw_value": "翟军",
+      "normalized_value": "翟军",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "翟军将其持有的公司部分股份办理了质押业务",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "pledgees": {
+      "value": [
+        "建德市新安小额贷款股份有限公司",
+        "海宁鸿丰小额贷款股份有限公司",
+        "苏州市吴中典当有限责任公司"
+      ],
+      "raw_value": "三家质权人",
+      "normalized_value": "array",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "质权人分别为建德市新安小额贷款股份有限公司、海宁鸿丰小额贷款股份有限公司和苏州市吴中典当有限责任公司",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "pledged_shares_current": {
+      "value": 7800000,
+      "raw_value": "2,100,000股 / 2,650,000股 / 3,050,000股",
+      "normalized_value": "7800000",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "合计7,800,000股",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "unit": "share",
+      "scope": "current",
+      "derived_sum": true
+    },
+    "pledged_shares_cumulative": {
+      "value": 50350000,
+      "raw_value": "50,350,000股",
+      "normalized_value": "50350000",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "本次质押后质押股份数量50,350,000股",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "unit": "share",
+      "scope": "cumulative"
+    },
+    "pledged_shares_before": {
+      "value": 42550000,
+      "raw_value": "42,550,000股",
+      "normalized_value": "42550000",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "本次质押前质押股份数量42,550,000股",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "unit": "share",
+      "scope": "before"
+    },
+    "ratio_of_holdings_current_pct": {
+      "value": 8.92,
+      "raw_value": "8.92%",
+      "normalized_value": "8.92",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "占其所持股份比例8.92%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "pledgor_holdings"
+    },
+    "ratio_of_total_share_capital_current_pct": {
+      "value": 3.66,
+      "raw_value": "3.66%",
+      "normalized_value": "3.66",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "占公司总股本比例3.66%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "total_share_capital"
+    },
+    "cumulative_ratio_of_holdings_pct": {
+      "value": 57.58,
+      "raw_value": "57.58%",
+      "normalized_value": "57.58",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "本次质押后质押股份占其所持股份比例57.58%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "pledgor_holdings"
+    },
+    "cumulative_ratio_of_total_share_capital_pct": {
+      "value": 23.62,
+      "raw_value": "23.62%",
+      "normalized_value": "23.62",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "本次质押后质押股份占公司总股本比例23.62%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "denominator": "total_share_capital"
+    },
+    "pledge_start_date": {
+      "value": "2026-09-23",
+      "raw_value": "2026年09月23日",
+      "normalized_value": "2026-09-23",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-PLD-001",
+          "page": 1,
+          "source_type": "table",
+          "excerpt": "质押起始日2026年09月23日",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    }
+  },
+  "review": {
+    "annotator": "pending",
+    "reviewer": "pending",
+    "version": "0.1",
+    "reviewed_at": null
+  }
+}
