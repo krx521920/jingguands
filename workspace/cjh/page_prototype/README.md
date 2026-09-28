@@ -17,14 +17,17 @@ node server.js
 
 ```
 page_prototype/
-├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式）
+├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式，读数自动过转接口）
+├── bridge/
+│   └── upstream_bridge.js  # 转接口（D2）：上游格式（方的标准化记录）→ 契约 v0.2；未知格式透传留痕
 ├── package.json            # scripts: start / demo（仅声明，无需 install）
 ├── README.md               # 本文件（目录结构维护处，结构变更必须同步更新）
 ├── docs/
-│   └── API.md              # 调用文档：数据契约 v0.1、接口清单、状态枚举、扩展指南
+│   └── API.md              # 调用文档：数据契约 v0.2、接口清单、状态枚举、转接口、扩展指南
 ├── data/                   # 数据集（mock 模式：server 自动列举，放进来即出现在下拉）
 │   ├── pledge.json         # 质押事件样例（D3 主线）
-│   └── share_change.json   # 股权变动样例（D5 预留）
+│   ├── share_change.json   # 股权变动样例（D5 预留）
+│   └── upstream_case.json  # 方口径上游格式合成用例（经转接口转换展示，D2 验证）
 ├── public/                 # 前端（原生 ES Modules，无构建步骤）
 │   ├── index.html          # 三栏页面骨架：上传 / 结果 / 证据
 │   ├── css/
@@ -35,7 +38,7 @@ page_prototype/
 │       ├── status.js       # 状态枚举单一事实源（成功/失败/无法读取/待复核/模拟）
 │       └── render/         # 渲染器（注册式，可扩展新栏/新视图）
 │           ├── upload.js     # 栏一：上传（D1 仅入口；真实解析属 D2）
-│           ├── results.js    # 栏二：事件卡片 + 字段表 + 证据锚点
+│           ├── results.js    # 栏二：事件卡片 + 字段表 + 证据锚点（含口径标注：约/不超过/单次/累计/分母/标准化）
 │           └── evidences.js  # 栏三：证据列表 + 高亮联动
 └── demo/
     └── 使用演示.md          # 完整使用 demo：启动/上传/扩展新数据集/切真实接口/接口自检
@@ -48,7 +51,8 @@ page_prototype/
       │ mock 模式                                  │ remote 模式
       ▼                                            ▼
 ┌─────────────────────── server.js /api ───────────────────────┐
-│   /api/datasets（列举）      /api/result?dataset=x（契约 v0.1）│
+│  /api/datasets（列举）   /api/result?dataset=x（读数自动过转接口）│
+│           bridge/upstream_bridge.js：上游格式 → 契约 v0.2       │
 └──────────────────────────────┬───────────────────────────────┘
                                ▼
                     adapter.js（前端唯一数据出口）
@@ -59,6 +63,7 @@ page_prototype/
 ```
 
 - **数据缝**：换数据源只动 server 环境变量，前端零改动；
+- **格式缝**：上游格式（方的标准化记录）直接进 `data/` 或 remote 返回，转接口自动转换，契约对象零损耗透传；
 - **渲染缝**：新栏/新视图 = 新渲染器 + app.js 一行装配；
 - **状态缝**：状态枚举只改 `status.js` 一处。
 

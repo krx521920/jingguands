@@ -1,7 +1,8 @@
-# 调用文档 · 数据契约与接口（v0.1）
+# 调用文档 · 数据契约与接口（v0.2）
 
-> 面向对象：魏文宇（结果 JSON 生产方）、张智博（证据/坐标生产方）、后续接入页面的任何人。
+> 面向对象：魏文宇（结果 JSON 生产方）、张智博（证据/坐标生产方）、方轩诚（标准化口径）、后续接入页面的任何人。
 > 页面只认本文契约，不关心数据来自 mock 还是真实服务——切换数据源前端零改动。
+> **v0.2 变更（只增不改）**：`normalized` 统一为**十进制字符串**，比例=百分点（`"2.5"` 表示 2.5%，不乘 100，对齐方轩诚口径字典 v0.1）；fields 新增可选 `qualifier / scope / denominator`；`source_file` 新增可选 `sha256`；新增上游格式转接口 `bridge/`（见 §7）。
 
 ## 1. 运行与访问
 
@@ -67,7 +68,9 @@ node server.js          # 或 pnpm start / npm start
 
 **字段约定**：
 - 每个 `fields` 值挂 `evidence_id`（溯源红线）；缺证据 → `null`，不许编造；
-- `value` 与 `normalized` 分离（原文值 vs 标准化值）；
+- `value` 与 `normalized` 分离（原文值 vs 标准化值）；`normalized` 一律十进制字符串，比例=百分点、不乘 100；
+- v0.2 可选口径字段（来自方轩诚口径字典，转接口自动填充）：`qualifier`（`exact/approx/at_most`，页面显示"约/不超过"）、`scope`（`single/cumulative/unknown`，显示"单次/累计"）、`denominator`（比例分母 `{kind, kind_text, definition}`，显示"分母=公司总股本"等）；
+- `source_file.sha256`（可选）：文件哈希，离线核验用（口径字典 §6）；
 - 事件类型/字段名新增不改旧字段（向前兼容）。
 
 ## 4. 状态枚举（页面与接口共用）
@@ -85,11 +88,26 @@ node server.js          # 或 pnpm start / npm start
 | 想加什么 | 改哪里 |
 |---|---|
 | 新数据集（模拟） | `data/` 下放 `<新名字>.json`，下拉自动出现，零代码 |
+| 上游格式数据（方的标准化记录） | 直接放 `data/`，server 自动识别并过转接口（见 §7），零配置 |
 | 接真实接口 | 启动 server 时设 `DATA_SOURCE=remote` + `REMOTE_API_URL`，前端零改动 |
 | 新字段中文显示 | `public/js/render/results.js` 的 `FIELD_TEXT` 加一行；未登记的字段自动显示原始字段名 |
 | 新事件类型 | 无需改页面——按契约给 `event_type` + `fields` 即自动渲染 |
 | 新的栏/视图 | `public/js/render/` 下新建渲染器，在 `app.js` 装配（注册式，不侵入现有三栏） |
 | 状态新枚举 | `public/js/status.js` 的 `STATUS` 加一行（单一事实源） |
+
+## 7. 转接口（bridge/，v0.2 新增）
+
+上游产物不必先改成契约格式——server 读到数据后自动过 `bridge/upstream_bridge.js`（mock 与 remote 两条路都生效）：
+
+| 输入识别 | 行为 |
+|---|---|
+| 已是契约对象（有 `schema_version`+`events`） | 原样透传，零损耗 |
+| `bridge: "fang-normalization-v0.1"`（方的标准化记录 `records[]`） | 自动转换为契约 v0.2（映射规则见 `docs/cjh_workspace_04_D2任务规划.md` §2），转换留痕在顶层 `bridge.notes` |
+| 其他未知格式 | **不猜测，原样透传**并留 `bridge.passthrough` 痕 |
+
+上游记录格式（方的口径字典 v0.1 + 事件归属信封）：`{ bridge, data_mode, source_file{file_id,filename,sha256,parse_status}, records[{ event_id, event_type, field, kind, rawText, rawValue, sourceUnit, qualifier, scope, status, value, unit, denominator, evidence{block_id,page,quote} }] }`。
+
+样例：`data/upstream_case.json`（合成用例，覆盖方换算用例 2/5/6/7/9/10 的过桥表现）。
 
 ## 6. 给魏/张的最小对接要求
 

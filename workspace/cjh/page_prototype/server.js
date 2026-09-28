@@ -9,6 +9,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const { toContract } = require("./bridge/upstream_bridge.js");   // 转接口：上游格式 → 契约 v0.2
 
 const ROOT = __dirname;                       // 工程根（相对锚点）
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -50,7 +51,7 @@ function fetchRemote(dataset, res) {
     let buf = "";
     upstream.on("data", c => (buf += c));
     upstream.on("end", () => {
-      try { sendJSON(res, upstream.statusCode || 200, JSON.parse(buf)); }
+      try { sendJSON(res, upstream.statusCode || 200, toContract(JSON.parse(buf))); }   // 上游格式过桥
       catch { sendJSON(res, 502, { error: "remote response is not valid JSON" }); }
     });
   }).on("error", e => sendJSON(res, 502, { error: "remote fetch failed: " + e.message }));
@@ -71,7 +72,7 @@ function handleApi(req, res, urlObj) {
       return sendJSON(res, 404, { error: "dataset not found: " + dataset });
     }
     try {
-      return sendJSON(res, 200, JSON.parse(fs.readFileSync(file, "utf8")));
+      return sendJSON(res, 200, toContract(JSON.parse(fs.readFileSync(file, "utf8"))));   // mock 也过桥（上游格式数据集自动转换）
     } catch (e) {
       return sendJSON(res, 500, { error: "dataset parse failed: " + e.message });
     }
