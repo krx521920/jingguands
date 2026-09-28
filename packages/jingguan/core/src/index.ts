@@ -1,11 +1,12 @@
 /**
- * 经管竞赛核心插件：事件 JSON 接口 v0.2 的 harness 侧入口。
+ * 经管竞赛核心插件：事件 JSON 接口 v0.3 的 harness 侧入口。
  *
  * v0.2（2026-09-27 晚，依据评测方反馈）：状态扩至 6 个；质押本次/累计与分母拆分为
  * 独立字段（移除 cumulative 属性）；出处支持表格证据（table_id/cell_ref）。
  * D1 范围：工具注册、信封结构校验、统一错误返回。
  * D2 计划：接入解析（DocumentIR blocks→provenance）与标准化接口，模型调用改走 ctx.llm。
  * 契约文档：interface/README.md；机器可校验版本：interface/event-envelope.schema.json。
+ * v0.3：中标事件改名 award_contract；分母枚举 holder_shares/total_share_capital/net_assets/other。
  */
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
@@ -29,7 +30,7 @@ export const Config: z<Config> = z.object({
 export const inject = ['tools']
 
 /** 事件类型（v0.2 冻结）。 */
-export type EventType = 'pledge' | 'equity_change' | 'bid_won'
+export type EventType = 'pledge' | 'equity_change' | 'award_contract'
 
 /** 字段值状态（v0.2，6 个）：除 extracted/needs_review 外 value 必须为 null。 */
 export type FieldStatus = 'extracted' | 'not_disclosed' | 'not_applicable' | 'not_mentioned' | 'unreadable' | 'needs_review'
@@ -39,7 +40,7 @@ export interface FieldSpec {
   unit: 'shares' | 'cny' | 'percent' | 'date' | 'text' | 'count'
   label: string
   /** 比例字段的固定分母（v0.2 起由字段名决定，注册表同步声明）。 */
-  fixedDenominator?: 'shares_held' | 'total_shares'
+  fixedDenominator?: 'holder_shares' | 'total_share_capital'
   /** 分母按原文判定的比例字段。 */
   requiresDenominator?: boolean
 }
@@ -51,10 +52,10 @@ export const FIELD_REGISTRY: Record<EventType, Record<string, FieldSpec>> = {
     pledgee: { unit: 'text', label: '质权人' },
     pledged_shares_this_time: { unit: 'shares', label: '本次质押股数' },
     pledged_shares_cumulative: { unit: 'shares', label: '累计质押股数' },
-    pledged_ratio_this_time_of_held: { unit: 'percent', label: '本次质押占其所持股份比例', fixedDenominator: 'shares_held' },
-    pledged_ratio_this_time_of_total: { unit: 'percent', label: '本次质押占公司总股本比例', fixedDenominator: 'total_shares' },
-    pledged_ratio_cumulative_of_held: { unit: 'percent', label: '累计质押占其所持股份比例', fixedDenominator: 'shares_held' },
-    pledged_ratio_cumulative_of_total: { unit: 'percent', label: '累计质押占公司总股本比例', fixedDenominator: 'total_shares' },
+    pledged_ratio_this_time_of_held: { unit: 'percent', label: '本次质押占其所持股份比例', fixedDenominator: 'holder_shares' },
+    pledged_ratio_this_time_of_total: { unit: 'percent', label: '本次质押占公司总股本比例', fixedDenominator: 'total_share_capital' },
+    pledged_ratio_cumulative_of_held: { unit: 'percent', label: '累计质押占其所持股份比例', fixedDenominator: 'holder_shares' },
+    pledged_ratio_cumulative_of_total: { unit: 'percent', label: '累计质押占公司总股本比例', fixedDenominator: 'total_share_capital' },
     pledge_amount: { unit: 'cny', label: '质押金额' },
     start_date: { unit: 'date', label: '质押起始日' },
     end_date: { unit: 'date', label: '质押到期日' },
@@ -72,7 +73,7 @@ export const FIELD_REGISTRY: Record<EventType, Record<string, FieldSpec>> = {
     method: { unit: 'text', label: '变动方式' },
     change_date: { unit: 'date', label: '变动完成日' },
   },
-  bid_won: {
+  award_contract: {
     bidder: { unit: 'text', label: '中标人' },
     tenderer: { unit: 'text', label: '招标人' },
     project_name: { unit: 'text', label: '项目名称' },
@@ -103,7 +104,7 @@ export interface FieldValue {
   standardized?: boolean
   status: FieldStatus
   provenance: Provenance[]
-  denominator?: 'shares_held' | 'total_shares' | null
+  denominator?: 'holder_shares' | 'total_share_capital' | 'net_assets' | 'other' | null
   note?: string | null
 }
 
@@ -118,7 +119,7 @@ export interface Event {
 
 /** 输出信封（v0.2）。 */
 export interface EventEnvelope {
-  schema_version: '0.2'
+  schema_version: '0.3'
   run_id: string
   is_mock: boolean
   source: { file_id: string | null, file_name: string | null, file_sha256: string | null, parse_meta: { parser_version: string | null, page_count: number | null } | null }
@@ -150,7 +151,7 @@ let configStrict = true
 /** 结构校验：返回问题清单（空数组＝合规）。问题如实上报，不静默修正。 */
 export function validateEnvelope(envelope: EventEnvelope): string[] {
   const issues: string[] = []
-  if (envelope.schema_version !== '0.2') issues.push(`schema_version 应为 "0.2"，实际 ${JSON.stringify(envelope.schema_version)}`)
+  if (envelope.schema_version !== '0.3') issues.push(`schema_version 应为 "0.3"，实际 ${JSON.stringify(envelope.schema_version)}`)
   if (!Array.isArray(envelope.events)) issues.push('events 必须是数组')
   const eventTypes = Object.keys(FIELD_REGISTRY) as EventType[]
   const nullValueStatuses = new Set<FieldStatus>(['not_disclosed', 'not_applicable', 'not_mentioned', 'unreadable'])
@@ -188,25 +189,25 @@ export function apply(ctx: Context, config: Config): void {
   configStrict = config.strict
   ctx.tools.register(defineTool({
     name: 'jingguan_extract_events',
-    description: '按事件 JSON 接口 v0.2 生成公告事件的信封骨架并校验结构。'
-      + '输入公告文本与事件类型（pledge/equity_change/bid_won），返回注册表全字段的 not_mentioned 骨架；'
+    description: '按事件 JSON 接口 v0.3 生成公告事件的信封骨架并校验结构。'
+      + '输入公告文本与事件类型（pledge/equity_change/award_contract），返回注册表全字段的 not_mentioned 骨架；'
       + '字段抽取与模型调用自 D2 版本接入。',
     parameters: {
       document_text: { type: 'string', required: true, description: '公告正文文本（D1 为纯文本，D2 起支持解析块）' },
-      event_type: { type: 'string', required: true, description: 'pledge | equity_change | bid_won' },
+      event_type: { type: 'string', required: true, description: 'pledge | equity_change | award_contract' },
       run_id: { type: 'string', description: '调用方指定的运行 ID；缺省自动生成' },
     },
     output: {
       schema: {
         type: 'object', additionalProperties: false,
         properties: {
-          envelope: { type: 'object', description: 'v0.2 事件信封' },
+          envelope: { type: 'object', description: 'v0.3 事件信封' },
           issues: { type: 'array', items: { type: 'string' }, description: '结构校验问题清单' },
         },
       },
       render: (_args, value) => [{
         type: 'text',
-        text: `v0.2 信封骨架已生成：${value.envelope.events.length} 个事件，校验问题 ${value.issues.length} 条`,
+        text: `v0.3 信封骨架已生成：${value.envelope.events.length} 个事件，校验问题 ${value.issues.length} 条`,
       }],
     },
     async execute(args) {
@@ -219,7 +220,7 @@ export function apply(ctx: Context, config: Config): void {
       }
       const runId = args.run_id ?? `tool-${new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14)}`
       const envelope: EventEnvelope = {
-        schema_version: '0.2',
+        schema_version: '0.3',
         run_id: runId,
         is_mock: true,
         source: { file_id: null, file_name: null, file_sha256: null, parse_meta: null },

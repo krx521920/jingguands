@@ -1,7 +1,7 @@
-# 事件 JSON 接口 v0.2
+# 事件 JSON 接口 v0.3
 
-- 发布：魏文宇，2026-09-27（D1 晚，依据评测方反馈全量修订）
-- 状态：**v0.2 候选冻结稿**，待全队确认后正式冻结；v0.1 已废弃（变更记录见第八节）
+- 发布：魏文宇，2026-09-28（D2，依据评测方对接报告的两项裁决：中标事件改名、分母枚举统一）
+- 状态：**v0.3 候选冻结稿**，待全队签署（签署表见宗博文 evaluation/integration/D1-freeze-decision.md）；v0.2/v0.1 已废弃（变更记录见第八节）
 - 本目录是全队公共契约：解析（张智博）、口径（方轩诚）、页面（陈家浩）、评测（宗博文）都以本文件＋`event-envelope.schema.json`（机器可校验）为准。**任何模块的输出，提交前必须通过共同校验器**（见第三节）。
 
 ## 一、目标数据流（各就各位）
@@ -34,7 +34,7 @@ npm run jingguan:test-normalize
 
 每次运行产生 `runs/<run_id>/`：`events.json`（v0.2 信封）＋ `call_log.json`（请求、耗时、token 用量、原始返回；不含密钥）。
 
-`--event-type pledge|equity_change|bid_won` 可显式指定；缺省从文件名推断。
+`--event-type pledge|equity_change|award_contract` 可显式指定；缺省从文件名推断。
 
 ## 三、共同契约校验器（全队必跑）
 
@@ -71,7 +71,7 @@ Event：
 ```
 {
   "event_id": "E01",
-  "event_type": "pledge",           // pledge | equity_change | bid_won
+  "event_type": "pledge",           // pledge | equity_change | award_contract
   "fields": { "<字段名>": { …FieldValue… } },
   "extraction_method": "model",     // model | rule | hybrid | mock
   "notes": null
@@ -90,7 +90,7 @@ FieldValue（**核心结构，四个人都要消费**）：
   "provenance": [                   // 出处；status=extracted 时至少 1 条
     { "block_id": null, "page": 1, "region": null, "table_id": null, "cell_ref": null, "quote": "质押股数：20,000,000股" }
   ],
-  "denominator": null,              // shares_held|total_shares|null（比例类字段必填）
+  "denominator": null,              // holder_shares|total_share_capital|net_assets|other|null（比例类字段必填）
   "note": null
 }
 ```
@@ -125,10 +125,10 @@ FieldValue（**核心结构，四个人都要消费**）：
 | pledgee | 质权人 | text | — |
 | pledged_shares_this_time | 本次质押股数 | shares | — |
 | pledged_shares_cumulative | 累计质押股数 | shares | — |
-| pledged_ratio_this_time_of_held | 本次质押占其所持股份比例 | percent | shares_held |
-| pledged_ratio_this_time_of_total | 本次质押占公司总股本比例 | percent | total_shares |
-| pledged_ratio_cumulative_of_held | 累计质押占其所持股份比例 | percent | shares_held |
-| pledged_ratio_cumulative_of_total | 累计质押占公司总股本比例 | percent | total_shares |
+| pledged_ratio_this_time_of_held | 本次质押占其所持股份比例 | percent | holder_shares |
+| pledged_ratio_this_time_of_total | 本次质押占公司总股本比例 | percent | total_share_capital |
+| pledged_ratio_cumulative_of_held | 累计质押占其所持股份比例 | percent | holder_shares |
+| pledged_ratio_cumulative_of_total | 累计质押占公司总股本比例 | percent | total_share_capital |
 | pledge_amount | 质押金额 | cny | — |
 | start_date | 质押起始日 | date | — |
 | end_date | 质押到期日 | date | — |
@@ -143,13 +143,13 @@ FieldValue（**核心结构，四个人都要消费**）：
 | direction | 变动方向 | text | increase / decrease |
 | shares_before | 变动前持股 | shares | |
 | shares_after | 变动后持股 | shares | |
-| ratio_before | 变动前比例 | percent | `denominator` 必填，按原文判定 |
-| ratio_after | 变动后比例 | percent | `denominator` 必填，按原文判定 |
+| ratio_before | 变动前比例 | percent | `denominator` 必填（四值枚举），按原文判定 |
+| ratio_after | 变动后比例 | percent | `denominator` 必填（四值枚举），按原文判定 |
 | change_shares | 变动股数 | shares | |
 | method | 变动方式 | text | |
 | change_date | 变动完成日 | date | 区间→needs_review |
 
-### bid_won 中标（9 字段）
+### award_contract 中标/合同签署（9 字段，v0.3 由 bid_won 改名）
 
 | 字段名 | 含义 | unit | 备注 |
 |---|---|---|---|
@@ -183,7 +183,14 @@ FieldValue（**核心结构，四个人都要消费**）：
 
 ## 八、v0.1 → v0.2 变更记录、降级规则与字段丢失清单
 
-**变更（依据评测方反馈全量采纳）**
+**v0.3 变更（2026-09-28，评测方对接报告裁决，破坏性）**
+
+1. 事件类型 `bid_won` 改名 **`award_contract`**（覆盖中标到合同签署；宗博文建议，全队拍板采纳）。
+2. `denominator` 枚举由 `shares_held/total_shares` 扩为 **`holder_shares/total_share_capital/net_assets/other`**（与方轩诚、宗博文的口径枚举统一；net_assets 支持"占净资产"场景）。
+3. schema_version 升为 **"0.3"**；v0.2 及更早的 runs 输出归档至 `runs/_archive/`。
+4. 影响面：lib/registry.mjs、fang_normalize 适配层、runner prompt/mock、@jingguan/core TS 镜像、样例文件改名 award_contract_sample_01.txt；**陈家浩的页面消费与宗博文的 Gold 投影适配器请按 v0.3 更新**。
+
+**v0.2 变更（依据评测方反馈全量采纳）**
 
 D2 补丁（2026-09-28，依据张智博《契约对齐报告_D1》三处反馈，schema 保持 v0.2 向后兼容）：
 1. `parse_meta` 增补可选 `blocks` 字段（原 README 与 schema 矛盾，按 schema 收敛并放行块摘要）。

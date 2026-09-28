@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 经管竞赛 · 公告事件抽取——运行入口（D1 v0.2 版）
+ * 经管竞赛 · 公告事件抽取——运行入口（v0.3：award_contract＋四值分母枚举）
  *
  * v0.2 变更（依据评测方反馈）：
  *   - 状态枚举扩至 6 个：extracted/not_disclosed/not_applicable/not_mentioned/unreadable/needs_review
@@ -63,7 +63,7 @@ function loadParseDoc(parsePath) {
 function inferEventType(fileName) {
   if (/^pledge/i.test(fileName)) return 'pledge'
   if (/^equity_change/i.test(fileName)) return 'equity_change'
-  if (/^bid_won/i.test(fileName)) return 'bid_won'
+  if (/^award_contract/i.test(fileName)) return 'award_contract'
   return null
 }
 
@@ -73,7 +73,7 @@ function buildSystemPrompt(eventType, parseMode) {
   const fields = Object.entries(FIELD_REGISTRY[eventType]).map(([f, spec]) => {
     const den = spec.fixedDenominator !== undefined
       ? `，denominator 固定为 "${spec.fixedDenominator}"`
-      : (spec.requiresDenominator === true ? '，denominator 按原文判定（shares_held/total_shares）' : '')
+      : (spec.requiresDenominator === true ? '，denominator 按原文判定（holder_shares/total_share_capital/net_assets/other）' : '')
     return `- ${f}（${spec.unit}${den}，${spec.label}）`
   }).join('\n')
   return [
@@ -87,7 +87,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '{"events":[{"event_id":"E01","event_type":"' + eventType + '","fields":{...},"extraction_method":"model","notes":null}]}',
     '',
     '每个字段的值必须是：',
-    '{"raw_value":"原文原样字符串或null","value":标准化数值或null,"unit":"单位","standardized":true或false,"status":"六个状态之一","provenance":[{"block_id":null,"page":1,"region":null,"table_id":null,"cell_ref":null,"quote":"原文子串"}],"denominator":null或"shares_held"或"total_shares","note":null}',
+    '{"raw_value":"原文原样字符串或null","value":标准化数值或null,"unit":"单位","standardized":true或false,"status":"六个状态之一","provenance":[{"block_id":null,"page":1,"region":null,"table_id":null,"cell_ref":null,"quote":"原文子串"}],"denominator":null或"holder_shares"或"total_share_capital"或"net_assets"或"other","note":null}',
     '',
     '状态语义（严格按此判定）：',
     '- extracted：原文有值且已抽取。原文显式写 0 也是 extracted 且 value=0。',
@@ -103,7 +103,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '3. 数值标准化：股→股（万股×10000）；金额→元（万元×10000，亿元×100000000）；百分比→数值（"16.67%"→16.67）；日期→"YYYY-MM-DD"。',
     '4. unit 必须用固定枚举，按此映射：股数→"shares"；金额→"cny"；比例→"percent"；日期→"date"；计数→"count"；其余一切（人名/公司名/用途/方式/名称/工期原文等文本）→"text"。禁止写"股""元""%""日历天"等原文字样，禁止 null。',
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
-    '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。',
+    '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
     ...(parseMode ? [
       '7. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本。provenance 必须给出 quote 所在块的 block_id。',
       '8. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',
@@ -178,10 +178,10 @@ function mockModelResponse(eventType) {
           pledgee: F('中国示例银行股份有限公司上海分行', '中国示例银行股份有限公司上海分行', 'text', '质权人：中国示例银行股份有限公司上海分行'),
           pledged_shares_this_time: F('20,000,000股', 20000000, 'shares', '质押股数：20,000,000股'),
           pledged_shares_cumulative: F('70,000,000股', 70000000, 'shares', '累计质押股份70,000,000股'),
-          pledged_ratio_this_time_of_held: F('16.67%', 16.67, 'percent', '占其所持股份比例：16.67%', { denominator: 'shares_held' }),
-          pledged_ratio_this_time_of_total: F('5.00%', 5.00, 'percent', '占公司总股本比例：5.00%', { denominator: 'total_shares' }),
-          pledged_ratio_cumulative_of_held: F('58.33%', 58.33, 'percent', '占其所持股份总数的58.33%', { denominator: 'shares_held' }),
-          pledged_ratio_cumulative_of_total: F('17.50%', 17.50, 'percent', '占公司总股本的17.50%', { denominator: 'total_shares' }),
+          pledged_ratio_this_time_of_held: F('16.67%', 16.67, 'percent', '占其所持股份比例：16.67%', { denominator: 'holder_shares' }),
+          pledged_ratio_this_time_of_total: F('5.00%', 5.00, 'percent', '占公司总股本比例：5.00%', { denominator: 'total_share_capital' }),
+          pledged_ratio_cumulative_of_held: F('58.33%', 58.33, 'percent', '占其所持股份总数的58.33%', { denominator: 'holder_shares' }),
+          pledged_ratio_cumulative_of_total: F('17.50%', 17.50, 'percent', '占公司总股本的17.50%', { denominator: 'total_share_capital' }),
           pledge_amount: N('cny'),
           start_date: F('2026年9月24日', '2026-09-24', 'date', '质押起始日：2026年9月24日'),
           end_date: F('2027年9月23日', '2027-09-23', 'date', '质押到期日：2027年9月23日'),
@@ -198,17 +198,17 @@ function mockModelResponse(eventType) {
           direction: F('减持', 'decrease', 'text', '股份变动性质：减持'),
           shares_before: F('32,000,000股', 32000000, 'shares', '持有公司股份32,000,000股，占公司总股本的8.00%'),
           shares_after: F('24,000,000股', 24000000, 'shares', '持有公司股份24,000,000股，占公司总股本的6.00%'),
-          ratio_before: F('8.00%', 8.00, 'percent', '占公司总股本的8.00%', { denominator: 'total_shares' }),
-          ratio_after: F('6.00%', 6.00, 'percent', '占公司总股本的6.00%', { denominator: 'total_shares' }),
+          ratio_before: F('8.00%', 8.00, 'percent', '占公司总股本的8.00%', { denominator: 'total_share_capital' }),
+          ratio_after: F('6.00%', 6.00, 'percent', '占公司总股本的6.00%', { denominator: 'total_share_capital' }),
           change_shares: F('8,000,000股', 8000000, 'shares', '累计减持公司股份8,000,000股'),
           method: F('集中竞价交易减持', '集中竞价交易减持', 'text', '本次权益变动方式为集中竞价交易减持'),
           change_date: { raw_value: '2026年9月20日至2026年9月24日', value: null, unit: 'date', standardized: false, status: 'needs_review', provenance: [{ block_id: null, page: 1, region: null, table_id: null, cell_ref: null, quote: '2026年9月20日至2026年9月24日' }], denominator: null, note: '日期区间，无法取单值，待复核' },
         },
       }],
     },
-    bid_won: {
+    award_contract: {
       events: [{
-        event_id: 'E01', event_type: 'bid_won', extraction_method: 'mock', notes: 'MOCK 输出——不得计入真实抽取成绩',
+        event_id: 'E01', event_type: 'award_contract', extraction_method: 'mock', notes: 'MOCK 输出——不得计入真实抽取成绩',
         fields: {
           bidder: F('示例建设科技股份有限公司（联合体牵头人）', '示例建设科技股份有限公司（联合体牵头人）', 'text', '公司与联合体成员某市政设计研究院组成的联合体'),
           tenderer: F('某市轨道交通集团有限公司', '某市轨道交通集团有限公司', 'text', '招标人：某市轨道交通集团有限公司'),
@@ -295,7 +295,7 @@ function backfillProvenance(events, blockIndex, isMock, errors) {
 async function main() {
   const args = parseArgs(process.argv.slice(2))
   if (args.help || (!args.input && !args.parse)) {
-    console.log('用法：node scripts/jingguan/run_extract.mjs --input <公告文本文件> [--parse <evidence/0.2 解析JSON>] [--event-type pledge|equity_change|bid_won] [--mock] [--out-dir runs]')
+    console.log('用法：node scripts/jingguan/run_extract.mjs --input <公告文本文件> [--parse <evidence/0.2 解析JSON>] [--event-type pledge|equity_change|award_contract] [--mock] [--out-dir runs]')
     process.exit(args.input || args.parse ? 0 : 2)
   }
 
@@ -306,7 +306,7 @@ async function main() {
   const fileName = parseDoc ? (parseDoc.doc.doc?.file_name ?? basename(args.parse)) : basename(resolve(REPO_ROOT, args.input))
   const eventType = args.eventType ?? inferEventType(fileName)
   if (!eventType || !(eventType in FIELD_REGISTRY)) {
-    console.error('无法确定事件类型：请用 --event-type 指定 pledge|equity_change|bid_won')
+    console.error('无法确定事件类型：请用 --event-type 指定 pledge|equity_change|award_contract')
     process.exit(2)
   }
 
@@ -357,7 +357,7 @@ async function main() {
     ? (handoff?.source?.file_sha256 ?? createHash('sha256').update(inputText, 'utf8').digest('hex'))
     : createHash('sha256').update(inputText, 'utf8').digest('hex')
   const envelope = {
-    schema_version: '0.2',
+    schema_version: '0.3',
     run_id: runId,
     is_mock: isMock,
     source: parseDoc
