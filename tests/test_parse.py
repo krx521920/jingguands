@@ -44,6 +44,44 @@ def test_结构自检通过(parsed):
     assert r["ok"], r["errors"]
 
 
+def test_每个块都带source_type且取值合法(parsed):
+    """评测方的证据结构要求 source_type，且要按段落/表格/单元格分层统计。"""
+    for pg in parsed["pages"]:
+        for b in pg["blocks"]:
+            assert b["source_type"] in ZONG_SOURCE_TYPES, b["source_type"]
+            if b["source_type"] == "cell":
+                assert b["table_ref"] and b["table_ref"].get("cell_id"), b["block_id"]
+            if b["source_type"] == "table":
+                assert b["table_ref"] and b["table_ref"].get("table_id"), b["block_id"]
+
+
+def test_每个块自带doc_id(parsed):
+    """块要自足：被单独摘出传递时仍知道属于哪份文件（评测方要 document_id）。"""
+    did = parsed["doc"]["doc_id"]
+    for pg in parsed["pages"]:
+        for b in pg["blocks"]:
+            assert b["doc_id"] == did
+
+
+def test_handoff给出三方字段对照(parsed):
+    """region/quote 三家名字都不同，handoff 必须一次给全，避免下游猜。"""
+    fa = parsed["handoff"]["field_aliases"]
+    assert fa["region"]["wei"] == "region" and fa["region"]["zong"] == "bbox"
+    assert fa["text_raw"]["wei"] == "quote" and fa["text_raw"]["zong"] == "excerpt"
+    assert "document_id" in fa["doc_id"]["zong"]
+
+
+def test_表格元数据与单元格块不重复存放(parsed):
+    """tables[] 只留元数据；单元格内容以 source_type=cell 的块交付，用 table_ref 回指。"""
+    for pg in parsed["pages"]:
+        for t in pg["tables"]:
+            assert "cells" not in t, "tables[] 不应重复存放单元格内容"
+        cell_blocks = [b for b in pg["blocks"] if b["source_type"] == "cell"]
+        tids = {t["table_id"] for t in pg["tables"]}
+        for b in cell_blocks:
+            assert b["table_ref"]["table_id"] in tids
+
+
 def test_每个块都有合法region(parsed):
     for pg in parsed["pages"]:
         for b in pg["blocks"]:
@@ -171,7 +209,10 @@ def test_非文本页如实降级不伪装成功():
 # 契约：interface/event-envelope.schema.json v0.1（魏文宇，D1 冻结）
 # 这一组用例把「对齐」变成可执行的断言，避免以后有人改回去
 CONTRACT_SOURCE_KEYS = {"file_id", "file_name", "file_sha256", "parse_meta"}
-CONTRACT_PARSE_META_KEYS = {"parser_version", "page_count"}
+# D2 起契约的 parse_meta 增加了 blocks（魏文宇按 D1 夜的对齐报告修好）
+CONTRACT_PARSE_META_KEYS = {"parser_version", "page_count", "blocks"}
+# 评测方的证据结构（evaluation/D1/schemas/evidence.schema.json）
+ZONG_SOURCE_TYPES = {"paragraph", "table", "cell", "scan_region", "document"}
 
 
 def test_file_id形态符合契约(parsed):
@@ -244,16 +285,26 @@ def test_handoff_source严格符合契约字段集(parsed):
         set(src["parse_meta"].keys()) - CONTRACT_PARSE_META_KEYS
 
 
-def test_handoff不含blocks以避开契约自相矛盾(parsed):
-    """回归用例：契约 interface/README.md 第四节说 parse_meta 由解析侧填
-    parser_version / page_count / blocks，但 event-envelope.schema.json 对
-    parse_meta 设了 additionalProperties:false 且只允许前两个字段。
+def test_handoff的parse_meta含契约要求的blocks(parsed):
+    """契约 interface/README.md 第四节要求解析侧在 parse_meta 里提供 blocks。
 
-    我们按 schema 走（不含 blocks），否则抽取层一校验就挂。
-    这个矛盾已作为对齐项反馈；等他改 schema 后本用例再放开。
+    D1 时他的 schema 对 parse_meta 设了 additionalProperties:false 且没有 blocks，
+    填了会导致校验失败，所以当时故意没填并反馈了；D2 他已修好（blocks: array|null），
+    本用例随之放开，锁住「必须提供且字段齐全」。
     """
-    assert "blocks" not in parsed["handoff"]["source"]["parse_meta"]
-    assert any("blocks" in w for w in parsed["handoff"]["warnings"])
+    pm = parsed["handoff"]["source"]["parse_meta"]
+    assert "blocks" in pm, "契约要求 parse_meta 提供 blocks"
+    blocks = pm["blocks"]
+    assert isinstance(blocks, list) and blocks
+    n_pages_blocks = sum(len(p["blocks"]) for p in parsed["pages"])
+    assert len(blocks) == n_pages_blocks, "精简副本的块数应与 pages[].blocks[] 一致"
+    need = {"block_id", "page", "role", "text", "text_raw", "region"}
+    assert need <= set(blocks[0].keys()), need - set(blocks[0].keys())
+    # 与 pages[] 里的规范形式必须对得上
+    canonical = {b["block_id"]: b for p in parsed["pages"] for b in p["blocks"]}
+    for b in blocks[:5]:
+        assert b["region"] == canonical[b["block_id"]]["region"]
+        assert b["text_raw"] == canonical[b["block_id"]]["text_raw"]
 
 
 def test_handoff给出了provenance的取法(parsed):
@@ -274,9 +325,9 @@ def test_输出严格符合JSON_Schema(parsed):
     import json as _json
     import os as _os
 
-    sp = _os.path.join(ROOT, "schemas", "evidence.v0.2.json")
+    sp = _os.path.join(ROOT, "schemas", "evidence.v0.3.json")
     if not _os.path.exists(sp):
-        pytest.skip("找不到 schemas/evidence.v0.2.json")
+        pytest.skip("找不到 schemas/evidence.v0.3.json")
     schema = _json.load(open(sp, encoding="utf-8"))
     errs = sorted(
         jsonschema.Draft202012Validator(schema).iter_errors(parsed),
@@ -304,3 +355,150 @@ def test_text与text_raw在跨行西文处分叉():
     assert raw == "报名链接为:https://app.cufe.edu.cn/scenes/Aljc9u"
     # 关键：raw 是连续原文，text 不是 —— 所以 quote 必须取 text_raw
     assert "https://app.cufe .edu" not in raw
+
+
+# ============================================================
+# 真实公告回归（D2 补）
+#
+# 为什么必须加这一组：D2 新写了 table_detect 与「字符归属唯一所有者」的整套逻辑，
+# 改动量很大，但上面所有用例跑的都是 D1 那份**无表格**的竞赛通知 ——
+# 等于表格这条代码路径一行回归保护都没有。改一下聚类容差就可能悄悄
+# 破坏三份真实公告的解析，而 pytest 全绿。
+#
+# 三份 PDF 不入库（团队规则：不二次分发原始文件）。跑过
+# D2张智博_三份真实公告解析/fetch_samples.py 的人会自动获得这份保护；
+# 没有文件时整组 skip，模块仍保持自包含。
+# ============================================================
+# 两个可能的位置：仓库内的 sample/D2/raw（clone 后），或本地工作目录（开发时）
+_REAL_RAW_CANDIDATES = [
+    os.path.join(ROOT, "sample", "D2", "raw"),
+    os.path.join(ROOT, "..", "D2张智博_三份真实公告解析", "raw"),
+]
+_REAL_RAW = next((p for p in _REAL_RAW_CANDIDATES if os.path.isdir(p)), _REAL_RAW_CANDIDATES[0])
+REAL_CASES = ["pledge-001", "equity-change-001", "award-001"]
+_REAL_CACHE = {}
+
+
+def _real_pdf(name):
+    return os.path.join(_REAL_RAW, name + ".pdf")
+
+
+def _parse_real(name):
+    if name not in _REAL_CACHE:
+        pdf = _real_pdf(name)
+        if not os.path.exists(pdf):
+            pytest.skip(f"缺少 {pdf}；先跑 D2张智博_三份真实公告解析/fetch_samples.py")
+        _REAL_CACHE[name] = pp.parse_pdf(pdf)
+    return _REAL_CACHE[name]
+
+
+def _page_coverage(parsed, pdf_path):
+    """按 region 统计每页字符的覆盖与重叠，并把重叠按块类型分类。
+
+    返回 {page: {"uncovered","kinds","fatal"}}，fatal 只统计 paragraph×paragraph，
+    因为表格是交错排布，块的外接矩形天然会互相压住，属几何假象。
+    """
+    import pdfplumber
+
+    out = {}
+    with pdfplumber.open(pdf_path) as pdf:
+        for pg in parsed["pages"]:
+            chars = pdf.pages[pg["page"] - 1].chars or []
+            if pg.get("form") != "TEXT":
+                out[pg["page"]] = {"uncovered": 0, "kinds": {}, "fatal": 0, "skipped": True}
+                continue
+            cover = []
+            for ch in chars:
+                cx = (ch["x0"] + ch["x1"]) / 2
+                cy = (ch["top"] + ch["bottom"]) / 2
+                owners = []
+                for b in pg["blocks"]:
+                    x0, y0, x1, y1 = b["region"]
+                    if x0 - 0.5 <= cx <= x1 + 0.5 and y0 - 0.5 <= cy <= y1 + 0.5:
+                        owners.append(b["source_type"])
+                cover.append(owners)
+            kinds = {}
+            for owners in cover:
+                if len(owners) > 1:
+                    k = tuple(sorted(set(owners)))
+                    kinds[k] = kinds.get(k, 0) + 1
+            fatal = sum(n for k, n in kinds.items()
+                        if k == ("paragraph",) or (len(k) == 1 and k[0] == "paragraph"))
+            out[pg["page"]] = {
+                "uncovered": sum(1 for o in cover if not o),
+                "kinds": kinds,
+                "fatal": fatal,
+            }
+    return out
+
+
+@pytest.mark.parametrize("name", REAL_CASES)
+def test_真实公告_自检通过(name):
+    d = _parse_real(name)
+    r = ev.self_check(d)
+    assert r["ok"], r["errors"]
+
+
+@pytest.mark.parametrize("name", REAL_CASES)
+def test_真实公告_严格符合schema(name):
+    jsonschema = pytest.importorskip("jsonschema")
+    import json as _json
+
+    d = _parse_real(name)
+    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.3.json"), encoding="utf-8"))
+    errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(d), key=lambda e: list(e.path))
+    assert not errs, [f"/{'/'.join(map(str,e.path))}: {e.message}" for e in errs[:5]]
+
+
+@pytest.mark.parametrize("name", REAL_CASES)
+def test_真实公告_不丢字且无段落重叠(name):
+    """D2 修的核心缺陷：表格多行表头让块区域互相压住。
+
+    判据：① 不能有字符没进任何块（丢字）
+          ② 不能有 paragraph×paragraph 重叠（那才是真的聚类 bug）
+    cell 与 table 之间的外接矩形交叠是表格交错排布导致的几何假象，不算失败。
+    """
+    d = _parse_real(name)
+    cov = _page_coverage(d, _real_pdf(name))
+    for page, c in cov.items():
+        if c.get("skipped"):
+            continue
+        assert c["uncovered"] == 0, f"{name} p{page}: 有 {c['uncovered']} 个字符未进任何块"
+        assert c["fatal"] == 0, f"{name} p{page}: 段落×段落重叠 {c['fatal']} 字 —— 聚类退化了"
+
+
+@pytest.mark.parametrize("name", REAL_CASES)
+def test_真实公告_block_id稳定(name):
+    """同一文件重复解析，block_id 序列必须完全一致（含表格单元格块）。"""
+    d1 = _parse_real(name)
+    d2 = pp.parse_pdf(_real_pdf(name))
+    a = [b["block_id"] for p in d1["pages"] for b in p["blocks"]]
+    b = [b["block_id"] for p in d2["pages"] for b in p["blocks"]]
+    assert a == b
+
+
+@pytest.mark.parametrize("name", REAL_CASES)
+def test_真实公告_source_type齐全(name):
+    d = _parse_real(name)
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            assert b["source_type"] in ZONG_SOURCE_TYPES
+            if b["source_type"] == "cell":
+                assert b["table_ref"].get("cell_id"), b["block_id"]
+
+
+def test_真实公告_表格被检出且单元格独立成块():
+    """pledge-001 含股权质押情况表，必须检出表格并产出 cell 块。
+
+    这是评测方点名要确认的「表格定位能力」的自动化版本。
+    """
+    d = _parse_real("pledge-001")
+    tables = [t for pg in d["pages"] for t in pg["tables"]]
+    cells = [b for pg in d["pages"] for b in pg["blocks"] if b["source_type"] == "cell"]
+    assert tables, "未检出任何表格"
+    assert cells, "未产出任何单元格块"
+    # 每个 cell 块都要回指一张真实存在的表
+    tids = {t["table_id"] for t in tables}
+    for b in cells:
+        assert b["table_ref"]["table_id"] in tids
+        assert b["table_ref"]["row"] is not None and b["table_ref"]["col"] is not None

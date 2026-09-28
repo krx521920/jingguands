@@ -258,37 +258,145 @@ def _assign_role(region, page_h, kind, n_lines, text, index) -> str:
 
 # ------------------------------------------------------------------ 单页解析
 def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
-    """解析单页文本层，返回 page 字典（blocks 带 region 与 text_raw，tables 暂空）。"""
+    """解析单页：把每个字符恰好分配给一个所有者，再按所有者产出块。
+
+    ## 为什么改成"所有者"模型
+
+    D1 的做法是「全页字符一起聚类成块」。在真实公告的表格上这会坏：
+    行聚类容差会把相邻两行并成一行，块的 bbox 互相压住。实测 pledge.pdf 第 1 页
+    的股权质押情况表，68 个字符被两个以上的块重复覆盖，区域重建一致率从 100%
+    掉到 81.8%（`01_b00034` y=660.0–673.4 与 `01_b00035` y=665.9–679.2 重叠 7.5pt）。
+
+    现在改成：**表格单元格先占位，剩下的字符才走段落聚类。**
+    单元格之间不重叠（pdfplumber 的 cells 平铺整张表），flow 字符是它的补集，
+    因此"每个字符恰好被一个块拥有"是构造保证的，不再依赖容差调参。
+
+    ## source_type 的取法（对齐评测方的证据结构）
+
+    - 落在已检测表格单元格里的 → `cell`，并带 `table_ref={table_id,row,col}`
+    - 其余正文 → `paragraph`
+    - 走 OCR 通道的（D4 起）→ `scan_region`
+    """
+    from . import table_detect as td
+
     chars = page.chars or []
     width, height = float(page.width), float(page.height)
 
-    lines = cluster_lines(chars)
-    raw_blocks = cluster_blocks(lines, chars)
+    tables = td.detect_tables(doc_id, page_no, page)
+
+    # ---- 1) 表格单元格先占位
+    cell_owner: Dict[int, str] = {}            # char 下标 -> cell_id
+    cell_index: Dict[str, tuple] = {}          # cell_id -> (table_id, row, col, box)
+    for tb in tables:
+        for (x0, y0, x1, y1, r, c, cid) in tb["_cells"]:
+            cell_index[cid] = (tb["table_id"], r, c, (x0, y0, x1, y1))
+    for idx, ch in enumerate(chars):
+        cx = (ch["x0"] + ch["x1"]) / 2
+        cy = (ch["top"] + ch["bottom"]) / 2
+        for cid, (_tid, _r, _c, box) in cell_index.items():
+            if box[0] <= cx <= box[2] and box[1] <= cy <= box[3]:
+                cell_owner[idx] = cid
+                break
+
+    # ---- 2) 单元格块
+    grouped: Dict[str, list] = {}
+    for idx, cid in cell_owner.items():
+        grouped.setdefault(cid, []).append(chars[idx])
 
     blocks: List[Dict] = []
-    for seq, blk in enumerate(raw_blocks, start=1):
-        blk_chars = [c for ln in blk["lines"] for c in ln]
-        region = ev.region_of(blk_chars)
-        # text      —— 可读文本，跨行处可能补空格，供模型与展示使用
-        text = join_block_text(blk["lines"])
-        # text_raw  —— 按阅读顺序直接拼接原始字符，不插入任何字符。
-        # 全队契约要求 provenance.quote 必须是**原文子串**，所以它取 text_raw 而不是 text。
-        text_raw = "".join(c["text"] for ln in blk["lines"] for c in ln)
-        size = median([c.get("size") or 0.0 for c in blk_chars]) if blk_chars else None
-        role = _assign_role(region, height, blk["kind"], len(blk["lines"]), text, seq - 1)
+    for cid, cs in grouped.items():
+        tid, r, c, box = cell_index[cid]
+        region = [round(box[0], 2), round(box[1], 2), round(box[2], 2), round(box[3], 2)]
+        lines = cluster_lines(cs)
         blocks.append(
-            ev.make_block(
-                doc_id=doc_id,
-                page=page_no,
-                seq=seq,
-                text=text,
-                text_raw=text_raw,
-                region=region,
-                role=role,
-                font_size=size,
-                source=ev.SRC_TEXT_LAYER,
-            )
+            {
+                "_sort": (region[1], region[0]),
+                "_kw": dict(
+                    text=join_block_text(lines),
+                    text_raw="".join(x["text"] for ln in lines for x in ln),
+                    region=region,
+                    source_type=ev.KIND_CELL,
+                    table_ref={"table_id": tid, "cell_id": cid, "row": r, "col": c},
+                    role=ev.ROLE_BODY,
+                ),
+            }
         )
+
+    # ---- 2b) 兜底：落在表格区域内、但不在任何单元格里的字符（多行表头常见）
+    #      按最近的行边界分组，标 source_type="table"。若放任它们走段落聚类，
+    #      会与其它块产生区域重叠（实测 pledge.pdf 第 1 页表头 21 个字符被重复覆盖）。
+    in_table_fallback: Dict[tuple, list] = {}
+    flow_left: List[Dict] = []
+    table_of_char: Dict[int, str] = {}
+    for tb in tables:
+        rx0, ry0, rx1, ry1 = tb["region"]
+        for idx, ch in enumerate(chars):
+            if idx in cell_owner:
+                continue
+            cx = (ch["x0"] + ch["x1"]) / 2
+            cy = (ch["top"] + ch["bottom"]) / 2
+            if rx0 <= cx <= rx1 and ry0 <= cy <= ry1:
+                table_of_char[idx] = tb["table_id"]
+
+    for idx, ch in enumerate(chars):
+        if idx in cell_owner:
+            continue
+        tid = table_of_char.get(idx)
+        if tid is None:
+            flow_left.append(ch)
+            continue
+        tb = next(x for x in tables if x["table_id"] == tid)
+        cy = (ch["top"] + ch["bottom"]) / 2
+        best, bestd = 0, float("inf")
+        for i, (e0, e1) in enumerate(tb.get("_row_edges", [])):
+            d = 0.0 if e0 <= cy <= e1 else min(abs(cy - e0), abs(cy - e1))
+            if d < bestd:
+                bestd, best = d, i
+        in_table_fallback.setdefault((tid, best), []).append(ch)
+
+    for (tid, r), cs in in_table_fallback.items():
+        region = ev.region_of(cs)
+        lines = cluster_lines(cs)
+        # 标 degraded：这些字符散落在表格行内、不在任何检出单元格里（多行表头 + 纵向
+        # 合并时常见），按最近行边界兜底分组后**文本可能是乱序的**。
+        # 交出去是为了不丢字（字符守恒），但下游不应把它们当作可靠的行级引文。
+        # D3 的多层表头还原会把这一类消掉。
+        blocks.append(
+            {
+                "_sort": (region[1], region[0]),
+                "_kw": dict(
+                    text=join_block_text(lines),
+                    text_raw="".join(x["text"] for ln in lines for x in ln),
+                    region=region,
+                    source_type=ev.KIND_TABLE,
+                    table_ref={"table_id": tid, "row": r},
+                    role=ev.ROLE_BODY,
+                    degraded=True,
+                    missing_reason=ev.MISSING_DEGRADED,
+                ),
+            }
+        )
+
+    # ---- 3) 其余字符走段落聚类（补集，保证不重叠）
+    flow_chars = flow_left
+    blocks.extend(_flow_blocks(flow_chars, height))
+
+    # ---- 4) 按阅读位置排序后统一分配 block_id
+    blocks.sort(key=lambda b: b["_sort"])
+    out: List[Dict] = []
+    for seq, b in enumerate(blocks, start=1):
+        out.append(ev.make_block(doc_id=doc_id, page=page_no, seq=seq, **b["_kw"]))
+
+    page_tables = [
+        {
+            "table_id": t["table_id"],
+            "page": page_no,
+            "region": t["region"],
+            "n_rows": t["n_rows"],
+            "n_cols": t["n_cols"],
+        }
+        for t in tables
+    ]
 
     return ev.make_page(
         page=page_no,
@@ -296,6 +404,36 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
         width=width,
         height=height,
         form_evidence={},
-        blocks=blocks,
-        tables=[],
+        blocks=out,
+        tables=page_tables,
     )
+
+
+def _flow_blocks(flow_chars: List[Dict], page_h: float) -> List[Dict]:
+    """把表格之外的字符按段落聚类成块（D1 的原逻辑，作用域缩到补集上）。"""
+    lines = cluster_lines(flow_chars)
+    raw_blocks = cluster_blocks(lines, flow_chars)
+    out: List[Dict] = []
+    for bi, blk in enumerate(raw_blocks):
+        blk_chars = [c for ln in blk["lines"] for c in ln]
+        region = ev.region_of(blk_chars)
+        text = join_block_text(blk["lines"])
+        text_raw = "".join(c["text"] for ln in blk["lines"] for c in ln)
+        size = median([c.get("size") or 0.0 for c in blk_chars]) if blk_chars else None
+        # 注意传真实下标 bi：_assign_role 靠它判断"是不是本页第一个居中块"，
+        # 硬编码 0 会把所有居中块都判成 TITLE（曾被回归用例抓到）
+        role = _assign_role(region, page_h, blk["kind"], len(blk["lines"]), text, bi)
+        out.append(
+            {
+                "_sort": (region[1], region[0]),
+                "_kw": dict(
+                    text=text,
+                    text_raw=text_raw,
+                    region=region,
+                    source_type=ev.KIND_PARAGRAPH,
+                    role=role,
+                    font_size=size,
+                ),
+            }
+        )
+    return out

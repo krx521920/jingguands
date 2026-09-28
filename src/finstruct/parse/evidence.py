@@ -33,9 +33,9 @@ from __future__ import annotations
 import hashlib
 from typing import Dict, List, Optional
 
-SCHEMA_VERSION = "evidence/0.2"
+SCHEMA_VERSION = "evidence/0.3"
 PARSER_NAME = "finstruct.parse"
-PARSER_VERSION = "0.2.0"
+PARSER_VERSION = "0.3.0"
 
 # 全队公共契约（用于 handoff 声明与自检提示）
 TEAM_CONTRACT = "interface/event-envelope.schema.json v0.1"
@@ -54,10 +54,19 @@ ROLE_HEADER = "HEADER"      # 页眉，移出正文流但保留
 ROLE_FOOTER = "FOOTER"      # 页脚
 ROLE_FOOTNOTE = "FOOTNOTE"  # 脚注，常承载表格单位说明，不能丢
 
-# 抽取来源通道
+# 抽取来源通道（"这段字是怎么读出来的"）
 SRC_TEXT_LAYER = "TEXT_LAYER"  # pdfplumber 直接读的文本层
 SRC_OCR_OS = "OCR_OS"          # 通道 A：系统/离线 OCR
 SRC_VLM = "VLM"                # 通道 B：视觉大模型
+
+# 证据来源类型（"这段字在文档里是什么结构"）
+# 对齐评测方 evaluation/D1/schemas/evidence.schema.json 的 source_type 枚举。
+# 与上面的"通道"是两个正交维度：同一段字可以既是 text_layer 通道、又是 cell 结构。
+KIND_PARAGRAPH = "paragraph"
+KIND_TABLE = "table"
+KIND_CELL = "cell"
+KIND_SCAN_REGION = "scan_region"
+KIND_DOCUMENT = "document"
 
 # 无法取到出处时的原因码（缺出处要能被统计，不能静默）
 MISSING_NOT_PARSED = "NOT_PARSED"
@@ -144,6 +153,8 @@ def make_block(
     region: List[float],
     text_raw: Optional[str] = None,
     role: str = ROLE_BODY,
+    source_type: str = KIND_PARAGRAPH,
+    table_ref: Optional[Dict] = None,
     font_size: Optional[float] = None,
     source: str = SRC_TEXT_LAYER,
     ocr_confidence: Optional[float] = None,
@@ -159,19 +170,21 @@ def make_block(
     """
     return {
         "block_id": make_block_id(doc_id, page, seq),
+        # doc_id 放在块上是"自足"需要：块被单独摘出来传递时，仍知道它属于哪份文件
+        "doc_id": doc_id,
         "page": page,
         "type": "TEXT",
+        "source_type": source_type,
         "role": role,
         "text": text,
         "text_raw": text_raw if text_raw is not None else text,
         "region": region,
+        "table_ref": table_ref,
         "font_size": None if font_size is None else round(float(font_size), 2),
         "source": source,
         "ocr_confidence": ocr_confidence,
         "degraded": degraded,
         "missing_reason": missing_reason,
-        # 表格字段留空：D1 不解析表格，但结构先冻结，D3/D4 直接往里填
-        "table_ref": None,
     }
 
 
@@ -226,15 +239,37 @@ def make_page(
     }
 
 
-def make_handoff(file_id: str, file_name: str, sha: str, page_count: int) -> Dict:
+def flatten_blocks(pages: List[Dict]) -> List[Dict]:
+    """把各页的块拉平成一维列表，只保留抽取层需要的字段。
+
+    `pages[].blocks[]` 是规范形式（带 font_size / source / table_ref 等）；
+    这里给的是精简版，供契约的 `parse_meta.blocks` 使用。
+    """
+    out = []
+    for pg in pages:
+        for b in pg["blocks"]:
+            out.append(
+                {
+                    "block_id": b["block_id"],
+                    "page": b["page"],
+                    "role": b["role"],
+                    "text": b["text"],
+                    "text_raw": b["text_raw"],
+                    "region": b["region"],
+                }
+            )
+    return out
+
+
+def make_handoff(
+    file_id: str, file_name: str, sha: str, page_count: int, pages: Optional[List[Dict]] = None
+) -> Dict:
     """把全队契约要的 `source` 对象预先拼好，抽取层可原样拷贝，零映射。
 
-    注意 `parse_meta` **没有**包含 `blocks`：契约 `interface/README.md` 第四节
-    说 parse_meta 由解析侧填 parser_version / page_count / blocks，但
-    `event-envelope.schema.json` 对 parse_meta 设了 `additionalProperties: false`
-    且只允许 parser_version / page_count —— 写入 blocks 会导致校验失败。
-    块数据实际在 `pages[].blocks[]`，取法见 `provenance_from_block`。
-    这个矛盾已作为对齐项反馈给魏文宇。
+    `parse_meta.blocks` 与契约对齐：契约 `interface/README.md` 第四节要求解析侧
+    在 parse_meta 里提供 blocks，`event-envelope.schema.json` 的 parse_meta
+    已加入 `blocks`（type: array|null）。(D1 时该字段缺失、且 additionalProperties
+    为 false，写入会导致校验失败；D2 魏文宇已按对齐报告修好。)
     """
     return {
         "target_contract": TEAM_CONTRACT,
@@ -245,6 +280,7 @@ def make_handoff(file_id: str, file_name: str, sha: str, page_count: int) -> Dic
             "parse_meta": {
                 "parser_version": f"{PARSER_NAME}/{PARSER_VERSION}",
                 "page_count": page_count,
+                "blocks": flatten_blocks(pages) if pages else None,
             },
         },
         # 抽取层组装 provenance 时按这个取
@@ -253,13 +289,34 @@ def make_handoff(file_id: str, file_name: str, sha: str, page_count: int) -> Dic
             "page": "block.page",
             "region": "block.region",
             "quote": "block.text_raw",
+            "source_type": "block.source_type",
+            "document_id": "block.doc_id",
+            "table": "block.table_ref.table_id",
+            "cell": "block.table_ref.cell_id",
+        },
+        # 三方字段名不同，这里一次给全，避免各自猜。
+        # 魏 = 抽取契约 interface/event-envelope.schema.json
+        # 宗 = 评测证据契约 evaluation/D1/schemas/evidence.schema.json
+        "field_aliases": {
+            "region": {"parser": "region", "wei": "region", "zong": "bbox"},
+            "text_raw": {"parser": "text_raw", "wei": "quote", "zong": "excerpt"},
+            "doc_id": {
+                "parser": "doc_id",
+                "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+                "zong": "document_id",
+            },
+            "source_type": {"parser": "source_type", "zong": "source_type", "wei": "（未定义）"},
+            "table_ref": {
+                "parser": "table_ref.table_id / cell_id",
+                "zong": "table / cell",
+                "wei": "（未定义）",
+            },
         },
         "blocks_path": "pages[].blocks[]",
         "warnings": [
-            "parse_meta.blocks 未提供：契约 schema 对 parse_meta 设了 additionalProperties:false，"
-            "写入会导致校验失败。块数据在 pages[].blocks[]。",
-            "region 的坐标语义（单位 pt、原点左上、顺序 left/top/right/bottom）由本文档 "
-            "doc.coord_system 声明；契约 schema 未声明，建议在契约侧补一行说明。",
+            "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。"
+            "页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+            "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。",
         ],
     }
 
@@ -301,13 +358,13 @@ def make_document(
         "pages": pages,
         # 阅读顺序显式输出，不指望下游自己拼
         "reading_order": reading_order,
-        "handoff": make_handoff(file_id, file_name, sha, page_count),
+        "handoff": make_handoff(file_id, file_name, sha, page_count, pages),
         "quality": quality or {"degraded": False, "degrade_reasons": [], "warnings": []},
     }
 
 
 # ---------------------------------------------------------------- 自检
-REQUIRED_BLOCK_KEYS = ("block_id", "page", "region", "source")
+REQUIRED_BLOCK_KEYS = ("block_id", "doc_id", "page", "source_type", "region", "source")
 REQUIRED_CELL_KEYS = ("table_id", "page", "row", "col", "region")
 
 
@@ -347,6 +404,12 @@ def self_check(doc: Dict) -> Dict:
                 errs.append(f"page {pno} block {b.get('block_id')}: region 顺序错误")
             if b.get("text_raw") in (None, ""):
                 errs.append(f"page {pno} block {b.get('block_id')}: 缺 text_raw（契约的 quote 取它）")
+            if b.get("source_type") not in (
+                KIND_PARAGRAPH, KIND_TABLE, KIND_CELL, KIND_SCAN_REGION, KIND_DOCUMENT
+            ):
+                errs.append(f"page {pno} block {b.get('block_id')}: source_type 非法 {b.get('source_type')!r}")
+            if b.get("source_type") == KIND_CELL and not b.get("table_ref"):
+                errs.append(f"page {pno} block {b.get('block_id')}: source_type=cell 但缺 table_ref")
             bid = b.get("block_id")
             if bid in seen_ids:
                 errs.append(f"block_id 重复: {bid}")

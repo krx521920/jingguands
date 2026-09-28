@@ -73,6 +73,14 @@ def parse_pdf(pdf_path: str, on_progress=None) -> dict:
 
             for b in pg["blocks"]:
                 reading_order.append(b["block_id"])
+                if b.get("degraded"):
+                    degraded = True
+            n_tbl_leftover = sum(1 for b in pg["blocks"] if b.get("source_type") == "table")
+            if n_tbl_leftover:
+                warnings.append(
+                    f"page {page_no}: 表格内有 {n_tbl_leftover} 组字符未能归入检出单元格，"
+                    f"已按行兜底（source_type=table，degraded=true），文本可能乱序"
+                )
             pages.append(pg)
 
             if on_progress:

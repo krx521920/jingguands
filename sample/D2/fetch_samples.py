@@ -13,8 +13,9 @@
 
 取回后跑：
 
-    set PYTHONPATH=..\\D1张智博_解析JSON样例＋出处结构\\src
-    python -m finstruct.parse.parse_pdf raw/pledge.pdf -o parse/pledge-001.parse.json
+    在仓库根目录：
+        set PYTHONPATH=src
+        python -m finstruct.parse.parse_pdf sample\\D2\\raw\\pledge-001.pdf -o sample\\D2\\parse\\pledge-001.parse.json
 
 ## 合规
 
