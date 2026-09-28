@@ -1,0 +1,551 @@
+{
+  "schema_version": "evidence/0.2",
+  "doc": {
+    "doc_id": "b36fb365",
+    "file_id": "sha256:b36fb365da941b94ce21368d0d43faea991a40100bd6587edfcaf8b1d141d2e9",
+    "file_name": "pledge_sample_01.txt",
+    "file_sha256": "b36fb365da941b94ce21368d0d43faea991a40100bd6587edfcaf8b1d141d2e9",
+    "file_size": 1344,
+    "page_count": 1,
+    "parsed_at": "2026-09-28T13:30:00+08:00",
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.0,
+      "height": 842.0,
+      "form_evidence": {
+        "reason": "mock: 文本样例按 TEXT 处理"
+      },
+      "blocks": [
+        {
+          "block_id": "b36fb365_p001_b00001",
+          "page": 1,
+          "type": "TEXT",
+          "role": "TITLE",
+          "text": "【D1冻结样例｜合成文本——仅供接口联通测试，不得作为真实评测数据】",
+          "text_raw": "【D1冻结样例｜合成文本——仅供接口联通测试，不得作为真实评测数据】",
+          "region": [
+            90.0,
+            72.0,
+            425.95,
+            88.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00002",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "事件类型：pledge（股份质押）",
+          "text_raw": "事件类型：pledge（股份质押）",
+          "region": [
+            90.0,
+            90.0,
+            257.98,
+            106.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00003",
+          "page": 1,
+          "type": "TEXT",
+          "role": "TITLE",
+          "text": "证券代码：600000　证券简称：示例科技　公告编号：2026-042",
+          "text_raw": "证券代码：600000　证券简称：示例科技　公告编号：2026-042",
+          "region": [
+            90.0,
+            108.0,
+            435.83,
+            124.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00004",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "示例科技股份有限公司关于控股股东部分股份质押的公告",
+          "text_raw": "示例科技股份有限公司关于控股股东部分股份质押的公告",
+          "region": [
+            90.0,
+            126.0,
+            337.02,
+            142.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00005",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带责任。",
+          "text_raw": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带责任。",
+          "region": [
+            90.0,
+            144.0,
+            505.0,
+            160.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00006",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "公司于2026年9月25日收到控股股东张某的通知，获悉其所持有本公司的部分股份办理了质押手续，具体事项如下：",
+          "text_raw": "公司于2026年9月25日收到控股股东张某的通知，获悉其所持有本公司的部分股份办理了质押手续，具体事项如下：",
+          "region": [
+            90.0,
+            162.0,
+            505.0,
+            178.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00007",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "一、本次股份质押基本情况",
+          "text_raw": "一、本次股份质押基本情况",
+          "region": [
+            90.0,
+            180.0,
+            208.57,
+            196.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00008",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "股东名称：张某",
+          "text_raw": "股东名称：张某",
+          "region": [
+            90.0,
+            198.0,
+            159.17,
+            214.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00009",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "是否为控股股东：是",
+          "text_raw": "是否为控股股东：是",
+          "region": [
+            90.0,
+            216.0,
+            178.93,
+            232.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00010",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "质押起始日：2026年9月24日",
+          "text_raw": "质押起始日：2026年9月24日",
+          "region": [
+            90.0,
+            234.0,
+            248.1,
+            250.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00011",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "质押到期日：2027年9月23日",
+          "text_raw": "质押到期日：2027年9月23日",
+          "region": [
+            90.0,
+            252.0,
+            248.1,
+            268.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00012",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "质权人：中国示例银行股份有限公司上海分行",
+          "text_raw": "质权人：中国示例银行股份有限公司上海分行",
+          "region": [
+            90.0,
+            270.0,
+            287.62,
+            286.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00013",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "质押股数：20,000,000股",
+          "text_raw": "质押股数：20,000,000股",
+          "region": [
+            90.0,
+            288.0,
+            248.1,
+            304.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00014",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "所持股份总数：120,000,000股",
+          "text_raw": "所持股份总数：120,000,000股",
+          "region": [
+            90.0,
+            306.0,
+            277.74,
+            322.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00015",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "占其所持股份比例：16.67%",
+          "text_raw": "占其所持股份比例：16.67%",
+          "region": [
+            90.0,
+            324.0,
+            238.21,
+            340.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00016",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "占公司总股本比例：5.00%",
+          "text_raw": "占公司总股本比例：5.00%",
+          "region": [
+            90.0,
+            342.0,
+            228.33,
+            358.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00017",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "是否为限售股：否",
+          "text_raw": "是否为限售股：否",
+          "region": [
+            90.0,
+            360.0,
+            169.05,
+            376.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00018",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "质押融资资金用途：补充流动资金",
+          "text_raw": "质押融资资金用途：补充流动资金",
+          "region": [
+            90.0,
+            378.0,
+            238.21,
+            394.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00019",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "二、股东累计质押股份情况",
+          "text_raw": "二、股东累计质押股份情况",
+          "region": [
+            90.0,
+            396.0,
+            208.57,
+            412.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00020",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "截至本公告披露日，上述股东及其一致行动人累计质押股份70,000,000股，占其所持股份总数的58.33%，占公司总股本的17.50%。",
+          "text_raw": "截至本公告披露日，上述股东及其一致行动人累计质押股份70,000,000股，占其所持股份总数的58.33%，占公司总股本的17.50%。",
+          "region": [
+            90.0,
+            414.0,
+            505.0,
+            430.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00021",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            90.0,
+            432.0,
+            139.4,
+            448.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00022",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "示例科技股份有限公司董事会",
+          "text_raw": "示例科技股份有限公司董事会",
+          "region": [
+            90.0,
+            450.0,
+            218.45,
+            466.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        },
+        {
+          "block_id": "b36fb365_p001_b00023",
+          "page": 1,
+          "type": "TEXT",
+          "role": "BODY",
+          "text": "2026年9月26日",
+          "text_raw": "2026年9月26日",
+          "region": [
+            90.0,
+            468.0,
+            188.81,
+            484.0
+          ],
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null,
+          "table_ref": null
+        }
+      ],
+      "tables": []
+    }
+  ],
+  "reading_order": [
+    "b36fb365_p001_b00001",
+    "b36fb365_p001_b00002",
+    "b36fb365_p001_b00003",
+    "b36fb365_p001_b00004",
+    "b36fb365_p001_b00005",
+    "b36fb365_p001_b00006",
+    "b36fb365_p001_b00007",
+    "b36fb365_p001_b00008",
+    "b36fb365_p001_b00009",
+    "b36fb365_p001_b00010",
+    "b36fb365_p001_b00011",
+    "b36fb365_p001_b00012",
+    "b36fb365_p001_b00013",
+    "b36fb365_p001_b00014",
+    "b36fb365_p001_b00015",
+    "b36fb365_p001_b00016",
+    "b36fb365_p001_b00017",
+    "b36fb365_p001_b00018",
+    "b36fb365_p001_b00019",
+    "b36fb365_p001_b00020",
+    "b36fb365_p001_b00021",
+    "b36fb365_p001_b00022",
+    "b36fb365_p001_b00023"
+  ],
+  "handoff": {
+    "target_contract": "jingguan/event-envelope@0.2",
+    "source": {
+      "file_id": "sha256:b36fb365da941b94ce21368d0d43faea991a40100bd6587edfcaf8b1d141d2e9",
+      "file_name": "pledge_sample_01.txt",
+      "file_sha256": "b36fb365da941b94ce21368d0d43faea991a40100bd6587edfcaf8b1d141d2e9",
+      "parse_meta": {
+        "parser_version": "mock-handoff/0.1",
+        "page_count": 1,
+        "blocks": null
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw"
+    },
+    "blocks_path": "pages[0].blocks",
+    "warnings": [
+      "D2 联调用模拟解析：块由脚本按行切分构造，非 finstruct 解析器产出；region 坐标为示意值，不得用于真实出处评测"
+    ]
+  },
+  "quality": {
+    "degrade_reasons": []
+  }
+}

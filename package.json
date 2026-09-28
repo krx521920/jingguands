@@ -197,6 +197,7 @@
     "dsh": "node --import tsx/esm apps/cli/src/bin.ts",
     "jingguan:run": "node scripts/jingguan/run_extract.mjs",
     "jingguan:validate": "node scripts/jingguan/validate_envelope.mjs",
+    "jingguan:test-normalize": "node scripts/jingguan/test_normalization.mjs",
     "demo:ptc": "node scripts/demo-ptc.mjs",
     "demo:inspector": "node --import tsx/esm apps/cli/src/bin.ts web --patch ./packages/experimental/inspector/cordis.source.patch.yml",
     "mock:llm": "node --import tsx packages/test-support/llm-mock-server/src/bin.ts",

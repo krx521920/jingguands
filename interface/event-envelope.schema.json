@@ -23,7 +23,8 @@
           "additionalProperties": false,
           "properties": {
             "parser_version": { "type": ["string", "null"] },
-            "page_count": { "type": ["integer", "null"], "minimum": 1 }
+            "page_count": { "type": ["integer", "null"], "minimum": 1 },
+            "blocks": { "type": ["array", "null"], "items": { "type": "object" } }
           }
         }
       }
@@ -54,7 +55,7 @@
           "items": { "type": "number" },
           "minItems": 4,
           "maxItems": 4,
-          "description": "[x1,y1,x2,y2] 页面区域坐标（解析侧供给）"
+          "description": "页面区域 [left, top, right, bottom]。单位：PDF 点（1pt=1/72英寸）；原点：页面左上角，y 轴向下为正；屏幕换算：region / [page.width, page.height] × 显示尺寸（每页 width/height 由解析侧给出）。禁止理解为 x/y/宽/高。"
         },
         "table_id": { "type": ["string", "null"], "description": "表格证据：所属表格唯一标识（解析侧供给，纯文本出处为 null）" },
         "cell_ref": { "type": ["string", "null"], "description": "表格证据：单元格引用（如 \"B3\" 或 \"r2c3\"；非表格出处为 null）" },

@@ -24,6 +24,12 @@ node scripts/jingguan/run_extract.mjs --input interface/samples/pledge_sample_01
 # 真实调用
 export JINGGUAN_LLM_API_KEY=sk-xxxx          # 或 DEEPSEEK_API_KEY
 node scripts/jingguan/run_extract.mjs --input interface/samples/pledge_sample_01.txt
+
+# D2 解析块模式：消费张智博 evidence/0.2 解析 JSON（块级出处＋方轩诚标准化自动接入）
+node scripts/jingguan/run_extract.mjs --parse interface/samples/pledge_sample_01.parse.json
+
+# 标准化验收（方轩诚 10 用例，移植一致性测试）
+npm run jingguan:test-normalize
 ```
 
 每次运行产生 `runs/<run_id>/`：`events.json`（v0.2 信封）＋ `call_log.json`（请求、耗时、token 用量、原始返回；不含密钥）。
@@ -163,7 +169,8 @@ FieldValue（**核心结构，四个人都要消费**）：
 { "block_id": "p3-b12", "page": 3, "region": [x1,y1,x2,y2], "table_id": "p3-t2", "cell_ref": "B3", "quote": "……" }
 ```
 
-- **张智博（DocumentIR）**：供给 `document_id`（→source.file_id）、`page`、`block_id`、`region`、表格类出处补 `table_id`/`cell_ref`；**quote 必须来自原文，禁止事后按数字反搜**。表格证据不许丢失：来自表格的字段必须带 table_id/cell_ref（纯文本出处保持 null）。
+- **张智博（DocumentIR）**：供给 `document_id`（→source.file_id）、`page`、`block_id`、`region`、表格类出处补 `table_id`/`cell_ref`；**quote 必须来自原文，禁止事后按数字反搜**。表格证据不许丢失：来自表格的字段必须带 table_id/cell_ref（纯文本出处保持 null）。`source.parse_meta` 可填 `parser_version`、`page_count`、`blocks`（块摘要数组，允许 null；块全量数据在解析 JSON 的 `pages[].blocks[]`，抽取层经 `handoff.provenance_from_block` 映射消费）。
+- **region 坐标语义（D2 冻结）**：`[left, top, right, bottom]`，单位 PDF 点（1pt=1/72 英寸），原点页面左上角、y 轴向下；屏幕坐标 = region ÷ [page.width, page.height] × 显示尺寸。禁止按 x/y/宽/高解读。
 - D1 纯文本阶段允许 `page:1 + quote`；表格证据自 D2 解析接入起补齐。
 - 评测抽查出处命中时，区域与单元格分开统计。
 
@@ -177,6 +184,11 @@ FieldValue（**核心结构，四个人都要消费**）：
 ## 八、v0.1 → v0.2 变更记录、降级规则与字段丢失清单
 
 **变更（依据评测方反馈全量采纳）**
+
+D2 补丁（2026-09-28，依据张智博《契约对齐报告_D1》三处反馈，schema 保持 v0.2 向后兼容）：
+1. `parse_meta` 增补可选 `blocks` 字段（原 README 与 schema 矛盾，按 schema 收敛并放行块摘要）。
+2. `region` 坐标语义写进契约：PDF 点、左上原点、y 向下、`[left, top, right, bottom]` 顺序＋屏幕换算公式。
+3. 消费张智博解析 JSON 的 `handoff.source`（可原样拷入 source）与 `handoff.provenance_from_block` 映射（quote 取 `block.text_raw`，不是 `text`——后者跨行处会补空格，不是严格原文子串）。
 
 1. 状态枚举 4→6：新增 `not_disclosed`（原文明示未披露，不推断）、`not_applicable`（结构性不适用）。
 2. 质押比例由 1 个字段（＋cumulative 标记）拆为 4 个独立字段（本次/累计 × 占持股/占总股本），股数同样拆本次/累计；**删除 FieldValue 的 `cumulative` 属性**（口径进入字段名，杜绝混用）。

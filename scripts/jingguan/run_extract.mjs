@@ -24,6 +24,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { validateAgainstSchema } from './lib/schema_validator.mjs'
 import { FIELD_REGISTRY, checkRegistry } from './lib/registry.mjs'
+import { normalizeFieldValue } from './lib/fang_normalize.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const SCHEMA = JSON.parse(readFileSync(resolve(REPO_ROOT, 'interface', 'event-envelope.schema.json'), 'utf8'))
@@ -31,17 +32,32 @@ const SCHEMA = JSON.parse(readFileSync(resolve(REPO_ROOT, 'interface', 'event-en
 // ---------- 参数解析 ----------
 
 function parseArgs(argv) {
-  const args = { input: null, eventType: null, mock: false, outDir: 'runs' }
+  const args = { input: null, eventType: null, mock: false, outDir: 'runs', parse: null }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--input') args.input = argv[++i]
     else if (a === '--event-type') args.eventType = argv[++i]
     else if (a === '--mock') args.mock = true
     else if (a === '--out-dir') args.outDir = argv[++i]
+    else if (a === '--parse') args.parse = argv[++i]
     else if (a === '--help' || a === '-h') { args.help = true; break }
     else { console.error(`未知参数：${a}`); process.exit(2) }
   }
   return args
+}
+
+/** 载入张智博结构（evidence/0.2）的解析 JSON，建立块索引与标注文本。 */
+function loadParseDoc(parsePath) {
+  const doc = JSON.parse(readFileSync(resolve(REPO_ROOT, parsePath), 'utf8'))
+  const blockIndex = new Map()
+  for (const page of doc.pages ?? []) {
+    for (const block of page.blocks ?? []) blockIndex.set(block.block_id, block)
+  }
+  const ordered = (doc.reading_order ?? []).map((id) => blockIndex.get(id)).filter(Boolean)
+  const blocks = ordered.length > 0 ? ordered : [...blockIndex.values()]
+  const annotated = blocks.map((b) => `[${b.block_id}] ${b.text_raw}`).join('\n')
+  const joinedRaw = blocks.map((b) => b.text_raw).join('\n')
+  return { doc, blockIndex, blocks, annotated, joinedRaw }
 }
 
 function inferEventType(fileName) {
@@ -53,7 +69,7 @@ function inferEventType(fileName) {
 
 // ---------- Prompt ----------
 
-function buildSystemPrompt(eventType) {
+function buildSystemPrompt(eventType, parseMode) {
   const fields = Object.entries(FIELD_REGISTRY[eventType]).map(([f, spec]) => {
     const den = spec.fixedDenominator !== undefined
       ? `，denominator 固定为 "${spec.fixedDenominator}"`
@@ -88,6 +104,10 @@ function buildSystemPrompt(eventType) {
     '4. unit 必须用固定枚举，按此映射：股数→"shares"；金额→"cny"；比例→"percent"；日期→"date"；计数→"count"；其余一切（人名/公司名/用途/方式/名称/工期原文等文本）→"text"。禁止写"股""元""%""日历天"等原文字样，禁止 null。',
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。',
+    ...(parseMode ? [
+      '7. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本。provenance 必须给出 quote 所在块的 block_id。',
+      '8. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',
+    ] : []),
   ].join('\n')
 }
 
@@ -242,18 +262,48 @@ function validateEnvelope(envelope, inputText) {
   return issues
 }
 
+/** 解析块模式出处回填：按 block_id 从解析结果填 page/region/table；真实模式缺 block_id 记错，mock 允许按 quote 定位块。 */
+function backfillProvenance(events, blockIndex, isMock, errors) {
+  events.forEach((ev, i) => {
+    for (const [name, fv] of Object.entries(ev.fields ?? {})) {
+      fv.provenance?.forEach((p, pi) => {
+        let block = p.block_id ? blockIndex.get(p.block_id) : undefined
+        if (block === undefined && isMock && p.quote) {
+          for (const b of blockIndex.values()) {
+            if (b.text_raw.includes(p.quote)) { block = b; break }
+          }
+          if (block !== undefined) p.block_id = block.block_id
+        }
+        if (block === undefined) {
+          errors.push(`[解析] events[${i}].fields.${name}.provenance[${pi}]: block_id "${p.block_id ?? ''}" 不在解析结果中`)
+          return
+        }
+        p.page = block.page
+        p.region = block.region ?? null
+        p.table_id = block.table_ref?.table_id ?? null
+        p.cell_ref = block.table_ref?.cell_ref ?? null
+        if (p.quote && !block.text_raw.includes(p.quote)) {
+          errors.push(`[解析] events[${i}].fields.${name}.provenance[${pi}]: quote 不是块 ${block.block_id} text_raw 的子串`)
+        }
+      })
+    }
+  })
+}
+
 // ---------- 主流程 ----------
 
 async function main() {
   const args = parseArgs(process.argv.slice(2))
-  if (args.help || !args.input) {
-    console.log('用法：node scripts/jingguan/run_extract.mjs --input <公告文本文件> [--event-type pledge|equity_change|bid_won] [--mock] [--out-dir runs]')
-    process.exit(args.input ? 0 : 2)
+  if (args.help || (!args.input && !args.parse)) {
+    console.log('用法：node scripts/jingguan/run_extract.mjs --input <公告文本文件> [--parse <evidence/0.2 解析JSON>] [--event-type pledge|equity_change|bid_won] [--mock] [--out-dir runs]')
+    process.exit(args.input || args.parse ? 0 : 2)
   }
 
-  const inputPath = resolve(REPO_ROOT, args.input)
-  const inputText = readFileSync(inputPath, 'utf8')
-  const fileName = basename(inputPath)
+  // 解析块模式（D2）：消费张智博 evidence/0.2 结构；纯文本模式与 D1 相同
+  const parseDoc = args.parse ? loadParseDoc(args.parse) : null
+  const inputText = parseDoc ? parseDoc.joinedRaw : readFileSync(resolve(REPO_ROOT, args.input), 'utf8')
+  const modelInput = parseDoc ? parseDoc.annotated : inputText
+  const fileName = parseDoc ? (parseDoc.doc.doc?.file_name ?? basename(args.parse)) : basename(resolve(REPO_ROOT, args.input))
   const eventType = args.eventType ?? inferEventType(fileName)
   if (!eventType || !(eventType in FIELD_REGISTRY)) {
     console.error('无法确定事件类型：请用 --event-type 指定 pledge|equity_change|bid_won')
@@ -274,8 +324,8 @@ async function main() {
   const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\..+/, '')
   const runId = `${stamp}-${eventType}-${Math.random().toString(16).slice(2, 6)}`
   const startedAt = new Date().toISOString()
-  console.log(`[运行] run_id=${runId}`)
-  console.log(`[输入] ${args.input}（事件类型 ${eventType}，${inputText.length} 字符）`)
+  console.log(`[运行] run_id=${runId} 模式=${parseDoc ? '解析块（evidence/0.2）' : '纯文本'}`)
+  console.log(`[输入] ${args.parse ?? args.input}（事件类型 ${eventType}，${inputText.length} 字符${parseDoc ? `，${parseDoc.blocks.length} 块` : ''}）`)
   if (isMock) console.log('****** MOCK 模式：不调用真实模型，输出不得计入真实抽取成绩 ******')
 
   const t0 = Date.now()
@@ -283,24 +333,51 @@ async function main() {
   try {
     call = isMock
       ? mockModelResponse(eventType)
-      : await callModel({ baseURL, model, apiKey, system: buildSystemPrompt(eventType), user: inputText.slice(0, 60000) })
+      : await callModel({ baseURL, model, apiKey, system: buildSystemPrompt(eventType, parseDoc !== null), user: modelInput.slice(0, 60000) })
   } catch (err) {
     callError = err
   }
   const durationMs = Date.now() - t0
 
-  const sha256 = createHash('sha256').update(inputText, 'utf8').digest('hex')
+  // ---- D2 事件后处理：块级出处回填 ＋ 数值标准化（方的 normalize 移植） ----
+  const events = call ? parseModelJson(call.content).events ?? [] : []
+  const postErrors = []
+  if (parseDoc !== null) backfillProvenance(events, parseDoc.blockIndex, isMock, postErrors)
+  let normalizedCount = 0
+  for (const ev of events) {
+    for (const [name, fv] of Object.entries(ev.fields ?? {})) {
+      const err = normalizeFieldValue(name, fv)
+      if (err !== null) postErrors.push(err)
+      else if (fv.standardized === true) normalizedCount++
+    }
+  }
+
+  const handoff = parseDoc?.doc?.handoff
+  const sha256 = parseDoc
+    ? (handoff?.source?.file_sha256 ?? createHash('sha256').update(inputText, 'utf8').digest('hex'))
+    : createHash('sha256').update(inputText, 'utf8').digest('hex')
   const envelope = {
     schema_version: '0.2',
     run_id: runId,
     is_mock: isMock,
-    source: {
-      file_id: `sha256:${sha256.slice(0, 16)}`,
-      file_name: fileName,
-      file_sha256: sha256,
-      parse_meta: { parser_version: null, page_count: 1 },
-    },
-    events: call ? parseModelJson(call.content).events ?? [] : [],
+    source: parseDoc
+      ? {
+          file_id: handoff?.source?.file_id ?? `sha256:${sha256.slice(0, 16)}`,
+          file_name: fileName,
+          file_sha256: sha256,
+          parse_meta: handoff?.source?.parse_meta ?? {
+            parser_version: null,
+            page_count: parseDoc.doc.doc?.page_count ?? 1,
+            blocks: null,
+          },
+        }
+      : {
+          file_id: `sha256:${sha256.slice(0, 16)}`,
+          file_name: fileName,
+          file_sha256: sha256,
+          parse_meta: { parser_version: null, page_count: 1, blocks: null },
+        },
+    events,
     run_meta: {
       entry: 'cli',
       model: isMock ? 'mock' : model,
@@ -310,7 +387,7 @@ async function main() {
     },
   }
 
-  envelope.run_meta.errors.push(...validateEnvelope(envelope, inputText))
+  envelope.run_meta.errors.push(...postErrors, ...validateEnvelope(envelope, inputText))
 
   const outDir = resolve(REPO_ROOT, args.outDir, runId)
   mkdirSync(outDir, { recursive: true })
@@ -321,8 +398,9 @@ async function main() {
     endpoint: isMock ? 'mock' : `${baseURL.replace(/\/$/, '')}/chat/completions`,
     model: isMock ? 'mock' : model,
     request: {
-      system_prompt: buildSystemPrompt(eventType),
-      user_message_chars: inputText.length,
+      system_prompt: buildSystemPrompt(eventType, parseDoc !== null),
+      user_message_chars: modelInput.length,
+      mode: parseDoc !== null ? 'parse-blocks' : 'raw-text',
       temperature: 0,
       response_format: { type: 'json_object' },
     },
@@ -336,7 +414,7 @@ async function main() {
   // 汇总
   const statusCount = {}
   for (const ev of envelope.events) for (const fv of Object.values(ev.fields)) statusCount[fv.status] = (statusCount[fv.status] ?? 0) + 1
-  console.log(`[完成] schema v${envelope.schema_version}，${envelope.events.length} 个事件，字段状态：${JSON.stringify(statusCount)}，耗时 ${durationMs}ms`)
+  console.log(`[完成] schema v${envelope.schema_version}，${envelope.events.length} 个事件，字段状态：${JSON.stringify(statusCount)}，标准化 ${normalizedCount} 项，耗时 ${durationMs}ms`)
   console.log(`[输出] ${args.outDir}/${runId}/events.json`)
   console.log(`[日志] ${args.outDir}/${runId}/call_log.json`)
   if (envelope.run_meta.errors.length > 0) {
