@@ -1,8 +1,10 @@
 /**
- * 经管竞赛核心插件：事件 JSON 接口 v0.1 的 harness 侧入口。
+ * 经管竞赛核心插件：事件 JSON 接口 v0.2 的 harness 侧入口。
  *
- * D1（2026-09-27）范围：工具注册、信封结构校验、统一错误返回。
- * D2 计划：接入解析（blocks→provenance）与标准化接口，模型调用改走 ctx.llm。
+ * v0.2（2026-09-27 晚，依据评测方反馈）：状态扩至 6 个；质押本次/累计与分母拆分为
+ * 独立字段（移除 cumulative 属性）；出处支持表格证据（table_id/cell_ref）。
+ * D1 范围：工具注册、信封结构校验、统一错误返回。
+ * D2 计划：接入解析（DocumentIR blocks→provenance）与标准化接口，模型调用改走 ctx.llm。
  * 契约文档：interface/README.md；机器可校验版本：interface/event-envelope.schema.json。
  */
 import type { Context } from '@deepseek-ai/cordis'
@@ -14,7 +16,7 @@ export const name = 'jingguan-core'
 
 /** 插件配置。 */
 export interface Config {
-  /** 严格模式：事件中出现注册表之外的字段名时报错（D2 起默认开启）。 */
+  /** 严格模式：事件中出现注册表之外的字段名时报错。 */
   strict: boolean
 }
 
@@ -26,27 +28,33 @@ export const Config: z<Config> = z.object({
 /** Services used. */
 export const inject = ['tools']
 
-/** 事件类型（v0.1 冻结）。 */
+/** 事件类型（v0.2 冻结）。 */
 export type EventType = 'pledge' | 'equity_change' | 'bid_won'
 
-/** 字段值状态（v0.1 冻结）：缺失不能填 0，not_mentioned/unreadable 时 value 必须为 null。 */
-export type FieldStatus = 'extracted' | 'not_mentioned' | 'unreadable' | 'needs_review'
+/** 字段值状态（v0.2，6 个）：除 extracted/needs_review 外 value 必须为 null。 */
+export type FieldStatus = 'extracted' | 'not_disclosed' | 'not_applicable' | 'not_mentioned' | 'unreadable' | 'needs_review'
 
 /** 字段注册表条目。 */
 export interface FieldSpec {
   unit: 'shares' | 'cny' | 'percent' | 'date' | 'text' | 'count'
   label: string
+  /** 比例字段的固定分母（v0.2 起由字段名决定，注册表同步声明）。 */
+  fixedDenominator?: 'shares_held' | 'total_shares'
+  /** 分母按原文判定的比例字段。 */
   requiresDenominator?: boolean
-  allowsCumulative?: boolean
 }
 
-/** v0.1 冻结的字段注册表（与 interface/README.md 第三节保持一致）。 */
+/** v0.2 冻结的字段注册表（与 interface/README.md 第五节保持一致）。 */
 export const FIELD_REGISTRY: Record<EventType, Record<string, FieldSpec>> = {
   pledge: {
     pledgor: { unit: 'text', label: '质押人' },
     pledgee: { unit: 'text', label: '质权人' },
-    pledged_shares: { unit: 'shares', label: '质押股数' },
-    pledged_ratio: { unit: 'percent', label: '质押比例', requiresDenominator: true },
+    pledged_shares_this_time: { unit: 'shares', label: '本次质押股数' },
+    pledged_shares_cumulative: { unit: 'shares', label: '累计质押股数' },
+    pledged_ratio_this_time_of_held: { unit: 'percent', label: '本次质押占其所持股份比例', fixedDenominator: 'shares_held' },
+    pledged_ratio_this_time_of_total: { unit: 'percent', label: '本次质押占公司总股本比例', fixedDenominator: 'total_shares' },
+    pledged_ratio_cumulative_of_held: { unit: 'percent', label: '累计质押占其所持股份比例', fixedDenominator: 'shares_held' },
+    pledged_ratio_cumulative_of_total: { unit: 'percent', label: '累计质押占公司总股本比例', fixedDenominator: 'total_shares' },
     pledge_amount: { unit: 'cny', label: '质押金额' },
     start_date: { unit: 'date', label: '质押起始日' },
     end_date: { unit: 'date', label: '质押到期日' },
@@ -77,16 +85,25 @@ export const FIELD_REGISTRY: Record<EventType, Record<string, FieldSpec>> = {
   },
 }
 
-/** 任意字段值结构（见 interface/README.md FieldValue）。 */
+/** 出处结构（v0.2 含表格证据）。 */
+export interface Provenance {
+  block_id: string | null
+  page: number
+  region: number[] | null
+  table_id: string | null
+  cell_ref: string | null
+  quote: string
+}
+
+/** 任意字段值结构（见 interface/README.md FieldValue；v0.2 无 cumulative）。 */
 export interface FieldValue {
   raw_value: string | null
   value: number | string | boolean | null
   unit: FieldSpec['unit']
   standardized?: boolean
   status: FieldStatus
-  provenance: Array<{ block_id: string | null, page: number, region: number[] | null, quote: string }>
+  provenance: Provenance[]
   denominator?: 'shares_held' | 'total_shares' | null
-  cumulative?: boolean | null
   note?: string | null
 }
 
@@ -99,9 +116,9 @@ export interface Event {
   notes?: string | null
 }
 
-/** 输出信封（v0.1）。 */
+/** 输出信封（v0.2）。 */
 export interface EventEnvelope {
-  schema_version: '0.1'
+  schema_version: '0.2'
   run_id: string
   is_mock: boolean
   source: { file_id: string | null, file_name: string | null, file_sha256: string | null, parse_meta: { parser_version: string | null, page_count: number | null } | null }
@@ -120,20 +137,23 @@ export function skeletonFields(eventType: EventType): Record<string, FieldValue>
       standardized: false,
       status: 'not_mentioned',
       provenance: [],
-      denominator: spec.requiresDenominator === true ? null : undefined,
-      cumulative: undefined,
+      denominator: spec.fixedDenominator ?? (spec.requiresDenominator === true ? null : undefined),
       note: null,
     }
   }
   return fields
 }
 
+/** strict 开关供 validateEnvelope 使用（模块级，D2 改为随调用传入）。 */
+let configStrict = true
+
 /** 结构校验：返回问题清单（空数组＝合规）。问题如实上报，不静默修正。 */
 export function validateEnvelope(envelope: EventEnvelope): string[] {
   const issues: string[] = []
-  if (envelope.schema_version !== '0.1') issues.push(`schema_version 应为 "0.1"，实际 ${JSON.stringify(envelope.schema_version)}`)
+  if (envelope.schema_version !== '0.2') issues.push(`schema_version 应为 "0.2"，实际 ${JSON.stringify(envelope.schema_version)}`)
   if (!Array.isArray(envelope.events)) issues.push('events 必须是数组')
   const eventTypes = Object.keys(FIELD_REGISTRY) as EventType[]
+  const nullValueStatuses = new Set<FieldStatus>(['not_disclosed', 'not_applicable', 'not_mentioned', 'unreadable'])
   envelope.events.forEach((event, index) => {
     const where = `events[${index}]`
     if (!eventTypes.includes(event.event_type)) {
@@ -147,8 +167,8 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
         issues.push(`${fieldWhere} 不在 ${event.event_type} 注册表中`)
         continue
       }
-      if (value.status === 'not_mentioned' || value.status === 'unreadable') {
-        if (value.value !== null) issues.push(`${fieldWhere} status=${value.status} 但 value 非 null（缺失禁止填值，0 也不行）`)
+      if (nullValueStatuses.has(value.status) && value.value !== null) {
+        issues.push(`${fieldWhere} status=${value.status} 但 value 非 null（缺失禁止填值，0 也不行）`)
       }
       if (value.status === 'extracted') {
         if (value.provenance.length === 0) issues.push(`${fieldWhere} status=extracted 但无出处`)
@@ -159,19 +179,16 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
   return issues
 }
 
-/** strict 开关供 validateEnvelope 使用（模块级，D2 改为随调用传入）。 */
-let configStrict = true
-
 /**
  * 注册 jingguan_extract_events 工具。
- * D1 行为：按事件类型返回全 not_mentioned 的信封骨架并做结构校验，
+ * D1 行为：按事件类型返回全 not_mentioned 的 v0.2 信封骨架并做结构校验，
  * 供会话内联调接口契约；真实模型抽取自 D2 起接入。
  */
 export function apply(ctx: Context, config: Config): void {
   configStrict = config.strict
   ctx.tools.register(defineTool({
     name: 'jingguan_extract_events',
-    description: '按事件 JSON 接口 v0.1 生成公告事件的信封骨架并校验结构。'
+    description: '按事件 JSON 接口 v0.2 生成公告事件的信封骨架并校验结构。'
       + '输入公告文本与事件类型（pledge/equity_change/bid_won），返回注册表全字段的 not_mentioned 骨架；'
       + '字段抽取与模型调用自 D2 版本接入。',
     parameters: {
@@ -183,13 +200,13 @@ export function apply(ctx: Context, config: Config): void {
       schema: {
         type: 'object', additionalProperties: false,
         properties: {
-          envelope: { type: 'object', description: 'v0.1 事件信封' },
+          envelope: { type: 'object', description: 'v0.2 事件信封' },
           issues: { type: 'array', items: { type: 'string' }, description: '结构校验问题清单' },
         },
       },
       render: (_args, value) => [{
         type: 'text',
-        text: `信封骨架已生成：${value.envelope.events.length} 个事件，校验问题 ${value.issues.length} 条`,
+        text: `v0.2 信封骨架已生成：${value.envelope.events.length} 个事件，校验问题 ${value.issues.length} 条`,
       }],
     },
     async execute(args) {
@@ -202,7 +219,7 @@ export function apply(ctx: Context, config: Config): void {
       }
       const runId = args.run_id ?? `tool-${new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14)}`
       const envelope: EventEnvelope = {
-        schema_version: '0.1',
+        schema_version: '0.2',
         run_id: runId,
         is_mock: true,
         source: { file_id: null, file_name: null, file_sha256: null, parse_meta: null },

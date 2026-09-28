@@ -1,0 +1,202 @@
+{
+  "schema_version": "0.2",
+  "run_id": "20260928T015941-bid_won-afdb",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:f05e20c146d90be0",
+    "file_name": "bid_won_sample_01.txt",
+    "file_sha256": "f05e20c146d90be0478bc60e2613357d997ed8cc4cd1f7ad282642d2883fd541",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "bid_won",
+      "fields": {
+        "bidder": {
+          "raw_value": "示例建设科技股份有限公司",
+          "value": "示例建设科技股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "近日，示例建设科技股份有限公司（以下简称\"公司\"）收到招标人某市轨道交通集团有限公司发出的《中标通知书》"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "某市轨道交通集团有限公司",
+          "value": "某市轨道交通集团有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "招标人：某市轨道交通集团有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "某市轨道交通3号线土建施工总承包项目",
+          "value": "某市轨道交通3号线土建施工总承包项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "项目名称：某市轨道交通3号线土建施工总承包项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "人民币1,258,000,000元",
+          "value": 1258000000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额：人民币1,258,000,000元（含税）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "人民币",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额：人民币1,258,000,000元（含税）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": "含税",
+          "value": true,
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额：人民币1,258,000,000元（含税）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "1,095日历天",
+          "value": "1,095日历天",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "工期：1,095日历天"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium": {
+          "raw_value": "公司与联合体成员某市政设计研究院组成的联合体",
+          "value": "公司与联合体成员某市政设计研究院组成的联合体",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "公司与联合体成员某市政设计研究院组成的联合体，中标\"某市轨道交通3号线土建施工总承包项目\""
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标日期：2026年9月24日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-09-28T01:59:41.181Z",
+    "duration_ms": 3151,
+    "errors": []
+  }
+}

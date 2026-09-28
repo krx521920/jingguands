@@ -1,50 +1,62 @@
-# 事件 JSON 接口 v0.1（D1 冻结稿）
+# 事件 JSON 接口 v0.2
 
-- 发布：魏文宇，2026-09-27（D1）
-- 状态：**v0.1 已冻结**。D2 起如需修改字段名/状态枚举，请在群里提出并全员确认后再改，禁止静默变更。
-- 本目录是全队公共契约：解析（张智博）、口径（方轩诚）、页面（陈家浩）、评测（宗博文）都以本文件为准。
+- 发布：魏文宇，2026-09-27（D1 晚，依据评测方反馈全量修订）
+- 状态：**v0.2 候选冻结稿**，待全队确认后正式冻结；v0.1 已废弃（变更记录见第八节）
+- 本目录是全队公共契约：解析（张智博）、口径（方轩诚）、页面（陈家浩）、评测（宗博文）都以本文件＋`event-envelope.schema.json`（机器可校验）为准。**任何模块的输出，提交前必须通过共同校验器**（见第三节）。
 
-## 一、快速开始（运行入口）
+## 一、目标数据流（各就各位）
+
+```
+原始公告
+→ 张智博：DocumentIR（document_id / page / block_id / region / table / cell，quote 必须来自原文）
+→ 魏文宇：EventEnvelope（本契约；事件是什么）
+→ 方轩诚：标准化 FieldValue（数值怎么标准化：统一单位、状态、分母）
+→ 陈家浩：页面展示与导出（怎么展示）
+→ 评测（宗博文）：独立 Gold 评分（是否与 Gold 一致，经投影适配器进入本契约）
+```
+
+## 二、快速开始（运行入口）
 
 ```bash
-# 模拟运行（不调模型，输出明确标注 MOCK，用于页面/接口联调）
+# 模拟运行（不调模型，输出全程标注 MOCK，仅联调）
 node scripts/jingguan/run_extract.mjs --input interface/samples/pledge_sample_01.txt --mock
 
-# 真实调用（需要 API key）
+# 真实调用
 export JINGGUAN_LLM_API_KEY=sk-xxxx          # 或 DEEPSEEK_API_KEY
-export JINGGUAN_LLM_BASE_URL=https://api.deepseek.com   # 可选，默认即此
-export JINGGUAN_LLM_MODEL=deepseek-chat                # 可选，默认即此
 node scripts/jingguan/run_extract.mjs --input interface/samples/pledge_sample_01.txt
 ```
 
-每次运行产生 `runs/<run_id>/`：
+每次运行产生 `runs/<run_id>/`：`events.json`（v0.2 信封）＋ `call_log.json`（请求、耗时、token 用量、原始返回；不含密钥）。
 
-- `events.json` —— 按 v0.1 信封结构输出的事件结果
-- `call_log.json` —— 模型调用日志（请求、耗时、token 用量、原始返回；不含密钥）
+`--event-type pledge|equity_change|bid_won` 可显式指定；缺省从文件名推断。
 
-`--event-type pledge|equity_change|bid_won` 可显式指定；缺省从文件名推断（`pledge_*` / `equity_change_*` / `bid_won_*`）。
+## 三、共同契约校验器（全队必跑）
 
-## 二、信封结构（event envelope）
+```bash
+# 校验指定文件
+node scripts/jingguan/validate_envelope.mjs runs/<run_id>/events.json
+
+# 不带参数＝校验 runs/ 下全部输出
+node scripts/jingguan/validate_envelope.mjs
+```
+
+校验 `interface/event-envelope.schema.json` 的全部结构约束（类型、枚举、必填、字段白名单、event_id 模式等）。**张/方/陈/宗 各自模块产出事件 JSON 时，提交前必须通过本命令**；评测的 Gold 投影适配器输出同样要过。语义级校验（quote 是否命中原文、状态-取值规则）由 runner 在抽取时执行并如实记入 `run_meta.errors`。
+
+## 四、信封结构（event envelope）
 
 ```
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "run_id": "20260927T151234-pledge-a1b2",
   "is_mock": false,
   "source": {
-    "file_id": "sha256:…",          // 文件唯一标识（张智博 D6 依赖）
+    "file_id": "sha256:…",          // 文件唯一标识
     "file_name": "pledge_sample_01.txt",
     "file_sha256": "…",
-    "parse_meta": { "parser_version": null, "page_count": 1 }
+    "parse_meta": { "parser_version": null, "page_count": 1 }   // 张智博的解析侧填充
   },
-  "events": [ /* Event，见下 */ ],
-  "run_meta": {
-    "entry": "cli",                 // cli | web | tool
-    "model": "deepseek-chat",
-    "started_at": "2026-09-27T15:12:34+08:00",
-    "duration_ms": 4321,
-    "errors": []                    // 结构校验发现的问题，如实记录
-  }
+  "events": [ /* Event */ ],
+  "run_meta": { "entry": "cli|web|tool", "model": "…", "started_at": "…", "duration_ms": 0, "errors": [] }
 }
 ```
 
@@ -65,55 +77,59 @@ FieldValue（**核心结构，四个人都要消费**）：
 ```
 {
   "raw_value": "20,000,000股",      // 原文原样字符串；无则 null
-  "value": 20000000,                // 标准化数值；缺失必须为 null，禁止填 0
-  "unit": "shares",                 // shares|cny|percent|date|text|count
+  "value": 20000000,                // 标准化数值；除 extracted/needs_review 外必须为 null
+  "unit": "shares",                 // shares|cny|percent|date|text|count（统一枚举）
   "standardized": true,
-  "status": "extracted",            // extracted|not_mentioned|unreadable|needs_review
+  "status": "extracted",            // 六状态，见下表
   "provenance": [                   // 出处；status=extracted 时至少 1 条
-    { "block_id": null, "page": 1, "region": null, "quote": "质押股数：20,000,000股" }
+    { "block_id": null, "page": 1, "region": null, "table_id": null, "cell_ref": null, "quote": "质押股数：20,000,000股" }
   ],
-  "denominator": null,              // 比例字段专用：shares_held|total_shares|null
-  "cumulative": null,               // 质押字段专用：true|false|null（单次/累计）
+  "denominator": null,              // shares_held|total_shares|null（比例类字段必填）
   "note": null
 }
 ```
 
-### 状态语义（评测与页面都依赖）
+### 状态语义（6 个，页面显示文案同步约定）
 
-| status | 含义 | value |
-|---|---|---|
-| `extracted` | 原文有值且已抽取 | 有值（可为 0——"0"也是原文真实值） |
-| `not_mentioned` | 原文未提及 | 必须 null |
-| `unreadable` | 扫描件/无法读取 | 必须 null |
-| `needs_review` | 疑似有值但不确定 | 可有候选值，页面标"待复核" |
-
-**缺失不能填 0**：`value=0` 只允许出现在 status=extracted 且原文确有"0"时。错误填充率指标以此判定。
-
-### 标准化数值口径（v0.1 约定，待方轩诚 D1 口径字典细化）
-
-- `shares`：股（"万股"→×10⁴，"亿股"→×10⁸）
-- `cny`：元（"万元"→×10⁴，"亿元"→×10⁸）
-- `percent`：百分数数值（"16.67%"→16.67，不带 % 号）
-- `date`：ISO `YYYY-MM-DD`
-- 换算依据不足（如币种不明）→ `standardized:false` + status=`needs_review`
-
-## 三、字段注册表（按事件类型）
-
-### pledge 质押
-
-| 字段名 | 含义 | unit | 备注 |
+| status | 判定 | value | 页面显示 |
 |---|---|---|---|
-| pledgor | 质押人 | text | |
-| pledgee | 质权人 | text | |
-| pledged_shares | 质押股数 | shares | |
-| pledged_ratio | 质押比例 | percent | `denominator` 必填 |
-| pledge_amount | 质押金额 | cny | 可 not_mentioned |
-| start_date | 质押起始日 | date | |
-| end_date | 质押到期日 | date | |
-| purpose | 资金用途 | text | |
-| announcement_date | 公告日期 | date | |
+| `extracted` | 原文有值且已抽取；**原文显式写 0 也是 extracted（value=0）** | 有值 | 正常显示 |
+| `not_disclosed` | 原**明**说"未披露/不适用/无法提供"，不推断 | 必须 null | "原文未披露，不推断" |
+| `not_applicable` | 该字段结构性不适用于本事件 | 必须 null | "不适用于该事件" |
+| `not_mentioned` | 原文压根没提到 | 必须 null | "原文未提及" |
+| `unreadable` | 扫描件/图片/模糊无法读取 | 必须 null | "无法读取" |
+| `needs_review` | 疑似有值但不确定（如日期区间） | 可有候选值 | "待复核" |
 
-### equity_change 股权变动
+**缺失不能填 0**：`value=0` 只允许出现在 extracted 且原文确有"0"。错误填充率指标以此判定。评测注意：`not_disclosed` 不得被误写成 `not_mentioned`，两者计分口径不同。
+
+### 标准化数值口径（待方轩诚口径字典细化）
+
+- `shares`：股（万股×10⁴，亿股×10⁸）；`cny`：元（万元×10⁴，亿元×10⁸）
+- `percent`：百分数数值（"16.67%"→16.67）；`date`：ISO `YYYY-MM-DD`
+- 换算依据不足（币种/单位不明）→ `standardized:false` ＋ `needs_review`
+- 方轩诚侧状态映射：`present→extracted`，`explicit_zero→extracted(value=0)`；不引入 present/confirmed 等私有状态
+
+## 五、字段注册表（按事件类型）
+
+### pledge 质押（13 字段；本次/累计、占持股/占总股本全部拆分为独立字段，denominator 由字段名固定）
+
+| 字段名 | 含义 | unit | denominator |
+|---|---|---|---|
+| pledgor | 质押人 | text | — |
+| pledgee | 质权人 | text | — |
+| pledged_shares_this_time | 本次质押股数 | shares | — |
+| pledged_shares_cumulative | 累计质押股数 | shares | — |
+| pledged_ratio_this_time_of_held | 本次质押占其所持股份比例 | percent | shares_held |
+| pledged_ratio_this_time_of_total | 本次质押占公司总股本比例 | percent | total_shares |
+| pledged_ratio_cumulative_of_held | 累计质押占其所持股份比例 | percent | shares_held |
+| pledged_ratio_cumulative_of_total | 累计质押占公司总股本比例 | percent | total_shares |
+| pledge_amount | 质押金额 | cny | — |
+| start_date | 质押起始日 | date | — |
+| end_date | 质押到期日 | date | — |
+| purpose | 资金用途 | text | — |
+| announcement_date | 公告日期 | date | — |
+
+### equity_change 股权变动（9 字段）
 
 | 字段名 | 含义 | unit | 备注 |
 |---|---|---|---|
@@ -121,13 +137,13 @@ FieldValue（**核心结构，四个人都要消费**）：
 | direction | 变动方向 | text | increase / decrease |
 | shares_before | 变动前持股 | shares | |
 | shares_after | 变动后持股 | shares | |
-| ratio_before | 变动前比例 | percent | `denominator` 必填 |
-| ratio_after | 变动后比例 | percent | `denominator` 必填 |
+| ratio_before | 变动前比例 | percent | `denominator` 必填，按原文判定 |
+| ratio_after | 变动后比例 | percent | `denominator` 必填，按原文判定 |
 | change_shares | 变动股数 | shares | |
-| method | 变动方式 | text | 集中竞价/大宗交易等 |
-| change_date | 变动完成日 | date | |
+| method | 变动方式 | text | |
+| change_date | 变动完成日 | date | 区间→needs_review |
 
-### bid_won 中标
+### bid_won 中标（9 字段）
 
 | 字段名 | 含义 | unit | 备注 |
 |---|---|---|---|
@@ -138,28 +154,57 @@ FieldValue（**核心结构，四个人都要消费**）：
 | currency | 币种 | text | 默认 CNY |
 | tax_included | 是否含税 | text | true/false/unknown |
 | duration | 工期 | text | 保留原文表述 |
-| consortium | 联合体及份额 | text | v0.1 用文本，v0.2 再结构化 |
+| consortium | 联合体及份额 | text | 无联合体→not_applicable；v0.3 再结构化 |
 | bid_date | 中标/公告日期 | date | |
 
-## 四、各成员对接点
+## 六、出处结构（provenance）
 
-- **张智博（解析/出处）**：D2 起 `source.parse_meta` 由你填充（parser_version、page_count、blocks）；`provenance.block_id`/`region` 由你的解析结果供给。D1 纯文本阶段允许 `page:1 + quote`，但 quote 必须是原文子串，禁止事后按数字反搜。
-- **方轩诚（口径/标准化）**：FieldValue 的 value/unit/standardized/denominator/cumulative 按你的口径字典产出；你的 10 个换算用例直接以 FieldValue 结构书写。
-- **陈家浩（页面）**：三栏原型＝上传 / events 列表 / 证据（provenance.quote + page）。状态字段渲染：not_mentioned→"原文未提及"，unreadable→"无法读取"，needs_review→"待复核"。`is_mock=true` 的 runs/ 文件就是你的模拟数据源。
-- **宗博文（评测）**：计分分母＝注册表字段中"原文有值应提取"的字段；错误填充率＝status=extracted 但答案为缺失的字段占比；出处命中＝provenance 定位到正确证据。标注答案建议直接用同结构的 FieldValue 表达。
+```
+{ "block_id": "p3-b12", "page": 3, "region": [x1,y1,x2,y2], "table_id": "p3-t2", "cell_ref": "B3", "quote": "……" }
+```
 
-## 五、harness 集成（插件路径）
+- **张智博（DocumentIR）**：供给 `document_id`（→source.file_id）、`page`、`block_id`、`region`、表格类出处补 `table_id`/`cell_ref`；**quote 必须来自原文，禁止事后按数字反搜**。表格证据不许丢失：来自表格的字段必须带 table_id/cell_ref（纯文本出处保持 null）。
+- D1 纯文本阶段允许 `page:1 + quote`；表格证据自 D2 解析接入起补齐。
+- 评测抽查出处命中时，区域与单元格分开统计。
 
-`packages/jingguan/core` 是 dsh 插件（`@jingguan/core`），注册了工具 `jingguan_extract_events`，D2 起接入解析/标准化接口并走 `ctx.llm` 统一模型层。今天先以 `scripts/jingguan/run_extract.mjs` 作为可运行任务入口。
+## 七、各成员对接点
 
-## 六、目录
+- **张智博**：解析输出映射到 `source.parse_meta`（parser_version/page_count）与 provenance；文件唯一标识 → `source.file_id`。
+- **方轩诚**：产出标准化 FieldValue（value/unit/standardized/denominator）；状态映射见第四节；你的 10 个换算用例直接以 FieldValue 结构书写并通过共同校验器。
+- **陈家浩**：页面读取 `runs/**/events.json`，按第四节状态表渲染全部 6 种状态与双语案文案；`is_mock=true` 的 runs 文件只作联调数据源，不得展示为真实成绩。
+- **宗博文**：Gold 经投影适配器转成本契约格式（适配器输出也要过共同校验器）；计分分母＝注册表中"原文有值应提取"的字段；`not_disclosed` 与 `not_mentioned` 分开计分；错误填充率＝非 extracted-应缺失却 extracted 的比例。
+
+## 八、v0.1 → v0.2 变更记录、降级规则与字段丢失清单
+
+**变更（依据评测方反馈全量采纳）**
+
+1. 状态枚举 4→6：新增 `not_disclosed`（原文明示未披露，不推断）、`not_applicable`（结构性不适用）。
+2. 质押比例由 1 个字段（＋cumulative 标记）拆为 4 个独立字段（本次/累计 × 占持股/占总股本），股数同样拆本次/累计；**删除 FieldValue 的 `cumulative` 属性**（口径进入字段名，杜绝混用）。
+3. provenance 新增 `table_id`/`cell_ref`，表格证据不丢失。
+4. 新增共同契约校验器 `scripts/jingguan/validate_envelope.mjs`，全模块提交前必跑。
+5. runner 输出先过 Schema 机器校验再做语义校验，问题如实记入 `run_meta.errors`。
+
+**降级规则与已知边界（如实登记，不冒充完整金融语义）**
+
+- 扫描件：能读则带出处，不能读→`unreadable` ＋明确降级，扫描类单独统计，不并入文本指标。
+- 日期区间（如变动期间"9月20日至24日"）：不硬选单值→`needs_review`＋raw_value 保留原文。
+- `consortium`（联合体份额）v0.2 仍为文本；结构化拆分列入 v0.3。
+- `tax_included` 用字符串 "true"/"false"/"unknown"，未做布尔强转（依据不足不猜测）。
+- 股权变动 `ratio_before/after` 为单字段＋denominator；若原文同时给两种分母口径，v0.3 参照质押拆分方式处理（当前如实标注于 note）。
+- 币种/含税/单位依据不足→`standardized:false` ＋ `needs_review`，不强行换算。
+- v0.1 的 6 份 runs 输出与 3 份 v0.2 中间失败输出（unit 枚举违规，机器校验器抓出后已修 prompt）均存于 `runs/_archive/` 作历史证据，默认不被校验器扫描。
+
+## 九、目录
 
 ```
 interface/
-  README.md                      ← 本文件（接口 v0.1 发布稿）
-  event-envelope.schema.json     ← JSON Schema（机器可校验的同一契约）
+  README.md                      ← 本文件（接口 v0.2 候选冻结稿）
+  event-envelope.schema.json     ← JSON Schema v0.2（机器可校验）
   samples/                       ← D1 冻结样例（合成文本，仅联调用）
-runs/<run_id>/                   ← 每次运行的输出 + 调用日志（证据）
-scripts/jingguan/run_extract.mjs ← 运行入口
-packages/jingguan/core/          ← dsh 插件包（工具注册 + 结构校验）
+scripts/jingguan/
+  run_extract.mjs                ← 运行入口（抽取＋调用日志）
+  validate_envelope.mjs          ← 共同契约校验器（全队必跑）
+  lib/schema_validator.mjs       ← 零依赖 JSON Schema 子集校验器
+packages/jingguan/core/          ← dsh 插件（工具注册＋结构校验，v0.2 同步）
+runs/<run_id>/                   ← 每次运行的输出＋调用日志（证据）
 ```
