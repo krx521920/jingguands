@@ -14,6 +14,26 @@
 //   unreadable    → 产出字段但 status_override=unreadable（诚实降级）
 const KIND_DEFAULT_FIELD = { amount: "amount", shares: "share_count", ratio: "pledge_ratio" };
 
+// 魏文宇信封 v0.3：unit 枚举 → 页面显示单位（date/text/count 不拼单位后缀）
+const WEI_UNIT_TEXT = { shares: "股", cny: "元", percent: "%", date: null, text: null, count: null };
+
+// 魏文宇信封 v0.3：6 状态 → 页面处理策略（README §四：6 态全渲染）
+//   extracted      → 正常产出（无 override）
+//   needs_review   → status_override=pending_review（可有候选值）
+//   unreadable     → status_override=unreadable
+//   not_disclosed  → status_override=not_disclosed（原文明示未披露，不推断）
+//   not_applicable → status_override=not_applicable（结构性不适用）
+//   not_mentioned  → status_override=not_mentioned（原文未提及；信封要求 6 态全渲染，
+//                     与方口径记录的 not_mentioned"不产出"规则不同——各自忠实体源语义）
+const WEI_STATUS_MAP = {
+  extracted: null,
+  needs_review: "pending_review",
+  unreadable: "unreadable",
+  not_disclosed: "not_disclosed",
+  not_applicable: "not_applicable",
+  not_mentioned: "not_mentioned"
+};
+
 // 分母枚举中文（口径字典 §3）
 const DENOMINATOR_TEXT = {
   total_share_capital: "公司总股本",
@@ -22,18 +42,109 @@ const DENOMINATOR_TEXT = {
   other: "其他明确定义"
 };
 
+/** 判断是否魏文宇事件信封 v0.3（interface/event-envelope.schema.json）。 */
+function isWeiEnvelope(obj) {
+  return !!obj && typeof obj === "object" &&
+    obj.schema_version === "0.3" && Array.isArray(obj.events) && typeof obj.is_mock === "boolean";
+}
+
 /** 判断 JSON 是否为上游格式（非契约对象）。契约对象以 schema_version + events 为特征。 */
 function isUpstream(obj) {
   return !!obj && typeof obj === "object" &&
     !(typeof obj.schema_version === "string" && Array.isArray(obj.events));
 }
 
-/** 入口：契约对象原样返回；上游格式走转换；其他情况透传并留痕。 */
+/** 入口：识别顺序——wei v0.3 信封 → 契约对象透传 → 方口径记录 → 未知透传留痕。 */
 function toContract(obj) {
   if (!obj || typeof obj !== "object") return obj;
+  if (isWeiEnvelope(obj)) return fromWeiEnvelope(obj);
   if (!isUpstream(obj)) return obj;                       // 已是契约对象（v0.1/v0.2）
   if (obj.bridge === "fang-normalization-v0.1") return fromFangRecords(obj);
   return { ...obj, bridge: { passthrough: true, reason: "unknown upstream format（不猜测，原样透传）" } };
+}
+
+/** 魏文宇事件信封 v0.3 → 契约 v0.3（字段只增不改）。 */
+function fromWeiEnvelope(up) {
+  const notes = [];
+  const evidences = [];
+  const events = [];
+
+  for (const ev of up.events || []) {
+    const out = {
+      event_id: ev.event_id,
+      event_type: ev.event_type,             // v0.3：pledge | equity_change | award_contract（bid_won 已改名）
+      status: "success",
+      fields: {}
+    };
+    if (ev.extraction_method) out.extraction_method = ev.extraction_method;
+
+    for (const [name, fv] of Object.entries(ev.fields || {})) {
+      const override = WEI_STATUS_MAP[fv.status];
+      if (override === undefined) { notes.push(`${ev.event_id}.${name}: 未知 status=${fv.status}（不猜测，字段未产出）`); continue; }
+
+      const f = { value: null, unit: null, normalized: null, normalized_unit: null, evidence_id: null };
+      const hasValue = fv.status === "extracted" || fv.status === "needs_review";
+      if (hasValue) {
+        // 原文口径优先（raw_value 通常自带单位，display unit 置空避免重复拼接）
+        f.value = fv.raw_value ?? (fv.value === null ? null : fv.value);
+        f.normalized = fv.value === null ? null : String(fv.value);        // 标准化：十进制字符串；percent=百分点数值
+        f.normalized_unit = WEI_UNIT_TEXT[fv.unit] ?? null;
+        if (fv.raw_value == null) f.unit = WEI_UNIT_TEXT[fv.unit] ?? null;
+      }
+      if (override) f.status_override = override;
+
+      // provenance 是数组：全部入 evidences[]，字段挂第一条（多于一条时附 evidence_ids）
+      const provs = Array.isArray(fv.provenance) ? fv.provenance : [];
+      const ids = [];
+      for (const p of provs) {
+        const eid = "ev-" + String(evidences.length + 1).padStart(4, "0");
+        evidences.push({
+          evidence_id: eid,
+          block_id: p.block_id ?? null,
+          page: p.page ?? null,
+          bbox: p.region ?? null,            // v0.3 冻结语义：[left,top,right,bottom] PDF 点、左上原点、y 向下
+          table_id: p.table_id ?? null,      // 表格证据（v0.2 新增，不丢失）
+          cell_ref: p.cell_ref ?? null,
+          quote: p.quote ?? ""
+        });
+        ids.push(eid);
+      }
+      if (ids.length) { f.evidence_id = ids[0]; if (ids.length > 1) f.evidence_ids = ids; }
+
+      if (fv.denominator) {   // v0.3 四值枚举：holder_shares | total_share_capital | net_assets | other
+        f.denominator = { kind: fv.denominator, kind_text: DENOMINATOR_TEXT[fv.denominator] || fv.denominator, definition: null };
+      }
+      if (fv.note) f.note = fv.note;
+      out.fields[name] = f;
+    }
+
+    // 事件级状态：有字段无法读取/待复核 → 待复核
+    const ov = Object.values(out.fields).map(f => f.status_override);
+    if (ov.includes("unreadable") || ov.includes("pending_review")) out.status = "pending_review";
+    events.push(out);
+  }
+
+  const contract = {
+    run_id: up.run_id || "wei-run-0001",
+    schema_version: "0.3",
+    data_mode: up.is_mock ? "simulated" : "real",   // is_mock=true 仅联调，页面显式标"模拟"
+    source_file: {
+      file_id: up.source?.file_id ?? null,
+      filename: up.source?.file_name ?? null,
+      sha256: up.source?.file_sha256 ?? null,
+      parse_status: "success"
+    },
+    events,
+    evidences,
+    bridge: {
+      from: "wei-event-envelope-v0.3",
+      rules: "6 状态全渲染；percent=百分点；provenance[]→多证据；region 原样保留（PDF 点左上原点）",
+      notes
+    }
+  };
+  if (up.run_meta) contract.run_meta = up.run_meta;
+  if (up.source?.parse_meta) contract.source_file.parse_meta = up.source.parse_meta;
+  return contract;
 }
 
 /** 方口径标准化记录 → 契约 v0.2。 */
@@ -91,8 +202,9 @@ function fromFangRecords(up) {
     if (rec.status === "present" || rec.status === "explicit_zero") {
       const f = {
         value: rec.rawText ?? rec.rawValue ?? null,      // 原文口径（优先原文文本）
-        unit: rec.unit ?? null,                          // 方已换算后的标准单位：元/股/%
+        unit: rec.rawText == null ? (rec.unit ?? null) : null,   // rawText 已含单位，避免重复拼接
         normalized: rec.value ?? null,                   // 标准化值：十进制字符串；比例=百分点，不乘 100
+        normalized_unit: rec.unit ?? null,
         evidence_id: evidenceId
       };
       if (rec.qualifier && rec.qualifier !== "exact") f.qualifier = rec.qualifier;   // approx / at_most
@@ -140,4 +252,4 @@ function fromFangRecords(up) {
   return contract;
 }
 
-module.exports = { toContract, isUpstream, DENOMINATOR_TEXT };
+module.exports = { toContract, isUpstream, isWeiEnvelope, DENOMINATOR_TEXT };

@@ -44,6 +44,7 @@ main { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 14px; padding: 
 .b-unreadable { background: var(--gray-bg); color: var(--gray); }
 .b-pending_review { background: var(--warn-bg); color: var(--warn); }
 .b-simulated { background: var(--sim-bg); color: var(--sim); }
+.b-neutral { background: var(--gray-bg); color: var(--gray); }
 
 /* 结果栏 */
 .event-card { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; }

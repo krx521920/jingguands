@@ -14,9 +14,15 @@ export function renderEvidences(container, data) {
     const meta = document.createElement("div");
     meta.className = "meta-row";
     meta.append(
-      Object.assign(document.createElement("span"), { textContent: e.evidence_id }),
-      Object.assign(document.createElement("span"), { textContent: "block: " + e.block_id }),
-      Object.assign(document.createElement("span"), { textContent: "第 " + e.page + " 页" }),
+      Object.assign(document.createElement("span"), { textContent: e.evidence_id })
+    );
+    if (e.block_id) meta.append(Object.assign(document.createElement("span"), { textContent: "block: " + e.block_id }));
+    meta.append(Object.assign(document.createElement("span"), { textContent: "第 " + e.page + " 页" }));
+    if (e.table_id || e.cell_ref) {
+      // v0.3 表格证据：table_id + cell_ref 不丢失
+      meta.append(Object.assign(document.createElement("span"), { textContent: "表格 " + (e.table_id || "?") + (e.cell_ref ? "#" + e.cell_ref : "") }));
+    }
+    meta.append(
       Object.assign(document.createElement("span"), { textContent: e.bbox ? "bbox:有" : "bbox:待补" })
     );
     item.append(meta);

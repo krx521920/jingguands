@@ -23,11 +23,12 @@ page_prototype/
 ├── package.json            # scripts: start / demo（仅声明，无需 install）
 ├── README.md               # 本文件（目录结构维护处，结构变更必须同步更新）
 ├── docs/
-│   └── API.md              # 调用文档：数据契约 v0.2、接口清单、状态枚举、转接口、扩展指南
+│   └── API.md              # 调用文档：数据契约 v0.3、接口清单、状态枚举、转接口、扩展指南
 ├── data/                   # 数据集（mock 模式：server 自动列举，放进来即出现在下拉）
 │   ├── pledge.json         # 质押事件样例（D3 主线）
 │   ├── share_change.json   # 股权变动样例（D5 预留）
-│   └── upstream_case.json  # 方口径上游格式合成用例（经转接口转换展示，D2 验证）
+│   ├── upstream_case.json  # 方口径上游格式合成用例（经转接口转换展示，D2 验证）
+│   └── wei_run_pledge.json # 魏文宇 v0.3 信封真实运行输出（原样入 data/，server 自动过转接口）
 ├── public/                 # 前端（原生 ES Modules，无构建步骤）
 │   ├── index.html          # 三栏页面骨架：上传 / 结果 / 证据
 │   ├── css/
@@ -38,8 +39,8 @@ page_prototype/
 │       ├── status.js       # 状态枚举单一事实源（成功/失败/无法读取/待复核/模拟）
 │       └── render/         # 渲染器（注册式，可扩展新栏/新视图）
 │           ├── upload.js     # 栏一：上传（D1 仅入口；真实解析属 D2）
-│           ├── results.js    # 栏二：事件卡片 + 字段表 + 证据锚点（含口径标注：约/不超过/单次/累计/分母/标准化）
-│           └── evidences.js  # 栏三：证据列表 + 高亮联动
+│           ├── results.js    # 栏二：事件卡片 + 字段表 + 证据锚点（v0.3 事件类型/字段注册表 + 口径标注）
+│           └── evidences.js  # 栏三：证据列表 + 高亮联动（含表格证据 table_id/cell_ref）
 └── demo/
     └── 使用演示.md          # 完整使用 demo：启动/上传/扩展新数据集/切真实接口/接口自检
 ```

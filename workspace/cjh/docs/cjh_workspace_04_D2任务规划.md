@@ -67,7 +67,23 @@ server.js /api/result（mock 与 remote 两条路都过桥）→ 页面
 
 **自测结果（2026-09-28）**：桥单测 ✅（1.25万元→"12500"元·approx·single；2.5%→"2.5"+分母=公司总股本；-0.00000001亿股→"-1"股；契约对象恒等透传）＋ server 端到端 ✅（/api/datasets 出现 upstream_case；/api/result 三数据集全通）。
 
+## 1b. v0.3 对齐记录（09-28 下午，weiwenyu@00a472c）
+
+领导转达裁决后，直接从 `origin/weiwenyu@00a472c` 拉取 `interface/README.md`、`interface/event-envelope.schema.json`、真实运行样例确认：
+
+1. **裁决确认**：事件类型 `bid_won` → **`award_contract`**；分母枚举 → **`holder_shares / total_share_capital / net_assets / other`**（与我上午按方口径对齐的四值一致，无需返工）。
+2. **超出裁决的实质变化（必须跟进）**：v0.2 已把质押拆成 13 个独立字段（本次/累计 × 股数/比例），比例由 4 个字段名固定 denominator；6 状态（新增 not_disclosed / not_applicable）；provenance 为数组且冻结 region 语义（PDF 点、左上原点、y 向下）+ table_id/cell_ref 表格出处。
+3. **页面已按 v0.3 更新**：转接口新增 `wei-event-envelope-v0.3` 识别与映射（6 状态→status_override、provenance[]→多证据、unit 枚举→中文、分母直通）；status.js 加 未披露/不适用/未提及 三徽章；results.js 全量字段注册表（31 字段中文）+ 事件类型中文；evidences.js 展示表格出处。
+4. **页面已消费真实输出**：`data/wei_run_pledge.json` = 魏 `runs/20260928T061450-pledge-3506/events.json`（deepseek-chat 真实调用，非 mock），页面下拉直接可选、自动过桥渲染。
+5. 快照存档（只读）：`docs/_ref_wei_interface_README_v0.3.md`、`docs/_ref_wei_event-envelope.schema_v0.3.json`、`docs/_ref_wei_events_pledge_v0.3.json`。
+6. 遗留：region 屏幕换算与原文回跳仍等张智博的页面尺寸数据（parse_meta.blocks/page_count 可空）；`npm run jingguan:validate` 是魏侧校验器，我的页面消费侧自测以桥单测+冒烟为准。
+
+---
+
 ## 3. 待办事项
+
+### A. 无需队友输入 · 已完成 ✅
+
 
 ### A. 无需队友输入 · 已完成 ✅
 

@@ -1,8 +1,9 @@
-# 调用文档 · 数据契约与接口（v0.2）
+# 调用文档 · 数据契约与接口（v0.3）
 
 > 面向对象：魏文宇（结果 JSON 生产方）、张智博（证据/坐标生产方）、方轩诚（标准化口径）、后续接入页面的任何人。
 > 页面只认本文契约，不关心数据来自 mock 还是真实服务——切换数据源前端零改动。
 > **v0.2 变更（只增不改）**：`normalized` 统一为**十进制字符串**，比例=百分点（`"2.5"` 表示 2.5%，不乘 100，对齐方轩诚口径字典 v0.1）；fields 新增可选 `qualifier / scope / denominator`；`source_file` 新增可选 `sha256`；新增上游格式转接口 `bridge/`（见 §7）。
+> **v0.3 变更（对齐 weiwenyu@00a472c 事件信封 v0.3）**：事件类型 `bid_won` → **`award_contract`**；分母枚举统一为 **`holder_shares / total_share_capital / net_assets / other`**；字段级状态对齐 6 状态（`extracted / not_disclosed / not_applicable / not_mentioned / unreadable / needs_review`，后五者以 `status_override` 承载、文案见 status.js）；evidences 新增可选 `table_id / cell_ref`（表格证据不丢失），`bbox` 承载 v0.3 冻结的 `region` 语义（`[left,top,right,bottom]` PDF 点、左上原点、y 向下）；fields 新增可选 `evidence_ids`（多出处）与 `note`；事件可选 `extraction_method`；顶层可选 `run_meta`、`source_file.parse_meta`。页面已按魏 README §七消费：渲染全部 6 状态与文案；`is_mock=true` 的 runs 只作联调数据。
 
 ## 1. 运行与访问
 
@@ -102,12 +103,15 @@ node server.js          # 或 pnpm start / npm start
 | 输入识别 | 行为 |
 |---|---|
 | 已是契约对象（有 `schema_version`+`events`） | 原样透传，零损耗 |
+| **魏文宇事件信封 v0.3**（`schema_version:"0.3"` + `is_mock` + `source`） | 自动转换为契约 v0.3：`is_mock`→`data_mode`；6 状态→`status_override`；`provenance[]`→多证据（region→bbox、table_id/cell_ref 保留）；`unit` 枚举→中文单位；分母四值枚举直通 |
 | `bridge: "fang-normalization-v0.1"`（方的标准化记录 `records[]`） | 自动转换为契约 v0.2（映射规则见 `docs/cjh_workspace_04_D2任务规划.md` §2），转换留痕在顶层 `bridge.notes` |
 | 其他未知格式 | **不猜测，原样透传**并留 `bridge.passthrough` 痕 |
 
+**v0.3 字段级状态映射（wei→页面）**：`extracted`→正常；`needs_review`→待复核；`unreadable`→无法读取；`not_disclosed`→未披露（不推断）；`not_applicable`→不适用；`not_mentioned`→未提及（信封要求 6 态全渲染；与方口径记录的 not_mentioned"不产出"规则不同，各自忠实体源语义）。
+
 上游记录格式（方的口径字典 v0.1 + 事件归属信封）：`{ bridge, data_mode, source_file{file_id,filename,sha256,parse_status}, records[{ event_id, event_type, field, kind, rawText, rawValue, sourceUnit, qualifier, scope, status, value, unit, denominator, evidence{block_id,page,quote} }] }`。
 
-样例：`data/upstream_case.json`（合成用例，覆盖方换算用例 2/5/6/7/9/10 的过桥表现）。
+样例：`data/upstream_case.json`（方的合成用例过桥）、`data/wei_run_pledge.json`（魏 v0.3 真实运行输出，runs/20260928T061450-pledge-3506）。
 
 ## 6. 给魏/张的最小对接要求
 
