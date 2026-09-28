@@ -1,0 +1,44 @@
+{
+  "day": "D1",
+  "checked_at": "2026-09-28",
+  "contract": {
+    "version": "0.3",
+    "branch": "weiwenyu",
+    "commit": "00a472c",
+    "status": "candidate_resolved_major_fields",
+    "resolved": [
+      "event type award_contract",
+      "six field statuses",
+      "ratio denominator enum",
+      "table_id and cell_ref provenance",
+      "region coordinate semantics"
+    ],
+    "blockers": [
+      "scripts/jingguan/lib/schema_validator.mjs missing from commit",
+      "scripts/jingguan/lib/registry.mjs missing from commit",
+      "scripts/jingguan/lib/fang_normalize.mjs missing from commit",
+      "award_contract registry lacks contract_signed, formal_award_notice_received, price_adjustment_status, recognized_revenue",
+      "evaluation Gold projection adapter not yet implemented"
+    ]
+  },
+  "branches": {
+    "evaluation": { "branch": "zongbowen", "commit": "f213098", "status": "artifact_complete_report_pending_update" },
+    "wei": { "branch": "weiwenyu", "commit": "00a472c", "status": "v0.3_contract_runs_present_validator_blocked" },
+    "zhang": { "branch": "zhangzhibo", "commit": "8b70a42", "status": "v0.2_evidence_check_100pct" },
+    "fang": { "branch": "feature/fang-rules", "commit": "c856882", "status": "tests_11_of_11_not_directly_aligned" },
+    "chen": { "branch": "feature/chen-ui", "commit": "2e156fa", "status": "page_bridge_consumes_wei_v03_and_fang_records" }
+  },
+  "executed_checks": {
+    "wei_runs_parsed": "7 v0.3 run files parsed; types pledge/equity_change/award_contract",
+    "wei_validator": "blocked: missing scripts/jingguan/lib imports",
+    "zhang_evidence": "71/71 blocks and 71/71 text_raw, 100%",
+    "fang_tests": "11/11 passed",
+    "chen_wei_bridge": "1 event -> 1 event, 12 evidence records",
+    "chen_fang_bridge": "7 records -> 2 events, 7 evidence records"
+  },
+  "progress": {
+    "personal_artifacts": "5/5",
+    "joint_integration": "partial",
+    "d1_freeze_ready": false
+  }
+}
