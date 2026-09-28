@@ -1,0 +1,50 @@
+{
+  "dataset_id": "financial-events-d2-dev-v0.1",
+  "version": "0.1.0",
+  "created_on": "2026-09-28",
+  "source_policy": "controlled_synthetic_development_fixtures",
+  "items": [
+    {
+      "case_id": "D2-PLD-001",
+      "event_type": "pledge",
+      "raw": "raw/D2-PLD-001.json",
+      "gold": "gold/D2-PLD-001.envelope.json",
+      "source_sha256": "11bf3d3b0e9dc26990a23f9e1e317ccf282ac4d3fbb37185312ea4dc52e47bf8"
+    },
+    {
+      "case_id": "D2-PLD-002",
+      "event_type": "pledge",
+      "raw": "raw/D2-PLD-002.json",
+      "gold": "gold/D2-PLD-002.envelope.json",
+      "source_sha256": "3c2f77978d1b112709cdf3e4bed8df0b0372e20b65aaf2eb288f426d76519cbd"
+    },
+    {
+      "case_id": "D2-EQC-001",
+      "event_type": "equity_change",
+      "raw": "raw/D2-EQC-001.json",
+      "gold": "gold/D2-EQC-001.envelope.json",
+      "source_sha256": "a5bbe14e53664cf7c591e0845ce32bf0419f825abc4e65b9a62e66a0038fe7bb"
+    },
+    {
+      "case_id": "D2-EQC-002",
+      "event_type": "equity_change",
+      "raw": "raw/D2-EQC-002.json",
+      "gold": "gold/D2-EQC-002.envelope.json",
+      "source_sha256": "2d40901041e72577dd5630fad6f4be3129a126b7778b05c47beba2d96f1e79cb"
+    },
+    {
+      "case_id": "D2-AWD-001",
+      "event_type": "award_contract",
+      "raw": "raw/D2-AWD-001.json",
+      "gold": "gold/D2-AWD-001.envelope.json",
+      "source_sha256": "fe3db009e19ffbc49acac0e3a199278151083b7b89ee92c8abfa43ed497bcf1a"
+    },
+    {
+      "case_id": "D2-AWD-002",
+      "event_type": "award_contract",
+      "raw": "raw/D2-AWD-002.json",
+      "gold": "gold/D2-AWD-002.envelope.json",
+      "source_sha256": "ab91bfb5b0e38b0f0e50add77fa717f89a1a0ff4b291add010b436c39873bfaf"
+    }
+  ]
+}

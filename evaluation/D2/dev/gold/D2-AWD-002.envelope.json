@@ -1,0 +1,185 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D2-AWD-002",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:ab91bfb5b0e38b0f0e50add77fa717f89a1a0ff4b291add010b436c39873bfaf",
+    "file_name": "D2-AWD-002.txt",
+    "file_sha256": "ab91bfb5b0e38b0f0e50add77fa717f89a1a0ff4b291add010b436c39873bfaf",
+    "parse_meta": {
+      "parser_version": "controlled-fixture-v0.1",
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "某某制造股份有限公司",
+          "value": "某某制造股份有限公司",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某某制造股份有限公司"
+            }
+          ],
+          "standardized": true
+        },
+        "tenderer": {
+          "raw_value": "某交通建设公司",
+          "value": "某交通建设公司",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "招标人某交通建设公司"
+            }
+          ],
+          "standardized": true
+        },
+        "project_name": {
+          "raw_value": "某交通工程设备采购项目",
+          "value": "某交通工程设备采购项目",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某交通工程设备采购项目"
+            }
+          ],
+          "standardized": true
+        },
+        "bid_amount": {
+          "raw_value": "8,000万元",
+          "value": 80000000,
+          "unit": "cny",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额8,000万元"
+            }
+          ],
+          "standardized": true
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "金额为人民币2.4亿元"
+            }
+          ],
+          "standardized": true
+        },
+        "tax_included": {
+          "raw_value": "不含税",
+          "value": "false",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "金额8,000万元不含税"
+            }
+          ],
+          "standardized": true
+        },
+        "duration": {
+          "raw_value": "12个月",
+          "value": "12个月",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "工期12个月"
+            }
+          ],
+          "standardized": true
+        },
+        "consortium": {
+          "raw_value": "公司60%，联合体成员40%",
+          "value": "公司60%，联合体成员40%",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "按60:40分享"
+            }
+          ],
+          "standardized": true
+        },
+        "bid_date": {
+          "raw_value": "2026年9月15日",
+          "value": "2026-09-15",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标日期2026年9月15日"
+            }
+          ],
+          "standardized": true
+        }
+      },
+      "extraction_method": "rule",
+      "notes": ""
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-09-28T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}

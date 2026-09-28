@@ -1,0 +1,176 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D2-AWD-001",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:fe3db009e19ffbc49acac0e3a199278151083b7b89ee92c8abfa43ed497bcf1a",
+    "file_name": "D2-AWD-001.txt",
+    "file_sha256": "fe3db009e19ffbc49acac0e3a199278151083b7b89ee92c8abfa43ed497bcf1a",
+    "parse_meta": {
+      "parser_version": "controlled-fixture-v0.1",
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "某某制造股份有限公司",
+          "value": "某某制造股份有限公司",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某某制造股份有限公司"
+            }
+          ],
+          "standardized": true
+        },
+        "tenderer": {
+          "raw_value": "某能源集团",
+          "value": "某能源集团",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "招标人某能源集团"
+            }
+          ],
+          "standardized": true
+        },
+        "project_name": {
+          "raw_value": "某变电站设备采购项目",
+          "value": "某变电站设备采购项目",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某变电站设备采购项目"
+            }
+          ],
+          "standardized": true
+        },
+        "bid_amount": {
+          "raw_value": "2.4亿元",
+          "value": 240000000,
+          "unit": "cny",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额2.4亿元"
+            }
+          ],
+          "standardized": true
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "金额为人民币2.4亿元"
+            }
+          ],
+          "standardized": true
+        },
+        "tax_included": {
+          "raw_value": "含税",
+          "value": "true",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "金额2.4亿元含税"
+            }
+          ],
+          "standardized": true
+        },
+        "duration": {
+          "raw_value": "180个日历天",
+          "value": "180个日历天",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "工期180个日历天"
+            }
+          ],
+          "standardized": true
+        },
+        "consortium": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "status": "not_applicable",
+          "provenance": [],
+          "standardized": false
+        },
+        "bid_date": {
+          "raw_value": "2026年9月12日",
+          "value": "2026-09-12",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标日期2026年9月12日"
+            }
+          ],
+          "standardized": true
+        }
+      },
+      "extraction_method": "rule",
+      "notes": "中标候选且已签订合同；合同金额不等于收入，调价条款未披露，不推断为固定价格。"
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-09-28T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}
