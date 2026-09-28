@@ -23,44 +23,10 @@ import { createHash } from 'node:crypto'
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { validateAgainstSchema } from './lib/schema_validator.mjs'
+import { FIELD_REGISTRY, checkRegistry } from './lib/registry.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const SCHEMA = JSON.parse(readFileSync(resolve(REPO_ROOT, 'interface', 'event-envelope.schema.json'), 'utf8'))
-
-const FIELD_REGISTRY = {
-  pledge: [
-    'pledgor', 'pledgee',
-    'pledged_shares_this_time', 'pledged_shares_cumulative',
-    'pledged_ratio_this_time_of_held', 'pledged_ratio_this_time_of_total',
-    'pledged_ratio_cumulative_of_held', 'pledged_ratio_cumulative_of_total',
-    'pledge_amount', 'start_date', 'end_date', 'purpose', 'announcement_date',
-  ],
-  equity_change: ['holder', 'direction', 'shares_before', 'shares_after', 'ratio_before', 'ratio_after', 'change_shares', 'method', 'change_date'],
-  bid_won: ['bidder', 'tenderer', 'project_name', 'bid_amount', 'currency', 'tax_included', 'duration', 'consortium', 'bid_date'],
-}
-
-// 质押比例字段的分母由字段名固定；股权变动的 ratio_before/after 由模型按原文判定
-const FIXED_DENOMINATOR = {
-  pledged_ratio_this_time_of_held: 'shares_held',
-  pledged_ratio_this_time_of_total: 'total_shares',
-  pledged_ratio_cumulative_of_held: 'shares_held',
-  pledged_ratio_cumulative_of_total: 'total_shares',
-}
-
-const UNIT_HINTS = {
-  pledgor: 'text', pledgee: 'text',
-  pledged_shares_this_time: 'shares（本次质押股数）', pledged_shares_cumulative: 'shares（累计质押股数）',
-  pledged_ratio_this_time_of_held: 'percent（本次质押占其所持股份）', pledged_ratio_this_time_of_total: 'percent（本次质押占公司总股本）',
-  pledged_ratio_cumulative_of_held: 'percent（累计质押占其所持股份）', pledged_ratio_cumulative_of_total: 'percent（累计质押占公司总股本）',
-  pledge_amount: 'cny', start_date: 'date', end_date: 'date', purpose: 'text', announcement_date: 'date',
-  holder: 'text', direction: 'text（increase/decrease）', shares_before: 'shares', shares_after: 'shares',
-  ratio_before: 'percent（denominator按原文判定）', ratio_after: 'percent（denominator按原文判定）',
-  change_shares: 'shares', method: 'text', change_date: 'date',
-  bidder: 'text', tenderer: 'text', project_name: 'text', bid_amount: 'cny', currency: 'text',
-  tax_included: 'text（true/false/unknown）', duration: 'text', consortium: 'text', bid_date: 'date',
-}
-
-const STATUSES = ['extracted', 'not_disclosed', 'not_applicable', 'not_mentioned', 'unreadable', 'needs_review']
 
 // ---------- 参数解析 ----------
 
@@ -88,9 +54,11 @@ function inferEventType(fileName) {
 // ---------- Prompt ----------
 
 function buildSystemPrompt(eventType) {
-  const fields = FIELD_REGISTRY[eventType].map((f) => {
-    const den = FIXED_DENOMINATOR[f] ? `，denominator 固定为 "${FIXED_DENOMINATOR[f]}"` : ''
-    return `- ${f}（${UNIT_HINTS[f]}${den}）`
+  const fields = Object.entries(FIELD_REGISTRY[eventType]).map(([f, spec]) => {
+    const den = spec.fixedDenominator !== undefined
+      ? `，denominator 固定为 "${spec.fixedDenominator}"`
+      : (spec.requiresDenominator === true ? '，denominator 按原文判定（shares_held/total_shares）' : '')
+    return `- ${f}（${spec.unit}${den}，${spec.label}）`
   }).join('\n')
   return [
     '你是上市公司公告事件抽取器。从用户给出的公告正文中抽取一个事件，严格输出 JSON，不要输出任何其他文字。',
@@ -250,9 +218,12 @@ function parseModelJson(content) {
   return JSON.parse(text.slice(start, end + 1))
 }
 
-/** 机器契约校验（event-envelope.schema.json v0.2）＋语义校验（quote 命中原文、状态-取值规则）。 */
+/** 机器契约校验（Schema v0.2＋注册表强制）＋语义校验（quote 命中原文、状态-取值规则）。 */
 function validateEnvelope(envelope, inputText) {
-  const issues = validateAgainstSchema(envelope, SCHEMA, SCHEMA).map((s) => `[schema] ${s}`)
+  const issues = [
+    ...validateAgainstSchema(envelope, SCHEMA, SCHEMA).map((s) => `[schema] ${s}`),
+    ...checkRegistry(envelope),
+  ]
   const nullValueOk = new Set(['not_disclosed', 'not_applicable', 'not_mentioned', 'unreadable'])
   for (const [i, ev] of (envelope.events ?? []).entries()) {
     for (const [name, fv] of Object.entries(ev.fields ?? {})) {

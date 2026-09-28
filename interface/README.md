@@ -40,7 +40,7 @@ node scripts/jingguan/validate_envelope.mjs runs/<run_id>/events.json
 node scripts/jingguan/validate_envelope.mjs
 ```
 
-校验 `interface/event-envelope.schema.json` 的全部结构约束（类型、枚举、必填、字段白名单、event_id 模式等）。**张/方/陈/宗 各自模块产出事件 JSON 时，提交前必须通过本命令**；评测的 Gold 投影适配器输出同样要过。语义级校验（quote 是否命中原文、状态-取值规则）由 runner 在抽取时执行并如实记入 `run_meta.errors`。
+校验 `interface/event-envelope.schema.json` 的全部结构约束（类型、枚举、必填、字段白名单、event_id 模式等），**并强制字段注册表**（`scripts/jingguan/lib/registry.mjs` 为 JS 单一真源）：字段名必须在对应事件注册表内、unit 必须与注册表一致、比例字段 denominator 必须满足 fixed/requires 约定。**张/方/陈/宗 各自模块产出事件 JSON 时，提交前必须通过本命令**；评测的 Gold 投影适配器输出同样要过。语义级校验（quote 是否命中原文、状态-取值规则）由 runner 在抽取时执行并如实记入 `run_meta.errors`。`packages/jingguan/core/src/index.ts` 是注册表的 TS 镜像，与 `lib/registry.mjs` 必须同步修改。
 
 ## 四、信封结构（event envelope）
 
@@ -189,7 +189,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 - 扫描件：能读则带出处，不能读→`unreadable` ＋明确降级，扫描类单独统计，不并入文本指标。
 - 日期区间（如变动期间"9月20日至24日"）：不硬选单值→`needs_review`＋raw_value 保留原文。
 - `consortium`（联合体份额）v0.2 仍为文本；结构化拆分列入 v0.3。
-- `tax_included` 用字符串 "true"/"false"/"unknown"，未做布尔强转（依据不足不猜测）。
+- `tax_included` 的值可能是字符串 "true"/"false"/"unknown" 或布尔（模型两种都输出过），消费方按真值语义处理，"unknown" 表示依据不足；未做强制归一（依据不足不猜测）。
 - 股权变动 `ratio_before/after` 为单字段＋denominator；若原文同时给两种分母口径，v0.3 参照质押拆分方式处理（当前如实标注于 note）。
 - 币种/含税/单位依据不足→`standardized:false` ＋ `needs_review`，不强行换算。
 - v0.1 的 6 份 runs 输出与 3 份 v0.2 中间失败输出（unit 枚举违规，机器校验器抓出后已修 prompt）均存于 `runs/_archive/` 作历史证据，默认不被校验器扫描。
@@ -205,6 +205,7 @@ scripts/jingguan/
   run_extract.mjs                ← 运行入口（抽取＋调用日志）
   validate_envelope.mjs          ← 共同契约校验器（全队必跑）
   lib/schema_validator.mjs       ← 零依赖 JSON Schema 子集校验器
+  lib/registry.mjs               ← 字段注册表 JS 单一真源（校验器与 runner 共用）
 packages/jingguan/core/          ← dsh 插件（工具注册＋结构校验，v0.2 同步）
 runs/<run_id>/                   ← 每次运行的输出＋调用日志（证据）
 ```
