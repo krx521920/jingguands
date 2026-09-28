@@ -1,0 +1,18 @@
+{
+  "name": "finance-agent-normalization",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test src/normalization/__tests__/normalization.test.ts",
+    "test:watch": "node --test --watch src/normalization/__tests__/normalization.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "typescript": "^7.0.2"
+  }
+}
