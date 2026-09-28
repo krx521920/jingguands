@@ -25,6 +25,7 @@ import { basename, resolve } from 'node:path'
 import { validateAgainstSchema } from './lib/schema_validator.mjs'
 import { FIELD_REGISTRY, checkRegistry } from './lib/registry.mjs'
 import { normalizeFieldValue } from './lib/fang_normalize.mjs'
+import { checkProvenance, checkPageBounds } from './lib/checks.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const SCHEMA = JSON.parse(readFileSync(resolve(REPO_ROOT, 'interface', 'event-envelope.schema.json'), 'utf8'))
@@ -87,7 +88,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '{"events":[{"event_id":"E01","event_type":"' + eventType + '","fields":{...},"extraction_method":"model","notes":null}]}',
     '',
     '每个字段的值必须是：',
-    '{"raw_value":"原文原样字符串或null","value":标准化数值或null,"unit":"单位","standardized":true或false,"status":"六个状态之一","provenance":[{"block_id":null,"page":1,"region":null,"table_id":null,"cell_ref":null,"quote":"原文子串"}],"denominator":null或"holder_shares"或"total_share_capital"或"net_assets"或"other","note":null}',
+    '{"raw_value":"原文原样字符串或null","value":标量(数字/字符串/布尔)或null——禁止对象和数组,"unit":"单位","standardized":true或false,"status":"六个状态之一","provenance":[{"block_id":null,"page":1,"region":null,"table_id":null,"cell_ref":null,"quote":"原文子串"}],"denominator":null或"holder_shares"或"total_share_capital"或"net_assets"或"other","note":null}',
     '',
     '状态语义（严格按此判定）：',
     '- extracted：原文有值且已抽取。原文显式写 0 也是 extracted 且 value=0。',
@@ -104,9 +105,11 @@ function buildSystemPrompt(eventType, parseMode) {
     '4. unit 必须用固定枚举，按此映射：股数→"shares"；金额→"cny"；比例→"percent"；日期→"date"；计数→"count"；其余一切（人名/公司名/用途/方式/名称/工期原文等文本）→"text"。禁止写"股""元""%""日历天"等原文字样，禁止 null。',
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
+    '7. 日期区间（unit=date_range 的字段，如 change_date）：必须 unit="date_range"，value 必须是 ISO 区间字符串 "起始日/结束日"（如 "2026-09-20/2026-09-24"），status=extracted——区间是原文明确给出的值。禁止把 value 写成 {start,end} 对象，禁止用 unit="date" 装区间。',
+    '8. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
     ...(parseMode ? [
-      '7. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本。provenance 必须给出 quote 所在块的 block_id。',
-      '8. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',
+      '9. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本。provenance 必须给出 quote 所在块的 block_id。',
+      '10. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',
     ] : []),
   ].join('\n')
 }
@@ -202,7 +205,7 @@ function mockModelResponse(eventType) {
           ratio_after: F('6.00%', 6.00, 'percent', '占公司总股本的6.00%', { denominator: 'total_share_capital' }),
           change_shares: F('8,000,000股', 8000000, 'shares', '累计减持公司股份8,000,000股'),
           method: F('集中竞价交易减持', '集中竞价交易减持', 'text', '本次权益变动方式为集中竞价交易减持'),
-          change_date: { raw_value: '2026年9月20日至2026年9月24日', value: null, unit: 'date', standardized: false, status: 'needs_review', provenance: [{ block_id: null, page: 1, region: null, table_id: null, cell_ref: null, quote: '2026年9月20日至2026年9月24日' }], denominator: null, note: '日期区间，无法取单值，待复核' },
+          change_date: { raw_value: '2026年9月20日至2026年9月24日', value: '2026-09-20/2026-09-24', unit: 'date_range', standardized: true, status: 'extracted', provenance: [{ block_id: null, page: 1, region: null, table_id: null, cell_ref: null, quote: '2026年9月20日至2026年9月24日' }], denominator: null, note: null },
         },
       }],
     },
@@ -217,7 +220,8 @@ function mockModelResponse(eventType) {
           currency: F('人民币', 'CNY', 'text', '中标金额：人民币1,258,000,000元（含税）'),
           tax_included: F('含税', 'true', 'text', '中标金额：人民币1,258,000,000元（含税）'),
           duration: F('1,095日历天', '1,095日历天', 'text', '工期：1,095日历天'),
-          consortium: F('公司牵头占约85%，某市政设计研究院占约15%', '公司牵头占约85%，某市政设计研究院占约15%', 'text', '份额约占联合体中标金额的85%'),
+          consortium_members: F('公司与联合体成员某市政设计研究院组成的联合体', '公司与联合体成员某市政设计研究院组成的联合体', 'text', '公司与联合体成员某市政设计研究院组成的联合体'),
+          consortium_shares: F('公司牵头占约85%，某市政设计研究院占约15%', '公司牵头占约85%，某市政设计研究院占约15%', 'text', '份额约占联合体中标金额的85%'),
           bid_date: F('2026年9月24日', '2026-09-24', 'date', '中标日期：2026年9月24日'),
         },
       }],
@@ -243,6 +247,7 @@ function validateEnvelope(envelope, inputText) {
   const issues = [
     ...validateAgainstSchema(envelope, SCHEMA, SCHEMA).map((s) => `[schema] ${s}`),
     ...checkRegistry(envelope),
+    ...checkProvenance(envelope),
   ]
   const nullValueOk = new Set(['not_disclosed', 'not_applicable', 'not_mentioned', 'unreadable'])
   for (const [i, ev] of (envelope.events ?? []).entries()) {
@@ -387,7 +392,7 @@ async function main() {
     },
   }
 
-  envelope.run_meta.errors.push(...postErrors, ...validateEnvelope(envelope, inputText))
+  envelope.run_meta.errors.push(...postErrors, ...validateEnvelope(envelope, inputText), ...(parseDoc ? checkPageBounds(envelope, parseDoc.pageDims) : []))
 
   const outDir = resolve(REPO_ROOT, args.outDir, runId)
   mkdirSync(outDir, { recursive: true })

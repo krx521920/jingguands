@@ -37,7 +37,7 @@ export type FieldStatus = 'extracted' | 'not_disclosed' | 'not_applicable' | 'no
 
 /** 字段注册表条目。 */
 export interface FieldSpec {
-  unit: 'shares' | 'cny' | 'percent' | 'date' | 'text' | 'count'
+  unit: 'shares' | 'cny' | 'percent' | 'date' | 'date_range' | 'text' | 'count'
   label: string
   /** 比例字段的固定分母（v0.2 起由字段名决定，注册表同步声明）。 */
   fixedDenominator?: 'holder_shares' | 'total_share_capital'
@@ -71,7 +71,7 @@ export const FIELD_REGISTRY: Record<EventType, Record<string, FieldSpec>> = {
     ratio_after: { unit: 'percent', label: '变动后比例', requiresDenominator: true },
     change_shares: { unit: 'shares', label: '变动股数' },
     method: { unit: 'text', label: '变动方式' },
-    change_date: { unit: 'date', label: '变动完成日' },
+    change_date: { unit: 'date_range', label: '变动期间（ISO区间 start/end）' },
   },
   award_contract: {
     bidder: { unit: 'text', label: '中标人' },
@@ -81,7 +81,8 @@ export const FIELD_REGISTRY: Record<EventType, Record<string, FieldSpec>> = {
     currency: { unit: 'text', label: '币种' },
     tax_included: { unit: 'text', label: '是否含税' },
     duration: { unit: 'text', label: '工期' },
-    consortium: { unit: 'text', label: '联合体及份额' },
+    consortium_members: { unit: 'text', label: '联合体成员名单' },
+    consortium_shares: { unit: 'text', label: '联合体份额' },
     bid_date: { unit: 'date', label: '中标日期' },
   },
 }
@@ -174,6 +175,14 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
       if (value.status === 'extracted') {
         if (value.provenance.length === 0) issues.push(`${fieldWhere} status=extracted 但无出处`)
         else if (!value.provenance.some((p) => p.quote.trim().length > 0)) issues.push(`${fieldWhere} 出处缺 quote`)
+      }
+      for (const [j, p] of value.provenance.entries()) {
+        if (p.region === null || p.region === undefined) continue
+        const [left, top, right, bottom] = p.region
+        const where = `${fieldWhere}.provenance[${j}].region`
+        if (left < 0 || top < 0) issues.push(`${where} 坐标为负`)
+        if (left >= right) issues.push(`${where} left(${left}) ≥ right(${right})`)
+        if (top >= bottom) issues.push(`${where} top(${top}) ≥ bottom(${bottom})`)
       }
     }
   })

@@ -11,12 +11,14 @@
  *   1. interface/event-envelope.schema.json（v0.2）全部结构约束；
  *   2. 字段注册表强制（scripts/jingguan/lib/registry.mjs）：字段名白名单、unit 一致、
  *      比例字段 denominator 的 fixed/requires 约定。
+ *   3. 出处基线断言（scripts/jingguan/lib/checks.mjs）：region 必须 left<right、top<bottom、非负。
  * 退出码：全部通过 0；任一失败 1。
  */
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { resolve, join } from 'node:path'
 import { validateAgainstSchema } from './lib/schema_validator.mjs'
 import { checkRegistry } from './lib/registry.mjs'
+import { checkProvenance } from './lib/checks.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const SCHEMA_PATH = resolve(REPO_ROOT, 'interface', 'event-envelope.schema.json')
@@ -52,6 +54,7 @@ for (const target of targets) {
   const issues = [
     ...validateAgainstSchema(instance, schema, schema),
     ...checkRegistry(instance),
+    ...checkProvenance(instance),
   ]
   const rel = target.includes('runs') ? 'runs/' + target.split(/[\\/]runs[\\/]/)[1] : target
   if (issues.length === 0) {

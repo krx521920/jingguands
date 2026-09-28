@@ -84,7 +84,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 {
   "raw_value": "20,000,000股",      // 原文原样字符串；无则 null
   "value": 20000000,                // 标准化数值；除 extracted/needs_review 外必须为 null
-  "unit": "shares",                 // shares|cny|percent|date|text|count（统一枚举）
+  "unit": "shares",                 // shares|cny|percent|date|date_range|text|count（统一枚举）
   "standardized": true,
   "status": "extracted",            // 六状态，见下表
   "provenance": [                   // 出处；status=extracted 时至少 1 条
@@ -104,7 +104,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 | `not_applicable` | 该字段结构性不适用于本事件 | 必须 null | "不适用于该事件" |
 | `not_mentioned` | 原文压根没提到 | 必须 null | "原文未提及" |
 | `unreadable` | 扫描件/图片/模糊无法读取 | 必须 null | "无法读取" |
-| `needs_review` | 疑似有值但不确定（如日期区间） | 可有候选值 | "待复核" |
+| `needs_review` | 疑似有值但不确定（如扫描模糊、口径依据不足） | 可有候选值 | "待复核" |
 
 **缺失不能填 0**：`value=0` 只允许出现在 extracted 且原文确有"0"。错误填充率指标以此判定。评测注意：`not_disclosed` 不得被误写成 `not_mentioned`，两者计分口径不同。
 
@@ -112,6 +112,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 
 - `shares`：股（万股×10⁴，亿股×10⁸）；`cny`：元（万元×10⁴，亿元×10⁸）
 - `percent`：百分数数值（"16.67%"→16.67）；`date`：ISO `YYYY-MM-DD`
+- `date_range`：ISO 8601 区间字符串 `"起始日/结束日"`（原文明确给出区间时用，status=extracted；不参与数值标准化）
 - 换算依据不足（币种/单位不明）→ `standardized:false` ＋ `needs_review`
 - 方轩诚侧状态映射：`present→extracted`，`explicit_zero→extracted(value=0)`；不引入 present/confirmed 等私有状态
 
@@ -147,7 +148,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 | ratio_after | 变动后比例 | percent | `denominator` 必填（四值枚举），按原文判定 |
 | change_shares | 变动股数 | shares | |
 | method | 变动方式 | text | |
-| change_date | 变动完成日 | date | 区间→needs_review |
+| change_date | 变动期间 | date_range | value 为 ISO 区间 "start/end"（如 "2026-09-20/2026-09-24"） |
 
 ### award_contract 中标/合同签署（9 字段，v0.3 由 bid_won 改名）
 
@@ -160,7 +161,8 @@ FieldValue（**核心结构，四个人都要消费**）：
 | currency | 币种 | text | 默认 CNY |
 | tax_included | 是否含税 | text | true/false/unknown |
 | duration | 工期 | text | 保留原文表述 |
-| consortium | 联合体及份额 | text | 无联合体→not_applicable；v0.3 再结构化 |
+| consortium_members | 联合体成员名单 | text | 无联合体→not_applicable；有联合体→extracted |
+| consortium_shares | 联合体份额 | text | 份额未写→not_mentioned；无联合体→not_applicable |
 | bid_date | 中标/公告日期 | date | |
 
 ## 六、出处结构（provenance）
@@ -182,6 +184,12 @@ FieldValue（**核心结构，四个人都要消费**）：
 - **宗博文**：Gold 经投影适配器转成本契约格式（适配器输出也要过共同校验器）；计分分母＝注册表中"原文有值应提取"的字段；`not_disclosed` 与 `not_mentioned` 分开计分；错误填充率＝非 extracted-应缺失却 extracted 的比例。
 
 ## 八、v0.1 → v0.2 变更记录、降级规则与字段丢失清单
+
+**D2 复核修订（2026-09-28，宗博文 v0.3 复核三问题，schema 保持 v0.3 增量）**
+
+1. 新增 `unit: date_range`：日期区间是原文明确给出的值，不再标 needs_review；value 用 ISO 区间字符串 `"start/end"`（复核问题 1，方案 b）。
+2. `consortium` 拆分为 `consortium_members`＋`consortium_shares`，判定边界冻结：无联合体→两者 not_applicable；有名单无份额→members=extracted、shares=not_mentioned（复核问题 2）。
+3. 出处基线断言：region 必须 left<right、top<bottom、非负（lib/checks.mjs，runner 与校验器共用）；解析块模式加页面越界检查（按解析 JSON 每页 width/height，纯文本模式跳过）（复核问题 3，页面尺寸校验提前落地）。
 
 **v0.3 变更（2026-09-28，评测方对接报告裁决，破坏性）**
 
@@ -206,8 +214,8 @@ D2 补丁（2026-09-28，依据张智博《契约对齐报告_D1》三处反馈�
 **降级规则与已知边界（如实登记，不冒充完整金融语义）**
 
 - 扫描件：能读则带出处，不能读→`unreadable` ＋明确降级，扫描类单独统计，不并入文本指标。
-- 日期区间（如变动期间"9月20日至24日"）：不硬选单值→`needs_review`＋raw_value 保留原文。
-- `consortium`（联合体份额）v0.2 仍为文本；结构化拆分列入 v0.3。
+- 日期区间：已由 `date_range` 单位承载（extracted＋ISO 区间字符串），不再降级为 needs_review（D2 复核修订）。
+- `consortium` 已拆分为 `consortium_members`／`consortium_shares`（D2 复核修订；判定规则见注册表）。
 - `tax_included` 的值可能是字符串 "true"/"false"/"unknown" 或布尔（模型两种都输出过），消费方按真值语义处理，"unknown" 表示依据不足；未做强制归一（依据不足不猜测）。
 - 股权变动 `ratio_before/after` 为单字段＋denominator；若原文同时给两种分母口径，v0.3 参照质押拆分方式处理（当前如实标注于 note）。
 - 币种/含税/单位依据不足→`standardized:false` ＋ `needs_review`，不强行换算。

@@ -69,7 +69,7 @@
       "properties": {
         "raw_value": { "type": ["string", "null"] },
         "value": { "type": ["number", "string", "boolean", "null"] },
-        "unit": { "enum": ["shares", "cny", "percent", "date", "text", "count"] },
+        "unit": { "enum": ["shares", "cny", "percent", "date", "date_range", "text", "count"] },
         "standardized": { "type": "boolean" },
         "status": { "enum": ["extracted", "not_disclosed", "not_applicable", "not_mentioned", "unreadable", "needs_review"] },
         "provenance": { "type": "array", "items": { "$ref": "#/$defs/provenance" } },
