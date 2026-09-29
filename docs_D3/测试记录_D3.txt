@@ -1,0 +1,469 @@
+Command: node --test --test-reporter=tap src_D3/pledge/__tests___D3/pledge.test_D3.ts
+Exit code: 0
+
+TAP version 13
+# Subtest: 01_单次_占持股_百分比不乘百
+ok 1 - 01_单次_占持股_百分比不乘百
+  ---
+  duration_ms: 5.0948
+  type: 'test'
+  ...
+# Subtest: 02_单次_占总股本
+ok 2 - 02_单次_占总股本
+  ---
+  duration_ms: 0.3392
+  type: 'test'
+  ...
+# Subtest: 03_累计_占持股
+ok 3 - 03_累计_占持股
+  ---
+  duration_ms: 0.2608
+  type: 'test'
+  ...
+# Subtest: 04_累计_占总股本
+ok 4 - 04_累计_占总股本
+  ---
+  duration_ms: 0.2409
+  type: 'test'
+  ...
+# Subtest: 05_亿股换算
+ok 5 - 05_亿股换算
+  ---
+  duration_ms: 0.337
+  type: 'test'
+  ...
+# Subtest: 06_披露比例算错
+ok 6 - 06_披露比例算错
+  ---
+  duration_ms: 0.2275
+  type: 'test'
+  ...
+# Subtest: 07_占持股与占总股本不可混用
+ok 7 - 07_占持股与占总股本不可混用
+  ---
+  duration_ms: 0.1713
+  type: 'test'
+  ...
+# Subtest: 08_单次与累计不可混用
+ok 8 - 08_单次与累计不可混用
+  ---
+  duration_ms: 0.2151
+  type: 'test'
+  ...
+# Subtest: 09_未确认单次累计
+ok 9 - 09_未确认单次累计
+  ---
+  duration_ms: 0.1923
+  type: 'test'
+  ...
+# Subtest: 10_缺少分母对象
+ok 10 - 10_缺少分母对象
+  ---
+  duration_ms: 0.2599
+  type: 'test'
+  ...
+# Subtest: 11_未知分母种类
+ok 11 - 11_未知分母种类
+  ---
+  duration_ms: 0.1772
+  type: 'test'
+  ...
+# Subtest: 12_分母未提及
+ok 12 - 12_分母未提及
+  ---
+  duration_ms: 0.1333
+  type: 'test'
+  ...
+# Subtest: 13_分母明确为零
+ok 13 - 13_分母明确为零
+  ---
+  duration_ms: 0.0911
+  type: 'test'
+  ...
+# Subtest: 14_明确零质押可核验
+ok 14 - 14_明确零质押可核验
+  ---
+  duration_ms: 0.2616
+  type: 'test'
+  ...
+# Subtest: 15_比例未提及_独立推导不回填
+ok 15 - 15_比例未提及_独立推导不回填
+  ---
+  duration_ms: 0.1501
+  type: 'test'
+  ...
+# Subtest: 16_比例无法读取_保留降级
+ok 16 - 16_比例无法读取_保留降级
+  ---
+  duration_ms: 0.1253
+  type: 'test'
+  ...
+# Subtest: 17_股数比例均缺失
+ok 17 - 17_股数比例均缺失
+  ---
+  duration_ms: 1.0824
+  type: 'test'
+  ...
+# Subtest: 18_精确比例反推整股
+ok 18 - 18_精确比例反推整股
+  ---
+  duration_ms: 0.1575
+  type: 'test'
+  ...
+# Subtest: 19_舍入比例反推区间
+ok 19 - 19_舍入比例反推区间
+  ---
+  duration_ms: 0.1418
+  type: 'test'
+  ...
+# Subtest: 20_精确比例反推小数股需复核
+ok 20 - 20_精确比例反推小数股需复核
+  ---
+  duration_ms: 0.082
+  type: 'test'
+  ...
+# Subtest: 21_舍入比例无整股解
+ok 21 - 21_舍入比例无整股解
+  ---
+  duration_ms: 0.069
+  type: 'test'
+  ...
+# Subtest: 22_三分之一按两位核验
+ok 22 - 22_三分之一按两位核验
+  ---
+  duration_ms: 0.125
+  type: 'test'
+  ...
+# Subtest: 23_展示相同不代表精确相等
+ok 23 - 23_展示相同不代表精确相等
+  ---
+  duration_ms: 0.1109
+  type: 'test'
+  ...
+# Subtest: 24_半单位临界值向上舍入
+ok 24 - 24_半单位临界值向上舍入
+  ---
+  duration_ms: 0.1368
+  type: 'test'
+  ...
+# Subtest: 25_半单位临界值不接受下舍入
+ok 25 - 25_半单位临界值不接受下舍入
+  ---
+  duration_ms: 0.1468
+  type: 'test'
+  ...
+# Subtest: 26_超过浮点安全整数仍精确
+ok 26 - 26_超过浮点安全整数仍精确
+  ---
+  duration_ms: 0.2048
+  type: 'test'
+  ...
+# Subtest: 27_不同股东不可混算
+ok 27 - 27_不同股东不可混算
+  ---
+  duration_ms: 0.1043
+  type: 'test'
+  ...
+# Subtest: 28_不同时点不可混算
+ok 28 - 28_不同时点不可混算
+  ---
+  duration_ms: 0.1269
+  type: 'test'
+  ...
+# Subtest: 29_不同公司不可混算
+ok 29 - 29_不同公司不可混算
+  ---
+  duration_ms: 0.1067
+  type: 'test'
+  ...
+# Subtest: 30_不同单次事件不可混算
+ok 30 - 30_不同单次事件不可混算
+  ---
+  duration_ms: 0.0897
+  type: 'test'
+  ...
+# Subtest: 31_缺少主体上下文
+ok 31 - 31_缺少主体上下文
+  ---
+  duration_ms: 0.0769
+  type: 'test'
+  ...
+# Subtest: 32_缺少股东上下文
+ok 32 - 32_缺少股东上下文
+  ---
+  duration_ms: 0.0657
+  type: 'test'
+  ...
+# Subtest: 33_缺少单次事件标识
+ok 33 - 33_缺少单次事件标识
+  ---
+  duration_ms: 0.0761
+  type: 'test'
+  ...
+# Subtest: 34_约数不可当精确数
+ok 34 - 34_约数不可当精确数
+  ---
+  duration_ms: 0.12
+  type: 'test'
+  ...
+# Subtest: 35_不超过不可当实际值
+ok 35 - 35_不超过不可当实际值
+  ---
+  duration_ms: 0.1013
+  type: 'test'
+  ...
+# Subtest: 36_负质押股数拒绝
+ok 36 - 36_负质押股数拒绝
+  ---
+  duration_ms: 0.0933
+  type: 'test'
+  ...
+# Subtest: 37_大于分母股数拒绝
+ok 37 - 37_大于分母股数拒绝
+  ---
+  duration_ms: 0.0793
+  type: 'test'
+  ...
+# Subtest: 38_超过百分百拒绝
+ok 38 - 38_超过百分百拒绝
+  ---
+  duration_ms: 0.0648
+  type: 'test'
+  ...
+# Subtest: 39_小数股拒绝
+ok 39 - 39_小数股拒绝
+  ---
+  duration_ms: 0.1329
+  type: 'test'
+  ...
+# Subtest: 40_精确零误标present拒绝
+ok 40 - 40_精确零误标present拒绝
+  ---
+  duration_ms: 0.0904
+  type: 'test'
+  ...
+# Subtest: 41_缺失携带残留数字拒绝
+ok 41 - 41_缺失携带残留数字拒绝
+  ---
+  duration_ms: 0.0933
+  type: 'test'
+  ...
+# Subtest: 42_比例精度与声明不符
+ok 42 - 42_比例精度与声明不符
+  ---
+  duration_ms: 0.1079
+  type: 'test'
+  ...
+# Subtest: 43_缺分母定义拒绝
+ok 43 - 43_缺分母定义拒绝
+  ---
+  duration_ms: 0.073
+  type: 'test'
+  ...
+# Subtest: 44_不存在日期拒绝
+ok 44 - 44_不存在日期拒绝
+  ---
+  duration_ms: 0.0747
+  type: 'test'
+  ...
+# Subtest: 45_零比例舍入不代表零股
+ok 45 - 45_零比例舍入不代表零股
+  ---
+  duration_ms: 0.0723
+  type: 'test'
+  ...
+# Subtest: 46_100比例区间截于总量
+ok 46 - 46_100比例区间截于总量
+  ---
+  duration_ms: 0.0772
+  type: 'test'
+  ...
+# Subtest: 47_精确零比例才反推零股
+ok 47 - 47_精确零比例才反推零股
+  ---
+  duration_ms: 0.0931
+  type: 'test'
+  ...
+# Subtest: 48_没有比例对象仅换算
+ok 48 - 48_没有比例对象仅换算
+  ---
+  duration_ms: 0.1003
+  type: 'test'
+  ...
+# Subtest: 49_负分母拒绝
+ok 49 - 49_负分母拒绝
+  ---
+  duration_ms: 0.0989
+  type: 'test'
+  ...
+# Subtest: 50_负比例拒绝
+ok 50 - 50_负比例拒绝
+  ---
+  duration_ms: 0.0629
+  type: 'test'
+  ...
+# Subtest: 51_比例放错字段拒绝
+ok 51 - 51_比例放错字段拒绝
+  ---
+  duration_ms: 0.0781
+  type: 'test'
+  ...
+# Subtest: 52_累计余额无需单次事件ID
+ok 52 - 52_累计余额无需单次事件ID
+  ---
+  duration_ms: 0.8925
+  type: 'test'
+  ...
+# Subtest: 53_无法读取股数只返回推导区间
+ok 53 - 53_无法读取股数只返回推导区间
+  ---
+  duration_ms: 0.2417
+  type: 'test'
+  ...
+# Subtest: D2 回归 01-yuan
+ok 54 - D2 回归 01-yuan
+  ---
+  duration_ms: 0.219
+  type: 'test'
+  ...
+# Subtest: D2 回归 02-wanyuan-approx
+ok 55 - D2 回归 02-wanyuan-approx
+  ---
+  duration_ms: 0.078
+  type: 'test'
+  ...
+# Subtest: D2 回归 03-yiyuan-upper-bound
+ok 56 - D2 回归 03-yiyuan-upper-bound
+  ---
+  duration_ms: 0.0545
+  type: 'test'
+  ...
+# Subtest: D2 回归 04-share
+ok 57 - D2 回归 04-share
+  ---
+  duration_ms: 0.035
+  type: 'test'
+  ...
+# Subtest: D2 回归 05-wanshare-cumulative
+ok 58 - D2 回归 05-wanshare-cumulative
+  ---
+  duration_ms: 0.0308
+  type: 'test'
+  ...
+# Subtest: D2 回归 06-yishare-negative
+ok 59 - D2 回归 06-yishare-negative
+  ---
+  duration_ms: 0.0309
+  type: 'test'
+  ...
+# Subtest: D2 回归 07-ratio-total-capital
+ok 60 - D2 回归 07-ratio-total-capital
+  ---
+  duration_ms: 0.043
+  type: 'test'
+  ...
+# Subtest: D2 回归 08-two-ratio-denominators
+ok 61 - D2 回归 08-two-ratio-denominators
+  ---
+  duration_ms: 0.0472
+  type: 'test'
+  ...
+# Subtest: D2 回归 09-missing-vs-zero
+ok 62 - D2 回归 09-missing-vs-zero
+  ---
+  duration_ms: 0.0461
+  type: 'test'
+  ...
+# Subtest: D2 回归 10-unreadable
+ok 63 - D2 回归 10-unreadable
+  ---
+  duration_ms: 0.1446
+  type: 'test'
+  ...
+# Subtest: D2 回归 11-amount-negative
+ok 64 - D2 回归 11-amount-negative
+  ---
+  duration_ms: 0.0904
+  type: 'test'
+  ...
+# Subtest: D2 回归 12-amount-yiyuan-decimals
+ok 65 - D2 回归 12-amount-yiyuan-decimals
+  ---
+  duration_ms: 0.034
+  type: 'test'
+  ...
+# Subtest: D2 回归 13-amount-strip-trailing-zeros
+ok 66 - D2 回归 13-amount-strip-trailing-zeros
+  ---
+  duration_ms: 0.0301
+  type: 'test'
+  ...
+# Subtest: D2 回归 14-shares-yigu
+ok 67 - D2 回归 14-shares-yigu
+  ---
+  duration_ms: 0.0301
+  type: 'test'
+  ...
+# Subtest: D2 回归 15-shares-negative-wangu
+ok 68 - D2 回归 15-shares-negative-wangu
+  ---
+  duration_ms: 0.0273
+  type: 'test'
+  ...
+# Subtest: D2 回归 16-ratio-small-percent
+ok 69 - D2 回归 16-ratio-small-percent
+  ---
+  duration_ms: 0.0828
+  type: 'test'
+  ...
+# Subtest: D2 回归 17-amount-explicit-zero-unit
+ok 70 - D2 回归 17-amount-explicit-zero-unit
+  ---
+  duration_ms: 0.0416
+  type: 'test'
+  ...
+# Subtest: D2 回归 18-ratio-explicit-zero
+ok 71 - D2 回归 18-ratio-explicit-zero
+  ---
+  duration_ms: 0.0291
+  type: 'test'
+  ...
+# Subtest: D2 回归 19-shares-not-mentioned
+ok 72 - D2 回归 19-shares-not-mentioned
+  ---
+  duration_ms: 0.0245
+  type: 'test'
+  ...
+# Subtest: D2 回归 20-amount-unreadable
+ok 73 - D2 回归 20-amount-unreadable
+  ---
+  duration_ms: 0.0242
+  type: 'test'
+  ...
+# Subtest: JSON 边界拒绝数字型财务值、未知键、布尔、数组、非有限值和错误来源信息
+ok 74 - JSON 边界拒绝数字型财务值、未知键、布尔、数组、非有限值和错误来源信息
+  ---
+  duration_ms: 0.915
+  type: 'test'
+  ...
+# Subtest: 反推区间与穷举整股集合一致，包括零比例、100% 和舍入临界点
+ok 75 - 反推区间与穷举整股集合一致，包括零比例、100% 和舍入临界点
+  ---
+  duration_ms: 64.9837
+  type: 'test'
+  ...
+# Subtest: CLI 批量、UTF-8 BOM、缺失文件、非法 JSON 与退出码
+ok 76 - CLI 批量、UTF-8 BOM、缺失文件、非法 JSON 与退出码
+  ---
+  duration_ms: 470.0433
+  type: 'test'
+  ...
+1..76
+# tests 76
+# suites 0
+# pass 76
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 757.1036

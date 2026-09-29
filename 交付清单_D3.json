@@ -1,0 +1,92 @@
+{
+  "owner": "方轩诚",
+  "day": "D3",
+  "version": "0.3.0",
+  "createdAt": "2026-09-29T09:53:39.094174+00:00",
+  "repositoryBaseline": "e502c0d83073a091b37f5b642efabfbe7a1d4ea4",
+  "pushed": false,
+  "tests": {
+    "total": 76,
+    "passed": 76,
+    "failed": 0,
+    "data": "synthetic"
+  },
+  "note": "逐文件 SHA-256；本清单自身及外层 ZIP 不自包含。",
+  "files": [
+    {
+      "path": "docs_D3/方轩诚_质押口径与比例核验_D3.md",
+      "bytes": 11775,
+      "sha256": "e744ec9049a6993573c9850cb1add3653e2a5c41225027dd8878f6692bfdab34"
+    },
+    {
+      "path": "docs_D3/来源与依赖_D3.md",
+      "bytes": 3274,
+      "sha256": "2ab8bf69cecbd44a1041b2597c82e5a275f418fa9b86844857fd6c5be8eccc2f"
+    },
+    {
+      "path": "docs_D3/测试记录_D3.txt",
+      "bytes": 10636,
+      "sha256": "ef095e05f19815fce385667b7be8fdd043fbe0a9d8f29edfabd904e912b043c9"
+    },
+    {
+      "path": "docs_D3/验收与联调记录_D3.md",
+      "bytes": 6856,
+      "sha256": "6819dcf3b23f28fcf992bb34dc827810f998114675245750f7abdd796de93abf"
+    },
+    {
+      "path": "examples_D3/pledge_input_D3.json",
+      "bytes": 27320,
+      "sha256": "788026a6b34392572df834dc886fb9be8bd60ddee1a80db5792c355a73372457"
+    },
+    {
+      "path": "examples_D3/pledge_results_D3.json",
+      "bytes": 77211,
+      "sha256": "42b49fed65ab7cbbeede5e64ac7ed8f821c6ffe5cb3611a5f1feb17a9dad3d94"
+    },
+    {
+      "path": "package_D3.json",
+      "bytes": 605,
+      "sha256": "915c3d684c580e9e1a81d74f7dbfd4c7c0ba6a0de4a71f049c9310eea77e9b0b"
+    },
+    {
+      "path": "README_D3.md",
+      "bytes": 3728,
+      "sha256": "f01cc60d77d090763a4ef01bcd4abfeb753491771f054ca1320dd224e72e5c77"
+    },
+    {
+      "path": "src_D3/normalization/normalization_D3.ts",
+      "bytes": 4426,
+      "sha256": "ec9a4fdfbe533e3b672a0a04a292115f098c36b9cc46676a9c2b99e438bb3362"
+    },
+    {
+      "path": "src_D3/pledge/__tests___D3/pledge.test_D3.ts",
+      "bytes": 6038,
+      "sha256": "ab313de9bd6ad3385a6b47b50ecf009a3fd7e062fb97613f3351fcc54e1eca7d"
+    },
+    {
+      "path": "src_D3/pledge/cli_D3.ts",
+      "bytes": 2056,
+      "sha256": "b7216f166b0b712082dc73356ceaaefb2dad312095816d6de80d9da1525ad349"
+    },
+    {
+      "path": "src_D3/pledge/pledge_D3.ts",
+      "bytes": 15312,
+      "sha256": "b4508b379043ea75cd1dde9e32f6842dd656753ef5532183026c03f3d40bf546"
+    },
+    {
+      "path": "tests_D3/fixtures/normalization_regression_D3.json",
+      "bytes": 9805,
+      "sha256": "81650a2ef7c5597eb59ef54dedfd30e29954c0ce9dc5e857602fe004b253c3ec"
+    },
+    {
+      "path": "tests_D3/fixtures/pledge_cases_D3.json",
+      "bytes": 148078,
+      "sha256": "703c504d88f462f96bdd41d96c7e58a45b222f6f3713abc45db6ff60cad0cfc4"
+    },
+    {
+      "path": "tsconfig_D3.json",
+      "bytes": 592,
+      "sha256": "878dd3abb55cde606d6e6025a2f1b9a1d00666d6af3b73d1abad270c77a93bc9"
+    }
+  ]
+}
