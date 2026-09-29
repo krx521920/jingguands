@@ -1,0 +1,211 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20260929T033353-equity_change-ad51",
+  "is_mock": true,
+  "source": {
+    "file_id": "sha256:13e8c0fb57cf67fd",
+    "file_name": "equity_change_sample_01.txt",
+    "file_sha256": "13e8c0fb57cf67fd99c3c224c98432ea03bc15cc73cc7ea17ec40b4732f5726b",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "extraction_method": "mock",
+      "notes": "MOCK 输出——不得计入真实抽取成绩",
+      "fields": {
+        "holder": {
+          "raw_value": "李某",
+          "value": "李某",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "信息披露义务人：李某"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "direction": {
+          "raw_value": "减持",
+          "value": "decrease",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "股份变动性质：减持"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_before": {
+          "raw_value": "32,000,000股",
+          "value": 32000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "持有公司股份32,000,000股，占公司总股本的8.00%"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_after": {
+          "raw_value": "24,000,000股",
+          "value": 24000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "持有公司股份24,000,000股，占公司总股本的6.00%"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "ratio_before": {
+          "raw_value": "8.00%",
+          "value": 8,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占公司总股本的8.00%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "ratio_after": {
+          "raw_value": "6.00%",
+          "value": 6,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占公司总股本的6.00%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "change_shares": {
+          "raw_value": "8,000,000股",
+          "value": 8000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "累计减持公司股份8,000,000股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "method": {
+          "raw_value": "集中竞价交易减持",
+          "value": "集中竞价交易减持",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "本次权益变动方式为集中竞价交易减持"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "change_date": {
+          "raw_value": "2026年9月20日至2026年9月24日",
+          "value": "2026-09-20/2026-09-24",
+          "unit": "date_range",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "2026年9月20日至2026年9月24日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      }
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "mock",
+    "started_at": "2026-09-29T03:33:53.553Z",
+    "duration_ms": 0,
+    "errors": []
+  }
+}
