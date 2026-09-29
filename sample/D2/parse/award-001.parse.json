@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.3",
+  "schema_version": "evidence/0.4",
   "doc": {
     "doc_id": "d0be9f419",
     "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
@@ -7,10 +7,10 @@
     "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
     "file_size": 96076,
     "page_count": 4,
-    "parsed_at": "2026-09-28T14:34:23+08:00",
+    "parsed_at": "2026-09-29T08:50:19+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.3.0"
+      "version": "0.4.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -77,7 +77,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
           "text_raw": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
           "region": [
@@ -143,7 +143,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
           "text_raw": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
           "region": [
@@ -187,7 +187,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "近日，武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉",
           "text_raw": "近日，武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉",
           "region": [
@@ -341,7 +341,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "营业场所：湖北省武汉市新洲区邾城街南安街75号1栋3层301室经营范围：一般项目：承接总公司工程建设业务；凭总公司授权开展经营活",
           "text_raw": "营业场所：湖北省武汉市新洲区邾城街南安街75号1栋3层301室经营范围：一般项目：承接总公司工程建设业务；凭总公司授权开展经营活",
           "region": [
@@ -407,7 +407,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "本公司、控股股东及实际控制人与武汉建工集团股份有限公司及其新洲分公",
           "text_raw": "本公司、控股股东及实际控制人与武汉建工集团股份有限公司及其新洲分公",
           "region": [
@@ -497,7 +497,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "武汉建工集团股份有限公司系大型国有建筑施工企业，资信状况良好，在履",
           "text_raw": "武汉建工集团股份有限公司系大型国有建筑施工企业，资信状况良好，在履",
           "region": [
@@ -563,7 +563,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "除本项目外，最近三年公司与武汉建工集团股份有限公司及其子公司发生交",
           "text_raw": "除本项目外，最近三年公司与武汉建工集团股份有限公司及其子公司发生交",
           "region": [
@@ -619,6 +619,7 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c001",
+            "cell_ref": "r1c1",
             "row": 0,
             "col": 0
           },
@@ -646,8 +647,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c005",
+            "cell_ref": "r1c2",
             "row": 0,
-            "col": 0
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -673,8 +675,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c009",
+            "cell_ref": "r1c3",
             "row": 0,
-            "col": 1
+            "col": 2
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -700,8 +703,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c013",
+            "cell_ref": "r1c4",
             "row": 0,
-            "col": 2
+            "col": 3
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -727,7 +731,8 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c002",
-            "row": 0,
+            "cell_ref": "r2c1",
+            "row": 1,
             "col": 0
           },
           "font_size": null,
@@ -754,8 +759,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c006",
-            "row": 0,
-            "col": 0
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -781,8 +787,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c010",
-            "row": 0,
-            "col": 1
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -808,8 +815,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c014",
-            "row": 0,
-            "col": 2
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -835,7 +843,8 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c003",
-            "row": 1,
+            "cell_ref": "r3c1",
+            "row": 2,
             "col": 0
           },
           "font_size": null,
@@ -862,8 +871,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c007",
-            "row": 1,
-            "col": 0
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -889,8 +899,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c011",
-            "row": 1,
-            "col": 1
+            "cell_ref": "r3c3",
+            "row": 2,
+            "col": 2
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -916,8 +927,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c015",
-            "row": 1,
-            "col": 2
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -943,7 +955,8 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c004",
-            "row": 2,
+            "cell_ref": "r4c1",
+            "row": 3,
             "col": 0
           },
           "font_size": null,
@@ -970,8 +983,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c008",
-            "row": 2,
-            "col": 0
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -997,8 +1011,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c012",
-            "row": 2,
-            "col": 1
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1024,8 +1039,9 @@
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
             "cell_id": "c016",
-            "row": 2,
-            "col": 2
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1149,7 +1165,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "分包工程名称：武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗",
           "text_raw": "分包工程名称：武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗",
           "region": [
@@ -1193,7 +1209,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "分包工程地点：武汉市新洲区问津产业新城地块，四至为永安大道以东、书",
           "text_raw": "分包工程地点：武汉市新洲区问津产业新城地块，四至为永安大道以东、书",
           "region": [
@@ -1237,7 +1253,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "分包工程承包范围：二标段医疗专项专业分包工程，包括但不限于：门诊医",
           "text_raw": "分包工程承包范围：二标段医疗专项专业分包工程，包括但不限于：门诊医",
           "region": [
@@ -1281,7 +1297,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "分包工程承包方式：包工、包料、包机械设备，包工期、质量、安全、文明",
           "text_raw": "分包工程承包方式：包工、包料、包机械设备，包工期、质量、安全、文明",
           "region": [
@@ -1472,7 +1488,7 @@
           "page": 3,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "签约合同价（暂定含税总价款）为：人民币54,000,000.00元（大写：伍仟",
           "text_raw": "签约合同价（暂定含税总价款）为：人民币54,000,000.00元（大写：伍仟",
           "region": [
@@ -1582,7 +1598,7 @@
           "page": 3,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "上述合同属于公司的日常经营合同，根据《深圳证券交易所创业板股票上市",
           "text_raw": "上述合同属于公司的日常经营合同，根据《深圳证券交易所创业板股票上市",
           "region": [
@@ -1648,7 +1664,7 @@
           "page": 3,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "本次签署的合同是公司的日常经营合同，合同履行对公司业务独立性没有影",
           "text_raw": "本次签署的合同是公司的日常经营合同，合同履行对公司业务独立性没有影",
           "region": [
@@ -1714,7 +1730,7 @@
           "page": 3,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
           "text_raw": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
           "region": [
@@ -1780,7 +1796,7 @@
           "page": 3,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "1、《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业",
           "text_raw": "1、《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业",
           "region": [
@@ -1951,7 +1967,7 @@
       "file_name": "award.pdf",
       "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.3.0",
+        "parser_version": "finstruct.parse/0.4.0",
         "page_count": 4,
         "blocks": [
           {
@@ -1970,7 +1986,7 @@
           {
             "block_id": "d0be9f419_p001_b00002",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
             "text_raw": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
             "region": [
@@ -2009,7 +2025,7 @@
           {
             "block_id": "d0be9f419_p001_b00005",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
             "text_raw": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
             "region": [
@@ -2035,7 +2051,7 @@
           {
             "block_id": "d0be9f419_p001_b00007",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "近日，武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉",
             "text_raw": "近日，武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉",
             "region": [
@@ -2126,7 +2142,7 @@
           {
             "block_id": "d0be9f419_p001_b00014",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "营业场所：湖北省武汉市新洲区邾城街南安街75号1栋3层301室经营范围：一般项目：承接总公司工程建设业务；凭总公司授权开展经营活",
             "text_raw": "营业场所：湖北省武汉市新洲区邾城街南安街75号1栋3层301室经营范围：一般项目：承接总公司工程建设业务；凭总公司授权开展经营活",
             "region": [
@@ -2165,7 +2181,7 @@
           {
             "block_id": "d0be9f419_p001_b00017",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "本公司、控股股东及实际控制人与武汉建工集团股份有限公司及其新洲分公",
             "text_raw": "本公司、控股股东及实际控制人与武汉建工集团股份有限公司及其新洲分公",
             "region": [
@@ -2204,7 +2220,7 @@
           {
             "block_id": "d0be9f419_p002_b00002",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "武汉建工集团股份有限公司系大型国有建筑施工企业，资信状况良好，在履",
             "text_raw": "武汉建工集团股份有限公司系大型国有建筑施工企业，资信状况良好，在履",
             "region": [
@@ -2243,7 +2259,7 @@
           {
             "block_id": "d0be9f419_p002_b00005",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "除本项目外，最近三年公司与武汉建工集团股份有限公司及其子公司发生交",
             "text_raw": "除本项目外，最近三年公司与武汉建工集团股份有限公司及其子公司发生交",
             "region": [
@@ -2542,7 +2558,7 @@
           {
             "block_id": "d0be9f419_p002_b00028",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "分包工程名称：武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗",
             "text_raw": "分包工程名称：武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗",
             "region": [
@@ -2568,7 +2584,7 @@
           {
             "block_id": "d0be9f419_p002_b00030",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "分包工程地点：武汉市新洲区问津产业新城地块，四至为永安大道以东、书",
             "text_raw": "分包工程地点：武汉市新洲区问津产业新城地块，四至为永安大道以东、书",
             "region": [
@@ -2594,7 +2610,7 @@
           {
             "block_id": "d0be9f419_p002_b00032",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "分包工程承包范围：二标段医疗专项专业分包工程，包括但不限于：门诊医",
             "text_raw": "分包工程承包范围：二标段医疗专项专业分包工程，包括但不限于：门诊医",
             "region": [
@@ -2620,7 +2636,7 @@
           {
             "block_id": "d0be9f419_p002_b00034",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "分包工程承包方式：包工、包料、包机械设备，包工期、质量、安全、文明",
             "text_raw": "分包工程承包方式：包工、包料、包机械设备，包工期、质量、安全、文明",
             "region": [
@@ -2711,7 +2727,7 @@
           {
             "block_id": "d0be9f419_p003_b00007",
             "page": 3,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "签约合同价（暂定含税总价款）为：人民币54,000,000.00元（大写：伍仟",
             "text_raw": "签约合同价（暂定含税总价款）为：人民币54,000,000.00元（大写：伍仟",
             "region": [
@@ -2776,7 +2792,7 @@
           {
             "block_id": "d0be9f419_p003_b00012",
             "page": 3,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "上述合同属于公司的日常经营合同，根据《深圳证券交易所创业板股票上市",
             "text_raw": "上述合同属于公司的日常经营合同，根据《深圳证券交易所创业板股票上市",
             "region": [
@@ -2815,7 +2831,7 @@
           {
             "block_id": "d0be9f419_p003_b00015",
             "page": 3,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "本次签署的合同是公司的日常经营合同，合同履行对公司业务独立性没有影",
             "text_raw": "本次签署的合同是公司的日常经营合同，合同履行对公司业务独立性没有影",
             "region": [
@@ -2854,7 +2870,7 @@
           {
             "block_id": "d0be9f419_p003_b00018",
             "page": 3,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
             "text_raw": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
             "region": [
@@ -2893,7 +2909,7 @@
           {
             "block_id": "d0be9f419_p003_b00021",
             "page": 3,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "1、《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业",
             "text_raw": "1、《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业",
             "region": [

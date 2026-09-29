@@ -53,7 +53,9 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
     避免同一份内容在两处出现、日后漂移。
 
     返回：
-        [{"table_id", "page", "region", "n_rows", "n_cols", "_cells": [(x0,y0,x1,y1,row,col)]}]
+        [{"table_id", "page", "region", "n_rows", "n_cols",
+          "_cells": [{"table_id","box","row","col","cell_id","cell_ref"}],
+          "_row_edges": [(top,bottom)]}]
     """
     try:
         found = page.find_tables()
@@ -72,63 +74,75 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
             # 单行"表格"多半是排版噪声（一条横线），不当表格处理
             continue
 
-        # pdfplumber 的 cells 是按列优先给出的；用行边界还原行列号
-        row_edges = []
-        for r in t.rows:
-            row_edges.append((r.bbox[1], r.bbox[3]))
-        col_edges = []
-        for c in t.columns:
-            col_edges.append((c.bbox[0], c.bbox[2]))
+        # pdfplumber 的 t.rows / t.columns 边界在**纵向合并**时会互相重叠
+        # （实测 pledge-001 p1 的 rows[1] 与 rows[2] 的 y 区间交叠），
+        # 拿它做"落在第几行"的判定会取到错误的行 —— 实测把第 2 行误判成第 1 行，
+        # 于是 c001 与 c002 得到同一个 cell_ref。网格改从**单元格自身的坐标**推：
+        # 所有相异的上边界即行，相异的左边界即列。
+        row_tops = sorted({round(cy0, 1) for (_x0, cy0, _x1, _y1) in cells_raw})
+        col_lefts = sorted({round(cx0, 1) for (cx0, _y0, _x1, _y1) in cells_raw})
 
-        # 身份用**物理单元格序号**，不是 (row,col)。
-        # 原因：合并单元格会让不同的物理单元格推出相同的 (row,col)，
-        # 按 (row,col) 分组合并后，取到的那个 box 装不下全部字符合导致丢字
-        # （实测 pledge.pdf 第 1 页丢了 193 个字符）。
-        # row/col 只作为元数据，取单元格**左上角**落在哪一行哪一列。
+        def _nearest(values: List[float], v: float) -> int:
+            key = round(v, 1)
+            if key in values:
+                return values.index(key)
+            return min(range(len(values)), key=lambda i: abs(values[i] - key))
+
+        table_id = ev.make_table_id(doc_id, page_no, seq)
         cell_boxes = []
         for i, (cx0, cy0, cx1, cy1) in enumerate(cells_raw):
-            r = _index_at(row_edges, cy0)
-            c = _index_at(col_edges, cx0)
-            cell_boxes.append((cx0, cy0, cx1, cy1, r, c, f"c{i + 1:03d}"))
+            r = _nearest(row_tops, cy0)
+            c = _nearest(col_lefts, cx0)
+            cell_boxes.append(
+                {
+                    "table_id": table_id,
+                    "box": (cx0, cy0, cx1, cy1),
+                    "row": r,
+                    "col": c,
+                    # cell_id：物理单元格序号，表内唯一，**这是分组与引用该用的键**。
+                    # 不能用 (row,col) 当键：合并单元格会让不同物理单元格推出相同的
+                    # (row,col)，按它分组合并后取到的 box 装不下全部字符，会静默丢字
+                    # （实测 pledge-001 第 1 页丢了 193 个字符）。
+                    "cell_id": f"c{i + 1:03d}",
+                    # cell_ref：人类可读的网格位置（1 基），对齐魏文宇契约的
+                    # provenance.cell_ref —— run_extract.mjs 读 block.table_ref.cell_ref，
+                    # 少这个字段他的链路会把表格出处静默丢成 null。
+                    "cell_ref": f"r{r + 1}c{c + 1}",
+                }
+            )
+
+        # 非重叠的行带：相异上边界之间即一行。给"落在表格内但不在任何单元格里"的
+        # 字符兜底分组用 —— 多行表头常有文字落在绘制出的单元格矩形之外。
+        row_bands = []
+        for i, top in enumerate(row_tops):
+            bottom = row_tops[i + 1] if i + 1 < len(row_tops) else t.bbox[3]
+            row_bands.append((round(top, 2), round(bottom, 2)))
 
         tables.append(
             {
-                "table_id": ev.make_table_id(doc_id, page_no, seq),
+                "table_id": table_id,
                 "page": page_no,
                 "region": [round(v, 2) for v in t.bbox],
-                "n_rows": n_rows,
-                "n_cols": n_cols,
+                # 行列数用推出来的网格，不用 pdfplumber 的 t.rows/t.columns
+                #（它们在有纵向合并时会把一行重复计数）
+                "n_rows": len(row_tops),
+                "n_cols": len(col_lefts),
                 "_cells": cell_boxes,
-                # 行边界：给"落在表格内但不在任何单元格里"的字符兜底分组用。
-                # 表头（尤其多行表头 + 纵向合并）常有文字落在绘制出的单元格矩形之外。
-                "_row_edges": [(round(a, 2), round(b, 2)) for a, b in row_edges],
+                "_row_edges": row_bands,
             }
         )
     return tables
 
 
-def _index_at(edges: List[Tuple[float, float]], v: float) -> int:
-    """某个坐标落在第几段（0 基）。取不到就返回最接近的一段。"""
-    for i, (e0, e1) in enumerate(edges):
-        if e0 <= v <= e1:
-            return i
-    best, bestd = 0, float("inf")
-    for i, (e0, e1) in enumerate(edges):
-        d = min(abs(v - e0), abs(v - e1))
-        if d < bestd:
-            bestd, best = d, i
-    return best
-
-
-def assign_owner(cell_boxes: List[Tuple], char) -> Optional[str]:
+def assign_owner(cell_boxes: List[Dict], char) -> Optional[str]:
     """判断一个字符属于哪个单元格，返回 cell_id；不属于任何单元格返回 None。
 
     用**字符中心点**判定，和 check_evidence 的取值方式一致，保证可复现。
     """
     cx = (char["x0"] + char["x1"]) / 2
     cy = (char["top"] + char["bottom"]) / 2
-    for box in cell_boxes:
-        x0, y0, x1, y1, _r, _c, cid = box
+    for cell in cell_boxes:
+        x0, y0, x1, y1 = cell["box"]
         if x0 <= cx <= x1 and y0 <= cy <= y1:
-            return cid
+            return cell["cell_id"]
     return None

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "finstruct/evidence.v0.3.json",
-  "title": "解析出处结构 evidence/0.3",
-  "description": "解析层交给下游的中间表示。v0.3 相对 v0.2：新增 block.source_type 与 block.doc_id（对齐评测方 evaluation/D1/schemas/evidence.schema.json 的 source_type / document_id）；表格改为单元格独立成块（source_type=cell + table_ref），tables[] 只留元数据，避免同一内容两处存放。",
+  "$id": "finstruct/evidence.v0.4.json",
+  "title": "解析出处结构 evidence/0.4",
+  "description": "解析层交给下游的中间表示。v0.4 相对 v0.3：table_ref 新增 cell_ref（人类可读的网格位置，对齐魏文宇契约的 provenance.cell_ref —— 他的 run_extract.mjs 读的是 cell_ref 而不是 cell_id，少了它表格出处会被静默丢成 null）；并修正行列号的推导（原先用 pdfplumber 重叠的 t.rows 边界，会把第 2 行误判成第 1 行、导致 cell_ref 撞车；现改为从单元格自身坐标推网格，实测撞车 0）。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,7 +15,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "evidence/0.3"
+      "const": "evidence/0.4"
     },
     "doc": {
       "$ref": "#/$defs/Doc"
@@ -254,7 +254,8 @@
               "type": [
                 "string",
                 "null"
-              ]
+              ],
+              "description": "物理单元格序号（形如 \"c039\"），表内唯一。分组与回溯用的内部键。"
             },
             "row": {
               "type": [
@@ -267,6 +268,13 @@
                 "integer",
                 "null"
               ]
+            },
+            "cell_ref": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "人类可读的单元格网格位置，1 基，形如 \"r2c3\"。这是要拷进全队契约 provenance.cell_ref 的值。表内唯一（已修掉合并单元格导致的撞车）。"
             }
           }
         },

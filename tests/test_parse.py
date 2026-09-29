@@ -325,9 +325,9 @@ def test_输出严格符合JSON_Schema(parsed):
     import json as _json
     import os as _os
 
-    sp = _os.path.join(ROOT, "schemas", "evidence.v0.3.json")
+    sp = _os.path.join(ROOT, "schemas", "evidence.v0.4.json")
     if not _os.path.exists(sp):
-        pytest.skip("找不到 schemas/evidence.v0.3.json")
+        pytest.skip("找不到 schemas/evidence.v0.4.json")
     schema = _json.load(open(sp, encoding="utf-8"))
     errs = sorted(
         jsonschema.Draft202012Validator(schema).iter_errors(parsed),
@@ -445,7 +445,7 @@ def test_真实公告_严格符合schema(name):
     import json as _json
 
     d = _parse_real(name)
-    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.3.json"), encoding="utf-8"))
+    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.4.json"), encoding="utf-8"))
     errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(d), key=lambda e: list(e.path))
     assert not errs, [f"/{'/'.join(map(str,e.path))}: {e.message}" for e in errs[:5]]
 
@@ -502,3 +502,33 @@ def test_真实公告_表格被检出且单元格独立成块():
     for b in cells:
         assert b["table_ref"]["table_id"] in tids
         assert b["table_ref"]["row"] is not None and b["table_ref"]["col"] is not None
+
+
+def test_表格单元格的cell_ref可用且唯一():
+    """cell_ref 要能直接拷进全队契约的 provenance.cell_ref。
+
+    魏文宇的 run_extract.mjs 读的是 block.table_ref.cell_ref（不是 cell_id）。
+    这里锁三件事：
+      ① 每个 cell 块都带 cell_ref，格式 r<行>c<列>（1 基）；
+      ② **同一张表内 cell_ref 唯一** —— 合并单元格曾让它撞车（实测 53 个单元格
+         只推出 20 个唯一 ref），根因是用 pdfplumber 重叠的 t.rows 边界判行号；
+      ③ cell_id 仍然唯一，作为内部回溯键。
+    """
+    import re
+
+    d = _parse_real("pledge-001")
+    seen_per_table = {}
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            if b["source_type"] != "cell":
+                continue
+            ref = b["table_ref"]
+            assert ref.get("cell_ref"), f"{b['block_id']} 缺 cell_ref"
+            assert re.fullmatch(r"r\d+c\d+", ref["cell_ref"]), ref["cell_ref"]
+            assert ref.get("cell_id"), f"{b['block_id']} 缺 cell_id"
+            key = (ref["table_id"], ref["cell_ref"])
+            assert key not in seen_per_table, \
+                f"{ref['table_id']} 内 cell_ref {ref['cell_ref']} 撞车（{seen_per_table[key]} 与 {b['block_id']}）"
+            seen_per_table[key] = b["block_id"]
+            # row/col 与 cell_ref 必须自洽（cell_ref 是 1 基）
+            assert ref["cell_ref"] == f"r{ref['row'] + 1}c{ref['col'] + 1}"

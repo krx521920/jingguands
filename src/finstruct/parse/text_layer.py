@@ -286,15 +286,16 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
 
     # ---- 1) 表格单元格先占位
     cell_owner: Dict[int, str] = {}            # char 下标 -> cell_id
-    cell_index: Dict[str, tuple] = {}          # cell_id -> (table_id, row, col, box)
+    cell_index: Dict[str, Dict] = {}           # cell_id -> 单元格字典
     for tb in tables:
-        for (x0, y0, x1, y1, r, c, cid) in tb["_cells"]:
-            cell_index[cid] = (tb["table_id"], r, c, (x0, y0, x1, y1))
+        for cell in tb["_cells"]:
+            cell_index[cell["cell_id"]] = cell
     for idx, ch in enumerate(chars):
         cx = (ch["x0"] + ch["x1"]) / 2
         cy = (ch["top"] + ch["bottom"]) / 2
-        for cid, (_tid, _r, _c, box) in cell_index.items():
-            if box[0] <= cx <= box[2] and box[1] <= cy <= box[3]:
+        for cid, cell in cell_index.items():
+            x0, y0, x1, y1 = cell["box"]
+            if x0 <= cx <= x1 and y0 <= cy <= y1:
                 cell_owner[idx] = cid
                 break
 
@@ -305,8 +306,9 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
 
     blocks: List[Dict] = []
     for cid, cs in grouped.items():
-        tid, r, c, box = cell_index[cid]
-        region = [round(box[0], 2), round(box[1], 2), round(box[2], 2), round(box[3], 2)]
+        cell = cell_index[cid]
+        x0, y0, x1, y1 = cell["box"]
+        region = [round(x0, 2), round(y0, 2), round(x1, 2), round(y1, 2)]
         lines = cluster_lines(cs)
         blocks.append(
             {
@@ -316,7 +318,15 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
                     text_raw="".join(x["text"] for ln in lines for x in ln),
                     region=region,
                     source_type=ev.KIND_CELL,
-                    table_ref={"table_id": tid, "cell_id": cid, "row": r, "col": c},
+                    table_ref={
+                        "table_id": cell["table_id"],
+                        "cell_id": cid,
+                        # 魏文宇的 run_extract.mjs 读的是 cell_ref（不是 cell_id），
+                        # 少了这个字段他的链路会把表格出处静默丢成 null
+                        "cell_ref": cell["cell_ref"],
+                        "row": cell["row"],
+                        "col": cell["col"],
+                    },
                     role=ev.ROLE_BODY,
                 ),
             }

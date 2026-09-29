@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.3",
+  "schema_version": "evidence/0.4",
   "doc": {
     "doc_id": "d44e95085",
     "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
@@ -7,10 +7,10 @@
     "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
     "file_size": 107365,
     "page_count": 2,
-    "parsed_at": "2026-09-28T14:34:23+08:00",
+    "parsed_at": "2026-09-29T08:50:19+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.3.0"
+      "version": "0.4.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -77,7 +77,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重",
           "text_raw": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重",
           "region": [
@@ -187,7 +187,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "北京万集科技股份有限公司（以下简称“公司”）于近日接到公司控股股东、实际控制",
           "text_raw": "北京万集科技股份有限公司（以下简称“公司”）于近日接到公司控股股东、实际控制",
           "region": [
@@ -287,8 +287,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c039",
+            "cell_ref": "r1c9",
             "row": 0,
-            "col": 7
+            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -314,8 +315,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c044",
+            "cell_ref": "r1c10",
             "row": 0,
-            "col": 8
+            "col": 9
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -341,8 +343,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c049",
+            "cell_ref": "r1c11",
             "row": 0,
-            "col": 9
+            "col": 10
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -393,8 +396,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c040",
-            "row": 0,
-            "col": 7
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -420,8 +424,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c045",
-            "row": 0,
-            "col": 8
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -447,8 +452,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c050",
-            "row": 0,
-            "col": 9
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -463,13 +469,13 @@
           "type": "TEXT",
           "source_type": "table",
           "role": "BODY",
-          "text": "2026年09月是 2,100,000 2.40% 0.99% 否 否23日翟军 是 2,650,000 3.03% 1.24% 否 否是 3,050,000 3.49% 1.43% 否 否",
-          "text_raw": "2026年09月是2,100,0002.40%0.99%否否23日翟军是2,650,0003.03%1.24%否否是3,050,0003.49%1.43%否否",
+          "text": "2026年09月是 2,100,000 2.40% 0.99% 否 否23日",
+          "text_raw": "2026年09月是2,100,0002.40%0.99%否否23日",
           "region": [
-            40.56,
+            77.76,
             476.79,
             415.68,
-            563.56
+            498.88
           ],
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
@@ -499,8 +505,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c036",
-            "row": 1,
-            "col": 6
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -526,8 +533,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c041",
-            "row": 1,
-            "col": 7
+            "cell_ref": "r3c9",
+            "row": 2,
+            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -553,8 +561,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c046",
-            "row": 1,
-            "col": 8
+            "cell_ref": "r3c10",
+            "row": 2,
+            "col": 9
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -580,8 +589,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c051",
-            "row": 1,
-            "col": 9
+            "cell_ref": "r3c11",
+            "row": 2,
+            "col": 10
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -591,6 +601,31 @@
         },
         {
           "block_id": "d44e95085_p001_b00023",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "table",
+          "role": "BODY",
+          "text": "翟军 是 2,650,000 3.03% 1.24% 否 否",
+          "text_raw": "翟军是2,650,0003.03%1.24%否否",
+          "region": [
+            40.56,
+            517.95,
+            342.24,
+            528.4
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "row": 2
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": true,
+          "missing_reason": "DEGRADED"
+        },
+        {
+          "block_id": "d44e95085_p001_b00024",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -607,8 +642,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c037",
-            "row": 1,
-            "col": 6
+            "cell_ref": "r4c8",
+            "row": 3,
+            "col": 7
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -617,7 +653,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00024",
+          "block_id": "d44e95085_p001_b00025",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -634,8 +670,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c042",
-            "row": 1,
-            "col": 7
+            "cell_ref": "r4c9",
+            "row": 3,
+            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -644,7 +681,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00025",
+          "block_id": "d44e95085_p001_b00026",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -661,8 +698,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c047",
-            "row": 1,
-            "col": 8
+            "cell_ref": "r4c10",
+            "row": 3,
+            "col": 9
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -671,7 +709,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00026",
+          "block_id": "d44e95085_p001_b00027",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -688,8 +726,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c052",
-            "row": 1,
-            "col": 9
+            "cell_ref": "r4c11",
+            "row": 3,
+            "col": 10
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -698,7 +737,32 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00027",
+          "block_id": "d44e95085_p001_b00028",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "table",
+          "role": "BODY",
+          "text": "是 3,050,000 3.49% 1.43% 否 否",
+          "text_raw": "是3,050,0003.49%1.43%否否",
+          "region": [
+            77.76,
+            553.23,
+            342.24,
+            563.56
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "row": 3
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": true,
+          "missing_reason": "DEGRADED"
+        },
+        {
+          "block_id": "d44e95085_p001_b00029",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -715,62 +779,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
             "cell_id": "c038",
-            "row": 1,
-            "col": 6
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d44e95085_p001_b00028",
-          "doc_id": "d44e95085",
-          "page": 1,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "——",
-          "text_raw": "——",
-          "region": [
-            423.95,
-            575.32,
-            466.25,
-            595.57
-          ],
-          "table_ref": {
-            "table_id": "d44e95085_p001_t001",
-            "cell_id": "c043",
-            "row": 1,
+            "cell_ref": "r5c8",
+            "row": 4,
             "col": 7
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d44e95085_p001_b00029",
-          "doc_id": "d44e95085",
-          "page": 1,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "——",
-          "text_raw": "——",
-          "region": [
-            466.25,
-            575.32,
-            519.85,
-            595.57
-          ],
-          "table_ref": {
-            "table_id": "d44e95085_p001_t001",
-            "cell_id": "c048",
-            "row": 1,
-            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -788,16 +799,17 @@
           "text": "——",
           "text_raw": "——",
           "region": [
-            519.85,
+            423.95,
             575.32,
-            558.08,
+            466.25,
             595.57
           ],
           "table_ref": {
             "table_id": "d44e95085_p001_t001",
-            "cell_id": "c053",
-            "row": 1,
-            "col": 9
+            "cell_id": "c043",
+            "cell_ref": "r5c9",
+            "row": 4,
+            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -807,6 +819,62 @@
         },
         {
           "block_id": "d44e95085_p001_b00031",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            466.25,
+            575.32,
+            519.85,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "c048",
+            "cell_ref": "r5c10",
+            "row": 4,
+            "col": 9
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00032",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            519.85,
+            575.32,
+            558.08,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "c053",
+            "cell_ref": "r5c11",
+            "row": 4,
+            "col": 10
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00033",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -831,7 +899,7 @@
           "missing_reason": "DEGRADED"
         },
         {
-          "block_id": "d44e95085_p001_b00032",
+          "block_id": "d44e95085_p001_b00034",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -853,7 +921,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00033",
+          "block_id": "d44e95085_p001_b00035",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -875,7 +943,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00034",
+          "block_id": "d44e95085_p001_b00036",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -892,6 +960,7 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c001",
+            "cell_ref": "r1c1",
             "row": 0,
             "col": 0
           },
@@ -902,7 +971,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00035",
+          "block_id": "d44e95085_p001_b00037",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -919,8 +988,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c004",
+            "cell_ref": "r1c2",
             "row": 0,
-            "col": 0
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -929,7 +999,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00036",
+          "block_id": "d44e95085_p001_b00038",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -946,8 +1016,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c007",
+            "cell_ref": "r1c3",
             "row": 0,
-            "col": 1
+            "col": 2
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -956,7 +1027,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00037",
+          "block_id": "d44e95085_p001_b00039",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -973,8 +1044,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c010",
+            "cell_ref": "r1c4",
             "row": 0,
-            "col": 2
+            "col": 3
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -983,7 +1055,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00038",
+          "block_id": "d44e95085_p001_b00040",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1000,8 +1072,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c013",
+            "cell_ref": "r1c5",
             "row": 0,
-            "col": 3
+            "col": 4
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1010,7 +1083,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00039",
+          "block_id": "d44e95085_p001_b00041",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1027,8 +1100,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c016",
+            "cell_ref": "r1c6",
             "row": 0,
-            "col": 4
+            "col": 5
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1037,7 +1111,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00040",
+          "block_id": "d44e95085_p001_b00042",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1054,8 +1128,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c019",
+            "cell_ref": "r1c7",
             "row": 0,
-            "col": 5
+            "col": 6
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1064,7 +1139,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00041",
+          "block_id": "d44e95085_p001_b00043",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1081,8 +1156,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c022",
+            "cell_ref": "r1c8",
             "row": 0,
-            "col": 6
+            "col": 7
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1091,7 +1167,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00042",
+          "block_id": "d44e95085_p001_b00044",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1108,8 +1184,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c029",
+            "cell_ref": "r1c10",
             "row": 0,
-            "col": 7
+            "col": 9
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1118,7 +1195,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00043",
+          "block_id": "d44e95085_p001_b00045",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1135,8 +1212,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c023",
-            "row": 0,
-            "col": 6
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1145,7 +1223,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00044",
+          "block_id": "d44e95085_p001_b00046",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1162,8 +1240,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c026",
-            "row": 0,
-            "col": 7
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1172,7 +1251,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00045",
+          "block_id": "d44e95085_p001_b00047",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1189,8 +1268,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c030",
-            "row": 0,
-            "col": 7
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1199,7 +1279,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00046",
+          "block_id": "d44e95085_p001_b00048",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1216,8 +1296,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c033",
-            "row": 0,
-            "col": 9
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1226,7 +1307,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00047",
+          "block_id": "d44e95085_p001_b00049",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1243,7 +1324,8 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c002",
-            "row": 0,
+            "cell_ref": "r3c1",
+            "row": 2,
             "col": 0
           },
           "font_size": null,
@@ -1253,7 +1335,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00048",
+          "block_id": "d44e95085_p001_b00050",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1270,8 +1352,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c005",
-            "row": 0,
-            "col": 0
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1280,7 +1363,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00049",
+          "block_id": "d44e95085_p001_b00051",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1297,8 +1380,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c008",
-            "row": 0,
-            "col": 1
+            "cell_ref": "r3c3",
+            "row": 2,
+            "col": 2
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1307,7 +1391,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00050",
+          "block_id": "d44e95085_p001_b00052",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1324,8 +1408,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c011",
-            "row": 0,
-            "col": 2
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1334,7 +1419,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00051",
+          "block_id": "d44e95085_p001_b00053",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1351,8 +1436,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c014",
-            "row": 0,
-            "col": 3
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1361,7 +1447,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00052",
+          "block_id": "d44e95085_p001_b00054",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1378,8 +1464,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c017",
-            "row": 0,
-            "col": 4
+            "cell_ref": "r3c6",
+            "row": 2,
+            "col": 5
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1388,7 +1475,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00053",
+          "block_id": "d44e95085_p001_b00055",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1405,8 +1492,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c020",
-            "row": 0,
-            "col": 5
+            "cell_ref": "r3c7",
+            "row": 2,
+            "col": 6
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1415,7 +1503,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00054",
+          "block_id": "d44e95085_p001_b00056",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1432,8 +1520,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c024",
-            "row": 0,
-            "col": 6
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1442,7 +1531,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00055",
+          "block_id": "d44e95085_p001_b00057",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1459,8 +1548,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c027",
-            "row": 0,
-            "col": 7
+            "cell_ref": "r3c9",
+            "row": 2,
+            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1469,7 +1559,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00056",
+          "block_id": "d44e95085_p001_b00058",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1486,8 +1576,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c031",
-            "row": 0,
-            "col": 7
+            "cell_ref": "r3c10",
+            "row": 2,
+            "col": 9
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1496,7 +1587,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00057",
+          "block_id": "d44e95085_p001_b00059",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1513,8 +1604,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c034",
-            "row": 0,
-            "col": 9
+            "cell_ref": "r3c11",
+            "row": 2,
+            "col": 10
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1523,7 +1615,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00058",
+          "block_id": "d44e95085_p001_b00060",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1540,7 +1632,8 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c003",
-            "row": 2,
+            "cell_ref": "r4c1",
+            "row": 3,
             "col": 0
           },
           "font_size": null,
@@ -1550,7 +1643,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00059",
+          "block_id": "d44e95085_p001_b00061",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1567,8 +1660,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c006",
-            "row": 2,
-            "col": 0
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1577,7 +1671,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00060",
+          "block_id": "d44e95085_p001_b00062",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1594,8 +1688,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c009",
-            "row": 2,
-            "col": 1
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1604,7 +1699,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00061",
+          "block_id": "d44e95085_p001_b00063",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1621,8 +1716,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c012",
-            "row": 2,
-            "col": 2
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1631,7 +1727,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00062",
+          "block_id": "d44e95085_p001_b00064",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1648,8 +1744,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c015",
-            "row": 2,
-            "col": 3
+            "cell_ref": "r4c5",
+            "row": 3,
+            "col": 4
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1658,7 +1755,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d44e95085_p001_b00063",
+          "block_id": "d44e95085_p001_b00065",
           "doc_id": "d44e95085",
           "page": 1,
           "type": "TEXT",
@@ -1675,62 +1772,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c018",
-            "row": 2,
-            "col": 4
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d44e95085_p001_b00064",
-          "doc_id": "d44e95085",
-          "page": 1,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "0.00%",
-          "text_raw": "0.00%",
-          "region": [
-            314.1,
-            730.07,
-            352.6,
-            765.22
-          ],
-          "table_ref": {
-            "table_id": "d44e95085_p001_t002",
-            "cell_id": "c021",
-            "row": 2,
+            "cell_ref": "r4c6",
+            "row": 3,
             "col": 5
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d44e95085_p001_b00065",
-          "doc_id": "d44e95085",
-          "page": 1,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "0",
-          "text_raw": "0",
-          "region": [
-            352.6,
-            730.07,
-            410.6,
-            765.22
-          ],
-          "table_ref": {
-            "table_id": "d44e95085_p001_t002",
-            "cell_id": "c025",
-            "row": 2,
-            "col": 6
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1748,16 +1792,17 @@
           "text": "0.00%",
           "text_raw": "0.00%",
           "region": [
-            410.6,
+            314.1,
             730.07,
-            459.1,
+            352.6,
             765.22
           ],
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
-            "cell_id": "c028",
-            "row": 2,
-            "col": 7
+            "cell_id": "c021",
+            "cell_ref": "r4c7",
+            "row": 3,
+            "col": 6
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1775,15 +1820,16 @@
           "text": "0",
           "text_raw": "0",
           "region": [
-            459.1,
+            352.6,
             730.07,
-            512.1,
+            410.6,
             765.22
           ],
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
-            "cell_id": "c032",
-            "row": 2,
+            "cell_id": "c025",
+            "cell_ref": "r4c8",
+            "row": 3,
             "col": 7
           },
           "font_size": null,
@@ -1802,6 +1848,62 @@
           "text": "0.00%",
           "text_raw": "0.00%",
           "region": [
+            410.6,
+            730.07,
+            459.1,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "c028",
+            "cell_ref": "r4c9",
+            "row": 3,
+            "col": 8
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00069",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            459.1,
+            730.07,
+            512.1,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "c032",
+            "cell_ref": "r4c10",
+            "row": 3,
+            "col": 9
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00070",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0.00%",
+          "text_raw": "0.00%",
+          "region": [
             512.1,
             730.07,
             558.08,
@@ -1810,8 +1912,9 @@
           "table_ref": {
             "table_id": "d44e95085_p001_t002",
             "cell_id": "c035",
-            "row": 2,
-            "col": 9
+            "cell_ref": "r4c11",
+            "row": 3,
+            "col": 10
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1886,6 +1989,7 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c001",
+            "cell_ref": "r1c1",
             "row": 0,
             "col": 0
           },
@@ -1913,7 +2017,8 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c002",
-            "row": 0,
+            "cell_ref": "r2c1",
+            "row": 1,
             "col": 0
           },
           "font_size": null,
@@ -1940,8 +2045,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c004",
-            "row": 0,
-            "col": 0
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1967,8 +2073,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c006",
-            "row": 0,
-            "col": 1
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1994,8 +2101,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c008",
-            "row": 0,
-            "col": 2
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -2021,8 +2129,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c010",
-            "row": 0,
-            "col": 3
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -2048,8 +2157,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c012",
-            "row": 0,
-            "col": 4
+            "cell_ref": "r2c6",
+            "row": 1,
+            "col": 5
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -2075,8 +2185,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c014",
-            "row": 0,
-            "col": 5
+            "cell_ref": "r2c7",
+            "row": 1,
+            "col": 6
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -2102,8 +2213,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c016",
-            "row": 0,
-            "col": 6
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -2129,8 +2241,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c018",
-            "row": 0,
-            "col": 7
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -2156,8 +2269,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c020",
-            "row": 0,
-            "col": 8
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -2183,8 +2297,9 @@
           "table_ref": {
             "table_id": "d44e95085_p002_t001",
             "cell_id": "c022",
-            "row": 0,
-            "col": 9
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -2264,7 +2379,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "2.截至本公告披露日，控股股东翟军先生及其一致行动人未来一年内到期的质押股份",
           "text_raw": "2.截至本公告披露日，控股股东翟军先生及其一致行动人未来一年内到期的质押股份",
           "region": [
@@ -2308,7 +2423,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "3.截至本公告披露日，公司控股股东及其一致行动人不存在非经营性资金占用、违规",
           "text_raw": "3.截至本公告披露日，公司控股股东及其一致行动人不存在非经营性资金占用、违规",
           "region": [
@@ -2352,7 +2467,7 @@
           "page": 2,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "4.截至本公告披露日，公司控股股东翟军先生本次股份质押风险在可控范围内，不会",
           "text_raw": "4.截至本公告披露日，公司控股股东翟军先生本次股份质押风险在可控范围内，不会",
           "region": [
@@ -2608,6 +2723,8 @@
     "d44e95085_p001_b00066",
     "d44e95085_p001_b00067",
     "d44e95085_p001_b00068",
+    "d44e95085_p001_b00069",
+    "d44e95085_p001_b00070",
     "d44e95085_p002_b00001",
     "d44e95085_p002_b00002",
     "d44e95085_p002_b00003",
@@ -2643,7 +2760,7 @@
       "file_name": "pledge.pdf",
       "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.3.0",
+        "parser_version": "finstruct.parse/0.4.0",
         "page_count": 2,
         "blocks": [
           {
@@ -2662,7 +2779,7 @@
           {
             "block_id": "d44e95085_p001_b00002",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重",
             "text_raw": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重",
             "region": [
@@ -2727,7 +2844,7 @@
           {
             "block_id": "d44e95085_p001_b00007",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "北京万集科技股份有限公司（以下简称“公司”）于近日接到公司控股股东、实际控制",
             "text_raw": "北京万集科技股份有限公司（以下简称“公司”）于近日接到公司控股股东、实际控制",
             "region": [
@@ -2871,13 +2988,13 @@
             "block_id": "d44e95085_p001_b00018",
             "page": 1,
             "role": "BODY",
-            "text": "2026年09月是 2,100,000 2.40% 0.99% 否 否23日翟军 是 2,650,000 3.03% 1.24% 否 否是 3,050,000 3.49% 1.43% 否 否",
-            "text_raw": "2026年09月是2,100,0002.40%0.99%否否23日翟军是2,650,0003.03%1.24%否否是3,050,0003.49%1.43%否否",
+            "text": "2026年09月是 2,100,000 2.40% 0.99% 否 否23日",
+            "text_raw": "2026年09月是2,100,0002.40%0.99%否否23日",
             "region": [
-              40.56,
+              77.76,
               476.79,
               415.68,
-              563.56
+              498.88
             ]
           },
           {
@@ -2936,6 +3053,19 @@
             "block_id": "d44e95085_p001_b00023",
             "page": 1,
             "role": "BODY",
+            "text": "翟军 是 2,650,000 3.03% 1.24% 否 否",
+            "text_raw": "翟军是2,650,0003.03%1.24%否否",
+            "region": [
+              40.56,
+              517.95,
+              342.24,
+              528.4
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00024",
+            "page": 1,
+            "role": "BODY",
             "text": "2026年09月23日",
             "text_raw": "2026年09月23日",
             "region": [
@@ -2946,7 +3076,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00024",
+            "block_id": "d44e95085_p001_b00025",
             "page": 1,
             "role": "BODY",
             "text": "申请解除质押登记日",
@@ -2959,7 +3089,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00025",
+            "block_id": "d44e95085_p001_b00026",
             "page": 1,
             "role": "BODY",
             "text": "苏州市吴中典当有限责任公司",
@@ -2972,7 +3102,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00026",
+            "block_id": "d44e95085_p001_b00027",
             "page": 1,
             "role": "BODY",
             "text": "融资",
@@ -2985,7 +3115,20 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00027",
+            "block_id": "d44e95085_p001_b00028",
+            "page": 1,
+            "role": "BODY",
+            "text": "是 3,050,000 3.49% 1.43% 否 否",
+            "text_raw": "是3,050,0003.49%1.43%否否",
+            "region": [
+              77.76,
+              553.23,
+              342.24,
+              563.56
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00029",
             "page": 1,
             "role": "BODY",
             "text": "——",
@@ -2998,7 +3141,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00028",
+            "block_id": "d44e95085_p001_b00030",
             "page": 1,
             "role": "BODY",
             "text": "——",
@@ -3011,7 +3154,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00029",
+            "block_id": "d44e95085_p001_b00031",
             "page": 1,
             "role": "BODY",
             "text": "——",
@@ -3024,7 +3167,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00030",
+            "block_id": "d44e95085_p001_b00032",
             "page": 1,
             "role": "BODY",
             "text": "——",
@@ -3037,7 +3180,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00031",
+            "block_id": "d44e95085_p001_b00033",
             "page": 1,
             "role": "BODY",
             "text": "合计 —— 7,800,000 8.92% 3.66% —— ——",
@@ -3050,7 +3193,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00032",
+            "block_id": "d44e95085_p001_b00034",
             "page": 1,
             "role": "BODY",
             "text": "2．股东股份累计质押情况",
@@ -3063,7 +3206,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00033",
+            "block_id": "d44e95085_p001_b00035",
             "page": 1,
             "role": "BODY",
             "text": "截至公告披露日，上述股东及其一致行动人所持质押股份情况如下：",
@@ -3076,7 +3219,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00034",
+            "block_id": "d44e95085_p001_b00036",
             "page": 1,
             "role": "BODY",
             "text": "股东名称",
@@ -3089,7 +3232,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00035",
+            "block_id": "d44e95085_p001_b00037",
             "page": 1,
             "role": "BODY",
             "text": "持股数量（股）",
@@ -3102,7 +3245,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00036",
+            "block_id": "d44e95085_p001_b00038",
             "page": 1,
             "role": "BODY",
             "text": "持股比例（%）",
@@ -3115,7 +3258,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00037",
+            "block_id": "d44e95085_p001_b00039",
             "page": 1,
             "role": "BODY",
             "text": "本次质押前质押股份数量（股）",
@@ -3128,7 +3271,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00038",
+            "block_id": "d44e95085_p001_b00040",
             "page": 1,
             "role": "BODY",
             "text": "本次质押后质押股份数量（股）",
@@ -3141,7 +3284,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00039",
+            "block_id": "d44e95085_p001_b00041",
             "page": 1,
             "role": "BODY",
             "text": "占其所持股份比例（%）",
@@ -3154,7 +3297,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00040",
+            "block_id": "d44e95085_p001_b00042",
             "page": 1,
             "role": "BODY",
             "text": "占公司总股本比例（%）",
@@ -3167,7 +3310,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00041",
+            "block_id": "d44e95085_p001_b00043",
             "page": 1,
             "role": "BODY",
             "text": "已质押股份情况",
@@ -3180,7 +3323,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00042",
+            "block_id": "d44e95085_p001_b00044",
             "page": 1,
             "role": "BODY",
             "text": "未质押股份情况",
@@ -3193,7 +3336,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00043",
+            "block_id": "d44e95085_p001_b00045",
             "page": 1,
             "role": "BODY",
             "text": "已质押股份限售和冻结、标记数量（股）",
@@ -3206,7 +3349,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00044",
+            "block_id": "d44e95085_p001_b00046",
             "page": 1,
             "role": "BODY",
             "text": "占已质押股份比例（%）",
@@ -3219,7 +3362,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00045",
+            "block_id": "d44e95085_p001_b00047",
             "page": 1,
             "role": "BODY",
             "text": "未质押股份限售和冻结数量（股）",
@@ -3232,7 +3375,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00046",
+            "block_id": "d44e95085_p001_b00048",
             "page": 1,
             "role": "BODY",
             "text": "占未质押股份比例（%）",
@@ -3245,7 +3388,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00047",
+            "block_id": "d44e95085_p001_b00049",
             "page": 1,
             "role": "BODY",
             "text": "翟军",
@@ -3258,7 +3401,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00048",
+            "block_id": "d44e95085_p001_b00050",
             "page": 1,
             "role": "BODY",
             "text": "87,437,136",
@@ -3271,7 +3414,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00049",
+            "block_id": "d44e95085_p001_b00051",
             "page": 1,
             "role": "BODY",
             "text": "41.02%",
@@ -3284,7 +3427,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00050",
+            "block_id": "d44e95085_p001_b00052",
             "page": 1,
             "role": "BODY",
             "text": "42,550,000",
@@ -3297,7 +3440,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00051",
+            "block_id": "d44e95085_p001_b00053",
             "page": 1,
             "role": "BODY",
             "text": "50,350,000",
@@ -3310,7 +3453,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00052",
+            "block_id": "d44e95085_p001_b00054",
             "page": 1,
             "role": "BODY",
             "text": "57.58%",
@@ -3323,7 +3466,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00053",
+            "block_id": "d44e95085_p001_b00055",
             "page": 1,
             "role": "BODY",
             "text": "23.62%",
@@ -3336,7 +3479,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00054",
+            "block_id": "d44e95085_p001_b00056",
             "page": 1,
             "role": "BODY",
             "text": "50,350,000",
@@ -3349,7 +3492,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00055",
+            "block_id": "d44e95085_p001_b00057",
             "page": 1,
             "role": "BODY",
             "text": "100.00%",
@@ -3362,7 +3505,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00056",
+            "block_id": "d44e95085_p001_b00058",
             "page": 1,
             "role": "BODY",
             "text": "15,227,852",
@@ -3375,7 +3518,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00057",
+            "block_id": "d44e95085_p001_b00059",
             "page": 1,
             "role": "BODY",
             "text": "41.06%",
@@ -3388,7 +3531,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00058",
+            "block_id": "d44e95085_p001_b00060",
             "page": 1,
             "role": "BODY",
             "text": "山东省国际信托股份",
@@ -3401,7 +3544,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00059",
+            "block_id": "d44e95085_p001_b00061",
             "page": 1,
             "role": "BODY",
             "text": "4,058,200",
@@ -3414,7 +3557,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00060",
+            "block_id": "d44e95085_p001_b00062",
             "page": 1,
             "role": "BODY",
             "text": "1.90%",
@@ -3427,7 +3570,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00061",
+            "block_id": "d44e95085_p001_b00063",
             "page": 1,
             "role": "BODY",
             "text": "0",
@@ -3440,7 +3583,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00062",
+            "block_id": "d44e95085_p001_b00064",
             "page": 1,
             "role": "BODY",
             "text": "0",
@@ -3453,7 +3596,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00063",
+            "block_id": "d44e95085_p001_b00065",
             "page": 1,
             "role": "BODY",
             "text": "0.00%",
@@ -3466,7 +3609,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00064",
+            "block_id": "d44e95085_p001_b00066",
             "page": 1,
             "role": "BODY",
             "text": "0.00%",
@@ -3479,7 +3622,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00065",
+            "block_id": "d44e95085_p001_b00067",
             "page": 1,
             "role": "BODY",
             "text": "0",
@@ -3492,7 +3635,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00066",
+            "block_id": "d44e95085_p001_b00068",
             "page": 1,
             "role": "BODY",
             "text": "0.00%",
@@ -3505,7 +3648,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00067",
+            "block_id": "d44e95085_p001_b00069",
             "page": 1,
             "role": "BODY",
             "text": "0",
@@ -3518,7 +3661,7 @@
             ]
           },
           {
-            "block_id": "d44e95085_p001_b00068",
+            "block_id": "d44e95085_p001_b00070",
             "page": 1,
             "role": "BODY",
             "text": "0.00%",
@@ -3728,7 +3871,7 @@
           {
             "block_id": "d44e95085_p002_b00016",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "2.截至本公告披露日，控股股东翟军先生及其一致行动人未来一年内到期的质押股份",
             "text_raw": "2.截至本公告披露日，控股股东翟军先生及其一致行动人未来一年内到期的质押股份",
             "region": [
@@ -3754,7 +3897,7 @@
           {
             "block_id": "d44e95085_p002_b00018",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "3.截至本公告披露日，公司控股股东及其一致行动人不存在非经营性资金占用、违规",
             "text_raw": "3.截至本公告披露日，公司控股股东及其一致行动人不存在非经营性资金占用、违规",
             "region": [
@@ -3780,7 +3923,7 @@
           {
             "block_id": "d44e95085_p002_b00020",
             "page": 2,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "4.截至本公告披露日，公司控股股东翟军先生本次股份质押风险在可控范围内，不会",
             "text_raw": "4.截至本公告披露日，公司控股股东翟军先生本次股份质押风险在可控范围内，不会",
             "region": [
@@ -3931,7 +4074,7 @@
     "degraded": true,
     "degrade_reasons": [],
     "warnings": [
-      "page 1: 表格内有 3 组字符未能归入检出单元格，已按行兜底（source_type=table，degraded=true），文本可能乱序"
+      "page 1: 表格内有 5 组字符未能归入检出单元格，已按行兜底（source_type=table，degraded=true），文本可能乱序"
     ]
   }
 }

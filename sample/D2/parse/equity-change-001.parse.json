@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.3",
+  "schema_version": "evidence/0.4",
   "doc": {
     "doc_id": "d878ebffb",
     "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
@@ -7,10 +7,10 @@
     "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
     "file_size": 98239,
     "page_count": 4,
-    "parsed_at": "2026-09-28T14:34:23+08:00",
+    "parsed_at": "2026-09-29T08:50:19+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.3.0"
+      "version": "0.4.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -77,7 +77,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
           "text_raw": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
           "region": [
@@ -165,7 +165,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
           "text_raw": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
           "region": [
@@ -231,7 +231,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
           "text_raw": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
           "region": [
@@ -275,7 +275,7 @@
           "page": 1,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "TITLE",
+          "role": "BODY",
           "text": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
           "text_raw": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
           "region": [
@@ -518,8 +518,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t001",
             "cell_id": "c009",
-            "row": 2,
-            "col": 0
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -570,8 +571,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t001",
             "cell_id": "c010",
-            "row": 3,
-            "col": 0
+            "cell_ref": "r5c2",
+            "row": 4,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -666,6 +668,7 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
             "cell_id": "c001",
+            "cell_ref": "r1c1",
             "row": 0,
             "col": 0
           },
@@ -693,8 +696,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
             "cell_id": "c005",
+            "cell_ref": "r1c2",
             "row": 0,
-            "col": 0
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -720,7 +724,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
             "cell_id": "c002",
-            "row": 0,
+            "cell_ref": "r2c1",
+            "row": 1,
             "col": 0
           },
           "font_size": null,
@@ -747,8 +752,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
             "cell_id": "c006",
-            "row": 0,
-            "col": 0
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -774,7 +780,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
             "cell_id": "c003",
-            "row": 1,
+            "cell_ref": "r3c1",
+            "row": 2,
             "col": 0
           },
           "font_size": null,
@@ -801,8 +808,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
             "cell_id": "c007",
-            "row": 1,
-            "col": 0
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -828,7 +836,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
             "cell_id": "c004",
-            "row": 2,
+            "cell_ref": "r4c1",
+            "row": 3,
             "col": 0
           },
           "font_size": null,
@@ -855,8 +864,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
             "cell_id": "c008",
-            "row": 2,
-            "col": 0
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -997,6 +1007,7 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c001",
+            "cell_ref": "r1c1",
             "row": 0,
             "col": 0
           },
@@ -1024,8 +1035,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c009",
+            "cell_ref": "r1c2",
             "row": 0,
-            "col": 0
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1051,7 +1063,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c002",
-            "row": 0,
+            "cell_ref": "r2c1",
+            "row": 1,
             "col": 0
           },
           "font_size": null,
@@ -1078,8 +1091,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c010",
-            "row": 0,
-            "col": 0
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1105,7 +1119,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c003",
-            "row": 1,
+            "cell_ref": "r3c1",
+            "row": 2,
             "col": 0
           },
           "font_size": null,
@@ -1132,8 +1147,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c011",
-            "row": 1,
-            "col": 0
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1159,7 +1175,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c004",
-            "row": 2,
+            "cell_ref": "r4c1",
+            "row": 3,
             "col": 0
           },
           "font_size": null,
@@ -1186,8 +1203,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c012",
-            "row": 2,
-            "col": 0
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1213,7 +1231,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c005",
-            "row": 3,
+            "cell_ref": "r5c1",
+            "row": 4,
             "col": 0
           },
           "font_size": null,
@@ -1240,8 +1259,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c013",
-            "row": 3,
-            "col": 0
+            "cell_ref": "r5c2",
+            "row": 4,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1267,7 +1287,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c006",
-            "row": 4,
+            "cell_ref": "r6c1",
+            "row": 5,
             "col": 0
           },
           "font_size": null,
@@ -1294,8 +1315,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c014",
-            "row": 4,
-            "col": 0
+            "cell_ref": "r6c2",
+            "row": 5,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1321,7 +1343,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c007",
-            "row": 5,
+            "cell_ref": "r7c1",
+            "row": 6,
             "col": 0
           },
           "font_size": null,
@@ -1348,8 +1371,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c015",
-            "row": 5,
-            "col": 0
+            "cell_ref": "r7c2",
+            "row": 6,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1375,7 +1399,8 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c008",
-            "row": 6,
+            "cell_ref": "r8c1",
+            "row": 7,
             "col": 0
           },
           "font_size": null,
@@ -1402,8 +1427,9 @@
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
             "cell_id": "c016",
-            "row": 6,
-            "col": 0
+            "cell_ref": "r8c2",
+            "row": 7,
+            "col": 1
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1650,7 +1676,7 @@
       "file_name": "equity_change.pdf",
       "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.3.0",
+        "parser_version": "finstruct.parse/0.4.0",
         "page_count": 4,
         "blocks": [
           {
@@ -1669,7 +1695,7 @@
           {
             "block_id": "d878ebffb_p001_b00002",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
             "text_raw": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
             "region": [
@@ -1721,7 +1747,7 @@
           {
             "block_id": "d878ebffb_p001_b00006",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
             "text_raw": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
             "region": [
@@ -1760,7 +1786,7 @@
           {
             "block_id": "d878ebffb_p001_b00009",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
             "text_raw": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
             "region": [
@@ -1786,7 +1812,7 @@
           {
             "block_id": "d878ebffb_p001_b00011",
             "page": 1,
-            "role": "TITLE",
+            "role": "BODY",
             "text": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
             "text_raw": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
             "region": [

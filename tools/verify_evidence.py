@@ -43,7 +43,8 @@ def label_of(block):
     tail = block["block_id"].rsplit("_", 1)[-1]
     if st == "cell":
         ref = block.get("table_ref") or {}
-        return f"{tail} {ref.get('cell_id','?')}"
+        # 标 cell_ref：这是要进信封 provenance.cell_ref 的值，和魏/陈对得上
+        return f"{ref.get('cell_ref') or tail}"
     if st == "table":
         return f"{tail} tbl"
     return tail
