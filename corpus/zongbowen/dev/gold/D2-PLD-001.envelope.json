@@ -3,9 +3,9 @@
   "run_id": "dev-D2-PLD-001",
   "is_mock": false,
   "source": {
-    "file_id": "sha256:11bf3d3b0e9dc26990a23f9e1e317ccf282ac4d3fbb37185312ea4dc52e47bf8",
+    "file_id": "sha256:85ec0e20d14efbdcee5b0f94b0d0704a2ef8acab3971b7e6aeb67916ca0bcdd2",
     "file_name": "D2-PLD-001.txt",
-    "file_sha256": "11bf3d3b0e9dc26990a23f9e1e317ccf282ac4d3fbb37185312ea4dc52e47bf8",
+    "file_sha256": "85ec0e20d14efbdcee5b0f94b0d0704a2ef8acab3971b7e6aeb67916ca0bcdd2",
     "parse_meta": {
       "parser_version": "controlled-fixture-v0.1",
       "page_count": 1,
@@ -46,7 +46,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "质押给华城银行"
+              "quote": "质押1,000万股给华城银行"
             }
           ],
           "standardized": true
@@ -63,7 +63,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "本次质押1,000万股"
+              "quote": "质押1,000万股"
             }
           ],
           "standardized": true
@@ -133,7 +133,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "累计占其所持股份37.5%"
+              "quote": "占其所持股份37.5%"
             }
           ],
           "standardized": true,
@@ -151,7 +151,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "累计占公司总股本9.3%"
+              "quote": "占公司总股本9.3%"
             }
           ],
           "standardized": true,
@@ -228,14 +228,14 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "公告日期：2026年9月2日"
+              "quote": "2026年9月2日"
             }
           ],
           "standardized": true
         }
       },
       "extraction_method": "rule",
-      "notes": ""
+      "notes": null
     }
   ],
   "run_meta": {

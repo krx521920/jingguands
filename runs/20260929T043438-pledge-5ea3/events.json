@@ -1,0 +1,272 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20260929T043438-pledge-5ea3",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:ce32181bb3008901",
+    "file_name": "D2-PLD-002.txt",
+    "file_sha256": "ce32181bb30089012a980da71ff786fa54cd078f78f87736ff631a87ec2e6a52",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "pledgor": {
+          "raw_value": "某公司",
+          "value": "某公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "股东某公司质押500万股给海城证券"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "海城证券",
+          "value": "海城证券",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "股东某公司质押500万股给海城证券"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "500万股",
+          "value": 5000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "股东某公司质押500万股给海城证券"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "2,000万股",
+          "value": 20000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "累计质押2,000万股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "5%",
+          "value": 5,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占其所持股份5%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "1%",
+          "value": 1,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占公司总股本1%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "20%",
+          "value": 20,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占其所持股份20%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "4%",
+          "value": 4,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占公司总股本4%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026年9月3日",
+          "value": "2026-09-03",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "质押起始日：2026年9月3日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "办理申请解除质押登记日",
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "needs_review",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "质押到期日：办理申请解除质押登记日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月3日",
+          "value": "2026-09-03",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月3日，某公司发布公告"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-09-29T04:34:38.282Z",
+    "duration_ms": 3603,
+    "errors": []
+  }
+}

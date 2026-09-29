@@ -9,42 +9,42 @@
       "event_type": "pledge",
       "raw": "raw/D2-PLD-001.json",
       "gold": "gold/D2-PLD-001.envelope.json",
-      "source_sha256": "11bf3d3b0e9dc26990a23f9e1e317ccf282ac4d3fbb37185312ea4dc52e47bf8"
+      "source_sha256": "85ec0e20d14efbdcee5b0f94b0d0704a2ef8acab3971b7e6aeb67916ca0bcdd2"
     },
     {
       "case_id": "D2-PLD-002",
       "event_type": "pledge",
       "raw": "raw/D2-PLD-002.json",
       "gold": "gold/D2-PLD-002.envelope.json",
-      "source_sha256": "3c2f77978d1b112709cdf3e4bed8df0b0372e20b65aaf2eb288f426d76519cbd"
+      "source_sha256": "e1547326f5062044cf02db1548886d71e80b9d131af072915e075bf6372c6235"
     },
     {
       "case_id": "D2-EQC-001",
       "event_type": "equity_change",
       "raw": "raw/D2-EQC-001.json",
       "gold": "gold/D2-EQC-001.envelope.json",
-      "source_sha256": "a5bbe14e53664cf7c591e0845ce32bf0419f825abc4e65b9a62e66a0038fe7bb"
+      "source_sha256": "987411cb39446a5be7619f52858da9729091f9b391c82ddcd981f5d99917368c"
     },
     {
       "case_id": "D2-EQC-002",
       "event_type": "equity_change",
       "raw": "raw/D2-EQC-002.json",
       "gold": "gold/D2-EQC-002.envelope.json",
-      "source_sha256": "2d40901041e72577dd5630fad6f4be3129a126b7778b05c47beba2d96f1e79cb"
+      "source_sha256": "997df0dcadea6f81dca8a74d81df03c7463bf080de8779b0c5da5f94a30c677e"
     },
     {
       "case_id": "D2-AWD-001",
       "event_type": "award_contract",
       "raw": "raw/D2-AWD-001.json",
       "gold": "gold/D2-AWD-001.envelope.json",
-      "source_sha256": "fe3db009e19ffbc49acac0e3a199278151083b7b89ee92c8abfa43ed497bcf1a"
+      "source_sha256": "79759f9e863a554bf77af7988cd87c8ac2e2b39e89cba57871dbbd2aaa8d0684"
     },
     {
       "case_id": "D2-AWD-002",
       "event_type": "award_contract",
       "raw": "raw/D2-AWD-002.json",
       "gold": "gold/D2-AWD-002.envelope.json",
-      "source_sha256": "ab91bfb5b0e38b0f0e50add77fa717f89a1a0ff4b291add010b436c39873bfaf"
+      "source_sha256": "54a87c944c6a5e35e093c9b4245af9ffed1d7de8a8a3d4ba02d2d2b971140629"
     }
   ]
 }
