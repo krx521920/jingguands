@@ -278,8 +278,51 @@ function validateEnvelope(envelope, inputText) {
   return issues
 }
 
+/** 去空白归一（跨块拼接比较用）。 */
+const normWs = (s) => String(s).replace(/\s+/g, '')
+
+/** 从原文文本中取出"归一化后等于 target"的原始子串（保留原样空白）；找不到返回 null。 */
+function extractOrig(text, normTarget) {
+  let ti = 0
+  for (let start = 0; start < text.length; start++) {
+    if (/\s/.test(text[start])) continue
+    let i = start, ti2 = 0
+    while (i < text.length && ti2 < normTarget.length) {
+      if (/\s/.test(text[i])) { i++; continue }
+      if (text[i] !== normTarget[ti2]) break
+      i++; ti2++
+    }
+    if (ti2 === normTarget.length) return text.slice(start, i)
+  }
+  return null
+}
+
+/**
+ * 跨块 quote 贪心分段（v0.4，修 award-001 长项目名跨块）：
+ * 长标题被解析切成多块时，模型给出的整段 quote 不在任何单块内——
+ * 按阅读顺序把 quote 拆成逐块片段（每段各自是所属块 text_raw 的原样子串），
+ * 返回分段数组；覆盖不全返回 null（调用方按原逻辑报错）。
+ */
+function splitQuoteAcrossBlocks(quote, blocks, maxSegs = 4) {
+  let remaining = normWs(quote)
+  const segs = []
+  for (const b of blocks) {
+    if (remaining.length === 0 || segs.length >= maxSegs) break
+    const nb = normWs(b.text_raw)
+    if (nb.length === 0) continue
+    let k = Math.min(remaining.length, nb.length)
+    while (k >= 2 && !nb.includes(remaining.slice(0, k))) k--
+    if (k < 2) continue
+    const orig = extractOrig(b.text_raw, remaining.slice(0, k))
+    if (orig === null) continue
+    segs.push({ block: b, quote: orig })
+    remaining = remaining.slice(k)
+  }
+  return remaining.length === 0 ? segs : null
+}
+
 /** 解析块模式出处回填：按 block_id 从解析结果填 page/region/table；真实模式缺 block_id 记错，mock 允许按 quote 定位块。 */
-function backfillProvenance(events, blockIndex, isMock, errors) {
+function backfillProvenance(events, blockIndex, isMock, errors, orderedBlocks) {
   events.forEach((ev, i) => {
     for (const [name, fv] of Object.entries(ev.fields ?? {})) {
       fv.provenance?.forEach((p, pi) => {
@@ -291,7 +334,37 @@ function backfillProvenance(events, blockIndex, isMock, errors) {
           if (block !== undefined) p.block_id = block.block_id
         }
         if (block === undefined) {
+          // v0.4 修复：模型偶发写错块 ID 的页段（p001 vs p002）——若"仅页段不同"的块中
+          // 恰有一个包含 quote，则按 quote 确定性地修复（记警告，不静默）
+          if (p.block_id && p.quote) {
+            const m = String(p.block_id).match(/^(.*)_p\d+_(b\d+)$/)
+            if (m !== null) {
+              const candidates = orderedBlocks?.filter((b) => b.block_id.endsWith('_' + m[2]) && b.block_id !== p.block_id && b.text_raw.includes(p.quote)) ?? []
+              if (candidates.length === 1) {
+                block = candidates[0]
+                errors.push(`[解析·修复] events[${i}].fields.${name}.provenance[${pi}]: 块 "${p.block_id}" 不存在，按 quote 唯一命中修复为 "${block.block_id}"（页段笔误）`)
+                p.block_id = block.block_id
+              }
+            }
+          }
+        }
+        if (block === undefined) {
           errors.push(`[解析] events[${i}].fields.${name}.provenance[${pi}]: block_id "${p.block_id ?? ''}" 不在解析结果中`)
+          return
+        }
+        if (p.quote && !block.text_raw.includes(p.quote)) {
+          // v0.4：先试跨块分段（长标题被切成多块的常见场景），成功则替换为逐块出处
+          const segs = orderedBlocks ? splitQuoteAcrossBlocks(p.quote, orderedBlocks) : null
+          if (segs !== null && segs.length > 1) {
+            const replacement = segs.map((s) => ({
+              block_id: s.block.block_id, page: s.block.page, region: s.block.region ?? null,
+              table_id: s.block.table_ref?.table_id ?? null, cell_ref: s.block.table_ref?.cell_ref ?? null,
+              source_type: s.block.source_type ?? null, quote: s.quote,
+            }))
+            fv.provenance.splice(pi, 1, ...replacement)
+            return
+          }
+          errors.push(`[解析] events[${i}].fields.${name}.provenance[${pi}]: quote 不是块 ${block.block_id} text_raw 的子串`)
           return
         }
         p.page = block.page
@@ -299,9 +372,6 @@ function backfillProvenance(events, blockIndex, isMock, errors) {
         p.table_id = block.table_ref?.table_id ?? null
         p.cell_ref = block.table_ref?.cell_ref ?? null
         p.source_type = block.source_type ?? null
-        if (p.quote && !block.text_raw.includes(p.quote)) {
-          errors.push(`[解析] events[${i}].fields.${name}.provenance[${pi}]: quote 不是块 ${block.block_id} text_raw 的子串`)
-        }
       })
     }
   })
@@ -376,7 +446,7 @@ async function main() {
       }
     }
   }
-  if (parseDoc !== null) backfillProvenance(events, parseDoc.blockIndex, isMock, postErrors)
+  if (parseDoc !== null) backfillProvenance(events, parseDoc.blockIndex, isMock, postErrors, parseDoc.blocks)
   let normalizedCount = 0
   for (const ev of events) {
     for (const [name, fv] of Object.entries(ev.fields ?? {})) {
