@@ -7,7 +7,7 @@
  *   2 出处断言单测（越界/翻转/负值/无尺寸）
  *   3 方轩诚 10 用例（标准化移植验收）
  *   4 宗博文 20 条格式测试（corpus 副本）
- *   5 全量契约校验器（runs/ 全部 events.json）
+ *   5 全量契约校验器（runs/ 全部 events.json）＋6 Gold 一致性机检（check_gold）
  *   6 git 状态守卫：已跟踪文件被删＝红灯（防误删通配符复发）；.tmp 残留＝红灯
  *   7 远端同步：本地领先 origin＝红灯（防"以为推了"）
  *
@@ -33,6 +33,7 @@ const results = [
   runGate('标准化验收（方10用例）', ['scripts/jingguan/test_normalization.mjs']),
   runGate('宗20条格式测试', ['corpus/zongbowen/tests/standardization-format.test.mjs']),
   runGate('全量契约校验器', ['scripts/jingguan/validate_envelope.mjs']),
+  runGate('Gold 一致性机检', ['scripts/jingguan/check_gold.mjs']),
 ]
 
 // ---- 6 git 状态守卫 ----

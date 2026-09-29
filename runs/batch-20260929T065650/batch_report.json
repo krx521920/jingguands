@@ -1,0 +1,18 @@
+{
+  "stamp": "20260929T065650",
+  "mock": true,
+  "results": [
+    {
+      "case": "pledge_sample_01",
+      "event_type": "pledge",
+      "file": "pledge_sample_01.txt",
+      "run_id": "20260929T065650-pledge-6ee4",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0
+    }
+  ]
+}
