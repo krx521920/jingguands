@@ -81,68 +81,96 @@ function valuesEqual(a, b) {
   return false
 }
 
-function compareWithGold(mine, gold, goldText) {
-  const rows = []
-  const goldEv = gold.events?.[0]
-  const mineEv = mine.events?.[0]
-  const goldCount = gold.events?.length ?? 0
-  const mineCount = mine.events?.length ?? 0
-  const metrics = {
-    gold_extracted_fields: 0, value_hit: 0, field_accuracy: null,
-    wrong_filled: 0, status_match_ratio: null, gold_unsupported: 0,
-    gold_events: goldCount, mine_events: mineCount,
-  }
-  if (goldCount !== mineCount) {
-    rows.push({ field: '(事件数)', verdict: 'EVENTS_DIFF', detail: `gold ${goldCount} 个事件，系统输出 ${mineCount} 个${mineCount < goldCount ? '（多事件抽取缺失——D4 议题）' : ''}` })
-  }
-  if (goldEv === undefined || mineEv === undefined) {
-    if (goldEv === undefined && mineEv === undefined) return { rows, metrics }
-    rows.push({ field: '(事件缺失)', verdict: 'MINE_MISSING', detail: `mine events=${mineCount}` })
-    return { rows, metrics }
-  }
+/** 事件自然键：质押=质押人×质权人；股权=holder；中标=bidder×tenderer。 */
+function eventKey(ev) {
+  const f = ev.fields ?? {}
+  const a = f.pledgor?.value ?? f.holder?.value ?? f.bidder?.value ?? '?'
+  const b = f.pledgee?.value ?? f.tenderer?.value ?? ''
+  return `${String(a)}|${String(b)}`
+}
+
+/** 单事件字段比对：写入 rows，返回 {goldExtracted, hit, wrongFilled, statusMatch, neutral, goldUnsupported, fieldDenominator}。 */
+function compareEventFields(mineEv, goldEv, goldText, rows, prefix) {
+  const cnt = { goldExtracted: 0, hit: 0, wrongFilled: 0, statusMatch: 0, neutral: 0, goldUnsupported: 0, fieldDenominator: 0 }
   const fields = new Set([...Object.keys(goldEv.fields ?? {}), ...Object.keys(mineEv.fields ?? {})])
   if ('consortium' in (goldEv.fields ?? {}) && !('consortium' in (mineEv.fields ?? {}))) fields.delete('consortium') // gold 旧版单字段，滞后于 v0.3 拆分
-  let goldExtracted = 0, hit = 0, wrongFilled = 0, statusMatch = 0, neutral = 0, goldUnsupported = 0
+  cnt.fieldDenominator = fields.size
   for (const f of [...fields].sort()) {
     const g = goldEv.fields[f]
     const m = mineEv.fields[f]
+    const where = prefix ? `${prefix}.${f}` : f
     if (g !== undefined && g.status === 'extracted') {
       if (!goldFieldSupported(g, goldText)) {
-        // Gold 值无法用其自带原文支撑（quote/值/日期逆推均不命中）——不计入准确率分母，单列暴露
-        goldUnsupported++
-        rows.push({ field: f, verdict: 'GOLD_UNSUPPORTED', detail: `gold=${JSON.stringify(g.value)} 在原文中无支撑` })
+        cnt.goldUnsupported++
+        rows.push({ field: where, verdict: 'GOLD_UNSUPPORTED', detail: `gold=${JSON.stringify(g.value)} 在原文中无支撑` })
         continue
       }
-      goldExtracted++
-      if (m === undefined) rows.push({ field: f, verdict: 'MINE_MISSING', detail: `gold=${JSON.stringify(g.value)}` })
-      else if (m.status !== 'extracted') rows.push({ field: f, verdict: 'STATUS_DIFF', detail: `gold=extracted(${JSON.stringify(g.value)}) mine=${m.status}` })
-      else if (!valuesEqual(m.value, g.value)) rows.push({ field: f, verdict: 'VALUE_DIFF', detail: `gold=${JSON.stringify(g.value)} mine=${JSON.stringify(m.value)}` })
-      else { hit++; statusMatch++; rows.push({ field: f, verdict: 'MATCH', detail: `${JSON.stringify(g.value)}` }) }
+      cnt.goldExtracted++
+      if (m === undefined) rows.push({ field: where, verdict: 'MINE_MISSING', detail: `gold=${JSON.stringify(g.value)}` })
+      else if (m.status !== 'extracted') rows.push({ field: where, verdict: 'STATUS_DIFF', detail: `gold=extracted(${JSON.stringify(g.value)}) mine=${m.status}` })
+      else if (!valuesEqual(m.value, g.value)) rows.push({ field: where, verdict: 'VALUE_DIFF', detail: `gold=${JSON.stringify(g.value)} mine=${JSON.stringify(m.value)}` })
+      else { cnt.hit++; cnt.statusMatch++; rows.push({ field: where, verdict: 'MATCH', detail: `${JSON.stringify(g.value)}` }) }
     } else {
-      // gold 未给出值（not_* / 缺字段）
       const goldStatus = g?.status ?? '(未注册)'
       if (g === undefined) {
-        neutral++
-        rows.push({ field: f, verdict: m !== undefined && (m.status === 'extracted' || m.status === 'needs_review') ? 'GOLD_UNREGISTERED' : 'MATCH', detail: `gold未注册（版本滞后），mine=${m?.status ?? '无'}` })
+        cnt.neutral++
+        rows.push({ field: where, verdict: m !== undefined && (m.status === 'extracted' || m.status === 'needs_review') ? 'GOLD_UNREGISTERED' : 'MATCH', detail: `gold未注册（版本滞后），mine=${m?.status ?? '无'}` })
         continue
       }
       if (m !== undefined && (m.status === 'extracted' || (m.status === 'needs_review' && m.value !== null))) {
-        wrongFilled++
-        rows.push({ field: f, verdict: 'WRONG_FILLED', detail: `gold=${goldStatus} mine=${m.status}(${JSON.stringify(m.value)})` })
+        cnt.wrongFilled++
+        rows.push({ field: where, verdict: 'WRONG_FILLED', detail: `gold=${goldStatus} mine=${m.status}(${JSON.stringify(m.value)})` })
       } else {
-        statusMatch++
-        rows.push({ field: f, verdict: 'MATCH', detail: `双方均无值（${goldStatus}）` })
+        cnt.statusMatch++
+        rows.push({ field: where, verdict: 'MATCH', detail: `双方均无值（${goldStatus}）` })
       }
     }
   }
-  metrics.gold_extracted_fields = goldExtracted
-  metrics.value_hit = hit
-  metrics.field_accuracy = goldExtracted === 0 ? null : Number((hit / goldExtracted).toFixed(4))
-  metrics.wrong_filled = wrongFilled
-  metrics.status_match_ratio = (fields.size - neutral - goldUnsupported) === 0 ? null : Number((statusMatch / (fields.size - neutral - goldUnsupported)).toFixed(4))
-  metrics.gold_unsupported = goldUnsupported
+  return cnt
+}
+
+/** Gold 对照（多事件对齐版）：按事件自然键对齐后逐事件字段比对，聚合指标。 */
+function compareWithGold(mine, gold, goldText) {
+  const rows = []
+  const goldEvents = gold.events ?? []
+  const mineEvents = mine.events ?? []
+  const metrics = {
+    gold_extracted_fields: 0, value_hit: 0, field_accuracy: null,
+    wrong_filled: 0, status_match_ratio: null, gold_unsupported: 0,
+    gold_events: goldEvents.length, mine_events: mineEvents.length,
+    matched_events: 0,
+  }
+  if (goldEvents.length === 0 && mineEvents.length === 0) return { rows, metrics }
+  // 按自然键对齐（同键多事件按出现顺序配对）
+  const minePool = [...mineEvents]
+  let sum = { goldExtracted: 0, hit: 0, wrongFilled: 0, statusMatch: 0, neutral: 0, goldUnsupported: 0, denom: 0 }
+  for (const gEv of goldEvents) {
+    const key = eventKey(gEv)
+    let idx = minePool.findIndex((mEv, i) => eventKey(mEv) === key)
+    if (idx === -1 && minePool.length === 1 && goldEvents.length === 1) idx = 0 // 单事件退化：直接配对（主体名可能表示形式不同）
+    if (idx === -1) {
+      rows.push({ field: `(${gEv.event_id} ${key.replace(/\|.*$/, '')})`, verdict: 'MINE_MISSING_EVENT', detail: `gold 事件未在系统输出中找到（键：${key}）` })
+      continue
+    }
+    const mEv = minePool.splice(idx, 1)[0]
+    metrics.matched_events++
+    const c = compareEventFields(mEv, gEv, goldText, rows, gEv.event_id)
+    sum.goldExtracted += c.goldExtracted; sum.hit += c.hit; sum.wrongFilled += c.wrongFilled
+    sum.statusMatch += c.statusMatch; sum.neutral += c.neutral; sum.goldUnsupported += c.goldUnsupported; sum.denom += c.fieldDenominator
+  }
+  for (const extra of minePool) {
+    rows.push({ field: `(${extra.event_id} ${eventKey(extra).replace(/\|.*$/, '')})`, verdict: 'MINE_EXTRA_EVENT', detail: `系统多出的事件（键：${eventKey(extra)}）` })
+    sum.wrongFilled += 1 // 多余事件至少计一处错误填充倾向
+  }
+  metrics.gold_extracted_fields = sum.goldExtracted
+  metrics.value_hit = sum.hit
+  metrics.field_accuracy = sum.goldExtracted === 0 ? null : Number((sum.hit / sum.goldExtracted).toFixed(4))
+  metrics.wrong_filled = sum.wrongFilled
+  metrics.status_match_ratio = (sum.denom - sum.neutral - sum.goldUnsupported) === 0 ? null : Number((sum.statusMatch / (sum.denom - sum.neutral - sum.goldUnsupported)).toFixed(4))
+  metrics.gold_unsupported = sum.goldUnsupported
   return { rows, metrics }
 }
+
 
 // ---------- 主流程 ----------
 
