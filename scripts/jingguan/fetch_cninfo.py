@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-"""D3 补样：从巨潮资讯网公开接口检索并取回真实质押公告 PDF（合规：仅公开披露文件、限速≥2s、不二次分发）。
-用法：python3 .tmp_cninfo_fetch.py --out .tmp_raw --count 4
+"""巨潮资讯网公开公告抓取器——补语料用（D3 起）。
+
+合规：仅取公开披露文件；限速≥2s；原始 PDF 不入库（manifest 只记 URL+sha256）。
+用法：python3 scripts/jingguan/fetch_cninfo.py --out <本地目录> --count N [--skip-sha <hash前缀>]
+抓取后用张智博 finstruct 解析，再把 parse JSON 入 corpus（PDF 本地留存或重取）。
 """
 import argparse, hashlib, json, os, sys, time, urllib.request, urllib.parse
 
