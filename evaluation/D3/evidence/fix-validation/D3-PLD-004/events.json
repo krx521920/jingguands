@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20260929T064231-pledge-b3a3",
+  "run_id": "20260929T144836-pledge-26d7",
   "is_mock": false,
   "source": {
     "file_id": "sha256:62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
@@ -1456,7 +1456,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "原文单位为万股，已换算为股"
         },
         "pledged_shares_cumulative": {
           "raw_value": "27,495.8065万股",
@@ -1481,7 +1481,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "原文单位为万股，已换算为股"
         },
         "pledged_ratio_this_time_of_held": {
           "raw_value": "0.84%",
@@ -1641,7 +1641,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "原文为条件性描述，非具体日期"
         },
         "purpose": {
           "raw_value": "质押担保",
@@ -1701,8 +1701,8 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-09-29T06:42:31.668Z",
-    "duration_ms": 4200,
+    "started_at": "2026-09-29T14:48:36.578Z",
+    "duration_ms": 3884,
     "errors": []
   }
 }

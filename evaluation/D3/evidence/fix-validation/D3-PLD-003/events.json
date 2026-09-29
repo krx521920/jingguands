@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20260929T064227-pledge-81a2",
+  "run_id": "20260929T144832-pledge-30af",
   "is_mock": false,
   "source": {
     "file_id": "sha256:36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
@@ -1559,7 +1559,7 @@
             }
           ],
           "denominator": null,
-          "note": "取自累计质押表江西鑫盛本次质押后质押股份数量"
+          "note": null
         },
         "pledged_ratio_this_time_of_held": {
           "raw_value": "2.18",
@@ -1719,7 +1719,7 @@
             }
           ],
           "denominator": null,
-          "note": "原文为条件性描述，非具体日期"
+          "note": null
         },
         "purpose": {
           "raw_value": "补充质押",
@@ -1779,8 +1779,8 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-09-29T06:42:27.864Z",
-    "duration_ms": 3670,
+    "started_at": "2026-09-29T14:48:32.263Z",
+    "duration_ms": 4179,
     "errors": []
   }
 }

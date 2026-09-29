@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20260929T064213-pledge-eb9c",
+  "run_id": "20260929T144818-pledge-183f",
   "is_mock": false,
   "source": {
     "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
@@ -1767,7 +1767,7 @@
             }
           ],
           "denominator": null,
-          "note": "取自累计质押表翟军本次质押后质押股份数量，同一股东多笔同日质押共享该累计值"
+          "note": null
         },
         "pledged_ratio_this_time_of_held": {
           "raw_value": "2.40%",
@@ -1842,7 +1842,7 @@
             }
           ],
           "denominator": "holder_shares",
-          "note": "取自累计质押表翟军本次质押后累计质押占其所持股份比例"
+          "note": null
         },
         "pledged_ratio_cumulative_of_total": {
           "raw_value": "23.62%",
@@ -1867,7 +1867,7 @@
             }
           ],
           "denominator": "total_share_capital",
-          "note": "取自累计质押表翟军本次质押后累计质押占公司总股本比例"
+          "note": null
         },
         "pledge_amount": {
           "raw_value": null,
@@ -1927,7 +1927,7 @@
             }
           ],
           "denominator": null,
-          "note": "原文为条件性描述，非具体日期"
+          "note": null
         },
         "purpose": {
           "raw_value": "融资",
@@ -2085,7 +2085,7 @@
             }
           ],
           "denominator": null,
-          "note": "取自累计质押表翟军本次质押后质押股份数量，同一股东多笔同日质押共享该累计值"
+          "note": null
         },
         "pledged_ratio_this_time_of_held": {
           "raw_value": "3.03%",
@@ -2160,7 +2160,7 @@
             }
           ],
           "denominator": "holder_shares",
-          "note": "取自累计质押表翟军本次质押后累计质押占其所持股份比例"
+          "note": null
         },
         "pledged_ratio_cumulative_of_total": {
           "raw_value": "23.62%",
@@ -2185,7 +2185,7 @@
             }
           ],
           "denominator": "total_share_capital",
-          "note": "取自累计质押表翟军本次质押后累计质押占公司总股本比例"
+          "note": null
         },
         "pledge_amount": {
           "raw_value": null,
@@ -2245,7 +2245,7 @@
             }
           ],
           "denominator": null,
-          "note": "原文为条件性描述，非具体日期"
+          "note": null
         },
         "purpose": {
           "raw_value": "融资",
@@ -2403,7 +2403,7 @@
             }
           ],
           "denominator": null,
-          "note": "取自累计质押表翟军本次质押后质押股份数量，同一股东多笔同日质押共享该累计值"
+          "note": null
         },
         "pledged_ratio_this_time_of_held": {
           "raw_value": "3.49%",
@@ -2478,7 +2478,7 @@
             }
           ],
           "denominator": "holder_shares",
-          "note": "取自累计质押表翟军本次质押后累计质押占其所持股份比例"
+          "note": null
         },
         "pledged_ratio_cumulative_of_total": {
           "raw_value": "23.62%",
@@ -2503,7 +2503,7 @@
             }
           ],
           "denominator": "total_share_capital",
-          "note": "取自累计质押表翟军本次质押后累计质押占公司总股本比例"
+          "note": null
         },
         "pledge_amount": {
           "raw_value": null,
@@ -2563,7 +2563,7 @@
             }
           ],
           "denominator": null,
-          "note": "原文为条件性描述，非具体日期"
+          "note": null
         },
         "purpose": {
           "raw_value": "融资",
@@ -2623,8 +2623,8 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-09-29T06:42:13.914Z",
-    "duration_ms": 10019,
+    "started_at": "2026-09-29T14:48:18.239Z",
+    "duration_ms": 9879,
     "errors": []
   }
 }

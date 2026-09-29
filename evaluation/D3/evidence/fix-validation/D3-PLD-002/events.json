@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20260929T064224-pledge-8649",
+  "run_id": "20260929T144828-pledge-c2d3",
   "is_mock": false,
   "source": {
     "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
@@ -1467,8 +1467,8 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-09-29T06:42:24.078Z",
-    "duration_ms": 3655,
+    "started_at": "2026-09-29T14:48:28.267Z",
+    "duration_ms": 3864,
     "errors": []
   }
 }

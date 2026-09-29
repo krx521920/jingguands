@@ -1,5 +1,5 @@
 {
-  "status": "technical_comparison_complete_with_production_defects",
+  "status": "upstream_a11b110_rechecked_unit_patch_pending",
   "checked_on": "2026-09-29",
   "d3_evaluation_deliverables": {
     "documents": 5,
@@ -19,23 +19,22 @@
     "documents_with_system_output": 5,
     "documents_pending_system_output": 0,
     "matched_cases": [
+      "D3-PLD-001",
       "D3-PLD-002",
       "D3-PLD-003",
       "D3-PLD-005"
     ],
     "diff_cases": [
-      "D3-PLD-001",
       "D3-PLD-004"
     ],
-    "error_count": 4,
+    "error_count": 2,
     "errors": [
-      "D3-PLD-001 missing E02",
-      "D3-PLD-001 missing E03",
-      "D3-PLD-004 pledged_shares_this_time VALUE_DIFF 3640000 vs 364",
-      "D3-PLD-004 RUN_META_ERROR Shares must be whole shares"
-    ]
+      "D3-PLD-004 RUN_META_ERROR Shares must be whole shares",
+      "D3-PLD-004 pledged_shares_this_time VALUE_DIFF 3640000 vs 364"
+    ],
+    "note": "A11B110 already fixes Wanji multi-event extraction; PLD-004 remains affected by 万股 unit propagation."
   },
-  "blocking_issue": "Validated patch must be ported to Wei/Fang production branches and re-run upstream; evaluation side has no further blocker.",
+  "blocking_issue": "Only the validated minimal unit-propagation patch remains to be merged upstream; Wanji multi-event is already fixed in a11b110.",
   "handoff": "evaluation/D3/handoffs/D3-evaluation.md",
   "gold_replay_conformance": {
     "documents": 5,
@@ -45,11 +44,19 @@
     "is_real_model_result": false
   },
   "validated_local_fix": {
+    "source_commit": "a11b110",
     "patch": "evaluation/D3/handoffs/wei-runner-fix.patch",
     "documents": 5,
     "events": 7,
     "run_errors": 0,
     "field_diffs": 0,
     "result": "PASS"
+  },
+  "remote_baselines": {
+    "weiwenyu": "a11b110",
+    "feature_fang_rules": "5d1d86b",
+    "zhangzhibo": "680bb56c",
+    "feature_chen_ui": "f6b227ec",
+    "zongbowen": "94444fe"
   }
 }

@@ -1,45 +1,38 @@
 # D3 integration report
 
-## Status
+## Current status
 
-Evaluation annotation and real-model comparison are complete. Two production defects remain to be fixed by the extraction/standardization owners.
+Upstream `origin/weiwenyu@a11b110` has been rechecked with real `deepseek-chat` calls on all five D3 documents.
 
-## Completed
-
-- 5 public pledge documents and 7 pledge events annotated.
-- 91 fields and 84 evidence records.
-- All Gold evidence quotes are supported by raw text.
-- 5/5 Gold envelopes pass Wei's v0.3 schema/registry validator.
-- Gold replay through the current runner: 5/5 documents, 7/7 events, 0 run errors.
-- Real model outputs: 5/5 documents, using `deepseek-chat` and `evidence/0.7` parse inputs.
-
-## Real comparison
+## Upstream comparison
 
 | Case | Result | Detail |
 |---|---|---|
-| D3-PLD-001 万集科技 | DIFF | `E01` matches; `E02` and `E03` missing |
-| D3-PLD-002 兰石重装 | MATCH | no field differences |
-| D3-PLD-003 联创电子 | MATCH | no field differences |
-| D3-PLD-004 中国天楹 | DIFF | `pledged_shares_this_time=364` instead of `3,640,000`; cumulative shares also raise a normalization error |
-| D3-PLD-005 光线传媒 | MATCH | no field differences |
+| D3-PLD-001 万集科技 | MATCH | 3/3 events, 33 extracted fields, 0 errors |
+| D3-PLD-002 兰石重装 | MATCH | no differences |
+| D3-PLD-003 联创电子 | MATCH | no differences |
+| D3-PLD-004 中国天楹 | DIFF | 364.00 万股 becomes 364 shares; cumulative shares raises a normalization error |
+| D3-PLD-005 光线传媒 | MATCH | no differences |
 
 ## Validated fix
 
-The proposed runner patch in valuation/D3/handoffs/wei-runner-fix.patch was tested with real deepseek-chat calls:
+The minimal patch `evaluation/D3/handoffs/wei-runner-fix.patch` applies to `a11b110` and was validated with real model calls:
 
-- 5/5 documents; 7/7 events; 0 runner errors; 0 field differences.
-- It fixes Wanji multi-event splitting and Tianying 万股 header-unit propagation.
-- Production branches still need Wei/Fang to port the patch and re-run the upstream batch.
+- 5/5 documents
+- 7/7 events
+- 0 run errors
+- 0 field differences
 
-## Required fixes
+The patch only fixes the remaining issue: table header units (`万股`/`股`) are propagated into `raw_value` before normalization.
 
-1. **Wei/Fang**: propagate the table header unit (`万股`/`股`) into the normalization context. The model/runner must not treat the cell text `364.00` as 364 shares.
-2. **Wei**: support or explicitly split multiple pledge events from one announcement. Wanji has three same-day pledge rows.
-3. Re-run the same five documents after the fixes and compare against the frozen Gold.
+## Remaining action
+
+- Wei: apply the validated patch to `run_extract.mjs`, rerun D3, and push.
+- Fang: confirm the unit inheritance rule in the standardization path.
+- Evaluation: no further Gold/data work remains.
 
 ## Evidence
 
+- `evaluation/D3/evidence/fix-validation/`
+- `evaluation/D3/evidence/fixed-comparison.json`
 - `evaluation/D3/field-comparison.md`
-- `evaluation/D3/evidence/field-comparison.json`
-- `evaluation/D3/evidence/real-runs/`
-- `evaluation/D3/evidence/gold-replay-results.json`

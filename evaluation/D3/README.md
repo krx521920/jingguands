@@ -31,6 +31,7 @@ python evaluation/D3/fetch_sources.py
 - 5/5 documents, 7/7 events, 91/91 fields pass local structural and evidence checks.
 - 84 evidence records; 0 unsupported quotes.
 - 5/5 Gold envelopes pass Wei's v0.3 schema and registry validator.
+- Upstream 11b110 fixes Wanji multi-event extraction; the remaining 万股 unit patch is validated at 5/5, 7/7 events, 0 errors, 0 field diffs.
 - Gold replay through Wei's current runner: 5/5 documents, 7/7 events, 0 run errors, events equal to Gold.
 - A real integration finding was recorded: 万股 table headers must propagate their unit into raw_value or the normalization context.
 - Real model comparison: 3/5 documents match Gold exactly (`D3-PLD-002`, `D3-PLD-003`, `D3-PLD-005`).
