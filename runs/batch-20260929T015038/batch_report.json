@@ -1,0 +1,169 @@
+{
+  "stamp": "20260929T015038",
+  "mock": false,
+  "results": [
+    {
+      "case": "D2-AWD-001",
+      "event_type": "award_contract",
+      "file": "D2-AWD-001.json",
+      "run_id": "20260929T015038-award_contract-9833",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 6,
+        "field_accuracy": 0.75,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.4286
+      },
+      "gold_rows": [
+        {
+          "field": "bidder",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某某制造股份有限公司\" mine=\"某公司\""
+        },
+        {
+          "field": "contract_signed",
+          "verdict": "GOLD_UNREGISTERED",
+          "detail": "gold未注册（版本滞后），mine=extracted"
+        },
+        {
+          "field": "project_name",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某变电站设备采购项目\" mine=\"设备项目\""
+        }
+      ]
+    },
+    {
+      "case": "D2-AWD-002",
+      "event_type": "award_contract",
+      "file": "D2-AWD-002.json",
+      "run_id": "20260929T015041-award_contract-fa76",
+      "ok": true,
+      "status_count": {
+        "not_mentioned": 7,
+        "extracted": 7
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 6,
+        "field_accuracy": 0.75,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.4286
+      },
+      "gold_rows": [
+        {
+          "field": "bidder",
+          "verdict": "STATUS_DIFF",
+          "detail": "gold=extracted(\"某某制造股份有限公司\") mine=not_mentioned"
+        },
+        {
+          "field": "consortium_shares",
+          "verdict": "GOLD_UNREGISTERED",
+          "detail": "gold未注册（版本滞后），mine=extracted"
+        },
+        {
+          "field": "tenderer",
+          "verdict": "STATUS_DIFF",
+          "detail": "gold=extracted(\"某交通建设公司\") mine=not_mentioned"
+        }
+      ]
+    },
+    {
+      "case": "D2-EQC-001",
+      "event_type": "equity_change",
+      "file": "D2-EQC-001.json",
+      "run_id": "20260929T015044-equity_change-9382",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 8,
+        "field_accuracy": 0.8889,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.8889
+      },
+      "gold_rows": [
+        {
+          "field": "holder",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某某制造股份有限公司\" mine=\"某公司股东\""
+        }
+      ]
+    },
+    {
+      "case": "D2-EQC-002",
+      "event_type": "equity_change",
+      "file": "D2-EQC-002.json",
+      "run_id": null,
+      "ok": false,
+      "output_tail": "TypeError: Cannot read properties of null (reading 'unit')\n    at normalizeFieldValue (file:///D:/jingguan/jingguands/scripts/jingguan/lib/fang_normalize.mjs:119:32)\n    at main (file:///D:/jingguan/jingguands/scripts/jingguan/run_extract.mjs:356:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\nAssertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\\win\\async.c, line 94\r\n"
+    },
+    {
+      "case": "D2-PLD-001",
+      "event_type": "pledge",
+      "file": "D2-PLD-001.json",
+      "run_id": "20260929T015049-pledge-dd7c",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D2-PLD-002",
+      "event_type": "pledge",
+      "file": "D2-PLD-002.json",
+      "run_id": "20260929T015053-pledge-cb2d",
+      "ok": true,
+      "status_count": {
+        "extracted": 10,
+        "not_mentioned": 2,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 11,
+        "value_hit": 8,
+        "field_accuracy": 0.7273,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.7692
+      },
+      "gold_rows": [
+        {
+          "field": "pledgor",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某某制造股份有限公司\" mine=\"某公司股东\""
+        },
+        {
+          "field": "purpose",
+          "verdict": "STATUS_DIFF",
+          "detail": "gold=extracted(\"补充流动资金\") mine=not_mentioned"
+        },
+        {
+          "field": "start_date",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"2026-09-01\" mine=\"2026-09-03\""
+        }
+      ]
+    }
+  ]
+}

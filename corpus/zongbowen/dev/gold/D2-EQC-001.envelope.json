@@ -1,0 +1,187 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D2-EQC-001",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:a5bbe14e53664cf7c591e0845ce32bf0419f825abc4e65b9a62e66a0038fe7bb",
+    "file_name": "D2-EQC-001.txt",
+    "file_sha256": "a5bbe14e53664cf7c591e0845ce32bf0419f825abc4e65b9a62e66a0038fe7bb",
+    "parse_meta": {
+      "parser_version": "controlled-fixture-v0.1",
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "某某制造股份有限公司",
+          "value": "某某制造股份有限公司",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某某制造股份有限公司"
+            }
+          ],
+          "standardized": true
+        },
+        "direction": {
+          "raw_value": "减持",
+          "value": "decrease",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "股东减持"
+            }
+          ],
+          "standardized": true
+        },
+        "shares_before": {
+          "raw_value": "4,000万股",
+          "value": 40000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "变动前持有4,000万股"
+            }
+          ],
+          "standardized": true
+        },
+        "shares_after": {
+          "raw_value": "3,400万股",
+          "value": 34000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "变动后持有3,400万股"
+            }
+          ],
+          "standardized": true
+        },
+        "ratio_before": {
+          "raw_value": "10%",
+          "value": 10,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "变动前持股比例10%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital"
+        },
+        "ratio_after": {
+          "raw_value": "8.5%",
+          "value": 8.5,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "变动后持股比例8.5%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital"
+        },
+        "change_shares": {
+          "raw_value": "600万股",
+          "value": 6000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "减持600万股"
+            }
+          ],
+          "standardized": true
+        },
+        "method": {
+          "raw_value": "大宗交易",
+          "value": "大宗交易",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "通过大宗交易减持"
+            }
+          ],
+          "standardized": true
+        },
+        "change_date": {
+          "raw_value": "2026年9月10日",
+          "value": "2026-09-10",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "变动日期2026年9月10日"
+            }
+          ],
+          "standardized": true
+        }
+      },
+      "extraction_method": "rule",
+      "notes": ""
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-09-28T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}

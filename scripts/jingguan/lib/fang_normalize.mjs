@@ -86,19 +86,21 @@ const DENOMINATOR_MAP = {
   other: { kind: 'other', definition: '其他分母口径，具体见字段 note' },
 }
 
-/** 从 raw_value 文本探测她的 sourceUnit；探测不到返回 null。 */
+/** 从 raw_value 文本探测她的 sourceUnit；探测不到返回 null。
+ * 裸数字（表格常见，如 "7,800,000"）无万/亿标记时按基础单位处理——
+ * 缺 magnitude 标记本身即表明是基础单位，非猜测。 */
 function detectSourceUnit(rawText, unit) {
   if (unit === 'percent') return rawText.includes('%') ? '%' : null
   if (unit === 'cny') {
     if (rawText.includes('亿元')) return '亿元'
     if (rawText.includes('万元')) return '万元'
     if (rawText.includes('元')) return '元'
-    return null
+    return '元'
   }
   if (rawText.includes('亿股')) return '亿股'
   if (rawText.includes('万股')) return '万股'
   if (rawText.includes('股')) return '股'
-  return null
+  return '股'
 }
 
 /** 从 raw_value 文本探测 qualifier 语义。 */

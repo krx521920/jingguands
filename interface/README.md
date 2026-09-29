@@ -150,7 +150,9 @@ FieldValue（**核心结构，四个人都要消费**）：
 | method | 变动方式 | text | |
 | change_date | 变动期间 | date_range | value 为 ISO 区间 "start/end"（如 "2026-09-20/2026-09-24"） |
 
-### award_contract 中标/合同签署（9 字段，v0.3 由 bid_won 改名）
+### award_contract 中标/合同签署（13 字段：9 必选＋4 专业边界可选，D3 依宗博文复核增补）
+
+专业边界语义（赛题要求）：区分中标候选/正式中标（收到中标通知书）/合同签署三个阶段；调价条款 not_disclosed ≠ 固定价格；bid_amount（合同金额）≠ recognized_revenue（当期收入）。
 
 | 字段名 | 含义 | unit | 备注 |
 |---|---|---|---|
@@ -164,6 +166,10 @@ FieldValue（**核心结构，四个人都要消费**）：
 | consortium_members | 联合体成员名单 | text | 无联合体→not_applicable；有联合体→extracted |
 | consortium_shares | 联合体份额 | text | 份额未写→not_mentioned；无联合体→not_applicable |
 | bid_date | 中标/公告日期 | date | |
+| contract_signed | 是否已签署合同 | text | true/false/not_disclosed（可选，缺省 not_mentioned） |
+| formal_award_notice_received | 是否收到正式中标通知书 | text | true/false/not_disclosed（可选） |
+| price_adjustment_status | 调价条款状态 | text | fixed/adjustable/not_disclosed（可选） |
+| recognized_revenue | 当期确认收入 | cny | 可选；合同金额 ≠ 当期收入 |
 
 ## 六、出处结构（provenance）
 

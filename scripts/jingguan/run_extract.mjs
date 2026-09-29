@@ -106,6 +106,8 @@ function buildSystemPrompt(eventType, parseMode) {
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
     '7. 日期区间（unit=date_range 的字段，如 change_date）：必须 unit="date_range"，value 必须是 ISO 区间字符串 "起始日/结束日"（如 "2026-09-20/2026-09-24"），status=extracted——区间是原文明确给出的值。禁止把 value 写成 {start,end} 对象，禁止用 unit="date" 装区间。',
+    '8b. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中的完整注册名称（如“某某制造股份有限公司”），禁止用“某公司”“公司股东”等泛称截断。',
+    '8c. 日期单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。',
     '8. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
     ...(parseMode ? [
       '9. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本。provenance 必须给出 quote 所在块的 block_id。',
@@ -347,6 +349,15 @@ async function main() {
   // ---- D2 事件后处理：块级出处回填 ＋ 数值标准化（方的 normalize 移植） ----
   const events = call ? parseModelJson(call.content).events ?? [] : []
   const postErrors = []
+  // 前置清洗：模型偶发输出 null/非对象字段（违反契约），剔除并记错，保证后续阶段不崩
+  for (const ev of events) {
+    for (const [name, fv] of Object.entries(ev.fields ?? {})) {
+      if (fv === null || typeof fv !== 'object') {
+        postErrors.push(`[schema前置] 字段 ${name} 值非对象（${JSON.stringify(fv)}），已剔除`)
+        delete ev.fields[name]
+      }
+    }
+  }
   if (parseDoc !== null) backfillProvenance(events, parseDoc.blockIndex, isMock, postErrors)
   let normalizedCount = 0
   for (const ev of events) {

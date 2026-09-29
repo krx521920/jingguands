@@ -1,0 +1,43 @@
+{
+  "stamp": "20260929T015317",
+  "mock": false,
+  "results": [
+    {
+      "case": "award-001",
+      "event_type": "award_contract",
+      "file": "award-001.parse.json",
+      "run_id": "20260929T015317-award_contract-d129",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "equity-change-001",
+      "event_type": "equity_change",
+      "file": "equity-change-001.parse.json",
+      "run_id": "20260929T015321-equity_change-a087",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "pledge-001",
+      "event_type": "pledge",
+      "file": "pledge-001.parse.json",
+      "run_id": "20260929T015324-pledge-b439",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 1,
+        "not_disclosed": 1
+      },
+      "validation_errors": 0
+    }
+  ]
+}

@@ -32,7 +32,7 @@ export const FIELD_REGISTRY = {
   },
   equity_change: {
     holder: { unit: 'text', label: '变动股东' },
-    direction: { unit: 'text', label: '变动方向' },
+    direction: { unit: 'text', label: '变动方向（必须填英文枚举 increase 或 decrease，禁止中文）' },
     shares_before: { unit: 'shares', label: '变动前持股' },
     shares_after: { unit: 'shares', label: '变动后持股' },
     ratio_before: { unit: 'percent', label: '变动前比例', requiresDenominator: true },
@@ -52,6 +52,10 @@ export const FIELD_REGISTRY = {
     consortium_members: { unit: 'text', label: '联合体成员名单' },
     consortium_shares: { unit: 'text', label: '联合体份额' },
     bid_date: { unit: 'date', label: '中标日期' },
+    contract_signed: { unit: 'text', label: '是否已签署合同（true/false/not_disclosed）' },
+    formal_award_notice_received: { unit: 'text', label: '是否收到正式中标通知书（true/false/not_disclosed）' },
+    price_adjustment_status: { unit: 'text', label: '调价条款（fixed/adjustable/not_disclosed）' },
+    recognized_revenue: { unit: 'cny', label: '当期确认收入' },
   },
 }
 
