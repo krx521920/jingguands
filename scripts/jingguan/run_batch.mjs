@@ -17,7 +17,7 @@
  * Gold 对照为开发期错误定位用；正式评测成绩以宗博文的独立评测脚本为准。
  */
 import { spawnSync } from 'node:child_process'
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync, copyFileSync } from 'node:fs'
 import { basename, resolve, join, dirname } from 'node:path'
 import { goldFieldSupported } from './lib/checks.mjs'
 
@@ -240,6 +240,15 @@ for (const file of files) {
     }
   }
   results.push(entry)
+}
+
+// 按案例名导出信封（对齐评测脚本 compare-fields.mjs 的 --system-dir 消费方式：
+// <case_id>.json），评测方可直接出分
+mkdirSync(join(batchDir, 'envelopes'), { recursive: true })
+for (const r of results) {
+  if (r.ok && r.run_id) {
+    copyFileSync(join(REPO_ROOT, 'runs', r.run_id, 'events.json'), join(batchDir, 'envelopes', `${r.case}.json`))
+  }
 }
 
 // ---------- 汇总报告 ----------
