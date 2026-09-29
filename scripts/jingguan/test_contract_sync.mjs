@@ -85,6 +85,16 @@ if (provInterfaceMatch !== null) {
 }
 // runner 出处回填覆盖检查在读取 runnerSrc 之后执行（见第 5 节末尾）
 
+// ---------- 3c. source_type 枚举：schema vs 插件联合类型逐值核对 ----------
+const stEnum = schema.$defs.provenance.properties.source_type.enum.filter((v) => v !== null)
+const stMatch = pluginSrc.match(/source_type\?: ([^\n]+)/)
+check(stMatch !== null, '插件 Provenance 缺 source_type 声明')
+if (stMatch !== null) {
+  for (const v of stEnum) check(stMatch[1].includes(`'${v}'`), `插件 source_type 联合类型缺 '${v}'（schema 枚举有）`)
+  const pluginVals = [...stMatch[1].matchAll(/'([^']+)'/g)].map((m) => m[1])
+  for (const v of pluginVals) check(stEnum.includes(v), `插件 source_type 多出 '${v}'（schema 枚举无）`)
+}
+
 // ---------- 4. README 注册表文档 ----------
 const readme = readFileSync(resolve(REPO_ROOT, 'interface/README.md'), 'utf8')
 const readmeSections = { pledge: '### pledge 质押', equity_change: '### equity_change 股权变动', award_contract: '### award_contract' }

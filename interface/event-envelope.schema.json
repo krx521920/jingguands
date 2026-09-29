@@ -49,7 +49,7 @@
       "required": ["page", "quote"],
       "properties": {
         "block_id": { "type": ["string", "null"], "description": "解析侧 DocumentIR 供给的稳定块标识（张智博）" },
-        "source_type": { "enum": ["paragraph", "cell", null], "description": "出处块的来源类型（解析侧供给：正文段落/表格单元格）；null＝纯文本模式或解析未提供。OCR 通道值待 D4 落地时扩展" },
+        "source_type": { "enum": ["paragraph", "table", "cell", "scan_region", "document", null], "description": "出处块的来源类型（解析侧供给，与 finstruct 取值集对齐）：paragraph=正文段落；table=表格内未能归入检出单元格的兜底块（解析侧必带 degraded:true，消费方可降权）；cell=表格单元格；scan_region/document=OCR 通道（D4）。null＝纯文本模式或解析未提供。解析侧新增取值须先提契约变更同步本枚举" },
         "page": { "type": "integer", "minimum": 1 },
         "region": {
           "type": ["array", "null"],

@@ -177,7 +177,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 { "block_id": "p3-b12", "source_type": "cell", "page": 3, "region": [left, top, right, bottom], "table_id": "p3-t2", "cell_ref": "r2c3", "quote": "……" }
 ```
 
-- `source_type`（D3 增补，张智博 field_aliases 指出后补齐）：出处块来源类型，`paragraph`（正文段落）/`cell`（表格单元格）/null（纯文本模式或解析未提供）；OCR 通道值 D4 落地时扩展。评测统计出处命中时按 区域/单元格 分层即以此字段为分母依据。
+- `source_type`（D3 增补，张智博 field_aliases 指出后补齐；当日依其 D3 回复扩全）：出处块来源类型，与 finstruct 取值集对齐——`paragraph`（正文段落）/`cell`（表格单元格）/`table`（表格内未能归入检出单元格的兜底块，解析侧必带 degraded:true，消费方可降权）/`scan_region`/`document`（OCR 通道，D4）/null（纯文本模式或未提供）。评测统计出处命中时按 区域/单元格 分层即以此字段为分母依据。解析侧新增取值须先提契约变更同步枚举（五处：schema/插件接口/README/此条目/同步门）。
 
 - **张智博（DocumentIR）**：供给 `document_id`（→source.file_id）、`page`、`block_id`、`region`、`source_type`（paragraph/cell）、表格类出处补 `table_id`/`cell_ref`；**quote 必须来自原文，禁止事后按数字反搜**。表格证据不许丢失：来自表格的字段必须带 table_id/cell_ref（纯文本出处保持 null）。`source.parse_meta` 可填 `parser_version`、`page_count`、`blocks`（块摘要数组，允许 null；块全量数据在解析 JSON 的 `pages[].blocks[]`，抽取层经 `handoff.provenance_from_block` 映射消费）。
 - **region 坐标语义（D2 冻结）**：`[left, top, right, bottom]`，单位 PDF 点（1pt=1/72 英寸），原点页面左上角、y 轴向下；屏幕坐标 = region ÷ [page.width, page.height] × 显示尺寸。禁止按 x/y/宽/高解读。
@@ -195,7 +195,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 
 **D3 增补（2026-09-29，schema 保持 v0.3 向后兼容）**
 
-1. provenance 新增可选 `source_type`（paragraph/cell/null）——出处块来源类型，评测按 区域/单元格 分层统计的依据；张智博 field_aliases 指出契约缺口后当日补齐，evidence/0.7 起由解析侧供给、抽取层自动回填。
+1. provenance 新增可选 `source_type`——出处块来源类型，评测按 区域/单元格 分层统计的依据；张智博 field_aliases 指出契约缺口后当日补齐，evidence/0.7 起由解析侧供给、抽取层自动回填。同日依其《给群里的回复》指出的枚举缺口扩为全集 `paragraph/table/cell/scan_region/document/null`（table=兜底块必带 degraded，scan_region/document=D4 OCR 通道）——避免 D2 曾出现的 8 个 table 兜底块触发整信封校验失败。
 
 **D2 复核修订（2026-09-28，宗博文 v0.3 复核三问题，schema 保持 v0.3 增量）**
 
