@@ -49,3 +49,6 @@ native/system/test/bin/
 
 # jingguan 契约库（非构建产物，必须入库）
 !scripts/jingguan/lib/
+
+# 宗测试脚本的相对路径输出，勿入库
+work/
