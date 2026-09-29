@@ -78,6 +78,72 @@
         "cell": 16
       },
       "schema_version": "evidence/0.7"
+    },
+    {
+      "parse_file": "parse/pledge-203.parse.json",
+      "case_id": "D3-PLD-203",
+      "event_type": "pledge",
+      "company": "*ST春天",
+      "title": "青海春天关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225581969.PDF",
+      "source_hash_sha256": "3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+      "fetched_by": "魏文宇（巨潮公开接口，限速2.5s，原始PDF不入库）",
+      "announce_date": "2026-09-25"
+    },
+    {
+      "parse_file": "parse/pledge-204.parse.json",
+      "case_id": "D3-PLD-204",
+      "event_type": "pledge",
+      "company": "坤彩科技",
+      "title": "关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225581834.PDF",
+      "source_hash_sha256": "a204c717003092451d007754d55fcf05b9da0767d27b26f9d18545a714276a0c",
+      "fetched_by": "魏文宇（巨潮公开接口，限速2.5s，原始PDF不入库）",
+      "announce_date": "2026-09-25"
+    },
+    {
+      "parse_file": "parse/pledge-205.parse.json",
+      "case_id": "D3-PLD-205",
+      "event_type": "pledge",
+      "company": "立航科技",
+      "title": "成都立航科技股份有限公司关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225581183.PDF",
+      "source_hash_sha256": "74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+      "fetched_by": "魏文宇（巨潮公开接口，限速2.5s，原始PDF不入库）",
+      "announce_date": "2026-09-25"
+    },
+    {
+      "parse_file": "parse/pledge-206.parse.json",
+      "case_id": "D3-PLD-206",
+      "event_type": "pledge",
+      "company": "宏发<em>股份</em>",
+      "title": "宏发股份：关于控股股东部分股份质押及解质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225580864.PDF",
+      "source_hash_sha256": "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+      "fetched_by": "魏文宇（巨潮公开接口，限速2.5s，原始PDF不入库）",
+      "announce_date": "2026-09-25"
+    },
+    {
+      "parse_file": "parse/pledge-207.parse.json",
+      "case_id": "D3-PLD-207",
+      "event_type": "pledge",
+      "company": "博迁新材",
+      "title": "江苏博迁新材料股份有限公司关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225580857.PDF",
+      "source_hash_sha256": "b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
+      "fetched_by": "魏文宇（巨潮公开接口，限速2.5s，原始PDF不入库）",
+      "announce_date": "2026-09-25"
+    },
+    {
+      "parse_file": "parse/pledge-208.parse.json",
+      "case_id": "D3-PLD-208",
+      "event_type": "pledge",
+      "company": "亿纬锂能",
+      "title": "关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225583051.PDF",
+      "source_hash_sha256": "257bc8b52b39bfa61b22ed7e36b91568983464a35ae67cf7207e206676637b8c",
+      "fetched_by": "魏文宇（巨潮公开接口，限速2.5s，原始PDF不入库）",
+      "announce_date": "2026-09-24"
     }
   ],
   "note": "D3 交付：质押表多层表头绑定（header_path / rowspan / colspan）与 cell_ref 契约对齐。与 sample/D2/ 的区别见 README。原始 PDF 未随仓库分发，用 fetch_samples.py 按 source_url 取回。"

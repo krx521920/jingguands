@@ -1,0 +1,95 @@
+{
+  "stamp": "20260929T044720",
+  "mock": false,
+  "results": [
+    {
+      "case": "pledge-001",
+      "event_type": "pledge",
+      "file": "pledge-001.parse.json",
+      "run_id": "20260929T044720-pledge-2f63",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "pledge-203",
+      "event_type": "pledge",
+      "file": "pledge-203.parse.json",
+      "run_id": "20260929T044723-pledge-348c",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "pledge-204",
+      "event_type": "pledge",
+      "file": "pledge-204.parse.json",
+      "run_id": "20260929T044727-pledge-16a4",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "pledge-205",
+      "event_type": "pledge",
+      "file": "pledge-205.parse.json",
+      "run_id": "20260929T044731-pledge-bf18",
+      "ok": true,
+      "status_count": {
+        "extracted": 10,
+        "not_mentioned": 2,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "pledge-206",
+      "event_type": "pledge",
+      "file": "pledge-206.parse.json",
+      "run_id": "20260929T044734-pledge-623a",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "pledge-207",
+      "event_type": "pledge",
+      "file": "pledge-207.parse.json",
+      "run_id": "20260929T044738-pledge-e8ed",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "pledge-208",
+      "event_type": "pledge",
+      "file": "pledge-208.parse.json",
+      "run_id": "20260929T044742-pledge-bf8a",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    }
+  ]
+}

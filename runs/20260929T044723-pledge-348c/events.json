@@ -1,0 +1,1578 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20260929T044723-pledge-348c",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+    "file_name": "pledge-203.pdf",
+    "file_sha256": "3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.7.0",
+      "page_count": 2,
+      "blocks": [
+        {
+          "block_id": "d3fbd8497_p001_b00001",
+          "page": 1,
+          "role": "HEADER",
+          "text": "股票代码：600381 股票简称：*ST春天 公告编号：2026-068",
+          "text_raw": "股票代码：600381股票简称：*ST春天公告编号：2026-068",
+          "region": [
+            73.68,
+            43.91,
+            521.82,
+            54.4
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "青海春天药用资源科技股份有限公司关于控股股东部分股份质押的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者",
+          "text_raw": "青海春天药用资源科技股份有限公司关于控股股东部分股份质押的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者",
+          "region": [
+            97.8,
+            77.87,
+            521.75,
+            148.25
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "text_raw": "重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "region": [
+            73.68,
+            160.25,
+            423,
+            172.25
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "重要内容提示:",
+          "text_raw": "重要内容提示:",
+          "region": [
+            97.8,
+            200.57,
+            176.04,
+            212.57
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": " 青海春天药用资源科技股份有限公司（以下简称“公司”）控股股东西藏荣恩科",
+          "text_raw": "青海春天药用资源科技股份有限公司（以下简称“公司”）控股股东西藏荣恩科",
+          "region": [
+            97.68,
+            223.85,
+            521.88,
+            236.57
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "技有限公司（以下简称“西藏荣恩”）持有我公司188,615,194股无限售条件流通股，占公司总股本的32.13%。本次办理股份质押业务后，西藏荣恩累计质押数量为11,781万股，占其持股总数的62.46%，占公司总股本的20.07%。",
+          "text_raw": "技有限公司（以下简称“西藏荣恩”）持有我公司188,615,194股无限售条件流通股，占公司总股本的32.13%。本次办理股份质押业务后，西藏荣恩累计质押数量为11,781万股，占其持股总数的62.46%，占公司总股本的20.07%。",
+          "region": [
+            73.68,
+            247.13,
+            527.88,
+            305.93
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": " 西藏荣恩及其一致行动人肖融共持有公司股份245,377,983股，占我公司总股",
+          "text_raw": "西藏荣恩及其一致行动人肖融共持有公司股份245,377,983股，占我公司总股",
+          "region": [
+            97.68,
+            317.21,
+            521.88,
+            330.05
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "本的41.80%，累计质押数量（含本次）为14,795万股，占其持股总数的60.29%，占公司总股本的25.20%。",
+          "text_raw": "本的41.80%，累计质押数量（含本次）为14,795万股，占其持股总数的60.29%，占公司总股本的25.20%。",
+          "region": [
+            73.68,
+            340.61,
+            521.88,
+            375.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "公司于近日收到控股股东西藏荣恩关于其部分股份质押的通知，现将有关情况公",
+          "text_raw": "公司于近日收到控股股东西藏荣恩关于其部分股份质押的通知，现将有关情况公",
+          "region": [
+            97.68,
+            410.57,
+            521.87,
+            422.57
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00010",
+          "page": 1,
+          "role": "BODY",
+          "text": "告如下：",
+          "text_raw": "告如下：",
+          "region": [
+            73.68,
+            433.97,
+            121.68,
+            445.97
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00011",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、本次股份质押情况",
+          "text_raw": "一、本次股份质押情况",
+          "region": [
+            97.8,
+            457.25,
+            218.28,
+            469.25
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "1.本次股份质押基本情况",
+          "text_raw": "1.本次股份质押基本情况",
+          "region": [
+            97.68,
+            480.65,
+            229.68,
+            492.65
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "股 东名称",
+          "text_raw": "股东名称",
+          "region": [
+            42.25,
+            494.69,
+            77.4,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00014",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否为控股股东",
+          "text_raw": "是否为控股股东",
+          "region": [
+            77.4,
+            494.69,
+            134.1,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00015",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次质押股数",
+          "text_raw": "本次质押股数",
+          "region": [
+            134.1,
+            494.69,
+            176.6,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00016",
+          "page": 1,
+          "role": "BODY",
+          "text": "是 否 为限售股",
+          "text_raw": "是否为限售股",
+          "region": [
+            176.6,
+            494.69,
+            226.25,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00017",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否补充质押",
+          "text_raw": "是否补充质押",
+          "region": [
+            226.25,
+            494.69,
+            268.75,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00018",
+          "page": 1,
+          "role": "BODY",
+          "text": "质 押 起始日",
+          "text_raw": "质押起始日",
+          "region": [
+            268.75,
+            494.69,
+            317.62,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00019",
+          "page": 1,
+          "role": "BODY",
+          "text": "质 押 到期日",
+          "text_raw": "质押到期日",
+          "region": [
+            317.62,
+            494.69,
+            368,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00020",
+          "page": 1,
+          "role": "BODY",
+          "text": "质权人",
+          "text_raw": "质权人",
+          "region": [
+            368,
+            494.69,
+            426.05,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00021",
+          "page": 1,
+          "role": "BODY",
+          "text": "占其所持股份比例",
+          "text_raw": "占其所持股份比例",
+          "region": [
+            426.05,
+            494.69,
+            468.55,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00022",
+          "page": 1,
+          "role": "BODY",
+          "text": "占公司总股本比例",
+          "text_raw": "占公司总股本比例",
+          "region": [
+            468.55,
+            494.69,
+            511.1,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00023",
+          "page": 1,
+          "role": "BODY",
+          "text": "质押融资资金用途",
+          "text_raw": "质押融资资金用途",
+          "region": [
+            511.1,
+            494.69,
+            553.25,
+            541.99
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00024",
+          "page": 1,
+          "role": "BODY",
+          "text": "西藏荣恩",
+          "text_raw": "西藏荣恩",
+          "region": [
+            42.25,
+            541.99,
+            77.4,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00025",
+          "page": 1,
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            77.4,
+            541.99,
+            134.1,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00026",
+          "page": 1,
+          "role": "BODY",
+          "text": "375 万股",
+          "text_raw": "375万股",
+          "region": [
+            134.1,
+            541.99,
+            176.6,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00027",
+          "page": 1,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            176.6,
+            541.99,
+            226.25,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00028",
+          "page": 1,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            226.25,
+            541.99,
+            268.75,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00029",
+          "page": 1,
+          "role": "BODY",
+          "text": "2026- 09-22",
+          "text_raw": "2026-09-22",
+          "region": [
+            268.75,
+            541.99,
+            317.62,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00030",
+          "page": 1,
+          "role": "BODY",
+          "text": "2029- 09-18",
+          "text_raw": "2029-09-18",
+          "region": [
+            317.62,
+            541.99,
+            368,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00031",
+          "page": 1,
+          "role": "BODY",
+          "text": "上海浦东发展银行股份有限公司成都分行",
+          "text_raw": "上海浦东发展银行股份有限公司成都分行",
+          "region": [
+            368,
+            541.99,
+            426.05,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00032",
+          "page": 1,
+          "role": "BODY",
+          "text": "1.99%",
+          "text_raw": "1.99%",
+          "region": [
+            426.05,
+            541.99,
+            468.55,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00033",
+          "page": 1,
+          "role": "BODY",
+          "text": "0.64%",
+          "text_raw": "0.64%",
+          "region": [
+            468.55,
+            541.99,
+            511.1,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00034",
+          "page": 1,
+          "role": "BODY",
+          "text": "提供担保",
+          "text_raw": "提供担保",
+          "region": [
+            511.1,
+            541.99,
+            553.25,
+            620.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00035",
+          "page": 1,
+          "role": "BODY",
+          "text": "2.上述股份质押不存在被用作重大资产重组业绩补偿等事项的情形。",
+          "text_raw": "2.上述股份质押不存在被用作重大资产重组业绩补偿等事项的情形。",
+          "region": [
+            97.68,
+            622.49,
+            457.68,
+            634.49
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00036",
+          "page": 1,
+          "role": "BODY",
+          "text": "3.股东累计质押股份情况",
+          "text_raw": "3.股东累计质押股份情况",
+          "region": [
+            97.68,
+            645.77,
+            229.68,
+            657.77
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00037",
+          "page": 1,
+          "role": "BODY",
+          "text": "截至本公告披露日，西藏荣恩及其一致行动人所持有的公司股份均为无限售条件",
+          "text_raw": "截至本公告披露日，西藏荣恩及其一致行动人所持有的公司股份均为无限售条件",
+          "region": [
+            97.68,
+            669.17,
+            521.75,
+            681.17
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00038",
+          "page": 1,
+          "role": "BODY",
+          "text": "的流通股且不存在已质押的股份被冻结的情况，质押情况如下：",
+          "text_raw": "的流通股且不存在已质押的股份被冻结的情况，质押情况如下：",
+          "region": [
+            73.68,
+            692.57,
+            409.68,
+            704.57
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00039",
+          "page": 1,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            42.25,
+            714.34,
+            108,
+            761.64
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00040",
+          "page": 1,
+          "role": "BODY",
+          "text": "持股数量",
+          "text_raw": "持股数量",
+          "region": [
+            108,
+            714.34,
+            190.95,
+            761.64
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00041",
+          "page": 1,
+          "role": "BODY",
+          "text": "持股比例",
+          "text_raw": "持股比例",
+          "region": [
+            190.95,
+            714.34,
+            244.45,
+            761.64
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00042",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次质押前累计质押数量",
+          "text_raw": "本次质押前累计质押数量",
+          "region": [
+            244.45,
+            714.34,
+            317.62,
+            761.64
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00043",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次质押后累计质押数量",
+          "text_raw": "本次质押后累计质押数量",
+          "region": [
+            317.62,
+            714.34,
+            391.4,
+            761.64
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00044",
+          "page": 1,
+          "role": "BODY",
+          "text": "占其所持股份比例",
+          "text_raw": "占其所持股份比例",
+          "region": [
+            391.4,
+            714.34,
+            441.5,
+            761.64
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00045",
+          "page": 1,
+          "role": "BODY",
+          "text": "占公司总股本比例",
+          "text_raw": "占公司总股本比例",
+          "region": [
+            441.5,
+            714.34,
+            488.35,
+            761.64
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00046",
+          "page": 1,
+          "role": "BODY",
+          "text": "未质押股份中冻结股份数量",
+          "text_raw": "未质押股份中冻结股份数量",
+          "region": [
+            488.35,
+            714.34,
+            553.25,
+            761.64
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00047",
+          "page": 1,
+          "role": "BODY",
+          "text": "西藏荣恩",
+          "text_raw": "西藏荣恩",
+          "region": [
+            42.25,
+            761.64,
+            108,
+            793.24
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00048",
+          "page": 1,
+          "role": "BODY",
+          "text": "188,615,194股",
+          "text_raw": "188,615,194股",
+          "region": [
+            108,
+            761.64,
+            190.95,
+            793.24
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00049",
+          "page": 1,
+          "role": "BODY",
+          "text": "32.13%",
+          "text_raw": "32.13%",
+          "region": [
+            190.95,
+            761.64,
+            244.45,
+            793.24
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00050",
+          "page": 1,
+          "role": "BODY",
+          "text": "11,406万股",
+          "text_raw": "11,406万股",
+          "region": [
+            244.45,
+            761.64,
+            317.62,
+            793.24
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00051",
+          "page": 1,
+          "role": "BODY",
+          "text": "11,781万股",
+          "text_raw": "11,781万股",
+          "region": [
+            317.62,
+            761.64,
+            391.4,
+            793.24
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00052",
+          "page": 1,
+          "role": "BODY",
+          "text": "62.46%",
+          "text_raw": "62.46%",
+          "region": [
+            391.4,
+            761.64,
+            441.5,
+            793.24
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00053",
+          "page": 1,
+          "role": "BODY",
+          "text": "20.07%",
+          "text_raw": "20.07%",
+          "region": [
+            441.5,
+            761.64,
+            488.35,
+            793.24
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00054",
+          "page": 1,
+          "role": "BODY",
+          "text": "16,888,889股",
+          "text_raw": "16,888,889股",
+          "region": [
+            488.35,
+            761.64,
+            553.25,
+            793.24
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00001",
+          "page": 2,
+          "role": "HEADER",
+          "text": "股票代码：600381 股票简称：*ST春天 公告编号：2026-068",
+          "text_raw": "股票代码：600381股票简称：*ST春天公告编号：2026-068",
+          "region": [
+            73.68,
+            43.91,
+            521.82,
+            54.4
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00002",
+          "page": 2,
+          "role": "BODY",
+          "text": "肖融",
+          "text_raw": "肖融",
+          "region": [
+            42.6,
+            55.77,
+            108,
+            87.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "56,762,789股",
+          "text_raw": "56,762,789股",
+          "region": [
+            108,
+            55.77,
+            190.95,
+            87.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00004",
+          "page": 2,
+          "role": "BODY",
+          "text": "9.67%",
+          "text_raw": "9.67%",
+          "region": [
+            190.95,
+            55.77,
+            244.45,
+            87.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "3,014万股",
+          "text_raw": "3,014万股",
+          "region": [
+            244.45,
+            55.77,
+            316.9,
+            87.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00006",
+          "page": 2,
+          "role": "BODY",
+          "text": "3,014万股",
+          "text_raw": "3,014万股",
+          "region": [
+            316.9,
+            55.77,
+            391.4,
+            87.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "53.10%",
+          "text_raw": "53.10%",
+          "region": [
+            391.4,
+            55.77,
+            441.55,
+            87.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00008",
+          "page": 2,
+          "role": "BODY",
+          "text": "5.13%",
+          "text_raw": "5.13%",
+          "region": [
+            441.55,
+            55.77,
+            488.35,
+            87.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00009",
+          "page": 2,
+          "role": "BODY",
+          "text": "12,373,231股",
+          "text_raw": "12,373,231股",
+          "region": [
+            488.35,
+            55.77,
+            552.9,
+            87.89
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00010",
+          "page": 2,
+          "role": "BODY",
+          "text": "合计",
+          "text_raw": "合计",
+          "region": [
+            42.6,
+            87.89,
+            108,
+            119.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00011",
+          "page": 2,
+          "role": "BODY",
+          "text": "245,377,983股",
+          "text_raw": "245,377,983股",
+          "region": [
+            108,
+            87.89,
+            190.95,
+            119.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00012",
+          "page": 2,
+          "role": "BODY",
+          "text": "41.80%",
+          "text_raw": "41.80%",
+          "region": [
+            190.95,
+            87.89,
+            244.45,
+            119.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00013",
+          "page": 2,
+          "role": "BODY",
+          "text": "14,420万股",
+          "text_raw": "14,420万股",
+          "region": [
+            244.45,
+            87.89,
+            316.9,
+            119.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00014",
+          "page": 2,
+          "role": "BODY",
+          "text": "14,795万股",
+          "text_raw": "14,795万股",
+          "region": [
+            316.9,
+            87.89,
+            391.4,
+            119.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00015",
+          "page": 2,
+          "role": "BODY",
+          "text": "60.29%",
+          "text_raw": "60.29%",
+          "region": [
+            391.4,
+            87.89,
+            441.55,
+            119.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00016",
+          "page": 2,
+          "role": "BODY",
+          "text": "25.20%",
+          "text_raw": "25.20%",
+          "region": [
+            441.55,
+            87.89,
+            488.35,
+            119.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00017",
+          "page": 2,
+          "role": "BODY",
+          "text": "29,262,120股",
+          "text_raw": "29,262,120股",
+          "region": [
+            488.35,
+            87.89,
+            552.9,
+            119.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00018",
+          "page": 2,
+          "role": "SECTION",
+          "text": "二、控股股东股份质押情况",
+          "text_raw": "二、控股股东股份质押情况",
+          "region": [
+            97.8,
+            125.57,
+            242.28,
+            137.57
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00019",
+          "page": 2,
+          "role": "BODY",
+          "text": "1. 西藏荣恩及其一致行动人未来一年内到期的质押股份情况",
+          "text_raw": "1.西藏荣恩及其一致行动人未来一年内到期的质押股份情况",
+          "region": [
+            97.68,
+            148.97,
+            415.68,
+            160.97
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00020",
+          "page": 2,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            73.95,
+            166.89,
+            139.9,
+            198.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00021",
+          "page": 2,
+          "role": "BODY",
+          "text": "数量（万股）",
+          "text_raw": "数量（万股）",
+          "region": [
+            139.9,
+            166.89,
+            225.25,
+            198.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00022",
+          "page": 2,
+          "role": "BODY",
+          "text": "占其所持有的股份比例",
+          "text_raw": "占其所持有的股份比例",
+          "region": [
+            225.25,
+            166.89,
+            303.35,
+            198.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00023",
+          "page": 2,
+          "role": "BODY",
+          "text": "占公司总股本比例",
+          "text_raw": "占公司总股本比例",
+          "region": [
+            303.35,
+            166.89,
+            368.2,
+            198.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00024",
+          "page": 2,
+          "role": "BODY",
+          "text": "融资金额（万元）",
+          "text_raw": "融资金额（万元）",
+          "region": [
+            368.2,
+            166.89,
+            441.55,
+            198.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00025",
+          "page": 2,
+          "role": "BODY",
+          "text": "质押到期日",
+          "text_raw": "质押到期日",
+          "region": [
+            441.55,
+            166.89,
+            521.6,
+            198.59
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00026",
+          "page": 2,
+          "role": "BODY",
+          "text": "西藏荣恩",
+          "text_raw": "西藏荣恩",
+          "region": [
+            73.95,
+            198.59,
+            139.9,
+            217.74
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00027",
+          "page": 2,
+          "role": "BODY",
+          "text": "550",
+          "text_raw": "550",
+          "region": [
+            139.9,
+            198.59,
+            225.25,
+            217.74
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00028",
+          "page": 2,
+          "role": "BODY",
+          "text": "2.92%",
+          "text_raw": "2.92%",
+          "region": [
+            225.25,
+            198.59,
+            303.35,
+            217.74
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00029",
+          "page": 2,
+          "role": "BODY",
+          "text": "0.94%",
+          "text_raw": "0.94%",
+          "region": [
+            303.35,
+            198.59,
+            368.2,
+            217.74
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00030",
+          "page": 2,
+          "role": "BODY",
+          "text": "1500",
+          "text_raw": "1500",
+          "region": [
+            368.2,
+            198.59,
+            441.55,
+            217.74
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00031",
+          "page": 2,
+          "role": "BODY",
+          "text": "2027-03-17",
+          "text_raw": "2027-03-17",
+          "region": [
+            441.55,
+            198.59,
+            521.6,
+            217.74
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00032",
+          "page": 2,
+          "role": "BODY",
+          "text": "2．西藏荣恩不存在通过非经营性资金占用、违规担保、关联交易等侵害上市公司",
+          "text_raw": "2．西藏荣恩不存在通过非经营性资金占用、违规担保、关联交易等侵害上市公司",
+          "region": [
+            97.68,
+            223.73,
+            521.88,
+            235.73
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00033",
+          "page": 2,
+          "role": "BODY",
+          "text": "利益的情况。",
+          "text_raw": "利益的情况。",
+          "region": [
+            73.68,
+            247.13,
+            145.68,
+            259.13
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00034",
+          "page": 2,
+          "role": "BODY",
+          "text": "3. 西藏荣恩本次股份质押不会对公司主营业务、日常生产经营、公司治理、公司",
+          "text_raw": "3.西藏荣恩本次股份质押不会对公司主营业务、日常生产经营、公司治理、公司",
+          "region": [
+            97.68,
+            266.57,
+            521.88,
+            278.57
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00035",
+          "page": 2,
+          "role": "BODY",
+          "text": "独立性和持续经营能力产生影响，公司董事会成员不会因此发生变动，不会导致公司股本结构和实际控制权的变化。",
+          "text_raw": "独立性和持续经营能力产生影响，公司董事会成员不会因此发生变动，不会导致公司股本结构和实际控制权的变化。",
+          "region": [
+            73.68,
+            289.85,
+            521.75,
+            325.25
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00036",
+          "page": 2,
+          "role": "BODY",
+          "text": "公司将密切关注控股股东和实际控制人股票质押情况，严格遵守相关规定，及时",
+          "text_raw": "公司将密切关注控股股东和实际控制人股票质押情况，严格遵守相关规定，及时",
+          "region": [
+            97.68,
+            336.53,
+            521.88,
+            348.53
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00037",
+          "page": 2,
+          "role": "BODY",
+          "text": "履行信息披露义务。敬请广大投资者注意投资风险。",
+          "text_raw": "履行信息披露义务。敬请广大投资者注意投资风险。",
+          "region": [
+            73.68,
+            359.93,
+            349.68,
+            371.93
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00038",
+          "page": 2,
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            97.8,
+            383.33,
+            158.04,
+            395.33
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00039",
+          "page": 2,
+          "role": "BODY",
+          "text": "青海春天药用资源科技股份有限公司",
+          "text_raw": "青海春天药用资源科技股份有限公司",
+          "region": [
+            329.04,
+            457.85,
+            521.76,
+            469.85
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00040",
+          "page": 2,
+          "role": "BODY",
+          "text": "董事会",
+          "text_raw": "董事会",
+          "region": [
+            411,
+            481.85,
+            447.12,
+            493.85
+          ]
+        },
+        {
+          "block_id": "d3fbd8497_p002_b00041",
+          "page": 2,
+          "role": "BODY",
+          "text": "2026年9月24日",
+          "text_raw": "2026年9月24日",
+          "region": [
+            380.28,
+            505.85,
+            473.64,
+            517.85
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "pledgor": {
+          "raw_value": "西藏荣恩",
+          "value": "西藏荣恩",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00024",
+              "page": 1,
+              "region": [
+                42.25,
+                541.99,
+                77.4,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c1",
+              "source_type": "cell",
+              "quote": "西藏荣恩"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "上海浦东发展银行股份有限公司成都分行",
+          "value": "上海浦东发展银行股份有限公司成都分行",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00031",
+              "page": 1,
+              "region": [
+                368,
+                541.99,
+                426.05,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c8",
+              "source_type": "cell",
+              "quote": "上海浦东发展银行股份有限公司成都分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "375万股",
+          "value": 3750000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00026",
+              "page": 1,
+              "region": [
+                134.1,
+                541.99,
+                176.6,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "375万股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "11,781万股",
+          "value": 117810000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00051",
+              "page": 1,
+              "region": [
+                317.62,
+                761.64,
+                391.4,
+                793.24
+              ],
+              "table_id": "d3fbd8497_p001_t002",
+              "cell_ref": "r2c5",
+              "source_type": "cell",
+              "quote": "11,781万股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "1.99%",
+          "value": 1.99,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00032",
+              "page": 1,
+              "region": [
+                426.05,
+                541.99,
+                468.55,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c9",
+              "source_type": "cell",
+              "quote": "1.99%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "0.64%",
+          "value": 0.64,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00033",
+              "page": 1,
+              "region": [
+                468.55,
+                541.99,
+                511.1,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c10",
+              "source_type": "cell",
+              "quote": "0.64%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "62.46%",
+          "value": 62.46,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00052",
+              "page": 1,
+              "region": [
+                391.4,
+                761.64,
+                441.5,
+                793.24
+              ],
+              "table_id": "d3fbd8497_p001_t002",
+              "cell_ref": "r2c6",
+              "source_type": "cell",
+              "quote": "62.46%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "20.07%",
+          "value": 20.07,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00053",
+              "page": 1,
+              "region": [
+                441.5,
+                761.64,
+                488.35,
+                793.24
+              ],
+              "table_id": "d3fbd8497_p001_t002",
+              "cell_ref": "r2c7",
+              "source_type": "cell",
+              "quote": "20.07%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026-09-22",
+          "value": "2026-09-22",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00029",
+              "page": 1,
+              "region": [
+                268.75,
+                541.99,
+                317.62,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c6",
+              "source_type": "cell",
+              "quote": "2026-09-22"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2029-09-18",
+          "value": "2029-09-18",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00030",
+              "page": 1,
+              "region": [
+                317.62,
+                541.99,
+                368,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c7",
+              "source_type": "cell",
+              "quote": "2029-09-18"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "提供担保",
+          "value": "提供担保",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00034",
+              "page": 1,
+              "region": [
+                511.1,
+                541.99,
+                553.25,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c11",
+              "source_type": "cell",
+              "quote": "提供担保"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p002_b00041",
+              "page": 2,
+              "region": [
+                380.28,
+                505.85,
+                473.64,
+                517.85
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "2026年9月24日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-09-29T04:47:23.723Z",
+    "duration_ms": 3639,
+    "errors": []
+  }
+}
