@@ -33,8 +33,8 @@ python evaluation/D3/fetch_sources.py
 - 5/5 Gold envelopes pass Wei's v0.3 schema and registry validator.
 - Gold replay through Wei's current runner: 5/5 documents, 7/7 events, 0 run errors, events equal to Gold.
 - A real integration finding was recorded: 万股 table headers must propagate their unit into raw_value or the normalization context.
-- Existing Wanji system output matches Gold `E01` field-by-field, but is missing `E02` and `E03`.
-- Four new documents still need system outputs before the full field-comparison report can be closed.
+- Real model comparison: 3/5 documents match Gold exactly (`D3-PLD-002`, `D3-PLD-003`, `D3-PLD-005`).
+- `D3-PLD-001`: system output matches `E01` but misses `E02` and `E03` (multi-event extraction defect).`n- `D3-PLD-004`: `pledged_shares_this_time` is 364 instead of 3,640,000 because the 万股 header unit is not propagated; cumulative shares also emit a normalization error.
 
 ## Source policy
 

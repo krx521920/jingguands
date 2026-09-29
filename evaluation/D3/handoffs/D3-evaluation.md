@@ -2,26 +2,30 @@
 
 ## Completed
 
-- Five public pledge announcements selected and downloaded for annotation.
-- Coverage includes table/page variations such as: multi-event, 万股 units, supplementary pledge, non-specific end date, and slash dates.
-- Five v0.3 Gold envelopes generated with document/page/cell evidence.
+- Five public pledge announcements selected, fetched, hash-verified, and annotated.
+- Five v0.3 Gold envelopes with web/page/cell evidence.
 - 7 events, 91 fields, 84 evidence records; 0 unsupported quotes.
-- Gold shared-schema validation against origin/weiwenyu is 5/5.
+- Gold shared-schema validation against `origin/weiwenyu` is 5/5.
 - Gold replay through Wei's current runner is 5/5 documents, 7/7 events, 0 run errors, and events equal to Gold.
-- Real integration finding: 万股 table headers must propagate their unit into raw_value or normalization context; otherwise the runner misreads 364.00 万股 as 364 shares and rejects fractional share cells.
+- Real model batch: 5/5 documents have `deepseek-chat` outputs.
 
-## Current field-comparison state
+## Real field comparison
 
-- `D3-PLD-001` E01 matches the existing system output.
-- The existing system output misses E02 and E03 for `D3-PLD-001`.
-- `D3-PLD-002` through `D3-PLD-005` are pending system model outputs.
-- Run `evaluation/D3/compare/compare-fields.mjs` after Wei provides a D3 batch report or system envelope directory.
+- `D3-PLD-002` 兰石重装: MATCH.
+- `D3-PLD-003` 联创电子: MATCH.
+- `D3-PLD-004` 中国天楹: DIFF. System returns `pledged_shares_this_time=364` instead of `3,640,000`; `pledged_shares_cumulative` also raises `Shares must be whole shares`.
+- `D3-PLD-005` 光线传媒: MATCH.
+- `D3-PLD-001` 万集科技: system produces `E01` only; Gold has `E01/E02/E03`. `E01` matches, two events are missing.
 
-## Handoff
+## Required production fixes
 
-- **Zhang**: consume the five source URLs/hashes from `dev/manifest.json`; parser output should be `evidence/0.7`.
-- **Wei**: run the five raw fixtures through the pledge extraction path and return `runs/batch-*/batch_report.json`.
-- **Fang**: verify 万股→股、percentage points, denominator, and non-specific date handling.
-- **Chen**: consume the resulting v0.3 envelopes and show page/cell evidence.
+- **Wei**: support multi-event extraction for one announcement, or explicitly split the three Wanji pledge rows into three events.
+- **Wei/Fang**: propagate table column units from `header_path` into normalization context or `raw_value`. The 万股 header must turn `364.00` into `3,640,000` shares and `27,495.8065` 万股 into `274,958,065` shares.
+- Re-run the five real cases after fixes; the evaluation comparer is already ready.
 
-The evaluation side is complete for annotation and validation. Full five-document comparison remains dependent on the system outputs for four documents.
+## Evidence
+
+- `evaluation/D3/evidence/real-runs/`
+- `evaluation/D3/evidence/field-comparison.json`
+- `evaluation/D3/field-comparison.md`
+- `evaluation/D3/evidence/gold-replay-results.json`

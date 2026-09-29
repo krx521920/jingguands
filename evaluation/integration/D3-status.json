@@ -1,5 +1,5 @@
 {
-  "status": "gold_complete_system_comparison_partial",
+  "status": "technical_comparison_complete_with_production_defects",
   "checked_on": "2026-09-29",
   "d3_evaluation_deliverables": {
     "documents": 5,
@@ -16,21 +16,26 @@
     "result": "pass"
   },
   "field_comparison": {
-    "documents_with_system_output": 1,
-    "documents_pending_system_output": 4,
-    "d3_pld_001_e01": "match",
-    "d3_pld_001_missing_events": [
-      "E02",
-      "E03"
-    ],
-    "pending_cases": [
+    "documents_with_system_output": 5,
+    "documents_pending_system_output": 0,
+    "matched_cases": [
       "D3-PLD-002",
       "D3-PLD-003",
-      "D3-PLD-004",
       "D3-PLD-005"
+    ],
+    "diff_cases": [
+      "D3-PLD-001",
+      "D3-PLD-004"
+    ],
+    "error_count": 4,
+    "errors": [
+      "D3-PLD-001 missing E02",
+      "D3-PLD-001 missing E03",
+      "D3-PLD-004 pledged_shares_this_time VALUE_DIFF 3640000 vs 364",
+      "D3-PLD-004 RUN_META_ERROR Shares must be whole shares"
     ]
   },
-  "blocking_issue": "Four real-model system outputs are required to finish the five-document field comparison and closed-loop evidence check.",
+  "blocking_issue": "Wei/Fang must propagate 万股 header units; Wei must support or split multiple pledge events for Wanji.",
   "handoff": "evaluation/D3/handoffs/D3-evaluation.md",
   "gold_replay_conformance": {
     "documents": 5,
