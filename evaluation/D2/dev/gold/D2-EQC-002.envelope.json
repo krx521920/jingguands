@@ -3,9 +3,9 @@
   "run_id": "dev-D2-EQC-002",
   "is_mock": false,
   "source": {
-    "file_id": "sha256:2d40901041e72577dd5630fad6f4be3129a126b7778b05c47beba2d96f1e79cb",
+    "file_id": "sha256:997df0dcadea6f81dca8a74d81df03c7463bf080de8779b0c5da5f94a30c677e",
     "file_name": "D2-EQC-002.txt",
-    "file_sha256": "2d40901041e72577dd5630fad6f4be3129a126b7778b05c47beba2d96f1e79cb",
+    "file_sha256": "997df0dcadea6f81dca8a74d81df03c7463bf080de8779b0c5da5f94a30c677e",
     "parse_meta": {
       "parser_version": "controlled-fixture-v0.1",
       "page_count": 1,
@@ -18,8 +18,8 @@
       "event_type": "equity_change",
       "fields": {
         "holder": {
-          "raw_value": "某某制造股份有限公司",
-          "value": "某某制造股份有限公司",
+          "raw_value": "某公司",
+          "value": "某公司",
           "unit": "text",
           "status": "extracted",
           "provenance": [
@@ -29,7 +29,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "某某制造股份有限公司"
+              "quote": "某公司"
             }
           ],
           "standardized": true
@@ -63,7 +63,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "变动前持股5,000万股"
+              "quote": "变动前持有5,000万股"
             }
           ],
           "standardized": true
@@ -80,7 +80,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "变动后持股5,800万股"
+              "quote": "变动后持有5,800万股"
             }
           ],
           "standardized": true
@@ -97,7 +97,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "变动前比例12%"
+              "quote": "比例12%"
             }
           ],
           "standardized": true,
@@ -115,7 +115,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "变动后比例14%"
+              "quote": "比例14%"
             }
           ],
           "standardized": true,
@@ -156,9 +156,9 @@
           "standardized": true
         },
         "change_date": {
-          "raw_value": "8月20日至8月31日",
-          "value": "2026-08-31",
-          "unit": "date",
+          "raw_value": "2026年8月20日至2026年8月31日",
+          "value": "2026-08-20/2026-08-31",
+          "unit": "date_range",
           "status": "needs_review",
           "provenance": [
             {
@@ -167,14 +167,14 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "8月20日至8月31日"
+              "quote": "2026年8月20日至2026年8月31日"
             }
           ],
           "standardized": false
         }
       },
       "extraction_method": "rule",
-      "notes": ""
+      "notes": "原公告只给出变动区间，保留为 date_range 并标记 needs_review，不臆造单日成交日。"
     }
   ],
   "run_meta": {

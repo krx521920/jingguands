@@ -3,9 +3,9 @@
   "run_id": "dev-D2-EQC-001",
   "is_mock": false,
   "source": {
-    "file_id": "sha256:a5bbe14e53664cf7c591e0845ce32bf0419f825abc4e65b9a62e66a0038fe7bb",
+    "file_id": "sha256:987411cb39446a5be7619f52858da9729091f9b391c82ddcd981f5d99917368c",
     "file_name": "D2-EQC-001.txt",
-    "file_sha256": "a5bbe14e53664cf7c591e0845ce32bf0419f825abc4e65b9a62e66a0038fe7bb",
+    "file_sha256": "987411cb39446a5be7619f52858da9729091f9b391c82ddcd981f5d99917368c",
     "parse_meta": {
       "parser_version": "controlled-fixture-v0.1",
       "page_count": 1,
@@ -18,8 +18,8 @@
       "event_type": "equity_change",
       "fields": {
         "holder": {
-          "raw_value": "某某制造股份有限公司",
-          "value": "某某制造股份有限公司",
+          "raw_value": "某公司",
+          "value": "某公司",
           "unit": "text",
           "status": "extracted",
           "provenance": [
@@ -29,7 +29,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "某某制造股份有限公司"
+              "quote": "某公司"
             }
           ],
           "standardized": true
@@ -46,7 +46,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "股东减持"
+              "quote": "大宗交易减持"
             }
           ],
           "standardized": true
@@ -97,7 +97,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "变动前持股比例10%"
+              "quote": "持股比例10%"
             }
           ],
           "standardized": true,
@@ -115,7 +115,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "变动后持股比例8.5%"
+              "quote": "持股比例8.5%"
             }
           ],
           "standardized": true,
@@ -157,8 +157,8 @@
         },
         "change_date": {
           "raw_value": "2026年9月10日",
-          "value": "2026-09-10",
-          "unit": "date",
+          "value": "2026-09-10/2026-09-10",
+          "unit": "date_range",
           "status": "extracted",
           "provenance": [
             {
@@ -167,14 +167,14 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "变动日期2026年9月10日"
+              "quote": "变动日期：2026年9月10日"
             }
           ],
           "standardized": true
         }
       },
       "extraction_method": "rule",
-      "notes": ""
+      "notes": null
     }
   ],
   "run_meta": {

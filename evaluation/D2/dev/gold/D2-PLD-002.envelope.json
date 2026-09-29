@@ -3,9 +3,9 @@
   "run_id": "dev-D2-PLD-002",
   "is_mock": false,
   "source": {
-    "file_id": "sha256:3c2f77978d1b112709cdf3e4bed8df0b0372e20b65aaf2eb288f426d76519cbd",
+    "file_id": "sha256:e1547326f5062044cf02db1548886d71e80b9d131af072915e075bf6372c6235",
     "file_name": "D2-PLD-002.txt",
-    "file_sha256": "3c2f77978d1b112709cdf3e4bed8df0b0372e20b65aaf2eb288f426d76519cbd",
+    "file_sha256": "e1547326f5062044cf02db1548886d71e80b9d131af072915e075bf6372c6235",
     "parse_meta": {
       "parser_version": "controlled-fixture-v0.1",
       "page_count": 1,
@@ -18,8 +18,8 @@
       "event_type": "pledge",
       "fields": {
         "pledgor": {
-          "raw_value": "某某制造股份有限公司",
-          "value": "某某制造股份有限公司",
+          "raw_value": "某公司",
+          "value": "某公司",
           "unit": "text",
           "status": "extracted",
           "provenance": [
@@ -29,7 +29,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "某某制造股份有限公司"
+              "quote": "某公司"
             }
           ],
           "standardized": true
@@ -46,7 +46,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "质押给海城证券"
+              "quote": "质押500万股给海城证券"
             }
           ],
           "standardized": true
@@ -133,7 +133,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "累计占其所持股份20%"
+              "quote": "占其所持股份20%"
             }
           ],
           "standardized": true,
@@ -151,7 +151,7 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "累计占公司总股本4%"
+              "quote": "占公司总股本4%"
             }
           ],
           "standardized": true,
@@ -166,8 +166,8 @@
           "standardized": false
         },
         "start_date": {
-          "raw_value": "2026年9月1日",
-          "value": "2026-09-01",
+          "raw_value": "2026年9月3日",
+          "value": "2026-09-03",
           "unit": "date",
           "status": "extracted",
           "provenance": [
@@ -177,13 +177,13 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "质押起始日：2026年9月1日"
+              "quote": "质押起始日：2026年9月3日"
             }
           ],
           "standardized": true
         },
         "end_date": {
-          "raw_value": "申请解除质押登记日",
+          "raw_value": "办理申请解除质押登记日",
           "value": null,
           "unit": "date",
           "status": "needs_review",
@@ -194,27 +194,18 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "到期日办理申请解除质押登记日"
+              "quote": "质押到期日：办理申请解除质押登记日"
             }
           ],
           "standardized": false
         },
         "purpose": {
-          "raw_value": "补充流动资金",
-          "value": "补充流动资金",
+          "raw_value": null,
+          "value": null,
           "unit": "text",
-          "status": "extracted",
-          "provenance": [
-            {
-              "block_id": null,
-              "page": 1,
-              "region": null,
-              "table_id": null,
-              "cell_ref": null,
-              "quote": "质押用途：补充流动资金"
-            }
-          ],
-          "standardized": true
+          "status": "not_mentioned",
+          "provenance": [],
+          "standardized": false
         },
         "announcement_date": {
           "raw_value": "2026年9月3日",
@@ -228,14 +219,14 @@
               "region": null,
               "table_id": null,
               "cell_ref": null,
-              "quote": "公告日期：2026年9月3日"
+              "quote": "2026年9月3日"
             }
           ],
           "standardized": true
         }
       },
       "extraction_method": "rule",
-      "notes": ""
+      "notes": "到期日为办理申请解除质押登记日，非确定日期，按 needs_review 留待人工复核。"
     }
   ],
   "run_meta": {
