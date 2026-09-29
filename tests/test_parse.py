@@ -371,11 +371,15 @@ def test_text与text_raw在跨行西文处分叉():
 # ============================================================
 # 两个可能的位置：仓库内的 sample/D2/raw（clone 后），或本地工作目录（开发时）
 _REAL_RAW_CANDIDATES = [
+    os.path.join(ROOT, "sample", "D3", "raw"),
     os.path.join(ROOT, "sample", "D2", "raw"),
     os.path.join(ROOT, "..", "D2张智博_三份真实公告解析", "raw"),
 ]
 _REAL_RAW = next((p for p in _REAL_RAW_CANDIDATES if os.path.isdir(p)), _REAL_RAW_CANDIDATES[0])
-REAL_CASES = ["pledge-001", "equity-change-001", "award-001"]
+# D3 主交付：5 份真实质押公告（命名对齐宗博文 evaluation/D3 的 case_id）
+REAL_CASES = ["D3-PLD-001", "D3-PLD-002", "D3-PLD-003", "D3-PLD-004", "D3-PLD-005"]
+# 另两类事件的附加样例
+EXTRA_CASES = ["equity-change-001", "award-001"]
 _REAL_CACHE = {}
 
 
@@ -492,7 +496,7 @@ def test_真实公告_表格被检出且单元格独立成块():
 
     这是评测方点名要确认的「表格定位能力」的自动化版本。
     """
-    d = _parse_real("pledge-001")
+    d = _parse_real("D3-PLD-001")
     tables = [t for pg in d["pages"] for t in pg["tables"]]
     cells = [b for pg in d["pages"] for b in pg["blocks"] if b["source_type"] == "cell"]
     assert tables, "未检出任何表格"
@@ -516,7 +520,7 @@ def test_表格单元格的cell_ref可用且唯一():
     """
     import re
 
-    d = _parse_real("pledge-001")
+    d = _parse_real("D3-PLD-001")
     seen_per_table = {}
     for pg in d["pages"]:
         for b in pg["blocks"]:
@@ -542,7 +546,7 @@ def test_多层表头拼出完整列名():
     r2 才是它的两个子列。抽取层如果只拿到子列名，就分不清「占已质押股份比例（%）」
     与「占未质押股份比例（%）」分别属于哪一组。
     """
-    d = _parse_real("pledge-001")
+    d = _parse_real("D3-PLD-001")
     paths = set()
     for pg in d["pages"]:
         for b in pg["blocks"]:
@@ -559,7 +563,7 @@ def test_多层表头拼出完整列名():
 
 def test_合并单元格的跨度被算出():
     """「已质押股份情况」必须标成 colspan=2，否则拼不出子列的归属。"""
-    d = _parse_real("pledge-001")
+    d = _parse_real("D3-PLD-001")
     spans = [
         b["table_ref"].get("colspan")
         for pg in d["pages"]
@@ -576,7 +580,7 @@ def test_cell_id全文档唯一():
     pledge-001 p1 有两张表，各自从 c001 编号：t002 覆盖了 t001 的 c001–c035，
     导致 t001 第 1–8 列的字符全部认领失败。现要求 cell_id 带 table_id 前缀、全文档唯一。
     """
-    d = _parse_real("pledge-001")
+    d = _parse_real("D3-PLD-001")
     seen = {}
     for pg in d["pages"]:
         for b in pg["blocks"]:
@@ -595,7 +599,7 @@ def test_表格内字符全部归属单元格不再掉进兜底块():
 
     修好后 pledge-001 三张表应全部落到单元格里，兜底块为 0。
     """
-    d = _parse_real("pledge-001")
+    d = _parse_real("D3-PLD-001")
     fb = [b for pg in d["pages"] for b in pg["blocks"] if b["source_type"] == "table"]
     assert not fb, f"仍有 {len(fb)} 个兜底块，首个：{fb[0]['text'][:40]!r}"
 
@@ -616,7 +620,7 @@ def test_同页内相同文字必须得到不同出处():
     这是正确的版面事实，不是反查）。跨页比会把这种情况误判。
     """
     total = 0
-    for name in ("pledge-001", "equity-change-001", "award-001"):
+    for name in REAL_CASES + EXTRA_CASES:
         d = _parse_real(name)
         for pg in d["pages"]:
             by_text = {}
@@ -643,7 +647,7 @@ def test_出处覆盖全部块不得按需生成():
     所以「100% 覆盖」是"出处在解析阶段统一生成"的结构性证据：
     三份公告里没有任何一个块缺 region。
     """
-    for name in ("pledge-001", "equity-change-001", "award-001"):
+    for name in REAL_CASES + EXTRA_CASES:
         d = _parse_real(name)
         n = 0
         for pg in d["pages"]:
@@ -668,7 +672,7 @@ def test_跨页续表被标注且碎片能拼回完整值():
       ① 续表有 continued_from，碎片单元格有 continues 指回上一页同列；
       ② 两半拼起来确实是完整名称。
     """
-    d = _parse_real("pledge-001")
+    d = _parse_real("D3-PLD-001")
     cont = [t for pg in d["pages"] for t in pg["tables"] if t.get("continued_from")]
     assert cont, "pledge-001 的表格跨页断开，应检出续表"
 
@@ -812,7 +816,7 @@ def test_单栏文档不误报分栏():
 
     要求它们在**逐块内容上零变化**：一旦误切，块序与文本都会变。
     """
-    for name in ("pledge-001", "equity-change-001", "award-001"):
+    for name in REAL_CASES + EXTRA_CASES:
         d = _parse_real(name)
         for pg in d["pages"]:
             assert pg["columns"] == [], f"{name} p{pg['page']} 误报分栏 {pg['columns']}"
@@ -820,3 +824,30 @@ def test_单栏文档不误报分栏():
     d = pp.parse_pdf(FIXTURE)
     for pg in d["pages"]:
         assert pg["columns"] == [], f"附件1通知 p{pg['page']} 误报分栏 {pg['columns']}"
+
+
+def test_落款页不被误判为分栏():
+    """稀疏页面的误报防线。
+
+    D3-PLD-003 第 3 页是落款页：只有 7 行、91 个字符（两条附件说明 + 右对齐的
+    署名与日期 + 页码）。右对齐内容在左侧留下大片空白，而行数少时
+    「干净比例 ≥60%」极易被满足 —— 实测被切成 4 栏
+    [[90,175],[295,300],[325,361],[373,512]]。
+
+    两道护栏：
+      ① 页面至少 8 个文本行才考虑分栏（MIN_TEXT_ROWS）
+      ② 每一栏必须有实质内容（字符数 ≥30 且占比 ≥15%）
+    """
+    d = _parse_real("D3-PLD-003")
+    for pg in d["pages"]:
+        assert pg["columns"] == [], f"D3-PLD-003 p{pg['page']} 误报分栏 {pg['columns']}"
+
+
+def test_真双栏仍能检出_护栏没有过度收紧():
+    """护栏不能把真分栏也挡掉 —— 这是上一条的反向约束。
+
+    合成双栏 fixture 只有 14 行，是最接近护栏边界的正例；
+    如果哪天 MIN_TEXT_ROWS 调大到 15，这条会失败，提示正例已失效。
+    """
+    d = _parse_twocol()
+    assert len(d["pages"][0]["columns"]) == 2

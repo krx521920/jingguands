@@ -7,7 +7,7 @@
     "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
     "file_size": 96076,
     "page_count": 4,
-    "parsed_at": "2026-09-29T09:16:52+08:00",
+    "parsed_at": "2026-09-29T13:52:52+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.7.0"
@@ -79,11 +79,33 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
-          "text_raw": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
+          "text": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告",
+          "text_raw": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告",
+          "region": [
+            166.2,
+            117.08,
+            423.1,
+            162.19
+          ],
+          "table_ref": null,
+          "font_size": 15.95,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00003",
+          "doc_id": "d0be9f419",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
+          "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
           "region": [
             119.28,
-            117.08,
+            189.7,
             490.68,
             201.7
           ],
@@ -95,7 +117,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00003",
+          "block_id": "d0be9f419_p001_b00004",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -117,7 +139,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00004",
+          "block_id": "d0be9f419_p001_b00005",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -139,7 +161,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00005",
+          "block_id": "d0be9f419_p001_b00006",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -161,7 +183,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00006",
+          "block_id": "d0be9f419_p001_b00007",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -183,7 +205,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00007",
+          "block_id": "d0be9f419_p001_b00008",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -205,7 +227,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00008",
+          "block_id": "d0be9f419_p001_b00009",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -227,7 +249,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00009",
+          "block_id": "d0be9f419_p001_b00010",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -249,7 +271,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00010",
+          "block_id": "d0be9f419_p001_b00011",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -271,7 +293,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00011",
+          "block_id": "d0be9f419_p001_b00012",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -293,7 +315,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00012",
+          "block_id": "d0be9f419_p001_b00013",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -315,7 +337,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00013",
+          "block_id": "d0be9f419_p001_b00014",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -337,7 +359,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00014",
+          "block_id": "d0be9f419_p001_b00015",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -359,7 +381,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00015",
+          "block_id": "d0be9f419_p001_b00016",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -381,7 +403,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00016",
+          "block_id": "d0be9f419_p001_b00017",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -403,7 +425,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00017",
+          "block_id": "d0be9f419_p001_b00018",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -425,7 +447,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d0be9f419_p001_b00018",
+          "block_id": "d0be9f419_p001_b00019",
           "doc_id": "d0be9f419",
           "page": 1,
           "type": "TEXT",
@@ -1955,6 +1977,7 @@
     "d0be9f419_p001_b00016",
     "d0be9f419_p001_b00017",
     "d0be9f419_p001_b00018",
+    "d0be9f419_p001_b00019",
     "d0be9f419_p002_b00001",
     "d0be9f419_p002_b00002",
     "d0be9f419_p002_b00003",
@@ -2040,17 +2063,30 @@
             "block_id": "d0be9f419_p001_b00002",
             "page": 1,
             "role": "BODY",
-            "text": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
-            "text_raw": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
+            "text": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告",
+            "text_raw": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告",
+            "region": [
+              166.2,
+              117.08,
+              423.1,
+              162.19
+            ]
+          },
+          {
+            "block_id": "d0be9f419_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
+            "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
             "region": [
               119.28,
-              117.08,
+              189.7,
               490.68,
               201.7
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00003",
+            "block_id": "d0be9f419_p001_b00004",
             "page": 1,
             "role": "BODY",
             "text": "载、误导性陈述或重大遗漏。",
@@ -2063,7 +2099,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00004",
+            "block_id": "d0be9f419_p001_b00005",
             "page": 1,
             "role": "BODY",
             "text": "特别提示：",
@@ -2076,7 +2112,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00005",
+            "block_id": "d0be9f419_p001_b00006",
             "page": 1,
             "role": "BODY",
             "text": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
@@ -2089,7 +2125,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00006",
+            "block_id": "d0be9f419_p001_b00007",
             "page": 1,
             "role": "BODY",
             "text": "议的解决方式等作出了明确规定，合同的履行仍存在因市场环境、宏观经济、合同双方履约能力以及其他不可抗力因素发生重大变化而无法正常履行的风险。敬请广大投资者注意投资风险。",
@@ -2102,7 +2138,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00007",
+            "block_id": "d0be9f419_p001_b00008",
             "page": 1,
             "role": "BODY",
             "text": "近日，武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉",
@@ -2115,7 +2151,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00008",
+            "block_id": "d0be9f419_p001_b00009",
             "page": 1,
             "role": "BODY",
             "text": "市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程，并与承包人武汉建工集团股份有限公司新洲分公司（以下简称“合同对方”）签署了《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包合同》，合同价（暂定含税总价款）为5,400万元。现将相关内容公告如下：",
@@ -2128,7 +2164,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00009",
+            "block_id": "d0be9f419_p001_b00010",
             "page": 1,
             "role": "SECTION",
             "text": "一、合同对方基本情况",
@@ -2141,7 +2177,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00010",
+            "block_id": "d0be9f419_p001_b00011",
             "page": 1,
             "role": "SECTION",
             "text": "（一）基本情况",
@@ -2154,7 +2190,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00011",
+            "block_id": "d0be9f419_p001_b00012",
             "page": 1,
             "role": "BODY",
             "text": "交易对手方名称：武汉建工集团股份有限公司新洲分公司",
@@ -2167,7 +2203,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00012",
+            "block_id": "d0be9f419_p001_b00013",
             "page": 1,
             "role": "BODY",
             "text": "负责人：吴利斌",
@@ -2180,7 +2216,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00013",
+            "block_id": "d0be9f419_p001_b00014",
             "page": 1,
             "role": "BODY",
             "text": "统一社会信用代码：91420117MADHEPUT9J",
@@ -2193,7 +2229,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00014",
+            "block_id": "d0be9f419_p001_b00015",
             "page": 1,
             "role": "BODY",
             "text": "营业场所：湖北省武汉市新洲区邾城街南安街75号1栋3层301室经营范围：一般项目：承接总公司工程建设业务；凭总公司授权开展经营活",
@@ -2206,7 +2242,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00015",
+            "block_id": "d0be9f419_p001_b00016",
             "page": 1,
             "role": "BODY",
             "text": "动。（除许可业务外，可自主依法经营法律法规非禁止或限制的项目）",
@@ -2219,7 +2255,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00016",
+            "block_id": "d0be9f419_p001_b00017",
             "page": 1,
             "role": "SECTION",
             "text": "（二）关联关系",
@@ -2232,7 +2268,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00017",
+            "block_id": "d0be9f419_p001_b00018",
             "page": 1,
             "role": "BODY",
             "text": "本公司、控股股东及实际控制人与武汉建工集团股份有限公司及其新洲分公",
@@ -2245,7 +2281,7 @@
             ]
           },
           {
-            "block_id": "d0be9f419_p001_b00018",
+            "block_id": "d0be9f419_p001_b00019",
             "page": 1,
             "role": "BODY",
             "text": "司之间均不存在关联关系。",

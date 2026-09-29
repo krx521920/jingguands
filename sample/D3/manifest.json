@@ -5,16 +5,21 @@
   "module": "解析 / 表格 / 出处",
   "code_location": "src/finstruct/parse/（模块唯一位置；本目录只放交付物，不复制代码）",
   "schema": "evidence/0.7",
+  "target_dataset": "evaluation/D3/dev/manifest.json（宗博文 D3 质押开发集）",
+  "note": "D3 主交付＝5 份真实质押公告的解析/出处包，命名对齐宗博文 evaluation/D3 的 case_id。additional_samples 是另两类事件的样例（减持、中标），供跨事件类型回归，不属于 D3 交付范围。原始 PDF 未随仓库分发，用 fetch_samples.py 按 source_url 取回并校验 sha256。",
   "samples": [
     {
-      "parse_file": "parse/pledge-001.parse.json",
-      "case_id": "D1-PLD-001",
+      "case_id": "D3-PLD-001",
       "event_type": "pledge",
       "company": "北京万集科技股份有限公司",
       "title": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告",
+      "source_code": "300552",
       "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225582749.PDF",
       "source_hash_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
-      "hash_matches_fixture": true,
+      "gold_ref": "gold/D3-PLD-001.envelope.json",
+      "gold_event_count": 3,
+      "parse_file": "parse/D3-PLD-001.parse.json",
+      "text_file": "text/D3-PLD-001.txt",
       "doc_id": "d44e95085",
       "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
       "page_count": 2,
@@ -22,22 +27,140 @@
         "TEXT",
         "TEXT"
       ],
-      "block_count": 127,
+      "block_count": 128,
+      "table_count": 3,
+      "cell_block_count": 100,
+      "header_path_filled": 90,
       "source_type_counts": {
-        "paragraph": 27,
+        "paragraph": 28,
         "cell": 100
       },
       "schema_version": "evidence/0.7"
     },
     {
+      "case_id": "D3-PLD-002",
+      "event_type": "pledge",
+      "company": "兰州兰石重型装备股份有限公司",
+      "title": "兰石重装关于控股股东部分股份质押的公告",
+      "source_code": "603169",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-29/1225585187.PDF",
+      "source_hash_sha256": "16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+      "gold_ref": "gold/D3-PLD-002.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D3-PLD-002.parse.json",
+      "text_file": "text/D3-PLD-002.txt",
+      "doc_id": "d16c6a948",
+      "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 88,
+      "table_count": 2,
+      "cell_block_count": 57,
+      "header_path_filled": 57,
+      "source_type_counts": {
+        "paragraph": 31,
+        "cell": 57
+      },
+      "schema_version": "evidence/0.7"
+    },
+    {
+      "case_id": "D3-PLD-003",
+      "event_type": "pledge",
+      "company": "联创电子科技股份有限公司",
+      "title": "联创电子关于控股股东股份补充质押的公告",
+      "source_code": "002036",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-29/1225584562.PDF",
+      "source_hash_sha256": "36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+      "gold_ref": "gold/D3-PLD-003.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D3-PLD-003.parse.json",
+      "text_file": "text/D3-PLD-003.txt",
+      "doc_id": "d36105cfd",
+      "file_id": "sha256:36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 111,
+      "table_count": 2,
+      "cell_block_count": 79,
+      "header_path_filled": 79,
+      "source_type_counts": {
+        "paragraph": 32,
+        "cell": 79
+      },
+      "schema_version": "evidence/0.7"
+    },
+    {
+      "case_id": "D3-PLD-004",
+      "event_type": "pledge",
+      "company": "中国天楹股份有限公司",
+      "title": "中国天楹关于控股股东部分股份质押的公告",
+      "source_code": "000035",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-28/1225582251.PDF",
+      "source_hash_sha256": "62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
+      "gold_ref": "gold/D3-PLD-004.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D3-PLD-004.parse.json",
+      "text_file": "text/D3-PLD-004.txt",
+      "doc_id": "d62f9a650",
+      "file_id": "sha256:62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 105,
+      "table_count": 2,
+      "cell_block_count": 79,
+      "header_path_filled": 79,
+      "source_type_counts": {
+        "paragraph": 26,
+        "cell": 79
+      },
+      "schema_version": "evidence/0.7"
+    },
+    {
+      "case_id": "D3-PLD-005",
+      "event_type": "pledge",
+      "company": "北京光线传媒股份有限公司",
+      "title": "光线传媒关于控股股东部分股份质押及解除质押的公告",
+      "source_code": "300251",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-28/1225584474.PDF",
+      "source_hash_sha256": "5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+      "gold_ref": "gold/D3-PLD-005.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D3-PLD-005.parse.json",
+      "text_file": "text/D3-PLD-005.txt",
+      "doc_id": "d5bf0524f",
+      "file_id": "sha256:5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 79,
+      "table_count": 3,
+      "cell_block_count": 57,
+      "header_path_filled": 56,
+      "source_type_counts": {
+        "paragraph": 22,
+        "cell": 57
+      },
+      "schema_version": "evidence/0.7"
+    }
+  ],
+  "additional_samples": [
+    {
+      "case_id": "equity-change-001",
+      "label": "诺唯赞 减持结果",
       "parse_file": "parse/equity-change-001.parse.json",
-      "case_id": "D1-EQC-001",
-      "event_type": "equity_change",
-      "company": "南京诺唯赞生物科技股份有限公司",
-      "title": "诺唯赞关于持股5%以上股东减持股份计划完成暨减持结果公告",
-      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225581464.PDF",
-      "source_hash_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
-      "hash_matches_fixture": true,
+      "text_file": "text/equity-change-001.txt",
       "doc_id": "d878ebffb",
       "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
       "page_count": 4,
@@ -48,21 +171,25 @@
         "MIXED"
       ],
       "block_count": 61,
+      "table_count": 3,
+      "cell_block_count": 34,
+      "header_path_filled": 0,
       "source_type_counts": {
         "paragraph": 27,
         "cell": 34
       },
-      "schema_version": "evidence/0.7"
+      "schema_version": "evidence/0.7",
+      "company": "南京诺唯赞生物科技股份有限公司",
+      "title": "诺唯赞关于持股5%以上股东减持股份计划完成暨减持结果公告",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225581464.PDF",
+      "source_hash_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+      "note": "附加样例（非 D3 主交付）：覆盖另两类事件，供抽取层跨事件类型回归"
     },
     {
+      "case_id": "award-001",
+      "label": "华康洁净 项目中标",
       "parse_file": "parse/award-001.parse.json",
-      "case_id": "D1-AWD-001",
-      "event_type": "award_contract",
-      "company": "武汉华康世纪洁净科技股份有限公司",
-      "title": "华康洁净关于项目中标及签订合同的公告",
-      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-24/1225582697.PDF",
-      "source_hash_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
-      "hash_matches_fixture": true,
+      "text_file": "text/award-001.txt",
       "doc_id": "d0be9f419",
       "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
       "page_count": 4,
@@ -73,12 +200,19 @@
         "MIXED"
       ],
       "block_count": 75,
+      "table_count": 1,
+      "cell_block_count": 16,
+      "header_path_filled": 16,
       "source_type_counts": {
         "paragraph": 59,
         "cell": 16
       },
-      "schema_version": "evidence/0.7"
+      "schema_version": "evidence/0.7",
+      "company": "武汉华康世纪洁净科技股份有限公司",
+      "title": "华康洁净关于项目中标及签订合同的公告",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-24/1225582697.PDF",
+      "source_hash_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+      "note": "附加样例（非 D3 主交付）：覆盖另两类事件，供抽取层跨事件类型回归"
     }
-  ],
-  "note": "D3 交付：质押表多层表头绑定（header_path / rowspan / colspan）与 cell_ref 契约对齐。与 sample/D2/ 的区别见 README。原始 PDF 未随仓库分发，用 fetch_samples.py 按 source_url 取回。"
+  ]
 }

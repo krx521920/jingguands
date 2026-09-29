@@ -46,6 +46,16 @@ GUTTER_MID_HI = 0.8
 # 把字符聚成文本行的 y 容差
 ROW_TOL = 3.0
 
+# 页面至少要有这么多文本行才考虑分栏。
+# 落款页这类稀疏页面（署名、日期、页码，实测 D3-PLD-003 p3 只有 7 行 91 字）
+# 右对齐内容会在左侧留下大片空白，行数少时"干净比例"极易被满足而误判成栏缝。
+MIN_TEXT_ROWS = 8
+
+# 每一栏至少要有的字符数，以及占正文流的比例。
+# 栏缝切出来的必须是**两栏都有实质内容**的版面；否则只是某些行右对齐留下的空白。
+MIN_COL_CHARS = 30
+MIN_COL_SHARE = 0.15
+
 # x 方向扫描步长（pt）
 SCAN_STEP = 1.0
 
@@ -71,7 +81,7 @@ def find_gutters(flow_chars: Sequence[Dict]) -> List[Tuple[float, float]]:
     if len(flow_chars) < 20:
         return []
     rows = _text_rows(flow_chars)
-    if len(rows) < 3:
+    if len(rows) < MIN_TEXT_ROWS:
         return []
 
     x0 = min(c["x0"] for c in flow_chars)
@@ -114,8 +124,16 @@ def find_gutters(flow_chars: Sequence[Dict]) -> List[Tuple[float, float]]:
     return out
 
 
+def _col_chars(flow_chars: Sequence[Dict], lo: float, hi: float) -> int:
+    return sum(1 for c in flow_chars if lo <= (c["x0"] + c["x1"]) / 2 < hi)
+
+
 def split_columns(flow_chars: Sequence[Dict]) -> List[Tuple[float, float]]:
-    """返回各栏的 x 范围（按阅读顺序，左到右）。单栏时返回空列表。"""
+    """返回各栏的 x 范围（按阅读顺序，左到右）。单栏时返回空列表。
+
+    切出来之后还要**逐栏验收**：每栏都必须有实质内容（字符数够、占比够）。
+    否则右对齐的落款、居中的短行都会切出「一栏有字、其余栏几乎空」的假分栏。
+    """
     gutters = find_gutters(flow_chars)
     if not gutters:
         return []
@@ -129,7 +147,15 @@ def split_columns(flow_chars: Sequence[Dict]) -> List[Tuple[float, float]]:
         left = g1
     if x1 > left:
         cols.append((left, x1))
-    return cols if len(cols) >= 2 else []
+    if len(cols) < 2:
+        return []
+
+    total = len(flow_chars)
+    for lo, hi in cols:
+        n = _col_chars(flow_chars, lo, hi)
+        if n < MIN_COL_CHARS or n < MIN_COL_SHARE * total:
+            return []  # 有栏是空的 → 不是真分栏
+    return cols
 
 
 def table_straddles_gutter(tables: Sequence[Dict], gutters: Sequence[Tuple[float, float]]) -> Optional[str]:

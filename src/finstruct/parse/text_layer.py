@@ -202,7 +202,12 @@ def cluster_blocks(lines: List[List[Dict]], chars: List[Dict]) -> List[Dict]:
         if kind != cur_kind:
             new = True
         elif kind == "CENTER":
-            new = False  # 连续的居中行属于同一个标题块
+            # 居中行**也要看间距**。多行居中标题的行距是正常的，gap 远小于
+            # gap_break，自然仍会连成一块；而页码这类远离正文的居中元素必须断开。
+            # 原先是 new = False（无条件合并），导致页面底部的页码被并进正文段落 ——
+            # 实测 D3-PLD-002 p1 的 b00037 因此把 region 从 y632 拉到 y808，
+            # 白装进整片表格表头，区域重建一致率掉到 98.9%。
+            new = gap > gap_break
         else:
             new = (x0 - L) > indent_thr or gap > gap_break
 

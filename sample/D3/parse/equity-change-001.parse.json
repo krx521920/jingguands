@@ -7,7 +7,7 @@
     "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
     "file_size": 98239,
     "page_count": 4,
-    "parsed_at": "2026-09-29T09:16:51+08:00",
+    "parsed_at": "2026-09-29T13:52:52+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.7.0"
@@ -79,13 +79,13 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
-          "text_raw": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+          "text": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告",
+          "text_raw": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告",
           "region": [
-            114.0,
+            141.72,
             106.06,
-            511.32,
-            232.49
+            453.48,
+            194.14
           ],
           "table_ref": null,
           "font_size": 18.0,
@@ -96,6 +96,28 @@
         },
         {
           "block_id": "d878ebffb_p001_b00003",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+          "text_raw": "本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+          "region": [
+            114.0,
+            220.49,
+            511.32,
+            232.49
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00004",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -117,7 +139,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00004",
+          "block_id": "d878ebffb_p001_b00005",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -139,7 +161,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00005",
+          "block_id": "d878ebffb_p001_b00006",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -161,7 +183,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00006",
+          "block_id": "d878ebffb_p001_b00007",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -183,7 +205,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00007",
+          "block_id": "d878ebffb_p001_b00008",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -205,7 +227,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00008",
+          "block_id": "d878ebffb_p001_b00009",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -227,7 +249,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00009",
+          "block_id": "d878ebffb_p001_b00010",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -249,7 +271,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00010",
+          "block_id": "d878ebffb_p001_b00011",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -271,7 +293,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00011",
+          "block_id": "d878ebffb_p001_b00012",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -293,7 +315,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00012",
+          "block_id": "d878ebffb_p001_b00013",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -315,7 +337,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p001_b00013",
+          "block_id": "d878ebffb_p001_b00014",
           "doc_id": "d878ebffb",
           "page": 1,
           "type": "TEXT",
@@ -1831,6 +1853,7 @@
     "d878ebffb_p001_b00011",
     "d878ebffb_p001_b00012",
     "d878ebffb_p001_b00013",
+    "d878ebffb_p001_b00014",
     "d878ebffb_p002_b00001",
     "d878ebffb_p002_b00002",
     "d878ebffb_p002_b00003",
@@ -1907,17 +1930,30 @@
             "block_id": "d878ebffb_p001_b00002",
             "page": 1,
             "role": "BODY",
-            "text": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
-            "text_raw": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+            "text": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告",
+            "text_raw": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告",
+            "region": [
+              141.72,
+              106.06,
+              453.48,
+              194.14
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+            "text_raw": "本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
             "region": [
               114.0,
-              106.06,
+              220.49,
               511.32,
               232.49
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00003",
+            "block_id": "d878ebffb_p001_b00004",
             "page": 1,
             "role": "BODY",
             "text": "误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性依法承担法律责任。",
@@ -1930,7 +1966,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00004",
+            "block_id": "d878ebffb_p001_b00005",
             "page": 1,
             "role": "BODY",
             "text": "重要内容提示：",
@@ -1943,7 +1979,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00005",
+            "block_id": "d878ebffb_p001_b00006",
             "page": 1,
             "role": "BODY",
             "text": " 股东持股的基本情况",
@@ -1956,7 +1992,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00006",
+            "block_id": "d878ebffb_p001_b00007",
             "page": 1,
             "role": "BODY",
             "text": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
@@ -1969,7 +2005,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00007",
+            "block_id": "d878ebffb_p001_b00008",
             "page": 1,
             "role": "BODY",
             "text": "司”）股东国寿成达（上海）健康产业股权投资中心（有限合伙）（以下简称“国寿成达”）持有公司股份36,103,002股，占公司总股本的6.9834%。上述股份来源于公司首次公开发行股票并上市前取得的股份及实施2025年度权益分派资本公积金转增股本增加的股份，首发限售股份已于2022年11月15日解除限售并上市流通。",
@@ -1982,7 +2018,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00008",
+            "block_id": "d878ebffb_p001_b00009",
             "page": 1,
             "role": "BODY",
             "text": " 减持计划的实施结果情况",
@@ -1995,7 +2031,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00009",
+            "block_id": "d878ebffb_p001_b00010",
             "page": 1,
             "role": "BODY",
             "text": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
@@ -2008,7 +2044,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00010",
+            "block_id": "d878ebffb_p001_b00011",
             "page": 1,
             "role": "BODY",
             "text": "告》（公告编号：2026-031）。因股东自身资金需求，国寿成达计划自2026年7月22日起至2026年10月21日期间，通过集中竞价和大宗交易的方式减持公司股份合计不超过15,509,550股，即不超过公司总股本的3.00%。其中，拟通过集中竞价方式减持的，在任意连续90日内减持股份总数不超过公司股份总数的1.00%，减持数量不超过5,169,850股；拟通过大宗交易方式减持的，在任意连续 90 日内减持股份总数不超过公司股份总数的 2.00%，减持数量不超过10,339,700股。",
@@ -2021,7 +2057,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00011",
+            "block_id": "d878ebffb_p001_b00012",
             "page": 1,
             "role": "BODY",
             "text": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
@@ -2034,7 +2070,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00012",
+            "block_id": "d878ebffb_p001_b00013",
             "page": 1,
             "role": "BODY",
             "text": "国寿成达于2026年7月22日至2026年9月23日期间，通过集中竞价方式减",
@@ -2047,7 +2083,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p001_b00013",
+            "block_id": "d878ebffb_p001_b00014",
             "page": 1,
             "role": "FOOTER",
             "text": "1",

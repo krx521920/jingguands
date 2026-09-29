@@ -57,8 +57,11 @@ def main() -> int:
     manifest = json.load(open(MANIFEST, encoding="utf-8"))
     os.makedirs(args.raw_dir, exist_ok=True)
 
+    # additional_samples 也一起取（另两类事件的样例），保持目录自包含
+    entries = list(manifest["samples"]) + list(manifest.get("additional_samples") or [])
+
     ok = True
-    for i, s in enumerate(manifest["samples"]):
+    for i, s in enumerate(entries):
         name = os.path.basename(s["parse_file"]).replace(".parse.json", "")
         dest = os.path.join(args.raw_dir, name + ".pdf")
         want = s["source_hash_sha256"]
