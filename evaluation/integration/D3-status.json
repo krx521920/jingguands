@@ -35,7 +35,7 @@
       "D3-PLD-004 RUN_META_ERROR Shares must be whole shares"
     ]
   },
-  "blocking_issue": "Wei/Fang must propagate 万股 header units; Wei must support or split multiple pledge events for Wanji.",
+  "blocking_issue": "Validated patch must be ported to Wei/Fang production branches and re-run upstream; evaluation side has no further blocker.",
   "handoff": "evaluation/D3/handoffs/D3-evaluation.md",
   "gold_replay_conformance": {
     "documents": 5,
@@ -43,5 +43,13 @@
     "run_errors": 0,
     "events_equal_to_gold": 5,
     "is_real_model_result": false
+  },
+  "validated_local_fix": {
+    "patch": "evaluation/D3/handoffs/wei-runner-fix.patch",
+    "documents": 5,
+    "events": 7,
+    "run_errors": 0,
+    "field_diffs": 0,
+    "result": "PASS"
   }
 }

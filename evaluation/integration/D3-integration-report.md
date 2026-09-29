@@ -23,6 +23,14 @@ Evaluation annotation and real-model comparison are complete. Two production def
 | D3-PLD-004 中国天楹 | DIFF | `pledged_shares_this_time=364` instead of `3,640,000`; cumulative shares also raise a normalization error |
 | D3-PLD-005 光线传媒 | MATCH | no field differences |
 
+## Validated fix
+
+The proposed runner patch in valuation/D3/handoffs/wei-runner-fix.patch was tested with real deepseek-chat calls:
+
+- 5/5 documents; 7/7 events; 0 runner errors; 0 field differences.
+- It fixes Wanji multi-event splitting and Tianying 万股 header-unit propagation.
+- Production branches still need Wei/Fang to port the patch and re-run the upstream batch.
+
 ## Required fixes
 
 1. **Wei/Fang**: propagate the table header unit (`万股`/`股`) into the normalization context. The model/runner must not treat the cell text `364.00` as 364 shares.

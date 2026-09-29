@@ -1,0 +1,47 @@
+{
+  "generated_on": "2026-09-29",
+  "model": "deepseek-chat",
+  "mode": "validated_local_runner_patch",
+  "patch": "evaluation/D3/handoffs/wei-runner-fix.patch",
+  "documents": 5,
+  "events": 7,
+  "run_errors": 0,
+  "field_diffs": 0,
+  "runs": [
+    {
+      "case_id": "D3-PLD-001",
+      "run_id": "20260929T064213-pledge-eb9c",
+      "events": 3,
+      "run_errors": 0,
+      "comparison": "MATCH"
+    },
+    {
+      "case_id": "D3-PLD-002",
+      "run_id": "20260929T064224-pledge-8649",
+      "events": 1,
+      "run_errors": 0,
+      "comparison": "MATCH"
+    },
+    {
+      "case_id": "D3-PLD-003",
+      "run_id": "20260929T064227-pledge-81a2",
+      "events": 1,
+      "run_errors": 0,
+      "comparison": "MATCH"
+    },
+    {
+      "case_id": "D3-PLD-004",
+      "run_id": "20260929T064231-pledge-b3a3",
+      "events": 1,
+      "run_errors": 0,
+      "comparison": "MATCH"
+    },
+    {
+      "case_id": "D3-PLD-005",
+      "run_id": "20260929T064235-pledge-278d",
+      "events": 1,
+      "run_errors": 0,
+      "comparison": "MATCH"
+    }
+  ]
+}

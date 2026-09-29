@@ -17,6 +17,12 @@
 - `D3-PLD-005` 光线传媒: MATCH.
 - `D3-PLD-001` 万集科技: system produces `E01` only; Gold has `E01/E02/E03`. `E01` matches, two events are missing.
 
+## Validated proposed fix
+
+- valuation/D3/handoffs/wei-runner-fix.patch passed a real-model rerun: 5/5 documents, 7/7 events, 0 run errors, 0 field differences.
+- The patch adds multi-event row splitting, cumulative-table linkage, and 万股 header-unit propagation.
+- This is a local validation patch; the production branches still need the owner to apply it.
+
 ## Required production fixes
 
 - **Wei**: support multi-event extraction for one announcement, or explicitly split the three Wanji pledge rows into three events.
