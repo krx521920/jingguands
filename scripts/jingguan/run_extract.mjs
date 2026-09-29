@@ -91,7 +91,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '{"events":[{"event_id":"E01","event_type":"' + eventType + '","fields":{...},"extraction_method":"model","notes":null}]}',
     '',
     '每个字段的值必须是：',
-    '{"raw_value":"原文原样字符串或null","value":标量(数字/字符串/布尔)或null——禁止对象和数组,"unit":"单位","standardized":true或false,"status":"六个状态之一","provenance":[{"block_id":null,"page":1,"region":null,"table_id":null,"cell_ref":null,"quote":"原文子串"}],"denominator":null或"holder_shares"或"total_share_capital"或"net_assets"或"other","note":null}',
+    '{"raw_value":"原文原样字符串或null","value":标量(数字/字符串/布尔)或null——禁止对象和数组,"unit":"单位","standardized":true或false,"status":"六个状态之一","provenance":[{"block_id":null,"page":1,"region":null,"table_id":null,"cell_ref":null,"source_type":null,"quote":"原文子串"}],"denominator":null或"holder_shares"或"total_share_capital"或"net_assets"或"other","note":null}',
     '',
     '状态语义（严格按此判定）：',
     '- extracted：原文有值且已抽取。原文显式写 0 也是 extracted 且 value=0。',
@@ -172,7 +172,7 @@ async function callModel({ baseURL, model, apiKey, system, user, signal }) {
 function mockModelResponse(eventType) {
   const F = (raw, value, unit, quote, extra = {}) => ({
     raw_value: raw, value, unit, standardized: true, status: 'extracted',
-    provenance: [{ block_id: null, page: 1, region: null, table_id: null, cell_ref: null, quote }], denominator: null, note: null, ...extra,
+    provenance: [{ block_id: null, page: 1, region: null, table_id: null, cell_ref: null, source_type: null, quote }], denominator: null, note: null, ...extra,
   })
   const N = (unit, status = 'not_mentioned') => ({
     raw_value: null, value: null, unit, standardized: false, status, provenance: [], denominator: null, note: null,
@@ -296,6 +296,7 @@ function backfillProvenance(events, blockIndex, isMock, errors) {
         p.region = block.region ?? null
         p.table_id = block.table_ref?.table_id ?? null
         p.cell_ref = block.table_ref?.cell_ref ?? null
+        p.source_type = block.source_type ?? null
         if (p.quote && !block.text_raw.includes(p.quote)) {
           errors.push(`[解析] events[${i}].fields.${name}.provenance[${pi}]: quote 不是块 ${block.block_id} text_raw 的子串`)
         }

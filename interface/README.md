@@ -174,10 +174,12 @@ FieldValue（**核心结构，四个人都要消费**）：
 ## 六、出处结构（provenance）
 
 ```
-{ "block_id": "p3-b12", "page": 3, "region": [x1,y1,x2,y2], "table_id": "p3-t2", "cell_ref": "B3", "quote": "……" }
+{ "block_id": "p3-b12", "source_type": "cell", "page": 3, "region": [left, top, right, bottom], "table_id": "p3-t2", "cell_ref": "r2c3", "quote": "……" }
 ```
 
-- **张智博（DocumentIR）**：供给 `document_id`（→source.file_id）、`page`、`block_id`、`region`、表格类出处补 `table_id`/`cell_ref`；**quote 必须来自原文，禁止事后按数字反搜**。表格证据不许丢失：来自表格的字段必须带 table_id/cell_ref（纯文本出处保持 null）。`source.parse_meta` 可填 `parser_version`、`page_count`、`blocks`（块摘要数组，允许 null；块全量数据在解析 JSON 的 `pages[].blocks[]`，抽取层经 `handoff.provenance_from_block` 映射消费）。
+- `source_type`（D3 增补，张智博 field_aliases 指出后补齐）：出处块来源类型，`paragraph`（正文段落）/`cell`（表格单元格）/null（纯文本模式或解析未提供）；OCR 通道值 D4 落地时扩展。评测统计出处命中时按 区域/单元格 分层即以此字段为分母依据。
+
+- **张智博（DocumentIR）**：供给 `document_id`（→source.file_id）、`page`、`block_id`、`region`、`source_type`（paragraph/cell）、表格类出处补 `table_id`/`cell_ref`；**quote 必须来自原文，禁止事后按数字反搜**。表格证据不许丢失：来自表格的字段必须带 table_id/cell_ref（纯文本出处保持 null）。`source.parse_meta` 可填 `parser_version`、`page_count`、`blocks`（块摘要数组，允许 null；块全量数据在解析 JSON 的 `pages[].blocks[]`，抽取层经 `handoff.provenance_from_block` 映射消费）。
 - **region 坐标语义（D2 冻结）**：`[left, top, right, bottom]`，单位 PDF 点（1pt=1/72 英寸），原点页面左上角、y 轴向下；屏幕坐标 = region ÷ [page.width, page.height] × 显示尺寸。禁止按 x/y/宽/高解读。
 - D1 纯文本阶段允许 `page:1 + quote`；表格证据自 D2 解析接入起补齐。
 - 评测抽查出处命中时，区域与单元格分开统计。
@@ -190,6 +192,10 @@ FieldValue（**核心结构，四个人都要消费**）：
 - **宗博文**：Gold 经投影适配器转成本契约格式（适配器输出也要过共同校验器）；计分分母＝注册表中"原文有值应提取"的字段；`not_disclosed` 与 `not_mentioned` 分开计分；错误填充率＝非 extracted-应缺失却 extracted 的比例。
 
 ## 八、v0.1 → v0.2 变更记录、降级规则与字段丢失清单
+
+**D3 增补（2026-09-29，schema 保持 v0.3 向后兼容）**
+
+1. provenance 新增可选 `source_type`（paragraph/cell/null）——出处块来源类型，评测按 区域/单元格 分层统计的依据；张智博 field_aliases 指出契约缺口后当日补齐，evidence/0.7 起由解析侧供给、抽取层自动回填。
 
 **D2 复核修订（2026-09-28，宗博文 v0.3 复核三问题，schema 保持 v0.3 增量）**
 

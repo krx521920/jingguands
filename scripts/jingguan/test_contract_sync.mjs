@@ -74,6 +74,17 @@ for (const [type, fields] of Object.entries(FIELD_REGISTRY)) {
   }
 }
 
+// ---------- 3b. 出处结构：schema provenance 键集 vs 插件 Provenance 接口 ----------
+const provSchemaKeys = new Set(Object.keys(schema.$defs.provenance.properties))
+const provInterfaceMatch = pluginSrc.match(/export interface Provenance \{([\s\S]*?)\}/)
+check(provInterfaceMatch !== null, '插件 TS 缺少 Provenance 接口')
+if (provInterfaceMatch !== null) {
+  const pluginProvKeys = new Set([...provInterfaceMatch[1].matchAll(/^\s+(\w+)\??:/gm)].map((m) => m[1]))
+  for (const k of provSchemaKeys) check(pluginProvKeys.has(k), `插件 Provenance 接口缺出处键 ${k}（schema 有）`)
+  for (const k of pluginProvKeys) check(provSchemaKeys.has(k), `插件 Provenance 接口多出出处键 ${k}（schema 无）`)
+}
+// runner 出处回填覆盖检查在读取 runnerSrc 之后执行（见第 5 节末尾）
+
 // ---------- 4. README 注册表文档 ----------
 const readme = readFileSync(resolve(REPO_ROOT, 'interface/README.md'), 'utf8')
 const readmeSections = { pledge: '### pledge 质押', equity_change: '### equity_change 股权变动', award_contract: '### award_contract' }
@@ -105,6 +116,16 @@ for (const type of EVENT_TYPES) {
 // fang_normalize 分母映射覆盖 schema 枚举
 const fangSrc = readFileSync(resolve(REPO_ROOT, 'scripts/jingguan/lib/fang_normalize.mjs'), 'utf8')
 for (const d of denomEnum) check(fangSrc.includes(`${d}: { kind:`), `fang_normalize 分母映射缺 ${d}`)
+
+// ---------- 6. runner 出处回填必须覆盖 schema 出处键 ----------
+const backfillFn = runnerSrc.match(/function backfillProvenance[\s\S]*?\n\}/)
+check(backfillFn !== null, 'runner 缺少 backfillProvenance 函数')
+if (backfillFn !== null) {
+  for (const k of provSchemaKeys) {
+    if (k === 'quote') continue // quote 由模型给出并另行校验
+    check(backfillFn[0].includes(`p.${k} =`) || backfillFn[0].includes(`p.${k} ??=`), `runner 出处回填未赋值 ${k}`)
+  }
+}
 
 // ---------- 结果 ----------
 if (issues.length === 0) {

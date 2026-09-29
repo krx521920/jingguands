@@ -91,9 +91,10 @@ export const FIELD_REGISTRY: Record<EventType, Record<string, FieldSpec>> = {
   },
 }
 
-/** 出处结构（v0.2 含表格证据）。 */
+/** 出处结构（v0.3 含表格证据与来源类型）。 */
 export interface Provenance {
   block_id: string | null
+  source_type?: 'paragraph' | 'cell' | null
   page: number
   region: number[] | null
   table_id: string | null
