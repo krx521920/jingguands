@@ -1,0 +1,3 @@
+# 原始公告 PDF 不入库：团队规则「不二次分发原始文件」＋本仓库为公开仓库。
+# 用 fetch_samples.py 按 manifest 里的 source_url 取回，会自动校验 sha256。
+raw/
