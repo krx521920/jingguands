@@ -3,9 +3,11 @@
  * 质押闭环批量入口（D3）：一条命令跑 N 份文档，输出逐份信封＋汇总＋（可选）Gold 字段级对照。
  *
  * 用法：
- *   node scripts/jingguan/run_batch.mjs <文件或目录>... [--mock] [--gold]
- *   npm run jingguan:batch -- corpus/zhangzhibo/parse            # 张的真实解析
- *   npm run jingguan:batch -- corpus/zongbowen/dev/raw --gold    # 宗的受控样例＋Gold对照
+ *   node scripts/jingguan/run_batch.mjs <文件或目录>... [--mock] [--gold] [--gold-manifest <manifest路径>]
+ *   npm run jingguan:batch -- corpus/zhangzhibo/parse                  # 张的真实解析
+ *   npm run jingguan:batch -- corpus/zongbowen/dev/raw --gold          # 宗 D2 受控样例＋Gold对照
+ *   npm run jingguan:batch -- corpus/zongbowen/d3/raw --gold --gold-manifest corpus/zongbowen/d3/manifest.json
+ *   # ↑ D3 评测集；每次批量自动导出 envelopes/<case_id>.json（评测 compare-fields.mjs 用 --system-dir 消费）
  *
  * 文件类型自动识别：
  *   *.parse.json            → 解析块模式（evidence/0.2，块级出处）

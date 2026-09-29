@@ -28,7 +28,10 @@ node scripts/jingguan/run_extract.mjs --input interface/samples/pledge_sample_01
 # D2 解析块模式：消费张智博 evidence/0.2 解析 JSON（块级出处＋方轩诚标准化自动接入）
 node scripts/jingguan/run_extract.mjs --parse interface/samples/pledge_sample_01.parse.json
 
-# 标准化验收（方轩诚 10 用例，移植一致性测试）
+# D3 批量闭环＋Gold 对照（--gold-manifest 指定评测数据集；自动导出 envelopes/<case_id>.json 供评测 --system-dir 消费）
+npm run jingguan:batch -- corpus/zongbowen/d3/raw --gold --gold-manifest corpus/zongbowen/d3/manifest.json
+
+# 标准化验收（方轩诚 D1+D2 用例，移植一致性测试）
 npm run jingguan:test-normalize
 ```
 
@@ -225,6 +228,7 @@ D2 补丁（2026-09-28，依据张智博《契约对齐报告_D1》三处反馈�
 
 **降级规则与已知边界（如实登记，不冒充完整金融语义）**
 
+- **解除质押事件未建模**（D3 真实语料发现，D4 待全队裁决）：契约事件类型只有 pledge/equity_change/award_contract——"质押及解质押"公告中的解押部分（真实案例 pledge-206：18,564,000 股已解除质押）当前被静默丢弃。候选方案：新增 `pledge_release` 事件类型，或 pledge 事件加 direction 字段（pledge/release）。
 - 扫描件：能读则带出处，不能读→`unreadable` ＋明确降级，扫描类单独统计，不并入文本指标。
 - 日期区间：已由 `date_range` 单位承载（extracted＋ISO 区间字符串），不再降级为 needs_review（D2 复核修订）。
 - `consortium` 已拆分为 `consortium_members`／`consortium_shares`（D2 复核修订；判定规则见注册表）。
