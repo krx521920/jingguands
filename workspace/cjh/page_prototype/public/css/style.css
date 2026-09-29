@@ -20,6 +20,10 @@ header h1 { font-size: 16px; font-weight: 600; }
 .sim-banner { display: none; background: var(--sim-bg); color: var(--sim); text-align: center; padding: 6px; font-size: 13px; font-weight: 600; border-bottom: 1px dashed var(--sim); }
 .sim-banner.show { display: block; }
 
+/* D3：完整性检查警告条（断链=红 / 仅提示=黄） */
+.integrity-warn { background: var(--bad-bg); color: var(--bad); border: 1px solid var(--bad); border-radius: 6px; padding: 8px 10px; font-size: 12px; line-height: 1.6; margin-bottom: 10px; word-break: break-all; }
+.integrity-warn.warn-only { background: var(--warn-bg); color: var(--warn); border-color: var(--warn); }
+
 main { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 14px; padding: 14px 20px; height: calc(100vh - 92px); }
 .col { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; display: flex; flex-direction: column; overflow: hidden; }
 .col h2 { font-size: 14px; padding: 10px 14px; border-bottom: 1px solid var(--border); background: #fafbfc; display: flex; align-items: center; gap: 8px; }

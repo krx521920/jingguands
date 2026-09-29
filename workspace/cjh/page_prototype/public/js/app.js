@@ -16,8 +16,21 @@ function setMode(data) {
     `run_id: ${data.run_id} · schema v${data.schema_version} · 来源: ${data.source_file.filename}`;
 }
 
+let currentDataset = null;   // 当前数据集名（导出按钮用）
+
+function exportDataset(format) {
+  if (!currentDataset) { alert("请先加载数据集"); return; }
+  const a = document.createElement("a");
+  a.href = `/api/export?dataset=${encodeURIComponent(currentDataset)}&format=${format}`;
+  a.download = "";
+  document.body.append(a);
+  a.click();
+  a.remove();
+}
+
 async function loadDataset(name) {
   try {
+    currentDataset = name;
     const data = await fetchResult(name);
     setMode(data);
     renderSourceFile($("fileList"), data.source_file);
@@ -56,6 +69,8 @@ async function boot() {
 
   $("loadBtn").addEventListener("click", () => loadDataset($("datasetSel").value));
   $("resetBtn").addEventListener("click", resetAll);
+  $("exportCsvBtn").addEventListener("click", () => exportDataset("csv"));     // D3：导出
+  $("exportJsonBtn").addEventListener("click", () => exportDataset("json"));
 
   // 本地文件上传：D1 只读文本内容做长度占位，真实解析走 D2（对接张的解析结果）
   initUpload(async f => {

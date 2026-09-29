@@ -14,8 +14,15 @@
 //   unreadable    → 产出字段但 status_override=unreadable（诚实降级）
 const KIND_DEFAULT_FIELD = { amount: "amount", shares: "share_count", ratio: "pledge_ratio" };
 
-// 魏文宇信封 v0.3：unit 枚举 → 页面显示单位（date/text/count 不拼单位后缀）
-const WEI_UNIT_TEXT = { shares: "股", cny: "元", percent: "%", date: null, text: null, count: null };
+// 魏文宇信封 v0.3b：unit 枚举 → 页面显示单位（date/date_range/text/count 不拼单位后缀）
+// date_range（D3 增补）：ISO 区间 "start/end"，展示原样
+const WEI_UNIT_TEXT = { shares: "股", cny: "元", percent: "%", date: null, date_range: null, text: null, count: null };
+
+// v0.3b D3：provenance.source_type 枚举（与张智博 finstruct 对齐）
+const SOURCE_TYPE_TEXT = {
+  paragraph: "段落", cell: "表格单元格", table: "表格兜底（降权）",
+  scan_region: "扫描区域", document: "整份文档"
+};
 
 // 魏文宇信封 v0.3：6 状态 → 页面处理策略（README §四：6 态全渲染）
 //   extracted      → 正常产出（无 override）
@@ -63,6 +70,39 @@ function toContract(obj) {
   return { ...obj, bridge: { passthrough: true, reason: "unknown upstream format（不猜测，原样透传）" } };
 }
 
+/** 断链/错位完整性检查（D3：与魏/张修断链错位的落地）。
+ *  返回 { ok, issues[] }；issue = { level, where, what }，level: error（断链）| warn（降权）。 */
+function checkIntegrity(events, evidences) {
+  const issues = [];
+  const idSet = new Set(evidences.map(e => e.evidence_id));
+
+  for (const ev of events) {
+    for (const [name, f] of Object.entries(ev.fields)) {
+      const where = `${ev.event_id}.${name}`;
+      // ① 有值字段必须有出处（not_mentioned 等空态除外）
+      const hasValueState = !f.status_override || f.status_override === "pending_review";
+      if (hasValueState && f.normalized != null && !f.evidence_id) {
+        issues.push({ level: "error", where, what: "有值但无出处（断链）" });
+      }
+      // ② 引用的 evidence_id 必须存在于 evidences[]（引用完整）
+      for (const eid of [f.evidence_id, ...(f.evidence_ids || [])]) {
+        if (eid && !idSet.has(eid)) issues.push({ level: "error", where, what: `引用不存在的证据 ${eid}` });
+      }
+    }
+  }
+  // ③ 表格单元格出处必须带 table_id + cell_ref（契约：表格证据不许丢失）
+  for (const e of evidences) {
+    if (e.source_type === "cell" && (!e.table_id || !e.cell_ref)) {
+      issues.push({ level: "error", where: e.evidence_id, what: "cell 出处缺 table_id/cell_ref（表格证据丢失）" });
+    }
+    if (e.source_type === "table") {
+      // 张智博 D3 约定：table 兜底块必带 degraded:true，消费方降权
+      issues.push({ level: "warn", where: e.evidence_id, what: "table 兜底块出处（未归入检出单元格，建议降权）" });
+    }
+  }
+  return { ok: !issues.some(i => i.level === "error"), issues };
+}
+
 /** 魏文宇事件信封 v0.3 → 契约 v0.3（字段只增不改）。 */
 function fromWeiEnvelope(up) {
   const notes = [];
@@ -83,6 +123,7 @@ function fromWeiEnvelope(up) {
       if (override === undefined) { notes.push(`${ev.event_id}.${name}: 未知 status=${fv.status}（不猜测，字段未产出）`); continue; }
 
       const f = { value: null, unit: null, normalized: null, normalized_unit: null, evidence_id: null };
+      f.status_raw = fv.status;                // v0.3b D3：保留信封原始 6 态（溯源/导出用），展示状态看 status_override
       const hasValue = fv.status === "extracted" || fv.status === "needs_review";
       if (hasValue) {
         // 原文口径优先（raw_value 通常自带单位，display unit 置空避免重复拼接）
@@ -103,6 +144,7 @@ function fromWeiEnvelope(up) {
           block_id: p.block_id ?? null,
           page: p.page ?? null,
           bbox: p.region ?? null,            // v0.3 冻结语义：[left,top,right,bottom] PDF 点、左上原点、y 向下
+          source_type: p.source_type ?? null, // v0.3b D3：出处块类型（paragraph/cell/table/scan_region/document/null）
           table_id: p.table_id ?? null,      // 表格证据（v0.2 新增，不丢失）
           cell_ref: p.cell_ref ?? null,
           quote: p.quote ?? ""
@@ -144,6 +186,7 @@ function fromWeiEnvelope(up) {
   };
   if (up.run_meta) contract.run_meta = up.run_meta;
   if (up.source?.parse_meta) contract.source_file.parse_meta = up.source.parse_meta;
+  contract.integrity = checkIntegrity(events, evidences);   // D3：断链/错位自检
   return contract;
 }
 
@@ -252,4 +295,4 @@ function fromFangRecords(up) {
   return contract;
 }
 
-module.exports = { toContract, isUpstream, isWeiEnvelope, DENOMINATOR_TEXT };
+module.exports = { toContract, isUpstream, isWeiEnvelope, checkIntegrity, DENOMINATOR_TEXT, SOURCE_TYPE_TEXT };

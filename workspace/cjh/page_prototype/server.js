@@ -9,7 +9,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const { toContract } = require("./bridge/upstream_bridge.js");   // 转接口：上游格式 → 契约 v0.2
+const { toContract } = require("./bridge/upstream_bridge.js");   // 转接口：上游格式 → 契约 v0.3
 
 const ROOT = __dirname;                       // 工程根（相对锚点）
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -31,6 +31,74 @@ const MIME = {
 function sendJSON(res, code, obj) {
   const body = JSON.stringify(obj, null, 2);
   res.writeHead(code, { "Content-Type": "application/json; charset=utf-8" });
+  res.end(body);
+}
+
+// ---- D3：导出（JSON / CSV）----
+// CSV 扁平化：每字段一行；quote 内含逗号/引号/换行按 RFC 4180 转义；BOM 保证 Excel 打开中文不乱码。
+const CSV_COLUMNS = [
+  "run_id", "data_mode", "event_id", "event_type", "field", "status", "status_raw",
+  "value", "normalized", "normalized_unit", "denominator",
+  "evidence_id", "block_id", "page", "table_id", "cell_ref", "source_type", "quote"
+];
+
+function csvEscape(v) {
+  if (v == null) return "";
+  const s = String(v);
+  return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+
+function contractToCsvRows(data) {
+  const rows = [];
+  for (const ev of data.events || []) {
+    for (const [name, f] of Object.entries(ev.fields || {})) {
+      // 一字段可挂多条证据：主证据一行，其余证据各补一行（evidence_ids 展开，不错位）
+      const eids = f.evidence_ids || (f.evidence_id ? [f.evidence_id] : []);
+      if (!eids.length) eids.push(null);
+      for (const eid of eids) {
+        const e = eid ? (data.evidences || []).find(x => x.evidence_id === eid) || {} : {};
+        rows.push([
+          data.run_id, data.data_mode, ev.event_id, ev.event_type, name,
+          f.status_override || "success",          // D3：字段级状态（status_raw 保留信封原始 6 态）
+          f.status_raw ?? "",
+          f.value, f.normalized, f.normalized_unit ?? f.unit,
+          f.denominator ? (f.denominator.kind_text || f.denominator.kind) : "",
+          eid ?? "", e.block_id ?? "", e.page ?? "", e.table_id ?? "", e.cell_ref ?? "",
+          e.source_type ?? "", e.quote ?? ""
+        ]);
+      }
+    }
+  }
+  return rows;
+}
+
+function handleExport(res, urlObj, readDataset) {
+  const dataset = urlObj.searchParams.get("dataset") || "";
+  const format = (urlObj.searchParams.get("format") || "csv").toLowerCase();
+  if (!/^[a-z0-9_-]+$/i.test(dataset)) return sendJSON(res, 400, { error: "invalid dataset name" });
+  if (!["json", "csv"].includes(format)) return sendJSON(res, 400, { error: "format must be json|csv" });
+
+  let data;
+  try { data = readDataset(dataset); }
+  catch (e) {
+    if (e && e.code === "NOT_FOUND") return sendJSON(res, 404, { error: "dataset not found: " + dataset });
+    return sendJSON(res, 500, { error: "dataset parse failed: " + e.message });
+  }
+
+  if (format === "json") {
+    const body = JSON.stringify(data, null, 2);
+    res.writeHead(200, {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Disposition": `attachment; filename="${dataset}.json"`
+    });
+    return res.end(body);
+  }
+  const lines = [CSV_COLUMNS.join(","), ...contractToCsvRows(data).map(r => r.map(csvEscape).join(","))];
+  const body = "\uFEFF" + lines.join("\r\n");
+  res.writeHead(200, {
+    "Content-Type": "text/csv; charset=utf-8",
+    "Content-Disposition": `attachment; filename="${dataset}.csv"`
+  });
   res.end(body);
 }
 
@@ -57,6 +125,17 @@ function fetchRemote(dataset, res) {
   }).on("error", e => sendJSON(res, 502, { error: "remote fetch failed: " + e.message }));
 }
 
+/** 读取 mock 数据集并过桥；失败抛错（NOT_FOUND / parse error），供 result 与 export 共用。 */
+function readDataset(dataset) {
+  const file = path.join(DATA_DIR, dataset + ".json");
+  if (!file.startsWith(DATA_DIR) || !fs.existsSync(file)) {   // 目录逃逸防护
+    const err = new Error("dataset not found: " + dataset);
+    err.code = "NOT_FOUND";
+    throw err;
+  }
+  return toContract(JSON.parse(fs.readFileSync(file, "utf8")));
+}
+
 function handleApi(req, res, urlObj) {
   if (urlObj.pathname === "/api/datasets") {
     return sendJSON(res, 200, { source: DATA_SOURCE, datasets: listDatasets() });
@@ -67,15 +146,15 @@ function handleApi(req, res, urlObj) {
       return sendJSON(res, 400, { error: "invalid dataset name" });
     }
     if (DATA_SOURCE === "remote") return fetchRemote(dataset, res);
-    const file = path.join(DATA_DIR, dataset + ".json");
-    if (!file.startsWith(DATA_DIR) || !fs.existsSync(file)) {   // 目录逃逸防护
-      return sendJSON(res, 404, { error: "dataset not found: " + dataset });
-    }
     try {
-      return sendJSON(res, 200, toContract(JSON.parse(fs.readFileSync(file, "utf8"))));   // mock 也过桥（上游格式数据集自动转换）
+      return sendJSON(res, 200, readDataset(dataset));   // mock 也过桥（上游格式数据集自动转换）
     } catch (e) {
+      if (e.code === "NOT_FOUND") return sendJSON(res, 404, { error: e.message });
       return sendJSON(res, 500, { error: "dataset parse failed: " + e.message });
     }
+  }
+  if (urlObj.pathname === "/api/export") {
+    return handleExport(res, urlObj, readDataset);   // D3：导出当前数据集为 JSON/CSV（与页面同源同桥）
   }
   sendJSON(res, 404, { error: "unknown api" });
 }

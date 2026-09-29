@@ -52,10 +52,25 @@ export function fmtMarks(f) {
   return s.trim();
 }
 
+// v0.3b D3：出处块类型中文（与桥 SOURCE_TYPE_TEXT 一致）
+const SOURCE_TYPE_TEXT = {
+  paragraph: "段落", cell: "表格", table: "表格兜底", scan_region: "扫描区域", document: "整份文档"
+};
+
 export function renderResults(container, data, onFocusEvidence) {
   const count = document.getElementById("evCount");
   count.textContent = `（${data.events.length} 个事件）`;
   container.replaceChildren();
+
+  // D3 完整性警告条（桥的断链/错位自检结果）
+  if (data.integrity && data.integrity.issues.length) {
+    const warn = document.createElement("div");
+    warn.className = "integrity-warn" + (data.integrity.ok ? " warn-only" : "");
+    const errs = data.integrity.issues.filter(i => i.level === "error").length;
+    warn.textContent = `⛓ 完整性检查：${errs ? errs + " 处断链，" : ""}${data.integrity.issues.length} 条提示 —— ` +
+      data.integrity.issues.map(i => `${i.where}: ${i.what}`).join("；");
+    container.append(warn);
+  }
 
   for (const ev of data.events) {
     const card = document.createElement("div");
@@ -80,7 +95,7 @@ export function renderResults(container, data, onFocusEvidence) {
       tdK.textContent = FIELD_TEXT[key] || key;
       const tdV = document.createElement("td");
       tdV.className = "v";
-      tdV.append(fmtValue(f), badge(f.status_override || ev.status));
+      tdV.append(fmtValue(f), badge(f.status_override || "success"));   // D3：字段级状态（不再继承事件级待复核，修错位）
       const marks = fmtMarks(f);
       if (marks) {
         const mk = document.createElement("span");
@@ -91,7 +106,11 @@ export function renderResults(container, data, onFocusEvidence) {
       if (f.evidence_id) {
         const link = document.createElement("span");
         link.className = "ev-link";
-        link.textContent = `证据 ${f.evidence_id}`;
+        // D3：锚点带上出处定位（表格 cell_ref / 段落），一眼看清出处类型
+        const first = (data.evidences || []).find(x => x.evidence_id === f.evidence_id) || {};
+        const st = first.source_type && SOURCE_TYPE_TEXT[first.source_type] ? SOURCE_TYPE_TEXT[first.source_type] : "";
+        const loc = first.cell_ref ? "#" + first.cell_ref : (first.page != null ? " p" + first.page : "");
+        link.textContent = `证据 ${f.evidence_id}${st ? " · " + st + loc : ""}`;
         link.addEventListener("click", () => onFocusEvidence(f.evidence_id));
         tdV.append(link);
       } else {

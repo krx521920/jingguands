@@ -17,18 +17,20 @@ node server.js
 
 ```
 page_prototype/
-├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式，读数自动过转接口）
+├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式，读数自动过转接口）+ /api/export（D3：JSON/CSV 导出）
 ├── bridge/
-│   └── upstream_bridge.js  # 转接口（D2）：上游格式（方的标准化记录）→ 契约 v0.2；未知格式透传留痕
+│   └── upstream_bridge.js  # 转接口（D2/D3）：上游格式（方口径记录 / 魏事件信封 v0.3b）→ 契约；完整性断链检查；未知格式透传留痕
 ├── package.json            # scripts: start / demo（仅声明，无需 install）
 ├── README.md               # 本文件（目录结构维护处，结构变更必须同步更新）
 ├── docs/
 │   └── API.md              # 调用文档：数据契约 v0.3、接口清单、状态枚举、转接口、扩展指南
 ├── data/                   # 数据集（mock 模式：server 自动列举，放进来即出现在下拉）
-│   ├── pledge.json         # 质押事件样例（D3 主线）
+│   ├── pledge.json         # 质押事件样例（D1 mock，旧提案字段，保留兼容）
 │   ├── share_change.json   # 股权变动样例（D5 预留）
 │   ├── upstream_case.json  # 方口径上游格式合成用例（经转接口转换展示，D2 验证）
-│   └── wei_run_pledge.json # 魏文宇 v0.3 信封真实运行输出（原样入 data/，server 自动过转接口）
+│   ├── wei_run_pledge.json # 魏文宇 v0.3 信封真实运行输出（09-28，D2 接入）
+│   ├── wei_real_pledge_0197.json  # 魏 D3 真实 PDF run（pledge.pdf · deepseek-chat · is_mock:false，质押闭环主线）
+│   └── wei_real_pledge_ce37.json  # 同源对照 run（D3）
 ├── public/                 # 前端（原生 ES Modules，无构建步骤）
 │   ├── index.html          # 三栏页面骨架：上传 / 结果 / 证据
 │   ├── css/
@@ -52,8 +54,8 @@ page_prototype/
       │ mock 模式                                  │ remote 模式
       ▼                                            ▼
 ┌─────────────────────── server.js /api ───────────────────────┐
-│  /api/datasets（列举）   /api/result?dataset=x（读数自动过转接口）│
-│           bridge/upstream_bridge.js：上游格式 → 契约 v0.2       │
+│  /api/datasets（列举）  /api/result?dataset=x  /api/export（D3）│
+│           bridge/upstream_bridge.js：上游格式 → 契约 + 断链自检  │
 └──────────────────────────────┬───────────────────────────────┘
                                ▼
                     adapter.js（前端唯一数据出口）
@@ -64,9 +66,10 @@ page_prototype/
 ```
 
 - **数据缝**：换数据源只动 server 环境变量，前端零改动；
-- **格式缝**：上游格式（方的标准化记录）直接进 `data/` 或 remote 返回，转接口自动转换，契约对象零损耗透传；
+- **格式缝**：上游格式（方口径记录 / 魏事件信封）直接进 `data/` 或 remote 返回，转接口自动转换，契约对象零损耗透传；
 - **渲染缝**：新栏/新视图 = 新渲染器 + app.js 一行装配；
-- **状态缝**：状态枚举只改 `status.js` 一处。
+- **状态缝**：状态枚举只改 `status.js` 一处；
+- **导出缝**（D3）：导出与页面同一 `readDataset` 路径——页面所见即导出所得，CSV 每字段一行（含出处/单元格号/quote）。
 
 ## 数据源切换
 

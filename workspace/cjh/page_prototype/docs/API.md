@@ -24,9 +24,23 @@ node server.js          # 或 pnpm start / npm start
 | 接口 | 返回 | 用途 |
 |---|---|---|
 | `GET /api/datasets` | `{ "source": "mock", "datasets": ["pledge", "share_change"] }` | 上传栏数据集下拉（自动列举 `data/*.json`） |
-| `GET /api/result?dataset=pledge` | 数据契约 v0.1 对象（见 §3） | 结果+证据一次性拉取 |
+| `GET /api/result?dataset=pledge` | 数据契约对象（见 §3，读数自动过转接口） | 结果+证据一次性拉取 |
+| `GET /api/export?dataset=x&format=json\|csv` | 附件下载（D3 新增） | 导出当前数据集：JSON=契约对象原样；CSV=每字段一行（18 列，含出处/table_id/cell_ref/source_type/quote，RFC 4180 转义 + BOM）。**与 /api/result 同一读取+过桥路径，页面所见即导出所得** |
 
 `remote` 模式下 `/api/result` 会转发到 `REMOTE_API_URL?dataset=<name>`，上游直接返回契约对象即可。
+
+### 3a. 完整性检查（integrity，D3 新增）
+
+转接口对魏信封路径自动附 `contract.integrity = { ok, issues[] }`，issue 为 `{ level: "error"|"warn", where, what }`：
+
+| 检查 | 级别 |
+|---|---|
+| 有值字段无出处（断链） | error |
+| 字段引用不存在的 evidence_id | error |
+| `source_type=cell` 缺 table_id/cell_ref（表格证据丢失，契约红线） | error |
+| `source_type=table` 兜底块（未归入检出单元格，消费方降权） | warn |
+
+页面在结果栏顶部显示警告条（红=有断链，黄=仅提示）。字段级状态修复：页面/CSV 状态取 `status_override || success`（不再继承事件级待复核），信封原始 6 态保留在 `status_raw`。
 
 ## 3. 数据契约 v0.1（结果 JSON）
 
