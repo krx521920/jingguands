@@ -1,0 +1,342 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D3-PLD-002",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+    "file_name": "D3-PLD-002.pdf",
+    "file_sha256": "16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+    "parse_meta": {
+      "parser_version": "0.7.0",
+      "page_count": 2,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "pledgor": {
+          "raw_value": "兰石集团",
+          "value": "兰石集团",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00023",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                69.05,
+                529.54,
+                98.0,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c1",
+              "quote": "兰石集团"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "中国进出口银行甘肃省分行",
+          "value": "中国进出口银行甘肃省分行",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00030",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                345.75,
+                529.54,
+                399.35,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c8",
+              "quote": "中国进出口银行甘肃省分行"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "40,000,000",
+          "value": 40000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00025",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                139.65,
+                529.54,
+                187.25,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c3",
+              "quote": "40,000,000"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "215,000,000",
+          "value": 215000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00055",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                254.45,
+                721.39,
+                311.0,
+                749.39
+              ],
+              "table_id": "d16c6a948_p001_t002",
+              "cell_ref": "r3c5",
+              "quote": "215,000,000"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "6.64",
+          "value": 6.64,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00031",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                399.35,
+                529.54,
+                441.65,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c9",
+              "quote": "6.64"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "3.06",
+          "value": 3.06,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00032",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                441.65,
+                529.54,
+                483.67,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c10",
+              "quote": "3.06"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "35.71",
+          "value": 35.71,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00056",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                311.0,
+                721.39,
+                345.75,
+                749.39
+              ],
+              "table_id": "d16c6a948_p001_t002",
+              "cell_ref": "r3c6",
+              "quote": "35.71"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "16.46",
+          "value": 16.46,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00057",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                345.75,
+                721.39,
+                376.15,
+                749.39
+              ],
+              "table_id": "d16c6a948_p001_t002",
+              "cell_ref": "r3c7",
+              "quote": "16.46"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "status": "not_mentioned",
+          "provenance": [],
+          "standardized": false,
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00028",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                260.1,
+                529.54,
+                302.65,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c6",
+              "quote": "2026年9月24日"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2028年9月23日",
+          "value": "2028-09-23",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00029",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                302.65,
+                529.54,
+                345.75,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c7",
+              "quote": "2028年9月23日"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "自身生产经营",
+          "value": "自身生产经营",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00033",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                483.67,
+                529.54,
+                526.25,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c11",
+              "quote": "自身生产经营"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月29日",
+          "value": "2026-09-29",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p002_b00014",
+              "source_type": "paragraph",
+              "page": 2,
+              "region": [
+                352.32,
+                529.97,
+                445.32,
+                543.96
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "2026年9月29日"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "rule",
+      "notes": ""
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-09-29T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}

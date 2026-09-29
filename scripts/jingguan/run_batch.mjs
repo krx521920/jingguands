@@ -18,7 +18,7 @@
  */
 import { spawnSync } from 'node:child_process'
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from 'node:fs'
-import { basename, resolve, join } from 'node:path'
+import { basename, resolve, join, dirname } from 'node:path'
 import { goldFieldSupported } from './lib/checks.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
@@ -28,11 +28,12 @@ const GOLD_MANIFEST = join(REPO_ROOT, 'corpus/zongbowen/dev/manifest.json')
 // ---------- 参数与文件收集 ----------
 
 function parseArgs(argv) {
-  const args = { files: [], mock: false, gold: false }
+  const args = { files: [], mock: false, gold: false, goldManifest: null }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--mock') args.mock = true
     else if (a === '--gold') args.gold = true
+    else if (a === '--gold-manifest') args.goldManifest = argv[++i]
     else args.files.push(a)
   }
   return args
@@ -84,8 +85,20 @@ function compareWithGold(mine, gold, goldText) {
   const rows = []
   const goldEv = gold.events?.[0]
   const mineEv = mine.events?.[0]
+  const goldCount = gold.events?.length ?? 0
+  const mineCount = mine.events?.length ?? 0
+  const metrics = {
+    gold_extracted_fields: 0, value_hit: 0, field_accuracy: null,
+    wrong_filled: 0, status_match_ratio: null, gold_unsupported: 0,
+    gold_events: goldCount, mine_events: mineCount,
+  }
+  if (goldCount !== mineCount) {
+    rows.push({ field: '(事件数)', verdict: 'EVENTS_DIFF', detail: `gold ${goldCount} 个事件，系统输出 ${mineCount} 个${mineCount < goldCount ? '（多事件抽取缺失——D4 议题）' : ''}` })
+  }
   if (goldEv === undefined || mineEv === undefined) {
-    return { rows: [{ field: '(事件缺失)', verdict: 'MINE_MISSING', detail: `mine events=${mine.events?.length ?? 0}` }], metrics: {} }
+    if (goldEv === undefined && mineEv === undefined) return { rows, metrics }
+    rows.push({ field: '(事件缺失)', verdict: 'MINE_MISSING', detail: `mine events=${mineCount}` })
+    return { rows, metrics }
   }
   const fields = new Set([...Object.keys(goldEv.fields ?? {}), ...Object.keys(mineEv.fields ?? {})])
   if ('consortium' in (goldEv.fields ?? {}) && !('consortium' in (mineEv.fields ?? {}))) fields.delete('consortium') // gold 旧版单字段，滞后于 v0.3 拆分
@@ -122,14 +135,12 @@ function compareWithGold(mine, gold, goldText) {
       }
     }
   }
-  const metrics = {
-    gold_extracted_fields: goldExtracted,
-    value_hit: hit,
-    field_accuracy: goldExtracted === 0 ? null : Number((hit / goldExtracted).toFixed(4)),
-    wrong_filled: wrongFilled,
-    status_match_ratio: (fields.size - neutral - goldUnsupported) === 0 ? null : Number((statusMatch / (fields.size - neutral - goldUnsupported)).toFixed(4)),
-    gold_unsupported: goldUnsupported,
-  }
+  metrics.gold_extracted_fields = goldExtracted
+  metrics.value_hit = hit
+  metrics.field_accuracy = goldExtracted === 0 ? null : Number((hit / goldExtracted).toFixed(4))
+  metrics.wrong_filled = wrongFilled
+  metrics.status_match_ratio = (fields.size - neutral - goldUnsupported) === 0 ? null : Number((statusMatch / (fields.size - neutral - goldUnsupported)).toFixed(4))
+  metrics.gold_unsupported = goldUnsupported
   return { rows, metrics }
 }
 
@@ -147,10 +158,12 @@ mkdirSync(join(batchDir, 'inputs'), { recursive: true })
 
 const goldMap = new Map()
 if (args.gold) {
-  const manifest = JSON.parse(readFileSync(GOLD_MANIFEST, 'utf8'))
+  const manifestPath = args.goldManifest ?? join(REPO_ROOT, 'corpus/zongbowen/dev/manifest.json')
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'))
+  const base = dirname(manifestPath)
   for (const item of manifest.items) {
     goldMap.set(item.case_id, {
-      gold: JSON.parse(readFileSync(join(REPO_ROOT, 'corpus/zongbowen/dev', item.gold), 'utf8')),
+      gold: JSON.parse(readFileSync(join(base, item.gold), 'utf8')),
       eventType: item.event_type,
     })
   }
