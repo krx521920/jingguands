@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.4",
+  "schema_version": "evidence/0.5",
   "doc": {
     "doc_id": "d878ebffb",
     "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
@@ -7,10 +7,10 @@
     "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
     "file_size": 98239,
     "page_count": 4,
-    "parsed_at": "2026-09-29T08:50:19+08:00",
+    "parsed_at": "2026-09-29T08:53:22+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.4.0"
+      "version": "0.5.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -430,78 +430,220 @@
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
-          "source_type": "table",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "股东名称 国寿成达（上海）健康产业股权投资中心（有限合伙）",
-          "text_raw": "股东名称国寿成达（上海）健康产业股权投资中心（有限合伙）",
+          "text": "股东名称",
+          "text_raw": "股东名称",
           "region": [
-            95.64,
-            180.53,
-            492.36,
-            192.53
+            90.25,
+            174.59,
+            199.0,
+            198.49
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t001",
-            "row": 0
+            "cell_id": "d878ebffb_p002_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
-          "degraded": true,
-          "missing_reason": "DEGRADED"
+          "degraded": false,
+          "missing_reason": null
         },
         {
           "block_id": "d878ebffb_p002_b00005",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
-          "source_type": "table",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "控股股东、实控人及一致行动人 □是 √否直接持股5%以上股东 √是 □否股东身份董事、监事和高级管理人员 □是 √否其他：不适用",
-          "text_raw": "控股股东、实控人及一致行动人□是√否直接持股5%以上股东√是□否股东身份董事、监事和高级管理人员□是√否其他：不适用",
+          "text": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+          "text_raw": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
           "region": [
-            95.64,
-            204.41,
-            456.36,
-            286.73
+            199.0,
+            174.59,
+            505.05,
+            198.49
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t001",
-            "row": 1
+            "cell_id": "d878ebffb_p002_t001_c006",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
-          "degraded": true,
-          "missing_reason": "DEGRADED"
+          "degraded": false,
+          "missing_reason": null
         },
         {
           "block_id": "d878ebffb_p002_b00006",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
-          "source_type": "table",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "持股数量 36,103,002股",
-          "text_raw": "持股数量36,103,002股",
+          "text": "股东身份",
+          "text_raw": "股东身份",
           "region": [
-            95.64,
-            298.61,
-            276.36,
-            310.61
+            90.25,
+            198.49,
+            199.0,
+            292.59
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t001",
-            "row": 2
+            "cell_id": "d878ebffb_p002_t001_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
-          "degraded": true,
-          "missing_reason": "DEGRADED"
+          "degraded": false,
+          "missing_reason": null
         },
         {
           "block_id": "d878ebffb_p002_b00007",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "控股股东、实控人及一致行动人 □是 √否直接持股5%以上股东 √是 □否董事、监事和高级管理人员 □是 √否其他：不适用",
+          "text_raw": "控股股东、实控人及一致行动人□是√否直接持股5%以上股东√是□否董事、监事和高级管理人员□是√否其他：不适用",
+          "region": [
+            199.0,
+            198.49,
+            505.05,
+            292.59
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c007",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00008",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股数量",
+          "text_raw": "持股数量",
+          "region": [
+            90.25,
+            292.59,
+            199.0,
+            316.49
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c003",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00009",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "36,103,002股",
+          "text_raw": "36,103,002股",
+          "region": [
+            199.0,
+            292.59,
+            505.05,
+            316.49
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c008",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00010",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股比例",
+          "text_raw": "持股比例",
+          "region": [
+            90.25,
+            316.49,
+            199.0,
+            340.39
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c004",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00011",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -517,10 +659,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t001",
-            "cell_id": "c009",
+            "cell_id": "d878ebffb_p002_t001_c009",
             "cell_ref": "r4c2",
             "row": 3,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -529,32 +674,38 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00008",
+          "block_id": "d878ebffb_p002_b00012",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
-          "source_type": "table",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "持股比例",
-          "text_raw": "持股比例",
+          "text": "当前持股股份来源",
+          "text_raw": "当前持股股份来源",
           "region": [
-            95.64,
-            322.49,
-            143.64,
-            334.49
+            90.25,
+            340.39,
+            199.0,
+            411.09
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t001",
-            "row": 3
+            "cell_id": "d878ebffb_p002_t001_c005",
+            "cell_ref": "r5c1",
+            "row": 4,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
-          "degraded": true,
-          "missing_reason": "DEGRADED"
+          "degraded": false,
+          "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00009",
+          "block_id": "d878ebffb_p002_b00013",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -570,10 +721,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t001",
-            "cell_id": "c010",
+            "cell_id": "d878ebffb_p002_t001_c010",
             "cell_ref": "r5c2",
             "row": 4,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -582,32 +736,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00010",
-          "doc_id": "d878ebffb",
-          "page": 2,
-          "type": "TEXT",
-          "source_type": "table",
-          "role": "BODY",
-          "text": "当前持股股份来源",
-          "text_raw": "当前持股股份来源",
-          "region": [
-            95.64,
-            369.77,
-            191.64,
-            381.77
-          ],
-          "table_ref": {
-            "table_id": "d878ebffb_p002_t001",
-            "row": 4
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": true,
-          "missing_reason": "DEGRADED"
-        },
-        {
-          "block_id": "d878ebffb_p002_b00011",
+          "block_id": "d878ebffb_p002_b00014",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -629,7 +758,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00012",
+          "block_id": "d878ebffb_p002_b00015",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -651,7 +780,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00013",
+          "block_id": "d878ebffb_p002_b00016",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -667,10 +796,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
-            "cell_id": "c001",
+            "cell_id": "d878ebffb_p002_t002_c001",
             "cell_ref": "r1c1",
             "row": 0,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -679,7 +811,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00014",
+          "block_id": "d878ebffb_p002_b00017",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -695,10 +827,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
-            "cell_id": "c005",
+            "cell_id": "d878ebffb_p002_t002_c005",
             "cell_ref": "r1c2",
             "row": 0,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -707,7 +842,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00015",
+          "block_id": "d878ebffb_p002_b00018",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -723,10 +858,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
-            "cell_id": "c002",
+            "cell_id": "d878ebffb_p002_t002_c002",
             "cell_ref": "r2c1",
             "row": 1,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -735,7 +873,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00016",
+          "block_id": "d878ebffb_p002_b00019",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -751,10 +889,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
-            "cell_id": "c006",
+            "cell_id": "d878ebffb_p002_t002_c006",
             "cell_ref": "r2c2",
             "row": 1,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -763,7 +904,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00017",
+          "block_id": "d878ebffb_p002_b00020",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -779,10 +920,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
-            "cell_id": "c003",
+            "cell_id": "d878ebffb_p002_t002_c003",
             "cell_ref": "r3c1",
             "row": 2,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -791,7 +935,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00018",
+          "block_id": "d878ebffb_p002_b00021",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -807,10 +951,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
-            "cell_id": "c007",
+            "cell_id": "d878ebffb_p002_t002_c007",
             "cell_ref": "r3c2",
             "row": 2,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -819,7 +966,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00019",
+          "block_id": "d878ebffb_p002_b00022",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -835,10 +982,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
-            "cell_id": "c004",
+            "cell_id": "d878ebffb_p002_t002_c004",
             "cell_ref": "r4c1",
             "row": 3,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -847,7 +997,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00020",
+          "block_id": "d878ebffb_p002_b00023",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -863,10 +1013,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p002_t002",
-            "cell_id": "c008",
+            "cell_id": "d878ebffb_p002_t002_c008",
             "cell_ref": "r4c2",
             "row": 3,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -875,7 +1028,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d878ebffb_p002_b00021",
+          "block_id": "d878ebffb_p002_b00024",
           "doc_id": "d878ebffb",
           "page": 2,
           "type": "TEXT",
@@ -1006,10 +1159,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c001",
+            "cell_id": "d878ebffb_p003_t001_c001",
             "cell_ref": "r1c1",
             "row": 0,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1034,10 +1190,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c009",
+            "cell_id": "d878ebffb_p003_t001_c009",
             "cell_ref": "r1c2",
             "row": 0,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1062,10 +1221,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c002",
+            "cell_id": "d878ebffb_p003_t001_c002",
             "cell_ref": "r2c1",
             "row": 1,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1090,10 +1252,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c010",
+            "cell_id": "d878ebffb_p003_t001_c010",
             "cell_ref": "r2c2",
             "row": 1,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1118,10 +1283,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c003",
+            "cell_id": "d878ebffb_p003_t001_c003",
             "cell_ref": "r3c1",
             "row": 2,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1146,10 +1314,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c011",
+            "cell_id": "d878ebffb_p003_t001_c011",
             "cell_ref": "r3c2",
             "row": 2,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1174,10 +1345,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c004",
+            "cell_id": "d878ebffb_p003_t001_c004",
             "cell_ref": "r4c1",
             "row": 3,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1202,10 +1376,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c012",
+            "cell_id": "d878ebffb_p003_t001_c012",
             "cell_ref": "r4c2",
             "row": 3,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1230,10 +1407,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c005",
+            "cell_id": "d878ebffb_p003_t001_c005",
             "cell_ref": "r5c1",
             "row": 4,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1258,10 +1438,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c013",
+            "cell_id": "d878ebffb_p003_t001_c013",
             "cell_ref": "r5c2",
             "row": 4,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1286,10 +1469,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c006",
+            "cell_id": "d878ebffb_p003_t001_c006",
             "cell_ref": "r6c1",
             "row": 5,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1314,10 +1500,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c014",
+            "cell_id": "d878ebffb_p003_t001_c014",
             "cell_ref": "r6c2",
             "row": 5,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1342,10 +1531,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c007",
+            "cell_id": "d878ebffb_p003_t001_c007",
             "cell_ref": "r7c1",
             "row": 6,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1370,10 +1562,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c015",
+            "cell_id": "d878ebffb_p003_t001_c015",
             "cell_ref": "r7c2",
             "row": 6,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1398,10 +1593,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c008",
+            "cell_id": "d878ebffb_p003_t001_c008",
             "cell_ref": "r8c1",
             "row": 7,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1426,10 +1624,13 @@
           ],
           "table_ref": {
             "table_id": "d878ebffb_p003_t001",
-            "cell_id": "c016",
+            "cell_id": "d878ebffb_p003_t001_c016",
             "cell_ref": "r8c2",
             "row": 7,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1644,6 +1845,9 @@
     "d878ebffb_p002_b00019",
     "d878ebffb_p002_b00020",
     "d878ebffb_p002_b00021",
+    "d878ebffb_p002_b00022",
+    "d878ebffb_p002_b00023",
+    "d878ebffb_p002_b00024",
     "d878ebffb_p003_b00001",
     "d878ebffb_p003_b00002",
     "d878ebffb_p003_b00003",
@@ -1676,7 +1880,7 @@
       "file_name": "equity_change.pdf",
       "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.4.0",
+        "parser_version": "finstruct.parse/0.5.0",
         "page_count": 4,
         "blocks": [
           {
@@ -1891,43 +2095,95 @@
             "block_id": "d878ebffb_p002_b00004",
             "page": 2,
             "role": "BODY",
-            "text": "股东名称 国寿成达（上海）健康产业股权投资中心（有限合伙）",
-            "text_raw": "股东名称国寿成达（上海）健康产业股权投资中心（有限合伙）",
+            "text": "股东名称",
+            "text_raw": "股东名称",
             "region": [
-              95.64,
-              180.53,
-              492.36,
-              192.53
+              90.25,
+              174.59,
+              199.0,
+              198.49
             ]
           },
           {
             "block_id": "d878ebffb_p002_b00005",
             "page": 2,
             "role": "BODY",
-            "text": "控股股东、实控人及一致行动人 □是 √否直接持股5%以上股东 √是 □否股东身份董事、监事和高级管理人员 □是 √否其他：不适用",
-            "text_raw": "控股股东、实控人及一致行动人□是√否直接持股5%以上股东√是□否股东身份董事、监事和高级管理人员□是√否其他：不适用",
+            "text": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+            "text_raw": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
             "region": [
-              95.64,
-              204.41,
-              456.36,
-              286.73
+              199.0,
+              174.59,
+              505.05,
+              198.49
             ]
           },
           {
             "block_id": "d878ebffb_p002_b00006",
             "page": 2,
             "role": "BODY",
-            "text": "持股数量 36,103,002股",
-            "text_raw": "持股数量36,103,002股",
+            "text": "股东身份",
+            "text_raw": "股东身份",
             "region": [
-              95.64,
-              298.61,
-              276.36,
-              310.61
+              90.25,
+              198.49,
+              199.0,
+              292.59
             ]
           },
           {
             "block_id": "d878ebffb_p002_b00007",
+            "page": 2,
+            "role": "BODY",
+            "text": "控股股东、实控人及一致行动人 □是 √否直接持股5%以上股东 √是 □否董事、监事和高级管理人员 □是 √否其他：不适用",
+            "text_raw": "控股股东、实控人及一致行动人□是√否直接持股5%以上股东√是□否董事、监事和高级管理人员□是√否其他：不适用",
+            "region": [
+              199.0,
+              198.49,
+              505.05,
+              292.59
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00008",
+            "page": 2,
+            "role": "BODY",
+            "text": "持股数量",
+            "text_raw": "持股数量",
+            "region": [
+              90.25,
+              292.59,
+              199.0,
+              316.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00009",
+            "page": 2,
+            "role": "BODY",
+            "text": "36,103,002股",
+            "text_raw": "36,103,002股",
+            "region": [
+              199.0,
+              292.59,
+              505.05,
+              316.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00010",
+            "page": 2,
+            "role": "BODY",
+            "text": "持股比例",
+            "text_raw": "持股比例",
+            "region": [
+              90.25,
+              316.49,
+              199.0,
+              340.39
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00011",
             "page": 2,
             "role": "BODY",
             "text": "6.9834%",
@@ -1940,20 +2196,20 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00008",
+            "block_id": "d878ebffb_p002_b00012",
             "page": 2,
             "role": "BODY",
-            "text": "持股比例",
-            "text_raw": "持股比例",
+            "text": "当前持股股份来源",
+            "text_raw": "当前持股股份来源",
             "region": [
-              95.64,
-              322.49,
-              143.64,
-              334.49
+              90.25,
+              340.39,
+              199.0,
+              411.09
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00009",
+            "block_id": "d878ebffb_p002_b00013",
             "page": 2,
             "role": "BODY",
             "text": "IPO前取得：27,771,540股其他方式取得：8,331,462股（通过2025年度权益分派资本公积金转增股本取得）",
@@ -1966,20 +2222,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00010",
-            "page": 2,
-            "role": "BODY",
-            "text": "当前持股股份来源",
-            "text_raw": "当前持股股份来源",
-            "region": [
-              95.64,
-              369.77,
-              191.64,
-              381.77
-            ]
-          },
-          {
-            "block_id": "d878ebffb_p002_b00011",
+            "block_id": "d878ebffb_p002_b00014",
             "page": 2,
             "role": "BODY",
             "text": "注：国寿成达于2026年7月22日至2026年7月27日期间，通过集中竞价及大宗交易方式合计减持公司股份10,253,849股，本次权益变动后国寿成达持有公司股份的比例降至5%以下，不再是公司持股5%以上股东，具体情况详见公司分别于2026年7月25日、2026年7月29日在上海证券交易所网站披露的《关于持股5%以上股东权益变动触及1%刻度的提示性公告》（2026-033）《关于持股5%以上股东权益变动触及1%及5%整数倍暨披露简式权益变动报告书的提示性公告》（2026-034）、《简式权益变动报告书（国寿成达）》。",
@@ -1992,7 +2235,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00012",
+            "block_id": "d878ebffb_p002_b00015",
             "page": 2,
             "role": "BODY",
             "text": "上述减持主体无一致行动人。二、减持计划的实施结果（一）大股东因以下事项披露减持计划实施结果：减持计划实施完毕",
@@ -2005,7 +2248,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00013",
+            "block_id": "d878ebffb_p002_b00016",
             "page": 2,
             "role": "BODY",
             "text": "股东名称",
@@ -2018,7 +2261,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00014",
+            "block_id": "d878ebffb_p002_b00017",
             "page": 2,
             "role": "BODY",
             "text": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
@@ -2031,7 +2274,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00015",
+            "block_id": "d878ebffb_p002_b00018",
             "page": 2,
             "role": "BODY",
             "text": "减持计划首次披露日期",
@@ -2044,7 +2287,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00016",
+            "block_id": "d878ebffb_p002_b00019",
             "page": 2,
             "role": "BODY",
             "text": "2026年6月30日",
@@ -2057,7 +2300,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00017",
+            "block_id": "d878ebffb_p002_b00020",
             "page": 2,
             "role": "BODY",
             "text": "减持数量",
@@ -2070,7 +2313,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00018",
+            "block_id": "d878ebffb_p002_b00021",
             "page": 2,
             "role": "BODY",
             "text": "15,509,550股",
@@ -2083,7 +2326,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00019",
+            "block_id": "d878ebffb_p002_b00022",
             "page": 2,
             "role": "BODY",
             "text": "减持期间",
@@ -2096,7 +2339,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00020",
+            "block_id": "d878ebffb_p002_b00023",
             "page": 2,
             "role": "BODY",
             "text": "2026年7月22日～2026年9月23日",
@@ -2109,7 +2352,7 @@
             ]
           },
           {
-            "block_id": "d878ebffb_p002_b00021",
+            "block_id": "d878ebffb_p002_b00024",
             "page": 2,
             "role": "FOOTER",
             "text": "2",
@@ -2485,7 +2728,6 @@
       "page 4: form=MIXED，D1 仅实现文本层，该页未产出块（需 OCR 通道）"
     ],
     "warnings": [
-      "page 2: 表格内有 5 组字符未能归入检出单元格，已按行兜底（source_type=table，degraded=true），文本可能乱序",
       "page 4 为 MIXED，无出处产出"
     ]
   }

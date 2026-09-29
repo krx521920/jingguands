@@ -29,6 +29,7 @@ pdfplumber 的 `table.rows[].bbox` 在有纵向合并单元格时会互相重叠
 """
 from __future__ import annotations
 
+import re
 from typing import Dict, List, Optional, Tuple
 
 from . import evidence as ev
@@ -88,6 +89,30 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
                 return values.index(key)
             return min(range(len(values)), key=lambda i: abs(values[i] - key))
 
+        # 非重叠的行带 / 列带：相异边界之间即一行/一列。
+        # 行带还兼作"落在表格内但不在任何单元格里"的字符兜底分组用
+        #（多行表头常有文字落在绘制出的单元格矩形之外）。
+        row_bands = []
+        for i, top in enumerate(row_tops):
+            bottom = row_tops[i + 1] if i + 1 < len(row_tops) else t.bbox[3]
+            row_bands.append((round(top, 2), round(bottom, 2)))
+        col_bands = []
+        for i, left in enumerate(col_lefts):
+            right = col_lefts[i + 1] if i + 1 < len(col_lefts) else t.bbox[2]
+            col_bands.append((round(left, 2), round(right, 2)))
+
+        def _span(bands, lo: float, hi: float) -> int:
+            """单元格的 [lo,hi] 覆盖了几个网格带 —— 即 colspan/rowspan。
+
+            没有这一项就拼不出多行表头：实测 pledge-001 p1 表2 的「已质押股份情况」
+            是一个跨 2 列的合并单元格，不知道跨度就无法把它归给下面两个子列。
+            """
+            n = 0
+            for b0, b1 in bands:
+                if min(hi, b1) - max(lo, b0) > 0.5:
+                    n += 1
+            return max(1, n)
+
         table_id = ev.make_table_id(doc_id, page_no, seq)
         cell_boxes = []
         for i, (cx0, cy0, cx1, cy1) in enumerate(cells_raw):
@@ -99,24 +124,21 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
                     "box": (cx0, cy0, cx1, cy1),
                     "row": r,
                     "col": c,
-                    # cell_id：物理单元格序号，表内唯一，**这是分组与引用该用的键**。
-                    # 不能用 (row,col) 当键：合并单元格会让不同物理单元格推出相同的
-                    # (row,col)，按它分组合并后取到的 box 装不下全部字符，会静默丢字
-                    # （实测 pledge-001 第 1 页丢了 193 个字符）。
-                    "cell_id": f"c{i + 1:03d}",
+                    "rowspan": _span(row_bands, cy0, cy1),
+                    "colspan": _span(col_bands, cx0, cx1),
+                    # cell_id：**全文档唯一**的单元格键，分组与回溯都用它。
+                    # 必须带 table_id 前缀：两张表各自从 c001 编号会撞车 —— 实测
+                    # pledge-001 p1 的 t002 覆盖了 t001 的 c001–c035，导致 t001 第 1–8 列
+                    # 的字符全部认领失败、掉进兜底块（D2 那个 94/95 的根因）。
+                    # 也不能用 (row,col) 当键：合并单元格会让不同物理单元格推出相同的
+                    # (row,col)，按它分组会把装不下全部字符的 box 取来，静默丢字。
+                    "cell_id": f"{table_id}_c{i + 1:03d}",
                     # cell_ref：人类可读的网格位置（1 基），对齐魏文宇契约的
                     # provenance.cell_ref —— run_extract.mjs 读 block.table_ref.cell_ref，
                     # 少这个字段他的链路会把表格出处静默丢成 null。
                     "cell_ref": f"r{r + 1}c{c + 1}",
                 }
             )
-
-        # 非重叠的行带：相异上边界之间即一行。给"落在表格内但不在任何单元格里"的
-        # 字符兜底分组用 —— 多行表头常有文字落在绘制出的单元格矩形之外。
-        row_bands = []
-        for i, top in enumerate(row_tops):
-            bottom = row_tops[i + 1] if i + 1 < len(row_tops) else t.bbox[3]
-            row_bands.append((round(top, 2), round(bottom, 2)))
 
         tables.append(
             {
@@ -146,3 +168,77 @@ def assign_owner(cell_boxes: List[Dict], char) -> Optional[str]:
         if x0 <= cx <= x1 and y0 <= cy <= y1:
             return cell["cell_id"]
     return None
+
+
+# ---------------------------------------------------------------- 多层表头
+# 值型内容：数字、百分比、金额。用来区分"表头行"和"数据行"。
+_VALUE_RE = re.compile(r"^[¥￥$]?\s*-?[\d,]+(?:\.\d+)?\s*(?:%|股|元|万元|亿元|个|次)?$")
+
+# 表头最多占前几行。中文公告里见过 2 行；给到 3 是留余量。
+MAX_HEADER_ROWS = 3
+
+
+def _is_value_like(text: str) -> bool:
+    t = (text or "").strip()
+    return bool(t) and bool(_VALUE_RE.match(t))
+
+
+def detect_header_rows(grid_texts: Dict, n_rows: int, n_cols: int) -> int:
+    """判断表头占前几行，返回行数（0 = 不认为有表头）。
+
+    规则：从第一行往下，只要该行的"值型单元格"不超过 1 个就算表头行，遇到第一个
+    数据行即停；上限 MAX_HEADER_ROWS 行。
+
+    列数 < 3 时直接返回 0：那种窄表多半是"字段名: 值"的竖排键值表
+    （实测 equity_change p2 表1 就是「股东名称 / 国寿成达…」这种），
+    按网格表头处理会把每一行都误当表头。
+    """
+    if n_cols < 3:
+        return 0
+    n = 0
+    for r in range(min(MAX_HEADER_ROWS, n_rows)):
+        vals = sum(1 for c in range(n_cols) if _is_value_like(grid_texts.get((r, c))))
+        if vals > 1:
+            break
+        n += 1
+    if n >= n_rows:
+        # 整张表都是"表头" → 说明没有数据行，宁可不判
+        return 0
+    return n
+
+
+def build_header_paths(
+    cells: List[Dict], grid_texts: Dict, n_header: int
+) -> Dict[str, Optional[str]]:
+    """给每个单元格算出完整列名（多层表头逐级拼起来）。
+
+    合并单元格按 rowspan/colspan 铺到它覆盖的每个网格位上，这样子列才能取到
+    祖父级表头 —— 实测 pledge-001 p1 表2 的「已质押股份情况」跨 2 列，
+    其下两个子列各自应得到「已质押股份情况/已质押股份限售和冻结、标记数」与
+    「已质押股份情况/占已质押股份比例（%）」。
+
+    没有这一项，抽取层只能拿到「占已质押股份比例（%）」这种失去归属的列名，
+    分不清它说的是"已质押"还是"未质押"那一组。
+    """
+    if n_header <= 0:
+        return {c["cell_id"]: None for c in cells}
+
+    grid: Dict[tuple, Dict] = {}
+    for c in cells:
+        for dr in range(c.get("rowspan") or 1):
+            for dc in range(c.get("colspan") or 1):
+                grid.setdefault((c["row"] + dr, c["col"] + dc), c)
+
+    out: Dict[str, Optional[str]] = {}
+    for c in cells:
+        parts: List[str] = []
+        for r in range(n_header):
+            hc = grid.get((r, c["col"]))
+            if hc is None:
+                continue
+            t = (grid_texts.get((hc["row"], hc["col"])) or "").strip()
+            if t and t not in parts:
+                parts.append(t)
+        out[c["cell_id"]] = "/".join(parts) if parts else None
+    return out
+

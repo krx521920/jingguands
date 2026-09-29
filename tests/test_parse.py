@@ -325,9 +325,9 @@ def test_输出严格符合JSON_Schema(parsed):
     import json as _json
     import os as _os
 
-    sp = _os.path.join(ROOT, "schemas", "evidence.v0.4.json")
+    sp = _os.path.join(ROOT, "schemas", "evidence.v0.5.json")
     if not _os.path.exists(sp):
-        pytest.skip("找不到 schemas/evidence.v0.4.json")
+        pytest.skip("找不到 schemas/evidence.v0.5.json")
     schema = _json.load(open(sp, encoding="utf-8"))
     errs = sorted(
         jsonschema.Draft202012Validator(schema).iter_errors(parsed),
@@ -445,7 +445,7 @@ def test_真实公告_严格符合schema(name):
     import json as _json
 
     d = _parse_real(name)
-    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.4.json"), encoding="utf-8"))
+    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.5.json"), encoding="utf-8"))
     errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(d), key=lambda e: list(e.path))
     assert not errs, [f"/{'/'.join(map(str,e.path))}: {e.message}" for e in errs[:5]]
 
@@ -532,3 +532,69 @@ def test_表格单元格的cell_ref可用且唯一():
             seen_per_table[key] = b["block_id"]
             # row/col 与 cell_ref 必须自洽（cell_ref 是 1 基）
             assert ref["cell_ref"] == f"r{ref['row'] + 1}c{ref['col'] + 1}"
+
+
+# ------------------------------------------------------------ D3：质押表多层表头
+def test_多层表头拼出完整列名():
+    """质押表的多行表头必须逐级拼成完整列名。
+
+    pledge-001 p1 表2 的 r1 里，「已质押股份情况」是一个跨 2 列的合并单元格，
+    r2 才是它的两个子列。抽取层如果只拿到子列名，就分不清「占已质押股份比例（%）」
+    与「占未质押股份比例（%）」分别属于哪一组。
+    """
+    d = _parse_real("pledge-001")
+    paths = set()
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            if b["source_type"] == "cell":
+                hp = b["table_ref"].get("header_path")
+                if hp:
+                    paths.add(hp)
+
+    assert any(p.startswith("已质押股份情况/") for p in paths), paths
+    assert any(p.startswith("未质押股份情况/") for p in paths), paths
+    # 叶子名必须真的挂在上级后面，而不是只有叶子名
+    assert not any(p == "占已质押股份比例（%）" for p in paths), "子列名没有带上上级前缀"
+
+
+def test_合并单元格的跨度被算出():
+    """「已质押股份情况」必须标成 colspan=2，否则拼不出子列的归属。"""
+    d = _parse_real("pledge-001")
+    spans = [
+        b["table_ref"].get("colspan")
+        for pg in d["pages"]
+        for b in pg["blocks"]
+        if b["source_type"] == "cell" and b["text"].strip() == "已质押股份情况"
+    ]
+    assert spans, "没找到「已质押股份情况」这个合并表头单元格"
+    assert max(spans) == 2, f"应跨 2 列，实际 {spans}"
+
+
+def test_cell_id全文档唯一():
+    """cell_id 撞车曾让整块表头掉进乱序兜底块。
+
+    pledge-001 p1 有两张表，各自从 c001 编号：t002 覆盖了 t001 的 c001–c035，
+    导致 t001 第 1–8 列的字符全部认领失败。现要求 cell_id 带 table_id 前缀、全文档唯一。
+    """
+    d = _parse_real("pledge-001")
+    seen = {}
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            if b["source_type"] != "cell":
+                continue
+            cid = b["table_ref"]["cell_id"]
+            assert cid not in seen, f"cell_id 撞车：{cid}（{seen[cid]} 与 {b['block_id']}）"
+            seen[cid] = b["block_id"]
+    # 同一页多张表时最容易暴露，单独确认一下确实有多表
+    p1_tables = {b["table_ref"]["table_id"] for b in d["pages"][0]["blocks"] if b["source_type"] == "cell"}
+    assert len(p1_tables) >= 2, f"p1 应有多张表，实际 {p1_tables}"
+
+
+def test_表格内字符全部归属单元格不再掉进兜底块():
+    """cell_id 撞车的症状是表内字符掉进 source_type=table 的乱序兜底块。
+
+    修好后 pledge-001 三张表应全部落到单元格里，兜底块为 0。
+    """
+    d = _parse_real("pledge-001")
+    fb = [b for pg in d["pages"] for b in pg["blocks"] if b["source_type"] == "table"]
+    assert not fb, f"仍有 {len(fb)} 个兜底块，首个：{fb[0]['text'][:40]!r}"

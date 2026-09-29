@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.4",
+  "schema_version": "evidence/0.5",
   "doc": {
     "doc_id": "d0be9f419",
     "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
@@ -7,10 +7,10 @@
     "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
     "file_size": 96076,
     "page_count": 4,
-    "parsed_at": "2026-09-29T08:50:19+08:00",
+    "parsed_at": "2026-09-29T08:53:23+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.4.0"
+      "version": "0.5.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -618,10 +618,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c001",
+            "cell_id": "d0be9f419_p002_t001_c001",
             "cell_ref": "r1c1",
             "row": 0,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同签订日期/2025年5月/2025年7月"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -646,10 +649,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c005",
+            "cell_id": "d0be9f419_p002_t001_c005",
             "cell_ref": "r1c2",
             "row": 0,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -674,10 +680,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c009",
+            "cell_id": "d0be9f419_p002_t001_c009",
             "cell_ref": "r1c3",
             "row": 0,
-            "col": 2
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -702,10 +711,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c013",
+            "cell_id": "d0be9f419_p002_t001_c013",
             "cell_ref": "r1c4",
             "row": 0,
-            "col": 3
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同价款（万元）/5,688.06/1,645.04"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -730,10 +742,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c002",
+            "cell_id": "d0be9f419_p002_t001_c002",
             "cell_ref": "r2c1",
             "row": 1,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同签订日期/2025年5月/2025年7月"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -758,10 +773,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c006",
+            "cell_id": "d0be9f419_p002_t001_c006",
             "cell_ref": "r2c2",
             "row": 1,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -786,10 +804,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c010",
+            "cell_id": "d0be9f419_p002_t001_c010",
             "cell_ref": "r2c3",
             "row": 1,
-            "col": 2
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -814,10 +835,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c014",
+            "cell_id": "d0be9f419_p002_t001_c014",
             "cell_ref": "r2c4",
             "row": 1,
-            "col": 3
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同价款（万元）/5,688.06/1,645.04"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -842,10 +866,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c003",
+            "cell_id": "d0be9f419_p002_t001_c003",
             "cell_ref": "r3c1",
             "row": 2,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同签订日期/2025年5月/2025年7月"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -870,10 +897,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c007",
+            "cell_id": "d0be9f419_p002_t001_c007",
             "cell_ref": "r3c2",
             "row": 2,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -898,10 +928,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c011",
+            "cell_id": "d0be9f419_p002_t001_c011",
             "cell_ref": "r3c3",
             "row": 2,
-            "col": 2
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -926,10 +959,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c015",
+            "cell_id": "d0be9f419_p002_t001_c015",
             "cell_ref": "r3c4",
             "row": 2,
-            "col": 3
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同价款（万元）/5,688.06/1,645.04"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -954,10 +990,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c004",
+            "cell_id": "d0be9f419_p002_t001_c004",
             "cell_ref": "r4c1",
             "row": 3,
-            "col": 0
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同签订日期/2025年5月/2025年7月"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -982,10 +1021,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c008",
+            "cell_id": "d0be9f419_p002_t001_c008",
             "cell_ref": "r4c2",
             "row": 3,
-            "col": 1
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1010,10 +1052,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c012",
+            "cell_id": "d0be9f419_p002_t001_c012",
             "cell_ref": "r4c3",
             "row": 3,
-            "col": 2
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1038,10 +1083,13 @@
           ],
           "table_ref": {
             "table_id": "d0be9f419_p002_t001",
-            "cell_id": "c016",
+            "cell_id": "d0be9f419_p002_t001_c016",
             "cell_ref": "r4c4",
             "row": 3,
-            "col": 3
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": "合同价款（万元）/5,688.06/1,645.04"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -1967,7 +2015,7 @@
       "file_name": "award.pdf",
       "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.4.0",
+        "parser_version": "finstruct.parse/0.5.0",
         "page_count": 4,
         "blocks": [
           {

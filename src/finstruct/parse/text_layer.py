@@ -299,11 +299,28 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
                 cell_owner[idx] = cid
                 break
 
-    # ---- 2) 单元格块
     grouped: Dict[str, list] = {}
     for idx, cid in cell_owner.items():
         grouped.setdefault(cid, []).append(chars[idx])
 
+    # ---- 1b) 单元格文本 + 多层表头
+    # 文本要对**所有**单元格算（含空的）：表头识别与 header_path 拼接都要读表头
+    # 单元格的文字，而表头单元格不一定会产出块。
+    cell_texts: Dict[str, str] = {}
+    for cid in cell_index:
+        cs = grouped.get(cid) or []
+        cell_texts[cid] = join_block_text(cluster_lines(cs)) if cs else ""
+
+    table_headers: Dict[str, Dict[str, Optional[str]]] = {}
+    for tb in tables:
+        tid = tb["table_id"]
+        cells_t = tb["_cells"]
+        grid_texts = {(c["row"], c["col"]): cell_texts.get(c["cell_id"], "") for c in cells_t}
+        n_header = td.detect_header_rows(grid_texts, tb.get("n_rows") or 0, tb.get("n_cols") or 0)
+        tb["header_rows"] = n_header
+        table_headers[tid] = td.build_header_paths(cells_t, grid_texts, n_header)
+
+    # ---- 2) 单元格块
     blocks: List[Dict] = []
     for cid, cs in grouped.items():
         cell = cell_index[cid]
@@ -326,6 +343,11 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
                         "cell_ref": cell["cell_ref"],
                         "row": cell["row"],
                         "col": cell["col"],
+                        "rowspan": cell.get("rowspan"),
+                        "colspan": cell.get("colspan"),
+                        # 多层表头拼出的完整列名。抽取层靠它区分同名子列
+                        #（「已质押」与「未质押」两组下都有「占…比例（%）」）
+                        "header_path": table_headers.get(cell["table_id"], {}).get(cid),
                     },
                     role=ev.ROLE_BODY,
                 ),
