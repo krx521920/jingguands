@@ -201,6 +201,7 @@
     "jingguan:test-normalize": "node scripts/jingguan/test_normalization.mjs",
     "jingguan:test-contract": "node scripts/jingguan/test_contract_sync.mjs",
     "jingguan:test-checks": "node scripts/jingguan/test_checks.mjs",
+    "jingguan:check-gold": "node scripts/jingguan/check_gold.mjs",
     "demo:ptc": "node scripts/demo-ptc.mjs",
     "demo:inspector": "node --import tsx/esm apps/cli/src/bin.ts web --patch ./packages/experimental/inspector/cordis.source.patch.yml",
     "mock:llm": "node --import tsx packages/test-support/llm-mock-server/src/bin.ts",

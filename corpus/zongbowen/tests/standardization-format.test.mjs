@@ -1,6 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-const root = path.resolve('work/repo-jingguands/evaluation/D2');
+// 本地副本注记（魏文宇，D3 审计）：来源 zongbowen@7e6d0e7，原脚本 root 写死其本机布局
+// work/repo-jingguands/evaluation/D2。此处改为候选目录自动探测，测试逻辑未动。
+const root = [path.resolve('work/repo-jingguands/evaluation/D2'), path.resolve('corpus/zongbowen')]
+  .find((d) => fs.existsSync(path.join(d, 'dev/manifest.json'))) ?? path.resolve('work/repo-jingguands/evaluation/D2');
 const tests = [];
 const test = (name, fn) => tests.push({ name, fn });
 const assert = (condition, message) => { if (!condition) throw new Error(message); };

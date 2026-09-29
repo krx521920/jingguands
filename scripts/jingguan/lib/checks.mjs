@@ -45,3 +45,18 @@ export function checkPageBounds(envelope, pageDims) {
   })
   return issues
 }
+
+/** Gold 字段支撑性：quote 命中原文、值以原文形态出现、ISO 日期对应中文日期、
+ * 或属于标准化形态（币种/布尔/英文枚举/纯数值——原文通常以其中文/万进制形态出现），
+ * 四者其一即视为可支撑。仅剔除"值本身在原文无据"的项。 */
+export function goldFieldSupported(fv, text) {
+  if (typeof text !== 'string' || text.length === 0) return true // 无原文时不判，保守放行
+  const quote = fv.provenance?.[0]?.quote ?? ''
+  if (quote.length > 0 && text.includes(quote)) return true
+  if (fv.value !== null && text.includes(String(fv.value))) return true
+  const iso = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(fv.value))
+  if (iso !== null && text.includes(`${Number(iso[1])}年${Number(iso[2])}月${Number(iso[3])}日`)) return true
+  if (/^(CNY|true|false|increase|decrease)$/.test(String(fv.value))) return true
+  if (typeof fv.value === 'number') return true // 数值标准化（万进制/去千分位）后的形态
+  return false
+}

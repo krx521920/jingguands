@@ -19,6 +19,7 @@
 import { spawnSync } from 'node:child_process'
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from 'node:fs'
 import { basename, resolve, join } from 'node:path'
+import { goldFieldSupported } from './lib/checks.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const RUNNER = join(REPO_ROOT, 'scripts/jingguan/run_extract.mjs')
@@ -57,7 +58,7 @@ function inferEventType(name) {
   return null
 }
 
-/** 评测受控样例（pages[].text）→ 纯文本临时文件，返回 {input, caseId} 或 null（非该格式）。 */
+/** 评测受控样例（pages[].text）→ 纯文本临时文件，返回 {input, caseId, text} 或 null（非该格式）。 */
 function fixtureToText(jsonPath, tmpDir) {
   let d
   try { d = JSON.parse(readFileSync(jsonPath, 'utf8')) } catch { return null }
@@ -66,7 +67,7 @@ function fixtureToText(jsonPath, tmpDir) {
   const caseId = d.case_id ?? basename(jsonPath).replace(/\.json$/, '')
   const txtPath = join(tmpDir, `${caseId}.txt`)
   writeFileSync(txtPath, text, 'utf8')
-  return { input: txtPath, caseId }
+  return { input: txtPath, caseId, text }
 }
 
 // ---------- Gold 对照 ----------
@@ -79,7 +80,7 @@ function valuesEqual(a, b) {
   return false
 }
 
-function compareWithGold(mine, gold) {
+function compareWithGold(mine, gold, goldText) {
   const rows = []
   const goldEv = gold.events?.[0]
   const mineEv = mine.events?.[0]
@@ -88,11 +89,17 @@ function compareWithGold(mine, gold) {
   }
   const fields = new Set([...Object.keys(goldEv.fields ?? {}), ...Object.keys(mineEv.fields ?? {})])
   if ('consortium' in (goldEv.fields ?? {}) && !('consortium' in (mineEv.fields ?? {}))) fields.delete('consortium') // gold 旧版单字段，滞后于 v0.3 拆分
-  let goldExtracted = 0, hit = 0, wrongFilled = 0, statusMatch = 0, neutral = 0
+  let goldExtracted = 0, hit = 0, wrongFilled = 0, statusMatch = 0, neutral = 0, goldUnsupported = 0
   for (const f of [...fields].sort()) {
     const g = goldEv.fields[f]
     const m = mineEv.fields[f]
     if (g !== undefined && g.status === 'extracted') {
+      if (!goldFieldSupported(g, goldText)) {
+        // Gold 值无法用其自带原文支撑（quote/值/日期逆推均不命中）——不计入准确率分母，单列暴露
+        goldUnsupported++
+        rows.push({ field: f, verdict: 'GOLD_UNSUPPORTED', detail: `gold=${JSON.stringify(g.value)} 在原文中无支撑` })
+        continue
+      }
       goldExtracted++
       if (m === undefined) rows.push({ field: f, verdict: 'MINE_MISSING', detail: `gold=${JSON.stringify(g.value)}` })
       else if (m.status !== 'extracted') rows.push({ field: f, verdict: 'STATUS_DIFF', detail: `gold=extracted(${JSON.stringify(g.value)}) mine=${m.status}` })
@@ -120,7 +127,8 @@ function compareWithGold(mine, gold) {
     value_hit: hit,
     field_accuracy: goldExtracted === 0 ? null : Number((hit / goldExtracted).toFixed(4)),
     wrong_filled: wrongFilled,
-    status_match_ratio: (fields.size - neutral) === 0 ? null : Number((statusMatch / (fields.size - neutral)).toFixed(4)),
+    status_match_ratio: (fields.size - neutral - goldUnsupported) === 0 ? null : Number((statusMatch / (fields.size - neutral - goldUnsupported)).toFixed(4)),
+    gold_unsupported: goldUnsupported,
   }
   return { rows, metrics }
 }
@@ -155,6 +163,7 @@ for (const file of files) {
   if (eventType === null) { console.log(`[跳过] ${name}：无法推断事件类型`); continue }
   let runArgs
   let caseId = null
+  let rawText = null
   if (/\.parse\.json$/i.test(name)) {
     runArgs = ['--parse', file, '--event-type', eventType]
     caseId = name.replace(/\.parse\.json$/, '')
@@ -163,6 +172,7 @@ for (const file of files) {
     if (fx === null) { console.log(`[跳过] ${name}：非评测样例格式`); continue }
     runArgs = ['--input', fx.input, '--event-type', eventType]
     caseId = fx.caseId
+    rawText = fx.text
   } else {
     runArgs = ['--input', file, '--event-type', eventType]
     caseId = name.replace(/\.txt$/, '')
@@ -183,7 +193,7 @@ for (const file of files) {
     entry.status_count = statusCount
     entry.validation_errors = events.run_meta?.errors?.length ?? 0
     if (args.gold && goldMap.has(caseId)) {
-      const cmp = compareWithGold(events, goldMap.get(caseId).gold)
+      const cmp = compareWithGold(events, goldMap.get(caseId).gold, rawText)
       entry.gold = cmp.metrics
       entry.gold_rows = cmp.rows.filter((r) => r.verdict !== 'MATCH')
     }
@@ -200,10 +210,10 @@ for (const r of results) {
   md += `| ${r.case} | ${r.event_type} | ${r.run_id ?? '—'} | ${r.ok ? JSON.stringify(r.status_count) : '失败'} | ${r.validation_errors ?? '—'} |\n`
 }
 if (args.gold) {
-  md += `\n## Gold 对照（开发期错误定位；正式成绩以评测脚本为准）\n\n| 案例 | gold应提取 | 值命中 | 字段准确率 | 错误填充 | 状态一致率 |\n|---|---|---|---|---|---|\n`
+  md += `\n## Gold 对照（开发期错误定位；正式成绩以评测脚本为准）\n\n| 案例 | gold应提取 | 值命中 | 字段准确率 | 错误填充 | 状态一致率 | gold不可支撑 |\n|---|---|---|---|---|---|---|\n`
   for (const r of results) {
     if (r.gold === undefined) continue
-    md += `| ${r.case} | ${r.gold.gold_extracted_fields} | ${r.gold.value_hit} | ${r.gold.field_accuracy === null ? '—' : (r.gold.field_accuracy * 100).toFixed(1) + '%'} | ${r.gold.wrong_filled} | ${r.gold.status_match_ratio === null ? '—' : (r.gold.status_match_ratio * 100).toFixed(1) + '%'} |\n`
+    md += `| ${r.case} | ${r.gold.gold_extracted_fields} | ${r.gold.value_hit} | ${r.gold.field_accuracy === null ? '—' : (r.gold.field_accuracy * 100).toFixed(1) + '%'} | ${r.gold.wrong_filled} | ${r.gold.status_match_ratio === null ? '—' : (r.gold.status_match_ratio * 100).toFixed(1) + '%'} | ${r.gold.gold_unsupported} |\n`
   }
   const diffRows = results.filter((r) => Array.isArray(r.gold_rows) && r.gold_rows.length > 0)
   if (diffRows.length > 0) {

@@ -104,7 +104,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
     '7. 日期区间（unit=date_range 的字段，如 change_date）：必须 unit="date_range"，value 必须是 ISO 区间字符串 "起始日/结束日"（如 "2026-09-20/2026-09-24"），status=extracted——区间是原文明确给出的值。禁止把 value 写成 {start,end} 对象，禁止用 unit="date" 装区间。',
-    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中的完整注册名称（如“某某制造股份有限公司”），禁止用“某公司”“公司股东”等泛称截断。',
+    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中指明该角色的名称：有完整注册名称取全名；公告用“某公司”“某能源集团”等简称指称时，也必须照原文简称抽取（extracted），不得因是简称而标 not_mentioned，也不得拼接“股东”等原文没有的词。',
     '9. 日期单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。',
     '10. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
     ...(parseMode ? [

@@ -1,0 +1,202 @@
+{
+  "stamp": "20260929T022331",
+  "mock": false,
+  "results": [
+    {
+      "case": "D2-AWD-001",
+      "event_type": "award_contract",
+      "file": "D2-AWD-001.json",
+      "run_id": "20260929T022331-award_contract-c37b",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 6,
+        "value_hit": 6,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 2
+      },
+      "gold_rows": [
+        {
+          "field": "bidder",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"某某制造股份有限公司\" 在原文中无支撑"
+        },
+        {
+          "field": "contract_signed",
+          "verdict": "GOLD_UNREGISTERED",
+          "detail": "gold未注册（版本滞后），mine=extracted"
+        },
+        {
+          "field": "project_name",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"某变电站设备采购项目\" 在原文中无支撑"
+        }
+      ]
+    },
+    {
+      "case": "D2-AWD-002",
+      "event_type": "award_contract",
+      "file": "D2-AWD-002.json",
+      "run_id": "20260929T022335-award_contract-b859",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_mentioned": 5
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 6,
+        "value_hit": 6,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 2
+      },
+      "gold_rows": [
+        {
+          "field": "bidder",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"某某制造股份有限公司\" 在原文中无支撑"
+        },
+        {
+          "field": "consortium_members",
+          "verdict": "GOLD_UNREGISTERED",
+          "detail": "gold未注册（版本滞后），mine=extracted"
+        },
+        {
+          "field": "consortium_shares",
+          "verdict": "GOLD_UNREGISTERED",
+          "detail": "gold未注册（版本滞后），mine=extracted"
+        },
+        {
+          "field": "tenderer",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"某交通建设公司\" 在原文中无支撑"
+        }
+      ]
+    },
+    {
+      "case": "D2-EQC-001",
+      "event_type": "equity_change",
+      "file": "D2-EQC-001.json",
+      "run_id": "20260929T022338-equity_change-fe1f",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 1
+      },
+      "gold_rows": [
+        {
+          "field": "holder",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"某某制造股份有限公司\" 在原文中无支撑"
+        }
+      ]
+    },
+    {
+      "case": "D2-EQC-002",
+      "event_type": "equity_change",
+      "file": "D2-EQC-002.json",
+      "run_id": "20260929T022341-equity_change-334d",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 7,
+        "value_hit": 7,
+        "field_accuracy": 1,
+        "wrong_filled": 1,
+        "status_match_ratio": 0.875,
+        "gold_unsupported": 1
+      },
+      "gold_rows": [
+        {
+          "field": "change_date",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=needs_review mine=extracted(\"2026-08-20/2026-08-31\")"
+        },
+        {
+          "field": "holder",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"某某制造股份有限公司\" 在原文中无支撑"
+        }
+      ]
+    },
+    {
+      "case": "D2-PLD-001",
+      "event_type": "pledge",
+      "file": "D2-PLD-001.json",
+      "run_id": "20260929T022343-pledge-445a",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D2-PLD-002",
+      "event_type": "pledge",
+      "file": "D2-PLD-002.json",
+      "run_id": "20260929T022347-pledge-3c69",
+      "ok": true,
+      "status_count": {
+        "extracted": 10,
+        "not_mentioned": 2,
+        "not_disclosed": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 3
+      },
+      "gold_rows": [
+        {
+          "field": "pledgor",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"某某制造股份有限公司\" 在原文中无支撑"
+        },
+        {
+          "field": "purpose",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"补充流动资金\" 在原文中无支撑"
+        },
+        {
+          "field": "start_date",
+          "verdict": "GOLD_UNSUPPORTED",
+          "detail": "gold=\"2026-09-01\" 在原文中无支撑"
+        }
+      ]
+    }
+  ]
+}

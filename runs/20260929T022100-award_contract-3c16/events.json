@@ -1,0 +1,253 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20260929T022100-award_contract-3c16",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:35fd945d4a86356d",
+    "file_name": "D2-AWD-001.txt",
+    "file_sha256": "35fd945d4a86356d731815ffabbbb6ea48ba4fb6001499344f0a4b602ab3b517",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "某公司",
+          "value": "某公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某公司与某能源集团签订设备项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "某能源集团",
+          "value": "某能源集团",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某公司与某能源集团签订设备项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "设备项目",
+          "value": "设备项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某公司与某能源集团签订设备项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "2.4亿元",
+          "value": 240000000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额2.4亿元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "元",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额2.4亿元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": "含税",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "含税"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "180个日历天",
+          "value": "180个日历天",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "工期180个日历天"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": "2026年9月12日",
+          "value": "2026-09-12",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标日期2026年9月12日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "签订设备项目",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某公司与某能源集团签订设备项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-09-29T02:21:00.497Z",
+    "duration_ms": 3215,
+    "errors": []
+  }
+}
