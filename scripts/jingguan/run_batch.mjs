@@ -83,12 +83,14 @@ function valuesEqual(a, b) {
   return false
 }
 
-/** 事件自然键：质押=质押人×质权人；股权=holder；中标=bidder×tenderer。 */
+/** 事件自然键：质押=质押人×质权人×direction（v0.4 三元组，修同组合先押后解碰撞；
+ * direction 缺省视为 pledge——兼容宗 D3 gold 与旧输出）；股权=holder；中标=bidder×tenderer。 */
 function eventKey(ev) {
   const f = ev.fields ?? {}
   const a = f.pledgor?.value ?? f.holder?.value ?? f.bidder?.value ?? '?'
   const b = f.pledgee?.value ?? f.tenderer?.value ?? ''
-  return `${String(a)}|${String(b)}`
+  const d = f.direction?.value ?? 'pledge'
+  return `${String(a)}|${String(b)}|${String(d)}`
 }
 
 /** 单事件字段比对：写入 rows，返回 {goldExtracted, hit, wrongFilled, statusMatch, neutral, goldUnsupported, fieldDenominator}。 */

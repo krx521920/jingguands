@@ -16,6 +16,7 @@ export const STATUSES = ['extracted', 'not_disclosed', 'not_applicable', 'not_me
  */
 export const FIELD_REGISTRY = {
   pledge: {
+    direction: { unit: 'text', label: '业务方向（pledge=质押/release=解除质押，v0.4 宗裁决；质押业务默认 pledge）' },
     pledgor: { unit: 'text', label: '质押人' },
     pledgee: { unit: 'text', label: '质权人' },
     pledged_shares_this_time: { unit: 'shares', label: '本次质押股数' },

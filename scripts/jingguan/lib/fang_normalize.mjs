@@ -85,20 +85,25 @@ const DENOMINATOR_MAP = {
   other: { kind: 'other', definition: '其他分母口径，具体见字段 note' },
 }
 
-/** 从 raw_value 文本探测她的 sourceUnit；探测不到返回 null。
- * 裸数字（表格常见，如 "7,800,000"）无万/亿标记时按基础单位处理——
+/** 从 raw_value 文本探测她的 sourceUnit；文本无万/亿标记时依次回落：
+ * 表头提示（parse 模式 header_path 含"万股"等，v0.4 万股感知）→ 基础单位。
+ * 裸数字（表格常见，如 "7,800,000"）无任何标记时按基础单位——
  * 缺 magnitude 标记本身即表明是基础单位，非猜测。 */
-function detectSourceUnit(rawText, unit) {
+function detectSourceUnit(rawText, unit, unitHint = null) {
   if (unit === 'percent') return '%' // 比例列裸数字（表格常见）按 % 处理
   if (unit === 'cny') {
     if (rawText.includes('亿元')) return '亿元'
     if (rawText.includes('万元')) return '万元'
     if (rawText.includes('元')) return '元'
+    if (unitHint !== null && /亿/.test(unitHint)) return '亿元'
+    if (unitHint !== null && /万/.test(unitHint)) return '万元'
     return '元'
   }
   if (rawText.includes('亿股')) return '亿股'
   if (rawText.includes('万股')) return '万股'
   if (rawText.includes('股')) return '股'
+  if (unitHint !== null && /亿股/.test(unitHint)) return '亿股'
+  if (unitHint !== null && /万股/.test(unitHint)) return '万股'
   return '股'
 }
 
@@ -114,7 +119,7 @@ function detectQualifier(rawText) {
  * qualifier 语义），返回 null；失败（她的规则抛错或依据不足）返回错误消息——调用方
  * 记入 run_meta.errors 并保持 standardized=false，不静默修正。
  */
-export function normalizeFieldValue(fieldName, fv) {
+export function normalizeFieldValue(fieldName, fv, unitHint = null) {
   const kind = UNIT_TO_KIND[fv.unit]
   if (kind === undefined || (fv.status !== 'extracted')) return null
   if (typeof fv.raw_value !== 'string' || fv.raw_value.trim().length === 0) {
@@ -122,7 +127,7 @@ export function normalizeFieldValue(fieldName, fv) {
   }
   const scope = fieldName.endsWith('_cumulative') ? 'cumulative'
     : fieldName.endsWith('_this_time') ? 'single' : 'unknown'
-  const sourceUnit = detectSourceUnit(fv.raw_value, fv.unit)
+  const sourceUnit = detectSourceUnit(fv.raw_value, fv.unit, unitHint)
   if (sourceUnit === null) {
     return `[标准化] ${fieldName}: 无法从原文 "${fv.raw_value}" 探测单位（${fv.unit}）`
   }

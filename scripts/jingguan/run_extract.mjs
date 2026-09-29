@@ -104,7 +104,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '硬性规则：',
     '1. 除 extracted 和 needs_review 外，其余状态 value 一律为 null——禁止把缺失填成 0。',
     '2. status="extracted" 必须至少一条出处；quote 必须是正文连续子串；表格取值时填 table_id/cell_ref（纯文本出处保持 null）。',
-    '3. 数值标准化：股→股（万股×10000）；金额→元（万元×10000，亿元×100000000）；百分比→数值（"16.67%"→16.67）；日期→"YYYY-MM-DD"。',
+    '3. 数值标准化：股→股（万股×10000）；金额→元（万元×10000，亿元×100000000）；百分比→数值（"16.67%"→16.67）；日期→"YYYY-MM-DD"。raw_value 必须原样保留原文"数值＋单位"完整形式（如"364.00万股""2.4亿元"），禁止只抄数字丢弃单位字样——丢单位会导致量级错误。',
     '4. unit 必须用固定枚举，按此映射：股数→"shares"；金额→"cny"；比例→"percent"；日期→"date"；计数→"count"；其余一切（人名/公司名/用途/方式/名称/工期原文等文本）→"text"。禁止写"股""元""%""日历天"等原文字样，禁止 null。规范值：currency 必须写 "CNY"（原文"人民币"也写 "CNY"）；tax_included/contract_signed/formal_award_notice_received 必须写字符串 "true"/"false"/"not_disclosed"（原文"含税"→"true"、"不含税"→"false"；禁止布尔值）；price_adjustment_status 用 "fixed"/"adjustable"/"not_disclosed"。注意：原文未披露时这些字段 status="not_disclosed" 且 value=null——"not_disclosed" 是状态枚举，永远不是 value 的取值。',
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
@@ -112,7 +112,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中指明该角色的名称：有完整注册名称取全名；公告用“某公司”“某能源集团”等简称指称时，也必须照原文简称抽取（extracted），不得因是简称而标 not_mentioned，也不得拼接“股东”等原文没有的词。',
     '9. 日期规则：单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。若原文给的是条件性描述而非日期（如"申请解除质押登记日""至本公告披露日"）：status=needs_review、unit 保持字段规定的日期单位、value=null、raw_value 保留原文——不要编造日期，也不要把 unit 改成 text。',
     '10. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
-    '11. 多事件：一份公告可含多个事件——质押按（质押人×质权人）组合各建一个事件，event_id 依次 E01/E02/E03…；表格中每组新的[质押数量+质权人+起始日]即为一个新事件，股东名称跨行共享时后续行沿用同一质押人；"合计"行不是事件、禁止抽取；累计质押情况（累计股数/累计占比）对每个事件相同就分别填入；其余事件类型同理按主体组合分事件。',
+    '11. 多事件：一份公告可含多个事件——质押按（质押人×质权人×业务方向）组合各建一个事件，event_id 依次 E01/E02/E03…；表格中每组新的[质押数量+质权人+起始日]即为一个新事件，股东名称跨行共享时后续行沿用同一质押人；"合计"行不是事件、禁止抽取；累计质押情况（累计股数/累计占比）对每个事件相同就分别填入；其余事件类型同理按主体组合分事件。direction 字段（v0.4）：普通质押填 "pledge"；"已解除质押/办理解除质押业务"为独立事件填 "release"——同一（质押人×质权人）先押后解时是两个事件，各带各自 direction。direction 的 quote 用原文中的短词即可（"质押"或"解除质押"），不要引长句。',
     ...(parseMode ? [
       '12. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本；表格单元格行为 [block_id|表头:列名] 值——必须按表头理解单元格含义再抽取。provenance 必须给出 quote 所在块的 block_id。',
       '13. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',
@@ -183,6 +183,7 @@ function mockModelResponse(eventType) {
       events: [{
         event_id: 'E01', event_type: 'pledge', extraction_method: 'mock', notes: 'MOCK 输出——不得计入真实抽取成绩',
         fields: {
+          direction: F('质押', 'pledge', 'text', '部分股份质押'),
           pledgor: F('张某', '张某', 'text', '股东名称：张某'),
           pledgee: F('中国示例银行股份有限公司上海分行', '中国示例银行股份有限公司上海分行', 'text', '质权人：中国示例银行股份有限公司上海分行'),
           pledged_shares_this_time: F('20,000,000股', 20000000, 'shares', '质押股数：20,000,000股'),
@@ -379,7 +380,20 @@ async function main() {
   let normalizedCount = 0
   for (const ev of events) {
     for (const [name, fv] of Object.entries(ev.fields ?? {})) {
-      const err = normalizeFieldValue(name, fv)
+      // 万股感知（v0.4）：raw_value 无单位标记时，取所属块表头的单位提示（如"本次质押数量（万股）"）
+      let unitHint = null
+      if (parseDoc !== null) {
+        const bid = fv.provenance?.[0]?.block_id
+        const blk = bid ? parseDoc.blockIndex.get(bid) : undefined
+        const hp = blk?.header_path ?? blk?.table_ref?.header_path
+        if (typeof hp === 'string') {
+          if (hp.includes('亿股')) unitHint = '亿股'
+          else if (hp.includes('万股')) unitHint = '万股'
+          else if (hp.includes('亿元')) unitHint = '亿元'
+          else if (hp.includes('万元')) unitHint = '万元'
+        }
+      }
+      const err = normalizeFieldValue(name, fv, unitHint)
       if (err !== null) postErrors.push(err)
       else if (fv.standardized === true) normalizedCount++
     }

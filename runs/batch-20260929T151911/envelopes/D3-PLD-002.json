@@ -1,0 +1,304 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20260929T151925-pledge-a72b",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:c034095572015ad3",
+    "file_name": "D3-PLD-002.txt",
+    "file_sha256": "c034095572015ad3d24a8d7267b9770657f9a0be52aa42349399f9a02b895c73",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "质押",
+          "value": "pledge",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "获悉其将所持有的公司40,000,000股无限售流通股质押给中国进出口银行甘肃省分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "兰石集团",
+          "value": "兰石集团",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "控股股东兰州兰石集团有限公司（以下简称“兰石集团”）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "中国进出口银行甘肃省分行",
+          "value": "中国进出口银行甘肃省分行",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "质押给中国进出口银行甘肃省分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "40,000,000",
+          "value": 40000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "本次质押股数（股）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "215,000,000",
+          "value": 215000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "本次质押后累计质押数量（股）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "6.64",
+          "value": 6.64,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占其所持股份比例（%）"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "3.06",
+          "value": 3.06,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占公司总股本比例（%）"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "35.71",
+          "value": 35.71,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占兰石集团持有公司股份总数的35.71%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "16.46",
+          "value": 16.46,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占公司总股本的16.46%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月24日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2028年9月23日",
+          "value": "2028-09-23",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2028年9月23日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "自身生产经营",
+          "value": "自身生产经营",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "自身生产经营"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月29日",
+          "value": "2026-09-29",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月29日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-09-29T15:19:25.244Z",
+    "duration_ms": 3920,
+    "errors": [
+      "[语义] events[0].fields.direction 出处 quote 不是原文子串：获悉其将所持有的公司40,000,000股无限售流通股质押给…"
+    ]
+  }
+}

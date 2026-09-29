@@ -125,6 +125,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 
 | 字段名 | 含义 | unit | denominator |
 |---|---|---|---|
+| direction | 业务方向：pledge=质押 / release=解除质押（v0.4 宗裁决；质押业务默认 pledge；同组合先押后解为两个事件） | text | — |
 | pledgor | 质押人 | text | — |
 | pledgee | 质权人 | text | — |
 | pledged_shares_this_time | 本次质押股数 | shares | — |
@@ -195,6 +196,10 @@ FieldValue（**核心结构，四个人都要消费**）：
 - **宗博文**：Gold 经投影适配器转成本契约格式（适配器输出也要过共同校验器）；计分分母＝注册表中"原文有值应提取"的字段；`not_disclosed` 与 `not_mentioned` 分开计分；错误填充率＝非 extracted-应缺失却 extracted 的比例。
 
 ## 八、v0.1 → v0.2 变更记录、降级规则与字段丢失清单
+
+**D4 增补（2026-09-29 夜，宗博文 17:30 后裁决，schema 保持向后兼容）**
+
+1. pledge 注册表新增 `direction`（text：pledge/release）——解除质押不再丢弃："质押及解质押"公告中解押部分为独立事件（direction=release），同（质押人×质权人）先押后解是两个事件；对照器事件键同步为（质押人×质权人×direction）三元组（修同键碰撞）。gold 侧待宗 D4 补 direction 标注；陈页面侧渲染区分由宗另派。
 
 **D3 增补（2026-09-29，schema 保持 v0.3 向后兼容）**
 
