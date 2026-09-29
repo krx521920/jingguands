@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "finstruct/evidence.v0.5.json",
-  "title": "解析出处结构 evidence/0.5",
-  "description": "解析层交给下游的中间表示。v0.5 相对 v0.4：table_ref 新增 header_path（多层表头拼出的完整列名，抽取层靠它区分「已质押」与「未质押」两组下的同名子列）、rowspan、colspan；并修正 cell_id —— 原先是表内序号，两张表各自从 c001 编号会撞车（实测 pledge-001 p1 的 t002 覆盖了 t001 的 c001–c035，导致 t001 第 1–8 列字符全部认领失败掉进乱序兜底块），现改为全文档唯一（带 table_id 前缀）。",
+  "$id": "finstruct/evidence.v0.6.json",
+  "title": "解析出处结构 evidence/0.6",
+  "description": "解析层交给下游的中间表示。v0.6 相对 v0.5：新增跨页续表标注 —— table.continued_from 指向上一页被续的表；被页边界切断的碎片单元格带 table_ref.continues 指回上一页同列的单元格（实测 pledge-001 的股东名称「山东省国际信托股份」+「有限公司－山东信托·传字63」跨页断开，不拼会得到错值）。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,7 +15,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "evidence/0.5"
+      "const": "evidence/0.6"
     },
     "doc": {
       "$ref": "#/$defs/Doc"
@@ -298,6 +298,25 @@
                 "null"
               ],
               "description": "多层表头逐级拼出的完整列名，用 / 连接，如 \"已质押股份情况/已质押股份限售和冻结、标记数量（股）\"。表头行由「前导行中值型单元格 ≤1」判定；列数 <3 的窄表（多为\"字段名: 值\"的键值表）不判表头。抽取层必须用它区分同名子列。"
+            },
+            "continues": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "description": "本单元格是被页边界切断的碎片，内容需与上一页同列单元格拼接。consumers 必须先拼接再取值，直接用它当前文本会得到截断的值。",
+              "additionalProperties": false,
+              "properties": {
+                "table_id": {
+                  "type": "string"
+                },
+                "cell_ref": {
+                  "type": "string"
+                },
+                "block_id": {
+                  "type": "string"
+                }
+              }
             }
           }
         },

@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.5",
+  "schema_version": "evidence/0.6",
   "doc": {
     "doc_id": "d44e95085",
     "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
@@ -7,10 +7,10 @@
     "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
     "file_size": 107365,
     "page_count": 2,
-    "parsed_at": "2026-09-29T08:53:22+08:00",
+    "parsed_at": "2026-09-29T09:00:48+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.5.0"
+      "version": "0.6.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -3053,7 +3053,8 @@
             595.57
           ],
           "n_rows": 5,
-          "n_cols": 11
+          "n_cols": 11,
+          "continued_from": null
         },
         {
           "table_id": "d44e95085_p001_t002",
@@ -3065,7 +3066,8 @@
             765.22
           ],
           "n_rows": 4,
-          "n_cols": 11
+          "n_cols": 11,
+          "continued_from": null
         }
       ]
     },
@@ -3113,7 +3115,12 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
-            "header_path": "有限公司－山东信托·传字6364号财富传承财产信托"
+            "header_path": "有限公司－山东信托·传字6364号财富传承财产信托",
+            "continues": {
+              "table_id": "d44e95085_p001_t002",
+              "cell_ref": "r4c1",
+              "block_id": "d44e95085_p001_b00090"
+            }
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -3804,7 +3811,8 @@
             186.02
           ],
           "n_rows": 2,
-          "n_cols": 11
+          "n_cols": 11,
+          "continued_from": "d44e95085_p001_t002"
         }
       ]
     }
@@ -3945,7 +3953,7 @@
       "file_name": "pledge.pdf",
       "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.5.0",
+        "parser_version": "finstruct.parse/0.6.0",
         "page_count": 2,
         "blocks": [
           {
@@ -5648,6 +5656,8 @@
   "quality": {
     "degraded": false,
     "degrade_reasons": [],
-    "warnings": []
+    "warnings": [
+      "page 2: 表 d44e95085_p002_t001 续自 d44e95085_p001_t002，且首行有 1 个单元格是被页边界切断的碎片（已标 table_ref.continues，消费方需与上一页同列单元格拼接后再取值）"
+    ]
   }
 }

@@ -426,6 +426,8 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
             "region": t["region"],
             "n_rows": t["n_rows"],
             "n_cols": t["n_cols"],
+            # 跨页续表由 table_link 在文档级填（需要上一页的上下文），这里先占位
+            "continued_from": None,
         }
         for t in tables
     ]

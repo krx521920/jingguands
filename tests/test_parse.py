@@ -325,9 +325,9 @@ def test_输出严格符合JSON_Schema(parsed):
     import json as _json
     import os as _os
 
-    sp = _os.path.join(ROOT, "schemas", "evidence.v0.5.json")
+    sp = _os.path.join(ROOT, "schemas", "evidence.v0.6.json")
     if not _os.path.exists(sp):
-        pytest.skip("找不到 schemas/evidence.v0.5.json")
+        pytest.skip("找不到 schemas/evidence.v0.6.json")
     schema = _json.load(open(sp, encoding="utf-8"))
     errs = sorted(
         jsonschema.Draft202012Validator(schema).iter_errors(parsed),
@@ -445,7 +445,7 @@ def test_真实公告_严格符合schema(name):
     import json as _json
 
     d = _parse_real(name)
-    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.5.json"), encoding="utf-8"))
+    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.6.json"), encoding="utf-8"))
     errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(d), key=lambda e: list(e.path))
     assert not errs, [f"/{'/'.join(map(str,e.path))}: {e.message}" for e in errs[:5]]
 
@@ -598,3 +598,109 @@ def test_表格内字符全部归属单元格不再掉进兜底块():
     d = _parse_real("pledge-001")
     fb = [b for pg in d["pages"] for b in pg["blocks"] if b["source_type"] == "table"]
     assert not fb, f"仍有 {len(fb)} 个兜底块，首个：{fb[0]['text'][:40]!r}"
+
+
+# ------------------------------------------------------------ 团队硬规则：禁止事后按数字搜索补出处
+def test_同页内相同文字必须得到不同出处():
+    """证明出处不是事后按值反查出来的。
+
+    「拿字段值回文档里搜第一次出现」这种反查法有个必然特征：
+    **相同的值会指向同一个位置**。
+
+    而解析时生成的 region 来自字符本身，所以**同一页内文字相同必然位置不同**。
+    这里用文档里真实重复出现的文字来验 —— 若有一组相同文字拿到了同一个 region，
+    就说明 region 不是从字符位置来的。
+
+    注意判据限定在**同一页内**：页眉这类文字会在每页以完全相同的坐标重复
+    （实测 equity_change 的「证券代码：688105…」在 p2 与 p3 的 region 一模一样，
+    这是正确的版面事实，不是反查）。跨页比会把这种情况误判。
+    """
+    total = 0
+    for name in ("pledge-001", "equity-change-001", "award-001"):
+        d = _parse_real(name)
+        for pg in d["pages"]:
+            by_text = {}
+            for b in pg["blocks"]:
+                t = b["text"].strip()
+                if len(t) < 2:
+                    continue
+                r = tuple(b["region"])
+                if t in by_text:
+                    total += 1
+                    assert by_text[t] != r, (
+                        f"{name} p{pg['page']}: 相同文字 {t[:24]!r} 得到同一个 region {r} "
+                        f"—— 说明 region 不是从字符位置来的"
+                    )
+                else:
+                    by_text[t] = r
+    # 样本太少这条测试就没说服力，直接失败而不是静默通过
+    assert total >= 10, f"同页重复文字的样本只有 {total} 组，不足以支撑这条判据"
+
+
+def test_出处覆盖全部块不得按需生成():
+    """反查法只会给它抽到的字段产生出处；解析法对**每个**块统一产生。
+
+    所以「100% 覆盖」是"出处在解析阶段统一生成"的结构性证据：
+    三份公告里没有任何一个块缺 region。
+    """
+    for name in ("pledge-001", "equity-change-001", "award-001"):
+        d = _parse_real(name)
+        n = 0
+        for pg in d["pages"]:
+            for b in pg["blocks"]:
+                n += 1
+                assert b.get("region") and len(b["region"]) == 4, f"{b['block_id']} 缺 region"
+                # region 必须落在页面范围内
+                x0, y0, x1, y1 = b["region"]
+                assert 0 <= x0 < x1 <= pg["width"] + 1, f"{b['block_id']} region 越出页宽"
+                assert 0 <= y0 < y1 <= pg["height"] + 1, f"{b['block_id']} region 越出页高"
+        assert n > 0
+
+
+# ------------------------------------------------------------ D3：跨页续表
+def test_跨页续表被标注且碎片能拼回完整值():
+    """表格跨页断开时必须标注，否则会得到错值。
+
+    pledge-001 的股东名称被页边界切成两半：
+      上一页末行 r4c1 = 「山东省国际信托股份」
+      下一页首行 r1c1 = 「有限公司－山东信托·传字6364号财富传承财产信托」
+    只取下半截当股东名称就是错的。这里验两件事：
+      ① 续表有 continued_from，碎片单元格有 continues 指回上一页同列；
+      ② 两半拼起来确实是完整名称。
+    """
+    d = _parse_real("pledge-001")
+    cont = [t for pg in d["pages"] for t in pg["tables"] if t.get("continued_from")]
+    assert cont, "pledge-001 的表格跨页断开，应检出续表"
+
+    by_id = {b["block_id"]: b for pg in d["pages"] for b in pg["blocks"]}
+    frag = [
+        b
+        for pg in d["pages"]
+        for b in pg["blocks"]
+        if (b.get("table_ref") or {}).get("continues")
+    ]
+    assert frag, "续页首行是被页边界切断的碎片，应标 continues"
+
+    for b in frag:
+        src = by_id[b["table_ref"]["continues"]["block_id"]]
+        assert src["table_ref"]["col"] == b["table_ref"]["col"], "拼回的原格必须在同一列"
+        joined = src["text"] + b["text"]
+        assert "山东省国际信托股份有限公司" in joined, f"拼接结果不对：{joined!r}"
+
+
+def test_行边界断开的不误标碎片():
+    """equity-change-001 也有跨页续表，但断在行边界上，单元格没被切断。
+
+    续表要认出来（continued_from），碎片标注则不能乱加 ——
+    否则消费方会把两个独立的值错误地拼在一起。
+    """
+    d = _parse_real("equity-change-001")
+    cont = [t for pg in d["pages"] for t in pg["tables"] if t.get("continued_from")]
+    assert cont, "equity-change-001 也应检出续表"
+    frag = [
+        b
+        for pg in d["pages"]
+        for b in pg["blocks"]
+        if (b.get("table_ref") or {}).get("continues")
+    ]
+    assert not frag, f"行边界断开不该标碎片，却有 {len(frag)} 个"

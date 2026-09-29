@@ -15,7 +15,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_SCHEMA = os.path.join(HERE, "..", "schemas", "evidence.v0.5.json")
+DEFAULT_SCHEMA = os.path.join(HERE, "..", "schemas", "evidence.v0.6.json")
 
 
 def validate(doc_path: str, schema_path: str | None = None) -> int:

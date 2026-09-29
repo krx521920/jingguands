@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.5",
+  "schema_version": "evidence/0.6",
   "doc": {
     "doc_id": "d878ebffb",
     "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
@@ -7,10 +7,10 @@
     "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
     "file_size": 98239,
     "page_count": 4,
-    "parsed_at": "2026-09-29T08:53:22+08:00",
+    "parsed_at": "2026-09-29T09:00:48+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.5.0"
+      "version": "0.6.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -1061,7 +1061,8 @@
             411.09
           ],
           "n_rows": 5,
-          "n_cols": 2
+          "n_cols": 2,
+          "continued_from": null
         },
         {
           "table_id": "d878ebffb_p002_t002",
@@ -1073,7 +1074,8 @@
             756.69
           ],
           "n_rows": 4,
-          "n_cols": 2
+          "n_cols": 2,
+          "continued_from": null
         }
       ]
     },
@@ -1782,7 +1784,8 @@
             296.89
           ],
           "n_rows": 8,
-          "n_cols": 2
+          "n_cols": 2,
+          "continued_from": "d878ebffb_p002_t002"
         }
       ]
     },
@@ -1880,7 +1883,7 @@
       "file_name": "equity_change.pdf",
       "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.5.0",
+        "parser_version": "finstruct.parse/0.6.0",
         "page_count": 4,
         "blocks": [
           {
@@ -2728,7 +2731,8 @@
       "page 4: form=MIXED，D1 仅实现文本层，该页未产出块（需 OCR 通道）"
     ],
     "warnings": [
-      "page 4 为 MIXED，无出处产出"
+      "page 4 为 MIXED，无出处产出",
+      "page 3: 表 d878ebffb_p003_t001 续自 d878ebffb_p002_t002（行边界断开，行本身完整）"
     ]
   }
 }

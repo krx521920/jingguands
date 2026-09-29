@@ -16,6 +16,7 @@ from datetime import datetime, timezone, timedelta
 from . import evidence as ev
 from . import doc_form as df
 from . import text_layer as tl
+from . import table_link as tlk
 
 
 def parse_pdf(pdf_path: str, on_progress=None) -> dict:
@@ -85,6 +86,9 @@ def parse_pdf(pdf_path: str, on_progress=None) -> dict:
 
             if on_progress:
                 on_progress(page_no, len(pdf.pages), form, len(pg["blocks"]))
+
+    # 跨页续表：必须在所有页都解析完之后做 —— 判定要用到上一页的表格位置
+    warnings.extend(tlk.link_continued_tables(pages))
 
     parsed_at = datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
 
