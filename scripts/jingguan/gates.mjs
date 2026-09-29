@@ -1,0 +1,63 @@
+#!/usr/bin/env node
+/**
+ * 总门禁——一条命令跑完全部检查（D3 起：任何改动后必跑，替代逐条手敲）。
+ *
+ * 包含：
+ *   1 契约五方机检（schema/registry/插件TS/README/mock＋source_type 枚举核对）
+ *   2 出处断言单测（越界/翻转/负值/无尺寸）
+ *   3 方轩诚 10 用例（标准化移植验收）
+ *   4 宗博文 20 条格式测试（corpus 副本）
+ *   5 全量契约校验器（runs/ 全部 events.json）
+ *   6 git 状态守卫：已跟踪文件被删＝红灯（防误删通配符复发）；.tmp 残留＝红灯
+ *   7 远端同步：本地领先 origin＝红灯（防"以为推了"）
+ *
+ * 用法：npm run jingguan:gates
+ */
+import { spawnSync } from 'node:child_process'
+import { existsSync, readdirSync } from 'node:fs'
+import { join, resolve } from 'node:path'
+
+const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
+const node = process.execPath
+
+function runGate(name, args, opts = {}) {
+  const r = spawnSync(node, args, { cwd: REPO_ROOT, encoding: 'utf8' })
+  const ok = r.status === 0
+  const tail = (r.stdout ?? '').trim().split(/\r?\n/).filter(Boolean).slice(-1)[0] ?? ''
+  return { name, ok, tail, fatal: opts.fatal !== false }
+}
+
+const results = [
+  runGate('契约五方机检', ['scripts/jingguan/test_contract_sync.mjs']),
+  runGate('出处断言单测', ['scripts/jingguan/test_checks.mjs']),
+  runGate('标准化验收（方10用例）', ['scripts/jingguan/test_normalization.mjs']),
+  runGate('宗20条格式测试', ['corpus/zongbowen/tests/standardization-format.test.mjs']),
+  runGate('全量契约校验器', ['scripts/jingguan/validate_envelope.mjs']),
+]
+
+// ---- 6 git 状态守卫 ----
+const st = spawnSync('git', ['status', '--porcelain'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout ?? ''
+const lines = st.split(/\r?\n/).filter(Boolean)
+const deleted = lines.filter((l) => l.startsWith(' D') || l.startsWith('D '))
+const tmpFiles = readdirSync(REPO_ROOT).filter((f) => f.startsWith('.tmp'))
+results.push({ name: 'git守卫·已跟踪文件零删除', ok: deleted.length === 0, tail: deleted.length === 0 ? '无删除' : `${deleted.length} 个被删：${deleted.slice(0, 3).join('; ')}` })
+results.push({ name: 'git守卫·无临时文件残留', ok: tmpFiles.length === 0, tail: tmpFiles.length === 0 ? '干净' : tmpFiles.join(',') })
+
+// ---- 7 远端同步 ----
+const fetch = spawnSync('git', ['fetch', 'origin', 'weiwenyu'], { cwd: REPO_ROOT, encoding: 'utf8' })
+if (fetch.status !== 0) {
+  results.push({ name: '远端同步', ok: true, tail: '网络不可达，跳过（网络恢复后重跑）', fatal: false })
+} else {
+  const head = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
+  const remote = spawnSync('git', ['rev-parse', 'origin/weiwenyu'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
+  const ahead = spawnSync('git', ['rev-list', '--count', `origin/weiwenyu..HEAD`], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
+  results.push({ name: '远端同步（防"以为推了"）', ok: head === remote, tail: head === remote ? `一致 ${head.slice(0, 8)}` : `本地领先 ${ahead} 个提交未推送` })
+}
+
+// ---- 汇总 ----
+const failed = results.filter((r) => !r.ok)
+for (const r of results) console.log(`${r.ok ? '✓' : '✗'} ${r.name}${r.tail ? '｜' + r.tail : ''}`)
+console.log(failed.length === 0
+  ? `\n全部通过：${results.length} 道门禁`
+  : `\n失败 ${failed.length}/${results.length}：${failed.map((f) => f.name).join('、')}`)
+process.exit(failed.length === 0 ? 0 : 1)
