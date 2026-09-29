@@ -345,11 +345,16 @@ async function main() {
   if (isMock) console.log('****** MOCK 模式：不调用真实模型，输出不得计入真实抽取成绩 ******')
 
   const t0 = Date.now()
+  const INPUT_LIMIT = 60000
+  const truncated = modelInput.length > INPUT_LIMIT
+  if (truncated) {
+    console.log(`[警告] 输入 ${modelInput.length} 字符超上限 ${INPUT_LIMIT}，超出部分被截断——文末事件可能丢失（已记入 run_meta.errors；D6 前应改为分块抽取）`)
+  }
   let call, callError = null
   try {
     call = isMock
       ? mockModelResponse(eventType)
-      : await callModel({ baseURL, model, apiKey, system: buildSystemPrompt(eventType, parseDoc !== null), user: modelInput.slice(0, 60000) })
+      : await callModel({ baseURL, model, apiKey, system: buildSystemPrompt(eventType, parseDoc !== null), user: modelInput.slice(0, INPUT_LIMIT) })
   } catch (err) {
     callError = err
   }
@@ -358,6 +363,9 @@ async function main() {
   // ---- D2 事件后处理：块级出处回填 ＋ 数值标准化（方的 normalize 移植） ----
   const events = call ? parseModelJson(call.content).events ?? [] : []
   const postErrors = []
+  if (truncated) {
+    postErrors.push(`[输入] 模型输入超上限被截断：${modelInput.length} → ${INPUT_LIMIT} 字符，截断部分的事件可能丢失`)
+  }
   // 前置清洗：模型偶发输出 null/非对象字段（违反契约），剔除并记错，保证后续阶段不崩
   for (const ev of events) {
     for (const [name, fv] of Object.entries(ev.fields ?? {})) {
