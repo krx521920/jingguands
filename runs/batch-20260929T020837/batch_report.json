@@ -1,0 +1,190 @@
+{
+  "stamp": "20260929T020837",
+  "mock": false,
+  "results": [
+    {
+      "case": "D2-AWD-001",
+      "event_type": "award_contract",
+      "file": "D2-AWD-001.json",
+      "run_id": "20260929T020837-award_contract-0df0",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "not_applicable": 2,
+        "not_mentioned": 4
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 6,
+        "field_accuracy": 0.75,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.75
+      },
+      "gold_rows": [
+        {
+          "field": "bidder",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某某制造股份有限公司\" mine=\"某公司\""
+        },
+        {
+          "field": "project_name",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某变电站设备采购项目\" mine=\"设备项目\""
+        }
+      ]
+    },
+    {
+      "case": "D2-AWD-002",
+      "event_type": "award_contract",
+      "file": "D2-AWD-002.json",
+      "run_id": "20260929T020840-award_contract-dd55",
+      "ok": true,
+      "status_count": {
+        "not_mentioned": 7,
+        "extracted": 7
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 6,
+        "field_accuracy": 0.75,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.75
+      },
+      "gold_rows": [
+        {
+          "field": "bidder",
+          "verdict": "STATUS_DIFF",
+          "detail": "gold=extracted(\"某某制造股份有限公司\") mine=not_mentioned"
+        },
+        {
+          "field": "consortium_shares",
+          "verdict": "GOLD_UNREGISTERED",
+          "detail": "gold未注册（版本滞后），mine=extracted"
+        },
+        {
+          "field": "tenderer",
+          "verdict": "STATUS_DIFF",
+          "detail": "gold=extracted(\"某交通建设公司\") mine=not_mentioned"
+        }
+      ]
+    },
+    {
+      "case": "D2-EQC-001",
+      "event_type": "equity_change",
+      "file": "D2-EQC-001.json",
+      "run_id": "20260929T020842-equity_change-66a3",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 8,
+        "field_accuracy": 0.8889,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.8889
+      },
+      "gold_rows": [
+        {
+          "field": "holder",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某某制造股份有限公司\" mine=\"某公司股东\""
+        }
+      ]
+    },
+    {
+      "case": "D2-EQC-002",
+      "event_type": "equity_change",
+      "file": "D2-EQC-002.json",
+      "run_id": "20260929T020845-equity_change-a1de",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 7,
+        "field_accuracy": 0.875,
+        "wrong_filled": 1,
+        "status_match_ratio": 0.7778
+      },
+      "gold_rows": [
+        {
+          "field": "change_date",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=needs_review mine=extracted(\"2026-08-20/2026-08-31\")"
+        },
+        {
+          "field": "holder",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某某制造股份有限公司\" mine=\"某公司股东\""
+        }
+      ]
+    },
+    {
+      "case": "D2-PLD-001",
+      "event_type": "pledge",
+      "file": "D2-PLD-001.json",
+      "run_id": "20260929T020848-pledge-fcf6",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D2-PLD-002",
+      "event_type": "pledge",
+      "file": "D2-PLD-002.json",
+      "run_id": "20260929T020851-pledge-fb47",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 2
+      },
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 11,
+        "value_hit": 8,
+        "field_accuracy": 0.7273,
+        "wrong_filled": 1,
+        "status_match_ratio": 0.6923
+      },
+      "gold_rows": [
+        {
+          "field": "end_date",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=needs_review mine=extracted(\"办理申请解除质押登记日\")"
+        },
+        {
+          "field": "pledgor",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"某某制造股份有限公司\" mine=\"某公司股东\""
+        },
+        {
+          "field": "purpose",
+          "verdict": "STATUS_DIFF",
+          "detail": "gold=extracted(\"补充流动资金\") mine=not_mentioned"
+        },
+        {
+          "field": "start_date",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"2026-09-01\" mine=\"2026-09-03\""
+        }
+      ]
+    }
+  ]
+}

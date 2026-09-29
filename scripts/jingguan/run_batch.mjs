@@ -17,7 +17,7 @@
  * Gold 对照为开发期错误定位用；正式评测成绩以宗博文的独立评测脚本为准。
  */
 import { spawnSync } from 'node:child_process'
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from 'node:fs'
 import { basename, resolve, join } from 'node:path'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
@@ -42,15 +42,12 @@ function collectFiles(paths) {
   for (const p of paths) {
     const abs = resolve(process.cwd(), p)
     if (!existsSync(abs)) { console.error(`路径不存在：${p}`); process.exit(2) }
-    if (readdirSyncWithTypes(abs).isDirectory()) {
+    if (statSync(abs).isDirectory()) {
       for (const f of readdirSync(abs).sort()) files.push(join(abs, f))
     } else files.push(abs)
   }
   return files.filter((f) => /\.(json|txt)$/i.test(f))
 }
-
-import { statSync } from 'node:fs'
-function readdirSyncWithTypes(abs) { return statSync(abs) }
 
 function inferEventType(name) {
   const n = name.toLowerCase()
@@ -206,7 +203,7 @@ if (args.gold) {
   md += `\n## Gold 对照（开发期错误定位；正式成绩以评测脚本为准）\n\n| 案例 | gold应提取 | 值命中 | 字段准确率 | 错误填充 | 状态一致率 |\n|---|---|---|---|---|---|\n`
   for (const r of results) {
     if (r.gold === undefined) continue
-    md += `| ${r.case} | ${r.gold.gold_extracted_fields} | ${r.gold.value_hit} | ${(r.gold.field_accuracy * 100).toFixed(1)}% | ${r.gold.wrong_filled} | ${(r.gold.status_match_ratio * 100).toFixed(1)}% |\n`
+    md += `| ${r.case} | ${r.gold.gold_extracted_fields} | ${r.gold.value_hit} | ${r.gold.field_accuracy === null ? '—' : (r.gold.field_accuracy * 100).toFixed(1) + '%'} | ${r.gold.wrong_filled} | ${r.gold.status_match_ratio === null ? '—' : (r.gold.status_match_ratio * 100).toFixed(1) + '%'} |\n`
   }
   const diffRows = results.filter((r) => Array.isArray(r.gold_rows) && r.gold_rows.length > 0)
   if (diffRows.length > 0) {

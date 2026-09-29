@@ -4,9 +4,9 @@
  * 她的 10 个换算用例（tests/fixtures/normalization_cases.json）作为本移植的验收测试
  * （scripts/jingguan/test_normalization.mjs）；她的 TS 实现是参照实现，两侧必须同步改。
  *
- * 状态映射（她 → 信封 v0.2）：present→extracted；explicit_zero→extracted(value=0)；
+ * 状态映射（她 → 信封 v0.3）：present→extracted；explicit_zero→extracted(value=0)；
  * not_mentioned/unreadable 同名。qualifier/scope/denominator.kind 为她的口径语义，
- * 信封侧 qualifier 写入 note，scope 由 v0.2 字段名（_this_time/_cumulative）承载。
+ * 信封侧 qualifier 写入 note，scope 由字段名（_this_time/_cumulative）承载。
  */
 
 /** 数值类别。 */
@@ -16,7 +16,6 @@ export const FANG_STATUSES = ['present', 'not_mentioned', 'explicit_zero', 'unre
 const SCOPES = ['single', 'cumulative', 'unknown']
 const QUALIFIERS = ['exact', 'approx', 'at_most']
 const DENOMINATORS = ['total_share_capital', 'holder_shares', 'net_assets', 'other']
-const SOURCE_UNITS = ['元', '万元', '亿元', '股', '万股', '亿股', '%']
 
 const factors = {
   amount: { '元': 0, '万元': 4, '亿元': 8 },
@@ -90,7 +89,7 @@ const DENOMINATOR_MAP = {
  * 裸数字（表格常见，如 "7,800,000"）无万/亿标记时按基础单位处理——
  * 缺 magnitude 标记本身即表明是基础单位，非猜测。 */
 function detectSourceUnit(rawText, unit) {
-  if (unit === 'percent') return rawText.includes('%') ? '%' : null
+  if (unit === 'percent') return '%' // 比例列裸数字（表格常见）按 % 处理
   if (unit === 'cny') {
     if (rawText.includes('亿元')) return '亿元'
     if (rawText.includes('万元')) return '万元'

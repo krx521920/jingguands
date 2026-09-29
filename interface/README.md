@@ -150,7 +150,7 @@ FieldValue（**核心结构，四个人都要消费**）：
 | method | 变动方式 | text | |
 | change_date | 变动期间 | date_range | value 为 ISO 区间 "start/end"（如 "2026-09-20/2026-09-24"） |
 
-### award_contract 中标/合同签署（13 字段：9 必选＋4 专业边界可选，D3 依宗博文复核增补）
+### award_contract 中标/合同签署（14 字段：10 必选＋4 专业边界可选，D3 依宗博文复核增补）
 
 专业边界语义（赛题要求）：区分中标候选/正式中标（收到中标通知书）/合同签署三个阶段；调价条款 not_disclosed ≠ 固定价格；bid_amount（合同金额）≠ recognized_revenue（当期收入）。
 

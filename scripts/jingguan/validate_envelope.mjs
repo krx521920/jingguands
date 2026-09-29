@@ -8,7 +8,7 @@
  *   npm run jingguan:validate                              # 等价于上一条
  *
  * 校验内容：
- *   1. interface/event-envelope.schema.json（v0.2）全部结构约束；
+ *   1. interface/event-envelope.schema.json（v0.3）全部结构约束；
  *   2. 字段注册表强制（scripts/jingguan/lib/registry.mjs）：字段名白名单、unit 一致、
  *      比例字段 denominator 的 fixed/requires 约定。
  *   3. 出处基线断言（scripts/jingguan/lib/checks.mjs）：region 必须 left<right、top<bottom、非负。

@@ -127,7 +127,7 @@ export interface EventEnvelope {
   schema_version: '0.3'
   run_id: string
   is_mock: boolean
-  source: { file_id: string | null, file_name: string | null, file_sha256: string | null, parse_meta: { parser_version: string | null, page_count: number | null } | null }
+  source: { file_id: string | null, file_name: string | null, file_sha256: string | null, parse_meta: { parser_version: string | null, page_count: number | null, blocks?: Array<Record<string, unknown>> | null } | null }
   events: Event[]
   run_meta: { entry: 'cli' | 'web' | 'tool', model: string | null, started_at: string, duration_ms: number | null, errors: string[] }
 }
@@ -183,10 +183,10 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
       for (const [j, p] of value.provenance.entries()) {
         if (p.region === null || p.region === undefined) continue
         const [left, top, right, bottom] = p.region
-        const where = `${fieldWhere}.provenance[${j}].region`
-        if (left < 0 || top < 0) issues.push(`${where} 坐标为负`)
-        if (left >= right) issues.push(`${where} left(${left}) ≥ right(${right})`)
-        if (top >= bottom) issues.push(`${where} top(${top}) ≥ bottom(${bottom})`)
+        const regionWhere = `${fieldWhere}.provenance[${j}].region`
+        if (left < 0 || top < 0) issues.push(`${regionWhere} 坐标为负`)
+        if (left >= right) issues.push(`${regionWhere} left(${left}) ≥ right(${right})`)
+        if (top >= bottom) issues.push(`${regionWhere} top(${top}) ≥ bottom(${bottom})`)
       }
     }
   })

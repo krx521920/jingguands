@@ -1,0 +1,273 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20260929T020302-award_contract-733d",
+  "is_mock": true,
+  "source": {
+    "file_id": "sha256:aa14cf943edf3ad1",
+    "file_name": "award_contract_sample_01.txt",
+    "file_sha256": "aa14cf943edf3ad10c0a156fe2952fb398e53ee29a1d666a5bd11b01c4ec5bc4",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "extraction_method": "mock",
+      "notes": "MOCK 输出——不得计入真实抽取成绩",
+      "fields": {
+        "bidder": {
+          "raw_value": "示例建设科技股份有限公司（联合体牵头人）",
+          "value": "示例建设科技股份有限公司（联合体牵头人）",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "公司与联合体成员某市政设计研究院组成的联合体"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "某市轨道交通集团有限公司",
+          "value": "某市轨道交通集团有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "招标人：某市轨道交通集团有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "某市轨道交通3号线土建施工总承包项目",
+          "value": "某市轨道交通3号线土建施工总承包项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标\"某市轨道交通3号线土建施工总承包项目\""
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "人民币1,258,000,000元（含税）",
+          "value": 1258000000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额：人民币1,258,000,000元（含税）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额：人民币1,258,000,000元（含税）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": "含税",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标金额：人民币1,258,000,000元（含税）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "1,095日历天",
+          "value": "1,095日历天",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "工期：1,095日历天"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": "公司与联合体成员某市政设计研究院组成的联合体",
+          "value": "公司与联合体成员某市政设计研究院组成的联合体",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "公司与联合体成员某市政设计研究院组成的联合体"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": "公司牵头占约85%，某市政设计研究院占约15%",
+          "value": "公司牵头占约85%，某市政设计研究院占约15%",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "份额约占联合体中标金额的85%"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "中标日期：2026年9月24日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": "收到《中标通知书》",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "公司收到招标人某市轨道交通集团有限公司发出的《中标通知书》"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      }
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "mock",
+    "started_at": "2026-09-29T02:03:02.321Z",
+    "duration_ms": 1,
+    "errors": [
+      "[语义] events[0].fields.formal_award_notice_received 出处 quote 不是原文子串：公司收到招标人某市轨道交通集团有限公司发出的《中标通知书》…"
+    ]
+  }
+}

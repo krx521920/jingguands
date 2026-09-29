@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 /**
- * 经管竞赛 · 公告事件抽取——运行入口（v0.3：award_contract＋四值分母枚举）
+ * 经管竞赛 · 公告事件抽取——运行入口（v0.3：award_contract＋四值分母＋date_range）
  *
- * v0.2 变更（依据评测方反馈）：
- *   - 状态枚举扩至 6 个：extracted/not_disclosed/not_applicable/not_mentioned/unreadable/needs_review
- *   - 质押本次/累计、占持股/占总股本拆分为独立字段（不再用 cumulative 标记混在一个字段）
- *   - 出处支持表格证据（table_id/cell_ref）
- *   - 输出先过 interface/event-envelope.schema.json 机器校验，再做语义校验
+ * 变更史：v0.2 状态枚举6个/质押字段拆分/table-cell出处；v0.3 事件改名与分母枚举、
+ * date_range、联合体拆分、出处基线断言（详见 interface/README.md 第八节）。
  *
  * 用法：
  *   node scripts/jingguan/run_extract.mjs --input interface/samples/pledge_sample_01.txt [--event-type pledge] [--mock]
@@ -16,7 +13,7 @@
  *   JINGGUAN_LLM_BASE_URL  OpenAI 兼容端点，默认 https://api.deepseek.com
  *   JINGGUAN_LLM_MODEL     模型名，默认 deepseek-chat
  *
- * 输出（runs/<run_id>/）：events.json（v0.2 信封）＋ call_log.json（调用日志，不含密钥）
+ * 输出（runs/<run_id>/）：events.json（v0.3 信封）＋ call_log.json（调用日志，不含密钥）
  * 规则：无密钥必须显式 --mock；模拟输出全程 is_mock=true，不得计入真实抽取成绩。
  */
 import { createHash } from 'node:crypto'
@@ -58,13 +55,14 @@ function loadParseDoc(parsePath) {
   const blocks = ordered.length > 0 ? ordered : [...blockIndex.values()]
   const annotated = blocks.map((b) => `[${b.block_id}] ${b.text_raw}`).join('\n')
   const joinedRaw = blocks.map((b) => b.text_raw).join('\n')
-  return { doc, blockIndex, blocks, annotated, joinedRaw }
+  const pageDims = new Map((doc.pages ?? []).map((pg) => [pg.page, { width: pg.width, height: pg.height }]))
+  return { doc, blockIndex, blocks, annotated, joinedRaw, pageDims }
 }
 
 function inferEventType(fileName) {
-  if (/^pledge/i.test(fileName)) return 'pledge'
-  if (/^equity_change/i.test(fileName)) return 'equity_change'
-  if (/^award_contract/i.test(fileName)) return 'award_contract'
+  if (/pledge/i.test(fileName)) return 'pledge'
+  if (/equity_change|equity/i.test(fileName)) return 'equity_change'
+  if (/award_contract|award/i.test(fileName)) return 'award_contract'
   return null
 }
 
@@ -96,7 +94,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '- not_applicable：该字段结构性不适用于本事件（如非联合体中标时 consortium 不适用），value 必须为 null。',
     '- not_mentioned：原文压根没有提到该字段，value 必须为 null。',
     '- unreadable：扫描件/图片/模糊无法读取，value 必须为 null。',
-    '- needs_review：疑似有值但不确定（如日期区间无法取单值），可有候选值。',
+    '- needs_review：疑似有值但不确定（如扫描模糊、换算依据不足），可有候选值。',
     '',
     '硬性规则：',
     '1. 除 extracted 和 needs_review 外，其余状态 value 一律为 null——禁止把缺失填成 0。',
@@ -106,12 +104,12 @@ function buildSystemPrompt(eventType, parseMode) {
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
     '7. 日期区间（unit=date_range 的字段，如 change_date）：必须 unit="date_range"，value 必须是 ISO 区间字符串 "起始日/结束日"（如 "2026-09-20/2026-09-24"），status=extracted——区间是原文明确给出的值。禁止把 value 写成 {start,end} 对象，禁止用 unit="date" 装区间。',
-    '8b. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中的完整注册名称（如“某某制造股份有限公司”），禁止用“某公司”“公司股东”等泛称截断。',
-    '8c. 日期单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。',
-    '8. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
+    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中的完整注册名称（如“某某制造股份有限公司”），禁止用“某公司”“公司股东”等泛称截断。',
+    '9. 日期单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。',
+    '10. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
     ...(parseMode ? [
-      '9. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本。provenance 必须给出 quote 所在块的 block_id。',
-      '10. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',
+      '11. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本。provenance 必须给出 quote 所在块的 block_id。',
+      '12. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',
     ] : []),
   ].join('\n')
 }
@@ -164,7 +162,7 @@ async function callModel({ baseURL, model, apiKey, system, user, signal }) {
   }
 }
 
-// ---------- 模拟响应（与三份冻结样例对应，v0.2 字段） ----------
+// ---------- 模拟响应（与三份冻结样例对应，v0.3 字段） ----------
 
 function mockModelResponse(eventType) {
   const F = (raw, value, unit, quote, extra = {}) => ({
@@ -225,6 +223,10 @@ function mockModelResponse(eventType) {
           consortium_members: F('公司与联合体成员某市政设计研究院组成的联合体', '公司与联合体成员某市政设计研究院组成的联合体', 'text', '公司与联合体成员某市政设计研究院组成的联合体'),
           consortium_shares: F('公司牵头占约85%，某市政设计研究院占约15%', '公司牵头占约85%，某市政设计研究院占约15%', 'text', '份额约占联合体中标金额的85%'),
           bid_date: F('2026年9月24日', '2026-09-24', 'date', '中标日期：2026年9月24日'),
+          formal_award_notice_received: F('收到《中标通知书》', 'true', 'text', '收到招标人某市轨道交通集团有限公司发出的《中标通知书》'),
+          contract_signed: N('text'),
+          price_adjustment_status: N('text'),
+          recognized_revenue: N('cny'),
         },
       }],
     },
@@ -244,7 +246,7 @@ function parseModelJson(content) {
   return JSON.parse(text.slice(start, end + 1))
 }
 
-/** 机器契约校验（Schema v0.2＋注册表强制）＋语义校验（quote 命中原文、状态-取值规则）。 */
+/** 机器契约校验（Schema v0.3＋注册表强制＋出处基线）＋语义校验（quote 命中原文、状态-取值规则）。 */
 function validateEnvelope(envelope, inputText) {
   const issues = [
     ...validateAgainstSchema(envelope, SCHEMA, SCHEMA).map((s) => `[schema] ${s}`),
