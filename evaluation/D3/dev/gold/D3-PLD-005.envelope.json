@@ -1,0 +1,342 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D3-PLD-005",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+    "file_name": "D3-PLD-005.pdf",
+    "file_sha256": "5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+    "parse_meta": {
+      "parser_version": "0.7.0",
+      "page_count": 2,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "pledgor": {
+          "raw_value": "光线控股",
+          "value": "光线控股",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00021",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                14.07,
+                476.34,
+                55.27,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c1",
+              "quote": "光线控股"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "国泰海通证券股份有限公司",
+          "value": "国泰海通证券股份有限公司",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00030",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                466.62,
+                476.34,
+                538.4,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c10",
+              "quote": "国泰海通证券股份有限公司"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "25,310,000",
+          "value": 25310000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00023",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                111.3,
+                476.34,
+                175.05,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c3",
+              "quote": "25,310,000"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "122,950,000",
+          "value": 122950000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00014",
+              "source_type": "cell",
+              "page": 2,
+              "region": [
+                183.55,
+                158.59,
+                254.45,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c4",
+              "quote": "122,950,000"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "2.31%",
+          "value": 2.31,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00024",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                175.05,
+                476.34,
+                217.6,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c4",
+              "quote": "2.31%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "0.86%",
+          "value": 0.86,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00025",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                217.6,
+                476.34,
+                260.1,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c5",
+              "quote": "0.86%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "11.21%",
+          "value": 11.21,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00015",
+              "source_type": "cell",
+              "page": 2,
+              "region": [
+                254.45,
+                158.59,
+                304.05,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c5",
+              "quote": "11.21%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "4.19%",
+          "value": 4.19,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00016",
+              "source_type": "cell",
+              "page": 2,
+              "region": [
+                304.05,
+                158.59,
+                353.65,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c6",
+              "quote": "4.19%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "status": "not_mentioned",
+          "provenance": [],
+          "standardized": false,
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026/9/23",
+          "value": "2026-09-23",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00028",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                331.0,
+                476.34,
+                398.3,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c8",
+              "quote": "2026/9/23"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2027/9/23",
+          "value": "2027-09-23",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00029",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                398.3,
+                476.34,
+                466.62,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c9",
+              "quote": "2027/9/23"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "偿还债务",
+          "value": "偿还债务",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00031",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                538.4,
+                476.34,
+                581.22,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c11",
+              "quote": "偿还债务"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "二〇二六年九月二十八日",
+          "value": "2026-09-28",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00028",
+              "source_type": "paragraph",
+              "page": 2,
+              "region": [
+                359.16,
+                533.98,
+                491.16,
+                545.98
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "二〇二六年九月二十八日"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "rule",
+      "notes": "公告同时披露解除质押；本 Gold 仅标注新增质押事件。"
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-09-29T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}

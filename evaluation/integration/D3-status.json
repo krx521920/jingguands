@@ -1,0 +1,27 @@
+{
+  "status": "gold_complete_system_comparison_partial",
+  "checked_on": "2026-09-29",
+  "d3_evaluation_deliverables": {
+    "documents": 5,
+    "events": 7,
+    "fields": 91,
+    "evidence_records": 84,
+    "unsupported_quotes": 0,
+    "result": "pass"
+  },
+  "shared_contract_validation": {
+    "source_branch": "origin/weiwenyu",
+    "source_commit": "59c1d79",
+    "files": 5,
+    "result": "pass"
+  },
+  "field_comparison": {
+    "documents_with_system_output": 1,
+    "documents_pending_system_output": 4,
+    "d3_pld_001_e01": "match",
+    "d3_pld_001_missing_events": ["E02", "E03"],
+    "pending_cases": ["D3-PLD-002", "D3-PLD-003", "D3-PLD-004", "D3-PLD-005"]
+  },
+  "blocking_issue": "Four real-model system outputs are required to finish the five-document field comparison and closed-loop evidence check.",
+  "handoff": "evaluation/D3/handoffs/D3-evaluation.md"
+}
