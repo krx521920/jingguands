@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "finstruct/evidence.v0.6.json",
-  "title": "解析出处结构 evidence/0.6",
-  "description": "解析层交给下游的中间表示。v0.6 相对 v0.5：新增跨页续表标注 —— table.continued_from 指向上一页被续的表；被页边界切断的碎片单元格带 table_ref.continues 指回上一页同列的单元格（实测 pledge-001 的股东名称「山东省国际信托股份」+「有限公司－山东信托·传字63」跨页断开，不拼会得到错值）。",
+  "$id": "finstruct/evidence.v0.7.json",
+  "title": "解析出处结构 evidence/0.7",
+  "description": "解析层交给下游的中间表示。v0.7 相对 v0.6：page 新增 columns（多栏页面的各栏 x 范围）。新增分栏检测：先按文本行统计找栏缝（不是按整页，否则居中标题会误判）、并排除表格内字符（否则表格的列间距会被当成栏缝），再按「整幅行分段、段内逐栏」排阅读顺序。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,7 +15,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "evidence/0.6"
+      "const": "evidence/0.7"
     },
     "doc": {
       "$ref": "#/$defs/Doc"
@@ -449,6 +449,18 @@
           "type": "array",
           "items": {
             "$ref": "#/$defs/Table"
+          }
+        },
+        "columns": {
+          "type": "array",
+          "description": "多栏页面各栏的 x 范围 [[x0,x1],...]（左到右）；单栏为空数组。记下来是为了让阅读顺序可解释：为什么这块排在前面。",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
           }
         }
       }

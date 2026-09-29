@@ -4,7 +4,7 @@
   "date": "2026-09-29",
   "module": "解析 / 表格 / 出处",
   "code_location": "src/finstruct/parse/（模块唯一位置；本目录只放交付物，不复制代码）",
-  "schema": "evidence/0.6",
+  "schema": "evidence/0.7",
   "samples": [
     {
       "parse_file": "parse/pledge-001.parse.json",
@@ -27,7 +27,7 @@
         "paragraph": 27,
         "cell": 100
       },
-      "schema_version": "evidence/0.6"
+      "schema_version": "evidence/0.7"
     },
     {
       "parse_file": "parse/equity-change-001.parse.json",
@@ -52,7 +52,7 @@
         "paragraph": 27,
         "cell": 34
       },
-      "schema_version": "evidence/0.6"
+      "schema_version": "evidence/0.7"
     },
     {
       "parse_file": "parse/award-001.parse.json",
@@ -77,7 +77,7 @@
         "paragraph": 59,
         "cell": 16
       },
-      "schema_version": "evidence/0.6"
+      "schema_version": "evidence/0.7"
     }
   ],
   "note": "D3 交付：质押表多层表头绑定（header_path / rowspan / colspan）与 cell_ref 契约对齐。与 sample/D2/ 的区别见 README。原始 PDF 未随仓库分发，用 fetch_samples.py 按 source_url 取回。"

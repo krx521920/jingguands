@@ -30,6 +30,7 @@ from collections import Counter
 from statistics import median
 from typing import Dict, List, Optional, Tuple
 
+from . import columns as cols
 from . import evidence as ev
 
 # 行聚类容差：以字符高度为基准，避免不同字号文档用死阈值
@@ -409,11 +410,31 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
             }
         )
 
-    # ---- 3) 其余字符走段落聚类（补集，保证不重叠）
+    # ---- 3) 分栏检测 → 按栏分别聚类正文
+    # 必须**分栏聚类行**：整页一起聚类会把同一 y 上的左右栏并成一行，
+    # 得到「左栏前半句右栏前半句」这种交错文本。
     flow_chars = flow_left
-    blocks.extend(_flow_blocks(flow_chars, height))
+    gutters = cols.find_gutters(flow_chars)
+    warned_straddle = None
+    if gutters:
+        warned_straddle = cols.table_straddles_gutter(tables, gutters)
+        if warned_straddle:
+            # 表格横跨栏缝 → 版面不是干净双栏，不切，否则表格与两栏正文交错
+            gutters = []
 
-    # ---- 4) 按阅读位置排序后统一分配 block_id
+    spans = cols.split_columns(flow_chars) if gutters else []
+    fw_tops = cols.full_width_tops(cluster_lines(flow_chars), gutters) if gutters else []
+    blocks.extend(_flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops))
+    column_spans = [[round(a, 2), round(b, 2)] for a, b in spans]
+
+    # ---- 4) 表格单元格与正文块用**同构**的排序键 (段, 栏, 上, 左)
+    for b in blocks:
+        if len(b["_sort"]) == 4:
+            continue  # 正文块已在 _flow_blocks 里给好
+        region = b["_kw"]["region"]
+        col = cols.column_of(region, gutters) if gutters else 0
+        band = cols.band_at(region[1], fw_tops) if gutters else 0
+        b["_sort"] = (band, col) + tuple(b["_sort"])
     blocks.sort(key=lambda b: b["_sort"])
     out: List[Dict] = []
     for seq, b in enumerate(blocks, start=1):
@@ -440,34 +461,63 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
         form_evidence={},
         blocks=out,
         tables=page_tables,
+        columns=column_spans,
     )
 
 
-def _flow_blocks(flow_chars: List[Dict], page_h: float) -> List[Dict]:
-    """把表格之外的字符按段落聚类成块（D1 的原逻辑，作用域缩到补集上）。"""
+def _flow_blocks(flow_chars: List[Dict], page_h: float, gutters=None, fw_tops=None) -> List[Dict]:
+    """把表格之外的字符聚类成块。
+
+    单栏时就是 D1 的原逻辑；多栏时先按**整幅行**把页面切成水平段，
+    再在每段内按栏分组各自聚类 —— 这样同一 y 上的左右栏不会被并成一行，
+    整幅的标题也不会被按栏拦腰截断。
+    """
     lines = cluster_lines(flow_chars)
-    raw_blocks = cluster_blocks(lines, flow_chars)
+    if not lines:
+        return []
+
+    if gutters:
+        # 整幅行独占一段（不拆）；可分行的行**按栏拆开**再归组
+        bucket: Dict[tuple, List[List[Dict]]] = {}
+        for ln in lines:
+            y = min(c["top"] for c in ln)
+            band = cols.band_at(y, fw_tops or [])
+            if cols.line_is_full_width(ln, gutters):
+                bucket.setdefault((band, 0), []).append(ln)
+                continue
+            for ci, part in enumerate(cols.split_line_by_gutter(ln, gutters)):
+                if part:
+                    bucket.setdefault((band, ci), []).append(part)
+        # 按 (段, 栏) 排序 —— 阅读顺序：整幅元素 → 第 1 栏到底 → 第 2 栏
+        groups = sorted(bucket.items())
+    else:
+        groups = [((0, 0), lines)]
+
     out: List[Dict] = []
-    for bi, blk in enumerate(raw_blocks):
-        blk_chars = [c for ln in blk["lines"] for c in ln]
-        region = ev.region_of(blk_chars)
-        text = join_block_text(blk["lines"])
-        text_raw = "".join(c["text"] for ln in blk["lines"] for c in ln)
-        size = median([c.get("size") or 0.0 for c in blk_chars]) if blk_chars else None
-        # 注意传真实下标 bi：_assign_role 靠它判断"是不是本页第一个居中块"，
-        # 硬编码 0 会把所有居中块都判成 TITLE（曾被回归用例抓到）
-        role = _assign_role(region, page_h, blk["kind"], len(blk["lines"]), text, bi)
-        out.append(
-            {
-                "_sort": (region[1], region[0]),
-                "_kw": dict(
-                    text=text,
-                    text_raw=text_raw,
-                    region=region,
-                    source_type=ev.KIND_PARAGRAPH,
-                    role=role,
-                    font_size=size,
-                ),
-            }
-        )
+    bi = 0
+    for (band, col), glines in groups:
+        gchars = [c for ln in glines for c in ln]
+        for blk in cluster_blocks(glines, gchars):
+            blk_chars = [c for ln in blk["lines"] for c in ln]
+            region = ev.region_of(blk_chars)
+            text = join_block_text(blk["lines"])
+            text_raw = "".join(c["text"] for ln in blk["lines"] for c in ln)
+            size = median([c.get("size") or 0.0 for c in blk_chars]) if blk_chars else None
+            # 传真实下标 bi：_assign_role 靠它判断"是不是本页第一个居中块"，
+            # 硬编码 0 会把所有居中块都判成 TITLE（曾被回归用例抓到）
+            role = _assign_role(region, page_h, blk["kind"], len(blk["lines"]), text, bi)
+            bi += 1
+            out.append(
+                {
+                    "_sort": (band, col, region[1], region[0]),
+                    "_kw": dict(
+                        text=text,
+                        text_raw=text_raw,
+                        region=region,
+                        source_type=ev.KIND_PARAGRAPH,
+                        role=role,
+                        font_size=size,
+                    ),
+                }
+            )
     return out

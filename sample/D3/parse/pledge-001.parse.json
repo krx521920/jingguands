@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.6",
+  "schema_version": "evidence/0.7",
   "doc": {
     "doc_id": "d44e95085",
     "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
@@ -7,10 +7,10 @@
     "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
     "file_size": 107365,
     "page_count": 2,
-    "parsed_at": "2026-09-29T09:00:48+08:00",
+    "parsed_at": "2026-09-29T09:16:51+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.6.0"
+      "version": "0.7.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -48,6 +48,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d44e95085_p001_b00001",
@@ -3091,6 +3092,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d44e95085_p002_b00001",
@@ -3953,7 +3955,7 @@
       "file_name": "pledge.pdf",
       "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.6.0",
+        "parser_version": "finstruct.parse/0.7.0",
         "page_count": 2,
         "blocks": [
           {

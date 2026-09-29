@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.6",
+  "schema_version": "evidence/0.7",
   "doc": {
     "doc_id": "d0be9f419",
     "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
@@ -7,10 +7,10 @@
     "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
     "file_size": 96076,
     "page_count": 4,
-    "parsed_at": "2026-09-29T09:00:48+08:00",
+    "parsed_at": "2026-09-29T09:16:52+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.6.0"
+      "version": "0.7.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -48,6 +48,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d0be9f419_p001_b00001",
@@ -468,6 +469,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d0be9f419_p002_b00001",
@@ -1398,6 +1400,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d0be9f419_p003_b00001",
@@ -1928,6 +1931,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [],
       "tables": []
     }
@@ -2016,7 +2020,7 @@
       "file_name": "award.pdf",
       "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.6.0",
+        "parser_version": "finstruct.parse/0.7.0",
         "page_count": 4,
         "blocks": [
           {

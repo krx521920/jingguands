@@ -3,7 +3,7 @@
 **张智博**负责的「文档解析与表格还原」模块。把一份 PDF 变成**带出处的结构化中间表示**，
 交给下游的抽取层锚定字段、展示层高亮原文。
 
-> **分支**：`zhangzhibo`　**结构版本**：`evidence/0.6`
+> **分支**：`zhangzhibo`　**结构版本**：`evidence/0.7`
 > **已对齐**：魏文宇的抽取契约 `interface/event-envelope.schema.json` v0.3；
 > 宗博文的证据结构 `evaluation/D1/schemas/evidence.schema.json` v0.1
 
@@ -61,13 +61,14 @@ src/finstruct/
     ├── text_layer.py            文本层抽取、行聚类、段落切分、阅读顺序、单元格归属
     ├── table_detect.py          表格区域、单元格切分、多层表头（header_path）
     ├── table_link.py            跨页续表标注
+    ├── columns.py               分栏检测（栏缝 / 整幅行分段 / 按栏拆行）
     └── parse_pdf.py             命令行入口
 ```
 
 模块外的相关位置：
 
 ```
-schemas/evidence.v0.6.json      ← 当前出处结构契约（JSON Schema）
+schemas/evidence.v0.7.json      ← 当前出处结构契约（JSON Schema）
 schemas/archive/                ← 历史版本（冻结交付物按当时版本校验）
 tools/                          ← check_evidence / validate_schema / verify_evidence / build_manifest
 tests/test_parse.py             ← 51 条回归用例
@@ -110,16 +111,17 @@ python -m pytest tests -q
 | 结构自检（字段完整、region 顺序、id 唯一、reading_order 一致） | 通过 |
 | **区域重建一致率**（region 里装的就是它声称的文字） | **127/127 · 61/61 · 75/75 = 100%** |
 | 字符守恒（无丢字、无段落×段落重叠） | 通过 |
-| 回归用例 | **51 条全绿**（含 24 条真实公告专项） |
+| 回归用例 | **56 条全绿**（含 24 条真实公告专项 + 4 条分栏专项） |
 | 表格单元格切分 | 150 个，全部归属单元格，兜底块 0 |
 | 多层表头 `header_path` | 106 个非空 |
 | 跨页续表 | 检出 2 张（1 张含碎片单元格） |
+| 分栏 | 双栏 fixture 正确分栏；四份单栏文档零误报 |
 
 ### 已知边界（诚实标注）
 
 1. **只实现文本层通道。** `SCANNED` / `MIXED` 页面会被判定并如实降级
    （写进 `quality.degrade_reasons`），暂不产出块。OCR 双通道是 D4 的工作。
-2. **分栏检测尚未实现。** 阅读顺序目前是单栏自上而下，多栏排版会交错读。
+2. **分栏检测只处理竖向栏缝**，不处理同栏内嵌套分栏；表格横跨栏缝时不切栏并给警告。
 3. **续表只打标、不自动拼接。** 怎么拼取决于语义（同一单元格的延续 vs 恰好同列的两个
    不同值），解析层不替下游决定。消费方读 `table_ref.continues` 自己拼。
 4. **无框表格检不出。** `find_tables()` 依赖绘制线，纯 stream 模式的表格会漏。
@@ -184,4 +186,5 @@ python -m pytest tests -q
 | 2026-09-28 收尾 | D2 | 补 **16 条真实公告回归**（原来表格代码路径无保护）；`verify_evidence` 按 `source_type` 上色 + `--dpi/--no-overview`；26→42 条 |
 | 2026-09-29 | D3 | **输出 `cell_ref`** 对齐魏的契约（原先是 `cell_id`，他读不到会静默丢成 null）；**修正行号推导**（原用 pdfplumber 重叠的 `t.rows` 边界，会把第 2 行误判成第 1 行）；升 v0.4 |
 | 2026-09-29 | D3 | **多层表头绑定**：`header_path` + `rowspan`/`colspan`；**修 `cell_id` 跨表撞车**（D2 那个 94/95 的根因，t002 覆盖了 t001 的 c001–c035）；升 v0.5；42→47 条 |
-| 2026-09-29 | D3 | **跨页续表标注**：`continued_from` + 碎片单元格 `continues`；**「禁止反查」的回归证明**；`schemas/archive/` 留档历史版本；升 v0.6；47→**51 条** |
+| 2026-09-29 | D3 | **跨页续表标注**：`continued_from` + 碎片单元格 `continues`；**「禁止反查」的回归证明**；`schemas/archive/` 留档历史版本；升 v0.6；47→51 条 |
+| 2026-09-29 | D3 | **分栏检测**：`page.columns` + 「整幅行分段、段内逐栏」阅读顺序；新增 `columns.py` 与合成双栏 fixture；升 v0.7；51→**56 条** |

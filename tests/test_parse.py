@@ -325,9 +325,9 @@ def test_输出严格符合JSON_Schema(parsed):
     import json as _json
     import os as _os
 
-    sp = _os.path.join(ROOT, "schemas", "evidence.v0.6.json")
+    sp = _os.path.join(ROOT, "schemas", "evidence.v0.7.json")
     if not _os.path.exists(sp):
-        pytest.skip("找不到 schemas/evidence.v0.6.json")
+        pytest.skip("找不到 schemas/evidence.v0.7.json")
     schema = _json.load(open(sp, encoding="utf-8"))
     errs = sorted(
         jsonschema.Draft202012Validator(schema).iter_errors(parsed),
@@ -445,7 +445,7 @@ def test_真实公告_严格符合schema(name):
     import json as _json
 
     d = _parse_real(name)
-    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.6.json"), encoding="utf-8"))
+    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.7.json"), encoding="utf-8"))
     errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(d), key=lambda e: list(e.path))
     assert not errs, [f"/{'/'.join(map(str,e.path))}: {e.message}" for e in errs[:5]]
 
@@ -704,3 +704,119 @@ def test_行边界断开的不误标碎片():
         if (b.get("table_ref") or {}).get("continues")
     ]
     assert not frag, f"行边界断开不该标碎片，却有 {len(frag)} 个"
+
+
+# ------------------------------------------------------------ D3：分栏检测
+TWoCOL_FIXTURE = os.path.join(ROOT, "tests", "fixtures", "twocol_synthetic.pdf")
+
+
+def _parse_twocol():
+    if not os.path.exists(TWoCOL_FIXTURE):
+        pytest.skip("缺 tests/fixtures/twocol_synthetic.pdf")
+    return pp.parse_pdf(TWoCOL_FIXTURE)
+
+
+def test_双栏页面被检出并给出各栏范围():
+    """合成的双栏 fixture 必须检出 2 栏，且栏范围合理（不与页边距混淆）。"""
+    d = _parse_twocol()
+    pg = d["pages"][0]
+    cols_ = pg["columns"]
+    assert len(cols_) == 2, f"应检出 2 栏，实际 {cols_}"
+    (a0, a1), (b0, b1) = cols_
+    assert a1 < b0, "两栏应有先后且不重叠"
+    # 每栏至少占文本区的 25%，否则是把页边距当成了栏
+    assert (a1 - a0) > 0.25 * pg["width"]
+    assert (b1 - b0) > 0.25 * pg["width"]
+
+
+def test_双栏阅读顺序_整幅优先再逐栏():
+    """整幅的标题/元信息要排在两栏正文之前，而不是被按栏切成两半。
+
+    实测踩过的坑：把「某某股份有限公司关于股东股份质押的公告」按栏缝拦腰截断，
+    变成「某某股份有限公司关」+「股东股份质押的公告」两块，分散在两次读里。
+    """
+    d = _parse_twocol()
+    pg = d["pages"][0]
+    texts = [b["text"] for b in pg["blocks"]]
+
+    full = [i for i, b in enumerate(pg["blocks"]) if not _block_in_one_column(b, pg["columns"])]
+    assert full, "应有横跨栏缝的整幅块（标题、元信息）"
+    first_part = [i for i, b in enumerate(pg["blocks"]) if _block_in_one_column(b, pg["columns"])]
+    assert max(full) < min(first_part), "整幅块应排在分栏正文之前"
+
+    # 左右栏各自成块，且顺序是先左后右
+    left = [i for i in first_part if pg["blocks"][i]["region"][0] < pg["columns"][1][0]]
+    right = [i for i in first_part if pg["blocks"][i]["region"][0] >= pg["columns"][1][0]]
+    assert left and right, "左右栏都应有块"
+    assert max(left) < min(right), "阅读顺序应先读完左栏再读右栏"
+
+
+def test_双栏不出现块内左右栏交错():
+    """不分栏阅读的直接症状就是块横跨两栏、文本交错。
+
+    用**结构**判据而不是关键词：块要么完全落在某一栏内，要么整幅跨过中缝，
+    不允许「只横跨一半」。
+    （一开始我用「文本里同时出现『左栏』『右栏』」当判据，结果误报了 ——
+    左栏正文里本来就有「详见右栏表格说明」这句话。判据得看几何，不能看词。）
+    """
+    d = _parse_twocol()
+    for pg in d["pages"]:
+        cols_ = pg["columns"]
+        if not cols_:
+            continue
+        gut0, gut1 = cols_[0][1], cols_[1][0]
+        for b in pg["blocks"]:
+            r = b["region"]
+            inside = any(r[0] >= c0 - 1 and r[2] <= c1 + 1 for c0, c1 in cols_)
+            crosses = r[0] < gut0 and r[2] > gut1
+            assert inside or crosses, (
+                f"块横跨栏缝却又不整幅（既不在任一栏内，也没跨过中缝）："
+                f"x={r[0]:.0f}–{r[2]:.0f} 文本={b['text'][:40]!r}"
+            )
+
+
+def test_双栏左右栏内容没有互相渗入():
+    """右栏独有的数字不能出现在左栏的块里（反之亦然）。
+
+    用数字而不是措辞：数字不会因为正文语义而自然出现，判据才成立。
+    """
+    d = _parse_twocol()
+    pg = d["pages"][0]
+    cols_ = pg["columns"]
+    if not cols_:
+        pytest.skip("fixture 未检分栏")
+    left_text = "".join(
+        b["text"] for b in pg["blocks"] if b["region"][0] >= cols_[0][0] - 1 and b["region"][2] <= cols_[0][1] + 1
+    )
+    right_text = "".join(
+        b["text"] for b in pg["blocks"] if b["region"][0] >= cols_[1][0] - 1 and b["region"][2] <= cols_[1][1] + 1
+    )
+    assert "50,350,000" in right_text, "右栏独有的数字没出现在右栏块里"
+    assert "50,350,000" not in left_text, "右栏内容渗进了左栏块"
+
+
+def _block_in_one_column(block, columns_) -> bool:
+    r = block["region"]
+    for c0, c1 in columns_:
+        if r[0] >= c0 - 1 and r[2] <= c1 + 1:
+            return True
+    return False
+
+
+def test_单栏文档不误报分栏():
+    """反例同样要锁：四份真实单栏文档必须全部 columns 为空。
+
+    分栏检测最大的风险是**误报** —— 居中标题会留下大片 x 空白、
+    表格的列间距更是天然一堆空白带。实测按整页扫描时 pledge-001 p1
+    会报出 3 条假栏缝（153–203 / 218–340 / 342–432）。
+
+    要求它们在**逐块内容上零变化**：一旦误切，块序与文本都会变。
+    """
+    for name in ("pledge-001", "equity-change-001", "award-001"):
+        d = _parse_real(name)
+        for pg in d["pages"]:
+            assert pg["columns"] == [], f"{name} p{pg['page']} 误报分栏 {pg['columns']}"
+    # D1 的竞赛通知同样是单栏
+    d = pp.parse_pdf(FIXTURE)
+    for pg in d["pages"]:
+        assert pg["columns"] == [], f"附件1通知 p{pg['page']} 误报分栏 {pg['columns']}"

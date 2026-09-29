@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.6",
+  "schema_version": "evidence/0.7",
   "doc": {
     "doc_id": "d116fbfae",
     "file_id": "sha256:116fbfae5544558d2f61a2d4cb349ff63fa3b9c409adf3dc0ea3ff445f708009",
@@ -7,10 +7,10 @@
     "file_sha256": "116fbfae5544558d2f61a2d4cb349ff63fa3b9c409adf3dc0ea3ff445f708009",
     "file_size": 246012,
     "page_count": 4,
-    "parsed_at": "2026-09-29T09:00:49+08:00",
+    "parsed_at": "2026-09-29T09:16:52+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.6.0"
+      "version": "0.7.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -48,6 +48,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d116fbfae_p001_b00001",
@@ -446,6 +447,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d116fbfae_p002_b00001",
@@ -778,6 +780,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d116fbfae_p003_b00001",
@@ -1286,6 +1289,7 @@
           "ink_ratio_min": 0.01
         }
       },
+      "columns": [],
       "blocks": [
         {
           "block_id": "d116fbfae_p004_b00001",
@@ -1767,7 +1771,7 @@
       "file_name": "附件1通知.pdf",
       "file_sha256": "116fbfae5544558d2f61a2d4cb349ff63fa3b9c409adf3dc0ea3ff445f708009",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.6.0",
+        "parser_version": "finstruct.parse/0.7.0",
         "page_count": 4,
         "blocks": [
           {

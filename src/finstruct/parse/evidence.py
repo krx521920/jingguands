@@ -33,9 +33,9 @@ from __future__ import annotations
 import hashlib
 from typing import Dict, List, Optional
 
-SCHEMA_VERSION = "evidence/0.6"
+SCHEMA_VERSION = "evidence/0.7"
 PARSER_NAME = "finstruct.parse"
-PARSER_VERSION = "0.6.0"
+PARSER_VERSION = "0.7.0"
 
 # 全队公共契约（用于 handoff 声明与自检提示）
 TEAM_CONTRACT = "interface/event-envelope.schema.json v0.1"
@@ -227,6 +227,7 @@ def make_page(
     form_evidence: Dict,
     blocks: List[Dict],
     tables: Optional[List[Dict]] = None,
+    columns: Optional[List] = None,
 ) -> Dict:
     return {
         "page": page,
@@ -234,6 +235,9 @@ def make_page(
         "width": round(float(width), 2),
         "height": round(float(height), 2),
         "form_evidence": form_evidence,
+        # 多栏页面的各栏 x 范围（左到右）；单栏为空数组。
+        # 记下来是为了让阅读顺序可解释：为什么这块排在前面。
+        "columns": columns or [],
         "blocks": blocks,
         "tables": tables or [],
     }
