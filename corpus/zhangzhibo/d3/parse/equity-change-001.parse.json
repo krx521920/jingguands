@@ -1,0 +1,2742 @@
+{
+  "schema_version": "evidence/0.7",
+  "doc": {
+    "doc_id": "d878ebffb",
+    "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+    "file_name": "equity_change.pdf",
+    "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+    "file_size": 98239,
+    "page_count": 4,
+    "parsed_at": "2026-09-29T09:16:51+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.7.0"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 712,
+        "text_area_ratio": 0.2689,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d878ebffb_p001_b00001",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "证券代码：688105 证券简称：诺唯赞 公告编号：2026-041",
+          "text_raw": "证券代码：688105证券简称：诺唯赞公告编号：2026-041",
+          "region": [
+            90.0,
+            78.42,
+            499.38,
+            88.87
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00002",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+          "text_raw": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+          "region": [
+            114.0,
+            106.06,
+            511.32,
+            232.49
+          ],
+          "table_ref": null,
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00003",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性依法承担法律责任。",
+          "text_raw": "误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性依法承担法律责任。",
+          "region": [
+            90.0,
+            243.77,
+            505.32,
+            279.17
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00004",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "重要内容提示：",
+          "text_raw": "重要内容提示：",
+          "region": [
+            90.0,
+            311.57,
+            174.24,
+            323.57
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00005",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": " 股东持股的基本情况",
+          "text_raw": "股东持股的基本情况",
+          "region": [
+            120.0,
+            334.97,
+            249.0,
+            347.81
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00006",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
+          "text_raw": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
+          "region": [
+            114.0,
+            358.37,
+            505.2,
+            370.37
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00007",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "司”）股东国寿成达（上海）健康产业股权投资中心（有限合伙）（以下简称“国寿成达”）持有公司股份36,103,002股，占公司总股本的6.9834%。上述股份来源于公司首次公开发行股票并上市前取得的股份及实施2025年度权益分派资本公积金转增股本增加的股份，首发限售股份已于2022年11月15日解除限售并上市流通。",
+          "text_raw": "司”）股东国寿成达（上海）健康产业股权投资中心（有限合伙）（以下简称“国寿成达”）持有公司股份36,103,002股，占公司总股本的6.9834%。上述股份来源于公司首次公开发行股票并上市前取得的股份及实施2025年度权益分派资本公积金转增股本增加的股份，首发限售股份已于2022年11月15日解除限售并上市流通。",
+          "region": [
+            90.0,
+            381.77,
+            505.32,
+            487.37
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00008",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": " 减持计划的实施结果情况",
+          "text_raw": "减持计划的实施结果情况",
+          "region": [
+            120.0,
+            498.77,
+            273.0,
+            511.61
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00009",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
+          "text_raw": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
+          "region": [
+            114.0,
+            522.17,
+            505.2,
+            534.17
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00010",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "告》（公告编号：2026-031）。因股东自身资金需求，国寿成达计划自2026年7月22日起至2026年10月21日期间，通过集中竞价和大宗交易的方式减持公司股份合计不超过15,509,550股，即不超过公司总股本的3.00%。其中，拟通过集中竞价方式减持的，在任意连续90日内减持股份总数不超过公司股份总数的1.00%，减持数量不超过5,169,850股；拟通过大宗交易方式减持的，在任意连续 90 日内减持股份总数不超过公司股份总数的 2.00%，减持数量不超过10,339,700股。",
+          "text_raw": "告》（公告编号：2026-031）。因股东自身资金需求，国寿成达计划自2026年7月22日起至2026年10月21日期间，通过集中竞价和大宗交易的方式减持公司股份合计不超过15,509,550股，即不超过公司总股本的3.00%。其中，拟通过集中竞价方式减持的，在任意连续90日内减持股份总数不超过公司股份总数的1.00%，减持数量不超过5,169,850股；拟通过大宗交易方式减持的，在任意连续90日内减持股份总数不超过公司股份总数的2.00%，减持数量不超过10,339,700股。",
+          "region": [
+            90.0,
+            545.57,
+            505.32,
+            697.97
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00011",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
+          "text_raw": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
+          "region": [
+            114.0,
+            709.37,
+            505.2,
+            721.37
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00012",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "国寿成达于2026年7月22日至2026年9月23日期间，通过集中竞价方式减",
+          "text_raw": "国寿成达于2026年7月22日至2026年9月23日期间，通过集中竞价方式减",
+          "region": [
+            90.0,
+            732.77,
+            505.32,
+            744.77
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p001_b00013",
+          "doc_id": "d878ebffb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "FOOTER",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            295.44,
+            782.03,
+            299.94,
+            791.03
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 2,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 714,
+        "text_area_ratio": 0.2238,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d878ebffb_p002_b00001",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "证券代码：688105 证券简称：诺唯赞 公告编号：2026-",
+          "text_raw": "证券代码：688105证券简称：诺唯赞公告编号：2026-",
+          "region": [
+            95.52,
+            44.1,
+            499.62,
+            54.55
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00002",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "041",
+          "text_raw": "041",
+          "region": [
+            289.8,
+            57.66,
+            305.46,
+            68.11
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00003",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "持公司股份5,169,850股，通过大宗交易方式减持公司股份10,339,700股，合计减持公司股份15,509,550股，占公司当前总股本的3%，本次减持计划实施完毕。一、减持主体减持前基本情况",
+          "text_raw": "持公司股份5,169,850股，通过大宗交易方式减持公司股份10,339,700股，合计减持公司股份15,509,550股，占公司当前总股本的3%，本次减持计划实施完毕。一、减持主体减持前基本情况",
+          "region": [
+            90.0,
+            86.45,
+            505.32,
+            168.65
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00004",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            90.25,
+            174.59,
+            199.0,
+            198.49
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00005",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+          "text_raw": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+          "region": [
+            199.0,
+            174.59,
+            505.05,
+            198.49
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c006",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00006",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东身份",
+          "text_raw": "股东身份",
+          "region": [
+            90.25,
+            198.49,
+            199.0,
+            292.59
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00007",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "控股股东、实控人及一致行动人 □是 √否直接持股5%以上股东 √是 □否董事、监事和高级管理人员 □是 √否其他：不适用",
+          "text_raw": "控股股东、实控人及一致行动人□是√否直接持股5%以上股东√是□否董事、监事和高级管理人员□是√否其他：不适用",
+          "region": [
+            199.0,
+            198.49,
+            505.05,
+            292.59
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c007",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00008",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股数量",
+          "text_raw": "持股数量",
+          "region": [
+            90.25,
+            292.59,
+            199.0,
+            316.49
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c003",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00009",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "36,103,002股",
+          "text_raw": "36,103,002股",
+          "region": [
+            199.0,
+            292.59,
+            505.05,
+            316.49
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c008",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00010",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股比例",
+          "text_raw": "持股比例",
+          "region": [
+            90.25,
+            316.49,
+            199.0,
+            340.39
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c004",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00011",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "6.9834%",
+          "text_raw": "6.9834%",
+          "region": [
+            199.0,
+            316.49,
+            505.05,
+            340.39
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c009",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00012",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "当前持股股份来源",
+          "text_raw": "当前持股股份来源",
+          "region": [
+            90.25,
+            340.39,
+            199.0,
+            411.09
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c005",
+            "cell_ref": "r5c1",
+            "row": 4,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00013",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "IPO前取得：27,771,540股其他方式取得：8,331,462股（通过2025年度权益分派资本公积金转增股本取得）",
+          "text_raw": "IPO前取得：27,771,540股其他方式取得：8,331,462股（通过2025年度权益分派资本公积金转增股本取得）",
+          "region": [
+            199.0,
+            340.39,
+            505.05,
+            411.09
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t001",
+            "cell_id": "d878ebffb_p002_t001_c010",
+            "cell_ref": "r5c2",
+            "row": 4,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00014",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "注：国寿成达于2026年7月22日至2026年7月27日期间，通过集中竞价及大宗交易方式合计减持公司股份10,253,849股，本次权益变动后国寿成达持有公司股份的比例降至5%以下，不再是公司持股5%以上股东，具体情况详见公司分别于2026年7月25日、2026年7月29日在上海证券交易所网站披露的《关于持股5%以上股东权益变动触及1%刻度的提示性公告》（2026-033）《关于持股5%以上股东权益变动触及1%及5%整数倍暨披露简式权益变动报告书的提示性公告》（2026-034）、《简式权益变动报告书（国寿成达）》。",
+          "text_raw": "注：国寿成达于2026年7月22日至2026年7月27日期间，通过集中竞价及大宗交易方式合计减持公司股份10,253,849股，本次权益变动后国寿成达持有公司股份的比例降至5%以下，不再是公司持股5%以上股东，具体情况详见公司分别于2026年7月25日、2026年7月29日在上海证券交易所网站披露的《关于持股5%以上股东权益变动触及1%刻度的提示性公告》（2026-033）《关于持股5%以上股东权益变动触及1%及5%整数倍暨披露简式权益变动报告书的提示性公告》（2026-034）、《简式权益变动报告书（国寿成达）》。",
+          "region": [
+            90.0,
+            417.78,
+            505.21,
+            545.23
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00015",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "上述减持主体无一致行动人。二、减持计划的实施结果（一）大股东因以下事项披露减持计划实施结果：减持计划实施完毕",
+          "text_raw": "上述减持主体无一致行动人。二、减持计划的实施结果（一）大股东因以下事项披露减持计划实施结果：减持计划实施完毕",
+          "region": [
+            90.0,
+            565.25,
+            354.0,
+            655.25
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00016",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            90.25,
+            661.19,
+            226.65,
+            685.09
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t002",
+            "cell_id": "d878ebffb_p002_t002_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00017",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+          "text_raw": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+          "region": [
+            226.65,
+            661.19,
+            505.05,
+            685.09
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t002",
+            "cell_id": "d878ebffb_p002_t002_c005",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00018",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "减持计划首次披露日期",
+          "text_raw": "减持计划首次披露日期",
+          "region": [
+            90.25,
+            685.09,
+            226.65,
+            708.99
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t002",
+            "cell_id": "d878ebffb_p002_t002_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00019",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2026年6月30日",
+          "text_raw": "2026年6月30日",
+          "region": [
+            226.65,
+            685.09,
+            505.05,
+            708.99
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t002",
+            "cell_id": "d878ebffb_p002_t002_c006",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00020",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "减持数量",
+          "text_raw": "减持数量",
+          "region": [
+            90.25,
+            708.99,
+            226.65,
+            732.89
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t002",
+            "cell_id": "d878ebffb_p002_t002_c003",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00021",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "15,509,550股",
+          "text_raw": "15,509,550股",
+          "region": [
+            226.65,
+            708.99,
+            505.05,
+            732.89
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t002",
+            "cell_id": "d878ebffb_p002_t002_c007",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00022",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "减持期间",
+          "text_raw": "减持期间",
+          "region": [
+            90.25,
+            732.89,
+            226.65,
+            756.69
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t002",
+            "cell_id": "d878ebffb_p002_t002_c004",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00023",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2026年7月22日～2026年9月23日",
+          "text_raw": "2026年7月22日～2026年9月23日",
+          "region": [
+            226.65,
+            732.89,
+            505.05,
+            756.69
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p002_t002",
+            "cell_id": "d878ebffb_p002_t002_c008",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p002_b00024",
+          "doc_id": "d878ebffb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "FOOTER",
+          "text": "2",
+          "text_raw": "2",
+          "region": [
+            295.44,
+            770.99,
+            299.94,
+            779.99
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "d878ebffb_p002_t001",
+          "page": 2,
+          "region": [
+            90.25,
+            174.59,
+            505.05,
+            411.09
+          ],
+          "n_rows": 5,
+          "n_cols": 2,
+          "continued_from": null
+        },
+        {
+          "table_id": "d878ebffb_p002_t002",
+          "page": 2,
+          "region": [
+            90.25,
+            661.19,
+            505.05,
+            756.69
+          ],
+          "n_rows": 4,
+          "n_cols": 2,
+          "continued_from": null
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 429,
+        "text_area_ratio": 0.1477,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d878ebffb_p003_b00001",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "证券代码：688105 证券简称：诺唯赞 公告编号：2026-",
+          "text_raw": "证券代码：688105证券简称：诺唯赞公告编号：2026-",
+          "region": [
+            95.52,
+            44.1,
+            499.62,
+            54.55
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00002",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "041",
+          "text_raw": "041",
+          "region": [
+            289.8,
+            57.66,
+            305.46,
+            68.11
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00003",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "减持方式及对应减持数量",
+          "text_raw": "减持方式及对应减持数量",
+          "region": [
+            90.25,
+            80.99,
+            226.65,
+            129.59
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00004",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "集中竞价减持，5,169,850股大宗交易减持，10,339,700股",
+          "text_raw": "集中竞价减持，5,169,850股大宗交易减持，10,339,700股",
+          "region": [
+            226.65,
+            80.99,
+            505.05,
+            129.59
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c009",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00005",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "减持价格区间",
+          "text_raw": "减持价格区间",
+          "region": [
+            90.25,
+            129.59,
+            226.65,
+            153.49
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00006",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "15.70～23.01元/股",
+          "text_raw": "15.70～23.01元/股",
+          "region": [
+            226.65,
+            129.59,
+            505.05,
+            153.49
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c010",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00007",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "减持总金额",
+          "text_raw": "减持总金额",
+          "region": [
+            90.25,
+            153.49,
+            226.65,
+            177.39
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c003",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00008",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "269,259,097.17元",
+          "text_raw": "269,259,097.17元",
+          "region": [
+            226.65,
+            153.49,
+            505.05,
+            177.39
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c011",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00009",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "减持完成情况",
+          "text_raw": "减持完成情况",
+          "region": [
+            90.25,
+            177.39,
+            226.65,
+            201.29
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c004",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00010",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "已完成",
+          "text_raw": "已完成",
+          "region": [
+            226.65,
+            177.39,
+            505.05,
+            201.29
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c012",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00011",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "减持比例",
+          "text_raw": "减持比例",
+          "region": [
+            90.25,
+            201.29,
+            226.65,
+            225.19
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c005",
+            "cell_ref": "r5c1",
+            "row": 4,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00012",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "3%",
+          "text_raw": "3%",
+          "region": [
+            226.65,
+            201.29,
+            505.05,
+            225.19
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c013",
+            "cell_ref": "r5c2",
+            "row": 4,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00013",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "原计划减持比例",
+          "text_raw": "原计划减持比例",
+          "region": [
+            90.25,
+            225.19,
+            226.65,
+            249.09
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c006",
+            "cell_ref": "r6c1",
+            "row": 5,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00014",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "不超过：3%",
+          "text_raw": "不超过：3%",
+          "region": [
+            226.65,
+            225.19,
+            505.05,
+            249.09
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c014",
+            "cell_ref": "r6c2",
+            "row": 5,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00015",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "当前持股数量",
+          "text_raw": "当前持股数量",
+          "region": [
+            90.25,
+            249.09,
+            226.65,
+            272.99
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c007",
+            "cell_ref": "r7c1",
+            "row": 6,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00016",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "20,593,452股",
+          "text_raw": "20,593,452股",
+          "region": [
+            226.65,
+            249.09,
+            505.05,
+            272.99
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c015",
+            "cell_ref": "r7c2",
+            "row": 6,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00017",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "当前持股比例",
+          "text_raw": "当前持股比例",
+          "region": [
+            90.25,
+            272.99,
+            226.65,
+            296.89
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c008",
+            "cell_ref": "r8c1",
+            "row": 7,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00018",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "3.9834%",
+          "text_raw": "3.9834%",
+          "region": [
+            226.65,
+            272.99,
+            505.05,
+            296.89
+          ],
+          "table_ref": {
+            "table_id": "d878ebffb_p003_t001",
+            "cell_id": "d878ebffb_p003_t001_c016",
+            "cell_ref": "r8c2",
+            "row": 7,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00019",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "注：以上数据如有差异，系四舍五入尾差所致。本次减持计划已于2026年9月23日实施完毕。（二）本次减持是否遵守相关法律法规、本所业务规则的规定 √是 □否（三）本次实际减持情况与此前披露的减持计划、承诺是否一致 √是 □否（四）减持时间区间届满，是否未实施减持 □未实施 √已实施（五）实际减持是否未达到减持计划最低减持数量（比例）□未达到 √已达到",
+          "text_raw": "注：以上数据如有差异，系四舍五入尾差所致。本次减持计划已于2026年9月23日实施完毕。（二）本次减持是否遵守相关法律法规、本所业务规则的规定√是□否（三）本次实际减持情况与此前披露的减持计划、承诺是否一致√是□否（四）减持时间区间届满，是否未实施减持□未实施√已实施（五）实际减持是否未达到减持计划最低减持数量（比例）□未达到√已达到",
+          "region": [
+            90.0,
+            303.66,
+            505.21,
+            502.13
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00020",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本次减持计划未设置最低减持数量和比例。（六）是否提前终止减持计划 □是 √否（七）是否存在违反减持计划或其他承诺的情况 □是 √否",
+          "text_raw": "本次减持计划未设置最低减持数量和比例。（六）是否提前终止减持计划□是√否（七）是否存在违反减持计划或其他承诺的情况□是√否",
+          "region": [
+            90.0,
+            509.57,
+            420.0,
+            603.65
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00021",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114.0,
+            640.85,
+            174.0,
+            652.85
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00022",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "南京诺唯赞生物科技股份有限公司",
+          "text_raw": "南京诺唯赞生物科技股份有限公司",
+          "region": [
+            325.32,
+            711.05,
+            505.32,
+            723.05
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00023",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "董事会",
+          "text_raw": "董事会",
+          "region": [
+            469.32,
+            734.45,
+            505.32,
+            746.45
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p003_b00024",
+          "doc_id": "d878ebffb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "FOOTER",
+          "text": "3",
+          "text_raw": "3",
+          "region": [
+            295.44,
+            770.99,
+            299.94,
+            779.99
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "d878ebffb_p003_t001",
+          "page": 3,
+          "region": [
+            90.25,
+            80.99,
+            505.05,
+            296.89
+          ],
+          "n_rows": 8,
+          "n_cols": 2,
+          "continued_from": "d878ebffb_p002_t002"
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "form": "MIXED",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 43,
+        "text_area_ratio": 0.0103,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R4_fallback_mixed",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [],
+      "tables": []
+    }
+  ],
+  "reading_order": [
+    "d878ebffb_p001_b00001",
+    "d878ebffb_p001_b00002",
+    "d878ebffb_p001_b00003",
+    "d878ebffb_p001_b00004",
+    "d878ebffb_p001_b00005",
+    "d878ebffb_p001_b00006",
+    "d878ebffb_p001_b00007",
+    "d878ebffb_p001_b00008",
+    "d878ebffb_p001_b00009",
+    "d878ebffb_p001_b00010",
+    "d878ebffb_p001_b00011",
+    "d878ebffb_p001_b00012",
+    "d878ebffb_p001_b00013",
+    "d878ebffb_p002_b00001",
+    "d878ebffb_p002_b00002",
+    "d878ebffb_p002_b00003",
+    "d878ebffb_p002_b00004",
+    "d878ebffb_p002_b00005",
+    "d878ebffb_p002_b00006",
+    "d878ebffb_p002_b00007",
+    "d878ebffb_p002_b00008",
+    "d878ebffb_p002_b00009",
+    "d878ebffb_p002_b00010",
+    "d878ebffb_p002_b00011",
+    "d878ebffb_p002_b00012",
+    "d878ebffb_p002_b00013",
+    "d878ebffb_p002_b00014",
+    "d878ebffb_p002_b00015",
+    "d878ebffb_p002_b00016",
+    "d878ebffb_p002_b00017",
+    "d878ebffb_p002_b00018",
+    "d878ebffb_p002_b00019",
+    "d878ebffb_p002_b00020",
+    "d878ebffb_p002_b00021",
+    "d878ebffb_p002_b00022",
+    "d878ebffb_p002_b00023",
+    "d878ebffb_p002_b00024",
+    "d878ebffb_p003_b00001",
+    "d878ebffb_p003_b00002",
+    "d878ebffb_p003_b00003",
+    "d878ebffb_p003_b00004",
+    "d878ebffb_p003_b00005",
+    "d878ebffb_p003_b00006",
+    "d878ebffb_p003_b00007",
+    "d878ebffb_p003_b00008",
+    "d878ebffb_p003_b00009",
+    "d878ebffb_p003_b00010",
+    "d878ebffb_p003_b00011",
+    "d878ebffb_p003_b00012",
+    "d878ebffb_p003_b00013",
+    "d878ebffb_p003_b00014",
+    "d878ebffb_p003_b00015",
+    "d878ebffb_p003_b00016",
+    "d878ebffb_p003_b00017",
+    "d878ebffb_p003_b00018",
+    "d878ebffb_p003_b00019",
+    "d878ebffb_p003_b00020",
+    "d878ebffb_p003_b00021",
+    "d878ebffb_p003_b00022",
+    "d878ebffb_p003_b00023",
+    "d878ebffb_p003_b00024"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+      "file_name": "equity_change.pdf",
+      "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.7.0",
+        "page_count": 4,
+        "blocks": [
+          {
+            "block_id": "d878ebffb_p001_b00001",
+            "page": 1,
+            "role": "BODY",
+            "text": "证券代码：688105 证券简称：诺唯赞 公告编号：2026-041",
+            "text_raw": "证券代码：688105证券简称：诺唯赞公告编号：2026-041",
+            "region": [
+              90.0,
+              78.42,
+              499.38,
+              88.87
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00002",
+            "page": 1,
+            "role": "BODY",
+            "text": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+            "text_raw": "南京诺唯赞生物科技股份有限公司关于持股5%以上股东减持股份计划完成暨减持结果公告本公司董事会、全体董事及相关股东保证本公告内容不存在任何虚假记载、",
+            "region": [
+              114.0,
+              106.06,
+              511.32,
+              232.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性依法承担法律责任。",
+            "text_raw": "误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性依法承担法律责任。",
+            "region": [
+              90.0,
+              243.77,
+              505.32,
+              279.17
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "重要内容提示：",
+            "text_raw": "重要内容提示：",
+            "region": [
+              90.0,
+              311.57,
+              174.24,
+              323.57
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00005",
+            "page": 1,
+            "role": "BODY",
+            "text": " 股东持股的基本情况",
+            "text_raw": "股东持股的基本情况",
+            "region": [
+              120.0,
+              334.97,
+              249.0,
+              347.81
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00006",
+            "page": 1,
+            "role": "BODY",
+            "text": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
+            "text_raw": "本次减持计划实施前，南京诺唯赞生物科技股份有限公司（以下简称“公",
+            "region": [
+              114.0,
+              358.37,
+              505.2,
+              370.37
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00007",
+            "page": 1,
+            "role": "BODY",
+            "text": "司”）股东国寿成达（上海）健康产业股权投资中心（有限合伙）（以下简称“国寿成达”）持有公司股份36,103,002股，占公司总股本的6.9834%。上述股份来源于公司首次公开发行股票并上市前取得的股份及实施2025年度权益分派资本公积金转增股本增加的股份，首发限售股份已于2022年11月15日解除限售并上市流通。",
+            "text_raw": "司”）股东国寿成达（上海）健康产业股权投资中心（有限合伙）（以下简称“国寿成达”）持有公司股份36,103,002股，占公司总股本的6.9834%。上述股份来源于公司首次公开发行股票并上市前取得的股份及实施2025年度权益分派资本公积金转增股本增加的股份，首发限售股份已于2022年11月15日解除限售并上市流通。",
+            "region": [
+              90.0,
+              381.77,
+              505.32,
+              487.37
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00008",
+            "page": 1,
+            "role": "BODY",
+            "text": " 减持计划的实施结果情况",
+            "text_raw": "减持计划的实施结果情况",
+            "region": [
+              120.0,
+              498.77,
+              273.0,
+              511.61
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00009",
+            "page": 1,
+            "role": "BODY",
+            "text": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
+            "text_raw": "公司于2026年6月30日披露了《关于持股5%以上股东减持股份计划的公",
+            "region": [
+              114.0,
+              522.17,
+              505.2,
+              534.17
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00010",
+            "page": 1,
+            "role": "BODY",
+            "text": "告》（公告编号：2026-031）。因股东自身资金需求，国寿成达计划自2026年7月22日起至2026年10月21日期间，通过集中竞价和大宗交易的方式减持公司股份合计不超过15,509,550股，即不超过公司总股本的3.00%。其中，拟通过集中竞价方式减持的，在任意连续90日内减持股份总数不超过公司股份总数的1.00%，减持数量不超过5,169,850股；拟通过大宗交易方式减持的，在任意连续 90 日内减持股份总数不超过公司股份总数的 2.00%，减持数量不超过10,339,700股。",
+            "text_raw": "告》（公告编号：2026-031）。因股东自身资金需求，国寿成达计划自2026年7月22日起至2026年10月21日期间，通过集中竞价和大宗交易的方式减持公司股份合计不超过15,509,550股，即不超过公司总股本的3.00%。其中，拟通过集中竞价方式减持的，在任意连续90日内减持股份总数不超过公司股份总数的1.00%，减持数量不超过5,169,850股；拟通过大宗交易方式减持的，在任意连续90日内减持股份总数不超过公司股份总数的2.00%，减持数量不超过10,339,700股。",
+            "region": [
+              90.0,
+              545.57,
+              505.32,
+              697.97
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00011",
+            "page": 1,
+            "role": "BODY",
+            "text": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
+            "text_raw": "2026年9月24日，公司收到国寿成达出具的《关于减持结果的告知函》，",
+            "region": [
+              114.0,
+              709.37,
+              505.2,
+              721.37
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00012",
+            "page": 1,
+            "role": "BODY",
+            "text": "国寿成达于2026年7月22日至2026年9月23日期间，通过集中竞价方式减",
+            "text_raw": "国寿成达于2026年7月22日至2026年9月23日期间，通过集中竞价方式减",
+            "region": [
+              90.0,
+              732.77,
+              505.32,
+              744.77
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p001_b00013",
+            "page": 1,
+            "role": "FOOTER",
+            "text": "1",
+            "text_raw": "1",
+            "region": [
+              295.44,
+              782.03,
+              299.94,
+              791.03
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00001",
+            "page": 2,
+            "role": "HEADER",
+            "text": "证券代码：688105 证券简称：诺唯赞 公告编号：2026-",
+            "text_raw": "证券代码：688105证券简称：诺唯赞公告编号：2026-",
+            "region": [
+              95.52,
+              44.1,
+              499.62,
+              54.55
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00002",
+            "page": 2,
+            "role": "HEADER",
+            "text": "041",
+            "text_raw": "041",
+            "region": [
+              289.8,
+              57.66,
+              305.46,
+              68.11
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00003",
+            "page": 2,
+            "role": "BODY",
+            "text": "持公司股份5,169,850股，通过大宗交易方式减持公司股份10,339,700股，合计减持公司股份15,509,550股，占公司当前总股本的3%，本次减持计划实施完毕。一、减持主体减持前基本情况",
+            "text_raw": "持公司股份5,169,850股，通过大宗交易方式减持公司股份10,339,700股，合计减持公司股份15,509,550股，占公司当前总股本的3%，本次减持计划实施完毕。一、减持主体减持前基本情况",
+            "region": [
+              90.0,
+              86.45,
+              505.32,
+              168.65
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00004",
+            "page": 2,
+            "role": "BODY",
+            "text": "股东名称",
+            "text_raw": "股东名称",
+            "region": [
+              90.25,
+              174.59,
+              199.0,
+              198.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00005",
+            "page": 2,
+            "role": "BODY",
+            "text": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+            "text_raw": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+            "region": [
+              199.0,
+              174.59,
+              505.05,
+              198.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00006",
+            "page": 2,
+            "role": "BODY",
+            "text": "股东身份",
+            "text_raw": "股东身份",
+            "region": [
+              90.25,
+              198.49,
+              199.0,
+              292.59
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00007",
+            "page": 2,
+            "role": "BODY",
+            "text": "控股股东、实控人及一致行动人 □是 √否直接持股5%以上股东 √是 □否董事、监事和高级管理人员 □是 √否其他：不适用",
+            "text_raw": "控股股东、实控人及一致行动人□是√否直接持股5%以上股东√是□否董事、监事和高级管理人员□是√否其他：不适用",
+            "region": [
+              199.0,
+              198.49,
+              505.05,
+              292.59
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00008",
+            "page": 2,
+            "role": "BODY",
+            "text": "持股数量",
+            "text_raw": "持股数量",
+            "region": [
+              90.25,
+              292.59,
+              199.0,
+              316.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00009",
+            "page": 2,
+            "role": "BODY",
+            "text": "36,103,002股",
+            "text_raw": "36,103,002股",
+            "region": [
+              199.0,
+              292.59,
+              505.05,
+              316.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00010",
+            "page": 2,
+            "role": "BODY",
+            "text": "持股比例",
+            "text_raw": "持股比例",
+            "region": [
+              90.25,
+              316.49,
+              199.0,
+              340.39
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00011",
+            "page": 2,
+            "role": "BODY",
+            "text": "6.9834%",
+            "text_raw": "6.9834%",
+            "region": [
+              199.0,
+              316.49,
+              505.05,
+              340.39
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00012",
+            "page": 2,
+            "role": "BODY",
+            "text": "当前持股股份来源",
+            "text_raw": "当前持股股份来源",
+            "region": [
+              90.25,
+              340.39,
+              199.0,
+              411.09
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00013",
+            "page": 2,
+            "role": "BODY",
+            "text": "IPO前取得：27,771,540股其他方式取得：8,331,462股（通过2025年度权益分派资本公积金转增股本取得）",
+            "text_raw": "IPO前取得：27,771,540股其他方式取得：8,331,462股（通过2025年度权益分派资本公积金转增股本取得）",
+            "region": [
+              199.0,
+              340.39,
+              505.05,
+              411.09
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00014",
+            "page": 2,
+            "role": "BODY",
+            "text": "注：国寿成达于2026年7月22日至2026年7月27日期间，通过集中竞价及大宗交易方式合计减持公司股份10,253,849股，本次权益变动后国寿成达持有公司股份的比例降至5%以下，不再是公司持股5%以上股东，具体情况详见公司分别于2026年7月25日、2026年7月29日在上海证券交易所网站披露的《关于持股5%以上股东权益变动触及1%刻度的提示性公告》（2026-033）《关于持股5%以上股东权益变动触及1%及5%整数倍暨披露简式权益变动报告书的提示性公告》（2026-034）、《简式权益变动报告书（国寿成达）》。",
+            "text_raw": "注：国寿成达于2026年7月22日至2026年7月27日期间，通过集中竞价及大宗交易方式合计减持公司股份10,253,849股，本次权益变动后国寿成达持有公司股份的比例降至5%以下，不再是公司持股5%以上股东，具体情况详见公司分别于2026年7月25日、2026年7月29日在上海证券交易所网站披露的《关于持股5%以上股东权益变动触及1%刻度的提示性公告》（2026-033）《关于持股5%以上股东权益变动触及1%及5%整数倍暨披露简式权益变动报告书的提示性公告》（2026-034）、《简式权益变动报告书（国寿成达）》。",
+            "region": [
+              90.0,
+              417.78,
+              505.21,
+              545.23
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00015",
+            "page": 2,
+            "role": "BODY",
+            "text": "上述减持主体无一致行动人。二、减持计划的实施结果（一）大股东因以下事项披露减持计划实施结果：减持计划实施完毕",
+            "text_raw": "上述减持主体无一致行动人。二、减持计划的实施结果（一）大股东因以下事项披露减持计划实施结果：减持计划实施完毕",
+            "region": [
+              90.0,
+              565.25,
+              354.0,
+              655.25
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00016",
+            "page": 2,
+            "role": "BODY",
+            "text": "股东名称",
+            "text_raw": "股东名称",
+            "region": [
+              90.25,
+              661.19,
+              226.65,
+              685.09
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00017",
+            "page": 2,
+            "role": "BODY",
+            "text": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+            "text_raw": "国寿成达（上海）健康产业股权投资中心（有限合伙）",
+            "region": [
+              226.65,
+              661.19,
+              505.05,
+              685.09
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00018",
+            "page": 2,
+            "role": "BODY",
+            "text": "减持计划首次披露日期",
+            "text_raw": "减持计划首次披露日期",
+            "region": [
+              90.25,
+              685.09,
+              226.65,
+              708.99
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00019",
+            "page": 2,
+            "role": "BODY",
+            "text": "2026年6月30日",
+            "text_raw": "2026年6月30日",
+            "region": [
+              226.65,
+              685.09,
+              505.05,
+              708.99
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00020",
+            "page": 2,
+            "role": "BODY",
+            "text": "减持数量",
+            "text_raw": "减持数量",
+            "region": [
+              90.25,
+              708.99,
+              226.65,
+              732.89
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00021",
+            "page": 2,
+            "role": "BODY",
+            "text": "15,509,550股",
+            "text_raw": "15,509,550股",
+            "region": [
+              226.65,
+              708.99,
+              505.05,
+              732.89
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00022",
+            "page": 2,
+            "role": "BODY",
+            "text": "减持期间",
+            "text_raw": "减持期间",
+            "region": [
+              90.25,
+              732.89,
+              226.65,
+              756.69
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00023",
+            "page": 2,
+            "role": "BODY",
+            "text": "2026年7月22日～2026年9月23日",
+            "text_raw": "2026年7月22日～2026年9月23日",
+            "region": [
+              226.65,
+              732.89,
+              505.05,
+              756.69
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p002_b00024",
+            "page": 2,
+            "role": "FOOTER",
+            "text": "2",
+            "text_raw": "2",
+            "region": [
+              295.44,
+              770.99,
+              299.94,
+              779.99
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00001",
+            "page": 3,
+            "role": "HEADER",
+            "text": "证券代码：688105 证券简称：诺唯赞 公告编号：2026-",
+            "text_raw": "证券代码：688105证券简称：诺唯赞公告编号：2026-",
+            "region": [
+              95.52,
+              44.1,
+              499.62,
+              54.55
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00002",
+            "page": 3,
+            "role": "HEADER",
+            "text": "041",
+            "text_raw": "041",
+            "region": [
+              289.8,
+              57.66,
+              305.46,
+              68.11
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00003",
+            "page": 3,
+            "role": "BODY",
+            "text": "减持方式及对应减持数量",
+            "text_raw": "减持方式及对应减持数量",
+            "region": [
+              90.25,
+              80.99,
+              226.65,
+              129.59
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00004",
+            "page": 3,
+            "role": "BODY",
+            "text": "集中竞价减持，5,169,850股大宗交易减持，10,339,700股",
+            "text_raw": "集中竞价减持，5,169,850股大宗交易减持，10,339,700股",
+            "region": [
+              226.65,
+              80.99,
+              505.05,
+              129.59
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00005",
+            "page": 3,
+            "role": "BODY",
+            "text": "减持价格区间",
+            "text_raw": "减持价格区间",
+            "region": [
+              90.25,
+              129.59,
+              226.65,
+              153.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00006",
+            "page": 3,
+            "role": "BODY",
+            "text": "15.70～23.01元/股",
+            "text_raw": "15.70～23.01元/股",
+            "region": [
+              226.65,
+              129.59,
+              505.05,
+              153.49
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00007",
+            "page": 3,
+            "role": "BODY",
+            "text": "减持总金额",
+            "text_raw": "减持总金额",
+            "region": [
+              90.25,
+              153.49,
+              226.65,
+              177.39
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00008",
+            "page": 3,
+            "role": "BODY",
+            "text": "269,259,097.17元",
+            "text_raw": "269,259,097.17元",
+            "region": [
+              226.65,
+              153.49,
+              505.05,
+              177.39
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00009",
+            "page": 3,
+            "role": "BODY",
+            "text": "减持完成情况",
+            "text_raw": "减持完成情况",
+            "region": [
+              90.25,
+              177.39,
+              226.65,
+              201.29
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00010",
+            "page": 3,
+            "role": "BODY",
+            "text": "已完成",
+            "text_raw": "已完成",
+            "region": [
+              226.65,
+              177.39,
+              505.05,
+              201.29
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00011",
+            "page": 3,
+            "role": "BODY",
+            "text": "减持比例",
+            "text_raw": "减持比例",
+            "region": [
+              90.25,
+              201.29,
+              226.65,
+              225.19
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00012",
+            "page": 3,
+            "role": "BODY",
+            "text": "3%",
+            "text_raw": "3%",
+            "region": [
+              226.65,
+              201.29,
+              505.05,
+              225.19
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00013",
+            "page": 3,
+            "role": "BODY",
+            "text": "原计划减持比例",
+            "text_raw": "原计划减持比例",
+            "region": [
+              90.25,
+              225.19,
+              226.65,
+              249.09
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00014",
+            "page": 3,
+            "role": "BODY",
+            "text": "不超过：3%",
+            "text_raw": "不超过：3%",
+            "region": [
+              226.65,
+              225.19,
+              505.05,
+              249.09
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00015",
+            "page": 3,
+            "role": "BODY",
+            "text": "当前持股数量",
+            "text_raw": "当前持股数量",
+            "region": [
+              90.25,
+              249.09,
+              226.65,
+              272.99
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00016",
+            "page": 3,
+            "role": "BODY",
+            "text": "20,593,452股",
+            "text_raw": "20,593,452股",
+            "region": [
+              226.65,
+              249.09,
+              505.05,
+              272.99
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00017",
+            "page": 3,
+            "role": "BODY",
+            "text": "当前持股比例",
+            "text_raw": "当前持股比例",
+            "region": [
+              90.25,
+              272.99,
+              226.65,
+              296.89
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00018",
+            "page": 3,
+            "role": "BODY",
+            "text": "3.9834%",
+            "text_raw": "3.9834%",
+            "region": [
+              226.65,
+              272.99,
+              505.05,
+              296.89
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00019",
+            "page": 3,
+            "role": "BODY",
+            "text": "注：以上数据如有差异，系四舍五入尾差所致。本次减持计划已于2026年9月23日实施完毕。（二）本次减持是否遵守相关法律法规、本所业务规则的规定 √是 □否（三）本次实际减持情况与此前披露的减持计划、承诺是否一致 √是 □否（四）减持时间区间届满，是否未实施减持 □未实施 √已实施（五）实际减持是否未达到减持计划最低减持数量（比例）□未达到 √已达到",
+            "text_raw": "注：以上数据如有差异，系四舍五入尾差所致。本次减持计划已于2026年9月23日实施完毕。（二）本次减持是否遵守相关法律法规、本所业务规则的规定√是□否（三）本次实际减持情况与此前披露的减持计划、承诺是否一致√是□否（四）减持时间区间届满，是否未实施减持□未实施√已实施（五）实际减持是否未达到减持计划最低减持数量（比例）□未达到√已达到",
+            "region": [
+              90.0,
+              303.66,
+              505.21,
+              502.13
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00020",
+            "page": 3,
+            "role": "BODY",
+            "text": "本次减持计划未设置最低减持数量和比例。（六）是否提前终止减持计划 □是 √否（七）是否存在违反减持计划或其他承诺的情况 □是 √否",
+            "text_raw": "本次减持计划未设置最低减持数量和比例。（六）是否提前终止减持计划□是√否（七）是否存在违反减持计划或其他承诺的情况□是√否",
+            "region": [
+              90.0,
+              509.57,
+              420.0,
+              603.65
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00021",
+            "page": 3,
+            "role": "BODY",
+            "text": "特此公告。",
+            "text_raw": "特此公告。",
+            "region": [
+              114.0,
+              640.85,
+              174.0,
+              652.85
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00022",
+            "page": 3,
+            "role": "BODY",
+            "text": "南京诺唯赞生物科技股份有限公司",
+            "text_raw": "南京诺唯赞生物科技股份有限公司",
+            "region": [
+              325.32,
+              711.05,
+              505.32,
+              723.05
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00023",
+            "page": 3,
+            "role": "BODY",
+            "text": "董事会",
+            "text_raw": "董事会",
+            "region": [
+              469.32,
+              734.45,
+              505.32,
+              746.45
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p003_b00024",
+            "page": 3,
+            "role": "FOOTER",
+            "text": "3",
+            "text_raw": "3",
+            "region": [
+              295.44,
+              770.99,
+              299.94,
+              779.99
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": true,
+    "degrade_reasons": [
+      "page 4: form=MIXED，D1 仅实现文本层，该页未产出块（需 OCR 通道）"
+    ],
+    "warnings": [
+      "page 4 为 MIXED，无出处产出",
+      "page 3: 表 d878ebffb_p003_t001 续自 d878ebffb_p002_t002（行边界断开，行本身完整）"
+    ]
+  }
+}

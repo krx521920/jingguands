@@ -53,7 +53,12 @@ function loadParseDoc(parsePath) {
   }
   const ordered = (doc.reading_order ?? []).map((id) => blockIndex.get(id)).filter(Boolean)
   const blocks = ordered.length > 0 ? ordered : [...blockIndex.values()]
-  const annotated = blocks.map((b) => `[${b.block_id}] ${b.text_raw}`).join('\n')
+  // 表格单元格行带表头前缀（张智博 evidence/0.7 的 header_path，多层表头已拼全），
+  // 模型按列语义取值，实现"质押表字段绑定"而非按数字猜
+  const annotated = blocks.map((b) => {
+    const hp = b.header_path ?? b.table_ref?.header_path
+    return hp ? `[${b.block_id}|表头:${hp}] ${b.text_raw}` : `[${b.block_id}] ${b.text_raw}`
+  }).join('\n')
   const joinedRaw = blocks.map((b) => b.text_raw).join('\n')
   const pageDims = new Map((doc.pages ?? []).map((pg) => [pg.page, { width: pg.width, height: pg.height }]))
   return { doc, blockIndex, blocks, annotated, joinedRaw, pageDims }
@@ -105,10 +110,10 @@ function buildSystemPrompt(eventType, parseMode) {
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
     '7. 日期区间（unit=date_range 的字段，如 change_date）：必须 unit="date_range"，value 必须是 ISO 区间字符串 "起始日/结束日"（如 "2026-09-20/2026-09-24"），status=extracted——区间是原文明确给出的值。禁止把 value 写成 {start,end} 对象，禁止用 unit="date" 装区间。',
     '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中指明该角色的名称：有完整注册名称取全名；公告用“某公司”“某能源集团”等简称指称时，也必须照原文简称抽取（extracted），不得因是简称而标 not_mentioned，也不得拼接“股东”等原文没有的词。',
-    '9. 日期单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。',
+    '9. 日期规则：单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。若原文给的是条件性描述而非日期（如"申请解除质押登记日""至本公告披露日"）：status=needs_review、unit 保持字段规定的日期单位、value=null、raw_value 保留原文——不要编造日期，也不要把 unit 改成 text。',
     '10. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
     ...(parseMode ? [
-      '11. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本。provenance 必须给出 quote 所在块的 block_id。',
+      '11. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本；表格单元格行为 [block_id|表头:列名] 值——必须按表头理解单元格含义再抽取。provenance 必须给出 quote 所在块的 block_id。',
       '12. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',
     ] : []),
   ].join('\n')

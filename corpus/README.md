@@ -2,6 +2,8 @@
 
 - `zhangzhibo/`：张智博真实解析产出（来源分支 zhangzhibo@a439659）
   - `parse/*.parse.json`：evidence/0.2 解析结果（真实公告 PDF，块级出处）
+  - `d3/`：张智博 D3 交付（zhangzhibo@e6b8f7e，evidence/0.7）——同批公告重解析，
+    表格单元格为独立块（带 table_ref.cell_ref 与多层表头 header_path），跨页续表与分栏就绪
   - `raw/*.pdf`：原始公告 PDF（pledge-001 为 D3 质押闭环首份真实文档）
 - `zongbowen/`：宗博文 D2 评测资产（来源分支 zongbowen@7e6d0e7）
   - `dev/manifest.json`＋`dev/raw/`（6 份受控合成样例）＋`dev/gold/`（Gold 答案信封 v0.3）

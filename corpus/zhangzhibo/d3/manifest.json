@@ -1,0 +1,84 @@
+{
+  "producer": "张智博",
+  "day": "D3",
+  "date": "2026-09-29",
+  "module": "解析 / 表格 / 出处",
+  "code_location": "src/finstruct/parse/（模块唯一位置；本目录只放交付物，不复制代码）",
+  "schema": "evidence/0.7",
+  "samples": [
+    {
+      "parse_file": "parse/pledge-001.parse.json",
+      "case_id": "D1-PLD-001",
+      "event_type": "pledge",
+      "company": "北京万集科技股份有限公司",
+      "title": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225582749.PDF",
+      "source_hash_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "hash_matches_fixture": true,
+      "doc_id": "d44e95085",
+      "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 127,
+      "source_type_counts": {
+        "paragraph": 27,
+        "cell": 100
+      },
+      "schema_version": "evidence/0.7"
+    },
+    {
+      "parse_file": "parse/equity-change-001.parse.json",
+      "case_id": "D1-EQC-001",
+      "event_type": "equity_change",
+      "company": "南京诺唯赞生物科技股份有限公司",
+      "title": "诺唯赞关于持股5%以上股东减持股份计划完成暨减持结果公告",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225581464.PDF",
+      "source_hash_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+      "hash_matches_fixture": true,
+      "doc_id": "d878ebffb",
+      "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+      "page_count": 4,
+      "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "MIXED"
+      ],
+      "block_count": 61,
+      "source_type_counts": {
+        "paragraph": 27,
+        "cell": 34
+      },
+      "schema_version": "evidence/0.7"
+    },
+    {
+      "parse_file": "parse/award-001.parse.json",
+      "case_id": "D1-AWD-001",
+      "event_type": "award_contract",
+      "company": "武汉华康世纪洁净科技股份有限公司",
+      "title": "华康洁净关于项目中标及签订合同的公告",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-24/1225582697.PDF",
+      "source_hash_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+      "hash_matches_fixture": true,
+      "doc_id": "d0be9f419",
+      "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+      "page_count": 4,
+      "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "MIXED"
+      ],
+      "block_count": 75,
+      "source_type_counts": {
+        "paragraph": 59,
+        "cell": 16
+      },
+      "schema_version": "evidence/0.7"
+    }
+  ],
+  "note": "D3 交付：质押表多层表头绑定（header_path / rowspan / colspan）与 cell_ref 契约对齐。与 sample/D2/ 的区别见 README。原始 PDF 未随仓库分发，用 fetch_samples.py 按 source_url 取回。"
+}
