@@ -68,7 +68,7 @@
           "note": null
         },
         "pledged_shares_this_time": {
-          "raw_value": "2,000,000",
+          "raw_value": "2,000,000股",
           "value": 2000000,
           "unit": "shares",
           "status": "extracted",
@@ -93,7 +93,7 @@
           "note": null
         },
         "pledged_shares_cumulative": {
-          "raw_value": "80,000,000",
+          "raw_value": "80,000,000股",
           "value": 80000000,
           "unit": "shares",
           "status": "extracted",

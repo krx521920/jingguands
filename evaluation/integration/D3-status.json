@@ -19,9 +19,24 @@
     "documents_with_system_output": 1,
     "documents_pending_system_output": 4,
     "d3_pld_001_e01": "match",
-    "d3_pld_001_missing_events": ["E02", "E03"],
-    "pending_cases": ["D3-PLD-002", "D3-PLD-003", "D3-PLD-004", "D3-PLD-005"]
+    "d3_pld_001_missing_events": [
+      "E02",
+      "E03"
+    ],
+    "pending_cases": [
+      "D3-PLD-002",
+      "D3-PLD-003",
+      "D3-PLD-004",
+      "D3-PLD-005"
+    ]
   },
   "blocking_issue": "Four real-model system outputs are required to finish the five-document field comparison and closed-loop evidence check.",
-  "handoff": "evaluation/D3/handoffs/D3-evaluation.md"
+  "handoff": "evaluation/D3/handoffs/D3-evaluation.md",
+  "gold_replay_conformance": {
+    "documents": 5,
+    "events": 7,
+    "run_errors": 0,
+    "events_equal_to_gold": 5,
+    "is_real_model_result": false
+  }
 }

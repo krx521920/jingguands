@@ -13,6 +13,12 @@ D3 evaluation Gold is complete and independently validated. Full five-document s
 - The existing Wanji system output matches Gold `E01` field-by-field.
 - The existing Wanji output is missing Gold events `E02` and `E03`.
 
+## Gold replay conformance
+
+- 5/5 documents, 7/7 events, 0 runner errors, events equal to Gold.
+- This is a controlled Gold replay through Wei's runner, not a real-model accuracy result.
+- It exposed and closed the 万股 header-unit handling requirement in the evaluation Gold.
+
 ## Pending
 
 System outputs are still required for:

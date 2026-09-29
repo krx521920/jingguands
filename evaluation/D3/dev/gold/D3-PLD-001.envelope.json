@@ -68,7 +68,7 @@
           "note": null
         },
         "pledged_shares_this_time": {
-          "raw_value": "2,100,000",
+          "raw_value": "2,100,000股",
           "value": 2100000,
           "unit": "shares",
           "status": "extracted",
@@ -93,7 +93,7 @@
           "note": null
         },
         "pledged_shares_cumulative": {
-          "raw_value": "50,350,000",
+          "raw_value": "50,350,000股",
           "value": 50350000,
           "unit": "shares",
           "status": "extracted",
@@ -386,7 +386,7 @@
           "note": null
         },
         "pledged_shares_this_time": {
-          "raw_value": "2,650,000",
+          "raw_value": "2,650,000股",
           "value": 2650000,
           "unit": "shares",
           "status": "extracted",
@@ -411,7 +411,7 @@
           "note": null
         },
         "pledged_shares_cumulative": {
-          "raw_value": "50,350,000",
+          "raw_value": "50,350,000股",
           "value": 50350000,
           "unit": "shares",
           "status": "extracted",
@@ -704,7 +704,7 @@
           "note": null
         },
         "pledged_shares_this_time": {
-          "raw_value": "3,050,000",
+          "raw_value": "3,050,000股",
           "value": 3050000,
           "unit": "shares",
           "status": "extracted",
@@ -729,7 +729,7 @@
           "note": null
         },
         "pledged_shares_cumulative": {
-          "raw_value": "50,350,000",
+          "raw_value": "50,350,000股",
           "value": 50350000,
           "unit": "shares",
           "status": "extracted",

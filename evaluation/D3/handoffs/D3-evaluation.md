@@ -6,7 +6,9 @@
 - Coverage includes table/page variations such as: multi-event, 万股 units, supplementary pledge, non-specific end date, and slash dates.
 - Five v0.3 Gold envelopes generated with document/page/cell evidence.
 - 7 events, 91 fields, 84 evidence records; 0 unsupported quotes.
-- Gold shared-schema validation against `origin/weiwenyu` is 5/5.
+- Gold shared-schema validation against origin/weiwenyu is 5/5.
+- Gold replay through Wei's current runner is 5/5 documents, 7/7 events, 0 run errors, and events equal to Gold.
+- Real integration finding: 万股 table headers must propagate their unit into raw_value or normalization context; otherwise the runner misreads 364.00 万股 as 364 shares and rejects fractional share cells.
 
 ## Current field-comparison state
 
