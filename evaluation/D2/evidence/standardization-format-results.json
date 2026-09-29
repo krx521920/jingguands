@@ -68,7 +68,7 @@
       "status": "PASS"
     },
     {
-      "name": "17 日期区间输出needs_review",
+      "name": "17 显式日期区间输出extracted且未解析日期needs_review",
       "status": "PASS"
     },
     {

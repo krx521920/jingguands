@@ -43,7 +43,7 @@ D2 Gold 原先保留了旧的 award `consortium` 单字段，且 `change_date` �
 
 - 拆分为 `consortium_members` 和 `consortium_shares`。
 - 接入 `contract_signed`、`formal_award_notice_received`、`price_adjustment_status`、`recognized_revenue`。
-- `change_date` 统一为 `date_range`。
+- `change_date` 统一为 `date_range`；显式可解析区间为 `extracted`，无法确定或不完整的日期才为 `needs_review`。
 - 测试 20 增加“所有 Gold 引文必须能在原文中命中”的检查。
 - 重新计算受控 raw 文件哈希，并同步 manifest 与 Gold `source.file_sha256`。
 

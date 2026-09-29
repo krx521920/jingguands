@@ -11,7 +11,7 @@ D2 scope:
 - `D2-PLD-001`: single pledge with current and cumulative values.
 - `D2-PLD-002`: pledge with unresolved end date requiring `needs_review`.
 - `D2-EQC-001`: decrease with before/after shares and ratios.
-- `D2-EQC-002`: increase with a date range requiring `needs_review`.
+- `D2-EQC-002`: increase with an explicit date range normalized as `date_range`.
 - `D2-AWD-001`: tax-inclusive award with signed contract and formal notice.
 - `D2-AWD-002`: tax-exclusive award with consortium split and undisclosed boundaries.
 
