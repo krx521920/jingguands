@@ -298,6 +298,11 @@ function backfillProvenance(events, blockIndex, isMock, errors) {
         p.table_id = block.table_ref?.table_id ?? null
         p.cell_ref = block.table_ref?.cell_ref ?? null
         p.source_type = block.source_type ?? null
+        const headerPath = block.table_ref?.header_path ?? block.header_path ?? ''
+        if (name.includes('shares') && fv.raw_value && !/[万股]/g.test(String(fv.raw_value))) {
+          if (headerPath.includes('万股')) fv.raw_value = String(fv.raw_value) + '万股'
+          else if (headerPath.includes('股')) fv.raw_value = String(fv.raw_value) + '股'
+        }
         if (p.quote && !block.text_raw.includes(p.quote)) {
           errors.push(`[解析] events[${i}].fields.${name}.provenance[${pi}]: quote 不是块 ${block.block_id} text_raw 的子串`)
         }
