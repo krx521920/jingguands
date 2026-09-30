@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "finstruct/evidence.v0.7.json",
-  "title": "解析出处结构 evidence/0.7",
-  "description": "解析层交给下游的中间表示。v0.7 相对 v0.6：page 新增 columns（多栏页面的各栏 x 范围）。新增分栏检测：先按文本行统计找栏缝（不是按整页，否则居中标题会误判）、并排除表格内字符（否则表格的列间距会被当成栏缝），再按「整幅行分段、段内逐栏」排阅读顺序。",
+  "$id": "finstruct/evidence.v0.8.json",
+  "title": "解析出处结构 evidence/0.8",
+  "description": "解析层交给下游的中间表示。v0.8 相对 v0.7：实现扫描件降级区域 —— 非文本层页面不再整页丢弃（可读文本照常产出），靠图片承载内容的区域产成 source_type=scan_region 的降级块（带坐标、degraded=true、missing_reason=NOT_PARSED、text_raw 为空）。scan_region 不认领字符，故不参与字符守恒，也不能作为 provenance.quote 的来源。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,7 +15,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "evidence/0.7"
+      "const": "evidence/0.8"
     },
     "doc": {
       "$ref": "#/$defs/Doc"
@@ -198,7 +198,7 @@
         },
         "text_raw": {
           "type": "string",
-          "description": "按阅读顺序直接拼接原始字符、不插入任何字符，因此保证是原文子串。全队契约要求 provenance.quote 必须是原文子串，**quote 取这个字段**"
+          "description": "按阅读顺序直接拼接原始字符、不插入任何字符，因此保证是原文子串。契约要求 provenance.quote 必须是原文子串，**quote 取这个字段**。唯一例外：source_type=scan_region 的降级块 text_raw 为空 —— 它断言的是\"这块读不出字\"，本来就没有可引用的原文，因此不能作为 quote 的来源。"
         },
         "region": {
           "$ref": "#/$defs/Region"
@@ -237,7 +237,7 @@
             "DEGRADED",
             null
           ],
-          "description": "缺出处的原因码。缺出处必须能被统计，不能静默。"
+          "description": "缺出处的原因码。NOT_PARSED=该区域没有文本层（扫描件）。"
         },
         "table_ref": {
           "type": [

@@ -3,7 +3,7 @@
 **张智博**负责的「文档解析与表格还原」模块。把一份 PDF 变成**带出处的结构化中间表示**，
 交给下游的抽取层锚定字段、展示层高亮原文。
 
-> **分支**：`zhangzhibo`　**结构版本**：`evidence/0.7`
+> **分支**：`zhangzhibo`　**结构版本**：`evidence/0.8`
 > **已对齐**：魏文宇的抽取契约 `interface/event-envelope.schema.json` v0.3；
 > 宗博文的证据结构 `evaluation/D1/schemas/evidence.schema.json` v0.1
 
@@ -62,6 +62,7 @@ src/finstruct/
     ├── table_detect.py          表格区域、单元格切分、多层表头（header_path）
     ├── table_link.py            跨页续表标注
     ├── columns.py               分栏检测（栏缝 / 整幅行分段 / 按栏拆行）
+    ├── scan.py                  扫描件降级路径（OCR 入口 + 不可读区域）
     └── parse_pdf.py             命令行入口
 ```
 
@@ -111,16 +112,19 @@ python -m pytest tests -q
 | 结构自检（字段完整、region 顺序、id 唯一、reading_order 一致） | 通过 |
 | **区域重建一致率**（region 里装的就是它声称的文字） | **127/127 · 61/61 · 75/75 = 100%** |
 | 字符守恒（无丢字、无段落×段落重叠） | 通过 |
-| 回归用例 | **68 条全绿**（含 15 条 D3 质押专项 + 6 条分栏专项） |
+| 回归用例 | **73 条全绿**（含 15 条 D3 质押专项 + 6 条分栏 + 5 条扫描降级） |
 | 表格单元格切分 | 150 个，全部归属单元格，兜底块 0 |
 | 多层表头 `header_path` | 106 个非空 |
 | 跨页续表 | 检出 2 张（1 张含碎片单元格） |
+| 扫描降级 | 扫描页产出带坐标的 `scan_region` 块；落款页可读文本不再被丢弃 |
 | 分栏 | 双栏 fixture 正确分栏；13 份真实文档零误报 |
 
 ### 已知边界（诚实标注）
 
-1. **只实现文本层通道。** `SCANNED` / `MIXED` 页面会被判定并如实降级
-   （写进 `quality.degrade_reasons`），暂不产出块。OCR 双通道是 D4 的工作。
+1. **扫描件只降级、不识别。** `SCANNED` 页会产出**带坐标**的 `source_type=scan_region`
+   降级块（`degraded=true`、`missing_reason=NOT_PARSED`、`text_raw` 为空），
+   展示层可据此框出"这块读不了"。OCR 入口（`scan.try_ocr`）已存在但明确返回不可用，
+   D5+ 接入真实通道时只替换该函数。**非 TEXT 页上仍可读的文本照常产出**，不再整页丢弃。
 2. **分栏检测只处理竖向栏缝**，不处理同栏内嵌套分栏；表格横跨栏缝时不切栏并给警告。
 3. **续表只打标、不自动拼接。** 怎么拼取决于语义（同一单元格的延续 vs 恰好同列的两个
    不同值），解析层不替下游决定。消费方读 `table_ref.continues` 自己拼。
@@ -187,4 +191,5 @@ python -m pytest tests -q
 | 2026-09-29 | D3 | **输出 `cell_ref`** 对齐魏的契约（原先是 `cell_id`，他读不到会静默丢成 null）；**修正行号推导**（原用 pdfplumber 重叠的 `t.rows` 边界，会把第 2 行误判成第 1 行）；升 v0.4 |
 | 2026-09-29 | D3 | **多层表头绑定**：`header_path` + `rowspan`/`colspan`；**修 `cell_id` 跨表撞车**（D2 那个 94/95 的根因，t002 覆盖了 t001 的 c001–c035）；升 v0.5；42→47 条 |
 | 2026-09-29 | D3 | **跨页续表标注**：`continued_from` + 碎片单元格 `continues`；**「禁止反查」的回归证明**；`schemas/archive/` 留档历史版本；升 v0.6；47→51 条 |
-| 2026-09-29 | D3 | **分栏检测**：`page.columns` + 「整幅行分段、段内逐栏」阅读顺序；新增 `columns.py` 与合成双栏 fixture；升 v0.7；51→**56 条** |
+| 2026-09-29 | D3 | **分栏检测**：`page.columns` + 「整幅行分段、段内逐栏」阅读顺序；新增 `columns.py` 与合成双栏 fixture；升 v0.7；51→56 条 |
+| 2026-09-30 | D4 | **扫描件降级区域**：`scan_region` 带坐标降级块 + OCR 入口；非 TEXT 页的可读文本不再整页丢弃；检查器覆盖非 TEXT 页；升 v0.8；56→**73 条** |

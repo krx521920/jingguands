@@ -325,9 +325,9 @@ def test_输出严格符合JSON_Schema(parsed):
     import json as _json
     import os as _os
 
-    sp = _os.path.join(ROOT, "schemas", "evidence.v0.7.json")
+    sp = _os.path.join(ROOT, "schemas", "evidence.v0.8.json")
     if not _os.path.exists(sp):
-        pytest.skip("找不到 schemas/evidence.v0.7.json")
+        pytest.skip("找不到 schemas/evidence.v0.8.json")
     schema = _json.load(open(sp, encoding="utf-8"))
     errs = sorted(
         jsonschema.Draft202012Validator(schema).iter_errors(parsed),
@@ -449,7 +449,7 @@ def test_真实公告_严格符合schema(name):
     import json as _json
 
     d = _parse_real(name)
-    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.7.json"), encoding="utf-8"))
+    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.8.json"), encoding="utf-8"))
     errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(d), key=lambda e: list(e.path))
     assert not errs, [f"/{'/'.join(map(str,e.path))}: {e.message}" for e in errs[:5]]
 
@@ -851,3 +851,92 @@ def test_真双栏仍能检出_护栏没有过度收紧():
     """
     d = _parse_twocol()
     assert len(d["pages"][0]["columns"]) == 2
+
+
+# ------------------------------------------------------------ D4：扫描件降级区域
+SCANNED_FIXTURE = os.path.join(ROOT, "tests", "fixtures", "scanned_synthetic.pdf")
+MIXED_FIXTURE = os.path.join(ROOT, "tests", "fixtures", "mixed_synthetic.pdf")
+
+
+def _parse_maybe(path):
+    if not os.path.exists(path):
+        pytest.skip(f"缺 {path}")
+    return pp.parse_pdf(path)
+
+
+def test_纯扫描页产出带坐标的降级区域():
+    """D4 核心：不可读区域要**带坐标**标出来。
+
+    只写一句"这页读不了"是不够的 —— 展示层拿不到区域，就没法在页面上把
+    那块框出来告诉用户"这里读不出字"。所以必须有 source_type=scan_region
+    的块，带 region / degraded / missing_reason。
+    """
+    d = _parse_maybe(SCANNED_FIXTURE)
+    pg = d["pages"][0]
+    assert pg["form"] == "SCANNED"
+    sc = [b for b in pg["blocks"] if b["source_type"] == "scan_region"]
+    assert sc, "扫描页应产出 scan_region 降级块"
+    for b in sc:
+        r = b["region"]
+        assert len(r) == 4 and r[2] > r[0] and r[3] > r[1], f"区域非法：{r}"
+        assert b["degraded"] is True
+        assert b["missing_reason"] == "NOT_PARSED"
+        # 区域要覆盖页面主体，而不是一个零大小的占位
+        assert (r[2] - r[0]) > 0.5 * pg["width"]
+        assert (r[3] - r[1]) > 0.5 * pg["height"]
+
+
+def test_扫描区域的块不带文本():
+    """scan_region 断言的是"这块读不出字"，所以它不能有文本。
+
+    这不是遗漏而是语义：强制它有 text_raw 会诱导实现去编一个占位串，
+    反而破坏「quote 必须是原文子串」的保证。它也因此不能作为 provenance.quote 的来源。
+    """
+    d = _parse_maybe(SCANNED_FIXTURE)
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            if b["source_type"] == "scan_region":
+                assert b["text"] == "", f"{b['block_id']} 不该有 text"
+                assert b["text_raw"] == "", f"{b['block_id']} 不该有 text_raw"
+
+
+def test_OCR入口存在且明确不可用():
+    """降级路径必须是**显式**的：入口在，但如实返回不可用。
+
+    这样「尝试识别 → 失败则降级」这条链路现在就完整，D5+ 接真实通道时
+    只替换 scan.try_ocr 一个函数，调用方不用改。
+    """
+    from finstruct.parse import scan
+    assert scan.ocr_available() is False
+    assert scan.OCR_CHANNEL_ID == "none"
+    # 入口签名可用；返回 None 表示不可用，调用方据此走降级而不是当成空文本
+    assert scan.try_ocr(None) is None
+
+
+def test_混合页的扫描部分被标降级而文本部分保留():
+    """混合文档：文本页照常解析，扫描页标降级区域。"""
+    d = _parse_maybe(MIXED_FIXTURE)
+    forms = [p["form"] for p in d["pages"]]
+    assert "TEXT" in forms and "SCANNED" in forms, forms
+    text_pages = [p for p in d["pages"] if p["form"] == "TEXT"]
+    scan_pages = [p for p in d["pages"] if p["form"] != "TEXT"]
+    assert all(len(p["blocks"]) > 0 for p in text_pages), "文本页不该为空"
+    for p in scan_pages:
+        assert any(b["source_type"] == "scan_region" for b in p["blocks"])
+
+
+def test_稀疏落款页的可读文本不再被丢弃():
+    """诚实降级 = 标注读不了的部分，而不是丢弃读得了的部分。
+
+    equity-change-001 p4 是落款页：只有 43 个字符（证券代码、日期、页码），
+    形态判定为 MIXED。早期实现对非 TEXT 页一律产出空块，把这 43 个字全扔了。
+    D4 起：能读的照常产出，读不了的才标降级区域。
+    """
+    d = _parse_real("equity-change-001")
+    sparse = [p for p in d["pages"] if p["form"] != "TEXT"]
+    assert sparse, "equity-change-001 应有一页非 TEXT"
+    for p in sparse:
+        assert len(p["blocks"]) > 0, f"p{p['page']} 的可读文本被丢弃了"
+        texts = "".join(b["text"] for b in p["blocks"])
+        # 落款页上的关键内容应当出现
+        assert "证券代码" in texts or "2026" in texts, f"p{p['page']} 内容缺失：{texts[:60]!r}"

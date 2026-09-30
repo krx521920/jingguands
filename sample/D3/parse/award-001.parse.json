@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.7",
+  "schema_version": "evidence/0.8",
   "doc": {
     "doc_id": "d0be9f419",
     "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
@@ -7,10 +7,10 @@
     "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
     "file_size": 96076,
     "page_count": 4,
-    "parsed_at": "2026-09-29T13:52:52+08:00",
+    "parsed_at": "2026-09-30T10:00:31+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.7.0"
+      "version": "0.8.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -1954,7 +1954,52 @@
         }
       },
       "columns": [],
-      "blocks": [],
+      "blocks": [
+        {
+          "block_id": "d0be9f419_p004_b00001",
+          "doc_id": "d0be9f419",
+          "page": 4,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "武汉华康世纪洁净科技股份有限公司",
+          "text_raw": "武汉华康世纪洁净科技股份有限公司",
+          "region": [
+            312.6,
+            117.82,
+            504.6,
+            129.82
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0be9f419_p004_b00002",
+          "doc_id": "d0be9f419",
+          "page": 4,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "董事会2026年9月24日",
+          "text_raw": "董事会2026年9月24日",
+          "region": [
+            365.88,
+            141.22,
+            458.88,
+            176.62
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
       "tables": []
     }
   ],
@@ -2034,7 +2079,9 @@
     "d0be9f419_p003_b00020",
     "d0be9f419_p003_b00021",
     "d0be9f419_p003_b00022",
-    "d0be9f419_p003_b00023"
+    "d0be9f419_p003_b00023",
+    "d0be9f419_p004_b00001",
+    "d0be9f419_p004_b00002"
   ],
   "handoff": {
     "target_contract": "interface/event-envelope.schema.json v0.1",
@@ -2043,7 +2090,7 @@
       "file_name": "award.pdf",
       "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.7.0",
+        "parser_version": "finstruct.parse/0.8.0",
         "page_count": 4,
         "blocks": [
           {
@@ -3033,6 +3080,32 @@
               173.88,
               742.18
             ]
+          },
+          {
+            "block_id": "d0be9f419_p004_b00001",
+            "page": 4,
+            "role": "BODY",
+            "text": "武汉华康世纪洁净科技股份有限公司",
+            "text_raw": "武汉华康世纪洁净科技股份有限公司",
+            "region": [
+              312.6,
+              117.82,
+              504.6,
+              129.82
+            ]
+          },
+          {
+            "block_id": "d0be9f419_p004_b00002",
+            "page": 4,
+            "role": "BODY",
+            "text": "董事会2026年9月24日",
+            "text_raw": "董事会2026年9月24日",
+            "region": [
+              365.88,
+              141.22,
+              458.88,
+              176.62
+            ]
           }
         ]
       }
@@ -3081,12 +3154,10 @@
     ]
   },
   "quality": {
-    "degraded": true,
+    "degraded": false,
     "degrade_reasons": [
-      "page 4: form=MIXED，D1 仅实现文本层，该页未产出块（需 OCR 通道）"
+      "page 4: page form=MIXED：该页文本层稀疏（29 字符），已按可读部分产出块；未检出图片承载的不可读区域，故没有可标注的降级区域"
     ],
-    "warnings": [
-      "page 4 为 MIXED，无出处产出"
-    ]
+    "warnings": []
   }
 }

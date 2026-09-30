@@ -84,26 +84,41 @@ def check(parse_json: str, pdf_path: str) -> int:
         for pg in doc["pages"]:
             page = pdf.pages[pg["page"] - 1]
             chars = page.chars or []
-            # 非 TEXT 页（SCANNED/MIXED）按设计降级、不产出块，不计入覆盖判据
-            if pg.get("form") != "TEXT":
-                conservation.append(
-                    {"page": pg["page"], "chars": len(chars), "uncovered": 0,
-                     "overlapped": 0, "kinds": {}, "fatal_overlap": 0, "ok": True,
-                     "skipped": f"form={pg.get('form')}，按设计降级"}
-                )
-                continue
+            # 非 TEXT 页：**块照样要校验**（D4 起这类页面也会产出可读文本块与
+            # scan_region 降级块），只有字符守恒不适用 —— 扫描页本来就没有文本层，
+            # 拿"字符覆盖"去要求它没有意义。
+            counts_conservation = pg.get("form") == "TEXT"
+            skipped_note = (
+                None if counts_conservation
+                else f"form={pg.get('form')}，不做字符守恒（无文本层）"
+            )
 
             # ---- 判据 3：字符守恒。以字符在 chars 列表中的下标为身份
-            cover = [0] * len(chars)
+            cover = [0] * len(chars) if counts_conservation else None
             index_of = {id(c): i for i, c in enumerate(chars)}
 
             for b in pg["blocks"]:
+                # scan_region：断言"这块读不出字"。它**不认领任何字符**，
+                # 所以既不参与区域重建（本来就没有文本），也不参与字符守恒
+                # （否则图片区域内的字符会被算成被覆盖两次）。
+                if b.get("source_type") == "scan_region":
+                    total += 1
+                    if b.get("text_raw") or b.get("text"):
+                        problems.append({
+                            "block_id": b["block_id"], "page": pg["page"],
+                            "claimed": b["text"][:60], "in_region": "（scan_region 不该有文本）",
+                            "n_chars_in_region": 0,
+                        })
+                    else:
+                        ok += 1
+                    continue
                 total += 1
                 inside = chars_in_region(chars, b["region"])
-                for c in inside:
-                    i = index_of.get(id(c))
-                    if i is not None:
-                        cover[i] += 1
+                if cover is not None:
+                    for c in inside:
+                        i = index_of.get(id(c))
+                        if i is not None:
+                            cover[i] += 1
 
                 # ---- 判据 1 & 2
                 lines = tl.cluster_lines(inside)
@@ -123,15 +138,15 @@ def check(parse_json: str, pdf_path: str) -> int:
                         }
                     )
 
-            uncovered = sum(1 for v in cover if v == 0)
-            overlapped = sum(1 for v in cover if v > 1)
+            uncovered = sum(1 for v in cover if v == 0) if cover is not None else 0
+            overlapped = sum(1 for v in cover if v > 1) if cover is not None else 0
 
             # 重叠按"涉事块的类型组合"分开统计 —— 性质完全不同：
             #   paragraph×paragraph：聚类把不该合并的行并了，是真 bug。
             #   cell/table 之类：表格是交错排布，块的外接矩形天然会互相压住，
             #                    属于几何假象，只要字符归属是唯一的就是正常的。
             kinds = collections.Counter()
-            for i, v in enumerate(cover):
+            for i, v in enumerate(cover or []):
                 if v > 1:
                     owners = [b["source_type"] for b in pg["blocks"]
                               if _in_region(b["region"], chars[i])]
@@ -148,12 +163,13 @@ def check(parse_json: str, pdf_path: str) -> int:
                     "kinds": dict(kinds),
                     "fatal_overlap": sum(bad_kinds.values()),
                     "ok": uncovered == 0 and not bad_kinds,
+                    "skipped": skipped_note,
                 }
             )
 
     rate = ok / total if total else 0.0
     print(f"块总数                : {total}")
-    print(f"区域重建一致          : {ok}/{total} = {rate:.1%}")
+    print(f"区域重建一致          : {ok}/{total} = {rate:.1%}  （含 scan_region 的空文本断言）")
     print()
     print("字符覆盖（每页字符应被各块覆盖；重叠按性质区分）:")
     cons_ok = 0

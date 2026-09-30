@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.7",
+  "schema_version": "evidence/0.8",
   "doc": {
     "doc_id": "d878ebffb",
     "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
@@ -7,10 +7,10 @@
     "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
     "file_size": 98239,
     "page_count": 4,
-    "parsed_at": "2026-09-29T13:52:52+08:00",
+    "parsed_at": "2026-09-30T10:00:31+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.7.0"
+      "version": "0.8.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -1835,7 +1835,96 @@
         }
       },
       "columns": [],
-      "blocks": [],
+      "blocks": [
+        {
+          "block_id": "d878ebffb_p004_b00001",
+          "doc_id": "d878ebffb",
+          "page": 4,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "证券代码：688105 证券简称：诺唯赞 公告编号：2026-",
+          "text_raw": "证券代码：688105证券简称：诺唯赞公告编号：2026-",
+          "region": [
+            95.52,
+            44.1,
+            499.62,
+            54.55
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p004_b00002",
+          "doc_id": "d878ebffb",
+          "page": 4,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "041",
+          "text_raw": "041",
+          "region": [
+            289.8,
+            57.66,
+            305.46,
+            68.11
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p004_b00003",
+          "doc_id": "d878ebffb",
+          "page": 4,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2026年9月25日",
+          "text_raw": "2026年9月25日",
+          "region": [
+            415.2,
+            86.45,
+            508.2,
+            98.45
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d878ebffb_p004_b00004",
+          "doc_id": "d878ebffb",
+          "page": 4,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "FOOTER",
+          "text": "4",
+          "text_raw": "4",
+          "region": [
+            295.44,
+            770.99,
+            299.94,
+            779.99
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
       "tables": []
     }
   ],
@@ -1901,7 +1990,11 @@
     "d878ebffb_p003_b00021",
     "d878ebffb_p003_b00022",
     "d878ebffb_p003_b00023",
-    "d878ebffb_p003_b00024"
+    "d878ebffb_p003_b00024",
+    "d878ebffb_p004_b00001",
+    "d878ebffb_p004_b00002",
+    "d878ebffb_p004_b00003",
+    "d878ebffb_p004_b00004"
   ],
   "handoff": {
     "target_contract": "interface/event-envelope.schema.json v0.1",
@@ -1910,7 +2003,7 @@
       "file_name": "equity_change.pdf",
       "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.7.0",
+        "parser_version": "finstruct.parse/0.8.0",
         "page_count": 4,
         "blocks": [
           {
@@ -2718,6 +2811,58 @@
               299.94,
               779.99
             ]
+          },
+          {
+            "block_id": "d878ebffb_p004_b00001",
+            "page": 4,
+            "role": "HEADER",
+            "text": "证券代码：688105 证券简称：诺唯赞 公告编号：2026-",
+            "text_raw": "证券代码：688105证券简称：诺唯赞公告编号：2026-",
+            "region": [
+              95.52,
+              44.1,
+              499.62,
+              54.55
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p004_b00002",
+            "page": 4,
+            "role": "HEADER",
+            "text": "041",
+            "text_raw": "041",
+            "region": [
+              289.8,
+              57.66,
+              305.46,
+              68.11
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p004_b00003",
+            "page": 4,
+            "role": "BODY",
+            "text": "2026年9月25日",
+            "text_raw": "2026年9月25日",
+            "region": [
+              415.2,
+              86.45,
+              508.2,
+              98.45
+            ]
+          },
+          {
+            "block_id": "d878ebffb_p004_b00004",
+            "page": 4,
+            "role": "FOOTER",
+            "text": "4",
+            "text_raw": "4",
+            "region": [
+              295.44,
+              770.99,
+              299.94,
+              779.99
+            ]
           }
         ]
       }
@@ -2766,12 +2911,11 @@
     ]
   },
   "quality": {
-    "degraded": true,
+    "degraded": false,
     "degrade_reasons": [
-      "page 4: form=MIXED，D1 仅实现文本层，该页未产出块（需 OCR 通道）"
+      "page 4: page form=MIXED：该页文本层稀疏（43 字符），已按可读部分产出块；未检出图片承载的不可读区域，故没有可标注的降级区域"
     ],
     "warnings": [
-      "page 4 为 MIXED，无出处产出",
       "page 3: 表 d878ebffb_p003_t001 续自 d878ebffb_p002_t002（行边界断开，行本身完整）"
     ]
   }

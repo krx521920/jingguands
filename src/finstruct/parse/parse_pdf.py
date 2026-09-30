@@ -17,6 +17,7 @@ from . import evidence as ev
 from . import doc_form as df
 from . import text_layer as tl
 from . import table_link as tlk
+from . import scan
 
 
 def parse_pdf(pdf_path: str, on_progress=None) -> dict:
@@ -56,21 +57,25 @@ def parse_pdf(pdf_path: str, on_progress=None) -> dict:
                 pg = tl.parse_page_text_layer(doc_id, page_no, page)
                 pg["form_evidence"] = form_evid
             else:
-                # 非文本层：D1 只做降级标注，OCR 通道是 D4 的工作
-                pg = ev.make_page(
-                    page=page_no,
-                    form=form,
-                    width=float(page.width),
-                    height=float(page.height),
-                    form_evidence=form_evid,
-                    blocks=[],
-                    tables=[],
+                # D4：非文本层页面**不再整页丢弃**。
+                #   · 靠图片承载内容的区域 → source_type=scan_region 的降级块（带坐标）
+                #   · 页面上仍可读的文本   → 照常解析产出
+                # 早期实现一律产出空块，把落款页那类"字少但可读"的内容也扔了 ——
+                # 诚实降级是标注读不了的部分，不是丢弃读得了的部分。
+                regions = scan.unreadable_regions(page)
+                n_chars = len(page.chars or [])
+                ocr_tried = False
+                if not n_chars and not regions:
+                    ocr_tried = True
+                    scan.try_ocr(page)   # 入口存在但当前不可用，如实记录
+                pg = tl.parse_page_text_layer(
+                    doc_id, page_no, page, form=form, unreadable_regions=regions
                 )
-                degraded = True
-                degrade_reasons.append(
-                    f"page {page_no}: form={form}，D1 仅实现文本层，该页未产出块（需 OCR 通道）"
-                )
-                warnings.append(f"page {page_no} 为 {form}，无出处产出")
+                pg["form_evidence"] = form_evid
+                reason = scan.describe(form, regions, n_chars, ocr_tried)
+                degrade_reasons.append(f"page {page_no}: {reason}")
+                if not pg["blocks"]:
+                    warnings.append(f"page {page_no} 为 {form}，无出处产出")
 
             for b in pg["blocks"]:
                 reading_order.append(b["block_id"])

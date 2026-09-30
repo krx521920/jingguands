@@ -4,6 +4,14 @@
 | --- | --- |
 | `twocol_synthetic.pdf` / `.html` | **合成**的双栏文档，供分栏检测做正例 |
 | `make_twocol_synthetic.py` | 从 HTML 重新生成 PDF（PDF 已入库，测试不依赖它） |
+| `scanned_synthetic.pdf` | **合成**的纯扫描页（整页图片、零文本层），供扫描降级路径做正例 |
+| `mixed_synthetic.pdf` | **合成**的混合文档（4 页文本 + 1 页扫描），供混合场景做正例 |
+
+### 为什么要有合成的扫描 fixture
+
+现有 11 份真实文档**全都有文本层** —— 没有真扫描件就验证不了降级路径，
+只能验证它"不误伤文本页"。做法是把一页按 150 DPI 渲染成图片再包回 PDF
+（`scanned_synthetic.pdf` 由此而来，页面上不含任何字符对象）。
 
 ## 为什么要有合成的双栏 fixture
 

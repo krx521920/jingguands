@@ -263,8 +263,20 @@ def _assign_role(region, page_h, kind, n_lines, text, index) -> str:
 
 
 # ------------------------------------------------------------------ 单页解析
-def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
+def parse_page_text_layer(
+    doc_id: str,
+    page_no: int,
+    page,
+    form: str = None,
+    unreadable_regions: Optional[List[List[float]]] = None,
+) -> Dict:
     """解析单页：把每个字符恰好分配给一个所有者，再按所有者产出块。
+
+    `unreadable_regions` 是**不可读区域**（扫描件里靠图片承载内容的部分）。
+    它们会被产成 `source_type=scan_region` 的降级块 —— 带坐标、`degraded=True`、
+    `missing_reason=NOT_PARSED`、`text_raw` 为空。展示层据此能框出「这块读不了」，
+    而不是只能说「这页读不了」。
+
 
     ## 为什么改成"所有者"模型
 
@@ -432,6 +444,26 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
     blocks.extend(_flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops))
     column_spans = [[round(a, 2), round(b, 2)] for a, b in spans]
 
+    # ---- 3b) 不可读区域 → 带坐标的降级块（在排序之前加入，一起分配 block_id）
+    for r in unreadable_regions or []:
+        blocks.append(
+            {
+                "_sort": (0, 0, r[1], r[0]),
+                "_kw": dict(
+                    # text/text_raw 为空是**正确**的：scan_region 断言的是"这块读不出字"，
+                    # 本来就没有可引用的原文。因此它不能作为 provenance.quote 的来源，
+                    # 也不参与字符守恒统计（它不认领任何字符）。
+                    text="",
+                    text_raw="",
+                    region=[round(v, 2) for v in r],
+                    source_type=ev.KIND_SCAN_REGION,
+                    role=ev.ROLE_BODY,
+                    degraded=True,
+                    missing_reason=ev.MISSING_NOT_PARSED,
+                ),
+            }
+        )
+
     # ---- 4) 表格单元格与正文块用**同构**的排序键 (段, 栏, 上, 左)
     for b in blocks:
         if len(b["_sort"]) == 4:
@@ -460,7 +492,7 @@ def parse_page_text_layer(doc_id: str, page_no: int, page) -> Dict:
 
     return ev.make_page(
         page=page_no,
-        form=ev.FORM_TEXT,
+        form=form or ev.FORM_TEXT,
         width=width,
         height=height,
         form_evidence={},

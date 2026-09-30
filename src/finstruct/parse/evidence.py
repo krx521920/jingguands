@@ -33,9 +33,9 @@ from __future__ import annotations
 import hashlib
 from typing import Dict, List, Optional
 
-SCHEMA_VERSION = "evidence/0.7"
+SCHEMA_VERSION = "evidence/0.8"
 PARSER_NAME = "finstruct.parse"
-PARSER_VERSION = "0.7.0"
+PARSER_VERSION = "0.8.0"
 
 # 全队公共契约（用于 handoff 声明与自检提示）
 TEAM_CONTRACT = "interface/event-envelope.schema.json v0.1"
@@ -406,7 +406,19 @@ def self_check(doc: Dict) -> Dict:
                 errs.append(f"page {pno} block {b.get('block_id')}: region 不是 4 元组")
             elif not (r[0] <= r[2] and r[1] <= r[3]):
                 errs.append(f"page {pno} block {b.get('block_id')}: region 顺序错误")
-            if b.get("text_raw") in (None, ""):
+            # scan_region 例外：它断言的是"这块读不出字"，本来就没有可引用的原文。
+            # 强制它非空会诱导实现去编一个占位串，反而破坏"quote 必须是原文"的保证。
+            if b.get("source_type") == KIND_SCAN_REGION:
+                if b.get("text_raw"):
+                    errs.append(
+                        f"page {pno} block {b.get('block_id')}: scan_region 不该有文本"
+                        f"（它标注的是不可读区域）"
+                    )
+                if not b.get("degraded") or not b.get("missing_reason"):
+                    errs.append(
+                        f"page {pno} block {b.get('block_id')}: scan_region 必须 degraded=true 且有 missing_reason"
+                    )
+            elif b.get("text_raw") in (None, ""):
                 errs.append(f"page {pno} block {b.get('block_id')}: 缺 text_raw（契约的 quote 取它）")
             if b.get("source_type") not in (
                 KIND_PARAGRAPH, KIND_TABLE, KIND_CELL, KIND_SCAN_REGION, KIND_DOCUMENT

@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.7",
+  "schema_version": "evidence/0.8",
   "doc": {
     "doc_id": "d36105cfd",
     "file_id": "sha256:36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
@@ -7,10 +7,10 @@
     "file_sha256": "36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
     "file_size": 88933,
     "page_count": 3,
-    "parsed_at": "2026-09-29T13:52:36+08:00",
+    "parsed_at": "2026-09-30T10:00:30+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.7.0"
+      "version": "0.8.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -3405,7 +3405,7 @@
       "file_name": "D3-PLD-003.pdf",
       "file_sha256": "36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.7.0",
+        "parser_version": "finstruct.parse/0.8.0",
         "page_count": 3,
         "blocks": [
           {

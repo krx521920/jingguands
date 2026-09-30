@@ -4,7 +4,7 @@
   "date": "2026-09-29",
   "module": "解析 / 表格 / 出处",
   "code_location": "src/finstruct/parse/（模块唯一位置；本目录只放交付物，不复制代码）",
-  "schema": "evidence/0.7",
+  "schema": "evidence/0.8",
   "target_dataset": "evaluation/D3/dev/manifest.json（宗博文 D3 质押开发集）",
   "note": "D3 主交付＝5 份真实质押公告的解析/出处包，命名对齐宗博文 evaluation/D3 的 case_id。additional_samples 是另两类事件的样例（减持、中标），供跨事件类型回归，不属于 D3 交付范围。原始 PDF 未随仓库分发，用 fetch_samples.py 按 source_url 取回并校验 sha256。",
   "samples": [
@@ -35,7 +35,7 @@
         "paragraph": 28,
         "cell": 100
       },
-      "schema_version": "evidence/0.7"
+      "schema_version": "evidence/0.8"
     },
     {
       "case_id": "D3-PLD-002",
@@ -64,7 +64,7 @@
         "paragraph": 31,
         "cell": 57
       },
-      "schema_version": "evidence/0.7"
+      "schema_version": "evidence/0.8"
     },
     {
       "case_id": "D3-PLD-003",
@@ -94,7 +94,7 @@
         "paragraph": 32,
         "cell": 79
       },
-      "schema_version": "evidence/0.7"
+      "schema_version": "evidence/0.8"
     },
     {
       "case_id": "D3-PLD-004",
@@ -123,7 +123,7 @@
         "paragraph": 26,
         "cell": 79
       },
-      "schema_version": "evidence/0.7"
+      "schema_version": "evidence/0.8"
     },
     {
       "case_id": "D3-PLD-005",
@@ -152,7 +152,7 @@
         "paragraph": 22,
         "cell": 57
       },
-      "schema_version": "evidence/0.7"
+      "schema_version": "evidence/0.8"
     }
   ],
   "additional_samples": [
