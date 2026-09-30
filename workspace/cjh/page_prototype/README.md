@@ -32,7 +32,8 @@ page_prototype/
 │   ├── wei_real_pledge_0197.json  # 魏 D3 真实 PDF run（pledge.pdf · deepseek-chat · is_mock:false，质押闭环主线）
 │   ├── wei_real_pledge_ce37.json  # 同源对照 run（D3）
 │   ├── wei_real_PLD001_3ev.json   # 魏 D4 真实 run：PLD-001 三事件 + 未提及/待复核异常态（异常汇总条演示）
-│   └── wei_real_PLD005_release.json # 魏 D4 真实 run：E01 质押 + E02 解除质押（direction=release 渲染）
+│   ├── wei_real_PLD005_release.json # 魏 D4 真实 run：E01 质押 + E02 解除质押（direction=release 渲染）
+│   └── wei_real_D4_scan.json      # 魏 D4 真实扫描件 run：14 字段全 unreadable（无法读取全量场景，09-30 晚补）
 ├── public/                 # 前端（原生 ES Modules，无构建步骤）
 │   ├── index.html          # 三栏页面骨架：上传 / 结果 / 证据
 │   ├── css/
