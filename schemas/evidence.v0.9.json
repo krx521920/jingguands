@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "finstruct/evidence.v0.8.json",
-  "title": "解析出处结构 evidence/0.8",
-  "description": "解析层交给下游的中间表示。v0.8 相对 v0.7：实现扫描件降级区域 —— 非文本层页面不再整页丢弃（可读文本照常产出），靠图片承载内容的区域产成 source_type=scan_region 的降级块（带坐标、degraded=true、missing_reason=NOT_PARSED、text_raw 为空）。scan_region 不认领字符，故不参与字符守恒，也不能作为 provenance.quote 的来源。",
+  "$id": "finstruct/evidence.v0.9.json",
+  "title": "解析出处结构 evidence/0.9",
+  "description": "v0.9 相对 v0.8：新增 table_ref.covers —— 合并单元格覆盖的其它位置（只写位置不复制内容，以免破坏\"每个字符恰好属于一个块\"）。解析层交给下游的中间表示。v0.8 相对 v0.7：实现扫描件降级区域 —— 非文本层页面不再整页丢弃（可读文本照常产出），靠图片承载内容的区域产成 source_type=scan_region 的降级块（带坐标、degraded=true、missing_reason=NOT_PARSED、text_raw 为空）。scan_region 不认领字符，故不参与字符守恒，也不能作为 provenance.quote 的来源。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,7 +15,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "evidence/0.8"
+      "const": "evidence/0.9"
     },
     "doc": {
       "$ref": "#/$defs/Doc"
@@ -315,6 +315,35 @@
                 },
                 "block_id": {
                   "type": "string"
+                }
+              }
+            },
+            "covers": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "description": "本单元格是合并单元格时，它覆盖的**其它**位置（不含原点，也跳过已有自己单元格的位置）。消费方据此把跨行共享的值（如股东名称）应用到被覆盖的每一行，不必自己推行列网格。**只写位置不复制文本** —— 给被覆盖位置也产一份内容会让同一字符被两个块拥有，破坏字符守恒与区域重建。",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "row",
+                  "col",
+                  "cell_ref"
+                ],
+                "properties": {
+                  "row": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "col": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "cell_ref": {
+                    "type": "string"
+                  }
                 }
               }
             }

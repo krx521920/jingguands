@@ -325,9 +325,9 @@ def test_输出严格符合JSON_Schema(parsed):
     import json as _json
     import os as _os
 
-    sp = _os.path.join(ROOT, "schemas", "evidence.v0.8.json")
+    sp = _os.path.join(ROOT, "schemas", "evidence.v0.9.json")
     if not _os.path.exists(sp):
-        pytest.skip("找不到 schemas/evidence.v0.8.json")
+        pytest.skip("找不到 schemas/evidence.v0.9.json")
     schema = _json.load(open(sp, encoding="utf-8"))
     errs = sorted(
         jsonschema.Draft202012Validator(schema).iter_errors(parsed),
@@ -449,7 +449,7 @@ def test_真实公告_严格符合schema(name):
     import json as _json
 
     d = _parse_real(name)
-    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.8.json"), encoding="utf-8"))
+    schema = _json.load(open(os.path.join(ROOT, "schemas", "evidence.v0.9.json"), encoding="utf-8"))
     errs = sorted(jsonschema.Draft202012Validator(schema).iter_errors(d), key=lambda e: list(e.path))
     assert not errs, [f"/{'/'.join(map(str,e.path))}: {e.message}" for e in errs[:5]]
 
@@ -940,3 +940,129 @@ def test_稀疏落款页的可读文本不再被丢弃():
         texts = "".join(b["text"] for b in p["blocks"])
         # 落款页上的关键内容应当出现
         assert "证券代码" in texts or "2026" in texts, f"p{p['page']} 内容缺失：{texts[:60]!r}"
+
+
+# ------------------------------------------------------------ D4：合并单元格的值继承
+def test_合并单元格写出它覆盖的位置():
+    """跨行合并的值必须能被告知到被覆盖的每一行。
+
+    宗博文的 gold 注释写着「股东名称跨行共享时后续行沿用同一质押人」，
+    魏的 prompt 规则 11 也照此要求模型 —— 但**解析侧本可以把结论直接给出来**，
+    不必让下游靠 rowspan=3 自己推行列网格。
+
+    做法是只写位置（covers），**不复制文本** —— 复制会让同一字符被两个块拥有，
+    破坏字符守恒与区域重建。
+    """
+    d = _parse_real("D3-PLD-001")
+    found = None
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            tr = b.get("table_ref") or {}
+            if b["text"].strip() == "翟军" and tr.get("rowspan", 1) > 1:
+                found = (b, tr)
+    assert found, "没找到跨行的「翟军」"
+    b, tr = found
+    cov = tr.get("covers") or []
+    assert cov, "合并单元格应写出 covers"
+    # 翟军 rowspan=3 从 r2c1 出发 → 覆盖 r3c1 / r4c1
+    assert {c["cell_ref"] for c in cov} == {"r3c1", "r4c1"}, cov
+    for c in cov:
+        assert c["col"] == tr["col"], "跨行覆盖的列应当相同"
+        assert c["row"] > tr["row"]
+
+
+def test_covers不复制文本不破坏字符守恒():
+    """covers 只能写位置。若给被覆盖位置也产一份文本，同一个网格位就会被两个块认领。
+
+    锁的是这个不变量：**每个 (table_id, row, col) 至多被一个块认领**。
+
+    （一开始我写的是「同页里 text_raw 为『翟军』的块至多 1 个」，结果误报 ——
+    第 1 页有两张表、各有一个真实的「翟军」单元格。判据得看网格位，不能看文本。）
+    """
+    d = _parse_real("D3-PLD-001")
+    seen = {}
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            tr = b.get("table_ref") or {}
+            if b["source_type"] != "cell":
+                continue
+            key = (tr["table_id"], tr["row"], tr["col"])
+            assert key not in seen, f"网格位 {key} 被两个块认领：{seen[key]} 与 {b['block_id']}"
+            seen[key] = b["block_id"]
+
+
+def test_covers跳过已有自己单元格的位置():
+    """被 span 覆盖但自己另有单元格的位置，不该出现在 covers 里。"""
+    d = _parse_real("D3-PLD-001")
+    occupied = {}
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            tr = b.get("table_ref") or {}
+            if b["source_type"] == "cell":
+                occupied[(tr["table_id"], tr["row"], tr["col"])] = b["block_id"]
+    for pg in d["pages"]:
+        for b in pg["blocks"]:
+            tr = b.get("table_ref") or {}
+            for c in tr.get("covers") or []:
+                key = (tr["table_id"], c["row"], c["col"])
+                assert key not in occupied, f"{b['block_id']} 的 covers 指向了已有单元格 {occupied.get(key)}"
+
+
+def test_纯文本渲染按行带列名():
+    """纯文本必须让「哪个值属于哪一列」一目了然。
+
+    早期实现一条块一行，一个表格行散成 11 行裸值（翟军 / 是 / 2,100,000 / …），
+    模型只能靠顺序猜列。现在按行渲染并带列名。
+    """
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "render_text", os.path.join(ROOT, "tools", "render_text.py")
+    )
+    rt = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(rt)
+
+    d = _parse_real("D3-PLD-001")
+    text = rt.render(d)
+    line = next(l for l in text.splitlines() if l.startswith("股东名称: 翟军"))
+    # 同一行里应当同时出现列名与对应值
+    assert "本次质押数量（股）: 2,100,000" in line, line[:120]
+    assert "占其所持股份比例（%）: 2.40%" in line, line[:120]
+
+
+def test_纯文本渲染重复合并单元格的值():
+    """合并单元格的值要在被它覆盖的每一行都出现。
+
+    这是**渲染层**的重复，与数据层的「不复制」并不矛盾：
+    渲染是派生视图，重复无害；数据里重复才会破坏字符守恒。
+    """
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "render_text", os.path.join(ROOT, "tools", "render_text.py")
+    )
+    rt = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(rt)
+
+    d = _parse_real("D3-PLD-001")
+    text = rt.render(d)
+    # 三笔质押的值各自所在行，都应带上同一个股东名称
+    for amount in ("2,100,000", "2,650,000", "3,050,000"):
+        line = next(l for l in text.splitlines() if amount in l)
+        assert line.startswith("股东名称: 翟军"), f"{amount} 那行缺股东名称：{line[:80]}"
+
+
+def test_纯文本渲染把扫描区域显式标出():
+    """不可读区域在纯文本里也要显式出现，不能静默留空。"""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "render_text", os.path.join(ROOT, "tools", "render_text.py")
+    )
+    rt = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(rt)
+
+    d = _parse_maybe(SCANNED_FIXTURE)
+    text = rt.render(d)
+    assert "不可读区域" in text, text
+    assert "NOT_PARSED" in text

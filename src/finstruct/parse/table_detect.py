@@ -140,6 +140,13 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
                 }
             )
 
+        # 合并单元格覆盖了哪些位置：显式写出来，消费方不必自己推行列网格。
+        #
+        # 为什么不做成"给被覆盖位置也产一份文本"：那会破坏本模块的核心不变量
+        # ——每个字符恰好属于一个块。同一个「翟军」被两个块拥有，
+        # 字符守恒与区域重建立刻失效。所以只写位置，不复制内容。
+        _annotate_covers(cell_boxes)
+
         tables.append(
             {
                 "table_id": table_id,
@@ -241,4 +248,32 @@ def build_header_paths(
                 parts.append(t)
         out[c["cell_id"]] = "/".join(parts) if parts else None
     return out
+
+
+def _annotate_covers(cells: List[Dict]) -> None:
+    """给每个合并单元格写出它覆盖的**其它**位置。
+
+    只对 span > 1 的单元格做，且**跳过已有自己单元格的位置** ——
+    后者说明那不是被合并覆盖的空位，而是另一个真实单元格。
+
+    实测场景：D3-PLD-001 表1 的「翟军」rowspan=3，覆盖 (2,0)/(3,0)。
+    没有这一项，消费方要自己推「rowspan=3 从 (1,0) 往下数三格是哪几格」。
+    多一个推理环节就多一处能出错的地方。
+    """
+    occupied = {(c["row"], c["col"]) for c in cells}
+    for c in cells:
+        rs = c.get("rowspan") or 1
+        cs = c.get("colspan") or 1
+        if rs == 1 and cs == 1:
+            continue
+        covers = []
+        for dr in range(rs):
+            for dc in range(cs):
+                if dr == 0 and dc == 0:
+                    continue          # 原点自己不算
+                r, col = c["row"] + dr, c["col"] + dc
+                if (r, col) in occupied:
+                    continue          # 那格有自己的单元格，不是被覆盖的空位
+                covers.append({"row": r, "col": col, "cell_ref": f"r{r + 1}c{col + 1}"})
+        c["covers"] = covers or None
 

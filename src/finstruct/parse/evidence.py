@@ -33,9 +33,9 @@ from __future__ import annotations
 import hashlib
 from typing import Dict, List, Optional
 
-SCHEMA_VERSION = "evidence/0.8"
+SCHEMA_VERSION = "evidence/0.9"
 PARSER_NAME = "finstruct.parse"
-PARSER_VERSION = "0.8.0"
+PARSER_VERSION = "0.9.0"
 
 # 全队公共契约（用于 handoff 声明与自检提示）
 TEAM_CONTRACT = "interface/event-envelope.schema.json v0.1"

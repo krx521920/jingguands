@@ -363,6 +363,9 @@ def parse_page_text_layer(
                         "col": cell["col"],
                         "rowspan": cell.get("rowspan"),
                         "colspan": cell.get("colspan"),
+                        # 合并单元格覆盖的其它位置。消费方据此把「股东名称」这类
+                        # 跨行共享的值应用到被覆盖的每一行，不必自己推行列网格。
+                        "covers": cell.get("covers"),
                         # 多层表头拼出的完整列名。抽取层靠它区分同名子列
                         #（「已质押」与「未质押」两组下都有「占…比例（%）」）
                         "header_path": table_headers.get(cell["table_id"], {}).get(cid),

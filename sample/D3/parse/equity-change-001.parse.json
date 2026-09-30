@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.8",
+  "schema_version": "evidence/0.9",
   "doc": {
     "doc_id": "d878ebffb",
     "file_id": "sha256:878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
@@ -7,10 +7,10 @@
     "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
     "file_size": 98239,
     "page_count": 4,
-    "parsed_at": "2026-09-30T10:00:31+08:00",
+    "parsed_at": "2026-09-30T10:10:07+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.8.0"
+      "version": "0.9.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -472,6 +472,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -503,6 +504,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -534,6 +536,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -565,6 +568,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -596,6 +600,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -627,6 +632,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -658,6 +664,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -689,6 +696,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -720,6 +728,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -751,6 +760,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -826,6 +836,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -857,6 +868,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -888,6 +900,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -919,6 +932,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -950,6 +964,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -981,6 +996,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1012,6 +1028,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1043,6 +1060,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1192,6 +1210,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1223,6 +1242,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1254,6 +1274,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1285,6 +1306,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1316,6 +1338,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1347,6 +1370,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1378,6 +1402,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1409,6 +1434,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1440,6 +1466,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1471,6 +1498,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1502,6 +1530,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1533,6 +1562,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1564,6 +1594,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1595,6 +1626,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1626,6 +1658,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -1657,6 +1690,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": null
           },
           "font_size": null,
@@ -2003,7 +2037,7 @@
       "file_name": "equity_change.pdf",
       "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.8.0",
+        "parser_version": "finstruct.parse/0.9.0",
         "page_count": 4,
         "blocks": [
           {

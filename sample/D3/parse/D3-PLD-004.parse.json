@@ -1,5 +1,5 @@
 {
-  "schema_version": "evidence/0.8",
+  "schema_version": "evidence/0.9",
   "doc": {
     "doc_id": "d62f9a650",
     "file_id": "sha256:62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
@@ -7,10 +7,10 @@
     "file_sha256": "62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
     "file_size": 97242,
     "page_count": 2,
-    "parsed_at": "2026-09-30T10:00:30+08:00",
+    "parsed_at": "2026-09-30T10:10:00+08:00",
     "parser": {
       "name": "finstruct.parse",
-      "version": "0.8.0"
+      "version": "0.9.0"
     },
     "coord_system": {
       "unit": "pdf_point",
@@ -227,6 +227,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "股东名称"
           },
           "font_size": null,
@@ -258,6 +259,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为控股股东及其一致行动人"
           },
           "font_size": null,
@@ -289,6 +291,7 @@
             "col": 2,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押数量（万股）"
           },
           "font_size": null,
@@ -320,6 +323,7 @@
             "col": 3,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占其所持股份比例（%）"
           },
           "font_size": null,
@@ -351,6 +355,7 @@
             "col": 4,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占公司总股本比例（%）"
           },
           "font_size": null,
@@ -382,6 +387,7 @@
             "col": 5,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为限售股"
           },
           "font_size": null,
@@ -413,6 +419,7 @@
             "col": 6,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为补充质押"
           },
           "font_size": null,
@@ -444,6 +451,7 @@
             "col": 7,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押起始日"
           },
           "font_size": null,
@@ -475,6 +483,7 @@
             "col": 8,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押到期日"
           },
           "font_size": null,
@@ -506,6 +515,7 @@
             "col": 9,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质权人"
           },
           "font_size": null,
@@ -537,6 +547,7 @@
             "col": 10,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押用途"
           },
           "font_size": null,
@@ -568,6 +579,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "股东名称"
           },
           "font_size": null,
@@ -599,6 +611,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为控股股东及其一致行动人"
           },
           "font_size": null,
@@ -630,6 +643,7 @@
             "col": 2,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押数量（万股）"
           },
           "font_size": null,
@@ -661,6 +675,7 @@
             "col": 3,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占其所持股份比例（%）"
           },
           "font_size": null,
@@ -692,6 +707,7 @@
             "col": 4,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占公司总股本比例（%）"
           },
           "font_size": null,
@@ -723,6 +739,7 @@
             "col": 5,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为限售股"
           },
           "font_size": null,
@@ -754,6 +771,7 @@
             "col": 6,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为补充质押"
           },
           "font_size": null,
@@ -785,6 +803,7 @@
             "col": 7,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押起始日"
           },
           "font_size": null,
@@ -816,6 +835,7 @@
             "col": 8,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押到期日"
           },
           "font_size": null,
@@ -847,6 +867,7 @@
             "col": 9,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质权人"
           },
           "font_size": null,
@@ -878,6 +899,7 @@
             "col": 10,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押用途"
           },
           "font_size": null,
@@ -909,6 +931,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "股东名称"
           },
           "font_size": null,
@@ -940,6 +963,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为控股股东及其一致行动人"
           },
           "font_size": null,
@@ -971,6 +995,7 @@
             "col": 2,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押数量（万股）"
           },
           "font_size": null,
@@ -1002,6 +1027,7 @@
             "col": 3,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占其所持股份比例（%）"
           },
           "font_size": null,
@@ -1033,6 +1059,7 @@
             "col": 4,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占公司总股本比例（%）"
           },
           "font_size": null,
@@ -1064,6 +1091,7 @@
             "col": 5,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为限售股"
           },
           "font_size": null,
@@ -1095,6 +1123,7 @@
             "col": 6,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "是否为补充质押"
           },
           "font_size": null,
@@ -1126,6 +1155,7 @@
             "col": 7,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押起始日"
           },
           "font_size": null,
@@ -1157,6 +1187,7 @@
             "col": 8,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押到期日"
           },
           "font_size": null,
@@ -1188,6 +1219,7 @@
             "col": 9,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质权人"
           },
           "font_size": null,
@@ -1219,6 +1251,7 @@
             "col": 10,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "质押用途"
           },
           "font_size": null,
@@ -1316,6 +1349,13 @@
             "col": 0,
             "rowspan": 2,
             "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 0,
+                "cell_ref": "r2c1"
+              }
+            ],
             "header_path": "股东名称"
           },
           "font_size": null,
@@ -1347,6 +1387,13 @@
             "col": 1,
             "rowspan": 2,
             "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 1,
+                "cell_ref": "r2c2"
+              }
+            ],
             "header_path": "持股数量（万股）"
           },
           "font_size": null,
@@ -1378,6 +1425,13 @@
             "col": 2,
             "rowspan": 2,
             "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 2,
+                "cell_ref": "r2c3"
+              }
+            ],
             "header_path": "持股比例（%）"
           },
           "font_size": null,
@@ -1409,6 +1463,13 @@
             "col": 3,
             "rowspan": 2,
             "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 3,
+                "cell_ref": "r2c4"
+              }
+            ],
             "header_path": "本次质押前质押股份数量（万股）"
           },
           "font_size": null,
@@ -1440,6 +1501,13 @@
             "col": 4,
             "rowspan": 2,
             "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 4,
+                "cell_ref": "r2c5"
+              }
+            ],
             "header_path": "本次质押后质押股份数量（万股）"
           },
           "font_size": null,
@@ -1471,6 +1539,13 @@
             "col": 5,
             "rowspan": 2,
             "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 5,
+                "cell_ref": "r2c6"
+              }
+            ],
             "header_path": "占其所持股份比例（%）"
           },
           "font_size": null,
@@ -1502,6 +1577,13 @@
             "col": 6,
             "rowspan": 2,
             "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 6,
+                "cell_ref": "r2c7"
+              }
+            ],
             "header_path": "占公司总股本比例（%）"
           },
           "font_size": null,
@@ -1533,6 +1615,13 @@
             "col": 7,
             "rowspan": 1,
             "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 8,
+                "cell_ref": "r1c9"
+              }
+            ],
             "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
           },
           "font_size": null,
@@ -1564,6 +1653,13 @@
             "col": 9,
             "rowspan": 1,
             "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 10,
+                "cell_ref": "r1c11"
+              }
+            ],
             "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
           },
           "font_size": null,
@@ -1595,6 +1691,7 @@
             "col": 7,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
           },
           "font_size": null,
@@ -1626,6 +1723,7 @@
             "col": 8,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "已质押股份情况/占已质押股份比例（%）"
           },
           "font_size": null,
@@ -1657,6 +1755,7 @@
             "col": 9,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
           },
           "font_size": null,
@@ -1688,6 +1787,7 @@
             "col": 10,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "未质押股份情况/占未质押股份比例（%）"
           },
           "font_size": null,
@@ -1719,6 +1819,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "股东名称"
           },
           "font_size": null,
@@ -1750,6 +1851,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "持股数量（万股）"
           },
           "font_size": null,
@@ -1781,6 +1883,7 @@
             "col": 2,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "持股比例（%）"
           },
           "font_size": null,
@@ -1812,6 +1915,7 @@
             "col": 3,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押前质押股份数量（万股）"
           },
           "font_size": null,
@@ -1843,6 +1947,7 @@
             "col": 4,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押后质押股份数量（万股）"
           },
           "font_size": null,
@@ -1874,6 +1979,7 @@
             "col": 5,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占其所持股份比例（%）"
           },
           "font_size": null,
@@ -1905,6 +2011,7 @@
             "col": 6,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占公司总股本比例（%）"
           },
           "font_size": null,
@@ -1936,6 +2043,7 @@
             "col": 7,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
           },
           "font_size": null,
@@ -1967,6 +2075,7 @@
             "col": 8,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "已质押股份情况/占已质押股份比例（%）"
           },
           "font_size": null,
@@ -1998,6 +2107,7 @@
             "col": 9,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
           },
           "font_size": null,
@@ -2029,6 +2139,7 @@
             "col": 10,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "未质押股份情况/占未质押股份比例（%）"
           },
           "font_size": null,
@@ -2060,6 +2171,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "股东名称"
           },
           "font_size": null,
@@ -2091,6 +2203,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "持股数量（万股）"
           },
           "font_size": null,
@@ -2122,6 +2235,7 @@
             "col": 2,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "持股比例（%）"
           },
           "font_size": null,
@@ -2153,6 +2267,7 @@
             "col": 3,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押前质押股份数量（万股）"
           },
           "font_size": null,
@@ -2184,6 +2299,7 @@
             "col": 4,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押后质押股份数量（万股）"
           },
           "font_size": null,
@@ -2215,6 +2331,7 @@
             "col": 5,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占其所持股份比例（%）"
           },
           "font_size": null,
@@ -2246,6 +2363,7 @@
             "col": 6,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占公司总股本比例（%）"
           },
           "font_size": null,
@@ -2277,6 +2395,7 @@
             "col": 7,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
           },
           "font_size": null,
@@ -2308,6 +2427,7 @@
             "col": 8,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "已质押股份情况/占已质押股份比例（%）"
           },
           "font_size": null,
@@ -2339,6 +2459,7 @@
             "col": 9,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
           },
           "font_size": null,
@@ -2370,6 +2491,7 @@
             "col": 10,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "未质押股份情况/占未质押股份比例（%）"
           },
           "font_size": null,
@@ -2401,6 +2523,7 @@
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "股东名称"
           },
           "font_size": null,
@@ -2432,6 +2555,7 @@
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "持股数量（万股）"
           },
           "font_size": null,
@@ -2463,6 +2587,7 @@
             "col": 2,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "持股比例（%）"
           },
           "font_size": null,
@@ -2494,6 +2619,7 @@
             "col": 3,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押前质押股份数量（万股）"
           },
           "font_size": null,
@@ -2525,6 +2651,7 @@
             "col": 4,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "本次质押后质押股份数量（万股）"
           },
           "font_size": null,
@@ -2556,6 +2683,7 @@
             "col": 5,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占其所持股份比例（%）"
           },
           "font_size": null,
@@ -2587,6 +2715,7 @@
             "col": 6,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "占公司总股本比例（%）"
           },
           "font_size": null,
@@ -2618,6 +2747,7 @@
             "col": 7,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
           },
           "font_size": null,
@@ -2649,6 +2779,7 @@
             "col": 8,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "已质押股份情况/占已质押股份比例（%）"
           },
           "font_size": null,
@@ -2680,6 +2811,7 @@
             "col": 9,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
           },
           "font_size": null,
@@ -2711,6 +2843,7 @@
             "col": 10,
             "rowspan": 1,
             "colspan": 1,
+            "covers": null,
             "header_path": "未质押股份情况/占未质押股份比例（%）"
           },
           "font_size": null,
@@ -3241,7 +3374,7 @@
       "file_name": "D3-PLD-004.pdf",
       "file_sha256": "62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
       "parse_meta": {
-        "parser_version": "finstruct.parse/0.8.0",
+        "parser_version": "finstruct.parse/0.9.0",
         "page_count": 2,
         "blocks": [
           {
