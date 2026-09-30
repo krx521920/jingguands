@@ -30,7 +30,9 @@ page_prototype/
 │   ├── upstream_case.json  # 方口径上游格式合成用例（经转接口转换展示，D2 验证）
 │   ├── wei_run_pledge.json # 魏文宇 v0.3 信封真实运行输出（09-28，D2 接入）
 │   ├── wei_real_pledge_0197.json  # 魏 D3 真实 PDF run（pledge.pdf · deepseek-chat · is_mock:false，质押闭环主线）
-│   └── wei_real_pledge_ce37.json  # 同源对照 run（D3）
+│   ├── wei_real_pledge_ce37.json  # 同源对照 run（D3）
+│   ├── wei_real_PLD001_3ev.json   # 魏 D4 真实 run：PLD-001 三事件 + 未提及/待复核异常态（异常汇总条演示）
+│   └── wei_real_PLD005_release.json # 魏 D4 真实 run：E01 质押 + E02 解除质押（direction=release 渲染）
 ├── public/                 # 前端（原生 ES Modules，无构建步骤）
 │   ├── index.html          # 三栏页面骨架：上传 / 结果 / 证据
 │   ├── css/

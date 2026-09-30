@@ -20,6 +20,24 @@ header h1 { font-size: 16px; font-weight: 600; }
 .sim-banner { display: none; background: var(--sim-bg); color: var(--sim); text-align: center; padding: 6px; font-size: 13px; font-weight: 600; border-bottom: 1px dashed var(--sim); }
 .sim-banner.show { display: block; }
 
+/* ---- D4：异常状态汇总条 + 降级提示 ---- */
+.anomaly-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; background: #fff8e6; border: 1px solid #f0d48a; border-radius: 6px; padding: 6px 10px; font-size: 12.5px; color: #7a5b00; margin-bottom: 10px; }
+.anomaly-chip { border: 1px solid #e3b341; background: #fff; color: #7a5b00; border-radius: 999px; padding: 2px 10px; font-size: 12px; cursor: pointer; font-weight: 600; }
+.anomaly-chip:hover { background: #fdeec9; }
+.anomaly-chip.unreadable, .anomaly-chip._no_evidence { border-color: #d9480f; color: #b02a0c; }
+.anomaly-chip.unreadable:hover, .anomaly-chip._no_evidence:hover { background: #ffe8dc; }
+.anomaly-chip.pending_review { border-color: #d4a017; }
+tr.row-abnormal > td { background: #fffaf0; }
+tr.row-abnormal > td.k { border-left: 3px solid #e3b341; }
+tr.flash > td { animation: rowFlash 1.2s ease-out 1; }
+@keyframes rowFlash { 0% { background: #ffe9a8; } 100% { background: transparent; } }
+.dir-badge { font-size: 11.5px; border-radius: 4px; padding: 1px 8px; font-weight: 700; background: #eef4ee; color: #2f6b34; border: 1px solid #bcd4bd; }
+.dir-badge.dir-release { background: #fdeee3; color: #b34700; border-color: #eebd9a; }
+.ev-item.ev-degraded { border-left: 3px solid #e3b341; background: #fffdf5; }
+.ev-note { font-size: 12px; color: #6b6b6b; margin: 2px 0 0 2px; }
+.ev-note.warn { color: #a05a00; }
+.ev-note.warn::before { content: "⚠ "; }
+
 /* D3：完整性检查警告条（断链=红 / 仅提示=黄） */
 .integrity-warn { background: var(--bad-bg); color: var(--bad); border: 1px solid var(--bad); border-radius: 6px; padding: 8px 10px; font-size: 12px; line-height: 1.6; margin-bottom: 10px; word-break: break-all; }
 .integrity-warn.warn-only { background: var(--warn-bg); color: var(--warn); border-color: var(--warn); }

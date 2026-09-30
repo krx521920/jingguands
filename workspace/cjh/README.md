@@ -29,7 +29,11 @@ workspace/cjh/
     ├── _ref_zhang_D3_pledge.parse.json       # 只读参照：张真实质押公告解析样例（勿改）
     ├── _ref_zong_D2-evaluation.md            # 只读参照：源=origin/zongbowen@7e6d0e7（勿改）
     ├── _ref_zong_contract-gaps.md            # 只读参照：同上（勿改）
-    └── _ref_zong_gold_PLD-001.json           # 只读参照：宗 gold 信封样例（勿改）
+    ├── _ref_zong_gold_PLD-001.json           # 只读参照：宗 gold 信封样例（勿改）
+    ├── _ref_wei_interface_README_v0.3c.md    # 只读参照：源=origin/weiwenyu@e1610b84，v0.4 增补 direction（勿改）
+    ├── _ref_wei_run_D3PLD001_multi.json      # 只读参照：魏 PLD-001 run 样例（勿改）
+    ├── _ref_zhang_evidence_v0.9.json         # 只读参照：源=origin/zhangzhibo@3d64f4aa，covers+扫描降级（勿改）
+    └── _ref_zong_D4-evaluation.md            # 只读参照：源=origin/zongbowen@728d2334，D4 评测 10/10 MATCH（勿改）
 ```
 
 **纪律**：目录结构变更须同步本文件与 page_prototype/README.md；提交等领导指令。

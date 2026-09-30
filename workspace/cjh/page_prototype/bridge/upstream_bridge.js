@@ -18,6 +18,9 @@ const KIND_DEFAULT_FIELD = { amount: "amount", shares: "share_count", ratio: "pl
 // date_range（D3 增补）：ISO 区间 "start/end"，展示原样
 const WEI_UNIT_TEXT = { shares: "股", cny: "元", percent: "%", date: null, date_range: null, text: null, count: null };
 
+// v0.4 D4 增补：direction 业务方向（宗 17:30 裁决）——pledge/release
+const DIRECTION_TEXT = { pledge: "质押", release: "解除质押" };
+
 // v0.3b D3：provenance.source_type 枚举（与张智博 finstruct 对齐）
 const SOURCE_TYPE_TEXT = {
   paragraph: "段落", cell: "表格单元格", table: "表格兜底（降权）",
@@ -70,7 +73,14 @@ function toContract(obj) {
   return { ...obj, bridge: { passthrough: true, reason: "unknown upstream format（不猜测，原样透传）" } };
 }
 
-/** 断链/错位完整性检查（D3：与魏/张修断链错位的落地）。
+/** 张智博 evidence/0.9 缺失原因码 → 中文（扫描降级块：只断言"读不出字"，无原文可引） */
+const MISSING_REASON_TEXT = {
+  NOT_PARSED: "该区域无文本层（扫描件）",
+  ILLEGIBLE: "字迹不可辨认",
+  DEGRADED: "来源质量降级"
+};
+
+/** 断链/错位完整性检查（D3：与魏/张修断链错位的落地；D4 增补扫描降级检查）。
  *  返回 { ok, issues[] }；issue = { level, where, what }，level: error（断链）| warn（降权）。 */
 function checkIntegrity(events, evidences) {
   const issues = [];
@@ -88,9 +98,16 @@ function checkIntegrity(events, evidences) {
       for (const eid of [f.evidence_id, ...(f.evidence_ids || [])]) {
         if (eid && !idSet.has(eid)) issues.push({ level: "error", where, what: `引用不存在的证据 ${eid}` });
       }
+      // ③ D4：有值字段的所有出处都是扫描降级块 → 值缺乏可核验原文（warn 降权，不算断链）
+      if (hasValueState && f.normalized != null && f.evidence_id) {
+        const evs = (f.evidence_ids || [f.evidence_id]).map(id => evidences.find(e => e.evidence_id === id)).filter(Boolean);
+        if (evs.length && evs.every(e => e.source_type === "scan_region" || e.degraded)) {
+          issues.push({ level: "warn", where, what: "值仅由扫描降级块支撑（无文本层原文可核验，建议降权/人工复核）" });
+        }
+      }
     }
   }
-  // ③ 表格单元格出处必须带 table_id + cell_ref（契约：表格证据不许丢失）
+  // ④ 表格单元格出处必须带 table_id + cell_ref（契约：表格证据不许丢失）
   for (const e of evidences) {
     if (e.source_type === "cell" && (!e.table_id || !e.cell_ref)) {
       issues.push({ level: "error", where: e.evidence_id, what: "cell 出处缺 table_id/cell_ref（表格证据丢失）" });
@@ -98,6 +115,10 @@ function checkIntegrity(events, evidences) {
     if (e.source_type === "table") {
       // 张智博 D3 约定：table 兜底块必带 degraded:true，消费方降权
       issues.push({ level: "warn", where: e.evidence_id, what: "table 兜底块出处（未归入检出单元格，建议降权）" });
+    }
+    if (e.source_type === "scan_region" && e.degraded && !e.missing_reason) {
+      // 张智博 evidence/0.9：扫描降级块必须带 missing_reason，缺失说明上游结构不完整
+      issues.push({ level: "warn", where: e.evidence_id, what: "扫描降级块缺 missing_reason（降级原因未声明）" });
     }
   }
   return { ok: !issues.some(i => i.level === "error"), issues };
@@ -147,6 +168,11 @@ function fromWeiEnvelope(up) {
           source_type: p.source_type ?? null, // v0.3b D3：出处块类型（paragraph/cell/table/scan_region/document/null）
           table_id: p.table_id ?? null,      // 表格证据（v0.2 新增，不丢失）
           cell_ref: p.cell_ref ?? null,
+          header_path: p.header_path ?? null, // v0.7+：多层表头完整列名（区分同名子列）
+          degraded: p.degraded ?? null,      // v0.8：降级标志（table 兜底/扫描区域）
+          missing_reason: p.missing_reason ?? null, // v0.8：缺失原因码（NOT_PARSED/ILLEGIBLE/DEGRADED）
+          continues: p.continues ?? null,    // v0.7：跨页续表碎片（接上一页同列单元格）
+          covers: p.covers ?? null,          // v0.9：合并单元格覆盖的其它位置
           quote: p.quote ?? ""
         });
         ids.push(eid);
@@ -295,4 +321,4 @@ function fromFangRecords(up) {
   return contract;
 }
 
-module.exports = { toContract, isUpstream, isWeiEnvelope, checkIntegrity, DENOMINATOR_TEXT, SOURCE_TYPE_TEXT };
+module.exports = { toContract, isUpstream, isWeiEnvelope, checkIntegrity, DENOMINATOR_TEXT, SOURCE_TYPE_TEXT, DIRECTION_TEXT, MISSING_REASON_TEXT };

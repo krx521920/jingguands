@@ -18,7 +18,7 @@ export const FIELD_TEXT = {
   pledge_amount: "质押金额", start_date: "质押起始日", end_date: "质押到期日", purpose: "资金用途",
   announcement_date: "公告日期",
   // —— equity_change 股权变动（9 字段）——
-  holder: "变动股东", direction: "变动方向", shares_before: "变动前持股", shares_after: "变动后持股",
+  holder: "变动股东", direction: "业务方向", shares_before: "变动前持股", shares_after: "变动后持股",
   ratio_before: "变动前比例", ratio_after: "变动后比例", change_shares: "变动股数", method: "变动方式",
   change_date: "变动完成日",
   // —— award_contract 中标/合同签署（9 字段，v0.3 由 bid_won 改名）——
@@ -57,6 +57,65 @@ const SOURCE_TYPE_TEXT = {
   paragraph: "段落", cell: "表格", table: "表格兜底", scan_region: "扫描区域", document: "整份文档"
 };
 
+// v0.4 D4：direction 业务方向（宗 17:30 裁决：pledge/release，同组合先押后解为两个事件）
+export const DIRECTION_TEXT = { pledge: "质押", release: "解除质押" };
+
+// D4 异常状态汇总：字段级异常态 → 汇总条 chip（顺序即显示顺序）
+const ABNORMAL_STATES = [
+  { key: "pending_review",  label: "待复核" },
+  { key: "unreadable",      label: "无法读取" },
+  { key: "not_mentioned",   label: "未提及" },
+  { key: "not_disclosed",   label: "未披露" },
+  { key: "not_applicable",  label: "不适用" },
+  { key: "_no_evidence",    label: "有值无出处" }
+];
+
+/** 扫描全量字段，返回异常清单 [{key, eventId, fieldName, rowId}] 供汇总条与行高亮。 */
+function collectAbnormal(data) {
+  const items = [];
+  for (const ev of data.events || []) {
+    for (const [name, f] of Object.entries(ev.fields || {})) {
+      const st = f.status_override;
+      const hasValue = f.normalized != null || f.value != null;
+      let key = null;
+      if (st && st !== "success") key = st;
+      else if (hasValue && !f.evidence_id) key = "_no_evidence";
+      if (key) items.push({ key, eventId: ev.event_id, fieldName: name, rowId: `row-${ev.event_id}-${name}` });
+    }
+  }
+  return items;
+}
+
+/** D4 异常状态汇总条：chip 计数 + 点击循环定位到对应字段行。 */
+function renderAnomalyBar(container, abnormal) {
+  if (!abnormal.length) return;
+  const bar = document.createElement("div");
+  bar.className = "anomaly-bar";
+  bar.append(Object.assign(document.createElement("span"), { textContent: "异常状态：" }));
+  const cursor = {};   // key → 已定位到第几条（点击循环）
+  for (const s of ABNORMAL_STATES) {
+    const list = abnormal.filter(a => a.key === s.key);
+    if (!list.length) continue;
+    const chip = document.createElement("button");
+    chip.className = "anomaly-chip " + s.key;
+    chip.textContent = `${s.label} ${list.length}`;
+    chip.title = list.map(a => `${a.eventId}.${a.fieldName}`).join("；");
+    chip.addEventListener("click", () => {
+      const i = (cursor[s.key] || 0) % list.length;
+      cursor[s.key] = i + 1;
+      const target = document.getElementById(list[i].rowId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        target.classList.remove("flash");
+        void target.offsetWidth;   // 重启动画
+        target.classList.add("flash");
+      }
+    });
+    bar.append(chip);
+  }
+  container.append(bar);
+}
+
 export function renderResults(container, data, onFocusEvidence) {
   const count = document.getElementById("evCount");
   count.textContent = `（${data.events.length} 个事件）`;
@@ -72,6 +131,10 @@ export function renderResults(container, data, onFocusEvidence) {
     container.append(warn);
   }
 
+  // D4 异常状态汇总条（缺失字段 + 降级态一屏可见，点击定位）
+  const abnormal = collectAbnormal(data);
+  renderAnomalyBar(container, abnormal);
+
   for (const ev of data.events) {
     const card = document.createElement("div");
     card.className = "event-card";
@@ -84,18 +147,34 @@ export function renderResults(container, data, onFocusEvidence) {
     eid.className = "eid";
     eid.textContent = ev.event_id;
     head.append(title, badge(ev.status), eid);
+    // v0.4 D4：direction=release（解除质押）独立事件，卡片标题区显式区分（默认 pledge 不加噪音）
+    // 枚举键在 normalized（raw_value 是中文原文），两者都兜底
+    const dF = ev.fields.direction;
+    const dirKey = dF && (DIRECTION_TEXT[dF.normalized] ? dF.normalized : (DIRECTION_TEXT[dF.value] ? dF.value : null));
+    if (dirKey) {
+      const dir = document.createElement("span");
+      dir.className = "dir-badge" + (dirKey === "release" ? " dir-release" : "");
+      dir.textContent = DIRECTION_TEXT[dirKey];
+      head.append(dir);
+    }
     card.append(head);
 
     const table = document.createElement("table");
     table.className = "fields";
     for (const [key, f] of Object.entries(ev.fields)) {
       const tr = document.createElement("tr");
+      tr.id = `row-${ev.event_id}-${key}`;   // D4：异常汇总条定位锚点
+      const st = f.status_override;
+      const hasValue = f.normalized != null || f.value != null;
+      if ((st && st !== "success") || (hasValue && !f.evidence_id)) tr.classList.add("row-abnormal");   // D4：降级行高亮
       const tdK = document.createElement("td");
       tdK.className = "k";
       tdK.textContent = FIELD_TEXT[key] || key;
       const tdV = document.createElement("td");
       tdV.className = "v";
-      tdV.append(fmtValue(f), badge(f.status_override || "success"));   // D3：字段级状态（不再继承事件级待复核，修错位）
+      // direction 字段显示中文（枚举键 normalized 优先，原文兜底），其余走通用格式化
+      tdV.append(key === "direction" ? (DIRECTION_TEXT[f.normalized] || DIRECTION_TEXT[f.value] || f.value || "—") : fmtValue(f),
+                 badge(f.status_override || "success"));   // D3：字段级状态（不再继承事件级待复核，修错位）
       const marks = fmtMarks(f);
       if (marks) {
         const mk = document.createElement("span");

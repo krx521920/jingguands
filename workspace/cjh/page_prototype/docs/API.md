@@ -29,7 +29,7 @@ node server.js          # 或 pnpm start / npm start
 
 `remote` 模式下 `/api/result` 会转发到 `REMOTE_API_URL?dataset=<name>`，上游直接返回契约对象即可。
 
-### 3a. 完整性检查（integrity，D3 新增）
+### 3a. 完整性检查（integrity，D3 新增；D4 增补扫描降级）
 
 转接口对魏信封路径自动附 `contract.integrity = { ok, issues[] }`，issue 为 `{ level: "error"|"warn", where, what }`：
 
@@ -39,8 +39,16 @@ node server.js          # 或 pnpm start / npm start
 | 字段引用不存在的 evidence_id | error |
 | `source_type=cell` 缺 table_id/cell_ref（表格证据丢失，契约红线） | error |
 | `source_type=table` 兜底块（未归入检出单元格，消费方降权） | warn |
+| 有值字段的所有出处均为扫描降级块（无文本层原文可核验，D4） | warn |
+| `scan_region`+`degraded` 缺 `missing_reason`（降级原因未声明，D4） | warn |
 
 页面在结果栏顶部显示警告条（红=有断链，黄=仅提示）。字段级状态修复：页面/CSV 状态取 `status_override || success`（不再继承事件级待复核），信封原始 6 态保留在 `status_raw`。
+
+### 3b. 异常状态汇总条与降级提示（D4 新增）
+
+- **异常汇总条**：结果栏在完整性警告条下方按状态渲染 chip（待复核/无法读取/未提及/未披露/不适用/有值无出处 × 计数）；chip 悬停列出全部命中字段，点击循环定位到字段行（`row-<event_id>-<field>`）并 flash 高亮。异常行淡黄底显示。
+- **direction 徽章**（魏 v0.4 增补）：pledge 事件新增 `direction` 字段（枚举键在 `normalized`：pledge/release；raw_value 是中文原文）。`release` → 卡片标题区橙色"解除质押"徽章；字段表 direction 行显示中文。
+- **证据降级提示**（张 evidence/0.8→0.9）：证据卡透传 `header_path`（多层表头）/`continues`（跨页续表碎片）/`covers`（合并单元格覆盖位置）/`degraded`+`missing_reason`（扫描降级块，amber 描边 + 原因中文；quote 为空显式声明"无文本层"）。
 
 ## 3. 数据契约 v0.1（结果 JSON）
 
