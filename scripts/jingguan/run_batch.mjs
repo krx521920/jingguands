@@ -145,12 +145,21 @@ function compareWithGold(mine, gold, goldText) {
     matched_events: 0,
   }
   if (goldEvents.length === 0 && mineEvents.length === 0) return { rows, metrics }
-  // 按自然键对齐（同键多事件按出现顺序配对）
+  // 按自然键对齐（同键多事件按出现顺序配对）；名称形态容差：全称/简称互含视为同主体
   const minePool = [...mineEvents]
   let sum = { goldExtracted: 0, hit: 0, wrongFilled: 0, statusMatch: 0, neutral: 0, goldUnsupported: 0, denom: 0 }
+  const sameName = (a, b) => a === b || (a.length >= 3 && b.length >= 3 && (a.includes(b) || b.includes(a)))
   for (const gEv of goldEvents) {
     const key = eventKey(gEv)
-    let idx = minePool.findIndex((mEv, i) => eventKey(mEv) === key)
+    const gk = key.split('|')
+    let idx = minePool.findIndex((mEv) => eventKey(mEv) === key)
+    if (idx === -1) {
+      // 名称形态容差匹配：主体/对手方互含＋direction 相同
+      idx = minePool.findIndex((mEv) => {
+        const mk = eventKey(mEv).split('|')
+        return mk[2] === gk[2] && sameName(mk[0], gk[0]) && sameName(mk[1], gk[1])
+      })
+    }
     if (idx === -1 && minePool.length === 1 && goldEvents.length === 1) idx = 0 // 单事件退化：直接配对（主体名可能表示形式不同）
     if (idx === -1) {
       rows.push({ field: `(${gEv.event_id} ${key.replace(/\|.*$/, '')})`, verdict: 'MINE_MISSING_EVENT', detail: `gold 事件未在系统输出中找到（键：${key}）` })
