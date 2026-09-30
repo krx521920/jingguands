@@ -1,0 +1,1033 @@
+{
+ "generated": "2026-09-30T14:24:38.616Z",
+ "inputs": 12,
+ "summary": {
+  "verified": 0,
+  "mismatch": 0,
+  "calculated": 0,
+  "needs_review": 0,
+  "invalid": 12
+ },
+ "results": [
+  {
+   "input": {
+    "id": "events.json:E01:single:holder_shares",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "2,100,000",
+      "rawValue": "2100000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E01"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E01",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "2.40%",
+      "rawValue": "2.40",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": {
+       "kind": "holder_shares",
+       "definition": "该股东所持股份"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E01"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E01",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "holder_shares",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E01:single:total_share_capital",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "2,100,000",
+      "rawValue": "2100000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E01"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E01",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "0.99%",
+      "rawValue": "0.99",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": {
+       "kind": "total_share_capital",
+       "definition": "公司总股本"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E01"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E01",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "total_share_capital",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E01:cumulative:holder_shares",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "50,350,000",
+      "rawValue": "50350000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E01"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E01",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "57.58%",
+      "rawValue": "57.58",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": {
+       "kind": "holder_shares",
+       "definition": "该股东所持股份"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E01"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E01",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "holder_shares",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E01:cumulative:total_share_capital",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "50,350,000",
+      "rawValue": "50350000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E01"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E01",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "23.62%",
+      "rawValue": "23.62",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": {
+       "kind": "total_share_capital",
+       "definition": "公司总股本"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E01"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E01",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "total_share_capital",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E02:single:holder_shares",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "2,650,000",
+      "rawValue": "2650000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E02"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E02",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "3.03%",
+      "rawValue": "3.03",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": {
+       "kind": "holder_shares",
+       "definition": "该股东所持股份"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E02"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E02",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "holder_shares",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E02:single:total_share_capital",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "2,650,000",
+      "rawValue": "2650000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E02"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E02",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "1.24%",
+      "rawValue": "1.24",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": {
+       "kind": "total_share_capital",
+       "definition": "公司总股本"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E02"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E02",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "total_share_capital",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E02:cumulative:holder_shares",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "50,350,000",
+      "rawValue": "50350000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E02"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E02",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "57.58%",
+      "rawValue": "57.58",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": {
+       "kind": "holder_shares",
+       "definition": "该股东所持股份"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E02"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E02",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "holder_shares",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E02:cumulative:total_share_capital",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "50,350,000",
+      "rawValue": "50350000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E02"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E02",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "23.62%",
+      "rawValue": "23.62",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": {
+       "kind": "total_share_capital",
+       "definition": "公司总股本"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E02"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E02",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "total_share_capital",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E03:single:holder_shares",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "3,050,000",
+      "rawValue": "3050000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E03"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E03",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "3.49%",
+      "rawValue": "3.49",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": {
+       "kind": "holder_shares",
+       "definition": "该股东所持股份"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E03"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E03",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "holder_shares",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E03:single:total_share_capital",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "3,050,000",
+      "rawValue": "3050000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E03"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E03",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "1.43%",
+      "rawValue": "1.43",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "single",
+      "status": "present",
+      "denominator": {
+       "kind": "total_share_capital",
+       "definition": "公司总股本"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E03"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E03",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "total_share_capital",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E03:cumulative:holder_shares",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "50,350,000",
+      "rawValue": "50350000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E03"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E03",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "57.58%",
+      "rawValue": "57.58",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": {
+       "kind": "holder_shares",
+       "definition": "该股东所持股份"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E03"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E03",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "holder_shares",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  },
+  {
+   "input": {
+    "id": "events.json:E03:cumulative:total_share_capital",
+    "shares": {
+     "measure": {
+      "kind": "shares",
+      "rawText": "50,350,000",
+      "rawValue": "50350000",
+      "sourceUnit": "股",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": null
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E03"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E03",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "ratio": {
+     "measure": {
+      "kind": "ratio",
+      "rawText": "23.62%",
+      "rawValue": "23.62",
+      "sourceUnit": "%",
+      "qualifier": "exact",
+      "scope": "cumulative",
+      "status": "present",
+      "denominator": {
+       "kind": "total_share_capital",
+       "definition": "公司总股本"
+      }
+     },
+     "context": {
+      "companyId": "events.json",
+      "holderId": "翟军",
+      "asOf": "2026-09-25",
+      "eventId": "E03"
+     },
+     "source": {
+      "document": "events.json",
+      "sha256": "97a2d7e1e4acedbe0fb5a7c9a7cbe2572eb73e46315d4b8919165ba5e8a065d4",
+      "page": 1,
+      "locator": "envelope:events.json:E03",
+      "sampleType": "extracted_dev"
+     }
+    },
+    "denominator": {
+     "kind": "total_share_capital",
+     "fact": null
+    },
+    "ratioPolicy": {
+     "mode": "rounded",
+     "decimalPlaces": 3
+    }
+   },
+   "result": {
+    "id": null,
+    "tool": "pledge_verify_D3",
+    "version": "0.3.0",
+    "status": "invalid",
+    "reasons": [
+     {
+      "code": "INVALID_INPUT",
+      "message": "shares.source.sampleType 不是支持的枚举值"
+     }
+    ],
+    "normalized": {
+     "shares": null,
+     "ratio": null,
+     "denominator": null
+    },
+    "calculation": null,
+    "comparison": null
+   }
+  }
+ ]
+}

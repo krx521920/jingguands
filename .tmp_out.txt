@@ -1,0 +1,16 @@
+她的 CLI 执行失败： {
+  "tool": "pledge_verify_D3",
+  "version": "0.3.0",
+  "nodeVersion": "v24.17.0",
+  "startedAt": "2026-09-30T14:19:54.276Z",
+  "completedAt": "2026-09-30T14:19:54.280Z",
+  "fileAccess": [
+    {
+      "action": "read",
+      "path": "D:\\jingguan\\jingguands\\.tmp_pledge_input.json",
+      "sha256": "1e34ecdd5b1326165267ca5f4dfee15aad4f012a204452a394bd446632311856"
+    }
+  ],
+  "codeSha256": {
+    "./cli_D3.ts": "b7216f166b0b712082dc73356ceaaefb2dad312095816d6de80d9da1525ad349",
+    "./pledge_D3

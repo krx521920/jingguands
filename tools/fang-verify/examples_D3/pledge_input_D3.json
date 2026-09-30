@@ -1,0 +1,983 @@
+[
+  {
+    "id": "01_单次_占持股_百分比不乘百",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成single示例：100万股",
+        "rawValue": "100",
+        "sourceUnit": "万股",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成single示例：20%",
+        "rawValue": "20",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": {
+          "kind": "holder_shares",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的持股数"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "02_单次_占总股本",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成single示例：100万股",
+        "rawValue": "100",
+        "sourceUnit": "万股",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成single示例：2%",
+        "rawValue": "2",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": {
+          "kind": "total_share_capital",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的公司总股本"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "total_share_capital",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：5000万股",
+          "rawValue": "5000",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": null,
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "03_累计_占持股",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成cumulative示例：200万股",
+        "rawValue": "200",
+        "sourceUnit": "万股",
+        "qualifier": "exact",
+        "scope": "cumulative",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成cumulative示例：40%",
+        "rawValue": "40",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "cumulative",
+        "status": "present",
+        "denominator": {
+          "kind": "holder_shares",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的持股数"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "04_累计_占总股本",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成cumulative示例：200万股",
+        "rawValue": "200",
+        "sourceUnit": "万股",
+        "qualifier": "exact",
+        "scope": "cumulative",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成cumulative示例：4%",
+        "rawValue": "4",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "cumulative",
+        "status": "present",
+        "denominator": {
+          "kind": "total_share_capital",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的公司总股本"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "total_share_capital",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：5000万股",
+          "rawValue": "5000",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": null,
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "06_披露比例算错",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成single示例：100万股",
+        "rawValue": "100",
+        "sourceUnit": "万股",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成single示例：2%",
+        "rawValue": "2",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": {
+          "kind": "holder_shares",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的持股数"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "07_占持股与占总股本不可混用",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成single示例：100万股",
+        "rawValue": "100",
+        "sourceUnit": "万股",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成single示例：20%",
+        "rawValue": "20",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": {
+          "kind": "total_share_capital",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的公司总股本"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "08_单次与累计不可混用",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成single示例：100万股",
+        "rawValue": "100",
+        "sourceUnit": "万股",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成cumulative示例：20%",
+        "rawValue": "20",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "cumulative",
+        "status": "present",
+        "denominator": {
+          "kind": "holder_shares",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的持股数"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "15_比例未提及_独立推导不回填",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成single示例：100万股",
+        "rawValue": "100",
+        "sourceUnit": "万股",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": null,
+        "rawValue": null,
+        "sourceUnit": null,
+        "qualifier": null,
+        "scope": "single",
+        "status": "not_mentioned",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "18_精确比例反推整股",
+    "shares": null,
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成single示例：20%",
+        "rawValue": "20",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": {
+          "kind": "holder_shares",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的持股数"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "exact",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "19_舍入比例反推区间",
+    "shares": null,
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成single示例：20%",
+        "rawValue": "20",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": {
+          "kind": "holder_shares",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的持股数"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "22_三分之一按两位核验",
+    "shares": {
+      "measure": {
+        "kind": "shares",
+        "rawText": "合成single示例：1股",
+        "rawValue": "1",
+        "sourceUnit": "股",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": null
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成single示例：33.33%",
+        "rawValue": "33.33",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "present",
+        "denominator": {
+          "kind": "holder_shares",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的持股数"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：3股",
+          "rawValue": "3",
+          "sourceUnit": "股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  },
+  {
+    "id": "45_零比例舍入不代表零股",
+    "shares": null,
+    "ratio": {
+      "measure": {
+        "kind": "ratio",
+        "rawText": "合成single示例：0%",
+        "rawValue": "0",
+        "sourceUnit": "%",
+        "qualifier": "exact",
+        "scope": "single",
+        "status": "explicit_zero",
+        "denominator": {
+          "kind": "holder_shares",
+          "definition": "SYNTH-COMPANY / SYNTH-HOLDER 截至2026-09-29的持股数"
+        }
+      },
+      "context": {
+        "companyId": "SYNTH-COMPANY",
+        "holderId": "SYNTH-HOLDER",
+        "asOf": "2026-09-29",
+        "eventId": "SYNTH-EVENT-1"
+      },
+      "source": {
+        "document": "SYNTHETIC_ONLY_D3",
+        "sha256": null,
+        "page": null,
+        "locator": "合成数据，无真实公告页码",
+        "sampleType": "synthetic"
+      }
+    },
+    "denominator": {
+      "kind": "holder_shares",
+      "fact": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成unknown示例：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-29",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D3",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      }
+    },
+    "ratioPolicy": {
+      "mode": "rounded",
+      "decimalPlaces": 2
+    }
+  }
+]
