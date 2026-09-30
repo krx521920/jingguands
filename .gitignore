@@ -55,3 +55,6 @@ work/
 
 # 团队数据规则：公开仓库不二次分发原始公告 PDF（张智博 fetch_samples.py 政策）
 corpus/**/raw/
+
+# 联调临时文件（工具产生）
+.tmp_*
