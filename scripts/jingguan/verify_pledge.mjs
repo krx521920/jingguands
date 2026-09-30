@@ -30,11 +30,18 @@ const target = resolve(process.cwd(), args[0])
 let envelopeFiles = []
 if (statSync(target).isDirectory()) {
   const direct = join(target, 'events.json')
-  if (existsSync(direct)) envelopeFiles = [direct]
-  else {
-    for (const d of readdirSync(target)) {
-      const e = join(target, d, 'events.json')
-      if (existsSync(e) && !d.startsWith('batch-') && d !== 'envelopes' && d !== 'inputs' && d !== '_archive') envelopeFiles.push(e)
+  if (existsSync(direct)) {
+    envelopeFiles = [direct]
+  } else {
+    // batch 目录：优先 envelopes/<case_id>.json（run_batch 自动导出），否则扫子目录
+    const envDir = join(target, 'envelopes')
+    if (existsSync(envDir)) {
+      envelopeFiles = readdirSync(envDir).filter((f) => f.endsWith('.json')).map((f) => join(envDir, f))
+    } else {
+      for (const d of readdirSync(target)) {
+        const e = join(target, d, 'events.json')
+        if (existsSync(e) && !d.startsWith('batch-') && d !== 'inputs' && d !== '_archive') envelopeFiles.push(e)
+      }
     }
   }
 } else envelopeFiles = [target]
