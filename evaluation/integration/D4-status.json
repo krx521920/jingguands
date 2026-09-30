@@ -8,8 +8,30 @@
   "spot_checks": 20,
   "unsupported_quotes": 0,
   "gold_validation": "pass",
-  "shared_contract_validation": {"files": 10, "result": "pass"},
-  "scan_challenge": {"case_id": "D4-SCAN-001", "result": "pass"},
-  "model_comparison": {"documents": 10, "field_diffs": 0, "event_diffs": 0, "result": "pass"},
-  "blocking_issue": null
+  "shared_contract_validation": {
+    "files": 10,
+    "result": "pass"
+  },
+  "scan_challenge": {
+    "case_id": "D4-SCAN-001",
+    "result": "pass"
+  },
+  "model_comparison": {
+    "documents": 10,
+    "field_diffs": 0,
+    "event_diffs": 0,
+    "result": "pass"
+  },
+  "blocking_issue": null,
+  "remote_baselines": {
+    "weiwenyu": "0afde98e",
+    "zhangzhibo": "257646c6",
+    "feature_fang_rules": "5fe05e89",
+    "feature_chen_ui": "7d4706bb",
+    "zongbowen": "728d2334"
+  },
+  "upstream_batch": "runs/batch-20260930T095256",
+  "upstream_field_accuracy": 1,
+  "name_variation_note": "D4-PLD-009 release event uses 有格投资 vs full legal name 有格创业投资有限公司; upstream applies entity-name tolerance.",
+  "text_mode_note": "PLD-009 text-mode run with 6 provenance errors is archived; parse-mode path is clean."
 }
