@@ -8,7 +8,8 @@ const batchReport = val('--batch-report');
 const outJson = val('--json', 'evaluation/D3/evidence/field-comparison.json');
 const outMd = val('--md', 'evaluation/D3/field-comparison.md');
 if (!systemDir && !batchReport) throw new Error('provide --system-dir or --batch-report');
-const manifest = JSON.parse(fs.readFileSync('evaluation/D3/dev/manifest.json', 'utf8'));
+const manifestPath = val('--manifest', 'evaluation/D3/dev/manifest.json');
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const system = new Map();
 if (batchReport) { const report = JSON.parse(fs.readFileSync(batchReport, 'utf8')); for (const r of report.results || []) if (r.ok && r.run_id) system.set(r.case, path.join(path.dirname(batchReport), r.run_id, 'events.json')); }
 else for (const item of manifest.items) system.set(item.case_id, path.join(systemDir, item.case_id + '.json'));

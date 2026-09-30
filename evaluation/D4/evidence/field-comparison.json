@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-09-30T05:14:15.161Z",
+  "gold_dir": "evaluation\\D4\\dev\\gold",
+  "system_dir": "external_system_output",
+  "batch_report": null,
+  "cases": [
+    {
+      "case_id": "D4-PLD-001",
+      "status": "MATCH",
+      "gold_events": 3,
+      "system_events": 3,
+      "system_path": "external_system_output/D4-PLD-001.json"
+    },
+    {
+      "case_id": "D4-PLD-002",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-002.json"
+    },
+    {
+      "case_id": "D4-PLD-003",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-003.json"
+    },
+    {
+      "case_id": "D4-PLD-004",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-004.json"
+    },
+    {
+      "case_id": "D4-PLD-005",
+      "status": "DIFF",
+      "gold_events": 1,
+      "system_events": 2,
+      "system_path": "external_system_output/D4-PLD-005.json"
+    },
+    {
+      "case_id": "D4-PLD-006",
+      "status": "DIFF",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-006.json"
+    },
+    {
+      "case_id": "D4-PLD-007",
+      "status": "DIFF",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-007.json"
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "status": "DIFF",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-008.json"
+    },
+    {
+      "case_id": "D4-PLD-009",
+      "status": "DIFF",
+      "gold_events": 2,
+      "system_events": 3,
+      "system_path": "external_system_output/D4-PLD-009.json"
+    },
+    {
+      "case_id": "D4-PLD-010",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-010.json"
+    }
+  ],
+  "errors": [
+    {
+      "case_id": "D4-PLD-005",
+      "event_id": "E02",
+      "verdict": "EXTRA_EVENT"
+    },
+    {
+      "case_id": "D4-PLD-006",
+      "event_id": "E01",
+      "field": "announcement_date",
+      "verdict": "VALUE_DIFF",
+      "gold": "2026-09-25",
+      "system": "2026-09-24"
+    },
+    {
+      "case_id": "D4-PLD-007",
+      "event_id": "E01",
+      "field": "announcement_date",
+      "verdict": "VALUE_DIFF",
+      "gold": "2026-09-25",
+      "system": "2026-09-24"
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "event_id": "E01",
+      "field": "start_date",
+      "verdict": "VALUE_DIFF",
+      "gold": null,
+      "system": "2026-09-23"
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "event_id": "E01",
+      "field": "announcement_date",
+      "verdict": "STATUS_DIFF",
+      "gold": "extracted",
+      "system": "not_mentioned"
+    },
+    {
+      "case_id": "D4-PLD-009",
+      "event_id": "E03",
+      "verdict": "EXTRA_EVENT"
+    }
+  ]
+}
