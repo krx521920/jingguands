@@ -3,7 +3,7 @@
 **张智博**负责的「文档解析与表格还原」模块。把一份 PDF 变成**带出处的结构化中间表示**，
 交给下游的抽取层锚定字段、展示层高亮原文。
 
-> **分支**：`zhangzhibo`　**结构版本**：`evidence/0.8`
+> **分支**：`zhangzhibo`　**结构版本**：`evidence/0.9`
 > **已对齐**：魏文宇的抽取契约 `interface/event-envelope.schema.json` v0.3；
 > 宗博文的证据结构 `evaluation/D1/schemas/evidence.schema.json` v0.1
 
@@ -69,7 +69,7 @@ src/finstruct/
 模块外的相关位置：
 
 ```
-schemas/evidence.v0.8.json      ← 当前出处结构契约（JSON Schema）
+schemas/evidence.v0.9.json      ← 当前出处结构契约（JSON Schema）
 schemas/archive/                ← 历史版本（冻结交付物按当时版本校验）
 tools/                          ← check_evidence / validate_schema / verify_evidence / build_manifest
 tests/test_parse.py             ← 51 条回归用例
@@ -112,11 +112,12 @@ python -m pytest tests -q
 | 结构自检（字段完整、region 顺序、id 唯一、reading_order 一致） | 通过 |
 | **区域重建一致率**（region 里装的就是它声称的文字） | **127/127 · 61/61 · 75/75 = 100%** |
 | 字符守恒（无丢字、无段落×段落重叠） | 通过 |
-| 回归用例 | **73 条全绿**（含 15 条 D3 质押专项 + 6 条分栏 + 5 条扫描降级） |
+| 回归用例 | **79 条全绿**（15 条 D3 质押 + 6 条分栏 + 5 条扫描降级 + 5 条合并单元格/渲染） |
 | 表格单元格切分 | 150 个，全部归属单元格，兜底块 0 |
 | 多层表头 `header_path` | 106 个非空 |
 | 跨页续表 | 检出 2 张（1 张含碎片单元格） |
 | 扫描降级 | 扫描页产出带坐标的 `scan_region` 块；落款页可读文本不再被丢弃 |
+| 合并单元格 | `rowspan`/`colspan` + `covers`（覆盖位置）；值继承不必下游推行列网格 |
 | 分栏 | 双栏 fixture 正确分栏；13 份真实文档零误报 |
 
 ### 已知边界（诚实标注）
@@ -175,7 +176,9 @@ python -m pytest tests -q
 6. 表格单元格以 `source_type=cell` 的块交付，`table_ref` 带
    `{table_id, cell_id, cell_ref, row, col, rowspan, colspan, header_path}`；
    `tables[]` 只留元数据，**同一内容不放两处**
-7. **禁止事后按数字搜索补出处** —— 出处随字符在解析时生成，三组回归用例把它钉死
+7. 合并单元格**只写覆盖位置（`covers`），不复制文本** —— 复制会让同一字符被两个块拥有，
+   破坏字符守恒。需要值继承的消费方按 `covers` 查，或直接用 `tools/render_text.py` 的渲染
+8. **禁止事后按数字搜索补出处** —— 出处随字符在解析时生成，三组回归用例把它钉死
    （同页同文字必得不同出处 / 出处覆盖 100% 的块 / 区域自洽）
 
 ---
@@ -192,4 +195,5 @@ python -m pytest tests -q
 | 2026-09-29 | D3 | **多层表头绑定**：`header_path` + `rowspan`/`colspan`；**修 `cell_id` 跨表撞车**（D2 那个 94/95 的根因，t002 覆盖了 t001 的 c001–c035）；升 v0.5；42→47 条 |
 | 2026-09-29 | D3 | **跨页续表标注**：`continued_from` + 碎片单元格 `continues`；**「禁止反查」的回归证明**；`schemas/archive/` 留档历史版本；升 v0.6；47→51 条 |
 | 2026-09-29 | D3 | **分栏检测**：`page.columns` + 「整幅行分段、段内逐栏」阅读顺序；新增 `columns.py` 与合成双栏 fixture；升 v0.7；51→56 条 |
-| 2026-09-30 | D4 | **扫描件降级区域**：`scan_region` 带坐标降级块 + OCR 入口；非 TEXT 页的可读文本不再整页丢弃；检查器覆盖非 TEXT 页；升 v0.8；56→**73 条** |
+| 2026-09-30 | D4 | **扫描件降级区域**：`scan_region` 带坐标降级块 + OCR 入口；非 TEXT 页的可读文本不再整页丢弃；检查器覆盖非 TEXT 页；升 v0.8；56→73 条 |
+| 2026-09-30 | D4 | **合并单元格值继承**：`covers` 只写位置不复制文本；纯文本改按行渲染带列名（原一格一行，模型无法判断值的列归属）；升 v0.9；73→**79 条** |
