@@ -71,7 +71,8 @@ src/finstruct/
 ```
 schemas/evidence.v0.9.json      ← 当前出处结构契约（JSON Schema）
 schemas/archive/                ← 历史版本（冻结交付物按当时版本校验）
-tools/                          ← check_evidence / validate_schema / verify_evidence / build_manifest
+tools/                          ← check_evidence / validate_schema / verify_evidence
+                                   render_text / build_manifest
 tests/test_parse.py             ← 51 条回归用例
 sample/附件1通知.*               ← D1 样例（竞赛通知，无表格）
 sample/D2/                      ← D2 交付（冻结，evidence/0.3）
