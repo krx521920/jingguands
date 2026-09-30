@@ -109,7 +109,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
     '7. 日期区间（unit=date_range 的字段，如 change_date）：必须 unit="date_range"，value 必须是 ISO 区间字符串 "起始日/结束日"（如 "2026-09-20/2026-09-24"），status=extracted——区间是原文明确给出的值。禁止把 value 写成 {start,end} 对象，禁止用 unit="date" 装区间。',
-    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中指明该角色的名称：有完整注册名称取全名（公告常写"XX创业投资有限公司（以下简称『XX投资』）"——全称与简称是同一主体，一个事件内只用一种写法且优先全名）；公告用"某公司""某能源集团"等简称指称且无全名时，照原文简称抽取（extracted），不得因是简称而标 not_mentioned，也不得拼接"股东"等原文没有的词。同一（主体×对手方×direction）组合全公告只建一个事件，禁止全称/简称各建一份。',
+    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）的名称写法跟锚定句走：该字段 quote 所在的原文句用全称就抽全称、用简称就抽简称——禁止虚构原文没有的名称或定义句式，禁止自行扩写/缩写。同一事件内写法一致即可，不要求全公告统一。同一（主体×对手方×direction）组合全公告只建一个事件，禁止不同写法各建一份。',
     '9. 日期规则：单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。若原文给的是条件性描述而非日期（如"申请解除质押登记日""至本公告披露日"）：status=needs_review、unit 保持字段规定的日期单位、value=null、raw_value 保留原文——不要编造日期，也不要把 unit 改成 text。start_date 只接受单日——解除质押（direction=release）事件通常没有质押起始日，原文未给就 not_mentioned，禁止用上下文其他日期拼区间。',
     '10. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
     '11. 多事件：一份公告可含多个事件——质押按（质押人×质权人×业务方向）组合各建一个事件，event_id 依次 E01/E02/E03…；表格中每组新的[质押数量+质权人+起始日]即为一个新事件，股东名称跨行共享时后续行沿用同一质押人；"合计"行不是事件、禁止抽取；累计质押情况（累计股数/累计占比）对每个事件相同就分别填入；其余事件类型同理按主体组合分事件。direction 字段（v0.4）：普通质押填 "pledge"；"已解除质押/办理解除质押业务"为独立事件填 "release"——同一（质押人×质权人）先押后解时是两个事件，各带各自 direction。direction 的 quote 用原文中的短词即可（"质押"或"解除质押"），不要引长句。release 事件的 pledged_shares_this_time 取"本次将X股办理了质押解除手续/解除了X股"句中的股数——锚定解除句本身，不要取其他句子的数字；"其中Y股办理了…"的"其中"句是总数的组成部分，禁止据此另立事件或拆分总量。',
@@ -401,6 +401,57 @@ async function main() {
   const baseURL = process.env.JINGGUAN_LLM_BASE_URL || 'https://api.deepseek.com'
   const model = process.env.JINGGUAN_LLM_MODEL || 'deepseek-chat'
   const isMock = args.mock
+
+  // ---- 扫描降级路径（D4）：解析层零可读文本（全页 SCANNED/降级块）时不调模型，
+  // 全字段诚实置 unreadable——禁止编造任何值（宗 D4-SCAN-001 评分政策）。
+  const READABLE_MIN = 20
+  if (parseDoc !== null && parseDoc.joinedRaw.trim().length < READABLE_MIN) {
+    const stamp0 = new Date().toISOString().replace(/[-:]/g, '').replace(/\..+/, '')
+    const runId0 = `${stamp0}-${eventType}-scan`
+    const sha0 = createHash('sha256').update(parseDoc.joinedRaw, 'utf8').digest('hex')
+    const degradeReasons = parseDoc.doc.quality?.degrade_reasons ?? []
+    const degradedBlock = parseDoc.blocks.find((b) => b.source_type === 'scan_region') ?? parseDoc.blocks[0] ?? null
+    const skeleton = {}
+    for (const [fname, spec] of Object.entries(FIELD_REGISTRY[eventType])) {
+      skeleton[fname] = {
+        raw_value: null, value: null, unit: spec.unit, standardized: false,
+        status: 'unreadable', provenance: [], denominator: null, note: null,
+      }
+    }
+    const envelope0 = {
+      schema_version: '0.3', run_id: runId0, is_mock: isMock,
+      source: {
+        file_id: parseDoc.doc.handoff?.source?.file_id ?? `sha256:${sha0.slice(0, 16)}`,
+        file_name: parseDoc.doc.doc?.file_name ?? basename(args.parse),
+        file_sha256: parseDoc.doc.handoff?.source?.file_sha256 ?? sha0,
+        parse_meta: parseDoc.doc.handoff?.source?.parse_meta ?? { parser_version: null, page_count: parseDoc.doc.doc?.page_count ?? 1, blocks: null },
+      },
+      events: [{
+        event_id: 'E01', event_type: eventType, fields: skeleton,
+        extraction_method: 'rule',
+        notes: `扫描件诚实降级：解析层无可读文本（degrade_reasons: ${degradeReasons.join('；') || '未提供'}${degradedBlock ? `；降级块 ${degradedBlock.block_id}（source_type=scan_region）` : ''}），未调用模型，全部字段置 unreadable`,
+      }],
+      run_meta: {
+        entry: 'cli', model: null, started_at: new Date().toISOString(), duration_ms: 0,
+        errors: [`[降级] 文档为扫描件/无可读文本（可读字符 ${parseDoc.joinedRaw.trim().length} < ${READABLE_MIN}），跳过模型调用，未产出任何字段值`],
+      },
+    }
+    const outDir0 = resolve(REPO_ROOT, args.outDir, runId0)
+    mkdirSync(outDir0, { recursive: true })
+    writeFileSync(resolve(outDir0, 'events.json'), JSON.stringify(envelope0, null, 2), 'utf8')
+    writeFileSync(resolve(outDir0, 'call_log.json'), JSON.stringify({
+      run_id: runId0, is_mock: isMock, endpoint: 'none（扫描降级，未调用模型）', model: null,
+      request: { mode: 'scan-degraded', readable_chars: parseDoc.joinedRaw.trim().length },
+      response: null, error: null, timing: { total_ms: 0, call_ms: null }, created_at: envelope0.run_meta.started_at,
+    }, null, 2), 'utf8')
+    console.log(`[降级] run_id=${runId0}：扫描件无可读文本，全部字段置 unreadable，未调用模型、未编造任何值`)
+    console.log(`[输出] ${args.outDir}/${runId0}/events.json`)
+    process.exit(0)
+  }
+  if (parseDoc === null && inputText.trim().length < READABLE_MIN) {
+    console.error(`输入无可读文本（${inputText.trim().length} 字符）——拒绝调用模型以免编造；扫描件请先走解析（--parse）获得降级块`)
+    process.exit(2)
+  }
 
   if (!isMock && !apiKey) {
     console.error('缺少模型密钥：请设置 JINGGUAN_LLM_API_KEY（或 DEEPSEEK_API_KEY）。\n' +

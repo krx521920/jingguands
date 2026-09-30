@@ -1,0 +1,188 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20260930T093845-pledge-scan",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:0976b2a84c12e0e7e3d179f25fc0f81e2e3d503f092ebfd18263ca018a7a0197",
+    "file_name": "scanned_synthetic.pdf",
+    "file_sha256": "0976b2a84c12e0e7e3d179f25fc0f81e2e3d503f092ebfd18263ca018a7a0197",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 1,
+      "blocks": [
+        {
+          "block_id": "d0976b2a8_p001_b00001",
+          "page": 1,
+          "role": "BODY",
+          "text": "",
+          "text_raw": "",
+          "region": [
+            0,
+            0,
+            595.68,
+            841.92
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": null,
+          "value": null,
+          "unit": "shares",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": null,
+          "value": null,
+          "unit": "shares",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": null,
+          "value": null,
+          "unit": "percent",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": null,
+          "value": null,
+          "unit": "percent",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": null,
+          "value": null,
+          "unit": "percent",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": null,
+          "value": null,
+          "unit": "percent",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "unreadable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "rule",
+      "notes": "扫描件诚实降级：解析层无可读文本（degrade_reasons: page 1: page form=SCANNED：检出 1 块不可读区域（图片承载内容），已产出 source_type=scan_region 的降级块并带坐标；OCR 通道当前不可用（none），未产出文字；降级块 d0976b2a8_p001_b00001（source_type=scan_region）），未调用模型，全部字段置 unreadable"
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": null,
+    "started_at": "2026-09-30T09:38:45.168Z",
+    "duration_ms": 0,
+    "errors": [
+      "[降级] 文档为扫描件/无可读文本（可读字符 0 < 20），跳过模型调用，未产出任何字段值"
+    ]
+  }
+}

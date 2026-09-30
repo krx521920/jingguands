@@ -81,5 +81,17 @@ const fieldsOf = (env, id) => env.events.find((e) => e.event_id === id)?.fields 
   check(typeof ed?.raw_value === 'string' && ed.raw_value.length > 0, 'raw_value 保留原文描述')
 }
 
-console.log(failed === 0 ? '\n全部通过：抽取行为回归（4 场景）' : `\n失败 ${failed} 项`)
+// ---- 5. 扫描降级（零可读文本→全 unreadable，不调模型不编造）----
+{
+  const env = load('scan-degraded.json')
+  console.log('[5] 扫描降级')
+  contractOK(env, '扫描')
+  const f = env.events[0].fields
+  check(Object.values(f).every((fv) => fv.status === 'unreadable'), '全部字段 unreadable')
+  check(Object.values(f).every((fv) => fv.value === null), '零字段值（不编造）')
+  check(env.run_meta.model === null, '未调用模型')
+  check(env.events[0].extraction_method === 'rule', 'extraction_method=rule（诚实降级非模型输出）')
+}
+
+console.log(failed === 0 ? '\n全部通过：抽取行为回归（5 场景）' : `\n失败 ${failed} 项`)
 process.exit(failed === 0 ? 0 : 1)
