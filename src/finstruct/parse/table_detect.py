@@ -71,8 +71,13 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
             n_cols = len(t.columns)
         except Exception:
             continue
-        if not cells_raw or n_rows < 2:
-            # 单行"表格"多半是排版噪声（一条横线），不当表格处理
+        if not cells_raw or n_rows < 2 or n_cols < 2:
+            # 单行"表格"多半是排版噪声（一条横线）。
+            # **单列"表格"则几乎都是正文被误检** —— 实测 D4-PLD-009 p3 的正文章节
+            # 被 pdfplumber 判成 4 行×1 列的表格，它的"行"正好是正文的四行。
+            # 后果不只是多一张表：那行的字符被当表格处理，而字符中心恰好落在表格
+            # 右边界上时会擦边漏认领，掉回正文流单独成行 —— 于是出现「，」这样一个
+            # 单字段落块，且它的 region 与外层段落重叠，区域重建一致率掉到 99%。
             continue
 
         # pdfplumber 的 t.rows / t.columns 边界在**纵向合并**时会互相重叠

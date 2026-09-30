@@ -1,0 +1,316 @@
+{
+  "producer": "张智博",
+  "day": "D4",
+  "date": "2026-09-30",
+  "module": "解析 / 表格 / 出处",
+  "code_location": "src/finstruct/parse/（模块唯一位置；本目录只放交付物，不复制代码）",
+  "schema": "evidence/0.9",
+  "target_dataset": "evaluation/D4/dev/manifest.json（宗博文 D4 十份质押挑战集）",
+  "note": "D4 主交付＝10 份真实质押公告的解析/出处包，命名对齐宗博文的 case_id。D4-PLD-001..005 与 D3 同源（宗博文 manifest 里以 source_case_id 标注），本目录用当前版本重新解析，故与 sample/D3 的对应项版本一致但块数可能不同。原始 PDF 未随仓库分发，用 fetch_samples.py 按 source_url 取回并校验 sha256。",
+  "samples": [
+    {
+      "case_id": "D4-PLD-001",
+      "event_type": "pledge",
+      "company": null,
+      "title": null,
+      "source_url": null,
+      "source_hash_sha256": null,
+      "source_case_id": "D3-PLD-001",
+      "gold_ref": "gold/D4-PLD-001.envelope.json",
+      "gold_event_count": 3,
+      "parse_file": "parse/D4-PLD-001.parse.json",
+      "text_file": "text/D4-PLD-001.txt",
+      "doc_id": "d44e95085",
+      "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 128,
+      "table_count": 3,
+      "cell_block_count": 100,
+      "merged_cell_count": 10,
+      "header_path_filled": 90,
+      "source_type_counts": {
+        "paragraph": 28,
+        "cell": 100
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-002",
+      "event_type": "pledge",
+      "company": null,
+      "title": null,
+      "source_url": null,
+      "source_hash_sha256": null,
+      "source_case_id": "D3-PLD-002",
+      "gold_ref": "gold/D4-PLD-002.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D4-PLD-002.parse.json",
+      "text_file": "text/D4-PLD-002.txt",
+      "doc_id": "d16c6a948",
+      "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 88,
+      "table_count": 2,
+      "cell_block_count": 57,
+      "merged_cell_count": 9,
+      "header_path_filled": 57,
+      "source_type_counts": {
+        "paragraph": 31,
+        "cell": 57
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-003",
+      "event_type": "pledge",
+      "company": null,
+      "title": null,
+      "source_url": null,
+      "source_hash_sha256": null,
+      "source_case_id": "D3-PLD-003",
+      "gold_ref": "gold/D4-PLD-003.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D4-PLD-003.parse.json",
+      "text_file": "text/D4-PLD-003.txt",
+      "doc_id": "d36105cfd",
+      "file_id": "sha256:36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 111,
+      "table_count": 2,
+      "cell_block_count": 79,
+      "merged_cell_count": 9,
+      "header_path_filled": 79,
+      "source_type_counts": {
+        "paragraph": 32,
+        "cell": 79
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-004",
+      "event_type": "pledge",
+      "company": null,
+      "title": null,
+      "source_url": null,
+      "source_hash_sha256": null,
+      "source_case_id": "D3-PLD-004",
+      "gold_ref": "gold/D4-PLD-004.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D4-PLD-004.parse.json",
+      "text_file": "text/D4-PLD-004.txt",
+      "doc_id": "d62f9a650",
+      "file_id": "sha256:62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 105,
+      "table_count": 2,
+      "cell_block_count": 79,
+      "merged_cell_count": 9,
+      "header_path_filled": 79,
+      "source_type_counts": {
+        "paragraph": 26,
+        "cell": 79
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-005",
+      "event_type": "pledge",
+      "company": null,
+      "title": null,
+      "source_url": null,
+      "source_hash_sha256": null,
+      "source_case_id": "D3-PLD-005",
+      "gold_ref": "gold/D4-PLD-005.envelope.json",
+      "gold_event_count": 2,
+      "parse_file": "parse/D4-PLD-005.parse.json",
+      "text_file": "text/D4-PLD-005.txt",
+      "doc_id": "d5bf0524f",
+      "file_id": "sha256:5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 79,
+      "table_count": 3,
+      "cell_block_count": 57,
+      "merged_cell_count": 0,
+      "header_path_filled": 56,
+      "source_type_counts": {
+        "paragraph": 22,
+        "cell": 57
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-006",
+      "event_type": "pledge",
+      "company": "*ST春天",
+      "title": "青海春天关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225581969.PDF",
+      "source_hash_sha256": "3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+      "source_case_id": null,
+      "gold_ref": "gold/D4-PLD-006.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D4-PLD-006.parse.json",
+      "text_file": "text/D4-PLD-006.txt",
+      "doc_id": "d3fbd8497",
+      "file_id": "sha256:3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 95,
+      "table_count": 4,
+      "cell_block_count": 66,
+      "merged_cell_count": 0,
+      "header_path_filled": 50,
+      "source_type_counts": {
+        "paragraph": 29,
+        "cell": 66
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-007",
+      "event_type": "pledge",
+      "company": "坤彩科技",
+      "title": "关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225581834.PDF",
+      "source_hash_sha256": "a204c717003092451d007754d55fcf05b9da0767d27b26f9d18545a714276a0c",
+      "source_case_id": null,
+      "gold_ref": "gold/D4-PLD-007.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D4-PLD-007.parse.json",
+      "text_file": "text/D4-PLD-007.txt",
+      "doc_id": "da204c717",
+      "file_id": "sha256:a204c717003092451d007754d55fcf05b9da0767d27b26f9d18545a714276a0c",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 187,
+      "table_count": 2,
+      "cell_block_count": 156,
+      "merged_cell_count": 9,
+      "header_path_filled": 156,
+      "source_type_counts": {
+        "paragraph": 31,
+        "cell": 156
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "event_type": "pledge",
+      "company": "立航科技",
+      "title": "成都立航科技股份有限公司关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225581183.PDF",
+      "source_hash_sha256": "74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+      "source_case_id": null,
+      "gold_ref": "gold/D4-PLD-008.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D4-PLD-008.parse.json",
+      "text_file": "text/D4-PLD-008.txt",
+      "doc_id": "d74b527f3",
+      "file_id": "sha256:74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT",
+        "TEXT",
+        "MIXED"
+      ],
+      "block_count": 93,
+      "table_count": 2,
+      "cell_block_count": 68,
+      "merged_cell_count": 9,
+      "header_path_filled": 68,
+      "source_type_counts": {
+        "paragraph": 25,
+        "cell": 68
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-009",
+      "event_type": "pledge",
+      "company": "宏发<em>股份</em>",
+      "title": "宏发股份：关于控股股东部分股份质押及解质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225580864.PDF",
+      "source_hash_sha256": "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+      "source_case_id": null,
+      "gold_ref": "gold/D4-PLD-009.envelope.json",
+      "gold_event_count": 3,
+      "parse_file": "parse/D4-PLD-009.parse.json",
+      "text_file": "text/D4-PLD-009.txt",
+      "doc_id": "d1320340e",
+      "file_id": "sha256:1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 96,
+      "table_count": 3,
+      "cell_block_count": 75,
+      "merged_cell_count": 9,
+      "header_path_filled": 57,
+      "source_type_counts": {
+        "paragraph": 21,
+        "cell": 75
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D4-PLD-010",
+      "event_type": "pledge",
+      "company": "博迁新材",
+      "title": "江苏博迁新材料股份有限公司关于控股股东部分股份质押的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225580857.PDF",
+      "source_hash_sha256": "b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
+      "source_case_id": null,
+      "gold_ref": "gold/D4-PLD-010.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D4-PLD-010.parse.json",
+      "text_file": "text/D4-PLD-010.txt",
+      "doc_id": "db2351d0b",
+      "file_id": "sha256:b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT"
+      ],
+      "block_count": 103,
+      "table_count": 2,
+      "cell_block_count": 79,
+      "merged_cell_count": 9,
+      "header_path_filled": 79,
+      "source_type_counts": {
+        "paragraph": 24,
+        "cell": 79
+      },
+      "schema_version": "evidence/0.9"
+    }
+  ]
+}

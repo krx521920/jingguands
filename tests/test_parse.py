@@ -1066,3 +1066,43 @@ def test_纯文本渲染把扫描区域显式标出():
     text = rt.render(d)
     assert "不可读区域" in text, text
     assert "NOT_PARSED" in text
+
+
+# ------------------------------------------------------------ D4：表格误检
+def test_单列表格被过滤():
+    """1 列的「表格」不是表格，是正文被误检。
+
+    实测 D4-PLD-009 p3 的正文章节被 pdfplumber 判成 4 行×1 列的表格，
+    它的"行"正好是正文的四行。后果不只是多一张表：那行的字符被当表格处理，
+    字符中心恰好落在表格右边界上时擦边漏认领，掉回正文流单独成行 ——
+    于是出现一个「，」的单字段落块，且 region 与外层段落重叠，
+    区域重建一致率掉到 99%。
+
+    正常表格至少 2 列（实测各文档的真表格是 2–11 列）。
+    """
+    for name in REAL_CASES:
+        d = _parse_real(name)
+        for pg in d["pages"]:
+            for t in pg["tables"]:
+                assert t["n_cols"] >= 2, f"{name} p{pg['page']} 保留了单列假表 {t['table_id']}"
+
+
+def test_没有单字符碎块():
+    """单字符段落块是「边界擦边漏认领」的症状。
+
+    实测 D4-PLD-009 p3 出现过一个只含「，」的段落块 —— 那是单列假表导致
+    该字符没被认领、掉回正文流自己成行的结果。
+
+    **判据限定为「单字符」**：两三个字的短块可能是合法的换行续行 ——
+    实测 D3-PLD-003 p2 有个 `'股。'`，它是上一行「…高管锁定」的收尾，
+    是真实排版，不是碎块。（一开始我写成「≤2 字」，结果误报了。）
+    """
+    for name in REAL_CASES:
+        d = _parse_real(name)
+        for pg in d["pages"]:
+            for b in pg["blocks"]:
+                if b["source_type"] != "paragraph":
+                    continue
+                s = b["text_raw"].strip()
+                if len(s) == 1 and not s.isdigit():
+                    assert False, f"{name} p{pg['page']} 出现单字符碎块 {s!r}（region={b['region']}）"
