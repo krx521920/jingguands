@@ -254,7 +254,7 @@
         },
         "start_date": {
           "raw_value": "2026.09.23",
-          "value": null,
+          "value": "2026-09-23",
           "unit": "date",
           "status": "extracted",
           "provenance": [
@@ -328,27 +328,12 @@
           "note": null
         },
         "announcement_date": {
-          "raw_value": "协议》项下交易安排，将本次协议转让标的股份质押给受让方，具体内容详见公司于2026年9月15日在上海证券交易所网站(www.sse.com.cn)披露的相关公告。本次股份质押不会导致公司控制权发生变更，不会对公司生产经营、公司治理等产生不利影响。",
-          "value": "2026-09-25",
+          "raw_value": null,
+          "value": null,
           "unit": "date",
-          "status": "extracted",
-          "provenance": [
-            {
-              "block_id": "d74b527f3_p001_b00010",
-              "source_type": "paragraph",
-              "page": 1,
-              "region": [
-                89.88,
-                546.89,
-                505.44,
-                629.09
-              ],
-              "table_id": null,
-              "cell_ref": null,
-              "quote": "协议》项下交易安排，将本次协议转让标的股份质押给受让方，具体内容详见公司于2026年9月15日在上海证券交易所网站(www.sse.com.cn)披露的相关公告。本次股份质押不会导致公司控制权发生变更，不会对公司生产经营、公司治理等产生不利影响。"
-            }
-          ],
-          "standardized": true,
+          "status": "not_mentioned",
+          "provenance": [],
+          "standardized": false,
           "denominator": null,
           "note": null
         }

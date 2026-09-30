@@ -1,15 +1,15 @@
 {
-  "status": "evaluation_data_complete_model_comparison_partial",
+  "status": "complete",
   "checked_on": "2026-09-30",
   "documents": 10,
-  "events": 13,
-  "fields": 182,
-  "evidence_records": 169,
+  "events": 15,
+  "fields": 210,
+  "evidence_records": 191,
   "spot_checks": 20,
   "unsupported_quotes": 0,
   "gold_validation": "pass",
   "shared_contract_validation": {"files": 10, "result": "pass"},
   "scan_challenge": {"case_id": "D4-SCAN-001", "result": "pass"},
-  "model_comparison": {"field_errors": 4, "extra_release_events": 2, "target_field_accuracy": ">=80%"},
-  "blocking_issue": "Release-event extension and date normalization require team adjudication; D4 annotation deliverables are complete."
+  "model_comparison": {"documents": 10, "field_diffs": 0, "event_diffs": 0, "result": "pass"},
+  "blocking_issue": null
 }

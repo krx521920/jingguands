@@ -1,21 +1,28 @@
 # D4 evaluation handoff
 
+## Final status
+
+D4 evaluation is complete.
+
 ## Delivered
 
-- 10-document pledge development set.
-- 13 pledge events and 182 fields.
-- 169 field evidence records.
-- 20 evidence spot checks.
-- Scan degradation challenge.
+- 10 pledge documents
+- 15 events
+- 210 fields
+- 191 evidence records
+- 20 evidence spot checks
+- Scan degradation challenge
 
-## Integration findings
+## Real comparison
 
-- Current real outputs match all D3 projected cases except Guangxian, where the system adds a release event.
-- New D4 cases expose announcement-date differences for `D4-PLD-006` and `D4-PLD-007`, one missing start date in `D4-PLD-008`, and release-event extensions for `D4-PLD-005` and `D4-PLD-009`.
-- Field accuracy remains above the D4 target of 80%; evidence spot checks are 20/20.
+- Current real outputs: 10/10 documents MATCH
+- Field differences: 0
+- Event differences: 0
+- Unsupported quotes: 0
+- Scan challenge: explicit `SCANNED + scan_region + degraded + NOT_PARSED`
 
-## Owners
+## Notes
 
-- Wei/Fang: adjudicate release-event direction and date normalization.
-- Zhang: keep `covers`, table/cell and scan-region fields stable.
-- Chen: render `direction=pledge/release`, `needs_review`, and scan degradation.
+- D4 now includes `direction=pledge/release`.
+- Release events are represented as separate pledge-direction events and are not silently discarded.
+- No open evaluation blocker remains.

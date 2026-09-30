@@ -42,7 +42,7 @@
       "event_type": "pledge",
       "raw": "../../D3/dev/raw/D3-PLD-005.raw.json",
       "gold": "gold/D4-PLD-005.envelope.json",
-      "event_count": 1,
+      "event_count": 2,
       "source_case_id": "D3-PLD-005"
     },
     {
@@ -99,7 +99,7 @@
       "parse_schema": "evidence/0.7",
       "raw": "raw/D4-PLD-009.raw.json",
       "gold": "gold/D4-PLD-009.envelope.json",
-      "event_count": 2
+      "event_count": 3
     },
     {
       "case_id": "D4-PLD-010",

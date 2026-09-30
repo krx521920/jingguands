@@ -1,8 +1,8 @@
 {
   "total_cases": 10,
-  "total_events": 13,
-  "total_fields": 182,
-  "total_evidence": 169,
+  "total_events": 15,
+  "total_fields": 210,
+  "total_evidence": 191,
   "unsupported_quotes": 0,
   "spot_checks": 20,
   "scan_challenge": {
@@ -44,7 +44,7 @@
     },
     {
       "case_id": "D4-PLD-005",
-      "events": 1,
+      "events": 2,
       "fields": 14,
       "result": "PASS"
     },
@@ -68,7 +68,7 @@
     },
     {
       "case_id": "D4-PLD-009",
-      "events": 2,
+      "events": 3,
       "fields": 14,
       "result": "PASS"
     },

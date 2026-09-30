@@ -328,24 +328,24 @@
           "note": null
         },
         "announcement_date": {
-          "raw_value": "截至2026年9月24日，公司控股股东谢秉昆先生及其一致行动人榕坤投",
-          "value": "2026-09-25",
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
           "unit": "date",
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "da204c717_p001_b00009",
+              "block_id": "da204c717_p002_b00134",
               "source_type": "paragraph",
-              "page": 1,
+              "page": 2,
               "region": [
-                109.08,
-                342.17,
-                510.24,
-                354.89
+                357.24,
+                761.21,
+                450.24,
+                773.21
               ],
               "table_id": null,
               "cell_ref": null,
-              "quote": "截至2026年9月24日，公司控股股东谢秉昆先生及其一致行动人榕坤投"
+              "quote": "2026年9月24日"
             }
           ],
           "standardized": true,

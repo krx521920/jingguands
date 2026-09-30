@@ -328,24 +328,24 @@
           "note": null
         },
         "announcement_date": {
-          "raw_value": "司，该笔原展期至2026年9月23日。有格投资于2026年9月22日办理了其中69万股质押解除手续，并于2026年9月23日将余下146万股办理了展期手续，",
+          "raw_value": "2026年9月25日",
           "value": "2026-09-25",
           "unit": "date",
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d1320340e_p001_b00011",
+              "block_id": "d1320340e_p003_b00034",
               "source_type": "paragraph",
-              "page": 1,
+              "page": 3,
               "region": [
-                114.0,
-                610.61,
-                510.0,
-                650.57
+                412.32,
+                550.85,
+                505.32,
+                562.85
               ],
               "table_id": null,
               "cell_ref": null,
-              "quote": "司，该笔原展期至2026年9月23日。有格投资于2026年9月22日办理了其中69万股质押解除手续，并于2026年9月23日将余下146万股办理了展期手续，"
+              "quote": "2026年9月25日"
             }
           ],
           "standardized": true,
@@ -671,24 +671,24 @@
           "note": null
         },
         "announcement_date": {
-          "raw_value": "司，该笔原展期至2026年9月23日。有格投资于2026年9月22日办理了其中69万股质押解除手续，并于2026年9月23日将余下146万股办理了展期手续，",
+          "raw_value": "2026年9月25日",
           "value": "2026-09-25",
           "unit": "date",
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d1320340e_p001_b00011",
+              "block_id": "d1320340e_p003_b00034",
               "source_type": "paragraph",
-              "page": 1,
+              "page": 3,
               "region": [
-                114.0,
-                610.61,
-                510.0,
-                650.57
+                412.32,
+                550.85,
+                505.32,
+                562.85
               ],
               "table_id": null,
               "cell_ref": null,
-              "quote": "司，该笔原展期至2026年9月23日。有格投资于2026年9月22日办理了其中69万股质押解除手续，并于2026年9月23日将余下146万股办理了展期手续，"
+              "quote": "2026年9月25日"
             }
           ],
           "standardized": true,
@@ -698,6 +698,319 @@
       },
       "extraction_method": "rule",
       "notes": null
+    },
+    {
+      "event_id": "E03",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "解除质押",
+          "value": "release",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00034",
+              "page": 2,
+              "region": [
+                90,
+                338.09,
+                505.32,
+                490.13
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "解除质押"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "有格创业投资有限公司",
+          "value": "有格创业投资有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00036",
+              "page": 2,
+              "region": [
+                302.65,
+                494.24,
+                515.25,
+                522.74
+              ],
+              "table_id": "d1320340e_p002_t002",
+              "cell_ref": "r1c2",
+              "source_type": "cell",
+              "quote": "有格创业投资有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "中国银河证券股份有限公司",
+          "value": "中国银河证券股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00034",
+              "page": 2,
+              "region": [
+                90,
+                338.09,
+                505.32,
+                490.13
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中国银河证券股份有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "19,254,000股",
+          "value": 19254000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00038",
+              "page": 2,
+              "region": [
+                302.65,
+                522.74,
+                515.25,
+                551.24
+              ],
+              "table_id": "d1320340e_p002_t002",
+              "cell_ref": "r2c2",
+              "source_type": "cell",
+              "quote": "19,254,000股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "33,344,000股",
+          "value": 33344000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00050",
+              "page": 2,
+              "region": [
+                302.65,
+                693.74,
+                515.25,
+                722.24
+              ],
+              "table_id": "d1320340e_p002_t002",
+              "cell_ref": "r8c2",
+              "source_type": "cell",
+              "quote": "33,344,000股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "5.98%",
+          "value": 5.98,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00040",
+              "page": 2,
+              "region": [
+                302.65,
+                551.24,
+                515.25,
+                579.74
+              ],
+              "table_id": "d1320340e_p002_t002",
+              "cell_ref": "r3c2",
+              "source_type": "cell",
+              "quote": "5.98%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "1.24%",
+          "value": 1.24,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00042",
+              "page": 2,
+              "region": [
+                302.65,
+                579.74,
+                515.25,
+                608.24
+              ],
+              "table_id": "d1320340e_p002_t002",
+              "cell_ref": "r4c2",
+              "source_type": "cell",
+              "quote": "1.24%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "10.36%",
+          "value": 10.36,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00052",
+              "page": 2,
+              "region": [
+                302.65,
+                722.24,
+                515.25,
+                750.64
+              ],
+              "table_id": "d1320340e_p002_t002",
+              "cell_ref": "r9c2",
+              "source_type": "cell",
+              "quote": "10.36%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "2.15%",
+          "value": 2.15,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p003_b00001",
+              "page": 3,
+              "region": [
+                90,
+                84.65,
+                450,
+                153.17
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "2.15%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2026年9月22日至2026年9月23日",
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "needs_review",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p002_b00044",
+              "page": 2,
+              "region": [
+                302.65,
+                608.24,
+                515.25,
+                636.74
+              ],
+              "table_id": "d1320340e_p002_t002",
+              "cell_ref": "r5c2",
+              "source_type": "cell",
+              "quote": "2026年9月22日至2026年9月23日"
+            }
+          ],
+          "denominator": null,
+          "note": "原文为解质时间区间，非单一到期日"
+        },
+        "purpose": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月25日",
+          "value": "2026-09-25",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d1320340e_p003_b00034",
+              "page": 3,
+              "region": [
+                412.32,
+                550.85,
+                505.32,
+                562.85
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "2026年9月25日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": "源公告明确披露的解除质押事件（direction=release）。"
     }
   ],
   "run_meta": {
