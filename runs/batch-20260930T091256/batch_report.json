@@ -1,0 +1,66 @@
+{
+  "stamp": "20260930T091256",
+  "mock": false,
+  "results": [
+    {
+      "case": "D4-PLD-009",
+      "event_type": "pledge",
+      "file": "D4-PLD-009.json",
+      "run_id": "20260930T091256-pledge-aa54",
+      "ok": true,
+      "status_count": {
+        "extracted": 34,
+        "not_mentioned": 8
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 10,
+        "value_hit": 7,
+        "field_accuracy": 0.7,
+        "wrong_filled": 2,
+        "status_match_ratio": 0.7857,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 1
+      },
+      "gold_rows": [
+        {
+          "field": "(E01 有格投资)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：有格投资|中国银河证券股份有限公司|pledge）"
+        },
+        {
+          "field": "(E02 有格投资)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：有格投资|光大证券股份有限公司|pledge）"
+        },
+        {
+          "field": "E03.pledged_ratio_this_time_of_held",
+          "verdict": "STATUS_DIFF",
+          "detail": "gold=extracted(5.98) mine=not_mentioned"
+        },
+        {
+          "field": "E03.pledged_ratio_this_time_of_total",
+          "verdict": "STATUS_DIFF",
+          "detail": "gold=extracted(1.24) mine=not_mentioned"
+        },
+        {
+          "field": "E03.pledged_shares_this_time",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=19254000 mine=18564000"
+        },
+        {
+          "field": "(E01 有格创业投资有限公司)",
+          "verdict": "MINE_EXTRA_EVENT",
+          "detail": "系统多出的事件（键：有格创业投资有限公司|中国银河证券股份有限公司|pledge）"
+        },
+        {
+          "field": "(E02 有格创业投资有限公司)",
+          "verdict": "MINE_EXTRA_EVENT",
+          "detail": "系统多出的事件（键：有格创业投资有限公司|光大证券股份有限公司|pledge）"
+        }
+      ]
+    }
+  ]
+}

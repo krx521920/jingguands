@@ -201,6 +201,7 @@
     "jingguan:test-normalize": "node scripts/jingguan/test_normalization.mjs",
     "jingguan:test-contract": "node scripts/jingguan/test_contract_sync.mjs",
     "jingguan:test-checks": "node scripts/jingguan/test_checks.mjs",
+    "jingguan:test-regression": "node scripts/jingguan/test_regression.mjs",
     "jingguan:check-gold": "node scripts/jingguan/check_gold.mjs",
     "jingguan:clean-runs": "node scripts/jingguan/clean_runs.mjs",
     "jingguan:gates": "node scripts/jingguan/gates.mjs",

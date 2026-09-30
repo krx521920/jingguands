@@ -109,10 +109,10 @@ function buildSystemPrompt(eventType, parseMode) {
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
     '7. 日期区间（unit=date_range 的字段，如 change_date）：必须 unit="date_range"，value 必须是 ISO 区间字符串 "起始日/结束日"（如 "2026-09-20/2026-09-24"），status=extracted——区间是原文明确给出的值。禁止把 value 写成 {start,end} 对象，禁止用 unit="date" 装区间。',
-    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中指明该角色的名称：有完整注册名称取全名；公告用“某公司”“某能源集团”等简称指称时，也必须照原文简称抽取（extracted），不得因是简称而标 not_mentioned，也不得拼接“股东”等原文没有的词。',
-    '9. 日期规则：单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。若原文给的是条件性描述而非日期（如"申请解除质押登记日""至本公告披露日"）：status=needs_review、unit 保持字段规定的日期单位、value=null、raw_value 保留原文——不要编造日期，也不要把 unit 改成 text。',
+    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）必须取公告中指明该角色的名称：有完整注册名称取全名（公告常写"XX创业投资有限公司（以下简称『XX投资』）"——全称与简称是同一主体，一个事件内只用一种写法且优先全名）；公告用"某公司""某能源集团"等简称指称且无全名时，照原文简称抽取（extracted），不得因是简称而标 not_mentioned，也不得拼接"股东"等原文没有的词。同一（主体×对手方×direction）组合全公告只建一个事件，禁止全称/简称各建一份。',
+    '9. 日期规则：单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。若原文给的是条件性描述而非日期（如"申请解除质押登记日""至本公告披露日"）：status=needs_review、unit 保持字段规定的日期单位、value=null、raw_value 保留原文——不要编造日期，也不要把 unit 改成 text。start_date 只接受单日——解除质押（direction=release）事件通常没有质押起始日，原文未给就 not_mentioned，禁止用上下文其他日期拼区间。',
     '10. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
-    '11. 多事件：一份公告可含多个事件——质押按（质押人×质权人×业务方向）组合各建一个事件，event_id 依次 E01/E02/E03…；表格中每组新的[质押数量+质权人+起始日]即为一个新事件，股东名称跨行共享时后续行沿用同一质押人；"合计"行不是事件、禁止抽取；累计质押情况（累计股数/累计占比）对每个事件相同就分别填入；其余事件类型同理按主体组合分事件。direction 字段（v0.4）：普通质押填 "pledge"；"已解除质押/办理解除质押业务"为独立事件填 "release"——同一（质押人×质权人）先押后解时是两个事件，各带各自 direction。direction 的 quote 用原文中的短词即可（"质押"或"解除质押"），不要引长句。',
+    '11. 多事件：一份公告可含多个事件——质押按（质押人×质权人×业务方向）组合各建一个事件，event_id 依次 E01/E02/E03…；表格中每组新的[质押数量+质权人+起始日]即为一个新事件，股东名称跨行共享时后续行沿用同一质押人；"合计"行不是事件、禁止抽取；累计质押情况（累计股数/累计占比）对每个事件相同就分别填入；其余事件类型同理按主体组合分事件。direction 字段（v0.4）：普通质押填 "pledge"；"已解除质押/办理解除质押业务"为独立事件填 "release"——同一（质押人×质权人）先押后解时是两个事件，各带各自 direction。direction 的 quote 用原文中的短词即可（"质押"或"解除质押"），不要引长句。release 事件的 pledged_shares_this_time 取"本次将X股办理了质押解除手续/解除了X股"句中的股数——锚定解除句本身，不要取其他句子的数字；"其中Y股办理了…"的"其中"句是总数的组成部分，禁止据此另立事件或拆分总量。',
     ...(parseMode ? [
       '12. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本；表格单元格行为 [block_id|表头:列名] 值——必须按表头理解单元格含义再抽取。provenance 必须给出 quote 所在块的 block_id。',
       '13. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。',

@@ -34,6 +34,7 @@ const results = [
   runGate('宗20条格式测试', ['corpus/zongbowen/tests/standardization-format.test.mjs']),
   runGate('全量契约校验器', ['scripts/jingguan/validate_envelope.mjs']),
   runGate('Gold 一致性机检', ['scripts/jingguan/check_gold.mjs']),
+  runGate('抽取行为回归', ['scripts/jingguan/test_regression.mjs']),
 ]
 
 // ---- 6 git 状态守卫 ----

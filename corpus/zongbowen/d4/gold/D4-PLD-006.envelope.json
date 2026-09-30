@@ -1,0 +1,367 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D4-PLD-006",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+    "file_name": "D4-PLD-006.pdf",
+    "file_sha256": "3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+    "parse_meta": {
+      "parser_version": "0.7.0",
+      "page_count": 2,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "青海春天药用资源科技股份有限公司关于控股股东部分股份质押的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者",
+          "value": "pledge",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00002",
+              "source_type": "paragraph",
+              "page": 1,
+              "region": [
+                97.8,
+                77.87,
+                521.75,
+                148.25
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "青海春天药用资源科技股份有限公司关于控股股东部分股份质押的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "西藏荣恩",
+          "value": "西藏荣恩",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00024",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                42.25,
+                541.99,
+                77.4,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c1",
+              "quote": "西藏荣恩"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "上海浦东发展银行股份有限公司成都分行",
+          "value": "上海浦东发展银行股份有限公司成都分行",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00031",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                368.0,
+                541.99,
+                426.05,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c8",
+              "quote": "上海浦东发展银行股份有限公司成都分行"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "375万股股",
+          "value": 3750000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00026",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                134.1,
+                541.99,
+                176.6,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c3",
+              "quote": "375万股"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "11,781万股股",
+          "value": 117810000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00051",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                317.62,
+                761.64,
+                391.4,
+                793.24
+              ],
+              "table_id": "d3fbd8497_p001_t002",
+              "cell_ref": "r2c5",
+              "quote": "11,781万股"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "1.99%",
+          "value": 1.99,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00032",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                426.05,
+                541.99,
+                468.55,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c9",
+              "quote": "1.99%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "0.64%",
+          "value": 0.64,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00033",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                468.55,
+                541.99,
+                511.1,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c10",
+              "quote": "0.64%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "62.46%",
+          "value": 62.46,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00052",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                391.4,
+                761.64,
+                441.5,
+                793.24
+              ],
+              "table_id": "d3fbd8497_p001_t002",
+              "cell_ref": "r2c6",
+              "quote": "62.46%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "20.07%",
+          "value": 20.07,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00053",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                441.5,
+                761.64,
+                488.35,
+                793.24
+              ],
+              "table_id": "d3fbd8497_p001_t002",
+              "cell_ref": "r2c7",
+              "quote": "20.07%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "status": "not_mentioned",
+          "provenance": [],
+          "standardized": false,
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026-09-22",
+          "value": "2026-09-22",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00029",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                268.75,
+                541.99,
+                317.62,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c6",
+              "quote": "2026-09-22"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2029-09-18",
+          "value": "2029-09-18",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00030",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                317.62,
+                541.99,
+                368.0,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c7",
+              "quote": "2029-09-18"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "提供担保",
+          "value": "提供担保",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p001_b00034",
+              "source_type": "cell",
+              "page": 1,
+              "region": [
+                511.1,
+                541.99,
+                553.25,
+                620.49
+              ],
+              "table_id": "d3fbd8497_p001_t001",
+              "cell_ref": "r2c11",
+              "quote": "提供担保"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3fbd8497_p002_b00041",
+              "source_type": "paragraph",
+              "page": 2,
+              "region": [
+                380.28,
+                505.85,
+                473.64,
+                517.85
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "2026年9月24日"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "rule",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-09-30T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}
