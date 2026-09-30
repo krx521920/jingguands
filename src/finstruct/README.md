@@ -69,7 +69,7 @@ src/finstruct/
 模块外的相关位置：
 
 ```
-schemas/evidence.v0.7.json      ← 当前出处结构契约（JSON Schema）
+schemas/evidence.v0.8.json      ← 当前出处结构契约（JSON Schema）
 schemas/archive/                ← 历史版本（冻结交付物按当时版本校验）
 tools/                          ← check_evidence / validate_schema / verify_evidence / build_manifest
 tests/test_parse.py             ← 51 条回归用例
