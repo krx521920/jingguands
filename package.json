@@ -1,14 +1,20 @@
 {
-  "name": "finance-agent-pledge-verifier-d3",
-  "version": "0.3.0",
+  "name": "finance-agent-pledge-checks-d4",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
-  "description": "方轩诚 D3：质押股数、比例和分母口径核验。文件名按交付要求归档，原目录请使用 README 的 node 命令。",
-  "engines": { "node": ">=24" },
+  "description": "方轩诚 D4：先检查口径与来源引用，再核验比例与股数关系。",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src_D4/pledge/checks_D4.ts"
+  },
   "scripts": {
-    "test": "node --test src_D3/pledge/__tests___D3/pledge.test_D3.ts",
-    "demo": "node src_D3/pledge/cli_D3.ts examples_D3/pledge_input_D3.json",
-    "typecheck": "tsc --noEmit -p tsconfig_D3.json"
+    "test": "node --test src_D4/pledge/__tests___D4/*.test_D4.ts",
+    "demo": "node src_D4/pledge/cli_D4.ts --synthetic-test examples_D4/pledge_input_D4.json",
+    "check": "node src_D4/pledge/cli_D4.ts",
+    "typecheck": "tsc --noEmit -p tsconfig_D4.json"
   },
   "devDependencies": {
     "@types/node": "26.6.3",
