@@ -540,6 +540,11 @@ def parse_page_text_layer(
     # **宁可 bbox 宽一点也不产生逻辑上互相矛盾的块。**
     blocks_split = _flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops, tables=tables)
     if _has_paragraph_overlap(blocks_split):
+        # **已知不足：退回是「整页」粒度。** 一条行拆坏了，整页都退回不拆，
+        # 于是同一页上本该拆好的行也一起放弃了 —— 实测 D5-EQC-007 p7 的 6 个块
+        # 正是该拆的形状，却因为同页另有拆坏的行而被整体退回。
+        # 下一步：把退回粒度细化到**行组**（只退回出问题的那几行），
+        # 或改成逐行试拆 + 逐行自检。
         blocks_split = _flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops)
     blocks.extend(blocks_split)
     column_spans = [[round(a, 2), round(b, 2)] for a, b in spans]
