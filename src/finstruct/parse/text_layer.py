@@ -739,12 +739,23 @@ def _has_paragraph_overlap(flow_blocks: List[Dict]) -> bool:
     重叠说明这些块在逻辑上互相矛盾（同一片区域被两块认领），
     用它作为"按表格拆行是否可行"的自检依据。
     """
-    ps = [(b["_kw"]["region"], b["_kw"]["text_raw"]) for b in flow_blocks
+    ps = [(b["_kw"]["region"], b.get("_chars") or []) for b in flow_blocks
           if b["_kw"].get("source_type") == "paragraph"]
     for i in range(len(ps)):
-        (ax0, ay0, ax1, ay1), _ = ps[i]
+        (ax0, ay0, ax1, ay1), acs = ps[i]
         for j in range(i + 1, len(ps)):
-            (bx0, by0, bx1, by1), _ = ps[j]
-            if ax0 < bx1 and bx0 < ax1 and ay0 < by1 and by0 < ay1:
+            (bx0, by0, bx1, by1), bcs = ps[j]
+            if not (ax0 < bx1 and bx0 < ax1 and ay0 < by1 and by0 < ay1):
+                continue
+            # **必须按字符判定，不能只看 bbox 相交。**
+            # 多栏/表格交错的版面里，两个段落块的外接矩形经常相交、却各自拥有
+            # 互不相交的字符 —— 那是良性的（字符守恒判据明确把它归为非逻辑重叠）。
+            # 早期版本只看 bbox，于是 p7 这种"本就正常"的页面也被判成有冲突，
+            # 拆分被无谓退回，反而挡住了本该生效的修复。
+            ids = {id(c) for c in bcs}
+            if any(id(c) in ids for c in acs):
+                return True
+            if any(bx0 <= (c["x0"] + c["x1"]) / 2 <= bx1 and by0 <= (c["top"] + c["bottom"]) / 2 <= by1
+                   for c in acs):
                 return True
     return False
