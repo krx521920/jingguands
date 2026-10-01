@@ -199,7 +199,17 @@ def column_of(block_region: Sequence[float], gutters: Sequence[Tuple[float, floa
 #   方向合理，但**破坏了既有正确行为**：D4-PLD-010 输出变化，
 #   且 D5 出现未覆盖字符（test_补格后每个字符都有块覆盖 失败）。已回退。
 #   说明跨栏字符的归属还有别的路径，不是 line_is_full_width 一个判据能定的。
-#   下一步应先打印失败块的字符、按列归类，确认那些右栏字符是**从哪一步**进来的。
+#   已推进一层（2026-10-01）：打印失败块发现 ——
+#     · 块的 text_raw 正好是**左栏的 106 字**，拆分本身是对的；
+#     · 但 region 宽到 x=80.3–504.0，把右栏 163 字也框了进来。
+#   即：**块的内容对，region 算宽了**。而 region 是 region_of(块自己的字符)，
+#   所以块自己的字符里确实有落在右栏的。
+#
+#   下一个可疑点：_flow_blocks 把**整幅行放进 bucket[(band, 0)]** ——
+#   与第 0 栏共用同一个桶，于是整幅行会和第 0 栏的内容一起进 cluster_blocks。
+#   整幅行的字符横跨全宽，一旦与栏内内容聚成一块，块的 bbox 就会被撑满整页。
+#   下一步：确认失败块里是否混进了整幅行的字符；若是，给整幅行单独一个桶键
+#   （例如 (band, -1)），让它不与任何栏混聚。
 
 
 def line_is_full_width(line_chars: Sequence[Dict], gutters: Sequence[Tuple[float, float]]) -> bool:
