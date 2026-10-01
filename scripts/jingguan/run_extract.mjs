@@ -112,7 +112,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）的名称写法跟锚定句走：该字段 quote 所在的原文句用全称就抽全称、用简称就抽简称——禁止虚构原文没有的名称或定义句式，禁止自行扩写/缩写。同一事件内写法一致即可，不要求全公告统一。同一（主体×对手方×direction）组合全公告只建一个事件，禁止不同写法各建一份。holder 字段：原文明确列出多个信息披露义务人时逐一列举（如"红豆集团、周海江、龚新度"），用列表首次出现时的写法（通常是简称），不用定义段的全称。method 字段逐字摘录原文的变动方式表述：不加后缀（如去掉末尾的"方式"两个字），连接词保持原文用字（原文用"及"就写"及"，原文用顿号就写顿号），保留全部限定词和结果词（如"被动减持"不缩为"减持"、"司法拍卖被动减持"不缩为"司法拍卖"），保留原文句尾标点。',
     '9. 日期规则：单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。若原文给的是条件性描述而非日期（如"申请解除质押登记日""至本公告披露日"）：status=needs_review、unit 保持字段规定的日期单位、value=null、raw_value 保留原文——不要编造日期，也不要把 unit 改成 text。解除质押（direction=release）事件的日期同样按原文：公告明确给了解除/起始日期就抽取，只字未提才 not_mentioned——不要预设"解除必无日期"。',
     '10. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。',
-    '11. 多事件：一份公告可含多个事件——质押按（质押人×质权人×业务方向）组合各建一个事件，event_id 依次 E01/E02/E03…；表格中每组新的[质押数量+质权人+起始日]即为一个新事件，股东名称跨行共享时后续行沿用同一质押人；"合计"行不是事件、禁止抽取；累计质押情况（累计股数/累计占比）对每个事件相同就分别填入；其余事件类型同理按主体组合分事件。direction 字段（v0.4）：普通质押填 "pledge"；"已解除质押/办理解除质押业务"为独立事件填 "release"——同一（质押人×质权人）先押后解时是两个事件，各带各自 direction。direction 的 quote 用原文中的短词即可（"质押"或"解除质押"），不要引长句。release 事件的 pledged_shares_this_time 取"本次将X股办理了质押解除手续/解除了X股"句中的股数——锚定解除句本身，不要取其他句子的数字；"其中Y股办理了…"的"其中"句是总数的组成部分，禁止据此另立事件或拆分总量。',
+    '11. 多事件：一份公告可含多个事件——质押按（质押人×质权人×业务方向）组合各建一个事件，event_id 依次 E01/E02/E03…；表格中每组新的[质押数量+质权人+起始日]即为一个新事件，股东名称跨行共享时后续行沿用同一质押人；"合计"行不是事件、禁止抽取；累计质押情况（累计股数/累计占比）对每个事件相同就分别填入。direction 字段（v0.4）：普通质押填 "pledge"；"已解除质押/办理解除质押业务"为独立事件填 "release"——同一（质押人×质权人）先押后解时是两个事件，各带各自 direction。direction 的 quote 用原文中的短词即可（"质押"或"解除质押"），不要引长句。release 事件的 pledged_shares_this_time 取"本次将X股办理了质押解除手续/解除了X股"句中的股数——锚定解除句本身，不要取其他句子的数字；"其中Y股办理了…"的"其中"句是总数的组成部分，禁止据此另立事件或拆分总量。股权变动的事件粒度跟原文走：原文以表格逐行列出各持股人的变动时按行拆分为独立事件；原文以合并段落描述多人共同变动时合并为一个事件（holder 列出全部人名）。',
     ...(parseMode ? [
       '12. 【解析块模式】正文按块给出，每行格式为 [block_id] 文本；表格单元格行为 [block_id|表头:列名] 值——必须按表头理解单元格含义再抽取。provenance 必须给出 quote 所在块的 block_id。',
       '13. quote 必须是单个块内 text_raw 的连续子串，禁止跨块拼接；不得事后按数字反搜。quote 与 block_id 必须对应——引用的块文本里必须实际包含该 quote（direction 等短词引哪块就填哪块的 block_id）。',
@@ -607,16 +607,21 @@ async function main() {
         fv.value = Math.abs(fv.value)
         fv.note = `${fv.note ?? ''}［原模型输出为负值，已归一化为非负量级（direction 表达方向）］`
       }
-      // method 后处理：去"方式"尾缀、顿号归"及"（gold 口径）、保留原文句尾标点
+    }
+  }
+
+  // ---- 继续标准化（method 清理在下方） ----
+  for (const ev of events) {
+    for (const [name, fv] of Object.entries(ev.fields ?? {})) {
+      // method 最小清理：只去"通过"前缀和"方式"尾缀＋顿号归"及"——保守策略，不删核心方法词
       if (name === 'method' && typeof fv.value === 'string') {
         let m = fv.value
+        if (m.startsWith('通过')) m = m.slice(2)
         if (m.endsWith('方式')) m = m.slice(0, -2)
         m = m.replace(/、/g, '及')
-        // 原文句尾有句号但模型丢了——从出处 quote 恢复
-        const quoteEnd = fv.provenance?.[0]?.quote?.trim().endsWith('。')
-        if (quoteEnd && !m.endsWith('。')) m += '。'
-        if (m !== fv.value) {
-          fv.note = `${fv.note ?? ''}［措辞归一：${fv.value}→${m}］`
+        m = m.replace(/^[，。、；：\s]+|[，。、；：\s]+$/g, '')
+        if (m !== fv.value && m.length > 0) {
+          fv.note = `${fv.note ?? ''}［方法清理：${fv.value}→${m}］`
           fv.value = m
         }
       }
