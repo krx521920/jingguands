@@ -1,0 +1,346 @@
+{
+  "stamp": "20261001T125302",
+  "mock": false,
+  "results": [
+    {
+      "case": "D5-EQC-001",
+      "event_type": "equity_change",
+      "file": "D5-EQC-001.parse.json",
+      "run_id": "20261001T125302-equity_change-a95d",
+      "ok": true,
+      "status_count": {
+        "extracted": 45
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 45,
+        "value_hit": 45,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 5,
+        "mine_events": 5,
+        "matched_events": 5
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-002",
+      "event_type": "equity_change",
+      "file": "D5-EQC-002.parse.json",
+      "run_id": "20261001T125314-equity_change-9fc8",
+      "ok": true,
+      "status_count": {
+        "extracted": 45
+      },
+      "validation_errors": 5,
+      "gold": {
+        "gold_extracted_fields": 23,
+        "value_hit": 23,
+        "field_accuracy": 1,
+        "wrong_filled": 6,
+        "status_match_ratio": 0.8519,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 5,
+        "matched_events": 3
+      },
+      "gold_rows": [
+        {
+          "field": "E02.ratio_after",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=not_mentioned mine=extracted(12.84)"
+        },
+        {
+          "field": "E02.shares_after",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=not_mentioned mine=extracted(11042217)"
+        },
+        {
+          "field": "E03.ratio_after",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=not_mentioned mine=extracted(2.15)"
+        },
+        {
+          "field": "E03.shares_after",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=not_mentioned mine=extracted(1848404)"
+        },
+        {
+          "field": "(E02 马军强)",
+          "verdict": "MINE_EXTRA_EVENT",
+          "detail": "系统多出的事件（键：马军强||decrease|14410068）"
+        },
+        {
+          "field": "(E04 杨占坡)",
+          "verdict": "MINE_EXTRA_EVENT",
+          "detail": "系统多出的事件（键：杨占坡||decrease|3684053）"
+        }
+      ]
+    },
+    {
+      "case": "D5-EQC-003",
+      "event_type": "equity_change",
+      "file": "D5-EQC-003.parse.json",
+      "run_id": "20261001T125333-equity_change-7903",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 4
+      },
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-004",
+      "event_type": "equity_change",
+      "file": "D5-EQC-004.parse.json",
+      "run_id": "20261001T125336-equity_change-4050",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-005",
+      "event_type": "equity_change",
+      "file": "D5-EQC-005.parse.json",
+      "run_id": "20261001T125339-equity_change-ad26",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-006",
+      "event_type": "equity_change",
+      "file": "D5-EQC-006.parse.json",
+      "run_id": "20261001T125342-equity_change-5b80",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 7,
+        "field_accuracy": 0.7778,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.7778,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": [
+        {
+          "field": "E01.shares_after",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=249519764 mine=324097124"
+        },
+        {
+          "field": "E01.shares_before",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=249519764 mine=324097124"
+        }
+      ]
+    },
+    {
+      "case": "D5-EQC-007",
+      "event_type": "equity_change",
+      "file": "D5-EQC-007.parse.json",
+      "run_id": "20261001T125346-equity_change-28bc",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 6,
+        "field_accuracy": 0.6667,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.6667,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": [
+        {
+          "field": "E01.change_date",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"2026-09-29\" mine=\"2026-09-20/2026-09-21\""
+        },
+        {
+          "field": "E01.holder",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"红豆集团、周海江、龚新度、红闳服饰、天人国际投资\" mine=\"红豆集团有限公司\""
+        },
+        {
+          "field": "E01.method",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"司法拍卖被动减持\" mine=\"司法拍卖\""
+        }
+      ]
+    },
+    {
+      "case": "D5-EQC-008",
+      "event_type": "equity_change",
+      "file": "D5-EQC-008.parse.json",
+      "run_id": "20261001T125349-equity_change-8f04",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 8,
+        "field_accuracy": 0.8889,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.8889,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": [
+        {
+          "field": "E01.method",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"集中竞价交易\" mine=\"集中竞价交易方式\""
+        }
+      ]
+    },
+    {
+      "case": "D5-EQC-009",
+      "event_type": "equity_change",
+      "file": "D5-EQC-009.parse.json",
+      "run_id": "20261001T125352-equity_change-e9fc",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 3,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 8,
+        "field_accuracy": 0.8889,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.8889,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": [
+        {
+          "field": "E01.method",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"集中竞价及大宗交易\" mine=\"集中竞价、大宗交易\""
+        }
+      ]
+    },
+    {
+      "case": "D5-EQC-010",
+      "event_type": "equity_change",
+      "file": "D5-EQC-010.parse.json",
+      "run_id": "20261001T125356-equity_change-b39d",
+      "ok": true,
+      "status_count": {
+        "extracted": 16,
+        "needs_review": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 2,
+        "field_accuracy": 0.25,
+        "wrong_filled": 1,
+        "status_match_ratio": 0.3333,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 2,
+        "matched_events": 1
+      },
+      "gold_rows": [
+        {
+          "field": "E01.change_shares",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=9250000 mine=6475000"
+        },
+        {
+          "field": "E01.holder",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=\"高福忠、高健\" mine=\"高福忠\""
+        },
+        {
+          "field": "E01.ratio_after",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=32.45 mine=27.92"
+        },
+        {
+          "field": "E01.ratio_before",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=37.45 mine=31.42"
+        },
+        {
+          "field": "E01.shares_after",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=60001290 mine=51626343"
+        },
+        {
+          "field": "E01.shares_before",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=69251290 mine=58101343"
+        },
+        {
+          "field": "(E02 高健)",
+          "verdict": "MINE_EXTRA_EVENT",
+          "detail": "系统多出的事件（键：高健||decrease|11149947）"
+        }
+      ]
+    }
+  ]
+}

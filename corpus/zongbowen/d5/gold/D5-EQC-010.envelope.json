@@ -1,0 +1,258 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D5-EQC-010",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
+    "file_name": "D5-EQC-010.pdf",
+    "file_sha256": "d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
+    "parse_meta": {
+      "parser_version": "0.9.0",
+      "page_count": 24,
+      "blocks": 438
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "高福忠、高健",
+          "value": "高福忠、高健",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p004_b00015",
+              "source_type": "cell",
+              "page": 4,
+              "region": [
+                264,
+                215.84,
+                510.7,
+                236.19
+              ],
+              "table_id": "dd2c6e0d0_p004_t001",
+              "cell_ref": "r4c3",
+              "quote": "高福忠、高健"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "direction": {
+          "raw_value": "股份减少",
+          "value": "decrease",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p001_b00005",
+              "source_type": "paragraph",
+              "page": 1,
+              "region": [
+                90,
+                650.06,
+                328.45,
+                664.11
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "股份减少"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "shares_before": {
+          "raw_value": "69,251,290股",
+          "value": 69251290,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p008_b00004",
+              "source_type": "paragraph",
+              "page": 8,
+              "region": [
+                114,
+                147.94,
+                505.32,
+                161.88
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "69,251,290"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "shares_after": {
+          "raw_value": "60,001,290股",
+          "value": 60001290,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p008_b00005",
+              "source_type": "paragraph",
+              "page": 8,
+              "region": [
+                90,
+                171.34,
+                505.2,
+                208.68
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "60,001,290"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "ratio_before": {
+          "raw_value": "37.45%",
+          "value": 37.45,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p008_b00005",
+              "source_type": "paragraph",
+              "page": 8,
+              "region": [
+                90,
+                171.34,
+                505.2,
+                208.68
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "37.45%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "ratio_after": {
+          "raw_value": "32.45%",
+          "value": 32.45,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p008_b00005",
+              "source_type": "paragraph",
+              "page": 8,
+              "region": [
+                90,
+                171.34,
+                505.2,
+                208.68
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "32.45%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "change_shares": {
+          "raw_value": "9,250,000股",
+          "value": 9250000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p004_b00021",
+              "source_type": "cell",
+              "page": 4,
+              "region": [
+                264,
+                256.54,
+                510.7,
+                303.84
+              ],
+              "table_id": "dd2c6e0d0_p004_t001",
+              "cell_ref": "r6c3",
+              "quote": "9,250,000"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": "D5 annotation rule: absolute magnitude; direction carries sign."
+        },
+        "method": {
+          "raw_value": "协议转让",
+          "value": "协议转让",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p001_b00005",
+              "source_type": "paragraph",
+              "page": 1,
+              "region": [
+                90,
+                650.06,
+                328.45,
+                664.11
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "协议转让"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "change_date": {
+          "raw_value": "办理股份过户登记手续完成之日",
+          "value": null,
+          "unit": "date_range",
+          "status": "needs_review",
+          "provenance": [
+            {
+              "block_id": "dd2c6e0d0_p022_b00004",
+              "source_type": "cell",
+              "page": 22,
+              "region": [
+                190.2,
+                96.14,
+                530.4,
+                166.84
+              ],
+              "table_id": "dd2c6e0d0_p022_t001",
+              "cell_ref": "r2c2",
+              "quote": "时间: 中国证券登记结算有限责任公司深圳分公司办理股份过户登记手续完成之日方式：协议转让"
+            }
+          ],
+          "standardized": false,
+          "denominator": null,
+          "note": "No explicit calendar date; D2 rule requires needs_review."
+        }
+      },
+      "extraction_method": "rule",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-10-01T20:30:00+08:00",
+    "duration_ms": 0,
+    "errors": [],
+    "note": "D5 Gold annotation"
+  }
+}

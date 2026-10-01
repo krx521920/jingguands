@@ -104,7 +104,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '硬性规则：',
     '1. 除 extracted 和 needs_review 外，其余状态 value 一律为 null——禁止把缺失填成 0。',
     '2. status="extracted" 必须至少一条出处；quote 必须是正文连续子串；表格取值时填 table_id/cell_ref（纯文本出处保持 null）。',
-    '3. 数值标准化：股→股（万股×10000）；金额→元（万元×10000，亿元×100000000）；百分比→数值（"16.67%"→16.67）；日期→"YYYY-MM-DD"。raw_value 必须原样保留原文"数值＋单位"完整形式（如"364.00万股""2.4亿元"），禁止只抄数字丢弃单位字样——丢单位会导致量级错误。',
+    '3. 数值标准化：股→股（万股×10000）；金额→元（万元×10000，亿元×100000000）；百分比→数值（"16.67%"→16.67）；日期→"YYYY-MM-DD"。raw_value 必须原样保留原文"数值＋单位"完整形式（如"364.00万股""2.4亿元"），禁止只抄数字丢弃单位字样——丢单位会导致量级错误。change_shares 一律用绝对值（非负数）——方向由 direction 字段表达（decrease=减少），不要在数值里再加负号。',
     '4. unit 必须用固定枚举，按此映射：股数→"shares"；金额→"cny"；比例→"percent"；日期→"date"；计数→"count"；其余一切（人名/公司名/用途/方式/名称/工期原文等文本）→"text"。禁止写"股""元""%""日历天"等原文字样，禁止 null。规范值：currency 必须写 "CNY"（原文"人民币"也写 "CNY"）；tax_included/contract_signed/formal_award_notice_received 必须写字符串 "true"/"false"/"not_disclosed"（原文"含税"→"true"、"不含税"→"false"；禁止布尔值）；price_adjustment_status 用 "fixed"/"adjustable"/"not_disclosed"。注意：原文未披露时这些字段 status="not_disclosed" 且 value=null——"not_disclosed" 是状态枚举，永远不是 value 的取值。',
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
@@ -602,6 +602,11 @@ async function main() {
       const err = normalizeFieldValue(name, fv, unitHint)
       if (err !== null) postErrors.push(err)
       else if (fv.standardized === true) normalizedCount++
+      // 方向由 direction 表达，change_shares 强制非负（宗 D5 评估规则）
+      if (name === 'change_shares' && typeof fv.value === 'number' && fv.value < 0) {
+        fv.value = Math.abs(fv.value)
+        fv.note = `${fv.note ?? ''}［原模型输出为负值，已归一化为非负量级（direction 表达方向）］`
+      }
     }
   }
 
