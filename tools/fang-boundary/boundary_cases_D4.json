@@ -1,0 +1,5053 @@
+[
+  {
+    "id": "01_默认模式拒绝合成来源",
+    "input": {
+      "id": "01_默认模式拒绝合成来源",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {},
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "SYNTHETIC_EVIDENCE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "calculation": null,
+      "audit": {
+        "evidenceStatus": "incomplete",
+        "prerequisitesMet": false
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "02_显式合成模式复用D3算术",
+    "input": {
+      "id": "02_显式合成模式复用D3算术",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "verified",
+    "expectedCodes": [
+      "RATIO_MATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "calculation": {
+        "value": "20.00"
+      },
+      "audit": {
+        "evidenceStatus": "synthetic"
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "03_未知分母即使两数齐全也不反推",
+    "input": {
+      "id": "03_未知分母即使两数齐全也不反推",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "unknown",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "UNKNOWN_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "normalized": {
+        "ratio": {
+          "measure": {
+            "value": "20"
+          }
+        }
+      },
+      "calculation": null
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "04_缺分母对象不计算",
+    "input": {
+      "id": "04_缺分母对象不计算",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": null,
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "UNKNOWN_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "05_分母未提及不填零",
+    "input": {
+      "id": "05_分母未提及不填零",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": null,
+            "rawValue": null,
+            "sourceUnit": null,
+            "qualifier": null,
+            "scope": "single",
+            "status": "not_mentioned",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "06_分母不可读不猜测",
+    "input": {
+      "id": "06_分母不可读不猜测",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": null,
+            "rawValue": null,
+            "sourceUnit": null,
+            "qualifier": null,
+            "scope": "single",
+            "status": "unreadable",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "07_比例原文缺分母定义不借用外部分母",
+    "input": {
+      "id": "07_比例原文缺分母定义不借用外部分母",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "UNKNOWN_RATIO_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "normalized": {
+        "ratio": {
+          "measure": {
+            "denominator": null,
+            "value": "20"
+          }
+        }
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "08_占持股与占总股本错配",
+    "input": {
+      "id": "08_占持股与占总股本错配",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "total_share_capital",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "DENOMINATOR_MISMATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "09_不支持净资产比例混入质押",
+    "input": {
+      "id": "09_不支持净资产比例混入质押",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "net_assets",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "DENOMINATOR_MISMATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "10_不同日期且股数超分母先判口径差异",
+    "input": {
+      "id": "10_不同日期且股数超分母先判口径差异",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：600万股",
+          "rawValue": "600",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-29",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "CONTEXT_MISMATCH"
+    ],
+    "forbiddenCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "11_不同股东且股数超分母不误报",
+    "input": {
+      "id": "11_不同股东且股数超分母不误报",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：600万股",
+          "rawValue": "600",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "OTHER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "HOLDER_MISMATCH"
+    ],
+    "forbiddenCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "12_不同公司且股数超分母不误报",
+    "input": {
+      "id": "12_不同公司且股数超分母不误报",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：600万股",
+          "rawValue": "600",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "OTHER",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "CONTEXT_MISMATCH"
+    ],
+    "forbiddenCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "13_单次累计混用且超分母不误报",
+    "input": {
+      "id": "13_单次累计混用且超分母不误报",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：600万股",
+          "rawValue": "600",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 cumulative：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "cumulative",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "SCOPE_MISMATCH"
+    ],
+    "forbiddenCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "14_不同事件且超分母不误报",
+    "input": {
+      "id": "14_不同事件且超分母不误报",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：600万股",
+          "rawValue": "600",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "OTHER"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "EVENT_MISMATCH"
+    ],
+    "forbiddenCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "15_缺少统计时点不默认今日",
+    "input": {
+      "id": "15_缺少统计时点不默认今日",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": null,
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_CONTEXT"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "16_缺少股东标识不靠文本猜",
+    "input": {
+      "id": "16_缺少股东标识不靠文本猜",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": null,
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_HOLDER"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "17_未知单次累计不计算",
+    "input": {
+      "id": "17_未知单次累计不计算",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 unknown：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "UNKNOWN_SCOPE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "18_缺少单次事件标识",
+    "input": {
+      "id": "18_缺少单次事件标识",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_EVENT"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "19_约数大于分母不当精确异常",
+    "input": {
+      "id": "19_约数大于分母不当精确异常",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：600万股",
+          "rawValue": "600",
+          "sourceUnit": "万股",
+          "qualifier": "approx",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "NONEXACT_FACT"
+    ],
+    "forbiddenCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "20_上界不当实际质押量",
+    "input": {
+      "id": "20_上界不当实际质押量",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：600万股",
+          "rawValue": "600",
+          "sourceUnit": "万股",
+          "qualifier": "at_most",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "NONEXACT_FACT"
+    ],
+    "forbiddenCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "21_约零分母不判明确零",
+    "input": {
+      "id": "21_约零分母不判明确零",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：0万股",
+            "rawValue": "0",
+            "sourceUnit": "万股",
+            "qualifier": "approx",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "NONEXACT_FACT"
+    ],
+    "forbiddenCodes": [
+      "ZERO_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "22_明确零分母拒绝",
+    "input": {
+      "id": "22_明确零分母拒绝",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：0万股",
+            "rawValue": "0",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "explicit_zero",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "ZERO_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "23_零除零不得返回零比例",
+    "input": {
+      "id": "23_零除零不得返回零比例",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：0万股",
+          "rawValue": "0",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "explicit_zero",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：0%",
+          "rawValue": "0",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "explicit_zero",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：0万股",
+            "rawValue": "0",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "explicit_zero",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "ZERO_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "24_明确零质押除正分母",
+    "input": {
+      "id": "24_明确零质押除正分母",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：0万股",
+          "rawValue": "0",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "explicit_zero",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：0%",
+          "rawValue": "0",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "explicit_zero",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "verified",
+    "expectedCodes": [
+      "RATIO_MATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "calculation": {
+        "value": "0.00"
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "25_同口径全额质押100百分比",
+    "input": {
+      "id": "25_同口径全额质押100百分比",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：500万股",
+          "rawValue": "500",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：100%",
+          "rawValue": "100",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "verified",
+    "expectedCodes": [
+      "RATIO_MATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "calculation": {
+        "value": "100.00"
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "26_同口径超分母才判异常",
+    "input": {
+      "id": "26_同口径超分母才判异常",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：501万股",
+          "rawValue": "501",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "audit": {
+        "prerequisitesMet": true
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "27_精确比例超过100独立异常",
+    "input": {
+      "id": "27_精确比例超过100独立异常",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：100.01%",
+          "rawValue": "100.01",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "RATIO_OUT_OF_RANGE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "28_未知分母仍可检查独立负值",
+    "input": {
+      "id": "28_未知分母仍可检查独立负值",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：-20%",
+          "rawValue": "-20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "unknown",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "NEGATIVE_VALUE",
+      "UNKNOWN_DENOMINATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "29_普通数值矛盾",
+    "input": {
+      "id": "29_普通数值矛盾",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：2%",
+          "rawValue": "2",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "mismatch",
+    "expectedCodes": [
+      "RATIO_MISMATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "comparison": {
+        "matches": false
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "30_舍入临界点通过",
+    "input": {
+      "id": "30_舍入临界点通过",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：2469股",
+          "rawValue": "2469",
+          "sourceUnit": "股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：12.35%",
+          "rawValue": "12.35",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：20000股",
+            "rawValue": "20000",
+            "sourceUnit": "股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "verified",
+    "expectedCodes": [
+      "RATIO_MATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "31_舍入临界点下舍入不通过",
+    "input": {
+      "id": "31_舍入临界点下舍入不通过",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：2469股",
+          "rawValue": "2469",
+          "sourceUnit": "股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：12.34%",
+          "rawValue": "12.34",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：20000股",
+            "rawValue": "20000",
+            "sourceUnit": "股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "mismatch",
+    "expectedCodes": [
+      "RATIO_MISMATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "32_不静默调整比例精度",
+    "input": {
+      "id": "32_不静默调整比例精度",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20.001%",
+          "rawValue": "20.001",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "RATIO_PRECISION_MISMATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "33_大整数精确性",
+    "input": {
+      "id": "33_大整数精确性",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：9007199254740993股",
+          "rawValue": "9007199254740993",
+          "sourceUnit": "股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：50%",
+          "rawValue": "50",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：18014398509481986股",
+            "rawValue": "18014398509481986",
+            "sourceUnit": "股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "exact",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "verified",
+    "expectedCodes": [
+      "RATIO_MATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "34_比例不可读但独立依据足够可推导",
+    "input": {
+      "id": "34_比例不可读但独立依据足够可推导",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": null,
+          "rawValue": null,
+          "sourceUnit": null,
+          "qualifier": null,
+          "scope": "single",
+          "status": "unreadable",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "calculated",
+    "expectedCodes": [
+      "RATIO_DERIVED"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "normalized": {
+        "ratio": {
+          "measure": {
+            "value": null,
+            "status": "unreadable"
+          }
+        }
+      },
+      "calculation": {
+        "value": "20.00"
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "35_两个分子均缺失不猜测",
+    "input": {
+      "id": "35_两个分子均缺失不猜测",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": null,
+          "rawValue": null,
+          "sourceUnit": null,
+          "qualifier": null,
+          "scope": "single",
+          "status": "not_mentioned",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": null,
+          "rawValue": null,
+          "sourceUnit": null,
+          "qualifier": null,
+          "scope": "single",
+          "status": "not_mentioned",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "NO_NUMERATOR"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "36_已舍入比例只能返回区间",
+    "input": {
+      "id": "36_已舍入比例只能返回区间",
+      "shares": null,
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "calculated",
+    "expectedCodes": [
+      "SHARES_INTERVAL_DERIVED"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "calculation": {
+        "value": null,
+        "possibleWholeShares": {
+          "min": "999750",
+          "max": "1000249"
+        }
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "37_精确比例反推非整股转复核",
+    "input": {
+      "id": "37_精确比例反推非整股转复核",
+      "shares": null,
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：33.33%",
+          "rawValue": "33.33",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：3股",
+            "rawValue": "3",
+            "sourceUnit": "股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "exact",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "FRACTIONAL_DERIVED_SHARES"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "audit": {
+        "prerequisitesMet": true
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "38_缺失携带残留数字拒绝",
+    "input": {
+      "id": "38_缺失携带残留数字拒绝",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "unreadable",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "INVALID_MEASURE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "39_小数股拒绝",
+    "input": {
+      "id": "39_小数股拒绝",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：0.1股",
+          "rawValue": "0.1",
+          "sourceUnit": "股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "INVALID_MEASURE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "40_比例原文分母未知且数字非法仍拒绝",
+    "input": {
+      "id": "40_比例原文分母未知且数字非法仍拒绝",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：abc%",
+          "rawValue": "abc",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "invalid",
+    "expectedCodes": [
+      "INVALID_MEASURE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "41_缺真实来源SHA不计算",
+    "input": {
+      "id": "41_缺真实来源SHA不计算",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+            "sha256": null,
+            "page": 1,
+            "locator": "TEST_ONLY:r1c1",
+            "sampleType": "real"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {},
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_SOURCE_REFERENCE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "42_缺真实页码不计算",
+    "input": {
+      "id": "42_缺真实页码不计算",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": null,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "page": 1,
+            "locator": "TEST_ONLY:r1c1",
+            "sampleType": "real"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {},
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_SOURCE_REFERENCE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "43_完整引用字段可执行但不宣称已核真",
+    "input": {
+      "id": "43_完整引用字段可执行但不宣称已核真",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "page": 1,
+            "locator": "TEST_ONLY:r1c1",
+            "sampleType": "real"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {},
+    "expectedStatus": "verified",
+    "expectedCodes": [
+      "RATIO_MATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {
+      "audit": {
+        "evidenceStatus": "located",
+        "sourceContentsVerified": false
+      }
+    },
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "44_真实字段不能走合成绕过",
+    "input": {
+      "id": "44_真实字段不能走合成绕过",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "page": 1,
+            "locator": "TEST_ONLY:r1c1",
+            "sampleType": "real"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "REAL_DATA_IN_SYNTHETIC_MODE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "45_混合真实合成字段不能走合成绕过",
+    "input": {
+      "id": "45_混合真实合成字段不能走合成绕过",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "REAL_DATA_IN_SYNTHETIC_MODE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "46_多种独立问题一起输出",
+    "input": {
+      "id": "46_多种独立问题一起输出",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 unknown：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "unknown",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": null,
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "unknown",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {},
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "UNKNOWN_DENOMINATOR",
+      "UNKNOWN_SCOPE",
+      "MISSING_CONTEXT",
+      "SYNTHETIC_EVIDENCE"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "47_缺口径依据时不先报比例矛盾",
+    "input": {
+      "id": "47_缺口径依据时不先报比例矛盾",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：2%",
+          "rawValue": "2",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": null,
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_CONTEXT"
+    ],
+    "forbiddenCodes": [
+      "RATIO_MISMATCH"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "48_缺来源且数值超分母不先做关系判断",
+    "input": {
+      "id": "48_缺来源且数值超分母不先做关系判断",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：600万股",
+          "rawValue": "600",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "page": 1,
+          "locator": "TEST_ONLY:r1c1",
+          "sampleType": "real"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "TEST_DOUBLE_NOT_A_REAL_ANNOUNCEMENT_D4",
+            "sha256": null,
+            "page": 1,
+            "locator": "TEST_ONLY:r1c1",
+            "sampleType": "real"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {},
+    "expectedStatus": "needs_review",
+    "expectedCodes": [
+      "MISSING_SOURCE_REFERENCE"
+    ],
+    "forbiddenCodes": [
+      "SHARES_EXCEED_DENOMINATOR"
+    ],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "49_累计余额无需单次事件ID",
+    "input": {
+      "id": "49_累计余额无需单次事件ID",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 cumulative：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "cumulative",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 cumulative：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "cumulative",
+          "status": "present",
+          "denominator": {
+            "kind": "holder_shares",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": null
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "holder_shares",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": "SYNTH-HOLDER",
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "verified",
+    "expectedCodes": [
+      "RATIO_MATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  },
+  {
+    "id": "50_占总股本不要求公司分母有股东ID",
+    "input": {
+      "id": "50_占总股本不要求公司分母有股东ID",
+      "shares": {
+        "measure": {
+          "kind": "shares",
+          "rawText": "合成边界示例 single：100万股",
+          "rawValue": "100",
+          "sourceUnit": "万股",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": null
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "ratio": {
+        "measure": {
+          "kind": "ratio",
+          "rawText": "合成边界示例 single：20%",
+          "rawValue": "20",
+          "sourceUnit": "%",
+          "qualifier": "exact",
+          "scope": "single",
+          "status": "present",
+          "denominator": {
+            "kind": "total_share_capital",
+            "definition": "合成主体 SYNTH-HOLDER 截至2026-09-30持股数"
+          }
+        },
+        "context": {
+          "companyId": "SYNTH-COMPANY",
+          "holderId": "SYNTH-HOLDER",
+          "asOf": "2026-09-30",
+          "eventId": "SYNTH-EVENT-1"
+        },
+        "source": {
+          "document": "SYNTHETIC_ONLY_D4",
+          "sha256": null,
+          "page": null,
+          "locator": "合成数据，无真实公告页码",
+          "sampleType": "synthetic"
+        }
+      },
+      "denominator": {
+        "kind": "total_share_capital",
+        "fact": {
+          "measure": {
+            "kind": "shares",
+            "rawText": "合成边界示例 unknown：500万股",
+            "rawValue": "500",
+            "sourceUnit": "万股",
+            "qualifier": "exact",
+            "scope": "unknown",
+            "status": "present",
+            "denominator": null
+          },
+          "context": {
+            "companyId": "SYNTH-COMPANY",
+            "holderId": null,
+            "asOf": "2026-09-30",
+            "eventId": null
+          },
+          "source": {
+            "document": "SYNTHETIC_ONLY_D4",
+            "sha256": null,
+            "page": null,
+            "locator": "合成数据，无真实公告页码",
+            "sampleType": "synthetic"
+          }
+        }
+      },
+      "ratioPolicy": {
+        "mode": "rounded",
+        "decimalPlaces": 2
+      }
+    },
+    "options": {
+      "evidenceMode": "synthetic_test"
+    },
+    "expectedStatus": "verified",
+    "expectedCodes": [
+      "RATIO_MATCH"
+    ],
+    "forbiddenCodes": [],
+    "expected": {},
+    "sampleNotice": "纯合成边界用例；含real标记的记录仅模拟接口元数据，不对应真实公告或真实评测成绩。"
+  }
+]

@@ -474,17 +474,72 @@ async function main() {
 
   const t0 = Date.now()
   const INPUT_LIMIT = 60000
-  const truncated = modelInput.length > INPUT_LIMIT
-  if (truncated) {
-    console.log(`[警告] 输入 ${modelInput.length} 字符超上限 ${INPUT_LIMIT}，超出部分被截断——文末事件可能丢失（已记入 run_meta.errors；D6 前应改为分块抽取）`)
-  }
+  const CHUNK_LIMIT = 50000
+
+  // 分块抽取（v0.4.1）：超长文档按块分组逐次调模型、合并事件（去重键=（主体×对手方×direction））
   let call, callError = null
-  try {
-    call = isMock
-      ? mockModelResponse(eventType)
-      : await callModel({ baseURL, model, apiKey, system: buildSystemPrompt(eventType, parseDoc !== null), user: modelInput.slice(0, INPUT_LIMIT) })
-  } catch (err) {
-    callError = err
+  let truncated = false
+  const allEvents = []
+
+  if (!isMock && modelInput.length > INPUT_LIMIT && parseDoc !== null) {
+    // 解析块模式分块：按块分组使标注文本 ≤ CHUNK_LIMIT
+    const chunks = []
+    let curBlocks, curSize = 0
+    curBlocks = []
+    for (const b of parseDoc.blocks) {
+      const line = b.header_path ? `[${b.block_id}|表头:${b.header_path}] ${b.text_raw}` : `[${b.block_id}] ${b.text_raw}`
+      if (curSize + line.length > CHUNK_LIMIT && curBlocks.length > 0) {
+        chunks.push(curBlocks)
+        curBlocks = []
+        curSize = 0
+      }
+      curBlocks.push(b)
+      curSize += line.length
+    }
+    if (curBlocks.length > 0) chunks.push(curBlocks)
+
+    console.log(`[分块] 输入 ${modelInput.length} 字符超上限，按块分 ${chunks.length} 次调用（每块 ≤${CHUNK_LIMIT} 字符）`)
+    const sysPrompt = buildSystemPrompt(eventType, true)
+    let chunkDurations = 0
+    const seenKeys = new Set()
+
+    for (let ci = 0; ci < chunks.length; ci++) {
+      const chunkText = chunks[ci].map((b) =>
+        b.header_path ? `[${b.block_id}|表头:${b.header_path}] ${b.text_raw}` : `[${b.block_id}] ${b.text_raw}`
+      ).join('\n')
+      try {
+        const chunkCall = await callModel({ baseURL, model, apiKey, system: sysPrompt, user: chunkText })
+        chunkDurations += chunkCall.durationMs ?? 0
+        const chunkParsed = parseModelJson(chunkCall.content)
+        for (const ev of chunkParsed.events ?? []) {
+          const f = ev.fields ?? {}
+          const key = `${f.pledgor?.value ?? f.holder?.value ?? f.bidder?.value ?? '?'}|${f.pledgee?.value ?? f.tenderer?.value ?? ''}|${f.direction?.value ?? 'pledge'}`
+          if (!seenKeys.has(key)) {
+            seenKeys.add(key)
+            allEvents.push(ev)
+          }
+        }
+      } catch (err) {
+        postErrors.push(`[分块] 第 ${ci + 1} 块调用失败：${err.message}`)
+      }
+    }
+
+    call = { content: JSON.stringify({ events: allEvents }), usage: null, durationMs: chunkDurations, httpStatus: 200, retriesWithoutResponseFormat: false }
+    truncated = false // 分块模式下不截断
+    const durationMs = Date.now() - t0
+    console.log(`[分块完成] ${chunks.length} 块 → ${allEvents.length} 个事件（去重后），总耗时 ${durationMs}ms`)
+  } else {
+    truncated = modelInput.length > INPUT_LIMIT
+    if (truncated) {
+      console.log(`[警告] 输入 ${modelInput.length} 字符超上限 ${INPUT_LIMIT}，超出部分被截断——文末事件可能丢失（已记入 run_meta.errors）`)
+    }
+    try {
+      call = isMock
+        ? mockModelResponse(eventType)
+        : await callModel({ baseURL, model, apiKey, system: buildSystemPrompt(eventType, parseDoc !== null), user: modelInput.slice(0, INPUT_LIMIT) })
+    } catch (err) {
+      callError = err
+    }
   }
   const durationMs = Date.now() - t0
 

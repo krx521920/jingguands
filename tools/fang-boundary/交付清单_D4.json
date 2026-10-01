@@ -1,0 +1,122 @@
+{
+  "owner": "方轩诚",
+  "day": "D4",
+  "version": "0.4.0",
+  "createdAt": "2026-09-30T09:03:06.089946+00:00",
+  "repositoryBaseline": "294624cac67b88463be61f188a2614c3ad19f12b",
+  "pushed": false,
+  "validation": {
+    "tests": 131,
+    "passed": 131,
+    "failed": 0,
+    "typecheckExitCode": 0,
+    "data": "synthetic"
+  },
+  "filenameExceptions": [
+    "package.json",
+    "package-lock.json"
+  ],
+  "files": [
+    {
+      "path": "docs_D4/兼容性与验收记录_D4.md",
+      "bytes": 7623,
+      "sha256": "7990481997724c21c4b482cdee3ce555d2f91fe2d129ca6e5adc72fde1f95401"
+    },
+    {
+      "path": "docs_D4/方轩诚_口径规则与接入说明_D4.md",
+      "bytes": 10088,
+      "sha256": "fd7d31bb743477563ed2dc6fcd7bca880f9ac8eb504f432375a5fb46f2c259c8"
+    },
+    {
+      "path": "docs_D4/来源与依赖_D4.md",
+      "bytes": 3870,
+      "sha256": "e6c297d200e37e2cb374850083d2bbd9cbca93e50c9ec2f6ceee93812cdb53b5"
+    },
+    {
+      "path": "docs_D4/测试与类型检查记录_D4.txt",
+      "bytes": 211704,
+      "sha256": "0195541fd557d8318235cfaa3b4372c21730d80ae0f496efab50b512271bd5e1"
+    },
+    {
+      "path": "examples_D4/pledge_input_D4.json",
+      "bytes": 33732,
+      "sha256": "0986fd8ca0f72b4f8c54febf280fb9e45d3b570a750ac1b32c800376c6455f63"
+    },
+    {
+      "path": "examples_D4/合成模式结果_D4.json",
+      "bytes": 96790,
+      "sha256": "f7ec5ecb5ca0d3c66730f0f20c8583d99f0ee5c8faa43c75b29a4dae48e394a3"
+    },
+    {
+      "path": "examples_D4/默认模式结果_D4.json",
+      "bytes": 107016,
+      "sha256": "0500caf53ff7d70a4163525b2e253ef55dc4419c181136e5e0a3771406ccdf80"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 13715,
+      "sha256": "c364638d66c9e0466b68e40f31b39fec3e2b0b6557c8af5b714b7f7492eb540a"
+    },
+    {
+      "path": "package.json",
+      "bytes": 693,
+      "sha256": "9b7e6fb1e88d777a8cfe4117c83ea352019d84055b3f8715f29c41514beb0b55"
+    },
+    {
+      "path": "README_D4.md",
+      "bytes": 3707,
+      "sha256": "b24d072a9ef76653a86681e63573f5becf3142f096d1267640a220d6a14d91c3"
+    },
+    {
+      "path": "src_D4/normalization/normalization_D4.ts",
+      "bytes": 4776,
+      "sha256": "a115c3bb03095d9c2b539b2d6687fa422b8f3fe4412fc48373f5981e78d39747"
+    },
+    {
+      "path": "src_D4/pledge/__tests___D4/boundary.test_D4.ts",
+      "bytes": 6621,
+      "sha256": "4d3b9b8b8932cd4512bc7ad953445515888a27933f132b3f93998869d4233cba"
+    },
+    {
+      "path": "src_D4/pledge/__tests___D4/compatibility.test_D4.ts",
+      "bytes": 6309,
+      "sha256": "2856a78068f61840a3d346e523514f0a91cf9d1f1f983f6c1f488f7ac107a4d4"
+    },
+    {
+      "path": "src_D4/pledge/checks_D4.ts",
+      "bytes": 9655,
+      "sha256": "f75f86fc71b73b165b28ef047e57da413a118c4b4f362a55667be82a726b07f3"
+    },
+    {
+      "path": "src_D4/pledge/cli_D4.ts",
+      "bytes": 2298,
+      "sha256": "8e2abf0287883995da81f27c0279c42b49c5925dd3159b905204888052f2e61d"
+    },
+    {
+      "path": "src_D4/pledge/pledge_arithmetic_D4.ts",
+      "bytes": 15576,
+      "sha256": "bf975e8d5b9a30af62d727bea1ccff7f61d8662d2e4bda2ad8dcfa5650fc1183"
+    },
+    {
+      "path": "tests_D4/fixtures/boundary_cases_D4.json",
+      "bytes": 153087,
+      "sha256": "c98831bbcf1211d85888bda80949bc7fe87e95948129c291672f06c1d3ccb6ac"
+    },
+    {
+      "path": "tests_D4/fixtures/normalization_regression_D4.json",
+      "bytes": 9805,
+      "sha256": "81650a2ef7c5597eb59ef54dedfd30e29954c0ce9dc5e857602fe004b253c3ec"
+    },
+    {
+      "path": "tests_D4/fixtures/pledge_regression_D4.json",
+      "bytes": 148078,
+      "sha256": "703c504d88f462f96bdd41d96c7e58a45b222f6f3713abc45db6ff60cad0cfc4"
+    },
+    {
+      "path": "tsconfig_D4.json",
+      "bytes": 655,
+      "sha256": "b1fbb17e9479228ce1131a9f6b227ee809cb41f0005a153a8d87764327eec3f1"
+    }
+  ],
+  "note": "清单不自包含；ZIP不含node_modules、缓存或旧仓库。"
+}
