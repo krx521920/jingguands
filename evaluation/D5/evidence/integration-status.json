@@ -6,12 +6,12 @@
     "weiwenyu": {
       "status": "needs_fix",
       "branch": "weiwenyu",
-      "commit": "3b08c49d0be64d5e5ea107388042176f37ad82be",
+      "commit": "55fd805dc30d317f18dae2fcae80f70845e481cf",
       "best_batch": "runs/batch-20261001T134046",
       "field_accuracy": 0.9624,
       "validation_errors": 11,
       "blocking": true,
-      "reason": "Two extra events, one single-event identity fallback, and contract-validation errors remain; latest batch regressed."
+      "reason": "Best batch still has two extra events, one identity fallback, and 11 contract-validation errors; newest batch 135902 remains a regression."
     },
     "zhangzhibo": {
       "status": "accepted",

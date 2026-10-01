@@ -1,7 +1,7 @@
 {
   "checked_on": "2026-10-01",
   "upstream_branch": "weiwenyu",
-  "upstream_commit": "3b08c49d0be64d5e5ea107388042176f37ad82be",
+  "upstream_commit": "55fd805dc30d317f18dae2fcae80f70845e481cf",
   "best_observed_batch": {
     "batch": "runs/batch-20261001T134046",
     "documents": 10,
@@ -16,18 +16,26 @@
     "extra_events": 2,
     "not_release_ready_reason": "Still has 11 contract-validation errors, two extra events in D5-EQC-002, and one event paired only by single-event fallback because the holder string differs in D5-EQC-007."
   },
-  "latest_batch": {
-    "batch": "runs/batch-20261001T135159",
+  "newest_batch": {
+    "batch": "runs/batch-20261001T135902",
     "documents": 10,
     "matched_events": 15,
     "gold_events": 16,
+    "field_value_hits": 115,
+    "aligned_gold_extracted_fields": 124,
+    "field_accuracy_on_aligned": 0.9274,
+    "coverage_weighted_field_accuracy": 0.8647,
+    "validation_errors": 17,
+    "missing_events": 1,
+    "regression": "The newest batch still has a missing event, an extra event, 17 contract-validation errors, and lower field accuracy than 134046."
+  },
+  "previous_latest_regression": {
+    "batch": "runs/batch-20261001T135159",
     "field_value_hits": 116,
     "aligned_gold_extracted_fields": 124,
     "field_accuracy_on_aligned": 0.9355,
-    "coverage_weighted_field_accuracy": 0.8722,
     "validation_errors": 19,
-    "missing_events": 1,
-    "regression": "Worse than 134046 by 12 value hits, 2.69 percentage points on aligned-field accuracy, and 8 additional contract-validation errors."
+    "missing_events": 1
   },
   "best_batch_issue_cases": {
     "D5-EQC-002": {
@@ -49,5 +57,5 @@
       "notes": "holder uses 红豆集团有限公司 instead of the disclosed group list; method=司法拍卖 instead of 司法拍卖被动减持; change_date records the auction window instead of the 2026-09-29 transfer-completion date."
     }
   },
-  "recommendation": "Use 134046 for diagnosis only; repair its 11 contract errors and the D5-EQC-002/007 issues before calling D5 upstream integrated. Treat 135159 as a regression, not the final baseline."
+  "recommendation": "Use 134046 for diagnosis only; repair its 11 contract errors and D5-EQC-002/007 issues before calling D5 upstream integrated. The 135159 and 135902 batches are regressions and must not be used as the final baseline."
 }

@@ -25,6 +25,9 @@ The newer `runs/batch-20261001T135159` is not a replacement:
 - 19 contract-validation errors.
 - It fixes the D5-EQC-007 holder string but regresses event coverage and introduces more provenance errors.
 
+A still-newer
+uns/batch-20261001T135902 batch is also not a replacement: 15/16 events aligned, 115/124 aligned value hits = 92.74%, 17 contract-validation errors, one missing event, and one extra event.
+
 Required: repair the 11 errors in 134046, decide whether method punctuation/wording should normalize, fix D5-EQC-002 event boundaries, align D5-EQC-007 holder/method/change_date, then publish a clean ten-document batch.
 
 ## Zhangzhibo: accepted

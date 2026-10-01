@@ -1,8 +1,8 @@
 {
   "upstream_branch": "weiwenyu",
-  "upstream_commit": "3b08c49d0be64d5e5ea107388042176f37ad82be",
+  "upstream_commit": "55fd805dc30d317f18dae2fcae80f70845e481cf",
   "upstream_batch": "runs/batch-20261001T134046",
-  "baseline_reason": "Selected as the highest-accuracy observed ten-document batch; the newer 20261001T135159 batch regressed and is recorded separately.",
+  "baseline_reason": "Selected as the highest-accuracy observed ten-document batch; the newer 20261001T135159 and 20261001T135902 batches regressed and are recorded separately.",
   "documents_compared": 10,
   "gold_documents": 10,
   "gold_events": 16,
