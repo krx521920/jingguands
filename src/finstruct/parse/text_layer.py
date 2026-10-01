@@ -540,11 +540,19 @@ def parse_page_text_layer(
     # **宁可 bbox 宽一点也不产生逻辑上互相矛盾的块。**
     blocks_split = _flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops, tables=tables)
     if _has_paragraph_overlap(blocks_split):
-        # **已知不足：退回是「整页」粒度。** 一条行拆坏了，整页都退回不拆，
-        # 于是同一页上本该拆好的行也一起放弃了 —— 实测 D5-EQC-007 p7 的 6 个块
-        # 正是该拆的形状，却因为同页另有拆坏的行而被整体退回。
-        # 下一步：把退回粒度细化到**行组**（只退回出问题的那几行），
-        # 或改成逐行试拆 + 逐行自检。
+        # **已知不足（这是 D5 最后 3 个块的共同瓶颈）：退回是「整页」粒度。**
+        # 一条行拆坏了，整页都退回不拆，于是同一页上本该拆好的行也一起放弃了。
+        # 实测 D5-EQC-002 p62 与 D5-EQC-007 p7 的剩余失败块都是这个形状：
+        # 块的 region 把下方表格的单元格框了进来（002 p62 region 190 字却只声称 73 字），
+        # 而同页另有拆坏的行，导致整页退回。
+        #
+        # 下一步（三选一，按代价排序）：
+        #   ① 细化为**行组**粒度：只把出问题的那几条行退回不拆，其余保留拆分。
+        #   ② 给拆分加"干净度"判据：拆出的某一段若自身含多个列（内部有大 x 空隙），
+        #      说明那不是被表格隔开的正文，而是表格自己的另一列 —— 该行不拆。
+        #      实测 007 p11 的左段 `'周龚无饰无际公海新有司锡锡投江度限红天资公闳人有司服国限'`
+        #      就是多列交错，而 p7 的左段 `序号` 是干净的单列。
+        #   ③ 逐行试拆 + 逐行自检（最直白，但要注意别退化成 O(n²)。
         blocks_split = _flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops)
     blocks.extend(blocks_split)
     column_spans = [[round(a, 2), round(b, 2)] for a, b in spans]
