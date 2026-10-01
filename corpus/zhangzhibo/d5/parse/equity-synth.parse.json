@@ -1,0 +1,1006 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "dffa83b2f",
+    "file_id": "sha256:ffa83b2f193a59d5565c2a7bf64eb684de37ffcb14967448124da07cdb63c2d1",
+    "file_name": "eq_synth.pdf",
+    "file_sha256": "ffa83b2f193a59d5565c2a7bf64eb684de37ffcb14967448124da07cdb63c2d1",
+    "file_size": 55749,
+    "page_count": 1,
+    "parsed_at": "2026-10-01T15:41:55+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.9.0"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 594.96,
+      "height": 841.92,
+      "form_evidence": {
+        "text_chars": 277,
+        "text_area_ratio": 0.075,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "dffa83b2f_p001_b00001",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "某某股份有限公司关于股东权益变动的提⽰性公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者重⼤遗漏。重要内容提⽰：本次权益变动不触及要约收购，不会导致公司控股股东及实际控制⼈发⽣变化。",
+          "text_raw": "某某股份有限公司关于股东权益变动的提⽰性公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者重⼤遗漏。重要内容提⽰：本次权益变动不触及要约收购，不会导致公司控股股东及实际控制⼈发⽣变化。",
+          "region": [
+            63.0,
+            69.5,
+            504.0,
+            138.56
+          ],
+          "table_ref": null,
+          "font_size": 10.5,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00002",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            63.37,
+            151.12,
+            264.37,
+            203.62
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 0,
+                "cell_ref": "r2c1"
+              }
+            ],
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00003",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "本次变动前",
+          "text_raw": "本次变动前",
+          "region": [
+            264.37,
+            151.12,
+            398.62,
+            169.87
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c004",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 2,
+                "cell_ref": "r1c3"
+              }
+            ],
+            "header_path": "本次变动前/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00004",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "本次变动后",
+          "text_raw": "本次变动后",
+          "region": [
+            398.62,
+            151.12,
+            532.87,
+            169.87
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c011",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 4,
+                "cell_ref": "r1c5"
+              }
+            ],
+            "header_path": "本次变动后/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00005",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股数量（股）",
+          "text_raw": "持股数量（股）",
+          "region": [
+            264.37,
+            169.87,
+            333.37,
+            203.62
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c005",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动前/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00006",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股⽐例（%）",
+          "text_raw": "持股⽐例（%）",
+          "region": [
+            333.37,
+            169.87,
+            398.62,
+            203.62
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c008",
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动前/持股⽐例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00007",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股数量（股）",
+          "text_raw": "持股数量（股）",
+          "region": [
+            398.62,
+            169.87,
+            467.62,
+            203.62
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c012",
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动后/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00008",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股⽐例（%）",
+          "text_raw": "持股⽐例（%）",
+          "region": [
+            467.62,
+            169.87,
+            532.87,
+            203.62
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c015",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动后/持股⽐例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00009",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "国寿成达（上海）健康产业股权投资中⼼（有限合伙）",
+          "text_raw": "国寿成达（上海）健康产业股权投资中⼼（有限合伙）",
+          "region": [
+            63.37,
+            203.62,
+            264.37,
+            238.12
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c002",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00010",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "36,103,002",
+          "text_raw": "36,103,002",
+          "region": [
+            264.37,
+            203.62,
+            333.37,
+            238.12
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c006",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动前/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00011",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "6.9834",
+          "text_raw": "6.9834",
+          "region": [
+            333.37,
+            203.62,
+            398.62,
+            238.12
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c009",
+            "cell_ref": "r3c3",
+            "row": 2,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动前/持股⽐例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00012",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "34,869,002",
+          "text_raw": "34,869,002",
+          "region": [
+            398.62,
+            203.62,
+            467.62,
+            238.12
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c013",
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动后/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00013",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "6.7448",
+          "text_raw": "6.7448",
+          "region": [
+            467.62,
+            203.62,
+            532.87,
+            238.12
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c016",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动后/持股⽐例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00014",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "⼀致⾏动⼈合计",
+          "text_raw": "⼀致⾏动⼈合计",
+          "region": [
+            63.37,
+            238.12,
+            264.37,
+            256.87
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c003",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00015",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "38,500,000",
+          "text_raw": "38,500,000",
+          "region": [
+            264.37,
+            238.12,
+            333.37,
+            256.87
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c007",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动前/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00016",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "7.4472",
+          "text_raw": "7.4472",
+          "region": [
+            333.37,
+            238.12,
+            398.62,
+            256.87
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c010",
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动前/持股⽐例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00017",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "37,266,000",
+          "text_raw": "37,266,000",
+          "region": [
+            398.62,
+            238.12,
+            467.62,
+            256.87
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c014",
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动后/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00018",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "7.2086",
+          "text_raw": "7.2086",
+          "region": [
+            467.62,
+            238.12,
+            532.87,
+            256.87
+          ],
+          "table_ref": {
+            "table_id": "dffa83b2f_p001_t001",
+            "cell_id": "dffa83b2f_p001_t001_c017",
+            "cell_ref": "r4c5",
+            "row": 3,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次变动后/持股⽐例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dffa83b2f_p001_b00019",
+          "doc_id": "dffa83b2f",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "注：上表中⽐例合计数与各分项数值之和尾数不符的情况，为四舍五⼊原因造成。",
+          "text_raw": "注：上表中⽐例合计数与各分项数值之和尾数不符的情况，为四舍五⼊原因造成。",
+          "region": [
+            63.0,
+            272.81,
+            441.0,
+            283.31
+          ],
+          "table_ref": null,
+          "font_size": 10.5,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "dffa83b2f_p001_t001",
+          "page": 1,
+          "region": [
+            63.37,
+            151.12,
+            532.87,
+            256.87
+          ],
+          "n_rows": 4,
+          "n_cols": 5,
+          "continued_from": null
+        }
+      ]
+    }
+  ],
+  "reading_order": [
+    "dffa83b2f_p001_b00001",
+    "dffa83b2f_p001_b00002",
+    "dffa83b2f_p001_b00003",
+    "dffa83b2f_p001_b00004",
+    "dffa83b2f_p001_b00005",
+    "dffa83b2f_p001_b00006",
+    "dffa83b2f_p001_b00007",
+    "dffa83b2f_p001_b00008",
+    "dffa83b2f_p001_b00009",
+    "dffa83b2f_p001_b00010",
+    "dffa83b2f_p001_b00011",
+    "dffa83b2f_p001_b00012",
+    "dffa83b2f_p001_b00013",
+    "dffa83b2f_p001_b00014",
+    "dffa83b2f_p001_b00015",
+    "dffa83b2f_p001_b00016",
+    "dffa83b2f_p001_b00017",
+    "dffa83b2f_p001_b00018",
+    "dffa83b2f_p001_b00019"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:ffa83b2f193a59d5565c2a7bf64eb684de37ffcb14967448124da07cdb63c2d1",
+      "file_name": "eq_synth.pdf",
+      "file_sha256": "ffa83b2f193a59d5565c2a7bf64eb684de37ffcb14967448124da07cdb63c2d1",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.9.0",
+        "page_count": 1,
+        "blocks": [
+          {
+            "block_id": "dffa83b2f_p001_b00001",
+            "page": 1,
+            "role": "BODY",
+            "text": "某某股份有限公司关于股东权益变动的提⽰性公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者重⼤遗漏。重要内容提⽰：本次权益变动不触及要约收购，不会导致公司控股股东及实际控制⼈发⽣变化。",
+            "text_raw": "某某股份有限公司关于股东权益变动的提⽰性公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者重⼤遗漏。重要内容提⽰：本次权益变动不触及要约收购，不会导致公司控股股东及实际控制⼈发⽣变化。",
+            "region": [
+              63.0,
+              69.5,
+              504.0,
+              138.56
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00002",
+            "page": 1,
+            "role": "BODY",
+            "text": "股东名称",
+            "text_raw": "股东名称",
+            "region": [
+              63.37,
+              151.12,
+              264.37,
+              203.62
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "本次变动前",
+            "text_raw": "本次变动前",
+            "region": [
+              264.37,
+              151.12,
+              398.62,
+              169.87
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "本次变动后",
+            "text_raw": "本次变动后",
+            "region": [
+              398.62,
+              151.12,
+              532.87,
+              169.87
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00005",
+            "page": 1,
+            "role": "BODY",
+            "text": "持股数量（股）",
+            "text_raw": "持股数量（股）",
+            "region": [
+              264.37,
+              169.87,
+              333.37,
+              203.62
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00006",
+            "page": 1,
+            "role": "BODY",
+            "text": "持股⽐例（%）",
+            "text_raw": "持股⽐例（%）",
+            "region": [
+              333.37,
+              169.87,
+              398.62,
+              203.62
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00007",
+            "page": 1,
+            "role": "BODY",
+            "text": "持股数量（股）",
+            "text_raw": "持股数量（股）",
+            "region": [
+              398.62,
+              169.87,
+              467.62,
+              203.62
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00008",
+            "page": 1,
+            "role": "BODY",
+            "text": "持股⽐例（%）",
+            "text_raw": "持股⽐例（%）",
+            "region": [
+              467.62,
+              169.87,
+              532.87,
+              203.62
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00009",
+            "page": 1,
+            "role": "BODY",
+            "text": "国寿成达（上海）健康产业股权投资中⼼（有限合伙）",
+            "text_raw": "国寿成达（上海）健康产业股权投资中⼼（有限合伙）",
+            "region": [
+              63.37,
+              203.62,
+              264.37,
+              238.12
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00010",
+            "page": 1,
+            "role": "BODY",
+            "text": "36,103,002",
+            "text_raw": "36,103,002",
+            "region": [
+              264.37,
+              203.62,
+              333.37,
+              238.12
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00011",
+            "page": 1,
+            "role": "BODY",
+            "text": "6.9834",
+            "text_raw": "6.9834",
+            "region": [
+              333.37,
+              203.62,
+              398.62,
+              238.12
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00012",
+            "page": 1,
+            "role": "BODY",
+            "text": "34,869,002",
+            "text_raw": "34,869,002",
+            "region": [
+              398.62,
+              203.62,
+              467.62,
+              238.12
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00013",
+            "page": 1,
+            "role": "BODY",
+            "text": "6.7448",
+            "text_raw": "6.7448",
+            "region": [
+              467.62,
+              203.62,
+              532.87,
+              238.12
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00014",
+            "page": 1,
+            "role": "BODY",
+            "text": "⼀致⾏动⼈合计",
+            "text_raw": "⼀致⾏动⼈合计",
+            "region": [
+              63.37,
+              238.12,
+              264.37,
+              256.87
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00015",
+            "page": 1,
+            "role": "BODY",
+            "text": "38,500,000",
+            "text_raw": "38,500,000",
+            "region": [
+              264.37,
+              238.12,
+              333.37,
+              256.87
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00016",
+            "page": 1,
+            "role": "BODY",
+            "text": "7.4472",
+            "text_raw": "7.4472",
+            "region": [
+              333.37,
+              238.12,
+              398.62,
+              256.87
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00017",
+            "page": 1,
+            "role": "BODY",
+            "text": "37,266,000",
+            "text_raw": "37,266,000",
+            "region": [
+              398.62,
+              238.12,
+              467.62,
+              256.87
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00018",
+            "page": 1,
+            "role": "BODY",
+            "text": "7.2086",
+            "text_raw": "7.2086",
+            "region": [
+              467.62,
+              238.12,
+              532.87,
+              256.87
+            ]
+          },
+          {
+            "block_id": "dffa83b2f_p001_b00019",
+            "page": 1,
+            "role": "BODY",
+            "text": "注：上表中⽐例合计数与各分项数值之和尾数不符的情况，为四舍五⼊原因造成。",
+            "text_raw": "注：上表中⽐例合计数与各分项数值之和尾数不符的情况，为四舍五⼊原因造成。",
+            "region": [
+              63.0,
+              272.81,
+              441.0,
+              283.31
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [],
+    "warnings": []
+  }
+}
