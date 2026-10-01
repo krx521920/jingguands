@@ -7,7 +7,7 @@
     "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
     "file_size": 339627,
     "page_count": 18,
-    "parsed_at": "2026-10-01T21:16:33+08:00",
+    "parsed_at": "2026-10-01T21:29:46+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -6955,28 +6955,6 @@
           "page": 8,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "BODY",
-          "text": "国贸集团 0",
-          "text_raw": "国贸集团0",
-          "region": [
-            108.48,
-            283.93,
-            481.73,
-            296.73
-          ],
-          "table_ref": null,
-          "font_size": 9.95,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00018",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
           "role": "SECTION",
           "text": "二、本次权益变动方式",
           "text_raw": "二、本次权益变动方式",
@@ -6994,7 +6972,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00019",
+          "block_id": "da8d294d2_p008_b00018",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7016,7 +6994,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00020",
+          "block_id": "da8d294d2_p008_b00019",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7038,7 +7016,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00021",
+          "block_id": "da8d294d2_p008_b00020",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7060,7 +7038,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00022",
+          "block_id": "da8d294d2_p008_b00021",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7082,7 +7060,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00023",
+          "block_id": "da8d294d2_p008_b00022",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7104,7 +7082,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00024",
+          "block_id": "da8d294d2_p008_b00023",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7126,7 +7104,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00025",
+          "block_id": "da8d294d2_p008_b00024",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7148,7 +7126,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00026",
+          "block_id": "da8d294d2_p008_b00025",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7170,7 +7148,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00027",
+          "block_id": "da8d294d2_p008_b00026",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7192,7 +7170,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00028",
+          "block_id": "da8d294d2_p008_b00027",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7214,7 +7192,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00029",
+          "block_id": "da8d294d2_p008_b00028",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7236,7 +7214,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00030",
+          "block_id": "da8d294d2_p008_b00029",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7258,7 +7236,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00031",
+          "block_id": "da8d294d2_p008_b00030",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7274,6 +7252,50 @@
           ],
           "table_ref": null,
           "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00031",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "国贸集团",
+          "text_raw": "国贸集团",
+          "region": [
+            108.48,
+            283.93,
+            149.15,
+            293.88
+          ],
+          "table_ref": null,
+          "font_size": 9.95,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00032",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            476.76,
+            286.78,
+            481.73,
+            296.73
+          ],
+          "table_ref": null,
+          "font_size": 9.95,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -11109,6 +11131,7 @@
     "da8d294d2_p008_b00029",
     "da8d294d2_p008_b00030",
     "da8d294d2_p008_b00031",
+    "da8d294d2_p008_b00032",
     "da8d294d2_p009_b00001",
     "da8d294d2_p009_b00002",
     "da8d294d2_p009_b00003",
@@ -14230,19 +14253,6 @@
           {
             "block_id": "da8d294d2_p008_b00017",
             "page": 8,
-            "role": "BODY",
-            "text": "国贸集团 0",
-            "text_raw": "国贸集团0",
-            "region": [
-              108.48,
-              283.93,
-              481.73,
-              296.73
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00018",
-            "page": 8,
             "role": "SECTION",
             "text": "二、本次权益变动方式",
             "text_raw": "二、本次权益变动方式",
@@ -14254,7 +14264,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00019",
+            "block_id": "da8d294d2_p008_b00018",
             "page": 8,
             "role": "BODY",
             "text": "根据《上市公司国有股权监督管理办法》（国资委 财政部 证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
@@ -14267,7 +14277,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00020",
+            "block_id": "da8d294d2_p008_b00019",
             "page": 8,
             "role": "SECTION",
             "text": "三、本次权益变动相关协议的主要内容",
@@ -14280,7 +14290,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00021",
+            "block_id": "da8d294d2_p008_b00020",
             "page": 8,
             "role": "BODY",
             "text": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
@@ -14293,7 +14303,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00022",
+            "block_id": "da8d294d2_p008_b00021",
             "page": 8,
             "role": "BODY",
             "text": "下：",
@@ -14306,7 +14316,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00023",
+            "block_id": "da8d294d2_p008_b00022",
             "page": 8,
             "role": "SECTION",
             "text": "（一）协议主体",
@@ -14319,7 +14329,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00024",
+            "block_id": "da8d294d2_p008_b00023",
             "page": 8,
             "role": "BODY",
             "text": "甲方（转让方）：浙江省国际贸易集团有限公司",
@@ -14332,7 +14342,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00025",
+            "block_id": "da8d294d2_p008_b00024",
             "page": 8,
             "role": "BODY",
             "text": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
@@ -14345,7 +14355,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00026",
+            "block_id": "da8d294d2_p008_b00025",
             "page": 8,
             "role": "SECTION",
             "text": "（二）股份转让协议的主要条款",
@@ -14358,7 +14368,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00027",
+            "block_id": "da8d294d2_p008_b00026",
             "page": 8,
             "role": "BODY",
             "text": "1.标的股份数量",
@@ -14371,7 +14381,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00028",
+            "block_id": "da8d294d2_p008_b00027",
             "page": 8,
             "role": "BODY",
             "text": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
@@ -14384,7 +14394,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00029",
+            "block_id": "da8d294d2_p008_b00028",
             "page": 8,
             "role": "BODY",
             "text": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
@@ -14397,7 +14407,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00030",
+            "block_id": "da8d294d2_p008_b00029",
             "page": 8,
             "role": "BODY",
             "text": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
@@ -14410,7 +14420,7 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00031",
+            "block_id": "da8d294d2_p008_b00030",
             "page": 8,
             "role": "FOOTER",
             "text": "8",
@@ -14420,6 +14430,32 @@
               782.88,
               301.15,
               793.33
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00031",
+            "page": 8,
+            "role": "BODY",
+            "text": "国贸集团",
+            "text_raw": "国贸集团",
+            "region": [
+              108.48,
+              283.93,
+              149.15,
+              293.88
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00032",
+            "page": 8,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0",
+            "region": [
+              476.76,
+              286.78,
+              481.73,
+              296.73
             ]
           },
           {

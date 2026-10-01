@@ -532,7 +532,16 @@ def parse_page_text_layer(
 
     spans = cols.split_columns(flow_chars) if gutters else []
     fw_tops = cols.full_width_tops(cluster_lines(flow_chars), gutters) if gutters else []
-    blocks.extend(_flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops))
+    # 按表格 x 区间拆行是个**有代价的尝试**：它能修掉"块 bbox 横跨整张表"
+    # 那类区域重建失败（实测 D5-EQC-005 因此到 100%），但若表格左侧其实是
+    # **表格自己的、没被检出的那一列**，拆出来的左段自身会多行交错，
+    # 聚类后出现段落块互相重叠（实测 D5-EQC-007 p11）。
+    # 所以：先试拆，若结果自相矛盾（段落×段落重叠）就退回不拆 ——
+    # **宁可 bbox 宽一点也不产生逻辑上互相矛盾的块。**
+    blocks_split = _flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops, tables=tables)
+    if _has_paragraph_overlap(blocks_split):
+        blocks_split = _flow_blocks(flow_chars, height, gutters=gutters, fw_tops=fw_tops)
+    blocks.extend(blocks_split)
     column_spans = [[round(a, 2), round(b, 2)] for a, b in spans]
 
     # ---- 3b) 不可读区域 → 带坐标的降级块（在排序之前加入，一起分配 block_id）
@@ -593,7 +602,7 @@ def parse_page_text_layer(
     )
 
 
-def _flow_blocks(flow_chars: List[Dict], page_h: float, gutters=None, fw_tops=None) -> List[Dict]:
+def _flow_blocks(flow_chars: List[Dict], page_h: float, gutters=None, fw_tops=None, tables=None) -> List[Dict]:
     """把表格之外的字符聚类成块。
 
     单栏时就是 D1 的原逻辑；多栏时先按**整幅行**把页面切成水平段，
@@ -604,27 +613,51 @@ def _flow_blocks(flow_chars: List[Dict], page_h: float, gutters=None, fw_tops=No
     if not lines:
         return []
 
-    if gutters:
-        # 整幅行独占一段（不拆）；可分行的行**按栏拆开**再归组
-        bucket: Dict[tuple, List[List[Dict]]] = {}
-        for ln in lines:
-            y = min(c["top"] for c in ln)
-            band = cols.band_at(y, fw_tops or [])
-            if cols.line_is_full_width(ln, gutters):
-                # 整幅行用**独立的桶键 -1**，不能与第 0 栏共用。
-                # 共用时整幅行会与第 0 栏的内容一起进 cluster_blocks；整幅行的
-                # 字符横跨全宽，一旦与栏内内容聚成一块，那个块的 bbox 就被撑满整页
-                # —— 实测 D5-EQC-007 p4 的块 text_raw 是左栏 106 字、region 却宽到
-                # x=504，把右栏 163 字框了进来，与右栏的块重重叠（段落×段落）。
-                bucket.setdefault((band, -1), []).append(ln)
-                continue
-            for ci, part in enumerate(cols.split_line_by_gutter(ln, gutters)):
-                if part:
-                    bucket.setdefault((band, ci), []).append(part)
-        # 按 (段, 栏) 排序 —— 阅读顺序：整幅元素 → 第 1 栏到底 → 第 2 栏
-        groups = sorted(bucket.items())
-    else:
-        groups = [((0, 0), lines)]
+    # 逐行分桶。**表格的 x 区间与栏缝一样是障碍**，且表格拆分必须在
+    # `if gutters` 之外 —— 实测 4 个失败页全都是 columns=[]（没有栏缝）的页面，
+    # 早先把表格拆分写在 `if gutters` 分支里，于是从未触发。
+    #
+    # 表格左右两侧的正文流字符在同一 y 上，若不拆开就会被聚成一个块，
+    # 而那个块的 bbox 横跨整张表 —— 把表格单元格的字符框进来，区域重建判据直接失败。
+    # 实测 D5-EQC-007 p7『序号 其他国家居留权情况1 无2 无3 无』就是这种形状。
+    #
+    # 桶键一律保持**二元组** (段, 栏号)：
+    #   · 未跨表格的行沿用原栏号（整幅行用 -1，理由见下）
+    #   · 跨表格的行按侧编号，栏号写成 100*(侧+1)+栏，与普通栏号天然不冲突
+    bucket: Dict[tuple, List[List[Dict]]] = {}
+    for ln in lines:
+        y = min(c["top"] for c in ln)
+        band = cols.band_at(y, fw_tops or []) if gutters else 0
+
+        segs = _split_by_tables(ln, tables)
+        if segs is not None:
+            for side, part in enumerate(segs):
+                if not part:
+                    continue
+                subparts = (
+                    [part] if (not gutters or cols.line_is_full_width(part, gutters))
+                    else [q for q in cols.split_line_by_gutter(part, gutters) if q]
+                )
+                for ci, q in enumerate(subparts):
+                    bucket.setdefault((band, 100 * (side + 1) + ci), []).append(q)
+            continue
+
+        if not gutters:
+            bucket.setdefault((0, 0), []).append(ln)
+            continue
+        if cols.line_is_full_width(ln, gutters):
+            # 整幅行用**独立的桶键 -1**，不能与第 0 栏共用。
+            # 共用时整幅行会与第 0 栏的内容一起进 cluster_blocks；整幅行的
+            # 字符横跨全宽，一旦与栏内内容聚成一块，那个块的 bbox 就被撑满整页
+            # —— 实测 D5-EQC-007 p4 的块 text_raw 是左栏 106 字、region 却宽到
+            # x=504，把右栏 163 字框了进来（段落×段落 135 字符）。
+            bucket.setdefault((band, -1), []).append(ln)
+            continue
+        for ci, part in enumerate(cols.split_line_by_gutter(ln, gutters)):
+            if part:
+                bucket.setdefault((band, ci), []).append(part)
+    # 按 (段, 栏) 排序 —— 阅读顺序：整幅元素 → 各栏
+    groups = sorted(bucket.items())
 
     out: List[Dict] = []
     bi = 0
@@ -654,3 +687,47 @@ def _flow_blocks(flow_chars: List[Dict], page_h: float, gutters=None, fw_tops=No
                 }
             )
     return out
+
+
+def _split_by_tables(line_chars: List[Dict], tables) -> Optional[List[List[Dict]]]:
+    """一行若跨过某张表的 x 区间，就按该区间把它切成左右两段。
+
+    返回 None 表示这行没有跨表格（调用方沿用原本的按栏逻辑）；
+    返回列表表示已切开，元素按从左到右排列。
+    """
+    if not tables:
+        return None
+    y0 = min(c["top"] for c in line_chars)
+    y1 = max(c["bottom"] for c in line_chars)
+    for tb in tables:
+        rx0, ry0, rx1, ry1 = tb["region"]
+        if ry1 < y0 or ry0 > y1:
+            continue
+        left = [c for c in line_chars if c["x1"] <= rx0 + 0.5]
+        right = [c for c in line_chars if c["x0"] >= rx1 - 0.5]
+        if not left or not right:
+            continue          # 只在表格一侧 → 没跨过去
+        # 落在表格 x 区间内、又不属于左右任一段的字符 —— 它们没被任何单元格认领，
+        # 一旦按左右切就会**两个段都不收它们，直接丢字**（实测 D5-EQC-004 p9 丢 1 字）。
+        # 这种行不拆，交给原有的按栏逻辑，宁可 bbox 宽一点也不丢内容。
+        if len(left) + len(right) != len(line_chars):
+            continue
+        return [left, right]
+    return None
+
+
+def _has_paragraph_overlap(flow_blocks: List[Dict]) -> bool:
+    """同一页的段落块之间是否出现区域重叠。
+
+    重叠说明这些块在逻辑上互相矛盾（同一片区域被两块认领），
+    用它作为"按表格拆行是否可行"的自检依据。
+    """
+    ps = [(b["_kw"]["region"], b["_kw"]["text_raw"]) for b in flow_blocks
+          if b["_kw"].get("source_type") == "paragraph"]
+    for i in range(len(ps)):
+        (ax0, ay0, ax1, ay1), _ = ps[i]
+        for j in range(i + 1, len(ps)):
+            (bx0, by0, bx1, by1), _ = ps[j]
+            if ax0 < bx1 and bx0 < ax1 and ay0 < by1 and by0 < ay1:
+                return True
+    return False
