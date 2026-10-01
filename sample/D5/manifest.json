@@ -1,0 +1,274 @@
+{
+  "producer": "张智博",
+  "day": "D5",
+  "date": "2026-10-01",
+  "module": "解析 / 表格 / 出处",
+  "schema": "evidence/0.9",
+  "status": "未收口",
+  "target_dataset": "evaluation/D5/dev/manifest.json（宗博文 D5 十份股权变动）",
+  "known_issues": [
+    "D5-EQC-007 有 7 个段落块的 region 吞进邻列；p1 有 81 个字符未被覆盖、p4 有 135 个字符段落×段落重复覆盖",
+    "D5-EQC-004/005 各有 1–2 页触发致命类判据",
+    "根因：pdfplumber 按绘制线的表格检测在竖线缺失时整列甚至整表漏检"
+  ],
+  "note": "原始 PDF 未随仓库分发。本目录的解析结果**尚未达到 D5 验收标准**，状态见 status 字段。",
+  "samples": [
+    {
+      "case_id": "D5-EQC-001",
+      "event_type": "equity_change",
+      "company": "科创新材",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225585908.PDF",
+      "source_hash_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+      "gold_ref": "gold/D5-EQC-001.envelope.json",
+      "gold_event_count": 5,
+      "parse_file": "parse/D5-EQC-001.parse.json",
+      "text_file": "text/D5-EQC-001.txt",
+      "doc_id": "d9d5be14f",
+      "page_count": 35,
+      "page_forms": [
+        "TEXT"
+      ],
+      "block_count": 840,
+      "table_count": 10,
+      "cell_block_count": 223,
+      "merged_cell_count": 18,
+      "source_type_counts": {
+        "paragraph": 617,
+        "cell": 223
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "event_type": "equity_change",
+      "company": "科创新材",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225585904.PDF",
+      "source_hash_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+      "gold_ref": "gold/D5-EQC-002.envelope.json",
+      "gold_event_count": 3,
+      "parse_file": "parse/D5-EQC-002.parse.json",
+      "text_file": "text/D5-EQC-002.txt",
+      "doc_id": "d46bc2ef0",
+      "page_count": 64,
+      "page_forms": [
+        "TEXT"
+      ],
+      "block_count": 1393,
+      "table_count": 13,
+      "cell_block_count": 338,
+      "merged_cell_count": 8,
+      "source_type_counts": {
+        "paragraph": 1055,
+        "cell": 338
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "event_type": "equity_change",
+      "company": "科创新材",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225585902.PDF",
+      "source_hash_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+      "gold_ref": "gold/D5-EQC-003.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D5-EQC-003.parse.json",
+      "text_file": "text/D5-EQC-003.txt",
+      "doc_id": "d173fee90",
+      "page_count": 34,
+      "page_forms": [
+        "MIXED",
+        "SCANNED",
+        "TEXT"
+      ],
+      "block_count": 621,
+      "table_count": 11,
+      "cell_block_count": 210,
+      "merged_cell_count": 0,
+      "source_type_counts": {
+        "paragraph": 410,
+        "cell": 210,
+        "scan_region": 1
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "event_type": "equity_change",
+      "company": "海正药业",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225583772.PDF",
+      "source_hash_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+      "gold_ref": "gold/D5-EQC-004.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D5-EQC-004.parse.json",
+      "text_file": "text/D5-EQC-004.txt",
+      "doc_id": "da00b31da",
+      "page_count": 21,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "block_count": 322,
+      "table_count": 9,
+      "cell_block_count": 171,
+      "merged_cell_count": 2,
+      "source_type_counts": {
+        "paragraph": 151,
+        "cell": 171
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "event_type": "equity_change",
+      "company": "海正药业",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225583732.PDF",
+      "source_hash_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+      "gold_ref": "gold/D5-EQC-005.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D5-EQC-005.parse.json",
+      "text_file": "text/D5-EQC-005.txt",
+      "doc_id": "da8d294d2",
+      "page_count": 18,
+      "page_forms": [
+        "TEXT"
+      ],
+      "block_count": 372,
+      "table_count": 7,
+      "cell_block_count": 191,
+      "merged_cell_count": 13,
+      "source_type_counts": {
+        "paragraph": 181,
+        "cell": 191
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "event_type": "equity_change",
+      "company": "鸿路钢构",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225581073.PDF",
+      "source_hash_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+      "gold_ref": "gold/D5-EQC-006.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D5-EQC-006.parse.json",
+      "text_file": "text/D5-EQC-006.txt",
+      "doc_id": "d97e2cfab",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT"
+      ],
+      "block_count": 126,
+      "table_count": 3,
+      "cell_block_count": 106,
+      "merged_cell_count": 42,
+      "source_type_counts": {
+        "paragraph": 20,
+        "cell": 106
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "event_type": "equity_change",
+      "company": "红豆股份",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-10-01/1225591190.PDF",
+      "source_hash_sha256": "3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+      "gold_ref": "gold/D5-EQC-007.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D5-EQC-007.parse.json",
+      "text_file": "text/D5-EQC-007.txt",
+      "doc_id": "d3d00372c",
+      "page_count": 18,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "block_count": 324,
+      "table_count": 8,
+      "cell_block_count": 164,
+      "merged_cell_count": 10,
+      "source_type_counts": {
+        "paragraph": 160,
+        "cell": 164
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "event_type": "equity_change",
+      "company": "彤程新材",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-30/1225588860.PDF",
+      "source_hash_sha256": "af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695",
+      "gold_ref": "gold/D5-EQC-008.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D5-EQC-008.parse.json",
+      "text_file": "text/D5-EQC-008.txt",
+      "doc_id": "daf34725a",
+      "page_count": 19,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "block_count": 247,
+      "table_count": 10,
+      "cell_block_count": 136,
+      "merged_cell_count": 8,
+      "source_type_counts": {
+        "paragraph": 111,
+        "cell": 136
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "event_type": "equity_change",
+      "company": "前沿生物",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-30/1225588318.PDF",
+      "source_hash_sha256": "31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+      "gold_ref": "gold/D5-EQC-009.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D5-EQC-009.parse.json",
+      "text_file": "text/D5-EQC-009.txt",
+      "doc_id": "d31d2e428",
+      "page_count": 16,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "block_count": 194,
+      "table_count": 5,
+      "cell_block_count": 99,
+      "merged_cell_count": 12,
+      "source_type_counts": {
+        "paragraph": 95,
+        "cell": 99
+      },
+      "schema_version": "evidence/0.9"
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "event_type": "equity_change",
+      "company": "依依股份",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-30/1225587546.PDF",
+      "source_hash_sha256": "d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
+      "gold_ref": "gold/D5-EQC-010.envelope.json",
+      "gold_event_count": 1,
+      "parse_file": "parse/D5-EQC-010.parse.json",
+      "text_file": "text/D5-EQC-010.txt",
+      "doc_id": "dd2c6e0d0",
+      "page_count": 24,
+      "page_forms": [
+        "TEXT"
+      ],
+      "block_count": 438,
+      "table_count": 7,
+      "cell_block_count": 187,
+      "merged_cell_count": 14,
+      "source_type_counts": {
+        "paragraph": 251,
+        "cell": 187
+      },
+      "schema_version": "evidence/0.9"
+    }
+  ]
+}

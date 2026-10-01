@@ -63,6 +63,16 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
     except Exception:
         return []
 
+    # 关于「按文本对齐补表格」的失败尝试（2026-10-01，D5）
+    #   pdfplumber 的按线检测在竖线缺失时会整列甚至整表漏检，于是试了用
+    #   find_tables({"vertical_strategy": "text", ...}) 做补充通道。实测**净效果为负**：
+    #     换来 D5-EQC-007 的达标页 14/18 → 16/18，
+    #     但 D5-EQC-003 从 34/34 退到 33/34、D5-EQC-008 从 19/19 退到 18/19，
+    #     且区域重建一致率普遍下降（001 由 100% 降到 97.7%）。
+    #   原因：按文本通道会把换行的单元格裂成多行，网格对不齐；
+    #   而"单元格更多且区域没明显变大"这个替换闸拦不住它 —— 格子多不等于切得对。
+    #   真正的解法应当能识别「换行单元格」的纵向合并，而不是单纯比较格子数量。
+    #   在做出那个判据之前，保留按线通道，宁可漏检也不误切。
     tables: List[Dict] = []
     for seq, t in enumerate(found, start=1):
         try:
@@ -185,6 +195,20 @@ def assign_owner(cell_boxes: List[Dict], char) -> Optional[str]:
 
 # ---------------------------------------------------------------- 多层表头
 # 值型内容：数字、百分比、金额。用来区分"表头行"和"数据行"。
+# 补充通道：按文本对齐推断表格的设置。
+# text_*_tolerance 决定「同一列」的 x 容差 —— 取 3pt，约半个汉字宽：
+# 太小会把换行的单元格裂成两列，太大又会把相邻列合成一列。
+TEXT_TABLE_SETTINGS = {
+    "vertical_strategy": "text",
+    "horizontal_strategy": "text",
+    "text_x_tolerance": 3,
+    "text_y_tolerance": 3,
+}
+
+# 替换判据里的区域放大容忍度：按文本检出的表比按线检出的大出这个倍数就不换。
+# 变大往往意味着把正文也圈进来了 —— 实测 D5-EQC-007 p11 大 5.7 倍。
+TEXT_AREA_TOL = 1.3
+
 _VALUE_RE = re.compile(r"^[¥￥$]?\s*-?[\d,]+(?:\.\d+)?\s*(?:%|股|元|万元|亿元|个|次)?$")
 
 # 表头最多占前几行。中文公告里见过 2 行；给到 3 是留余量。
@@ -282,4 +306,28 @@ def _annotate_covers(cells: List[Dict]) -> None:
                     continue          # 那格有自己的单元格，不是被覆盖的空位
                 covers.append({"row": r, "col": col, "cell_ref": f"r{r + 1}c{col + 1}"})
         c["covers"] = covers or None
+
+
+def _find_text_tables(page) -> List:
+    """按文本对齐推断表格。解析不出就返回空 —— 这是补充通道，不该让主通道失败。"""
+    try:
+        return list(page.find_tables(TEXT_TABLE_SETTINGS))
+    except Exception:
+        return []
+
+
+def _area(bbox) -> float:
+    x0, y0, x1, y1 = bbox
+    return max(0.0, x1 - x0) * max(0.0, y1 - y0)
+
+
+def _overlaps(a, b) -> bool:
+    """两个矩形是否实质重叠（用较小者的面积占比判断，避免大表吃掉小表）。"""
+    ix = max(0.0, min(a[2], b[2]) - max(a[0], b[0]))
+    iy = max(0.0, min(a[3], b[3]) - max(a[1], b[1]))
+    inter = ix * iy
+    if inter <= 0:
+        return False
+    smaller = min(_area(a), _area(b)) or 1.0
+    return inter / smaller >= 0.5
 
