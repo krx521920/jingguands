@@ -30,7 +30,8 @@ const MIME = {
 
 function sendJSON(res, code, obj) {
   const body = JSON.stringify(obj, null, 2);
-  res.writeHead(code, { "Content-Type": "application/json; charset=utf-8" });
+  // no-store：演示时杜绝浏览器拿旧缓存数据（D5 教训）
+  res.writeHead(code, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
   res.end(body);
 }
 
@@ -168,7 +169,7 @@ function handleStatic(res, urlObj) {
     res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
     return res.end("404 Not Found");
   }
-  res.writeHead(200, { "Content-Type": MIME[path.extname(file)] || "application/octet-stream" });
+  res.writeHead(200, { "Content-Type": MIME[path.extname(file)] || "application/octet-stream", "Cache-Control": "no-store" });
   res.end(fs.readFileSync(file));
 }
 

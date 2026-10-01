@@ -34,7 +34,8 @@ const SCOPE_TEXT = { single: "单次", cumulative: "累计" };
 export function fmtValue(f) {
   let v = f.value;
   if (typeof v === "number") v = v.toLocaleString("zh-CN");
-  if (f.unit) v += " " + f.unit;
+  // 原文已含单位符号时不再追加（避免 "8.5% %" 这类重复；D5 演示发现）
+  if (f.unit && !(typeof v === "string" && v.includes(f.unit))) v += " " + f.unit;
   return v;
 }
 
@@ -143,10 +144,7 @@ export function renderResults(container, data, onFocusEvidence) {
     head.className = "head";
     const title = document.createElement("strong");
     title.textContent = `事件 ${ev.event_id} · ${EVENT_TYPE_TEXT[ev.event_type] || ev.event_type}`;
-    const eid = document.createElement("span");
-    eid.className = "eid";
-    eid.textContent = ev.event_id;
-    head.append(title, badge(ev.status), eid);
+    head.append(title, badge(ev.status));   // D5：去掉右侧重复的 eid（标题已含 id）
     // v0.4 D4：direction=release（解除质押）独立事件，卡片标题区显式区分（默认 pledge 不加噪音）
     // 枚举键在 normalized（raw_value 是中文原文），两者都兜底
     const dF = ev.fields.direction;
