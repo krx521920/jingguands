@@ -57,7 +57,7 @@ function inferEventType(name) {
   const n = name.toLowerCase()
   if (n.includes('pledge') || n.includes('pld')) return 'pledge'
   if (n.includes('equity') || n.includes('eqc')) return 'equity_change'
-  if (n.includes('award') || n.includes('awd')) return 'award_contract'
+  if (n.includes('award') || n.includes('awd') || n.includes('bid')) return 'award_contract'
   return null
 }
 

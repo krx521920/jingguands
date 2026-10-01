@@ -1,0 +1,89 @@
+{
+  "producer": "魏文宇（巨潮公开接口，限速2.5s，原始PDF不入库）",
+  "day": "D6",
+  "date": "2026-10-01",
+  "event_type": "award_contract",
+  "schema": "evidence/0.9",
+  "samples": [
+    {
+      "parse_file": "parse/bid-001.parse.json",
+      "case_id": "D6-AWD-001",
+      "event_type": "award_contract",
+      "company": "惠通科技",
+      "title": "关于项目中标的进展公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225584049.PDF",
+      "source_hash_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+      "announce_date": "2026-09-28"
+    },
+    {
+      "parse_file": "parse/bid-002.parse.json",
+      "case_id": "D6-AWD-002",
+      "event_type": "award_contract",
+      "company": "金盾股份",
+      "title": "关于近期中标项目的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225583782.PDF",
+      "source_hash_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+      "announce_date": "2026-09-28"
+    },
+    {
+      "parse_file": "parse/bid-003.parse.json",
+      "case_id": "D6-AWD-003",
+      "event_type": "award_contract",
+      "company": "中国通号",
+      "title": "关于自愿披露轨道交通市场重要项目中标的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-25/1225581645.PDF",
+      "source_hash_sha256": "0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+      "announce_date": "2026-09-25"
+    },
+    {
+      "parse_file": "parse/bid-004.parse.json",
+      "case_id": "D6-AWD-004",
+      "event_type": "award_contract",
+      "company": "华康洁净",
+      "title": "关于项目中标及签订合同的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225582697.PDF",
+      "source_hash_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+      "announce_date": "2026-09-24"
+    },
+    {
+      "parse_file": "parse/bid-005.parse.json",
+      "case_id": "D6-AWD-005",
+      "event_type": "award_contract",
+      "company": "吉峰科技",
+      "title": "关于中标项目签订合同的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225580810.PDF",
+      "source_hash_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+      "announce_date": "2026-09-24"
+    },
+    {
+      "parse_file": "parse/bid-006.parse.json",
+      "case_id": "D6-AWD-006",
+      "event_type": "award_contract",
+      "company": "同济科技",
+      "title": "关于全资子公司项目中标的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225579775.PDF",
+      "source_hash_sha256": "fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
+      "announce_date": "2026-09-24"
+    },
+    {
+      "parse_file": "parse/bid-007.parse.json",
+      "case_id": "D6-AWD-007",
+      "event_type": "award_contract",
+      "company": "江河集团",
+      "title": "江河集团关于重大工程中标的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225578161.PDF",
+      "source_hash_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+      "announce_date": "2026-09-24"
+    },
+    {
+      "parse_file": "parse/bid-008.parse.json",
+      "case_id": "D6-AWD-008",
+      "event_type": "award_contract",
+      "company": "蒙草生态",
+      "title": "关于子公司收到中标通知书的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-23/1225578115.PDF",
+      "source_hash_sha256": "aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+      "announce_date": "2026-09-23"
+    }
+  ]
+}
