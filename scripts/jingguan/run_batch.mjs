@@ -83,14 +83,21 @@ function valuesEqual(a, b) {
   return false
 }
 
-/** 事件自然键：质押=质押人×质权人×direction（v0.4 三元组，修同组合先押后解碰撞；
- * direction 缺省视为 pledge——兼容宗 D3 gold 与旧输出）；股权=holder；中标=bidder×tenderer。 */
+/** 事件自然键（事件类型感知，与分块去重键同构）：
+ * pledge = 质押人×质权人×direction；equity_change = holder×direction×shares_before；
+ * award_contract = bidder×tenderer×project_name（v0.4.1 加项目名——同组合多标段不碰撞）。
+ * direction 缺省视为 pledge——兼容宗 D3 gold 与旧输出。 */
 function eventKey(ev) {
   const f = ev.fields ?? {}
   const a = f.pledgor?.value ?? f.holder?.value ?? f.bidder?.value ?? '?'
   const b = f.pledgee?.value ?? f.tenderer?.value ?? ''
   const d = f.direction?.value ?? 'pledge'
-  return `${String(a)}|${String(b)}|${String(d)}`
+  const diff = ev.event_type === 'award_contract'
+    ? String(f.project_name?.value ?? '')
+    : ev.event_type === 'equity_change'
+      ? String(f.shares_before?.value ?? '')
+      : ''
+  return `${String(a)}|${String(b)}|${String(d)}|${diff}`
 }
 
 /** 单事件字段比对：写入 rows，返回 {goldExtracted, hit, wrongFilled, statusMatch, neutral, goldUnsupported, fieldDenominator}。 */
