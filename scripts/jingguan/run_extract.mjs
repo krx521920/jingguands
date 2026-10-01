@@ -458,7 +458,22 @@ async function main() {
     console.error(`输入无可读文本（${inputText.trim().length} 字符）——拒绝调用模型以免编造；扫描件请先走解析（--parse）获得降级块`)
     process.exit(2)
   }
+  // MIXED 文档（部分页 TEXT 部分页 SCANNED）：可读文本够走正常抽取，但扫描页上的事件会被静默丢失——如实警告
+  if (parseDoc !== null) {
+    const scannedPages = parseDoc.doc.pages?.filter((p) => p.form === 'SCANNED').map((p) => p.page) ?? []
+    if (scannedPages.length > 0 && parseDoc.joinedRaw.trim().length >= READABLE_MIN) {
+      console.log(`[警告] MIXED 文档：第 ${scannedPages.join('、')} 页为 SCANNED——这些页上的事件可能被静默丢失`)
+    }
+  }
 
+  const postErrors = [] // 提前声明（分块路径的 chunk 失败处理在下方引用）
+  // MIXED 警告落入 postErrors（须在 postErrors 声明之后）
+  if (parseDoc !== null) {
+    const scannedPages2 = parseDoc.doc.pages?.filter((p) => p.form === 'SCANNED').map((p) => p.page) ?? []
+    if (scannedPages2.length > 0 && parseDoc.joinedRaw.trim().length >= READABLE_MIN) {
+      postErrors.push(`[降级] MIXED 文档：第 ${scannedPages2.join('、')} 页为 SCANNED（无可读文本），仅从 TEXT 页抽取——扫描页上的事件可能缺失`)
+    }
+  }
   if (!isMock && !apiKey) {
     console.error('缺少模型密钥：请设置 JINGGUAN_LLM_API_KEY（或 DEEPSEEK_API_KEY）。\n' +
       '只想联调接口结构时，可显式加 --mock（输出会全程标注 MOCK，不计入真实抽取成绩）。')
@@ -480,7 +495,6 @@ async function main() {
   let call, callError = null
   let truncated = false
   const allEvents = []
-  const postErrors = [] // 提前声明（分块路径的 chunk 失败处理在下方引用）
 
   if (!isMock && modelInput.length > INPUT_LIMIT && parseDoc !== null) {
     // 解析块模式分块：按块分组使标注文本 ≤ CHUNK_LIMIT
