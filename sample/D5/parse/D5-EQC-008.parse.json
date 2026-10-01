@@ -7,7 +7,7 @@
     "file_sha256": "af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695",
     "file_size": 248231,
     "page_count": 19,
-    "parsed_at": "2026-10-01T21:11:08+08:00",
+    "parsed_at": "2026-10-01T21:16:35+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -5611,11 +5611,11 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "一、备查文件1、信息披露义务人1、2的注册证书及商业登记证；",
-          "text_raw": "一、备查文件1、信息披露义务人1、2的注册证书及商业登记证；",
+          "text": "1、信息披露义务人1、2的注册证书及商业登记证；",
+          "text_raw": "1、信息披露义务人1、2的注册证书及商业登记证；",
           "region": [
             90.0,
-            155.69,
+            179.09,
             365.4,
             193.08
           ],
@@ -5628,6 +5628,28 @@
         },
         {
           "block_id": "daf34725a_p014_b00003",
+          "doc_id": "daf34725a",
+          "page": 14,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "一、备查文件",
+          "text_raw": "一、备查文件",
+          "region": [
+            90.0,
+            155.69,
+            162.24,
+            167.69
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "daf34725a_p014_b00004",
           "doc_id": "daf34725a",
           "page": 14,
           "type": "TEXT",
@@ -5649,17 +5671,17 @@
           "missing_reason": null
         },
         {
-          "block_id": "daf34725a_p014_b00004",
+          "block_id": "daf34725a_p014_b00005",
           "doc_id": "daf34725a",
           "page": 14,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "二、备查文件置备地点1、地点：公司董事会办公室",
-          "text_raw": "二、备查文件置备地点1、地点：公司董事会办公室",
+          "text": "1、地点：公司董事会办公室",
+          "text_raw": "1、地点：公司董事会办公室",
           "region": [
             90.0,
-            249.29,
+            272.69,
             240.0,
             286.68
           ],
@@ -5671,7 +5693,29 @@
           "missing_reason": null
         },
         {
-          "block_id": "daf34725a_p014_b00005",
+          "block_id": "daf34725a_p014_b00006",
+          "doc_id": "daf34725a",
+          "page": 14,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "二、备查文件置备地点",
+          "text_raw": "二、备查文件置备地点",
+          "region": [
+            90.0,
+            249.29,
+            210.48,
+            261.29
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "daf34725a_p014_b00007",
           "doc_id": "daf34725a",
           "page": 14,
           "type": "TEXT",
@@ -5693,7 +5737,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "daf34725a_p014_b00006",
+          "block_id": "daf34725a_p014_b00008",
           "doc_id": "daf34725a",
           "page": 14,
           "type": "TEXT",
@@ -7705,6 +7749,8 @@
     "daf34725a_p014_b00004",
     "daf34725a_p014_b00005",
     "daf34725a_p014_b00006",
+    "daf34725a_p014_b00007",
+    "daf34725a_p014_b00008",
     "daf34725a_p015_b00001",
     "daf34725a_p015_b00002",
     "daf34725a_p015_b00003",
@@ -10194,17 +10240,30 @@
             "block_id": "daf34725a_p014_b00002",
             "page": 14,
             "role": "BODY",
-            "text": "一、备查文件1、信息披露义务人1、2的注册证书及商业登记证；",
-            "text_raw": "一、备查文件1、信息披露义务人1、2的注册证书及商业登记证；",
+            "text": "1、信息披露义务人1、2的注册证书及商业登记证；",
+            "text_raw": "1、信息披露义务人1、2的注册证书及商业登记证；",
             "region": [
               90.0,
-              155.69,
+              179.09,
               365.4,
               193.08
             ]
           },
           {
             "block_id": "daf34725a_p014_b00003",
+            "page": 14,
+            "role": "SECTION",
+            "text": "一、备查文件",
+            "text_raw": "一、备查文件",
+            "region": [
+              90.0,
+              155.69,
+              162.24,
+              167.69
+            ]
+          },
+          {
+            "block_id": "daf34725a_p014_b00004",
             "page": 14,
             "role": "BODY",
             "text": "2、信息披露义务人3的身份证明文件；",
@@ -10217,20 +10276,33 @@
             ]
           },
           {
-            "block_id": "daf34725a_p014_b00004",
+            "block_id": "daf34725a_p014_b00005",
             "page": 14,
             "role": "BODY",
-            "text": "二、备查文件置备地点1、地点：公司董事会办公室",
-            "text_raw": "二、备查文件置备地点1、地点：公司董事会办公室",
+            "text": "1、地点：公司董事会办公室",
+            "text_raw": "1、地点：公司董事会办公室",
             "region": [
               90.0,
-              249.29,
+              272.69,
               240.0,
               286.68
             ]
           },
           {
-            "block_id": "daf34725a_p014_b00005",
+            "block_id": "daf34725a_p014_b00006",
+            "page": 14,
+            "role": "SECTION",
+            "text": "二、备查文件置备地点",
+            "text_raw": "二、备查文件置备地点",
+            "region": [
+              90.0,
+              249.29,
+              210.48,
+              261.29
+            ]
+          },
+          {
+            "block_id": "daf34725a_p014_b00007",
             "page": 14,
             "role": "BODY",
             "text": "2、电话：021-62109966",
@@ -10243,7 +10315,7 @@
             ]
           },
           {
-            "block_id": "daf34725a_p014_b00006",
+            "block_id": "daf34725a_p014_b00008",
             "page": 14,
             "role": "FOOTER",
             "text": "14",

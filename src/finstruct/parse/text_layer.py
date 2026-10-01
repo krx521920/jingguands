@@ -611,7 +611,12 @@ def _flow_blocks(flow_chars: List[Dict], page_h: float, gutters=None, fw_tops=No
             y = min(c["top"] for c in ln)
             band = cols.band_at(y, fw_tops or [])
             if cols.line_is_full_width(ln, gutters):
-                bucket.setdefault((band, 0), []).append(ln)
+                # 整幅行用**独立的桶键 -1**，不能与第 0 栏共用。
+                # 共用时整幅行会与第 0 栏的内容一起进 cluster_blocks；整幅行的
+                # 字符横跨全宽，一旦与栏内内容聚成一块，那个块的 bbox 就被撑满整页
+                # —— 实测 D5-EQC-007 p4 的块 text_raw 是左栏 106 字、region 却宽到
+                # x=504，把右栏 163 字框了进来，与右栏的块重重叠（段落×段落）。
+                bucket.setdefault((band, -1), []).append(ln)
                 continue
             for ci, part in enumerate(cols.split_line_by_gutter(ln, gutters)):
                 if part:

@@ -4,13 +4,12 @@
   "date": "2026-10-01",
   "module": "解析 / 表格 / 出处",
   "schema": "evidence/0.9",
-  "status": "部分收口：004 达标页已全过，005/007 各余 1 页",
+  "status": "达标页全部通过；区域重建待收口",
   "target_dataset": "evaluation/D5/dev/manifest.json（宗博文 D5 十份股权变动）",
   "known_issues": [
-    "D5-EQC-004：区域重建 99.4%（2 个块受外接矩形交叠影响），达标页 21/21 ✓",
-    "D5-EQC-005：区域重建 99.5%，达标页 17/18；p4 有 89 个字符被两个段落块重复覆盖",
-    "D5-EQC-007：区域重建 97.9%，达标页 17/18；p4 有 135 个字符被两个段落块重复覆盖；另有 7 个段落块 region 吞进邻列",
-    "005/007 的剩余问题同源：**三栏定义表**（术语|指|释义）的分栏只切出 1 条缝（两栏），同一 y 上的左右栏内容因此被并进同一个块，块的外接矩形横跨两栏而互相重叠"
+    "**所有页的字符守恒已达标**（无丢字、无段落×段落重叠），10/10 份",
+    "剩余的只是「区域重建一致率」这个更严格的判据：002 99.9% / 004 99.4% / 005 99.7% / 007 98.2%，其余 6 份 100%",
+    "这些剩余项的成因是 B 类（表格交错导致的外接矩形交叠，非逻辑重叠）"
   ],
   "note": "原始 PDF 未随仓库分发。本目录的解析结果**尚未达到 D5 验收标准**，状态见 status 字段。",
   "samples": [
@@ -27,6 +26,40 @@
       "doc_id": "d9d5be14f",
       "page_count": 35,
       "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "TEXT"
       ],
       "block_count": 840,
@@ -37,7 +70,8 @@
         "paragraph": 617,
         "cell": 223
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51"
     },
     {
       "case_id": "D5-EQC-002",
@@ -52,6 +86,69 @@
       "doc_id": "d46bc2ef0",
       "page_count": 64,
       "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "TEXT"
       ],
       "block_count": 1393,
@@ -62,7 +159,8 @@
         "paragraph": 1055,
         "cell": 338
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1"
     },
     {
       "case_id": "D5-EQC-003",
@@ -78,8 +176,39 @@
       "page_count": 34,
       "page_forms": [
         "MIXED",
-        "SCANNED",
-        "TEXT"
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "SCANNED"
       ],
       "block_count": 621,
       "table_count": 11,
@@ -90,7 +219,8 @@
         "cell": 210,
         "scan_region": 1
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e"
     },
     {
       "case_id": "D5-EQC-004",
@@ -105,8 +235,27 @@
       "doc_id": "da00b31da",
       "page_count": 21,
       "page_forms": [
-        "MIXED",
-        "TEXT"
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "MIXED"
       ],
       "block_count": 323,
       "table_count": 9,
@@ -116,7 +265,8 @@
         "paragraph": 151,
         "cell": 172
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980"
     },
     {
       "case_id": "D5-EQC-005",
@@ -131,17 +281,35 @@
       "doc_id": "da8d294d2",
       "page_count": 18,
       "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "TEXT"
       ],
-      "block_count": 373,
+      "block_count": 374,
       "table_count": 7,
       "cell_block_count": 192,
       "merged_cell_count": 13,
       "source_type_counts": {
-        "paragraph": 181,
+        "paragraph": 182,
         "cell": 192
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33"
     },
     {
       "case_id": "D5-EQC-006",
@@ -156,6 +324,8 @@
       "doc_id": "d97e2cfab",
       "page_count": 3,
       "page_forms": [
+        "TEXT",
+        "TEXT",
         "TEXT"
       ],
       "block_count": 126,
@@ -166,7 +336,8 @@
         "paragraph": 20,
         "cell": 106
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044"
     },
     {
       "case_id": "D5-EQC-007",
@@ -181,18 +352,35 @@
       "doc_id": "d3d00372c",
       "page_count": 18,
       "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "MIXED",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "TEXT"
       ],
-      "block_count": 337,
+      "block_count": 338,
       "table_count": 8,
       "cell_block_count": 177,
       "merged_cell_count": 10,
       "source_type_counts": {
-        "paragraph": 160,
+        "paragraph": 161,
         "cell": 177
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b"
     },
     {
       "case_id": "D5-EQC-008",
@@ -207,18 +395,36 @@
       "doc_id": "daf34725a",
       "page_count": 19,
       "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "MIXED",
+        "TEXT",
+        "TEXT",
+        "MIXED",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "TEXT"
       ],
-      "block_count": 247,
+      "block_count": 249,
       "table_count": 10,
       "cell_block_count": 136,
       "merged_cell_count": 8,
       "source_type_counts": {
-        "paragraph": 111,
+        "paragraph": 113,
         "cell": 136
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695"
     },
     {
       "case_id": "D5-EQC-009",
@@ -233,8 +439,22 @@
       "doc_id": "d31d2e428",
       "page_count": 16,
       "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "MIXED",
-        "TEXT"
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "MIXED",
+        "TEXT",
+        "TEXT",
+        "MIXED"
       ],
       "block_count": 194,
       "table_count": 5,
@@ -244,7 +464,8 @@
         "paragraph": 95,
         "cell": 99
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41"
     },
     {
       "case_id": "D5-EQC-010",
@@ -259,6 +480,29 @@
       "doc_id": "dd2c6e0d0",
       "page_count": 24,
       "page_forms": [
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
+        "TEXT",
         "TEXT"
       ],
       "block_count": 438,
@@ -269,7 +513,8 @@
         "paragraph": 251,
         "cell": 187
       },
-      "schema_version": "evidence/0.9"
+      "schema_version": "evidence/0.9",
+      "file_id": "sha256:d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c"
     }
   ]
 }

@@ -7,7 +7,7 @@
     "file_sha256": "b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
     "file_size": 78166,
     "page_count": 3,
-    "parsed_at": "2026-09-30T19:10:06+08:00",
+    "parsed_at": "2026-10-01T21:16:25+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -3178,11 +3178,11 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "特此公告。江苏博迁新材料股份有限公司",
-          "text_raw": "特此公告。江苏博迁新材料股份有限公司",
+          "text": "江苏博迁新材料股份有限公司",
+          "text_raw": "江苏博迁新材料股份有限公司",
           "region": [
-            114.0,
-            168.17,
+            349.32,
+            196.13,
             505.32,
             208.13
           ],
@@ -3195,6 +3195,28 @@
         },
         {
           "block_id": "db2351d0b_p003_b00005",
+          "doc_id": "db2351d0b",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114.0,
+            168.17,
+            174.0,
+            180.17
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "db2351d0b_p003_b00006",
           "doc_id": "db2351d0b",
           "page": 3,
           "type": "TEXT",
@@ -3216,7 +3238,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "db2351d0b_p003_b00006",
+          "block_id": "db2351d0b_p003_b00007",
           "doc_id": "db2351d0b",
           "page": 3,
           "type": "TEXT",
@@ -3344,7 +3366,8 @@
     "db2351d0b_p003_b00003",
     "db2351d0b_p003_b00004",
     "db2351d0b_p003_b00005",
-    "db2351d0b_p003_b00006"
+    "db2351d0b_p003_b00006",
+    "db2351d0b_p003_b00007"
   ],
   "handoff": {
     "target_contract": "interface/event-envelope.schema.json v0.1",
@@ -4660,17 +4683,30 @@
             "block_id": "db2351d0b_p003_b00004",
             "page": 3,
             "role": "BODY",
-            "text": "特此公告。江苏博迁新材料股份有限公司",
-            "text_raw": "特此公告。江苏博迁新材料股份有限公司",
+            "text": "江苏博迁新材料股份有限公司",
+            "text_raw": "江苏博迁新材料股份有限公司",
             "region": [
-              114.0,
-              168.17,
+              349.32,
+              196.13,
               505.32,
               208.13
             ]
           },
           {
             "block_id": "db2351d0b_p003_b00005",
+            "page": 3,
+            "role": "BODY",
+            "text": "特此公告。",
+            "text_raw": "特此公告。",
+            "region": [
+              114.0,
+              168.17,
+              174.0,
+              180.17
+            ]
+          },
+          {
+            "block_id": "db2351d0b_p003_b00006",
             "page": 3,
             "role": "FOOTER",
             "text": "3",
@@ -4683,7 +4719,7 @@
             ]
           },
           {
-            "block_id": "db2351d0b_p003_b00006",
+            "block_id": "db2351d0b_p003_b00007",
             "page": 3,
             "role": "BODY",
             "text": "董事会2026年9月25日",

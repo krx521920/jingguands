@@ -301,13 +301,13 @@
         "TEXT",
         "TEXT"
       ],
-      "block_count": 103,
+      "block_count": 104,
       "table_count": 2,
       "cell_block_count": 79,
       "merged_cell_count": 9,
       "header_path_filled": 79,
       "source_type_counts": {
-        "paragraph": 24,
+        "paragraph": 25,
         "cell": 79
       },
       "schema_version": "evidence/0.9"

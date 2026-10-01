@@ -7,7 +7,7 @@
     "file_sha256": "d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
     "file_size": 185451,
     "page_count": 24,
-    "parsed_at": "2026-10-01T21:11:10+08:00",
+    "parsed_at": "2026-10-01T21:16:36+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -9926,28 +9926,6 @@
           "page": 19,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "HEADER",
-          "text": "天津市依依卫生用品股份有限公司",
-          "text_raw": "天津市依依卫生用品股份有限公司",
-          "region": [
-            90.0,
-            56.07,
-            225.0,
-            65.07
-          ],
-          "table_ref": null,
-          "font_size": 9.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "dd2c6e0d0_p019_b00002",
-          "doc_id": "dd2c6e0d0",
-          "page": 19,
-          "type": "TEXT",
-          "source_type": "paragraph",
           "role": "BODY",
           "text": "信息披露义务人声明",
           "text_raw": "信息披露义务人声明",
@@ -9959,6 +9937,28 @@
           ],
           "table_ref": null,
           "font_size": 15.95,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dd2c6e0d0_p019_b00002",
+          "doc_id": "dd2c6e0d0",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "天津市依依卫生用品股份有限公司",
+          "text_raw": "天津市依依卫生用品股份有限公司",
+          "region": [
+            90.0,
+            56.07,
+            225.0,
+            65.07
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -10158,28 +10158,6 @@
           "page": 20,
           "type": "TEXT",
           "source_type": "paragraph",
-          "role": "HEADER",
-          "text": "天津市依依卫生用品股份有限公司",
-          "text_raw": "天津市依依卫生用品股份有限公司",
-          "region": [
-            90.0,
-            56.07,
-            225.0,
-            65.07
-          ],
-          "table_ref": null,
-          "font_size": 9.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "dd2c6e0d0_p020_b00002",
-          "doc_id": "dd2c6e0d0",
-          "page": 20,
-          "type": "TEXT",
-          "source_type": "paragraph",
           "role": "BODY",
           "text": "信息披露义务人声明",
           "text_raw": "信息披露义务人声明",
@@ -10191,6 +10169,28 @@
           ],
           "table_ref": null,
           "font_size": 15.95,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dd2c6e0d0_p020_b00002",
+          "doc_id": "dd2c6e0d0",
+          "page": 20,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "天津市依依卫生用品股份有限公司",
+          "text_raw": "天津市依依卫生用品股份有限公司",
+          "region": [
+            90.0,
+            56.07,
+            225.0,
+            65.07
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -17486,19 +17486,6 @@
           {
             "block_id": "dd2c6e0d0_p019_b00001",
             "page": 19,
-            "role": "HEADER",
-            "text": "天津市依依卫生用品股份有限公司",
-            "text_raw": "天津市依依卫生用品股份有限公司",
-            "region": [
-              90.0,
-              56.07,
-              225.0,
-              65.07
-            ]
-          },
-          {
-            "block_id": "dd2c6e0d0_p019_b00002",
-            "page": 19,
             "role": "BODY",
             "text": "信息披露义务人声明",
             "text_raw": "信息披露义务人声明",
@@ -17507,6 +17494,19 @@
               79.76,
               369.83,
               95.71
+            ]
+          },
+          {
+            "block_id": "dd2c6e0d0_p019_b00002",
+            "page": 19,
+            "role": "HEADER",
+            "text": "天津市依依卫生用品股份有限公司",
+            "text_raw": "天津市依依卫生用品股份有限公司",
+            "region": [
+              90.0,
+              56.07,
+              225.0,
+              65.07
             ]
           },
           {
@@ -17603,19 +17603,6 @@
           {
             "block_id": "dd2c6e0d0_p020_b00001",
             "page": 20,
-            "role": "HEADER",
-            "text": "天津市依依卫生用品股份有限公司",
-            "text_raw": "天津市依依卫生用品股份有限公司",
-            "region": [
-              90.0,
-              56.07,
-              225.0,
-              65.07
-            ]
-          },
-          {
-            "block_id": "dd2c6e0d0_p020_b00002",
-            "page": 20,
             "role": "BODY",
             "text": "信息披露义务人声明",
             "text_raw": "信息披露义务人声明",
@@ -17624,6 +17611,19 @@
               79.76,
               369.83,
               95.71
+            ]
+          },
+          {
+            "block_id": "dd2c6e0d0_p020_b00002",
+            "page": 20,
+            "role": "HEADER",
+            "text": "天津市依依卫生用品股份有限公司",
+            "text_raw": "天津市依依卫生用品股份有限公司",
+            "region": [
+              90.0,
+              56.07,
+              225.0,
+              65.07
             ]
           },
           {
