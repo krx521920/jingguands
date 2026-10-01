@@ -14,6 +14,8 @@ workspace/cjh/
     ├── cjh_workspace_04_D2任务规划.md   # D2 口径对齐记录 + 转接口设计
     ├── cjh_workspace_05_D2交接与待办.md # D2 交接：队友对接要求 + 待办清单
     ├── cjh_workspace_06_D3任务规划.md   # D3：新规范拉取记录 + 导出/断链修复 + 自测证据
+    ├── cjh_workspace_07_D4任务规划.md   # D4：证据查看与异常状态页面（异常汇总条/direction/扫描降级）
+    ├── cjh_workspace_08_D5轮值议程与演示.md # D5：轮值议程 + 统一样例演示脚本 + 文件整理清单
     ├── _ref_fang_口径字典_v0.1.md       # 只读参照：源=origin/feature/fang-rules@c856882（勿改）
     ├── _ref_fang_换算用例_v0.1.md       # 只读参照：同上（勿改）
     ├── _ref_wei_interface_README_v0.3.md     # 只读参照：源=origin/weiwenyu@00a472c（勿改）
