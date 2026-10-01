@@ -3,7 +3,7 @@
  * 出处断言单元测试（D3 审计）：checkPageBounds 越界拦截＋checkProvenance 翻转坐标拦截。
  * 用法：node scripts/jingguan/test_checks.mjs
  */
-import { checkPageBounds, checkProvenance } from './lib/checks.mjs'
+import { checkPageBounds, checkProvenance, checkEquityDirection } from './lib/checks.mjs'
 
 let failed = 0
 const assert = (cond, msg) => { if (cond) console.log(`✓ ${msg}`); else { failed++; console.log(`✗ ${msg}`) } }
@@ -44,5 +44,37 @@ const prov = checkProvenance(env2)
 assert(prov.length === 3, `checkProvenance 翻转/负值恰好报3处（实际 ${prov.length}）`)
 assert(prov.some(i => i.includes('left(50) ≥ right(30)')) && prov.some(i => i.includes('top(40) ≥ bottom(20)')) && prov.some(i => i.includes('坐标为负')), 'checkProvenance 三类断言文案齐全')
 
-console.log(failed === 0 ? '全部通过：出处断言单元测试' : `失败：${failed}`)
+// checkEquityDirection：方向一致性（D5 完成标准"前后方向不得默默反转"）
+const eqEnv = {
+  events: [
+    { event_type: 'equity_change', fields: {
+        shares_before: { status: 'extracted', value: 1000 },
+        shares_after: { status: 'extracted', value: 500 },
+        direction: { status: 'extracted', value: 'increase' },
+    }},
+    { event_type: 'equity_change', fields: {
+        shares_before: { status: 'extracted', value: 500 },
+        shares_after: { status: 'extracted', value: 1000 },
+        direction: { status: 'extracted', value: 'increase' },
+    }},
+    { event_type: 'equity_change', fields: {
+        shares_before: { status: 'extracted', value: 1000 },
+        shares_after: { status: 'extracted', value: 800 },
+        direction: { status: 'extracted', value: 'decrease' },
+    }},
+    { event_type: 'equity_change', fields: {
+        shares_before: { status: 'not_mentioned', value: null },
+        shares_after: { status: 'extracted', value: 800 },
+        direction: { status: 'extracted', value: 'increase' },
+    }},
+    { event_type: 'pledge', fields: {
+        direction: { status: 'extracted', value: 'release' },
+    }},
+  ],
+}
+const dir = checkEquityDirection(eqEnv)
+assert(dir.length === 1, `checkEquityDirection 恰好报1处（实际 ${dir.length}：${dir.join(';')}）`)
+assert(dir[0].includes('方向反转') && dir[0].includes('increase'), `方向反转文案含关键字（实际：${dir[0]}）`)
+
+console.log(failed === 0 ? '全部通过：出处断言＋方向一致性单元测试' : `失败：${failed}`)
 process.exit(failed === 0 ? 0 : 1)

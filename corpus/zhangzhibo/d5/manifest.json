@@ -1,0 +1,69 @@
+{
+  "producer": "魏文宇（巨潮公开接口，限速2.5s，原始PDF不入库）",
+  "day": "D5",
+  "date": "2026-10-01",
+  "event_type": "equity_change",
+  "schema": "evidence/0.9",
+  "samples": [
+    {
+      "parse_file": "parse/equity-001.parse.json",
+      "case_id": "D5-EQC-001",
+      "event_type": "equity_change",
+      "company": "科创新材",
+      "title": "简式权益变动报告书",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225585908.PDF",
+      "source_hash_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+      "announce_date": "2026-09-28"
+    },
+    {
+      "parse_file": "parse/equity-002.parse.json",
+      "case_id": "D5-EQC-002",
+      "event_type": "equity_change",
+      "company": "科创新材",
+      "title": "详式权益变动报告书",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225585904.PDF",
+      "source_hash_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+      "announce_date": "2026-09-28"
+    },
+    {
+      "parse_file": "parse/equity-003.parse.json",
+      "case_id": "D5-EQC-003",
+      "event_type": "equity_change",
+      "company": "科创新材",
+      "title": "国海证券股份有限公司关于洛阳科创新材料股份有限公司详式权益变动报告书之财务顾问核",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225585902.PDF",
+      "source_hash_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+      "announce_date": "2026-09-28"
+    },
+    {
+      "parse_file": "parse/equity-004.parse.json",
+      "case_id": "D5-EQC-004",
+      "event_type": "equity_change",
+      "company": "海正药业",
+      "title": "简式权益变动报告书（金浦浙展）",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225583772.PDF",
+      "source_hash_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+      "announce_date": "2026-09-28"
+    },
+    {
+      "parse_file": "parse/equity-005.parse.json",
+      "case_id": "D5-EQC-005",
+      "event_type": "equity_change",
+      "company": "海正药业",
+      "title": "简式权益变动报告书（国贸集团）",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225583732.PDF",
+      "source_hash_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+      "announce_date": "2026-09-28"
+    },
+    {
+      "parse_file": "parse/equity-006.parse.json",
+      "case_id": "D5-EQC-006",
+      "event_type": "equity_change",
+      "company": "鸿路钢构",
+      "title": "关于实际控制人及一致行动人因可转债转股持股比例被动稀释触及1%整数倍的权益变动公",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225581073.PDF",
+      "source_hash_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+      "announce_date": "2026-09-28"
+    }
+  ]
+}

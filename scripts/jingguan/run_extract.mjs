@@ -22,7 +22,7 @@ import { basename, resolve } from 'node:path'
 import { validateAgainstSchema } from './lib/schema_validator.mjs'
 import { FIELD_REGISTRY, checkRegistry } from './lib/registry.mjs'
 import { normalizeFieldValue } from './lib/fang_normalize.mjs'
-import { checkProvenance, checkPageBounds } from './lib/checks.mjs'
+import { checkProvenance, checkPageBounds, checkEquityDirection } from './lib/checks.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const SCHEMA = JSON.parse(readFileSync(resolve(REPO_ROOT, 'interface', 'event-envelope.schema.json'), 'utf8'))
@@ -259,6 +259,7 @@ function validateEnvelope(envelope, inputText) {
     ...validateAgainstSchema(envelope, SCHEMA, SCHEMA).map((s) => `[schema] ${s}`),
     ...checkRegistry(envelope),
     ...checkProvenance(envelope),
+    ...checkEquityDirection(envelope),
   ]
   const nullValueOk = new Set(['not_disclosed', 'not_applicable', 'not_mentioned', 'unreadable'])
   for (const [i, ev] of (envelope.events ?? []).entries()) {

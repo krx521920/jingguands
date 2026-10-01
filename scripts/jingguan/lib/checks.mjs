@@ -60,3 +60,34 @@ export function goldFieldSupported(fv, text) {
   if (typeof fv.value === 'number') return true // 数值标准化（万进制/去千分位）后的形态
   return false
 }
+
+/** 股权变动方向一致性断言（D5 完成标准："前后方向不得默默反转"）：
+ * shares_before > shares_after → direction 必须 decrease；
+ * shares_before < shares_after → direction 必须 increase；
+ * 变动股数 change_shares 的正负号不参与判定（模型可能输出绝对值）。
+ * 比例对（ratio_before/after）不用于判定（分母可能变）。
+ */
+export function checkEquityDirection(envelope) {
+  const issues = []
+  ;(envelope.events ?? []).forEach((event, i) => {
+    if (event.event_type !== 'equity_change') return
+    const f = event.fields ?? {}
+    const before = f.shares_before
+    const after = f.shares_after
+    const direction = f.direction
+    const where = `events[${i}]`
+    if (before?.status !== 'extracted' || after?.status !== 'extracted') return
+    if (direction?.status !== 'extracted') return
+    const b = Number(before.value)
+    const a = Number(after.value)
+    const d = String(direction.value)
+    if (!Number.isFinite(b) || !Number.isFinite(a)) return
+    if (b > a && d !== 'decrease') {
+      issues.push(`[语义] ${where}: 持股从 ${b} 降至 ${a} 但 direction="${d}"——前后方向反转（应为 decrease）`)
+    }
+    if (b < a && d !== 'increase') {
+      issues.push(`[语义] ${where}: 持股从 ${b} 升至 ${a} 但 direction="${d}"——前后方向反转（应为 increase）`)
+    }
+  })
+  return issues
+}

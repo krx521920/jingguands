@@ -18,7 +18,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { resolve, join } from 'node:path'
 import { validateAgainstSchema } from './lib/schema_validator.mjs'
 import { checkRegistry } from './lib/registry.mjs'
-import { checkProvenance } from './lib/checks.mjs'
+import { checkProvenance, checkEquityDirection } from './lib/checks.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const SCHEMA_PATH = resolve(REPO_ROOT, 'interface', 'event-envelope.schema.json')
@@ -55,6 +55,7 @@ for (const target of targets) {
     ...validateAgainstSchema(instance, schema, schema),
     ...checkRegistry(instance),
     ...checkProvenance(instance),
+    ...checkEquityDirection(instance),
   ]
   const rel = target.includes('runs') ? 'runs/' + target.split(/[\\/]runs[\\/]/)[1] : target
   if (issues.length === 0) {
