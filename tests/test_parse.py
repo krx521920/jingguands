@@ -1106,3 +1106,90 @@ def test_没有单字符碎块():
                 s = b["text_raw"].strip()
                 if len(s) == 1 and not s.isdigit():
                     assert False, f"{name} p{pg['page']} 出现单字符碎块 {s!r}（region={b['region']}）"
+
+
+def test_扫描挑战契约逐字段锁定():
+    """锁定宗博文 evaluation/D4/dev/scan/D4-SCAN-001.expected.json 的期望值。
+
+    他把这个挑战建在我造的 fixture 上，期望值是五个字段。逐字段钉住，
+    免得以后改动把降级形态改掉而没人发现 —— 评测方按这个表判分。
+    """
+    d = _parse_maybe(SCANNED_FIXTURE)
+    pg = d["pages"][0]
+    sc = [b for b in pg["blocks"] if b["source_type"] == "scan_region"]
+    assert sc, "应产出 scan_region"
+    b = sc[0]
+    expected = {
+        "page_form": "SCANNED",
+        "source_type": "scan_region",
+        "degraded": True,
+        "missing_reason": "NOT_PARSED",
+        "text_raw": "",
+    }
+    got = {
+        "page_form": pg["form"],
+        "source_type": b["source_type"],
+        "degraded": b["degraded"],
+        "missing_reason": b["missing_reason"],
+        "text_raw": b["text_raw"],
+    }
+    assert got == expected, f"与宗博文的扫描挑战期望值不一致：{got} != {expected}"
+
+
+# ------------------------------------------------------------ D5 预备：变动前后持股表
+EQCHG_FIXTURE = os.path.join(ROOT, "tests", "fixtures", "equity_change_synthetic.pdf")
+
+
+def test_变动前后持股表的多级表头消歧():
+    """D5 的核心：「本次变动前 / 本次变动后」两组列必须能区分。
+
+    这类表是两层表头 ——
+        | 股东名称 | 本次变动前(跨2列) | 本次变动后(跨2列) |
+        |          | 持股数量 | 持股比例 | 持股数量 | 持股比例 |
+    叶子列名「持股数量（股）」出现两次。不拼上级前缀，抽取层根本分不清
+    取到的是变动前还是变动后的值 —— 而 D5 验收标准明确写「前后方向不得默默反转」。
+
+    现有 13 份真实文档里**没有**这种网格表（equity-change-001 都是 2 列键值表），
+    所以造了这个合成 fixture。真实数据到位前先锁住能力。
+    """
+    if not os.path.exists(EQCHG_FIXTURE):
+        pytest.skip("缺 equity_change_synthetic.pdf")
+    d = pp.parse_pdf(EQCHG_FIXTURE)
+    pg = d["pages"][0]
+    assert pg["tables"], "应检出一张表"
+
+    paths = {}
+    for b in pg["blocks"]:
+        tr = b.get("table_ref") or {}
+        if b["source_type"] != "cell":
+            continue
+        paths[tr["cell_ref"]] = (b["text"], tr.get("header_path"))
+
+    # 数据行的四个值必须分别挂到「变动前/变动后 × 数量/比例」四个不同的列名下
+    assert paths["r3c2"] == ("36,103,002", "本次变动前/持股数量（股）"), paths.get("r3c2")
+    assert paths["r3c3"][1].startswith("本次变动前/"), paths.get("r3c3")
+    assert paths["r3c4"] == ("34,869,002", "本次变动后/持股数量（股）"), paths.get("r3c4")
+    assert paths["r3c5"][1].startswith("本次变动后/"), paths.get("r3c5")
+
+    # 四个叶子列名（去掉前缀后）应有两组同名的，正是需要前缀的原因
+    leafs = [h.split("/", 1)[1] for _t, h in paths.values() if h and "/" in h]
+    assert leafs.count("持股数量（股）") >= 2, leafs
+    assert len({h for _t, h in paths.values() if h and "/" in h}) >= 4, "前缀让同名子列可区分"
+
+
+def test_变动前后表的跨行列都用跨度表达():
+    """「股东名称」跨 2 行、「本次变动前/后」各跨 2 列 —— 都要用 span 表达。"""
+    if not os.path.exists(EQCHG_FIXTURE):
+        pytest.skip("缺 equity_change_synthetic.pdf")
+    d = pp.parse_pdf(EQCHG_FIXTURE)
+    pg = d["pages"][0]
+    by_ref = {}
+    for b in pg["blocks"]:
+        tr = b.get("table_ref") or {}
+        if b["source_type"] == "cell":
+            by_ref[tr["cell_ref"]] = tr
+    assert by_ref["r1c1"]["rowspan"] == 2, "股东名称应跨 2 行"
+    assert by_ref["r1c2"]["colspan"] == 2, "本次变动前应跨 2 列"
+    assert by_ref["r1c4"]["colspan"] == 2, "本次变动后应跨 2 列"
+    # 跨列的表头要写出它覆盖的列
+    assert len(by_ref["r1c2"].get("covers") or []) == 1
