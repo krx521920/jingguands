@@ -1,0 +1,1215 @@
+{
+  "tested_at": "2026-10-01T13:45:42.308Z",
+  "node": "v24.21.0",
+  "pins": {
+    "fang_base": "5fe05e89be6899ef7d38a2ef49c2dc132cb1d239",
+    "wei_core": "477b4f420553e8a52c2fbccc464d7561b239c443",
+    "wei_actual": "3c8a6ee9c2aaabe5e0fcce3b9853f5d2c2f4643e",
+    "chen": "1ceab9c5c103ba600bd88f475b52ef38670cbb4c",
+    "zong": "a75e0cdcd2cb5422a0a6181ca7f6183fdc2a687d",
+    "zhang": "847c035749827cdddf863ba752188f3b31084119"
+  },
+  "mode": "offline_replay",
+  "source_contents_verified": false,
+  "model_called": false,
+  "challenge_cases": [
+    {
+      "case_id": "D5-INV-001",
+      "passed": true,
+      "expected": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "actual": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "status": "needs_review"
+    },
+    {
+      "case_id": "D5-INV-002",
+      "passed": true,
+      "expected": {
+        "direction_issue": true,
+        "ratio_conflict": false
+      },
+      "actual": {
+        "direction_issue": true,
+        "ratio_conflict": false
+      },
+      "status": "mismatch"
+    },
+    {
+      "case_id": "D5-INV-003",
+      "passed": true,
+      "expected": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "actual": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "status": "needs_review"
+    },
+    {
+      "case_id": "D5-INV-004",
+      "passed": true,
+      "expected": {
+        "direction_issue": true,
+        "ratio_conflict": false
+      },
+      "actual": {
+        "direction_issue": true,
+        "ratio_conflict": false
+      },
+      "status": "mismatch"
+    },
+    {
+      "case_id": "D5-INV-005",
+      "passed": true,
+      "expected": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "actual": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "status": "needs_review"
+    },
+    {
+      "case_id": "D5-INV-006",
+      "passed": true,
+      "expected": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "actual": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "status": "needs_review"
+    },
+    {
+      "case_id": "D5-INV-007",
+      "passed": true,
+      "expected": {
+        "direction_issue": true,
+        "ratio_conflict": false
+      },
+      "actual": {
+        "direction_issue": true,
+        "ratio_conflict": false
+      },
+      "status": "mismatch"
+    },
+    {
+      "case_id": "D5-INV-008",
+      "passed": true,
+      "expected": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "actual": {
+        "direction_issue": false,
+        "ratio_conflict": false
+      },
+      "status": "needs_review"
+    },
+    {
+      "case_id": "D5-INV-009",
+      "passed": true,
+      "expected": {
+        "direction_issue": false,
+        "ratio_conflict": true
+      },
+      "actual": {
+        "direction_issue": false,
+        "ratio_conflict": true
+      },
+      "status": "needs_review"
+    },
+    {
+      "case_id": "D5-INV-010",
+      "passed": true,
+      "expected": {
+        "direction_issue": false,
+        "ratio_conflict": false,
+        "requires_review": true
+      },
+      "actual": {
+        "direction_issue": false,
+        "ratio_conflict": false,
+        "requires_review": true
+      },
+      "status": "needs_review"
+    }
+  ],
+  "documents": [
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-001",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-001.envelope.json",
+      "input_sha256": "f9486a67a81bacccb63f6b52884436310aa2e9984ad88f9d02090a2ee3a7e003",
+      "event_count": 5,
+      "status": "verified",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "蔚文绪",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "-3680700",
+            "ratio_delta_pp": "-4.28",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E02",
+          "holder": "马军强",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "-2975600",
+            "ratio_delta_pp": "-3.46",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E03",
+          "holder": "杨占坡",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "-430000",
+            "ratio_delta_pp": "-0.5",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E04",
+          "holder": "蔚文举",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "-1341600",
+            "ratio_delta_pp": "-1.56",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E05",
+          "holder": "于春生",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "8427900",
+            "ratio_delta_pp": "9.8",
+            "inferred_share_direction": "increase",
+            "reported_direction": "increase",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-002",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-002.envelope.json",
+      "input_sha256": "a079f41c2b8eac3b23b056cb1e325239b7fd843c9a6476b94d05c7318337f1f8",
+      "event_count": 3,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "于春生",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "8427900",
+            "ratio_delta_pp": "9.8",
+            "inferred_share_direction": "increase",
+            "reported_direction": "increase",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E02",
+          "holder": "蔚文绪",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "MISSING_SHARE_PAIR",
+              "severity": "review",
+              "fields": [
+                "shares_before",
+                "shares_after"
+              ],
+              "message": "前后股数不全，不能判断股数方向"
+            },
+            {
+              "code": "MISSING_RATIO_PAIR",
+              "severity": "review",
+              "fields": [
+                "ratio_before",
+                "ratio_after"
+              ],
+              "message": "比例前后值不全或依据不足，不填零、不反推分母"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "holder": "蔚文举",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "MISSING_SHARE_PAIR",
+              "severity": "review",
+              "fields": [
+                "shares_before",
+                "shares_after"
+              ],
+              "message": "前后股数不全，不能判断股数方向"
+            },
+            {
+              "code": "MISSING_RATIO_PAIR",
+              "severity": "review",
+              "fields": [
+                "ratio_before",
+                "ratio_after"
+              ],
+              "message": "比例前后值不全或依据不足，不填零、不反推分母"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-003",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-003.envelope.json",
+      "input_sha256": "65ac1a2faf97cc799c2f86ff0a34f12bb94a3cb8be995804bd16e80fc92ea536",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "蔚文绪、马军强、杨占坡和蔚文举",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "MISSING_SHARE_PAIR",
+              "severity": "review",
+              "fields": [
+                "shares_before",
+                "shares_after"
+              ],
+              "message": "前后股数不全，不能判断股数方向"
+            },
+            {
+              "code": "MISSING_RATIO_PAIR",
+              "severity": "review",
+              "fields": [
+                "ratio_before",
+                "ratio_after"
+              ],
+              "message": "比例前后值不全或依据不足，不填零、不反推分母"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-004",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-004.envelope.json",
+      "input_sha256": "ebb287f39ed1c34929b033429b05f04fc263c167971690c929ee85d03a01efa5",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "increase",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "候选值或未确认标准化的数值字段不参与等式判断"
+            },
+            {
+              "code": "MISSING_OR_INVALID_PERIOD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "缺少有效变动日期/区间；不以公告日期补齐"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-005",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-005.envelope.json",
+      "input_sha256": "aab78158d4c57e8970cdac2cb30bd68eb9d56b21ab8ba36144d326792f3649ce",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "浙江省国际贸易集团有限公司",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "候选值或未确认标准化的数值字段不参与等式判断"
+            },
+            {
+              "code": "MISSING_OR_INVALID_PERIOD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "缺少有效变动日期/区间；不以公告日期补齐"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-006",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-006.envelope.json",
+      "input_sha256": "81628c7bab3216e38983207bd63ea6870f55339dd3a6478453dafd7aee32312e",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "商晓波及其一致行动人",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": "0",
+            "ratio_delta_pp": "-0.73",
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "EQUAL_SHARES_NO_DIRECTION",
+              "severity": "review",
+              "fields": [
+                "shares_before",
+                "shares_after"
+              ],
+              "message": "股数相等不能推出无变动或增减方向，可能存在被动稀释或期间净额为零"
+            },
+            {
+              "code": "RATIO_CHANGED_WITH_EQUAL_SHARES",
+              "severity": "review",
+              "fields": [
+                "ratio_before",
+                "ratio_after"
+              ],
+              "message": "股数不变但比例改变，需核对被动稀释或分母时点"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-007",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-007.envelope.json",
+      "input_sha256": "2e2bb882e8376e2727407c7a93b6b08072c0773335a4b4a6f3b389e0d5927828",
+      "event_count": 1,
+      "status": "verified",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "-166500000",
+            "ratio_delta_pp": "-7.26",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-008",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-008.envelope.json",
+      "input_sha256": "adce0e490e510ef5ab20b80d1d6cf7e43c0dcc32c341b0b2b55c62f998c59f8a",
+      "event_count": 1,
+      "status": "verified",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "ZHANGNING",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "733400",
+            "ratio_delta_pp": "0.11",
+            "inferred_share_direction": "increase",
+            "reported_direction": "increase",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-009",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-009.envelope.json",
+      "input_sha256": "e0bae7486761b7087110a1e541d9dde7fa2622c9bf8c53cb8e48c54b0677bb10",
+      "event_count": 1,
+      "status": "verified",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "RONGJIANLU（陆荣健）",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "-3015017",
+            "ratio_delta_pp": "-1.0441",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "case_id": "D5-EQC-010",
+      "input_path": "evaluation/D5/dev/gold/D5-EQC-010.envelope.json",
+      "input_sha256": "b197ee240fb8f7617f75e85c70f9a61f1905a788a67c91f6b7dd10740d803fc8",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "高福忠、高健",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "候选值或未确认标准化的数值字段不参与等式判断"
+            },
+            {
+              "code": "MISSING_OR_INVALID_PERIOD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "缺少有效变动日期/区间；不以公告日期补齐"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "case_id": "D5-EQC-001",
+      "input_path": "evaluation/D5/evidence/upstream/D5-EQC-001.upstream.json",
+      "input_sha256": "5c09a3ce130403302ee1f14a11d53ced919906067f56867a8307eec6d57d9cb1",
+      "event_count": 5,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "蔚文绪",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": "-3680700",
+            "ratio_delta_pp": "-4.28",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "SIGNED_CHANGE_REQUIRES_MAPPING",
+              "severity": "review",
+              "fields": [
+                "change_shares"
+              ],
+              "message": "当前评测口径为非负绝对量；有符号输入需上游显式适配，不静默取绝对值"
+            },
+            {
+              "code": "MISSING_CHANGE_SHARES",
+              "severity": "review",
+              "fields": [
+                "change_shares"
+              ],
+              "message": "缺少可确认的变动绝对量，不填入推导值"
+            }
+          ]
+        },
+        {
+          "event_id": "E02",
+          "holder": "马军强",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": "-2975600",
+            "ratio_delta_pp": "-3.46",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "SIGNED_CHANGE_REQUIRES_MAPPING",
+              "severity": "review",
+              "fields": [
+                "change_shares"
+              ],
+              "message": "当前评测口径为非负绝对量；有符号输入需上游显式适配，不静默取绝对值"
+            },
+            {
+              "code": "MISSING_CHANGE_SHARES",
+              "severity": "review",
+              "fields": [
+                "change_shares"
+              ],
+              "message": "缺少可确认的变动绝对量，不填入推导值"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "holder": "杨占坡",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": "-430000",
+            "ratio_delta_pp": "-0.5",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "SIGNED_CHANGE_REQUIRES_MAPPING",
+              "severity": "review",
+              "fields": [
+                "change_shares"
+              ],
+              "message": "当前评测口径为非负绝对量；有符号输入需上游显式适配，不静默取绝对值"
+            },
+            {
+              "code": "MISSING_CHANGE_SHARES",
+              "severity": "review",
+              "fields": [
+                "change_shares"
+              ],
+              "message": "缺少可确认的变动绝对量，不填入推导值"
+            }
+          ]
+        },
+        {
+          "event_id": "E04",
+          "holder": "蔚文举",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": "-1341600",
+            "ratio_delta_pp": "-1.56",
+            "inferred_share_direction": "decrease",
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "SIGNED_CHANGE_REQUIRES_MAPPING",
+              "severity": "review",
+              "fields": [
+                "change_shares"
+              ],
+              "message": "当前评测口径为非负绝对量；有符号输入需上游显式适配，不静默取绝对值"
+            },
+            {
+              "code": "MISSING_CHANGE_SHARES",
+              "severity": "review",
+              "fields": [
+                "change_shares"
+              ],
+              "message": "缺少可确认的变动绝对量，不填入推导值"
+            }
+          ]
+        },
+        {
+          "event_id": "E05",
+          "holder": "于春生",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "8427900",
+            "ratio_delta_pp": "9.8",
+            "inferred_share_direction": "increase",
+            "reported_direction": "increase",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "case_id": "D5-EQC-002",
+      "input_path": "evaluation/D5/evidence/upstream/D5-EQC-002.upstream.json",
+      "input_sha256": "3cf09118101d5f6500b3e64dc56444760b722be880b28b69b585933890205a5e",
+      "event_count": 3,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "于春生",
+          "status": "verified",
+          "calculations": {
+            "shares_delta": "8427900",
+            "ratio_delta_pp": "9.8",
+            "inferred_share_direction": "increase",
+            "reported_direction": "increase",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E02",
+          "holder": "蔚文绪",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "MISSING_SHARE_PAIR",
+              "severity": "review",
+              "fields": [
+                "shares_before",
+                "shares_after"
+              ],
+              "message": "前后股数不全，不能判断股数方向"
+            },
+            {
+              "code": "MISSING_RATIO_PAIR",
+              "severity": "review",
+              "fields": [
+                "ratio_before",
+                "ratio_after"
+              ],
+              "message": "比例前后值不全或依据不足，不填零、不反推分母"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "holder": "蔚文举",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "MISSING_SHARE_PAIR",
+              "severity": "review",
+              "fields": [
+                "shares_before",
+                "shares_after"
+              ],
+              "message": "前后股数不全，不能判断股数方向"
+            },
+            {
+              "code": "MISSING_RATIO_PAIR",
+              "severity": "review",
+              "fields": [
+                "ratio_before",
+                "ratio_after"
+              ],
+              "message": "比例前后值不全或依据不足，不填零、不反推分母"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "case_id": "D5-EQC-003",
+      "input_path": "evaluation/D5/evidence/upstream/D5-EQC-003.upstream.json",
+      "input_sha256": "42f33eeabe504e1e89afc2aaae7aace52bc342ef3bf1e2420aa87830c56583e2",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "蔚文绪、马军强、杨占坡和蔚文举",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "MISSING_SHARE_PAIR",
+              "severity": "review",
+              "fields": [
+                "shares_before",
+                "shares_after"
+              ],
+              "message": "前后股数不全，不能判断股数方向"
+            },
+            {
+              "code": "MISSING_RATIO_PAIR",
+              "severity": "review",
+              "fields": [
+                "ratio_before",
+                "ratio_after"
+              ],
+              "message": "比例前后值不全或依据不足，不填零、不反推分母"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "case_id": "D5-EQC-004",
+      "input_path": "evaluation/D5/evidence/upstream/D5-EQC-004.upstream.json",
+      "input_sha256": "3747deba8a67bcfe242b8c74966c93cc920c2988b56a032fda69a0d322e017fe",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "increase",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "候选值或未确认标准化的数值字段不参与等式判断"
+            },
+            {
+              "code": "MISSING_OR_INVALID_PERIOD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "缺少有效变动日期/区间；不以公告日期补齐"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "case_id": "D5-EQC-005",
+      "input_path": "evaluation/D5/evidence/upstream/D5-EQC-005.upstream.json",
+      "input_sha256": "360a27d095ecf605e256cdcf1351be71d19a289c7327af21d10a1c3531a2020a",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "浙江省国际贸易集团有限公司",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": null,
+            "ratio_delta_pp": null,
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": null,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "候选值或未确认标准化的数值字段不参与等式判断"
+            },
+            {
+              "code": "MISSING_OR_INVALID_PERIOD",
+              "severity": "review",
+              "fields": [
+                "change_date"
+              ],
+              "message": "缺少有效变动日期/区间；不以公告日期补齐"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "case_id": "D5-EQC-006",
+      "input_path": "evaluation/D5/evidence/upstream/D5-EQC-006.upstream.json",
+      "input_sha256": "f749ff5830f38ba3c518a196690c109915202de8f9852afc8ed39993d9c8ee0b",
+      "event_count": 1,
+      "status": "needs_review",
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "upstream_schema_issues": [],
+      "events": [
+        {
+          "event_id": "E01",
+          "holder": "商晓波及其一致行动人",
+          "status": "needs_review",
+          "calculations": {
+            "shares_delta": "0",
+            "ratio_delta_pp": "-0.73",
+            "inferred_share_direction": null,
+            "reported_direction": "decrease",
+            "change_shares_matches": true,
+            "ratio_arithmetic": "not_checked_no_denominator_values"
+          },
+          "findings": [
+            {
+              "code": "EQUAL_SHARES_NO_DIRECTION",
+              "severity": "review",
+              "fields": [
+                "shares_before",
+                "shares_after"
+              ],
+              "message": "股数相等不能推出无变动或增减方向，可能存在被动稀释或期间净额为零"
+            },
+            {
+              "code": "RATIO_CHANGED_WITH_EQUAL_SHARES",
+              "severity": "review",
+              "fields": [
+                "ratio_before",
+                "ratio_after"
+              ],
+              "message": "股数不变但比例改变，需核对被动稀释或分母时点"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "parser_references": [
+    {
+      "case_id": "D5-EQC-001",
+      "path": "sample/D5/parse/D5-EQC-001.parse.json",
+      "git_content_sha256": "1d23ec6a7fcc10aa7e6e02f3a13ca4f7d86ebd0ea85e1c43fe1b005802693e2a",
+      "schema_version": "evidence/0.9",
+      "page_count": 35,
+      "evidence_references": 45,
+      "unresolved": [],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "path": "sample/D5/parse/D5-EQC-002.parse.json",
+      "git_content_sha256": "a76f365f653b94c08b390ffc755184d150c88c2a29a5454f54e950552d852275",
+      "schema_version": "evidence/0.9",
+      "page_count": 64,
+      "evidence_references": 25,
+      "unresolved": [],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "path": "sample/D5/parse/D5-EQC-003.parse.json",
+      "git_content_sha256": "b7a2a153f10a6e553769b9325f5617320765ce0cfb37f499b8d7e70a704d455a",
+      "schema_version": "evidence/0.9",
+      "page_count": 34,
+      "evidence_references": 5,
+      "unresolved": [],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "path": "sample/D5/parse/D5-EQC-004.parse.json",
+      "git_content_sha256": "3b56fd2a34f26e164e7d1ac05bd38a8e673fdf66d5575c5fcab0daf8639667a3",
+      "schema_version": "evidence/0.9",
+      "page_count": 21,
+      "evidence_references": 9,
+      "unresolved": [],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "path": "sample/D5/parse/D5-EQC-005.parse.json",
+      "git_content_sha256": "906c89b1ca2bbc308b465286fa9098080e3c45ac62734e583a2fc355ecb38ce9",
+      "schema_version": "evidence/0.9",
+      "page_count": 18,
+      "evidence_references": 9,
+      "unresolved": [],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "path": "sample/D5/parse/D5-EQC-006.parse.json",
+      "git_content_sha256": "a12a955943c17d1aa1a32a7b322d11ece6be42abfcd1de5016b2a8e02b944f84",
+      "schema_version": "evidence/0.9",
+      "page_count": 3,
+      "evidence_references": 9,
+      "unresolved": [],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "path": "sample/D5/parse/D5-EQC-007.parse.json",
+      "git_content_sha256": "75e50bf37df57e1278ad73c8c92a45d5f76fb927421017e2412af70acbdbb6f5",
+      "schema_version": "evidence/0.9",
+      "page_count": 18,
+      "evidence_references": 9,
+      "unresolved": [
+        {
+          "event_id": "E01",
+          "field": "direction",
+          "block_id": "d3d00372c_p001_b00028",
+          "reason": "quote_not_in_block"
+        }
+      ],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "path": "sample/D5/parse/D5-EQC-008.parse.json",
+      "git_content_sha256": "819744ca382644256cdbcc921cbe1e6e33fcb3104cbffc577f3b1395cf413869",
+      "schema_version": "evidence/0.9",
+      "page_count": 19,
+      "evidence_references": 9,
+      "unresolved": [],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "path": "sample/D5/parse/D5-EQC-009.parse.json",
+      "git_content_sha256": "15c95686774643417c6620de111cf3097c2f4873047c4c39c992a243022b23c5",
+      "schema_version": "evidence/0.9",
+      "page_count": 16,
+      "evidence_references": 9,
+      "unresolved": [],
+      "source_sha256_matches": true
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "path": "sample/D5/parse/D5-EQC-010.parse.json",
+      "git_content_sha256": "56ebe97cede17e7128ba14f79d0657f929f6bed2415b3cf2d98288a9acf26246",
+      "schema_version": "evidence/0.9",
+      "page_count": 24,
+      "evidence_references": 9,
+      "unresolved": [
+        {
+          "event_id": "E01",
+          "field": "change_date",
+          "block_id": "dd2c6e0d0_p022_b00004",
+          "reason": "quote_not_in_block"
+        }
+      ],
+      "source_sha256_matches": true
+    }
+  ],
+  "synthetic_schema_issues": [],
+  "summary": {
+    "challenge_pass": 10,
+    "gold_documents": 10,
+    "upstream_documents": 6,
+    "gold_events": 16,
+    "upstream_events": 12,
+    "original_inputs_unchanged": true,
+    "chen_bridge_unchanged": true,
+    "upstream_schema_issue_documents": 10,
+    "parser_evidence_references": 138,
+    "parser_unresolved_references": 2
+  }
+}

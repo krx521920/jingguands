@@ -1,0 +1,80 @@
+{
+  "owner": "方轩诚",
+  "day": "D5",
+  "date": "2026-10-01",
+  "delivery": "D5_debug_package_no_D4_runtime_dependency",
+  "target_branch": "feature/fang-rules",
+  "base_commit": "5fe05e89be6899ef7d38a2ef49c2dc132cb1d239",
+  "runtime": "Node.js >=24",
+  "files": [
+    {
+      "path": "docs_D5/compatibility_results_D5.json",
+      "sha256": "5194c78e41d71a08500ad23edb6e891b4b63bc89410e17192bc9d41d284adf79",
+      "bytes": 39438
+    },
+    {
+      "path": "docs_D5/regression_log_D5.txt",
+      "sha256": "7fc348bdb9e3ff0b110ba326a48c88818189bcbe22cb396d09bff4b17c4d2cd6",
+      "bytes": 7159
+    },
+    {
+      "path": "docs_D5/unit_log_D5.txt",
+      "sha256": "d98c113e99d98529f2b22b0d2dd71a67f6d7f2ffb3f5747a8166b5ea7204eff0",
+      "bytes": 2587
+    },
+    {
+      "path": "docs_D5/验收记录_D5.md",
+      "sha256": "261903fc7a90640bba353d6ad66a63101637c215cc75c8edc554c6a0a4571957",
+      "bytes": 5698
+    },
+    {
+      "path": "examples_D5/equity_input_D5.json",
+      "sha256": "96928da19ed475104ab399b89e396459363d488e0f2ae328e1105f3191cc2396",
+      "bytes": 6879
+    },
+    {
+      "path": "examples_D5/equity_output_D5.json",
+      "sha256": "5779b1ef3fc4eea159626e35314d020fbddf2cb989b05619015c4cfcc1cb0773",
+      "bytes": 7728
+    },
+    {
+      "path": "README_D5.md",
+      "sha256": "bce248f7a47bc9ad312a791c4b41faea1a7a3d6ac258ca599b76a1d1443ae342",
+      "bytes": 4390
+    },
+    {
+      "path": "src_D5/cli_D5.ts",
+      "sha256": "e4008cca62ee5014e56463d8e4720f917d2f71ad478e0692fbd545fe49c8d88e",
+      "bytes": 1734
+    },
+    {
+      "path": "src_D5/equity_check_D5.ts",
+      "sha256": "1191ade46427dde677021123014d7b0429262726749851b0ea6ae0494833ac7b",
+      "bytes": 21147
+    },
+    {
+      "path": "tests_D5/compatibility_D5.mjs",
+      "sha256": "98cda44bd6eefcb4d02ef5f9ec9d523e532aad59cbb3f26d07fb6d70dc9a4d1d",
+      "bytes": 7248
+    },
+    {
+      "path": "tests_D5/equity.test_D5.mjs",
+      "sha256": "350b6452dc5f0394b53613a58f45ac6ab59a08ea97822dd71295383c3e0cb839",
+      "bytes": 9891
+    },
+    {
+      "path": "tsconfig_D5.json",
+      "sha256": "47b74b7b1959bc1cb6244def5d49a7250fef4583c11adbd8e94b84c9545f5cdf",
+      "bytes": 627
+    }
+  ],
+  "manifest_self": "交付清单_D5.json (self hash excluded)",
+  "inlined_modules": [
+    {
+      "path": "src_D4/normalization/normalization_D4.ts",
+      "sha256": "a115c3bb03095d9c2b539b2d6687fa422b8f3fe4412fc48373f5981e78d39747",
+      "action": "inlined_verbatim_into_src_D5/equity_check_D5.ts"
+    }
+  ],
+  "runtime_dependencies": []
+}
