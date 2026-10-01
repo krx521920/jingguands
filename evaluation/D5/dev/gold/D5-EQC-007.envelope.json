@@ -1,0 +1,258 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D5-EQC-007",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+    "file_name": "D5-EQC-007.pdf",
+    "file_sha256": "3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+    "parse_meta": {
+      "parser_version": "0.9.0",
+      "page_count": 18,
+      "blocks": 332
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资",
+          "value": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p002_b00005",
+              "source_type": "paragraph",
+              "page": 2,
+              "region": [
+                90,
+                218.09,
+                505.32,
+                370.49
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "direction": {
+          "raw_value": "股份减少",
+          "value": "decrease",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p001_b00028",
+              "source_type": "paragraph",
+              "page": 1,
+              "region": [
+                90,
+                490.73,
+                222,
+                502.73
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "股份变动性质：股份减少"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "shares_before": {
+          "raw_value": "1,325,635,213股",
+          "value": 1325635213,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p009_b00004",
+              "source_type": "paragraph",
+              "page": 9,
+              "region": [
+                90,
+                186.89,
+                505.32,
+                282.08
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "1,325,635,213"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "shares_after": {
+          "raw_value": "1,159,135,213股",
+          "value": 1159135213,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p009_b00004",
+              "source_type": "paragraph",
+              "page": 9,
+              "region": [
+                90,
+                186.89,
+                505.32,
+                282.08
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "1,159,135,213"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "ratio_before": {
+          "raw_value": "57.85%",
+          "value": 57.85,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p009_b00004",
+              "source_type": "paragraph",
+              "page": 9,
+              "region": [
+                90,
+                186.89,
+                505.32,
+                282.08
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "57.85%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "ratio_after": {
+          "raw_value": "50.59%",
+          "value": 50.59,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p009_b00004",
+              "source_type": "paragraph",
+              "page": 9,
+              "region": [
+                90,
+                186.89,
+                505.32,
+                282.08
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "50.59%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "change_shares": {
+          "raw_value": "166,500,000股",
+          "value": 166500000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p009_b00003",
+              "source_type": "paragraph",
+              "page": 9,
+              "region": [
+                114,
+                163.49,
+                505.32,
+                177.48
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "166,500,000"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": "D5 annotation rule: absolute magnitude; direction carries sign."
+        },
+        "method": {
+          "raw_value": "司法拍卖被动减持",
+          "value": "司法拍卖被动减持",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p010_b00013",
+              "source_type": "paragraph",
+              "page": 10,
+              "region": [
+                114,
+                584.69,
+                505.32,
+                598.68
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "被动减持"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "change_date": {
+          "raw_value": "2026年9月29日",
+          "value": "2026-09-29",
+          "unit": "date_range",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3d00372c_p010_b00013",
+              "source_type": "paragraph",
+              "page": 10,
+              "region": [
+                114,
+                584.69,
+                505.32,
+                598.68
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "2026年9月29日"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "rule",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-10-01T20:30:00+08:00",
+    "duration_ms": 0,
+    "errors": [],
+    "note": "D5 Gold annotation"
+  }
+}

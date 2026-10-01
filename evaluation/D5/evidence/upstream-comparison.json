@@ -1,0 +1,12 @@
+{
+  "upstream_branch": "weiwenyu",
+  "upstream_commit": "a862c40a",
+  "upstream_batch": "runs/batch-20261001T094756",
+  "documents_compared": 6,
+  "gold_documents": 10,
+  "events_matched": 12,
+  "field_differences": 0,
+  "normalization_note": "change_shares compared by absolute magnitude; direction is validated separately.",
+  "differences": [],
+  "result": "MATCH"
+}

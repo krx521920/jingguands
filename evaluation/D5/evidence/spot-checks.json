@@ -1,0 +1,345 @@
+{
+  "total": 20,
+  "items": [
+    {
+      "case_id": "D5-EQC-001",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "d9d5be14f_p010_b00001",
+      "page": 10,
+      "region": [
+        90.8,
+        72.77,
+        147.79,
+        93.6
+      ],
+      "table_id": "d9d5be14f_p010_t001",
+      "cell_ref": "r1c1",
+      "source_type": "cell",
+      "quote": "蔚文绪"
+    },
+    {
+      "case_id": "D5-EQC-001",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "d9d5be14f_p033_b00041",
+      "page": 33,
+      "region": [
+        288.43,
+        705.58,
+        523.92,
+        760.66
+      ],
+      "table_id": "d9d5be14f_p033_t001",
+      "cell_ref": "r12c3",
+      "source_type": "cell",
+      "quote": "减少3,680,700股"
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "d46bc2ef0_p017_b00005",
+      "page": 17,
+      "region": [
+        113.78,
+        168.39,
+        505.5,
+        181.29
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "本次权益变动前，信息披露义务人于春生持有上市公司4,472,000股股份"
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "d46bc2ef0_p001_b00002",
+      "page": 1,
+      "region": [
+        90.02,
+        118.2,
+        519.48,
+        727.21
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "由增持股份（协议转让）及签订《一致行动协议》所引起"
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "d173fee90_p018_b00013",
+      "page": 18,
+      "region": [
+        113.64,
+        537.89,
+        505.2,
+        551.88
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "蔚文绪、马军强、杨占坡和蔚文举"
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "d173fee90_p018_b00014",
+      "page": 18,
+      "region": [
+        90,
+        561.29,
+        511.08,
+        760.49
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "转让"
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "da00b31da_p001_b00004",
+      "page": 1,
+      "region": [
+        60.84,
+        320.45,
+        512.16,
+        404.45
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "信息披露义务人名称：金浦浙展股权投资（丽水）合伙企业（有限合伙）"
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "da00b31da_p001_b00005",
+      "page": 1,
+      "region": [
+        86.04,
+        464.45,
+        338.04,
+        476.45
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "股份增加"
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "da8d294d2_p008_b00002",
+      "page": 8,
+      "region": [
+        114.24,
+        83.09,
+        500.16,
+        157.56
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份"
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "da8d294d2_p001_b00011",
+      "page": 1,
+      "region": [
+        114.24,
+        458.45,
+        365.4,
+        470.45
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "股份减少"
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "d97e2cfab_p001_b00017",
+      "page": 1,
+      "region": [
+        131.6,
+        661.88,
+        533.12,
+        702.12
+      ],
+      "table_id": "d97e2cfab_p001_t001",
+      "cell_ref": "r2c2",
+      "source_type": "cell",
+      "quote": "商晓波及其一致行动人"
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "d97e2cfab_p002_b00007",
+      "page": 2,
+      "region": [
+        131.6,
+        132.62,
+        307.3,
+        172.87
+      ],
+      "table_id": "d97e2cfab_p002_t001",
+      "cell_ref": "r3c2",
+      "source_type": "cell",
+      "quote": "□上升下降"
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "d3d00372c_p002_b00005",
+      "source_type": "paragraph",
+      "page": 2,
+      "region": [
+        90,
+        218.09,
+        505.32,
+        370.49
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资"
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "d3d00372c_p001_b00028",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        90,
+        490.73,
+        222,
+        502.73
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "股份变动性质：股份减少"
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "daf34725a_p009_b00003",
+      "source_type": "paragraph",
+      "page": 9,
+      "region": [
+        114,
+        163.49,
+        505.32,
+        177.48
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "ZHANGNING"
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "daf34725a_p001_b00005",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        90,
+        670.49,
+        222,
+        682.49
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "股份增加"
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "d31d2e428_p001_b00004",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        114.12,
+        280.49,
+        349.44,
+        317.88
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "RONGJIANLU（陆荣健）"
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "d31d2e428_p001_b00005",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        90,
+        350.69,
+        511.32,
+        388.08
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "持股比例被动稀释及股份减少"
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "dd2c6e0d0_p004_b00015",
+      "source_type": "cell",
+      "page": 4,
+      "region": [
+        264,
+        215.84,
+        510.7,
+        236.19
+      ],
+      "table_id": "dd2c6e0d0_p004_t001",
+      "cell_ref": "r4c3",
+      "quote": "高福忠、高健"
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "dd2c6e0d0_p001_b00005",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        90,
+        650.06,
+        328.45,
+        664.11
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "股份减少"
+    }
+  ]
+}
