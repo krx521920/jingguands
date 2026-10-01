@@ -1,0 +1,1707 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261001T074658-pledge-c80c",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
+    "file_name": "D4-PLD-010.pdf",
+    "file_sha256": "b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 3,
+      "blocks": [
+        {
+          "block_id": "db2351d0b_p001_b00001",
+          "page": 1,
+          "role": "BODY",
+          "text": "证券代码：605376 证券简称：博迁新材 公告编号：2026-047",
+          "text_raw": "证券代码：605376证券简称：博迁新材公告编号：2026-047",
+          "region": [
+            90,
+            84.17,
+            505.2,
+            96.17
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "江苏博迁新材料股份有限公司关于控股股东部分股份质押的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述",
+          "text_raw": "江苏博迁新材料股份有限公司关于控股股东部分股份质押的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述",
+          "region": [
+            114,
+            118.25,
+            505.32,
+            200.93
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "text_raw": "或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "region": [
+            90,
+            212.21,
+            462,
+            224.21
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "重要内容提示：",
+          "text_raw": "重要内容提示：",
+          "region": [
+            114,
+            260.45,
+            198,
+            272.45
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": " 江苏博迁新材料股份有限公司（以下简称“公司”）控股股东宁波广弘",
+          "text_raw": "江苏博迁新材料股份有限公司（以下简称“公司”）控股股东宁波广弘",
+          "region": [
+            114,
+            283.73,
+            505.32,
+            296.57
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "元创业投资合伙企业（有限合伙）（以下简称“广弘元”）持有本公司股份51,553,800股，占本公司股份总数的19.71%。",
+          "text_raw": "元创业投资合伙企业（有限合伙）（以下简称“广弘元”）持有本公司股份51,553,800股，占本公司股份总数的19.71%。",
+          "region": [
+            90,
+            314.93,
+            505.32,
+            358.01
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": " 本次质押后，广弘元累计质押股份数量为15,200,000股（含本次），占",
+          "text_raw": "本次质押后，广弘元累计质押股份数量为15,200,000股（含本次），占",
+          "region": [
+            114,
+            377.09,
+            505.32,
+            389.93
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "其持股数量的比例为29.48%，占公司总股本的比例为5.81%。控股股东广弘元的一致行动人宁波申扬创业投资合伙企业（有限合伙）不存在质押情形。",
+          "text_raw": "其持股数量的比例为29.48%，占公司总股本的比例为5.81%。控股股东广弘元的一致行动人宁波申扬创业投资合伙企业（有限合伙）不存在质押情形。",
+          "region": [
+            90,
+            408.29,
+            505.32,
+            451.37
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "公司于2026年9月24日收到控股股东广弘元关于其所持部分公司股份办理",
+          "text_raw": "公司于2026年9月24日收到控股股东广弘元关于其所持部分公司股份办理",
+          "region": [
+            114,
+            470.57,
+            505.32,
+            482.57
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00010",
+          "page": 1,
+          "role": "BODY",
+          "text": "质押的通知，具体情况如下：",
+          "text_raw": "质押的通知，具体情况如下：",
+          "region": [
+            90,
+            501.65,
+            246,
+            513.65
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00011",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、股份质押情况",
+          "text_raw": "一、股份质押情况",
+          "region": [
+            114,
+            532.73,
+            210,
+            544.73
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "广弘元将其持有的本公司5,200,000股无限售流通股份质押给中信银行股",
+          "text_raw": "广弘元将其持有的本公司5,200,000股无限售流通股份质押给中信银行股",
+          "region": [
+            114,
+            563.93,
+            505.32,
+            575.93
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "份有限公司宁波分行（以下简称“中信银行宁波分行”），并已在中国证券登记结算有限责任公司办理完成质押登记手续。",
+          "text_raw": "份有限公司宁波分行（以下简称“中信银行宁波分行”），并已在中国证券登记结算有限责任公司办理完成质押登记手续。",
+          "region": [
+            90,
+            595.01,
+            505.2,
+            638.09
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00014",
+          "page": 1,
+          "role": "BODY",
+          "text": "1、本次股份质押基本情况",
+          "text_raw": "1、本次股份质押基本情况",
+          "region": [
+            114,
+            657.29,
+            252,
+            669.29
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p001_b00015",
+          "page": 1,
+          "role": "FOOTER",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            295.44,
+            773.68,
+            299.94,
+            782.68
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00001",
+          "page": 2,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            37.45,
+            72.24,
+            75.8,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00002",
+          "page": 2,
+          "role": "BODY",
+          "text": "是否为控股股东",
+          "text_raw": "是否为控股股东",
+          "region": [
+            75.8,
+            72.24,
+            118.35,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "本次质押股数（股）",
+          "text_raw": "本次质押股数（股）",
+          "region": [
+            118.35,
+            72.24,
+            182.15,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00004",
+          "page": 2,
+          "role": "BODY",
+          "text": "是否为限售股",
+          "text_raw": "是否为限售股",
+          "region": [
+            182.15,
+            72.24,
+            224.7,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "是否补充质押",
+          "text_raw": "是否补充质押",
+          "region": [
+            224.7,
+            72.24,
+            266.95,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00006",
+          "page": 2,
+          "role": "BODY",
+          "text": "质押起始日",
+          "text_raw": "质押起始日",
+          "region": [
+            266.95,
+            72.24,
+            323.9,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "质押到期日",
+          "text_raw": "质押到期日",
+          "region": [
+            323.9,
+            72.24,
+            379.7,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00008",
+          "page": 2,
+          "role": "BODY",
+          "text": "质权人",
+          "text_raw": "质权人",
+          "region": [
+            379.7,
+            72.24,
+            428.8,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00009",
+          "page": 2,
+          "role": "BODY",
+          "text": "占其所持股份比例",
+          "text_raw": "占其所持股份比例",
+          "region": [
+            428.8,
+            72.24,
+            474.75,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00010",
+          "page": 2,
+          "role": "BODY",
+          "text": "占公司总股本比例",
+          "text_raw": "占公司总股本比例",
+          "region": [
+            474.75,
+            72.24,
+            517.08,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00011",
+          "page": 2,
+          "role": "BODY",
+          "text": "质押融资资金用途",
+          "text_raw": "质押融资资金用途",
+          "region": [
+            517.08,
+            72.24,
+            557.8,
+            184.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00012",
+          "page": 2,
+          "role": "BODY",
+          "text": "广弘元",
+          "text_raw": "广弘元",
+          "region": [
+            37.45,
+            184.74,
+            75.8,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00013",
+          "page": 2,
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            75.8,
+            184.74,
+            118.35,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00014",
+          "page": 2,
+          "role": "BODY",
+          "text": "5,200,000",
+          "text_raw": "5,200,000",
+          "region": [
+            118.35,
+            184.74,
+            182.15,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00015",
+          "page": 2,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            182.15,
+            184.74,
+            224.7,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00016",
+          "page": 2,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            224.7,
+            184.74,
+            266.95,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00017",
+          "page": 2,
+          "role": "BODY",
+          "text": "2026年9月21日",
+          "text_raw": "2026年9月21日",
+          "region": [
+            266.95,
+            184.74,
+            323.9,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00018",
+          "page": 2,
+          "role": "BODY",
+          "text": "至办理解除质押登记手续之日止",
+          "text_raw": "至办理解除质押登记手续之日止",
+          "region": [
+            323.9,
+            184.74,
+            379.7,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00019",
+          "page": 2,
+          "role": "BODY",
+          "text": "中信银行宁波分行",
+          "text_raw": "中信银行宁波分行",
+          "region": [
+            379.7,
+            184.74,
+            428.8,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00020",
+          "page": 2,
+          "role": "BODY",
+          "text": "10.09%",
+          "text_raw": "10.09%",
+          "region": [
+            428.8,
+            184.74,
+            474.75,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00021",
+          "page": 2,
+          "role": "BODY",
+          "text": "1.99%",
+          "text_raw": "1.99%",
+          "region": [
+            474.75,
+            184.74,
+            517.08,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00022",
+          "page": 2,
+          "role": "BODY",
+          "text": "质押担保",
+          "text_raw": "质押担保",
+          "region": [
+            517.08,
+            184.74,
+            557.8,
+            297.24
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00023",
+          "page": 2,
+          "role": "BODY",
+          "text": "合计",
+          "text_raw": "合计",
+          "region": [
+            37.45,
+            297.24,
+            75.8,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00024",
+          "page": 2,
+          "role": "BODY",
+          "text": "-",
+          "text_raw": "-",
+          "region": [
+            75.8,
+            297.24,
+            118.35,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00025",
+          "page": 2,
+          "role": "BODY",
+          "text": "5,200,000",
+          "text_raw": "5,200,000",
+          "region": [
+            118.35,
+            297.24,
+            182.15,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00026",
+          "page": 2,
+          "role": "BODY",
+          "text": "-",
+          "text_raw": "-",
+          "region": [
+            182.15,
+            297.24,
+            224.7,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00027",
+          "page": 2,
+          "role": "BODY",
+          "text": "-",
+          "text_raw": "-",
+          "region": [
+            224.7,
+            297.24,
+            266.95,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00028",
+          "page": 2,
+          "role": "BODY",
+          "text": "-",
+          "text_raw": "-",
+          "region": [
+            266.95,
+            297.24,
+            323.9,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00029",
+          "page": 2,
+          "role": "BODY",
+          "text": "-",
+          "text_raw": "-",
+          "region": [
+            323.9,
+            297.24,
+            379.7,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00030",
+          "page": 2,
+          "role": "BODY",
+          "text": "-",
+          "text_raw": "-",
+          "region": [
+            379.7,
+            297.24,
+            428.8,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00031",
+          "page": 2,
+          "role": "BODY",
+          "text": "10.09%",
+          "text_raw": "10.09%",
+          "region": [
+            428.8,
+            297.24,
+            474.75,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00032",
+          "page": 2,
+          "role": "BODY",
+          "text": "1.99%",
+          "text_raw": "1.99%",
+          "region": [
+            474.75,
+            297.24,
+            517.08,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00033",
+          "page": 2,
+          "role": "BODY",
+          "text": "-",
+          "text_raw": "-",
+          "region": [
+            517.08,
+            297.24,
+            557.8,
+            325.74
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00034",
+          "page": 2,
+          "role": "BODY",
+          "text": "2、本次质押股份不存在被用作重大资产重组业绩补偿等事项的担保或其他保障用途。3、股东累计质押股份情况：截至本公告披露日，上述股东及其一致行动人累计质押股份情况如下：",
+          "text_raw": "2、本次质押股份不存在被用作重大资产重组业绩补偿等事项的担保或其他保障用途。3、股东累计质押股份情况：截至本公告披露日，上述股东及其一致行动人累计质押股份情况如下：",
+          "region": [
+            90,
+            335.57,
+            505.2,
+            441.17
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00035",
+          "page": 2,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            33.5,
+            451.04,
+            93.15,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00036",
+          "page": 2,
+          "role": "BODY",
+          "text": "持股数量",
+          "text_raw": "持股数量",
+          "region": [
+            93.15,
+            451.04,
+            158.15,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00037",
+          "page": 2,
+          "role": "BODY",
+          "text": "持股比例",
+          "text_raw": "持股比例",
+          "region": [
+            158.15,
+            451.04,
+            201.6,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00038",
+          "page": 2,
+          "role": "BODY",
+          "text": "本次质押前质押股份数量",
+          "text_raw": "本次质押前质押股份数量",
+          "region": [
+            201.6,
+            451.04,
+            266.95,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00039",
+          "page": 2,
+          "role": "BODY",
+          "text": "本次质押后质押股份数量",
+          "text_raw": "本次质押后质押股份数量",
+          "region": [
+            266.95,
+            451.04,
+            331.8,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00040",
+          "page": 2,
+          "role": "BODY",
+          "text": "占其所持股份比例",
+          "text_raw": "占其所持股份比例",
+          "region": [
+            331.8,
+            451.04,
+            375.25,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00041",
+          "page": 2,
+          "role": "BODY",
+          "text": "占公司总股本比例",
+          "text_raw": "占公司总股本比例",
+          "region": [
+            375.25,
+            451.04,
+            413.3,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00042",
+          "page": 2,
+          "role": "BODY",
+          "text": "已质押股份情况",
+          "text_raw": "已质押股份情况",
+          "region": [
+            413.3,
+            451.04,
+            482,
+            496.04
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00043",
+          "page": 2,
+          "role": "BODY",
+          "text": "未质押股份情况",
+          "text_raw": "未质押股份情况",
+          "region": [
+            482,
+            451.04,
+            561.8,
+            496.04
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00044",
+          "page": 2,
+          "role": "BODY",
+          "text": "已质押股份中限售股份数量",
+          "text_raw": "已质押股份中限售股份数量",
+          "region": [
+            413.3,
+            496.04,
+            446.4,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00045",
+          "page": 2,
+          "role": "BODY",
+          "text": "已质押股份中冻结股份数量",
+          "text_raw": "已质押股份中冻结股份数量",
+          "region": [
+            446.4,
+            496.04,
+            482,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00046",
+          "page": 2,
+          "role": "BODY",
+          "text": "未质押股份中限售股份数量",
+          "text_raw": "未质押股份中限售股份数量",
+          "region": [
+            482,
+            496.04,
+            517.08,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00047",
+          "page": 2,
+          "role": "BODY",
+          "text": "未质押股份中冻结股份数量",
+          "text_raw": "未质押股份中冻结股份数量",
+          "region": [
+            517.08,
+            496.04,
+            561.8,
+            590.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00048",
+          "page": 2,
+          "role": "BODY",
+          "text": "广弘元",
+          "text_raw": "广弘元",
+          "region": [
+            33.5,
+            590.14,
+            93.15,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00049",
+          "page": 2,
+          "role": "BODY",
+          "text": "51,553,800",
+          "text_raw": "51,553,800",
+          "region": [
+            93.15,
+            590.14,
+            158.15,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00050",
+          "page": 2,
+          "role": "BODY",
+          "text": "19.71%",
+          "text_raw": "19.71%",
+          "region": [
+            158.15,
+            590.14,
+            201.6,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00051",
+          "page": 2,
+          "role": "BODY",
+          "text": "10,000,000",
+          "text_raw": "10,000,000",
+          "region": [
+            201.6,
+            590.14,
+            266.95,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00052",
+          "page": 2,
+          "role": "BODY",
+          "text": "15,200,000",
+          "text_raw": "15,200,000",
+          "region": [
+            266.95,
+            590.14,
+            331.8,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00053",
+          "page": 2,
+          "role": "BODY",
+          "text": "29.48%",
+          "text_raw": "29.48%",
+          "region": [
+            331.8,
+            590.14,
+            375.25,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00054",
+          "page": 2,
+          "role": "BODY",
+          "text": "5.81%",
+          "text_raw": "5.81%",
+          "region": [
+            375.25,
+            590.14,
+            413.3,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00055",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            413.3,
+            590.14,
+            446.4,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00056",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            446.4,
+            590.14,
+            482,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00057",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            482,
+            590.14,
+            517.08,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00058",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            517.08,
+            590.14,
+            561.8,
+            609.69
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00059",
+          "page": 2,
+          "role": "BODY",
+          "text": "宁波申扬创业投资合伙企业（有限合伙）",
+          "text_raw": "宁波申扬创业投资合伙企业（有限合伙）",
+          "region": [
+            33.5,
+            609.69,
+            93.15,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00060",
+          "page": 2,
+          "role": "BODY",
+          "text": "13,500,000",
+          "text_raw": "13,500,000",
+          "region": [
+            93.15,
+            609.69,
+            158.15,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00061",
+          "page": 2,
+          "role": "BODY",
+          "text": "5.16%",
+          "text_raw": "5.16%",
+          "region": [
+            158.15,
+            609.69,
+            201.6,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00062",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            201.6,
+            609.69,
+            266.95,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00063",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            266.95,
+            609.69,
+            331.8,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00064",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            331.8,
+            609.69,
+            375.25,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00065",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            375.25,
+            609.69,
+            413.3,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00066",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            413.3,
+            609.69,
+            446.4,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00067",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            446.4,
+            609.69,
+            482,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00068",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            482,
+            609.69,
+            517.08,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00069",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            517.08,
+            609.69,
+            561.8,
+            688.19
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00070",
+          "page": 2,
+          "role": "BODY",
+          "text": "合计",
+          "text_raw": "合计",
+          "region": [
+            33.5,
+            688.19,
+            93.15,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00071",
+          "page": 2,
+          "role": "BODY",
+          "text": "65,053,800",
+          "text_raw": "65,053,800",
+          "region": [
+            93.15,
+            688.19,
+            158.15,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00072",
+          "page": 2,
+          "role": "BODY",
+          "text": "24.87%",
+          "text_raw": "24.87%",
+          "region": [
+            158.15,
+            688.19,
+            201.6,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00073",
+          "page": 2,
+          "role": "BODY",
+          "text": "10,000,000",
+          "text_raw": "10,000,000",
+          "region": [
+            201.6,
+            688.19,
+            266.95,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00074",
+          "page": 2,
+          "role": "BODY",
+          "text": "15,200,000",
+          "text_raw": "15,200,000",
+          "region": [
+            266.95,
+            688.19,
+            331.8,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00075",
+          "page": 2,
+          "role": "BODY",
+          "text": "29.48%",
+          "text_raw": "29.48%",
+          "region": [
+            331.8,
+            688.19,
+            375.25,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00076",
+          "page": 2,
+          "role": "BODY",
+          "text": "5.81%",
+          "text_raw": "5.81%",
+          "region": [
+            375.25,
+            688.19,
+            413.3,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00077",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            413.3,
+            688.19,
+            446.4,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00078",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            446.4,
+            688.19,
+            482,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00079",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            482,
+            688.19,
+            517.08,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00080",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            517.08,
+            688.19,
+            561.8,
+            720.14
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00081",
+          "page": 2,
+          "role": "BODY",
+          "text": "注：除另有说明，表格中如若出现合计数与所列数值总和不符，均为四舍五入所致。",
+          "text_raw": "注：除另有说明，表格中如若出现合计数与所列数值总和不符，均为四舍五入所致。",
+          "region": [
+            111,
+            741.66,
+            499.44,
+            752.11
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p002_b00082",
+          "page": 2,
+          "role": "FOOTER",
+          "text": "2",
+          "text_raw": "2",
+          "region": [
+            295.44,
+            773.68,
+            299.94,
+            782.68
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p003_b00001",
+          "page": 3,
+          "role": "BODY",
+          "text": "广弘元此次股份质押不会对公司生产经营产生影响，不会对公司治理产生影",
+          "text_raw": "广弘元此次股份质押不会对公司生产经营产生影响，不会对公司治理产生影",
+          "region": [
+            114,
+            84.17,
+            505.32,
+            96.17
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p003_b00002",
+          "page": 3,
+          "role": "BODY",
+          "text": "响，不会导致公司实际控制权发生变更。公司将持续关注控股股东股份质押进展",
+          "text_raw": "响，不会导致公司实际控制权发生变更。公司将持续关注控股股东股份质押进展",
+          "region": [
+            90,
+            112.13,
+            505.32,
+            124.13
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p003_b00003",
+          "page": 3,
+          "role": "BODY",
+          "text": "情况，并按照规定及时做好相关信息披露工作。",
+          "text_raw": "情况，并按照规定及时做好相关信息披露工作。",
+          "region": [
+            90,
+            140.09,
+            342,
+            152.09
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p003_b00004",
+          "page": 3,
+          "role": "BODY",
+          "text": "特此公告。江苏博迁新材料股份有限公司",
+          "text_raw": "特此公告。江苏博迁新材料股份有限公司",
+          "region": [
+            114,
+            168.17,
+            505.32,
+            208.13
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p003_b00005",
+          "page": 3,
+          "role": "FOOTER",
+          "text": "3",
+          "text_raw": "3",
+          "region": [
+            295.44,
+            773.68,
+            299.94,
+            782.68
+          ]
+        },
+        {
+          "block_id": "db2351d0b_p003_b00006",
+          "page": 3,
+          "role": "BODY",
+          "text": "董事会2026年9月25日",
+          "text_raw": "董事会2026年9月25日",
+          "region": [
+            412.32,
+            224.09,
+            505.32,
+            264.17
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "质押",
+          "value": "pledge",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p001_b00012",
+              "page": 1,
+              "region": [
+                114,
+                563.93,
+                505.32,
+                575.93
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "质押"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "广弘元",
+          "value": "广弘元",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00012",
+              "page": 2,
+              "region": [
+                37.45,
+                184.74,
+                75.8,
+                297.24
+              ],
+              "table_id": "db2351d0b_p002_t001",
+              "cell_ref": "r2c1",
+              "source_type": "cell",
+              "quote": "广弘元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "中信银行宁波分行",
+          "value": "中信银行宁波分行",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00019",
+              "page": 2,
+              "region": [
+                379.7,
+                184.74,
+                428.8,
+                297.24
+              ],
+              "table_id": "db2351d0b_p002_t001",
+              "cell_ref": "r2c8",
+              "source_type": "cell",
+              "quote": "中信银行宁波分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "5,200,000",
+          "value": 5200000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00014",
+              "page": 2,
+              "region": [
+                118.35,
+                184.74,
+                182.15,
+                297.24
+              ],
+              "table_id": "db2351d0b_p002_t001",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "5,200,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "15,200,000",
+          "value": 15200000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00052",
+              "page": 2,
+              "region": [
+                266.95,
+                590.14,
+                331.8,
+                609.69
+              ],
+              "table_id": "db2351d0b_p002_t002",
+              "cell_ref": "r3c5",
+              "source_type": "cell",
+              "quote": "15,200,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "10.09%",
+          "value": 10.09,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00020",
+              "page": 2,
+              "region": [
+                428.8,
+                184.74,
+                474.75,
+                297.24
+              ],
+              "table_id": "db2351d0b_p002_t001",
+              "cell_ref": "r2c9",
+              "source_type": "cell",
+              "quote": "10.09%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "1.99%",
+          "value": 1.99,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00021",
+              "page": 2,
+              "region": [
+                474.75,
+                184.74,
+                517.08,
+                297.24
+              ],
+              "table_id": "db2351d0b_p002_t001",
+              "cell_ref": "r2c10",
+              "source_type": "cell",
+              "quote": "1.99%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "29.48%",
+          "value": 29.48,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00053",
+              "page": 2,
+              "region": [
+                331.8,
+                590.14,
+                375.25,
+                609.69
+              ],
+              "table_id": "db2351d0b_p002_t002",
+              "cell_ref": "r3c6",
+              "source_type": "cell",
+              "quote": "29.48%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "5.81%",
+          "value": 5.81,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00054",
+              "page": 2,
+              "region": [
+                375.25,
+                590.14,
+                413.3,
+                609.69
+              ],
+              "table_id": "db2351d0b_p002_t002",
+              "cell_ref": "r3c7",
+              "source_type": "cell",
+              "quote": "5.81%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026年9月21日",
+          "value": "2026-09-21",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00017",
+              "page": 2,
+              "region": [
+                266.95,
+                184.74,
+                323.9,
+                297.24
+              ],
+              "table_id": "db2351d0b_p002_t001",
+              "cell_ref": "r2c6",
+              "source_type": "cell",
+              "quote": "2026年9月21日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "至办理解除质押登记手续之日止",
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "needs_review",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00018",
+              "page": 2,
+              "region": [
+                323.9,
+                184.74,
+                379.7,
+                297.24
+              ],
+              "table_id": "db2351d0b_p002_t001",
+              "cell_ref": "r2c7",
+              "source_type": "cell",
+              "quote": "至办理解除质押登记手续之日止"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "质押担保",
+          "value": "质押担保",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p002_b00022",
+              "page": 2,
+              "region": [
+                517.08,
+                184.74,
+                557.8,
+                297.24
+              ],
+              "table_id": "db2351d0b_p002_t001",
+              "cell_ref": "r2c11",
+              "source_type": "cell",
+              "quote": "质押担保"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月25日",
+          "value": "2026-09-25",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "db2351d0b_p003_b00006",
+              "page": 3,
+              "region": [
+                412.32,
+                224.09,
+                505.32,
+                264.17
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "2026年9月25日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-01T07:46:58.339Z",
+    "duration_ms": 4029,
+    "errors": []
+  }
+}
