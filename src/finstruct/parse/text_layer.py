@@ -321,6 +321,61 @@ def parse_page_text_layer(
     for idx, cid in cell_owner.items():
         grouped.setdefault(cid, []).append(chars[idx])
 
+    # ---- 1a) 补齐 pdfplumber 漏检的单元格
+    #   pdfplumber 的单元格检测依赖绘制线，竖线缺失时**整列会漏**。
+    #   实测 D5-EQC-007 p1：它报 6 行×5 列却只给出 20 格 —— 「序号」列与「通讯地址」列
+    #   的第 2–6 行共 10 格没检出来。这些格里的字符于是掉进正文流，
+    #   多个单元格的文字被混成一行（'信息披露红豆集团有限江苏省无锡市锡山区东…'）。
+    #   修法：用**网格带**（相异行/列边界）为落空的位置补出单元格几何，
+    #   且只补**确实有字符落进去**的位置，避免造出一堆空格子。
+    for tb in tables:
+        row_edges = tb.get("_row_edges") or []
+        col_edges = tb.get("_col_edges") or []
+        if not row_edges or not col_edges:
+            continue
+        occupied = {(c["row"], c["col"]): c for c in tb["_cells"]}
+        rx0, ry0, rx1, ry1 = tb["region"]
+        pending: Dict[tuple, list] = {}
+        for idx, ch in enumerate(chars):
+            if idx in cell_owner:
+                continue
+            cx = (ch["x0"] + ch["x1"]) / 2
+            cy = (ch["top"] + ch["bottom"]) / 2
+            if not (rx0 <= cx <= rx1 and ry0 <= cy <= ry1):
+                continue
+            r = next((i for i, (e0, e1) in enumerate(row_edges) if e0 <= cy <= e1), None)
+            c = next((i for i, (e0, e1) in enumerate(col_edges) if e0 <= cx <= e1), None)
+            if r is None or c is None:
+                continue
+            existing = occupied.get((r, c))
+            if existing is not None:
+                # 该格有单元格却没认领：多半是字符中心擦在边界外，补认领即可
+                cell_owner[idx] = existing["cell_id"]
+                continue
+            pending.setdefault((r, c), []).append(idx)
+
+        next_ord = len(tb["_cells"]) + 1
+        for (r, c), idxs in sorted(pending.items()):
+            box = [col_edges[c][0], row_edges[r][0], col_edges[c][1], row_edges[r][1]]
+            cell = {
+                "table_id": tb["table_id"],
+                "box": [round(v, 2) for v in box],
+                "row": r,
+                "col": c,
+                "rowspan": 1,
+                "colspan": 1,
+                # 补出来的单元格同样要全局唯一 —— cell_id 撞车会让同名字符认领失败
+                "cell_id": f"{tb['table_id']}_c{next_ord:03d}",
+                "cell_ref": f"r{r + 1}c{c + 1}",
+                "covers": None,
+                "_synthesized": True,   # 用于统计：这些是绘制线缺失处补出来的
+            }
+            next_ord += 1
+            tb["_cells"].append(cell)
+            occupied[(r, c)] = cell
+            for idx in idxs:
+                cell_owner[idx] = cell["cell_id"]
+
     # ---- 1b) 单元格文本 + 多层表头
     # 文本要对**所有**单元格算（含空的）：表头识别与 header_path 拼接都要读表头
     # 单元格的文字，而表头单元格不一定会产出块。
@@ -400,14 +455,26 @@ def parse_page_text_layer(
             continue
         tb = next(x for x in tables if x["table_id"] == tid)
         cy = (ch["top"] + ch["bottom"]) / 2
-        best, bestd = 0, float("inf")
-        for i, (e0, e1) in enumerate(tb.get("_row_edges", [])):
-            d = 0.0 if e0 <= cy <= e1 else min(abs(cy - e0), abs(cy - e1))
-            if d < bestd:
-                bestd, best = d, i
-        in_table_fallback.setdefault((tid, best), []).append(ch)
+        cx = (ch["x0"] + ch["x1"]) / 2
 
-    for (tid, r), cs in in_table_fallback.items():
+        def _band(edges, v):
+            best, bestd = 0, float("inf")
+            for i, (e0, e1) in enumerate(edges):
+                d = 0.0 if e0 <= v <= e1 else min(abs(v - e0), abs(v - e1))
+                if d < bestd:
+                    bestd, best = d, i
+            return best
+
+        # **必须按 (行, 列) 一起分组**，不能只按行。
+        # 实测 D5-EQC-007 p7：只按行分组时，一个兜底块同时装进「序号」列与
+        # 「其他国家居留权情况」列（中间六列的字符属于别的单元格），
+        # 它的外接矩形因此横跨整张表、吞进其它单元格的字符 ——
+        # 区域重建判据直接失败。按列分开后每组的外接矩形只覆盖一格宽度。
+        br = _band(tb.get("_row_edges") or [], cy)
+        bc = _band(tb.get("_col_edges") or [], cx)
+        in_table_fallback.setdefault((tid, br, bc), []).append(ch)
+
+    for (tid, r, _c), cs in in_table_fallback.items():
         region = ev.region_of(cs)
         lines = cluster_lines(cs)
         # 标 degraded：这些字符散落在表格行内、不在任何检出单元格里（多行表头 + 纵向

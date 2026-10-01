@@ -163,6 +163,7 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
                 "n_cols": len(col_lefts),
                 "_cells": cell_boxes,
                 "_row_edges": row_bands,
+                "_col_edges": col_bands,
             }
         )
     return tables
