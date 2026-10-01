@@ -480,6 +480,7 @@ async function main() {
   let call, callError = null
   let truncated = false
   const allEvents = []
+  const postErrors = [] // 提前声明（分块路径的 chunk 失败处理在下方引用）
 
   if (!isMock && modelInput.length > INPUT_LIMIT && parseDoc !== null) {
     // 解析块模式分块：按块分组使标注文本 ≤ CHUNK_LIMIT
@@ -545,7 +546,6 @@ async function main() {
 
   // ---- D2 事件后处理：块级出处回填 ＋ 数值标准化（方的 normalize 移植） ----
   const events = call ? parseModelJson(call.content).events ?? [] : []
-  const postErrors = []
   if (truncated) {
     postErrors.push(`[输入] 模型输入超上限被截断：${modelInput.length} → ${INPUT_LIMIT} 字符，截断部分的事件可能丢失`)
   }
