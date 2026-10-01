@@ -1,28 +1,139 @@
 {
-  "run_id": "mock-run-0002",
-  "schema_version": "0.1",
-  "data_mode": "simulated",
-  "source_file": {
-    "file_id": "mock-file-002",
-    "filename": "股权变动公告样例.txt",
-    "parse_status": "success"
+  "schema_version": "0.3",
+  "run_id": "mock-eqc-demo-0001",
+  "is_mock": true,
+  "source": {
+    "file_id": "mock-file-eqc-001",
+    "file_name": "股权变动公告样例（模拟）.txt",
+    "file_sha256": null
   },
   "events": [
     {
-      "event_id": "evt-0101",
-      "event_type": "share_change",
-      "status": "success",
+      "event_id": "D5-EQC-M01",
+      "event_type": "equity_change",
       "fields": {
-        "holder":        { "value": "模拟股东丙", "evidence_id": "ev-0101" },
-        "shares_before": { "value": 50000000, "unit": "股", "normalized": 50000000, "evidence_id": "ev-0101" },
-        "shares_after":  { "value": 42000000, "unit": "股", "normalized": 42000000, "evidence_id": "ev-0102" },
-        "change_reason": { "value": "大宗交易减持（模拟）", "evidence_id": "ev-0102" },
-        "announce_date": { "value": "2026-09-25", "normalized": "2026-09-25", "evidence_id": "ev-0101" }
+        "holder": {
+          "raw_value": "模拟股东丙", "value": "模拟股东丙", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-01", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）模拟股东丙于 2026-09-25 通过二级市场增持本公司股份……" } ]
+        },
+        "direction": {
+          "raw_value": "增持", "value": "increase", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-01", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）……增持……" } ]
+        },
+        "shares_before": {
+          "raw_value": "50,000,000股", "value": 50000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-01", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）增持前持有本公司 50,000,000 股" } ]
+        },
+        "shares_after": {
+          "raw_value": "56,000,000股", "value": 56000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-02", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）本次变动后持有 56,000,000 股" } ]
+        },
+        "ratio_before": {
+          "raw_value": "5.00%", "value": 5.00, "unit": "percent", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-01", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）占公司总股本的 5.00%" } ]
+        },
+        "ratio_after": {
+          "raw_value": "5.60%", "value": 5.60, "unit": "percent", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-02", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）占公司总股本的 5.60%" } ]
+        },
+        "change_shares": {
+          "raw_value": "6,000,000股", "value": 6000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-02", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）合计增持 6,000,000 股" } ]
+        },
+        "method": {
+          "raw_value": "二级市场增持（集中竞价）", "value": "二级市场增持（集中竞价）", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-02", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）变动方式为二级市场增持（集中竞价）" } ]
+        },
+        "change_date": {
+          "raw_value": "2026-09-25", "value": "2026-09-25", "unit": "date", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-02", "page": 1, "region": null, "source_type": "paragraph", "quote": "（模拟原文）变动完成日为 2026-09-25" } ]
+        }
+      }
+    },
+    {
+      "event_id": "D5-EQC-M02",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "模拟股东丁", "value": "模拟股东丁", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-11", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）模拟股东丁于 2026-09-26 通过大宗交易减持本公司股份……" } ]
+        },
+        "direction": {
+          "raw_value": "减持", "value": "decrease", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-11", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）……减持……" } ]
+        },
+        "shares_before": {
+          "raw_value": "42,000,000股", "value": 42000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-11", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）减持前持有本公司 42,000,000 股" } ]
+        },
+        "shares_after": {
+          "raw_value": "38,000,000股", "value": 38000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-12", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）本次变动后持有 38,000,000 股" } ]
+        },
+        "ratio_before": {
+          "raw_value": "4.20%", "value": 4.20, "unit": "percent", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-11", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）占公司总股本的 4.20%" } ]
+        },
+        "ratio_after": {
+          "raw_value": "3.80%", "value": 3.80, "unit": "percent", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-12", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）占公司总股本的 3.80%" } ]
+        },
+        "change_shares": {
+          "raw_value": "4,000,000股", "value": 4000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-12", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）合计减持 4,000,000 股" } ]
+        },
+        "method": {
+          "raw_value": "大宗交易", "value": "大宗交易", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-12", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）变动方式为大宗交易" } ]
+        },
+        "change_date": {
+          "raw_value": "2026-09-26", "value": "2026-09-26", "unit": "date", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-12", "page": 2, "region": null, "source_type": "paragraph", "quote": "（模拟原文）变动完成日为 2026-09-26" } ]
+        }
+      }
+    },
+    {
+      "event_id": "D5-EQC-M03",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "模拟股东戊", "value": "模拟股东戊", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-21", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）模拟股东戊于 2026-09-27 通过协议转让减持本公司股份……" } ]
+        },
+        "direction": {
+          "raw_value": "减持", "value": "decrease", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-21", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）……减持……" } ]
+        },
+        "shares_before": {
+          "raw_value": "30,000,000股", "value": 30000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-21", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）减持前持有本公司 30,000,000 股" } ]
+        },
+        "shares_after": {
+          "raw_value": "27,000,000股", "value": 27000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-22", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）本次变动后持有 27,000,000 股" } ]
+        },
+        "ratio_before": {
+          "raw_value": "3.00%", "value": 3.00, "unit": "percent", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-21", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）占公司总股本的 3.00%" } ]
+        },
+        "ratio_after": {
+          "raw_value": "2.70%", "value": 2.70, "unit": "percent", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-22", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）占公司总股本的 2.70%" } ]
+        },
+        "change_shares": {
+          "raw_value": "5,000,000股", "value": 5000000, "unit": "shares", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-22", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）合计减持 5,000,000 股" } ],
+          "note": "冲突演示（故意构造）：前后股数差 3,000,000 股 ≠ 变动股数 5,000,000 股，页面应给出冲突提示"
+        },
+        "method": {
+          "raw_value": "协议转让", "value": "协议转让", "unit": "text", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-22", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）变动方式为协议转让" } ]
+        },
+        "change_date": {
+          "raw_value": "2026-09-27", "value": "2026-09-27", "unit": "date", "status": "extracted",
+          "provenance": [ { "block_id": "blk-eqc-22", "page": 3, "region": null, "source_type": "paragraph", "quote": "（模拟原文）变动完成日为 2026-09-27" } ]
+        }
       }
     }
-  ],
-  "evidences": [
-    { "evidence_id": "ev-0101", "block_id": "blk-0021", "page": 2, "bbox": null, "quote": "（模拟原文）股东丙于 2026-09-25 前持有本公司 50,000,000 股，占总股本……" },
-    { "evidence_id": "ev-0102", "block_id": "blk-0023", "page": 2, "bbox": null, "quote": "（模拟原文）本次变动后，股东丙持有 42,000,000 股，变动方式为大宗交易……" }
   ]
 }

@@ -26,7 +26,7 @@ page_prototype/
 │   └── API.md              # 调用文档：数据契约 v0.3、接口清单、状态枚举、转接口、扩展指南
 ├── data/                   # 数据集（mock 模式：server 自动列举，放进来即出现在下拉）
 │   ├── pledge.json         # 质押事件样例（D1 mock，旧提案字段，保留兼容）
-│   ├── share_change.json   # 股权变动样例（D5 预留）
+│   ├── share_change.json   # 股权变动样例（D5 升级：v0.3 信封 equity_change ×3——增持/减持/冲突演示；真实 D5-EQC-001..010 待魏批次）
 │   ├── upstream_case.json  # 方口径上游格式合成用例（经转接口转换展示，D2 验证）
 │   ├── wei_run_pledge.json # 魏文宇 v0.3 信封真实运行输出（09-28，D2 接入）
 │   ├── wei_real_pledge_0197.json  # 魏 D3 真实 PDF run（pledge.pdf · deepseek-chat · is_mock:false，质押闭环主线）

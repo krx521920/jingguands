@@ -19,7 +19,8 @@ const KIND_DEFAULT_FIELD = { amount: "amount", shares: "share_count", ratio: "pl
 const WEI_UNIT_TEXT = { shares: "股", cny: "元", percent: "%", date: null, date_range: null, text: null, count: null };
 
 // v0.4 D4 增补：direction 业务方向（宗 17:30 裁决）——pledge/release
-const DIRECTION_TEXT = { pledge: "质押", release: "解除质押" };
+// D5/D6 增补：equity_change 方向 increase/decrease（与 results.js 的 DIRECTION_TEXT 保持同步）
+const DIRECTION_TEXT = { pledge: "质押", release: "解除质押", increase: "增持", decrease: "减持" };
 
 // v0.3b D3：provenance.source_type 枚举（与张智博 finstruct 对齐）
 const SOURCE_TYPE_TEXT = {

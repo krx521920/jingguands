@@ -33,6 +33,17 @@ tr.flash > td { animation: rowFlash 1.2s ease-out 1; }
 @keyframes rowFlash { 0% { background: #ffe9a8; } 100% { background: transparent; } }
 .dir-badge { font-size: 11.5px; border-radius: 4px; padding: 1px 8px; font-weight: 700; background: #eef4ee; color: #2f6b34; border: 1px solid #bcd4bd; }
 .dir-badge.dir-release { background: #fdeee3; color: #b34700; border-color: #eebd9a; }
+.dir-badge.dir-increase { background: #fdecec; color: #b02a0c; border-color: #eeb4b4; }   /* 增持=红（中式涨红） */
+.dir-badge.dir-decrease { background: #eaf6ee; color: #1f7a33; border-color: #b0d8bc; }   /* 减持=绿 */
+/* D5/D6：equity_change 前后对比块 */
+.cmp-block { background: #f7f9fc; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; margin-bottom: 8px; display: flex; flex-direction: column; gap: 4px; }
+.cmp-row { display: flex; align-items: baseline; gap: 10px; font-size: 13px; }
+.cmp-label { font-weight: 700; color: var(--muted); min-width: 3em; }
+.cmp-val.before { color: var(--muted); }
+.cmp-val.after { font-weight: 700; }
+.cmp-arrow { color: var(--muted); }
+.cmp-delta { font-size: 12px; color: var(--muted); margin-left: auto; font-family: Consolas, monospace; }
+.cmp-conflict { color: #b02a0c; background: #fdecec; border: 1px solid #eeb4b4; border-radius: 4px; padding: 4px 8px; font-size: 12.5px; font-weight: 600; line-height: 1.5; }
 .ev-item.ev-degraded { border-left: 3px solid #e3b341; background: #fffdf5; }
 .ev-note { font-size: 12px; color: #6b6b6b; margin: 2px 0 0 2px; }
 .ev-note.warn { color: #a05a00; }
