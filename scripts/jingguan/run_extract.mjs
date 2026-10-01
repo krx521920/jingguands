@@ -528,7 +528,17 @@ async function main() {
         const chunkParsed = parseModelJson(chunkCall.content)
         for (const ev of chunkParsed.events ?? []) {
           const f = ev.fields ?? {}
-          const key = `${f.pledgor?.value ?? f.holder?.value ?? f.bidder?.value ?? '?'}|${f.pledgee?.value ?? f.tenderer?.value ?? ''}|${f.direction?.value ?? 'pledge'}`
+          // 分块去重键（事件类型感知）：
+          //   pledge:（质押人×质权人×direction）——先押后解 direction 不同，正确去重
+          //   equity_change:（holder×direction×shares_before）——加 shares_before 区分同 holder 多次变动
+          //   award_contract:（bidder×tenderer×project_name）——加项目名区分同组合多标段
+          const base = `${f.pledgor?.value ?? f.holder?.value ?? f.bidder?.value ?? '?'}|${f.pledgee?.value ?? f.tenderer?.value ?? ''}|${f.direction?.value ?? 'pledge'}`
+          const differentiator = ev.event_type === 'award_contract'
+            ? String(f.project_name?.value ?? '')
+            : ev.event_type === 'equity_change'
+              ? String(f.shares_before?.value ?? '')
+              : ''
+          const key = `${base}|${differentiator}`
           if (!seenKeys.has(key)) {
             seenKeys.add(key)
             allEvents.push(ev)
