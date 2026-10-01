@@ -22,24 +22,23 @@
       "reason": "Official D5 parse package matches source hash, doc_id, page count, schema, and event count."
     },
     "fangxuancheng": {
-      "status": "missing",
+      "status": "accepted",
       "branch": "feature/fang-rules",
-      "commit": "5fe05e89be6899ef7d38a2ef49c2dc132cb1d239",
-      "blocking": true,
-      "reason": "No D5 equity-change consistency checker observed."
+      "commit": "24d067abc8088f50c0919c12205f5e57be247aeb",
+      "blocking": false,
+      "reason": "D5 checker delivery hashes pass 12/12, CLI runs, 10/10 challenge cases pass, and Gold inputs remain unchanged."
     },
     "chenjiahui": {
       "status": "partial",
       "branch": "feature/chen-ui",
-      "commit": "bac99d1eef6191c79ed42eb64a0dafb3f12cb5c9",
+      "commit": "13e12c0832b9e46918100d47356ad6a7256eab3f",
       "blocking": true,
       "reason": "D5 demo prep exists, but no real equity_change envelopes, increase/decrease rendering, or before/after conflict UI."
     }
   },
   "required_before_completion": [
-    "Weiwenyu publishes a clean ten-document batch with no extra events and no contract-validation errors.",
-    "Fangxuancheng consumes the 10 direction/inversion challenge cases.",
-    "Chenjiahui renders and verifies real before/after equity-change data.",
+    "Wei publishes a clean ten-document batch with no extra events and no contract-validation errors.",
+    "Chen renders and verifies real before/after equity-change data.",
     "Second-person review is recorded."
   ]
 }

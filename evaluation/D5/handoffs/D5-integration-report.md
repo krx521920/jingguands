@@ -4,10 +4,11 @@
 
 - Evaluation Gold: 10 documents, 16 events, 144 fields; contract validation PASS.
 - Challenge suite: 10/10 expected; direction inversion and ratio-conflict behavior covered.
-- Zhangzhibo `be86f4d9`: official D5 parse package verified 10/10 for source hash, doc_id, page count, schema `evidence/0.9`, and event count.
-- Weiwenyu `3b08c49d`: ten-document real batches exist.
+- Zhang `be86f4d9`: official D5 parse package verified 10/10 for source hash, doc_id, page count, schema `evidence/0.9`, and event count.
+- Fang `24d067ab`: delivery hashes 12/12; CLI PASS; evaluation challenge cases 10/10; 10 Gold documents run without input mutation (4 verified, 6 needs_review, 0 mismatch/invalid).
+- Wei `55fd805d`: ten-document real batches exist, but the clean ten-document baseline is still blocked.
 
-## Weiwenyu: blocking
+## Wei: blocking
 
 Best observed batch is `runs/batch-20261001T134046`:
 
@@ -18,37 +19,29 @@ Best observed batch is `runs/batch-20261001T134046`:
 - D5-EQC-006 method differs by trailing punctuation.
 - D5-EQC-007 holder, method, and change_date differ.
 
-The newer `runs/batch-20261001T135159` is not a replacement:
-
-- 15/16 events aligned, one event missing.
-- 116/124 aligned value hits = 93.55%.
-- 19 contract-validation errors.
-- It fixes the D5-EQC-007 holder string but regresses event coverage and introduces more provenance errors.
-
-A still-newer
-uns/batch-20261001T135902 batch is also not a replacement: 15/16 events aligned, 115/124 aligned value hits = 92.74%, 17 contract-validation errors, one missing event, and one extra event.
+The newer `runs/batch-20261001T135902` is not a replacement: 15/16 events aligned, 115/124 aligned value hits = 92.74%, 17 contract-validation errors, one missing event, and one extra event. An earlier `135159` batch also regressed.
 
 Required: repair the 11 errors in 134046, decide whether method punctuation/wording should normalize, fix D5-EQC-002 event boundaries, align D5-EQC-007 holder/method/change_date, then publish a clean ten-document batch.
 
-## Zhangzhibo: accepted
+## Zhang: accepted
 
-The official D5 parse package passes all metadata checks against the evaluation manifest. No parser blocker remains for D5. Keep the official package as production input; evaluation Gold remains frozen against its own evidence snapshots for reproducibility.
+The official D5 parse package passes all metadata checks against the evaluation manifest. No parser blocker remains for D5.
 
-## Fangxuancheng: missing
+## Fang: accepted
 
-No D5-specific checker was observed at `5fe05e89`. Required: consume `evaluation/D5/challenges/direction-inversion-cases.json` and enforce before/after direction plus ratio-denominator conflict signals.
+Fang delivered `24d067ab`. The delivery manifest hashes pass 12/12; the CLI synthetic run passes; the 10 evaluation challenge cases pass 10/10; and 10 Gold documents run without input mutation. The sandbox cannot reproduce `node --test` because child-process spawn is blocked with EPERM, but the direct CLI and an independent in-process challenge harness were executed.
 
-## Chenjiahui: partial
+## Chen: partial
 
-At `bac99d1e`, the branch contains the D5 agenda/demo and generic bridge support for `equity_change`, but:
+At `13e12c08`, the branch contains D5 demo material and generic bridge support for `equity_change`, but:
 
 - `share_change.json` still uses old `share_change`/`change_reason` fields.
 - No real D5-EQC-001..010 envelope is loaded.
 - `DIRECTION_TEXT` lacks increase/decrease.
 - Before/after side-by-side conflict display and equity evidence expansion are not demonstrated.
 
-Required: consume real envelopes, render increase/decrease, compare before/after and ratios, surface conflicts, and smoke-test D5-EQC-006/007.
+Required: consume real equity_change envelopes, render increase/decrease, compare before/after and ratios, surface conflicts, and smoke-test D5-EQC-006/007.
 
 ## Second-person review
 
-Pending. Recommended reviewers: Weiwenyu for extraction semantics and Zhangzhibo for evidence/parse semantics.
+Pending. Recommended reviewers: Wei for extraction semantics and Zhang for evidence/parse semantics.
