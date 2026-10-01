@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094819-equity_change-32d3",
+  "run_id": "20261001T134117-equity_change-4ae9",
   "is_mock": false,
   "source": {
     "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
@@ -8234,7 +8234,7 @@
         "change_date": {
           "raw_value": "2026年9月23日",
           "value": "2026-09-23",
-          "unit": "date_range",
+          "unit": "date",
           "standardized": true,
           "status": "extracted",
           "provenance": [
@@ -8264,10 +8264,11 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:48:19.106Z",
-    "duration_ms": 2369,
+    "started_at": "2026-10-01T13:41:17.236Z",
+    "duration_ms": 2981,
     "errors": [
-      "[降级] MIXED 文档：第 34 页为 SCANNED（无可读文本），仅从 TEXT 页抽取——扫描页上的事件可能缺失"
+      "[降级] MIXED 文档：第 34 页为 SCANNED（无可读文本），仅从 TEXT 页抽取——扫描页上的事件可能缺失",
+      "[注册表] events[0].fields.change_date.unit 应为 \"date_range\"，实际 \"date\""
     ]
   }
 }

@@ -1,0 +1,15 @@
+{
+  "checked_on": "2026-10-01",
+  "upstream_branch": "feature/fang-rules",
+  "upstream_commit": "5fe05e89be6899ef7d38a2ef49c2dc132cb1d239",
+  "status": "not_observed",
+  "delivered": [
+    "D4 pledge boundary and arithmetic fixtures only"
+  ],
+  "blockers": [
+    "No D5-specific equity-change consistency checker was found on the remote branch.",
+    "The 10 direction/before-after inversion challenge cases have not been consumed.",
+    "No evidence that the shared validator enforces before/after direction or ratio-denominator conflict checks yet."
+  ],
+  "required_next_step": "Implement and test the D5 consistency rules against evaluation/D5/challenges/direction-inversion-cases.json."
+}

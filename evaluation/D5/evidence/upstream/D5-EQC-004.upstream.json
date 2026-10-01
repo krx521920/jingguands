@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094821-equity_change-5992",
+  "run_id": "20261001T134120-equity_change-dfa1",
   "is_mock": false,
   "source": {
     "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
@@ -4275,18 +4275,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "da00b31da_p009_b00003",
+              "block_id": "da00b31da_p009_b00015",
               "page": 9,
               "region": [
-                84.84,
-                135.89,
-                408.84,
-                147.89
+                146.05,
+                351.87,
+                224.55,
+                442.54
               ],
-              "table_id": null,
-              "cell_ref": null,
-              "source_type": "paragraph",
-              "quote": "本次权益变动前，信息披露义务人不直接持有上市公司股份。"
+              "table_id": "da00b31da_p009_t001",
+              "cell_ref": "r3c1",
+              "source_type": "cell",
+              "quote": "0"
             }
           ],
           "denominator": null,
@@ -4440,7 +4440,7 @@
             }
           ],
           "denominator": null,
-          "note": "原文为条件性描述，未给出具体日期"
+          "note": null
         }
       },
       "extraction_method": "model",
@@ -4450,8 +4450,8 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:48:21.579Z",
-    "duration_ms": 3162,
+    "started_at": "2026-10-01T13:41:20.315Z",
+    "duration_ms": 2806,
     "errors": []
   }
 }

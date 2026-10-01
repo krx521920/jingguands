@@ -1,0 +1,20 @@
+{
+  "checked_on": "2026-10-01",
+  "upstream_branch": "feature/chen-ui",
+  "upstream_commit": "bac99d1eef6191c79ed42eb64a0dafb3f12cb5c9",
+  "status": "partial",
+  "delivered": [
+    "D5 rotation agenda and 9-step demo script",
+    "Dataset inventory and page smoke checks",
+    "Mock equity-change placeholder at workspace/cjh/page_prototype/data/share_change.json",
+    "Generic upstream bridge recognizes equity_change event_type"
+  ],
+  "blockers": [
+    "The placeholder uses event_type=share_change and change_reason/announce_date; it does not match the frozen equity_change schema.",
+    "No real D5-EQC-001..010 envelope is present in the page data directory.",
+    "DIRECTION_TEXT currently maps pledge/release only; increase/decrease badges are not defined.",
+    "Before/after shares and ratios are not shown side by side with inversion/denominator-conflict markers.",
+    "Evidence expansion for equity_change has not been demonstrated on the unified D5 sample."
+  ],
+  "required_next_step": "Consume the 10 real D5 envelopes, add increase/decrease rendering, display before/after fields and conflicts, then run the page against D5-EQC-006 and D5-EQC-007 as boundary cases."
+}

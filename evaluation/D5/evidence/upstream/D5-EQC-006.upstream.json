@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094828-equity_change-9bfb",
+  "run_id": "20261001T134126-equity_change-a06c",
   "is_mock": false,
   "source": {
     "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
@@ -1829,11 +1829,11 @@
             }
           ],
           "denominator": null,
-          "note": "本次变动股数为0，不涉及其持股数量的变化"
+          "note": "不涉及其持股数量的变化"
         },
         "method": {
-          "raw_value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。",
-          "value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。",
+          "raw_value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释",
+          "value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释",
           "unit": "text",
           "standardized": true,
           "status": "extracted",
@@ -1850,7 +1850,7 @@
               "table_id": "d97e2cfab_p002_t001",
               "cell_ref": "r9c3",
               "source_type": "cell",
-              "quote": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。"
+              "quote": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释"
             }
           ],
           "denominator": null,
@@ -1889,8 +1889,8 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:48:28.061Z",
-    "duration_ms": 3215,
+    "started_at": "2026-10-01T13:41:27.001Z",
+    "duration_ms": 2896,
     "errors": []
   }
 }

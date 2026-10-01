@@ -1,0 +1,45 @@
+{
+  "checked_on": "2026-10-01",
+  "evaluation_status": "complete",
+  "integration_status": "blocked",
+  "members": {
+    "weiwenyu": {
+      "status": "needs_fix",
+      "branch": "weiwenyu",
+      "commit": "3b08c49d0be64d5e5ea107388042176f37ad82be",
+      "best_batch": "runs/batch-20261001T134046",
+      "field_accuracy": 0.9624,
+      "validation_errors": 11,
+      "blocking": true,
+      "reason": "Two extra events, one single-event identity fallback, and contract-validation errors remain; latest batch regressed."
+    },
+    "zhangzhibo": {
+      "status": "accepted",
+      "branch": "zhangzhibo",
+      "commit": "be86f4d9d61a2573f99ceb24402f2c2772260dab",
+      "documents_verified": 10,
+      "blocking": false,
+      "reason": "Official D5 parse package matches source hash, doc_id, page count, schema, and event count."
+    },
+    "fangxuancheng": {
+      "status": "missing",
+      "branch": "feature/fang-rules",
+      "commit": "5fe05e89be6899ef7d38a2ef49c2dc132cb1d239",
+      "blocking": true,
+      "reason": "No D5 equity-change consistency checker observed."
+    },
+    "chenjiahui": {
+      "status": "partial",
+      "branch": "feature/chen-ui",
+      "commit": "bac99d1eef6191c79ed42eb64a0dafb3f12cb5c9",
+      "blocking": true,
+      "reason": "D5 demo prep exists, but no real equity_change envelopes, increase/decrease rendering, or before/after conflict UI."
+    }
+  },
+  "required_before_completion": [
+    "Weiwenyu publishes a clean ten-document batch with no extra events and no contract-validation errors.",
+    "Fangxuancheng consumes the 10 direction/inversion challenge cases.",
+    "Chenjiahui renders and verifies real before/after equity-change data.",
+    "Second-person review is recorded."
+  ]
+}

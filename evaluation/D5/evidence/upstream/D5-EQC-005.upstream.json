@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094824-equity_change-5ae7",
+  "run_id": "20261001T134123-equity_change-6cc1",
   "is_mock": false,
   "source": {
     "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
@@ -4950,18 +4950,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "da8d294d2_p008_b00016",
+              "block_id": "da8d294d2_p008_b00004",
               "page": 8,
               "region": [
-                337.75,
-                277.87,
-                422.8,
-                300.18
+                114.24,
+                190.13,
+                451.44,
+                202.13
               ],
-              "table_id": "da8d294d2_p008_t001",
-              "cell_ref": "r3c3",
-              "source_type": "cell",
-              "quote": "0"
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "本次权益变动后，信息披露义务人不再直接持有上市公司股份。"
             }
           ],
           "denominator": null,
@@ -5043,25 +5043,25 @@
           "note": null
         },
         "method": {
-          "raw_value": "公开征集协议转让",
-          "value": "公开征集协议转让",
+          "raw_value": "公开征集转让方式协议转让",
+          "value": "公开征集转让方式协议转让",
           "unit": "text",
           "standardized": true,
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "da8d294d2_p001_b00011",
-              "page": 1,
+              "block_id": "da8d294d2_p008_b00019",
+              "page": 8,
               "region": [
-                114.24,
-                458.45,
-                365.4,
-                470.45
+                90.36,
+                341.45,
+                507.72,
+                423.29
               ],
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "公开征集协议转让"
+              "quote": "国贸集团以公开征集转让方式协议转让所持有上市公司股份"
             }
           ],
           "denominator": null,
@@ -5100,8 +5100,8 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:48:24.845Z",
-    "duration_ms": 3104,
+    "started_at": "2026-10-01T13:41:23.224Z",
+    "duration_ms": 3674,
     "errors": []
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094756-equity_change-818b",
+  "run_id": "20261001T134046-equity_change-70c8",
   "is_mock": false,
   "source": {
     "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
@@ -10971,18 +10971,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p033_b00041",
-              "page": 33,
+              "block_id": "d9d5be14f_p010_b00004",
+              "page": 10,
               "region": [
-                288.43,
-                705.58,
-                523.92,
-                760.66
+                268.78,
+                72.77,
+                325.92,
+                93.6
               ],
-              "table_id": "d9d5be14f_p033_t001",
-              "cell_ref": "r12c3",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r1c4",
               "source_type": "cell",
-              "quote": "减少3,680,700股"
+              "quote": "-3,680,700"
             }
           ],
           "denominator": null,
@@ -11090,7 +11090,7 @@
         },
         "change_shares": {
           "raw_value": "-3,680,700",
-          "value": -3680700,
+          "value": 3680700,
           "unit": "shares",
           "standardized": true,
           "status": "extracted",
@@ -11111,7 +11111,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "［原模型输出为负值，已归一化为非负量级（direction 表达方向）］"
         },
         "method": {
           "raw_value": "协议转让",
@@ -11121,18 +11121,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p033_b00036",
-              "page": 33,
+              "block_id": "d9d5be14f_p009_b00003",
+              "page": 9,
               "region": [
-                168.05,
-                445.25,
-                523.92,
-                487.87
+                114.02,
+                156.15,
+                511.49,
+                168.15
               ],
-              "table_id": "d9d5be14f_p033_t001",
-              "cell_ref": "r10c2",
-              "source_type": "cell",
-              "quote": "协议转让√"
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "协议转让"
             }
           ],
           "denominator": null,
@@ -11204,18 +11204,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p034_b00001",
-              "page": 34,
+              "block_id": "d9d5be14f_p010_b00011",
+              "page": 10,
               "region": [
-                288.43,
-                72.24,
-                523.92,
-                235.58
+                268.78,
+                93.6,
+                325.92,
+                114.02
               ],
-              "table_id": "d9d5be14f_p034_t001",
-              "cell_ref": "r1c2",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r2c4",
               "source_type": "cell",
-              "quote": "减少2,975,600股"
+              "quote": "-2,975,600"
             }
           ],
           "denominator": null,
@@ -11323,7 +11323,7 @@
         },
         "change_shares": {
           "raw_value": "-2,975,600",
-          "value": -2975600,
+          "value": 2975600,
           "unit": "shares",
           "standardized": true,
           "status": "extracted",
@@ -11344,7 +11344,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "［原模型输出为负值，已归一化为非负量级（direction 表达方向）］"
         },
         "method": {
           "raw_value": "协议转让",
@@ -11354,18 +11354,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p033_b00036",
-              "page": 33,
+              "block_id": "d9d5be14f_p009_b00003",
+              "page": 9,
               "region": [
-                168.05,
-                445.25,
-                523.92,
-                487.87
+                114.02,
+                156.15,
+                511.49,
+                168.15
               ],
-              "table_id": "d9d5be14f_p033_t001",
-              "cell_ref": "r10c2",
-              "source_type": "cell",
-              "quote": "协议转让√"
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "协议转让"
             }
           ],
           "denominator": null,
@@ -11437,18 +11437,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p034_b00001",
-              "page": 34,
+              "block_id": "d9d5be14f_p010_b00025",
+              "page": 10,
               "region": [
-                288.43,
-                72.24,
-                523.92,
-                235.58
+                268.78,
+                134.3,
+                325.92,
+                154.7
               ],
-              "table_id": "d9d5be14f_p034_t001",
-              "cell_ref": "r1c2",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r4c4",
               "source_type": "cell",
-              "quote": "减少430,000股"
+              "quote": "-430,000"
             }
           ],
           "denominator": null,
@@ -11556,7 +11556,7 @@
         },
         "change_shares": {
           "raw_value": "-430,000",
-          "value": -430000,
+          "value": 430000,
           "unit": "shares",
           "standardized": true,
           "status": "extracted",
@@ -11577,7 +11577,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "［原模型输出为负值，已归一化为非负量级（direction 表达方向）］"
         },
         "method": {
           "raw_value": "协议转让",
@@ -11587,18 +11587,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p033_b00036",
-              "page": 33,
+              "block_id": "d9d5be14f_p009_b00003",
+              "page": 9,
               "region": [
-                168.05,
-                445.25,
-                523.92,
-                487.87
+                114.02,
+                156.15,
+                511.49,
+                168.15
               ],
-              "table_id": "d9d5be14f_p033_t001",
-              "cell_ref": "r10c2",
-              "source_type": "cell",
-              "quote": "协议转让√"
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "协议转让"
             }
           ],
           "denominator": null,
@@ -11670,18 +11670,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p034_b00001",
-              "page": 34,
+              "block_id": "d9d5be14f_p010_b00032",
+              "page": 10,
               "region": [
-                288.43,
-                72.24,
-                523.92,
-                235.58
+                268.78,
+                154.7,
+                325.92,
+                174.98
               ],
-              "table_id": "d9d5be14f_p034_t001",
-              "cell_ref": "r1c2",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r5c4",
               "source_type": "cell",
-              "quote": "减少1.56%"
+              "quote": "-1,341,600"
             }
           ],
           "denominator": null,
@@ -11789,7 +11789,7 @@
         },
         "change_shares": {
           "raw_value": "-1,341,600",
-          "value": -1341600,
+          "value": 1341600,
           "unit": "shares",
           "standardized": true,
           "status": "extracted",
@@ -11810,7 +11810,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "［原模型输出为负值，已归一化为非负量级（direction 表达方向）］"
         },
         "method": {
           "raw_value": "协议转让",
@@ -11820,18 +11820,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p033_b00036",
-              "page": 33,
+              "block_id": "d9d5be14f_p009_b00003",
+              "page": 9,
               "region": [
-                168.05,
-                445.25,
-                523.92,
-                487.87
+                114.02,
+                156.15,
+                511.49,
+                168.15
               ],
-              "table_id": "d9d5be14f_p033_t001",
-              "cell_ref": "r10c2",
-              "source_type": "cell",
-              "quote": "协议转让√"
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "协议转让"
             }
           ],
           "denominator": null,
@@ -11903,18 +11903,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p033_b00028",
-              "page": 33,
+              "block_id": "d9d5be14f_p010_b00018",
+              "page": 10,
               "region": [
-                168.05,
-                331.85,
-                293.23,
-                388.25
+                268.78,
+                114.02,
+                325.92,
+                134.3
               ],
-              "table_id": "d9d5be14f_p033_t001",
-              "cell_ref": "r8c2",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r3c4",
               "source_type": "cell",
-              "quote": "增加□"
+              "quote": "8,427,900"
             }
           ],
           "denominator": null,
@@ -12053,18 +12053,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d9d5be14f_p033_b00036",
-              "page": 33,
+              "block_id": "d9d5be14f_p009_b00003",
+              "page": 9,
               "region": [
-                168.05,
-                445.25,
-                523.92,
-                487.87
+                114.02,
+                156.15,
+                511.49,
+                168.15
               ],
-              "table_id": "d9d5be14f_p033_t001",
-              "cell_ref": "r10c2",
-              "source_type": "cell",
-              "quote": "协议转让√"
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "协议转让"
             }
           ],
           "denominator": null,
@@ -12103,8 +12103,8 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:47:56.358Z",
-    "duration_ms": 11796,
+    "started_at": "2026-10-01T13:40:46.259Z",
+    "duration_ms": 12166,
     "errors": []
   }
 }
