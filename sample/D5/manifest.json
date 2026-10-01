@@ -4,13 +4,13 @@
   "date": "2026-10-01",
   "module": "解析 / 表格 / 出处",
   "schema": "evidence/0.9",
-  "status": "达标页全部通过；区域重建 7/10 到 100%",
+  "status": "达标页全部通过；区域重建 7/10 到 100%，其余 3 份各差 1 个块",
   "target_dataset": "evaluation/D5/dev/manifest.json（宗博文 D5 十份股权变动）",
   "known_issues": [
     "**所有页的字符守恒已达标**（无丢字、无段落×段落重叠），10/10 份",
-    "区域重建一致率：7 份 100%；002 99.9% / 004 99.4% / 007 98.2%",
-    "剩余项的成因：块的外接矩形含进相邻块的字符（B 类良性交叠），非逻辑错误",
-    "007 另有一类：表格检出的 region 比实际窄（把「股东名称」列漏在表外），该列内容因此被当正文流；按表格 x 区间拆行会修掉 bbox 问题，但拆出的左段自身多行交错、聚类后段落互叠 —— 已用「试拆+自检退回」兜住（宁可 bbox 宽也不产生矛盾块）"
+    "区域重建一致率：7 份 100%；002 99.9% / 004 99.7% / 007 99.7%（各差 1 个块）",
+    "002 p62 的剩余项是**空格数差异**（声称与实取的空格个数不同），与前两者不同类",
+    "004/007 的剩余项是块的外接矩形含进相邻块的字符（B 类良性交叠）"
   ],
   "note": "原始 PDF 未随仓库分发。本目录的解析结果**尚未达到 D5 验收标准**，状态见 status 字段。",
   "samples": [
@@ -258,13 +258,13 @@
         "TEXT",
         "MIXED"
       ],
-      "block_count": 323,
+      "block_count": 325,
       "table_count": 9,
       "cell_block_count": 172,
       "merged_cell_count": 2,
       "source_type_counts": {
-        "paragraph": 151,
-        "cell": 172
+        "paragraph": 150,
+        "cell": 175
       },
       "schema_version": "evidence/0.9",
       "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980"
@@ -306,8 +306,8 @@
       "cell_block_count": 192,
       "merged_cell_count": 13,
       "source_type_counts": {
-        "paragraph": 183,
-        "cell": 192
+        "paragraph": 180,
+        "cell": 195
       },
       "schema_version": "evidence/0.9",
       "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33"
@@ -372,13 +372,13 @@
         "TEXT",
         "TEXT"
       ],
-      "block_count": 338,
+      "block_count": 350,
       "table_count": 8,
       "cell_block_count": 177,
       "merged_cell_count": 10,
       "source_type_counts": {
-        "paragraph": 161,
-        "cell": 177
+        "paragraph": 153,
+        "cell": 197
       },
       "schema_version": "evidence/0.9",
       "file_id": "sha256:3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b"

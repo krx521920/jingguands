@@ -7,7 +7,7 @@
     "file_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
     "file_size": 307617,
     "page_count": 21,
-    "parsed_at": "2026-10-01T21:29:45+08:00",
+    "parsed_at": "2026-10-01T21:33:24+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -5540,14 +5540,14 @@
           ],
           "table_ref": {
             "table_id": "da00b31da_p009_t001",
-            "cell_id": "da00b31da_p009_t001_c008",
-            "cell_ref": "r1c3",
+            "cell_id": "da00b31da_p009_t001_c011",
+            "cell_ref": "r1c4",
             "row": 0,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益变/持股数量（股）"
+            "header_path": "本次权益变"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5560,18 +5560,28 @@
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
           "text": "动后",
           "text_raw": "动后",
           "region": [
             393.72,
-            284.69,
-            417.72,
-            296.69
+            275.1,
+            472.8,
+            313.6
           ],
-          "table_ref": null,
-          "font_size": 12.0,
+          "table_ref": {
+            "table_id": "da00b31da_p009_t001",
+            "cell_id": "da00b31da_p009_t001_c008",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "动后/持股比例（%）"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -5665,7 +5675,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益变/持股数量（股）"
+            "header_path": "持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5678,18 +5688,28 @@
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "股东名称",
-          "text_raw": "股东名称",
+          "text": "持股比例（%）",
+          "text_raw": "持股比例（%）",
           "region": [
-            85.56,
-            313.97,
-            133.56,
-            325.97
+            393.72,
+            313.6,
+            472.8,
+            351.9
           ],
-          "table_ref": null,
-          "font_size": 12.0,
+          "table_ref": {
+            "table_id": "da00b31da_p009_t001",
+            "cell_id": "da00b31da_p009_t001_c009",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "动后/持股比例（%）"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -5702,13 +5722,13 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "持股比例（%）金浦浙展股权投 6.16%资（丽水）合伙企业（有限合伙）",
-          "text_raw": "持股比例（%）金浦浙展股权投6.16%资（丽水）合伙企业（有限合伙）",
+          "text": "股东名称",
+          "text_raw": "股东名称",
           "region": [
-            61.56,
-            321.77,
-            472.8,
-            425.45
+            85.56,
+            313.97,
+            133.56,
+            325.97
           ],
           "table_ref": null,
           "font_size": 12.0,
@@ -5805,7 +5825,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益变/持股数量（股）"
+            "header_path": "持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5815,6 +5835,60 @@
         },
         {
           "block_id": "da00b31da_p009_b00018",
+          "doc_id": "da00b31da",
+          "page": 9,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "6.16%",
+          "text_raw": "6.16%",
+          "region": [
+            393.72,
+            351.9,
+            472.8,
+            442.54
+          ],
+          "table_ref": {
+            "table_id": "da00b31da_p009_t001",
+            "cell_id": "da00b31da_p009_t001_c010",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "动后/持股比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p009_b00019",
+          "doc_id": "da00b31da",
+          "page": 9,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "text_raw": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "region": [
+            61.56,
+            361.37,
+            147.0,
+            425.45
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p009_b00020",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -5836,7 +5910,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00019",
+          "block_id": "da00b31da_p009_b00021",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -5858,7 +5932,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00020",
+          "block_id": "da00b31da_p009_b00022",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -5880,7 +5954,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00021",
+          "block_id": "da00b31da_p009_b00023",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -5902,7 +5976,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00022",
+          "block_id": "da00b31da_p009_b00024",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -5924,7 +5998,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00023",
+          "block_id": "da00b31da_p009_b00025",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -5946,7 +6020,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00024",
+          "block_id": "da00b31da_p009_b00026",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -5968,7 +6042,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00025",
+          "block_id": "da00b31da_p009_b00027",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -5990,7 +6064,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00026",
+          "block_id": "da00b31da_p009_b00028",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -6012,7 +6086,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00027",
+          "block_id": "da00b31da_p009_b00029",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -6034,7 +6108,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "da00b31da_p009_b00028",
+          "block_id": "da00b31da_p009_b00030",
           "doc_id": "da00b31da",
           "page": 9,
           "type": "TEXT",
@@ -6067,7 +6141,7 @@
             442.54
           ],
           "n_rows": 3,
-          "n_cols": 3,
+          "n_cols": 5,
           "continued_from": null
         }
       ]
@@ -9730,6 +9804,8 @@
     "da00b31da_p009_b00026",
     "da00b31da_p009_b00027",
     "da00b31da_p009_b00028",
+    "da00b31da_p009_b00029",
+    "da00b31da_p009_b00030",
     "da00b31da_p010_b00001",
     "da00b31da_p010_b00002",
     "da00b31da_p010_b00003",
@@ -12188,9 +12264,9 @@
             "text_raw": "动后",
             "region": [
               393.72,
-              284.69,
-              417.72,
-              296.69
+              275.1,
+              472.8,
+              313.6
             ]
           },
           {
@@ -12236,6 +12312,19 @@
             "block_id": "da00b31da_p009_b00013",
             "page": 9,
             "role": "BODY",
+            "text": "持股比例（%）",
+            "text_raw": "持股比例（%）",
+            "region": [
+              393.72,
+              313.6,
+              472.8,
+              351.9
+            ]
+          },
+          {
+            "block_id": "da00b31da_p009_b00014",
+            "page": 9,
+            "role": "BODY",
             "text": "股东名称",
             "text_raw": "股东名称",
             "region": [
@@ -12243,19 +12332,6 @@
               313.97,
               133.56,
               325.97
-            ]
-          },
-          {
-            "block_id": "da00b31da_p009_b00014",
-            "page": 9,
-            "role": "BODY",
-            "text": "持股比例（%）金浦浙展股权投 6.16%资（丽水）合伙企业（有限合伙）",
-            "text_raw": "持股比例（%）金浦浙展股权投6.16%资（丽水）合伙企业（有限合伙）",
-            "region": [
-              61.56,
-              321.77,
-              472.8,
-              425.45
             ]
           },
           {
@@ -12300,6 +12376,32 @@
           {
             "block_id": "da00b31da_p009_b00018",
             "page": 9,
+            "role": "BODY",
+            "text": "6.16%",
+            "text_raw": "6.16%",
+            "region": [
+              393.72,
+              351.9,
+              472.8,
+              442.54
+            ]
+          },
+          {
+            "block_id": "da00b31da_p009_b00019",
+            "page": 9,
+            "role": "BODY",
+            "text": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "text_raw": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "region": [
+              61.56,
+              361.37,
+              147.0,
+              425.45
+            ]
+          },
+          {
+            "block_id": "da00b31da_p009_b00020",
+            "page": 9,
             "role": "SECTION",
             "text": "二、本次权益变动方式",
             "text_raw": "二、本次权益变动方式",
@@ -12311,7 +12413,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00019",
+            "block_id": "da00b31da_p009_b00021",
             "page": 9,
             "role": "BODY",
             "text": "根据《上市公司国有股权监督管理办法》（国资委 财政部 证监会令第36号）等相",
@@ -12324,7 +12426,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00020",
+            "block_id": "da00b31da_p009_b00022",
             "page": 9,
             "role": "BODY",
             "text": "关规定及金浦浙展内部决策程序，金浦浙展拟以公开征集协议转让方式受让浙江省国际贸易集团有限公司所持有的海正药业72,673,907股无限售条件流通股份，受让价格为人民币10.34元/股，价款总额为751,448,198.38元。",
@@ -12337,7 +12439,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00021",
+            "block_id": "da00b31da_p009_b00023",
             "page": 9,
             "role": "SECTION",
             "text": "三、本次权益变动相关协议的主要内容",
@@ -12350,7 +12452,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00022",
+            "block_id": "da00b31da_p009_b00024",
             "page": 9,
             "role": "BODY",
             "text": "2026年9月27日，信息披露义务人与浙江省国际贸易集团有限公司签订《股份转让",
@@ -12363,7 +12465,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00023",
+            "block_id": "da00b31da_p009_b00025",
             "page": 9,
             "role": "BODY",
             "text": "协议》，主要内容如下：",
@@ -12376,7 +12478,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00024",
+            "block_id": "da00b31da_p009_b00026",
             "page": 9,
             "role": "SECTION",
             "text": "（一）协议主体",
@@ -12389,7 +12491,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00025",
+            "block_id": "da00b31da_p009_b00027",
             "page": 9,
             "role": "BODY",
             "text": "甲方（转让方）：浙江省国际贸易集团有限公司",
@@ -12402,7 +12504,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00026",
+            "block_id": "da00b31da_p009_b00028",
             "page": 9,
             "role": "BODY",
             "text": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
@@ -12415,7 +12517,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00027",
+            "block_id": "da00b31da_p009_b00029",
             "page": 9,
             "role": "SECTION",
             "text": "（二）股份转让协议的主要条款",
@@ -12428,7 +12530,7 @@
             ]
           },
           {
-            "block_id": "da00b31da_p009_b00028",
+            "block_id": "da00b31da_p009_b00030",
             "page": 9,
             "role": "FOOTER",
             "text": "6",

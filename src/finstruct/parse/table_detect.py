@@ -167,6 +167,60 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
         #   在查清之前不回退到「宁可漏检也不误切」：**4 个字符真丢字，
         #   换来的是 129 个外接矩形交叠的减少 —— 后者本来就是良性的。**
         #   下一步应当先定位 p10 那 4 个字符为何认领不到，再启用补列。
+        # 补出**漏检的列**：pdfplumber 的表格外接矩形是它检出单元格的并集，
+        # 竖线缺失的列不在其中，那列字符于是落在表格之外、掉进正文流 ——
+        # 既失去列归属，又与别的单元格文字混成一行（bbox 横跨整张表）。
+        # 判据：某段 x 若在**半数以上的行**里都有字符，它就是一列；正文不会这样对齐。
+        # 实测 D5-EQC-007 p11 左右各一列、D5-EQC-004 p9 左右各一列。
+        x0e, y0e, x1e, y1e = t.bbox
+        extra_cols = _columns_outside(page, t.bbox, row_bands, col_bands)
+        if extra_cols:
+            col_bands = sorted(list(col_bands) + extra_cols, key=lambda b: b[0])
+            col_lefts = [b[0] for b in col_bands]
+            n_cols = len(col_bands)
+            occupied = {(c["row"], c["col"]) for c in cell_boxes}
+            # 该列各区间的字符，按**最近行带**归行（不要求严格落在带内）——
+            # 补出的列与中间列的行高未必一致，严格包含会有字符认领不到。
+            band_chars: Dict[int, List[Dict]] = {}
+            for c in page.chars or []:
+                cx = (c["x0"] + c["x1"]) / 2
+                cy = (c["top"] + c["bottom"]) / 2
+                if not (y0e - 1 <= cy <= y1e + 1):
+                    continue
+                if not any(e0 - 0.5 <= cx <= e1 + 0.5 for e0, e1 in extra_cols):
+                    continue
+                ri, bd = 0, float("inf")
+                for i, (e0, e1) in enumerate(row_bands):
+                    dd = 0.0 if e0 <= cy <= e1 else min(abs(cy - e0), abs(cy - e1))
+                    if dd < bd:
+                        bd, ri = dd, i
+                band_chars.setdefault(ri, []).append(c)
+            next_ord = len(cell_boxes) + 1
+            for (ex0, ex1) in extra_cols:
+                ci = _nearest(col_lefts, ex0)
+                for ri in range(len(row_bands)):
+                    if (ri, ci) in occupied:
+                        continue
+                    by0, by1 = row_bands[ri]
+                    cs = [c for c in band_chars.get(ri, [])
+                          if ex0 - 0.5 <= (c["x0"] + c["x1"]) / 2 <= ex1 + 0.5]
+                    if cs:      # 格的 y 取该行带与该列实际字符的并集，保证认领得到
+                        by0 = min(by0, min(c["top"] for c in cs))
+                        by1 = max(by1, max(c["bottom"] for c in cs))
+                    cell_boxes.append(
+                        {
+                            "table_id": table_id,
+                            "box": [round(v, 2) for v in (ex0, by0, ex1, by1)],
+                            "row": ri, "col": ci, "rowspan": 1, "colspan": 1,
+                            "cell_id": f"{table_id}_c{next_ord:03d}",
+                            "cell_ref": f"r{ri + 1}c{ci + 1}",
+                            "covers": None,
+                            "_synthesized": True,
+                        }
+                    )
+                    next_ord += 1
+                    occupied.add((ri, ci))
+
         # 合并单元格覆盖了哪些位置：显式写出来，消费方不必自己推行列网格。
         #
         # 为什么不做成"给被覆盖位置也产一份文本"：那会破坏本模块的核心不变量
@@ -342,3 +396,49 @@ def _overlaps(a, b) -> bool:
         return False
     smaller = min(_area(a), _area(b)) or 1.0
     return inter / smaller >= 0.5
+
+
+# 某段 x 要算作「一列」，至少要在这么多比例的行里出现。
+# 正文的左右边距也会对齐，但它通常只跨表格的一部分行；真正的列是整列贯通的。
+COLUMN_ROW_COVERAGE = 0.5
+
+
+def _columns_outside(page, bbox, row_bands, col_bands) -> List[Tuple[float, float]]:
+    """找出表格左右两侧、与行对齐的列（pdfplumber 因竖线缺失而漏检的那些）。"""
+    if not row_bands:
+        return []
+    x0, y0, x1, y1 = bbox
+    inside = [
+        c for c in (page.chars or [])
+        if y0 - 1 <= (c["top"] + c["bottom"]) / 2 <= y1 + 1
+    ]
+    need = max(2, int(len(row_bands) * COLUMN_ROW_COVERAGE + 0.999))
+    out: List[Tuple[float, float]] = []
+    for is_left in (True, False):
+        cand = [
+            c for c in inside
+            if (((c["x0"] + c["x1"]) / 2 < x0 - 0.5) if is_left
+                else ((c["x0"] + c["x1"]) / 2 > x1 + 0.5))
+        ]
+        if not cand:
+            continue
+        cand.sort(key=lambda c: c["x0"])
+        groups: List[Dict] = []
+        for c in cand:
+            if groups and c["x0"] <= groups[-1]["x1"] + 2.0:
+                g = groups[-1]
+                g["x1"] = max(g["x1"], c["x1"])
+                g["chars"].append(c)
+            else:
+                groups.append({"x0": c["x0"], "x1": c["x1"], "chars": [c]})
+        for g in groups:
+            rows_hit = set()
+            for c in g["chars"]:
+                cy = (c["top"] + c["bottom"]) / 2
+                for i, (e0, e1) in enumerate(row_bands):
+                    if e0 - 1 <= cy <= e1 + 1:
+                        rows_hit.add(i)
+                        break
+            if len(rows_hit) >= need:
+                out.append((round(g["x0"], 2), round(g["x1"], 2)))
+    return out

@@ -7,7 +7,7 @@
     "file_sha256": "3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
     "file_size": 232567,
     "page_count": 18,
-    "parsed_at": "2026-10-01T21:29:48+08:00",
+    "parsed_at": "2026-10-01T21:33:26+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -3082,13 +3082,13 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "红豆集团的股东为周海江等25名自然人，其实际控制人为周海江、周海燕、顾萃、刘连红，合计持有红豆集团83.51%的股权。龚新度为红豆集团董事，红闳服饰、天人国际投资为红豆集团控股子公司，构成一致行动人。",
-          "text_raw": "红豆集团的股东为周海江等25名自然人，其实际控制人为周海江、周海燕、顾萃、刘连红，合计持有红豆集团83.51%的股权。龚新度为红豆集团董事，红闳服饰、天人国际投资为红豆集团控股子公司，构成一致行动人。",
+          "text": "红豆集团的股东为周海江等25名自然人，其实际控制人为周海江、周海燕、",
+          "text_raw": "红豆集团的股东为周海江等25名自然人，其实际控制人为周海江、周海燕、",
           "region": [
-            90.0,
+            114.0,
             258.53,
             510.0,
-            317.33
+            272.52
           ],
           "table_ref": null,
           "font_size": 12.0,
@@ -3099,6 +3099,28 @@
         },
         {
           "block_id": "d3d00372c_p007_b00008",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "顾萃、刘连红，合计持有红豆集团83.51%的股权。龚新度为红豆集团董事，红闳服饰、天人国际投资为红豆集团控股子公司，构成一致行动人。",
+          "text_raw": "顾萃、刘连红，合计持有红豆集团83.51%的股权。龚新度为红豆集团董事，红闳服饰、天人国际投资为红豆集团控股子公司，构成一致行动人。",
+          "region": [
+            90.0,
+            281.93,
+            505.32,
+            317.33
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00009",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3120,19 +3142,19 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00009",
+          "block_id": "d3d00372c_p007_b00010",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "信息披露义务人红豆集团设有董事会，董事会成员主要情况如下：序号 其他国家居留权情况1 无2 无3 无4 无5 无",
-          "text_raw": "信息披露义务人红豆集团设有董事会，董事会成员主要情况如下：序号其他国家居留权情况1无2无3无4无5无",
+          "text": "信息披露义务人红豆集团设有董事会，董事会成员主要情况如下：",
+          "text_raw": "信息披露义务人红豆集团设有董事会，董事会成员主要情况如下：",
           "region": [
-            90.84,
+            114.0,
             375.53,
-            503.41,
-            499.21
+            462.0,
+            387.53
           ],
           "table_ref": null,
           "font_size": 12.0,
@@ -3142,7 +3164,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00010",
+          "block_id": "d3d00372c_p007_b00011",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3174,7 +3196,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00011",
+          "block_id": "d3d00372c_p007_b00012",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3206,7 +3228,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00012",
+          "block_id": "d3d00372c_p007_b00013",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3238,7 +3260,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00013",
+          "block_id": "d3d00372c_p007_b00014",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3270,7 +3292,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00014",
+          "block_id": "d3d00372c_p007_b00015",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3302,7 +3324,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00015",
+          "block_id": "d3d00372c_p007_b00016",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3334,7 +3356,61 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00016",
+          "block_id": "d3d00372c_p007_b00017",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "其他国家居留权情况",
+          "text_raw": "其他国家居留权情况",
+          "region": [
+            408.6,
+            395.5,
+            503.41,
+            413.5
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c037",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00018",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "序号1 2 3 4 5",
+          "text_raw": "序号12345",
+          "region": [
+            90.84,
+            399.54,
+            111.85,
+            499.21
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00019",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3366,7 +3442,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00017",
+          "block_id": "d3d00372c_p007_b00020",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3398,7 +3474,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00018",
+          "block_id": "d3d00372c_p007_b00021",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3430,7 +3506,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00019",
+          "block_id": "d3d00372c_p007_b00022",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3462,7 +3538,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00020",
+          "block_id": "d3d00372c_p007_b00023",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3494,7 +3570,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00021",
+          "block_id": "d3d00372c_p007_b00024",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3526,7 +3602,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00022",
+          "block_id": "d3d00372c_p007_b00025",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.6,
+            413.5,
+            503.41,
+            431.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c038",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00026",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3558,7 +3666,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00023",
+          "block_id": "d3d00372c_p007_b00027",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3590,7 +3698,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00024",
+          "block_id": "d3d00372c_p007_b00028",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3622,7 +3730,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00025",
+          "block_id": "d3d00372c_p007_b00029",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3654,7 +3762,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00026",
+          "block_id": "d3d00372c_p007_b00030",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3686,7 +3794,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00027",
+          "block_id": "d3d00372c_p007_b00031",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3718,7 +3826,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00028",
+          "block_id": "d3d00372c_p007_b00032",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.6,
+            431.0,
+            503.41,
+            448.5
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c039",
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00033",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3750,7 +3890,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00029",
+          "block_id": "d3d00372c_p007_b00034",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3782,7 +3922,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00030",
+          "block_id": "d3d00372c_p007_b00035",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3814,7 +3954,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00031",
+          "block_id": "d3d00372c_p007_b00036",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3846,7 +3986,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00032",
+          "block_id": "d3d00372c_p007_b00037",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3878,7 +4018,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00033",
+          "block_id": "d3d00372c_p007_b00038",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3910,7 +4050,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00034",
+          "block_id": "d3d00372c_p007_b00039",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.6,
+            448.5,
+            503.41,
+            466.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c040",
+            "cell_ref": "r4c8",
+            "row": 3,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00040",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3942,7 +4114,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00035",
+          "block_id": "d3d00372c_p007_b00041",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3974,7 +4146,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00036",
+          "block_id": "d3d00372c_p007_b00042",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4006,7 +4178,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00037",
+          "block_id": "d3d00372c_p007_b00043",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4038,7 +4210,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00038",
+          "block_id": "d3d00372c_p007_b00044",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4070,7 +4242,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00039",
+          "block_id": "d3d00372c_p007_b00045",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4102,7 +4274,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00040",
+          "block_id": "d3d00372c_p007_b00046",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.6,
+            466.0,
+            503.41,
+            483.5
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c041",
+            "cell_ref": "r5c8",
+            "row": 4,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00047",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4134,7 +4338,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00041",
+          "block_id": "d3d00372c_p007_b00048",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4166,7 +4370,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00042",
+          "block_id": "d3d00372c_p007_b00049",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4198,7 +4402,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00043",
+          "block_id": "d3d00372c_p007_b00050",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4230,7 +4434,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00044",
+          "block_id": "d3d00372c_p007_b00051",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4262,7 +4466,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00045",
+          "block_id": "d3d00372c_p007_b00052",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4294,7 +4498,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00046",
+          "block_id": "d3d00372c_p007_b00053",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.6,
+            483.5,
+            503.41,
+            501.47
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c042",
+            "cell_ref": "r6c8",
+            "row": 5,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00054",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4316,7 +4552,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00047",
+          "block_id": "d3d00372c_p007_b00055",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4348,7 +4584,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00048",
+          "block_id": "d3d00372c_p007_b00056",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4380,7 +4616,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00049",
+          "block_id": "d3d00372c_p007_b00057",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4412,7 +4648,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00050",
+          "block_id": "d3d00372c_p007_b00058",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4444,7 +4680,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00051",
+          "block_id": "d3d00372c_p007_b00059",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4476,7 +4712,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00052",
+          "block_id": "d3d00372c_p007_b00060",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4508,18 +4744,50 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00053",
+          "block_id": "d3d00372c_p007_b00061",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "其他国家居留权情况",
+          "text_raw": "其他国家居留权情况",
+          "region": [
+            408.72,
+            537.3,
+            503.53,
+            555.3
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c025",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00062",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "序号 其他国家居留权情况1 无2 无3 无",
-          "text_raw": "序号其他国家居留权情况1无2无3无",
+          "text": "序号1 2 3",
+          "text_raw": "序号123",
           "region": [
             90.84,
             541.26,
-            503.53,
+            111.85,
             606.01
           ],
           "table_ref": null,
@@ -4530,7 +4798,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00054",
+          "block_id": "d3d00372c_p007_b00063",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4562,7 +4830,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00055",
+          "block_id": "d3d00372c_p007_b00064",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4594,7 +4862,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00056",
+          "block_id": "d3d00372c_p007_b00065",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4626,7 +4894,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00057",
+          "block_id": "d3d00372c_p007_b00066",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4658,7 +4926,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00058",
+          "block_id": "d3d00372c_p007_b00067",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4690,7 +4958,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00059",
+          "block_id": "d3d00372c_p007_b00068",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4722,7 +4990,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00060",
+          "block_id": "d3d00372c_p007_b00069",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.72,
+            555.3,
+            503.53,
+            572.8
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c026",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00070",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4754,7 +5054,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00061",
+          "block_id": "d3d00372c_p007_b00071",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4786,7 +5086,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00062",
+          "block_id": "d3d00372c_p007_b00072",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4818,7 +5118,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00063",
+          "block_id": "d3d00372c_p007_b00073",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4850,7 +5150,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00064",
+          "block_id": "d3d00372c_p007_b00074",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4882,7 +5182,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00065",
+          "block_id": "d3d00372c_p007_b00075",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4914,7 +5214,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00066",
+          "block_id": "d3d00372c_p007_b00076",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.72,
+            572.8,
+            503.53,
+            590.3
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c027",
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00077",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4946,7 +5278,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00067",
+          "block_id": "d3d00372c_p007_b00078",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4978,7 +5310,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00068",
+          "block_id": "d3d00372c_p007_b00079",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5010,7 +5342,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00069",
+          "block_id": "d3d00372c_p007_b00080",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5042,7 +5374,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00070",
+          "block_id": "d3d00372c_p007_b00081",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5074,7 +5406,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00071",
+          "block_id": "d3d00372c_p007_b00082",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5106,18 +5438,50 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00072",
+          "block_id": "d3d00372c_p007_b00083",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.72,
+            590.3,
+            503.53,
+            608.27
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c028",
+            "cell_ref": "r4c8",
+            "row": 3,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00084",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "信息披露义务人天人国际投资的主要负责人情况如下：序号 其他国家居留权情况1 无",
-          "text_raw": "信息披露义务人天人国际投资的主要负责人情况如下：序号其他国家居留权情况1无",
+          "text": "信息披露义务人天人国际投资的主要负责人情况如下：序号1",
+          "text_raw": "信息披露义务人天人国际投资的主要负责人情况如下：序号1",
           "region": [
             90.84,
             622.61,
-            503.41,
+            402.0,
             674.77
           ],
           "table_ref": null,
@@ -5128,7 +5492,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00073",
+          "block_id": "d3d00372c_p007_b00085",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "其他国家居留权情况",
+          "text_raw": "其他国家居留权情况",
+          "region": [
+            408.6,
+            641.0,
+            503.41,
+            659.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c013",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00086",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5160,7 +5556,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00074",
+          "block_id": "d3d00372c_p007_b00087",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5192,7 +5588,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00075",
+          "block_id": "d3d00372c_p007_b00088",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5224,7 +5620,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00076",
+          "block_id": "d3d00372c_p007_b00089",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5256,7 +5652,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00077",
+          "block_id": "d3d00372c_p007_b00090",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5288,7 +5684,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00078",
+          "block_id": "d3d00372c_p007_b00091",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5320,7 +5716,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00079",
+          "block_id": "d3d00372c_p007_b00092",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.6,
+            659.0,
+            503.41,
+            677.02
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c014",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00093",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5352,7 +5780,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00080",
+          "block_id": "d3d00372c_p007_b00094",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5384,7 +5812,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00081",
+          "block_id": "d3d00372c_p007_b00095",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5416,7 +5844,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00082",
+          "block_id": "d3d00372c_p007_b00096",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5448,7 +5876,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00083",
+          "block_id": "d3d00372c_p007_b00097",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5480,7 +5908,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00084",
+          "block_id": "d3d00372c_p007_b00098",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5512,7 +5940,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00085",
+          "block_id": "d3d00372c_p007_b00099",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5545,7 +5973,7 @@
             501.47
           ],
           "n_rows": 6,
-          "n_cols": 6,
+          "n_cols": 8,
           "continued_from": null
         },
         {
@@ -5558,7 +5986,7 @@
             608.27
           ],
           "n_rows": 4,
-          "n_cols": 6,
+          "n_cols": 8,
           "continued_from": null
         },
         {
@@ -5571,7 +5999,7 @@
             677.02
           ],
           "n_rows": 2,
-          "n_cols": 6,
+          "n_cols": 8,
           "continued_from": null
         }
       ]
@@ -6051,13 +6479,13 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "无锡市锡山区人民法院于2026年9月20日至2026年9月21日在无锡市锡山区人民法院淘宝网司法拍卖网络平台上就红豆集团所持有的上市公司共计166,500,000股无限售流通股进行司法拍卖，根据淘宝网司法拍卖网络平台发布的",
-          "text_raw": "无锡市锡山区人民法院于2026年9月20日至2026年9月21日在无锡市锡山区人民法院淘宝网司法拍卖网络平台上就红豆集团所持有的上市公司共计166,500,000股无限售流通股进行司法拍卖，根据淘宝网司法拍卖网络平台发布的",
+          "text": "无锡市锡山区人民法院于2026年9月20日至2026年9月21日在无锡市锡山区",
+          "text_raw": "无锡市锡山区人民法院于2026年9月20日至2026年9月21日在无锡市锡山区",
           "region": [
-            90.0,
+            114.0,
             280.49,
-            505.32,
-            341.28
+            505.2,
+            294.48
           ],
           "table_ref": null,
           "font_size": 12.0,
@@ -6073,12 +6501,12 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "《网络竞价成功确认书》，拍卖结果如下：",
-          "text_raw": "《网络竞价成功确认书》，拍卖结果如下：",
+          "text": "人民法院淘宝网司法拍卖网络平台上就红豆集团所持有的上市公司共计166,500,000股无限售流通股进行司法拍卖，根据淘宝网司法拍卖网络平台发布的《网络竞价成功确认书》，拍卖结果如下：",
+          "text_raw": "人民法院淘宝网司法拍卖网络平台上就红豆集团所持有的上市公司共计166,500,000股无限售流通股进行司法拍卖，根据淘宝网司法拍卖网络平台发布的《网络竞价成功确认书》，拍卖结果如下：",
           "region": [
             90.0,
-            350.69,
-            318.0,
+            303.89,
+            505.32,
             362.69
           ],
           "table_ref": null,
@@ -6117,13 +6545,13 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "的“红豆集团有限公司持有的83000000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的",
-          "text_raw": "的“红豆集团有限公司持有的83000000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的",
+          "text": "的“红豆集团有限公司持有的83000000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的网络拍卖成交价格：¥228582000（贰亿贰仟捌佰伍拾捌万贰仟元）。",
+          "text_raw": "的“红豆集团有限公司持有的83000000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的网络拍卖成交价格：¥228582000（贰亿贰仟捌佰伍拾捌万贰仟元）。",
           "region": [
             90.0,
             405.29,
             505.32,
-            442.68
+            466.08
           ],
           "table_ref": null,
           "font_size": 12.0,
@@ -6139,13 +6567,13 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "网络拍卖成交价格：¥228582000（贰亿贰仟捌佰伍拾捌万贰仟元）。",
-          "text_raw": "网络拍卖成交价格：¥228582000（贰亿贰仟捌佰伍拾捌万贰仟元）。",
+          "text": "用户姓名魏巍通过竞买号M2760于2026/09/2110:00:00在阿里资产平台开展",
+          "text_raw": "用户姓名魏巍通过竞买号M2760于2026/09/2110:00:00在阿里资产平台开展",
           "region": [
-            90.0,
-            452.09,
-            450.0,
-            466.08
+            114.0,
+            483.29,
+            505.2,
+            497.28
           ],
           "table_ref": null,
           "font_size": 12.0,
@@ -6161,34 +6589,12 @@
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "用户姓名魏巍通过竞买号M2760于2026/09/2110:00:00在阿里资产平台开展的“红豆集团有限公司持有的83500000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的",
-          "text_raw": "用户姓名魏巍通过竞买号M2760于2026/09/2110:00:00在阿里资产平台开展的“红豆集团有限公司持有的83500000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的",
+          "text": "的“红豆集团有限公司持有的83500000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的网络拍卖成交价格：¥230959000（贰亿叁仟零玖拾伍万玖仟元）。",
+          "text_raw": "的“红豆集团有限公司持有的83500000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的网络拍卖成交价格：¥230959000（贰亿叁仟零玖拾伍万玖仟元）。",
           "region": [
             90.0,
-            483.29,
+            506.69,
             505.32,
-            544.08
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p010_b00012",
-          "doc_id": "d3d00372c",
-          "page": 10,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "网络拍卖成交价格：¥230959000（贰亿叁仟零玖拾伍万玖仟元）。",
-          "text_raw": "网络拍卖成交价格：¥230959000（贰亿叁仟零玖拾伍万玖仟元）。",
-          "region": [
-            90.0,
-            553.49,
-            438.0,
             567.48
           ],
           "table_ref": null,
@@ -6199,7 +6605,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00013",
+          "block_id": "d3d00372c_p010_b00012",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6221,40 +6627,18 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00014",
+          "block_id": "d3d00372c_p010_b00013",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "集团及其一致行动人的持股数量由1,325,635,213股减少至1,159,135,213股，持股",
-          "text_raw": "集团及其一致行动人的持股数量由1,325,635,213股减少至1,159,135,213股，持股",
+          "text": "集团及其一致行动人的持股数量由1,325,635,213股减少至1,159,135,213股，持股比例由57.85%减少至50.59%，权益变动跨越5%的整数倍。",
+          "text_raw": "集团及其一致行动人的持股数量由1,325,635,213股减少至1,159,135,213股，持股比例由57.85%减少至50.59%，权益变动跨越5%的整数倍。",
           "region": [
             90.0,
             608.09,
             505.2,
-            622.08
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p010_b00015",
-          "doc_id": "d3d00372c",
-          "page": 10,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "比例由57.85%减少至50.59%，权益变动跨越5%的整数倍。",
-          "text_raw": "比例由57.85%减少至50.59%，权益变动跨越5%的整数倍。",
-          "region": [
-            90.0,
-            631.49,
-            396.0,
             645.48
           ],
           "table_ref": null,
@@ -6265,7 +6649,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00016",
+          "block_id": "d3d00372c_p010_b00014",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6287,7 +6671,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00017",
+          "block_id": "d3d00372c_p010_b00015",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6303,14 +6687,14 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
-            "cell_id": "d3d00372c_p010_t001_c010",
-            "cell_ref": "r1c4",
+            "cell_id": "d3d00372c_p010_t001_c014",
+            "cell_ref": "r1c5",
             "row": 0,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益/持股数量（股）"
+            "header_path": "本次权益"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6319,7 +6703,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00018",
+          "block_id": "d3d00372c_p010_b00016",
+          "doc_id": "d3d00372c",
+          "page": 10,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "变动后",
+          "text_raw": "变动后",
+          "region": [
+            469.44,
+            682.0,
+            541.21,
+            707.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p010_t001",
+            "cell_id": "d3d00372c_p010_t001_c011",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "变动后/持股比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p010_b00017",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6341,13 +6757,7 @@
             "col": 0,
             "rowspan": 2,
             "colspan": 1,
-            "covers": [
-              {
-                "row": 1,
-                "col": 0,
-                "cell_ref": "r2c1"
-              }
-            ],
+            "covers": null,
             "header_path": "股份性质"
           },
           "font_size": null,
@@ -6357,7 +6767,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00019",
+          "block_id": "d3d00372c_p010_b00018",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6395,22 +6805,64 @@
           "missing_reason": null
         },
         {
+          "block_id": "d3d00372c_p010_b00019",
+          "doc_id": "d3d00372c",
+          "page": 10,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            59.28,
+            701.82,
+            119.29,
+            730.9
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p010_t001",
+            "cell_id": "d3d00372c_p010_t001_c010",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股份性质"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
           "block_id": "d3d00372c_p010_b00020",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "变动后股东名称",
-          "text_raw": "变动后股东名称",
+          "text": "持股比例（%）",
+          "text_raw": "持股比例（%）",
           "region": [
-            68.28,
-            689.82,
-            500.89,
-            712.27
+            469.44,
+            707.0,
+            541.21,
+            730.9
           ],
-          "table_ref": null,
-          "font_size": 10.45,
+          "table_ref": {
+            "table_id": "d3d00372c_p010_t001",
+            "cell_id": "d3d00372c_p010_t001_c012",
+            "cell_ref": "r2c6",
+            "row": 1,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "变动后/持股比例（%）"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -6504,7 +6956,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益/持股数量（股）"
+            "header_path": "持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6517,18 +6969,28 @@
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "持股比例（%）红豆集团有限公司 48.21",
-          "text_raw": "持股比例（%）红豆集团有限公司48.21",
+          "text": "48.21",
+          "text_raw": "48.21",
           "region": [
-            59.28,
-            713.7,
+            469.44,
+            730.9,
             541.21,
-            759.79
+            763.56
           ],
-          "table_ref": null,
-          "font_size": 10.45,
+          "table_ref": {
+            "table_id": "d3d00372c_p010_t001",
+            "cell_id": "d3d00372c_p010_t001_c013",
+            "cell_ref": "r3c6",
+            "row": 2,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "变动后/持股比例（%）"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -6654,7 +7116,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益/持股数量（股）"
+            "header_path": "持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6664,6 +7126,28 @@
         },
         {
           "block_id": "d3d00372c_p010_b00029",
+          "doc_id": "d3d00372c",
+          "page": 10,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "红豆集团有限公司",
+          "text_raw": "红豆集团有限公司",
+          "region": [
+            59.28,
+            733.74,
+            119.29,
+            759.79
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p010_b00030",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6696,7 +7180,7 @@
             763.56
           ],
           "n_rows": 3,
-          "n_cols": 4,
+          "n_cols": 6,
           "continued_from": null
         }
       ]
@@ -6730,6 +7214,38 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
+          "text": "1.06",
+          "text_raw": "1.06",
+          "region": [
+            512.4,
+            73.6,
+            535.98,
+            98.6
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c021",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00002",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
           "text": "无限售条件股份",
           "text_raw": "无限售条件股份",
           "region": [
@@ -6756,7 +7272,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00002",
+          "block_id": "d3d00372c_p011_b00003",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -6788,7 +7304,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00003",
+          "block_id": "d3d00372c_p011_b00004",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -6820,7 +7336,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00004",
+          "block_id": "d3d00372c_p011_b00005",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -6852,18 +7368,18 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00005",
+          "block_id": "d3d00372c_p011_b00006",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "周海江 1.06龚新度 0.15无锡红闳服饰有限公司 1.16无锡天人国际投资有限 0.00公司",
-          "text_raw": "周海江1.06龚新度0.15无锡红闳服饰有限公司1.16无锡天人国际投资有限0.00公司",
+          "text": "周海江龚新度无锡红闳服饰有限公司无锡天人国际投资有限公司",
+          "text_raw": "周海江龚新度无锡红闳服饰有限公司无锡天人国际投资有限公司",
           "region": [
             59.28,
             81.42,
-            535.98,
+            119.29,
             198.67
           ],
           "table_ref": null,
@@ -6874,7 +7390,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00006",
+          "block_id": "d3d00372c_p011_b00007",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0.15",
+          "text_raw": "0.15",
+          "region": [
+            512.4,
+            98.6,
+            535.98,
+            122.5
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c022",
+            "cell_ref": "r2c6",
+            "row": 1,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00008",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -6906,7 +7454,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00007",
+          "block_id": "d3d00372c_p011_b00009",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -6938,7 +7486,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00008",
+          "block_id": "d3d00372c_p011_b00010",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -6970,7 +7518,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00009",
+          "block_id": "d3d00372c_p011_b00011",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7002,7 +7550,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00010",
+          "block_id": "d3d00372c_p011_b00012",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "1.16",
+          "text_raw": "1.16",
+          "region": [
+            512.4,
+            122.5,
+            535.98,
+            154.2
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c023",
+            "cell_ref": "r3c6",
+            "row": 2,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00013",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7034,7 +7614,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00011",
+          "block_id": "d3d00372c_p011_b00014",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7066,7 +7646,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00012",
+          "block_id": "d3d00372c_p011_b00015",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7098,7 +7678,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00013",
+          "block_id": "d3d00372c_p011_b00016",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7130,7 +7710,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00014",
+          "block_id": "d3d00372c_p011_b00017",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0.00",
+          "text_raw": "0.00",
+          "region": [
+            512.4,
+            154.2,
+            535.98,
+            201.5
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c024",
+            "cell_ref": "r4c6",
+            "row": 3,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00018",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7162,7 +7774,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00015",
+          "block_id": "d3d00372c_p011_b00019",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7194,7 +7806,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00016",
+          "block_id": "d3d00372c_p011_b00020",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7226,7 +7838,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00017",
+          "block_id": "d3d00372c_p011_b00021",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7258,26 +7870,26 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00018",
+          "block_id": "d3d00372c_p011_b00022",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "合计",
-          "text_raw": "合计",
+          "text": "50.59",
+          "text_raw": "50.59",
           "region": [
-            124.8,
+            512.4,
             201.5,
-            223.9,
+            535.98,
             226.46
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c020",
-            "cell_ref": "r5c1",
+            "cell_id": "d3d00372c_p011_t001_c025",
+            "cell_ref": "r5c6",
             "row": 4,
-            "col": 0,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7290,16 +7902,16 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00019",
+          "block_id": "d3d00372c_p011_b00023",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "1,325,635,213",
-          "text_raw": "1,325,635,213",
+          "text": "合计 1,325,635,213",
+          "text_raw": "合计1,325,635,213",
           "region": [
-            223.95,
+            128.4,
             201.54,
             309.0,
             226.46
@@ -7322,7 +7934,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00020",
+          "block_id": "d3d00372c_p011_b00024",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7354,7 +7966,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00021",
+          "block_id": "d3d00372c_p011_b00025",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7386,95 +7998,29 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00022",
+          "block_id": "d3d00372c_p011_b00026",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "50.59",
-          "text_raw": "50.59",
-          "region": [
-            512.4,
-            210.0,
-            535.98,
-            220.45
-          ],
-          "table_ref": null,
-          "font_size": 10.45,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p011_b00023",
-          "doc_id": "d3d00372c",
-          "page": 11,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "SECTION",
-          "text": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公",
-          "text_raw": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公",
+          "text": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公司之间的其他安排（一）最近一年一期内与上市公司之间的重大交易情况",
+          "text_raw": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公司之间的其他安排（一）最近一年一期内与上市公司之间的重大交易情况",
           "region": [
             90.0,
             244.75,
             505.32,
-            258.8
-          ],
-          "table_ref": null,
-          "font_size": 14.05,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p011_b00024",
-          "doc_id": "d3d00372c",
-          "page": 11,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "司之间的其他安排",
-          "text_raw": "司之间的其他安排",
-          "region": [
-            90.0,
-            275.95,
-            202.09,
-            290.0
-          ],
-          "table_ref": null,
-          "font_size": 14.05,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p011_b00025",
-          "doc_id": "d3d00372c",
-          "page": 11,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "SECTION",
-          "text": "（一）最近一年一期内与上市公司之间的重大交易情况",
-          "text_raw": "（一）最近一年一期内与上市公司之间的重大交易情况",
-          "region": [
-            90.0,
-            311.93,
-            379.08,
             323.93
           ],
           "table_ref": null,
-          "font_size": 12.0,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00026",
+          "block_id": "d3d00372c_p011_b00027",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7496,62 +8042,18 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00027",
-          "doc_id": "d3d00372c",
-          "page": 11,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易",
-          "text_raw": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易",
-          "region": [
-            90.0,
-            366.53,
-            505.32,
-            378.53
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
           "block_id": "d3d00372c_p011_b00028",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "外，信息披露义务人与红豆股份之间未发生其它重大交易。",
-          "text_raw": "外，信息披露义务人与红豆股份之间未发生其它重大交易。",
+          "text": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易外，信息披露义务人与红豆股份之间未发生其它重大交易。（二）未来与上市公司之间的其他安排",
+          "text_raw": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易外，信息披露义务人与红豆股份之间未发生其它重大交易。（二）未来与上市公司之间的其他安排",
           "region": [
             90.0,
-            389.93,
-            402.0,
-            401.93
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p011_b00029",
-          "doc_id": "d3d00372c",
-          "page": 11,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "SECTION",
-          "text": "（二）未来与上市公司之间的其他安排",
-          "text_raw": "（二）未来与上市公司之间的其他安排",
-          "region": [
-            90.0,
-            421.13,
-            294.72,
+            366.53,
+            505.32,
             433.13
           ],
           "table_ref": null,
@@ -7562,7 +8064,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00030",
+          "block_id": "d3d00372c_p011_b00029",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7584,40 +8086,18 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00031",
-          "doc_id": "d3d00372c",
-          "page": 11,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "SECTION",
-          "text": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利",
-          "text_raw": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利",
-          "region": [
-            90.0,
-            486.55,
-            505.32,
-            500.6
-          ],
-          "table_ref": null,
-          "font_size": 14.05,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p011_b00032",
+          "block_id": "d3d00372c_p011_b00030",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "限制，包括但不限于股份被质押、冻结等情况",
-          "text_raw": "限制，包括但不限于股份被质押、冻结等情况",
+          "text": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利限制，包括但不限于股份被质押、冻结等情况",
+          "text_raw": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利限制，包括但不限于股份被质押、冻结等情况",
           "region": [
             90.0,
-            517.75,
-            370.09,
+            486.55,
+            505.32,
             531.8
           ],
           "table_ref": null,
@@ -7628,7 +8108,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00033",
+          "block_id": "d3d00372c_p011_b00031",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7650,40 +8130,18 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00034",
+          "block_id": "d3d00372c_p011_b00032",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结",
-          "text_raw": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结",
+          "text": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结3,342,027,691股。",
+          "text_raw": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结3,342,027,691股。",
           "region": [
             90.0,
             577.13,
             505.32,
-            614.52
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p011_b00035",
-          "doc_id": "d3d00372c",
-          "page": 11,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "3,342,027,691股。",
-          "text_raw": "3,342,027,691股。",
-          "region": [
-            90.0,
-            623.93,
-            183.0,
             637.92
           ],
           "table_ref": null,
@@ -7694,7 +8152,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00036",
+          "block_id": "d3d00372c_p011_b00033",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7716,7 +8174,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00037",
+          "block_id": "d3d00372c_p011_b00034",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7738,7 +8196,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00038",
+          "block_id": "d3d00372c_p011_b00035",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7771,7 +8229,7 @@
             226.46
           ],
           "n_rows": 5,
-          "n_cols": 4,
+          "n_cols": 6,
           "continued_from": "d3d00372c_p010_t001"
         }
       ]
@@ -10100,6 +10558,20 @@
     "d3d00372c_p007_b00083",
     "d3d00372c_p007_b00084",
     "d3d00372c_p007_b00085",
+    "d3d00372c_p007_b00086",
+    "d3d00372c_p007_b00087",
+    "d3d00372c_p007_b00088",
+    "d3d00372c_p007_b00089",
+    "d3d00372c_p007_b00090",
+    "d3d00372c_p007_b00091",
+    "d3d00372c_p007_b00092",
+    "d3d00372c_p007_b00093",
+    "d3d00372c_p007_b00094",
+    "d3d00372c_p007_b00095",
+    "d3d00372c_p007_b00096",
+    "d3d00372c_p007_b00097",
+    "d3d00372c_p007_b00098",
+    "d3d00372c_p007_b00099",
     "d3d00372c_p008_b00001",
     "d3d00372c_p008_b00002",
     "d3d00372c_p008_b00003",
@@ -10142,6 +10614,7 @@
     "d3d00372c_p010_b00027",
     "d3d00372c_p010_b00028",
     "d3d00372c_p010_b00029",
+    "d3d00372c_p010_b00030",
     "d3d00372c_p011_b00001",
     "d3d00372c_p011_b00002",
     "d3d00372c_p011_b00003",
@@ -10177,9 +10650,6 @@
     "d3d00372c_p011_b00033",
     "d3d00372c_p011_b00034",
     "d3d00372c_p011_b00035",
-    "d3d00372c_p011_b00036",
-    "d3d00372c_p011_b00037",
-    "d3d00372c_p011_b00038",
     "d3d00372c_p012_b00001",
     "d3d00372c_p012_b00002",
     "d3d00372c_p013_b00001",
@@ -11766,17 +12236,30 @@
             "block_id": "d3d00372c_p007_b00007",
             "page": 7,
             "role": "BODY",
-            "text": "红豆集团的股东为周海江等25名自然人，其实际控制人为周海江、周海燕、顾萃、刘连红，合计持有红豆集团83.51%的股权。龚新度为红豆集团董事，红闳服饰、天人国际投资为红豆集团控股子公司，构成一致行动人。",
-            "text_raw": "红豆集团的股东为周海江等25名自然人，其实际控制人为周海江、周海燕、顾萃、刘连红，合计持有红豆集团83.51%的股权。龚新度为红豆集团董事，红闳服饰、天人国际投资为红豆集团控股子公司，构成一致行动人。",
+            "text": "红豆集团的股东为周海江等25名自然人，其实际控制人为周海江、周海燕、",
+            "text_raw": "红豆集团的股东为周海江等25名自然人，其实际控制人为周海江、周海燕、",
             "region": [
-              90.0,
+              114.0,
               258.53,
               510.0,
-              317.33
+              272.52
             ]
           },
           {
             "block_id": "d3d00372c_p007_b00008",
+            "page": 7,
+            "role": "BODY",
+            "text": "顾萃、刘连红，合计持有红豆集团83.51%的股权。龚新度为红豆集团董事，红闳服饰、天人国际投资为红豆集团控股子公司，构成一致行动人。",
+            "text_raw": "顾萃、刘连红，合计持有红豆集团83.51%的股权。龚新度为红豆集团董事，红闳服饰、天人国际投资为红豆集团控股子公司，构成一致行动人。",
+            "region": [
+              90.0,
+              281.93,
+              505.32,
+              317.33
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00009",
             "page": 7,
             "role": "SECTION",
             "text": "三、信息披露义务人的董事会及主要负责人情况",
@@ -11789,20 +12272,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00009",
+            "block_id": "d3d00372c_p007_b00010",
             "page": 7,
             "role": "BODY",
-            "text": "信息披露义务人红豆集团设有董事会，董事会成员主要情况如下：序号 其他国家居留权情况1 无2 无3 无4 无5 无",
-            "text_raw": "信息披露义务人红豆集团设有董事会，董事会成员主要情况如下：序号其他国家居留权情况1无2无3无4无5无",
+            "text": "信息披露义务人红豆集团设有董事会，董事会成员主要情况如下：",
+            "text_raw": "信息披露义务人红豆集团设有董事会，董事会成员主要情况如下：",
             "region": [
-              90.84,
+              114.0,
               375.53,
-              503.41,
-              499.21
+              462.0,
+              387.53
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00010",
+            "block_id": "d3d00372c_p007_b00011",
             "page": 7,
             "role": "BODY",
             "text": "姓名",
@@ -11815,7 +12298,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00011",
+            "block_id": "d3d00372c_p007_b00012",
             "page": 7,
             "role": "BODY",
             "text": "曾用名",
@@ -11828,7 +12311,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00012",
+            "block_id": "d3d00372c_p007_b00013",
             "page": 7,
             "role": "BODY",
             "text": "性别",
@@ -11841,7 +12324,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00013",
+            "block_id": "d3d00372c_p007_b00014",
             "page": 7,
             "role": "BODY",
             "text": "职务",
@@ -11854,7 +12337,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00014",
+            "block_id": "d3d00372c_p007_b00015",
             "page": 7,
             "role": "BODY",
             "text": "国籍",
@@ -11867,7 +12350,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00015",
+            "block_id": "d3d00372c_p007_b00016",
             "page": 7,
             "role": "BODY",
             "text": "居住地",
@@ -11880,7 +12363,33 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00016",
+            "block_id": "d3d00372c_p007_b00017",
+            "page": 7,
+            "role": "BODY",
+            "text": "其他国家居留权情况",
+            "text_raw": "其他国家居留权情况",
+            "region": [
+              408.6,
+              395.5,
+              503.41,
+              413.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00018",
+            "page": 7,
+            "role": "BODY",
+            "text": "序号1 2 3 4 5",
+            "text_raw": "序号12345",
+            "region": [
+              90.84,
+              399.54,
+              111.85,
+              499.21
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00019",
             "page": 7,
             "role": "BODY",
             "text": "周海江",
@@ -11893,7 +12402,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00017",
+            "block_id": "d3d00372c_p007_b00020",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -11906,7 +12415,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00018",
+            "block_id": "d3d00372c_p007_b00021",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -11919,7 +12428,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00019",
+            "block_id": "d3d00372c_p007_b00022",
             "page": 7,
             "role": "BODY",
             "text": "董事长",
@@ -11932,7 +12441,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00020",
+            "block_id": "d3d00372c_p007_b00023",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -11945,7 +12454,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00021",
+            "block_id": "d3d00372c_p007_b00024",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -11958,7 +12467,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00022",
+            "block_id": "d3d00372c_p007_b00025",
+            "page": 7,
+            "role": "BODY",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.6,
+              413.5,
+              503.41,
+              431.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00026",
             "page": 7,
             "role": "BODY",
             "text": "周海燕",
@@ -11971,7 +12493,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00023",
+            "block_id": "d3d00372c_p007_b00027",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -11984,7 +12506,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00024",
+            "block_id": "d3d00372c_p007_b00028",
             "page": 7,
             "role": "BODY",
             "text": "女",
@@ -11997,7 +12519,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00025",
+            "block_id": "d3d00372c_p007_b00029",
             "page": 7,
             "role": "BODY",
             "text": "副董事长",
@@ -12010,7 +12532,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00026",
+            "block_id": "d3d00372c_p007_b00030",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12023,7 +12545,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00027",
+            "block_id": "d3d00372c_p007_b00031",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12036,7 +12558,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00028",
+            "block_id": "d3d00372c_p007_b00032",
+            "page": 7,
+            "role": "BODY",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.6,
+              431.0,
+              503.41,
+              448.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00033",
             "page": 7,
             "role": "BODY",
             "text": "龚新度",
@@ -12049,7 +12584,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00029",
+            "block_id": "d3d00372c_p007_b00034",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12062,7 +12597,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00030",
+            "block_id": "d3d00372c_p007_b00035",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -12075,7 +12610,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00031",
+            "block_id": "d3d00372c_p007_b00036",
             "page": 7,
             "role": "BODY",
             "text": "董事",
@@ -12088,7 +12623,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00032",
+            "block_id": "d3d00372c_p007_b00037",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12101,7 +12636,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00033",
+            "block_id": "d3d00372c_p007_b00038",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12114,7 +12649,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00034",
+            "block_id": "d3d00372c_p007_b00039",
+            "page": 7,
+            "role": "BODY",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.6,
+              448.5,
+              503.41,
+              466.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00040",
             "page": 7,
             "role": "BODY",
             "text": "刘连红",
@@ -12127,7 +12675,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00035",
+            "block_id": "d3d00372c_p007_b00041",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12140,7 +12688,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00036",
+            "block_id": "d3d00372c_p007_b00042",
             "page": 7,
             "role": "BODY",
             "text": "女",
@@ -12153,7 +12701,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00037",
+            "block_id": "d3d00372c_p007_b00043",
             "page": 7,
             "role": "BODY",
             "text": "董事",
@@ -12166,7 +12714,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00038",
+            "block_id": "d3d00372c_p007_b00044",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12179,7 +12727,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00039",
+            "block_id": "d3d00372c_p007_b00045",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12192,7 +12740,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00040",
+            "block_id": "d3d00372c_p007_b00046",
+            "page": 7,
+            "role": "BODY",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.6,
+              466.0,
+              503.41,
+              483.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00047",
             "page": 7,
             "role": "BODY",
             "text": "王晓军",
@@ -12205,7 +12766,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00041",
+            "block_id": "d3d00372c_p007_b00048",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12218,7 +12779,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00042",
+            "block_id": "d3d00372c_p007_b00049",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -12231,7 +12792,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00043",
+            "block_id": "d3d00372c_p007_b00050",
             "page": 7,
             "role": "BODY",
             "text": "董事兼经理",
@@ -12244,7 +12805,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00044",
+            "block_id": "d3d00372c_p007_b00051",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12257,7 +12818,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00045",
+            "block_id": "d3d00372c_p007_b00052",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12270,7 +12831,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00046",
+            "block_id": "d3d00372c_p007_b00053",
+            "page": 7,
+            "role": "BODY",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.6,
+              483.5,
+              503.41,
+              501.47
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00054",
             "page": 7,
             "role": "BODY",
             "text": "信息披露义务人红闳服饰设有董事会，董事会成员主要情况如下：",
@@ -12283,7 +12857,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00047",
+            "block_id": "d3d00372c_p007_b00055",
             "page": 7,
             "role": "BODY",
             "text": "姓名",
@@ -12296,7 +12870,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00048",
+            "block_id": "d3d00372c_p007_b00056",
             "page": 7,
             "role": "BODY",
             "text": "曾用名",
@@ -12309,7 +12883,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00049",
+            "block_id": "d3d00372c_p007_b00057",
             "page": 7,
             "role": "BODY",
             "text": "性别",
@@ -12322,7 +12896,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00050",
+            "block_id": "d3d00372c_p007_b00058",
             "page": 7,
             "role": "BODY",
             "text": "职务",
@@ -12335,7 +12909,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00051",
+            "block_id": "d3d00372c_p007_b00059",
             "page": 7,
             "role": "BODY",
             "text": "国籍",
@@ -12348,7 +12922,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00052",
+            "block_id": "d3d00372c_p007_b00060",
             "page": 7,
             "role": "BODY",
             "text": "居住地",
@@ -12361,20 +12935,33 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00053",
+            "block_id": "d3d00372c_p007_b00061",
             "page": 7,
             "role": "BODY",
-            "text": "序号 其他国家居留权情况1 无2 无3 无",
-            "text_raw": "序号其他国家居留权情况1无2无3无",
+            "text": "其他国家居留权情况",
+            "text_raw": "其他国家居留权情况",
+            "region": [
+              408.72,
+              537.3,
+              503.53,
+              555.3
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00062",
+            "page": 7,
+            "role": "BODY",
+            "text": "序号1 2 3",
+            "text_raw": "序号123",
             "region": [
               90.84,
               541.26,
-              503.53,
+              111.85,
               606.01
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00054",
+            "block_id": "d3d00372c_p007_b00063",
             "page": 7,
             "role": "BODY",
             "text": "王晓军",
@@ -12387,7 +12974,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00055",
+            "block_id": "d3d00372c_p007_b00064",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12400,7 +12987,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00056",
+            "block_id": "d3d00372c_p007_b00065",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -12413,7 +13000,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00057",
+            "block_id": "d3d00372c_p007_b00066",
             "page": 7,
             "role": "BODY",
             "text": "董事长",
@@ -12426,7 +13013,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00058",
+            "block_id": "d3d00372c_p007_b00067",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12439,7 +13026,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00059",
+            "block_id": "d3d00372c_p007_b00068",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12452,7 +13039,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00060",
+            "block_id": "d3d00372c_p007_b00069",
+            "page": 7,
+            "role": "BODY",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.72,
+              555.3,
+              503.53,
+              572.8
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00070",
             "page": 7,
             "role": "BODY",
             "text": "任朗宁",
@@ -12465,7 +13065,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00061",
+            "block_id": "d3d00372c_p007_b00071",
             "page": 7,
             "role": "BODY",
             "text": "任越",
@@ -12478,7 +13078,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00062",
+            "block_id": "d3d00372c_p007_b00072",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -12491,7 +13091,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00063",
+            "block_id": "d3d00372c_p007_b00073",
             "page": 7,
             "role": "BODY",
             "text": "副董事长",
@@ -12504,7 +13104,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00064",
+            "block_id": "d3d00372c_p007_b00074",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12517,7 +13117,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00065",
+            "block_id": "d3d00372c_p007_b00075",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12530,7 +13130,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00066",
+            "block_id": "d3d00372c_p007_b00076",
+            "page": 7,
+            "role": "BODY",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.72,
+              572.8,
+              503.53,
+              590.3
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00077",
             "page": 7,
             "role": "BODY",
             "text": "周兵",
@@ -12543,7 +13156,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00067",
+            "block_id": "d3d00372c_p007_b00078",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12556,7 +13169,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00068",
+            "block_id": "d3d00372c_p007_b00079",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -12569,7 +13182,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00069",
+            "block_id": "d3d00372c_p007_b00080",
             "page": 7,
             "role": "BODY",
             "text": "董事兼总经理",
@@ -12582,7 +13195,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00070",
+            "block_id": "d3d00372c_p007_b00081",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12595,7 +13208,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00071",
+            "block_id": "d3d00372c_p007_b00082",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12608,20 +13221,46 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00072",
+            "block_id": "d3d00372c_p007_b00083",
             "page": 7,
             "role": "BODY",
-            "text": "信息披露义务人天人国际投资的主要负责人情况如下：序号 其他国家居留权情况1 无",
-            "text_raw": "信息披露义务人天人国际投资的主要负责人情况如下：序号其他国家居留权情况1无",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.72,
+              590.3,
+              503.53,
+              608.27
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00084",
+            "page": 7,
+            "role": "BODY",
+            "text": "信息披露义务人天人国际投资的主要负责人情况如下：序号1",
+            "text_raw": "信息披露义务人天人国际投资的主要负责人情况如下：序号1",
             "region": [
               90.84,
               622.61,
-              503.41,
+              402.0,
               674.77
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00073",
+            "block_id": "d3d00372c_p007_b00085",
+            "page": 7,
+            "role": "BODY",
+            "text": "其他国家居留权情况",
+            "text_raw": "其他国家居留权情况",
+            "region": [
+              408.6,
+              641.0,
+              503.41,
+              659.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00086",
             "page": 7,
             "role": "BODY",
             "text": "姓名",
@@ -12634,7 +13273,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00074",
+            "block_id": "d3d00372c_p007_b00087",
             "page": 7,
             "role": "BODY",
             "text": "曾用名",
@@ -12647,7 +13286,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00075",
+            "block_id": "d3d00372c_p007_b00088",
             "page": 7,
             "role": "BODY",
             "text": "性别",
@@ -12660,7 +13299,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00076",
+            "block_id": "d3d00372c_p007_b00089",
             "page": 7,
             "role": "BODY",
             "text": "职务",
@@ -12673,7 +13312,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00077",
+            "block_id": "d3d00372c_p007_b00090",
             "page": 7,
             "role": "BODY",
             "text": "国籍",
@@ -12686,7 +13325,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00078",
+            "block_id": "d3d00372c_p007_b00091",
             "page": 7,
             "role": "BODY",
             "text": "居住地",
@@ -12699,7 +13338,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00079",
+            "block_id": "d3d00372c_p007_b00092",
+            "page": 7,
+            "role": "BODY",
+            "text": "无",
+            "text_raw": "无",
+            "region": [
+              408.6,
+              659.0,
+              503.41,
+              677.02
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00093",
             "page": 7,
             "role": "BODY",
             "text": "严永新",
@@ -12712,7 +13364,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00080",
+            "block_id": "d3d00372c_p007_b00094",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12725,7 +13377,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00081",
+            "block_id": "d3d00372c_p007_b00095",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -12738,7 +13390,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00082",
+            "block_id": "d3d00372c_p007_b00096",
             "page": 7,
             "role": "BODY",
             "text": "董事兼经理",
@@ -12751,7 +13403,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00083",
+            "block_id": "d3d00372c_p007_b00097",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12764,7 +13416,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00084",
+            "block_id": "d3d00372c_p007_b00098",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12777,7 +13429,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00085",
+            "block_id": "d3d00372c_p007_b00099",
             "page": 7,
             "role": "FOOTER",
             "text": "6",
@@ -13027,25 +13679,25 @@
             "block_id": "d3d00372c_p010_b00006",
             "page": 10,
             "role": "BODY",
-            "text": "无锡市锡山区人民法院于2026年9月20日至2026年9月21日在无锡市锡山区人民法院淘宝网司法拍卖网络平台上就红豆集团所持有的上市公司共计166,500,000股无限售流通股进行司法拍卖，根据淘宝网司法拍卖网络平台发布的",
-            "text_raw": "无锡市锡山区人民法院于2026年9月20日至2026年9月21日在无锡市锡山区人民法院淘宝网司法拍卖网络平台上就红豆集团所持有的上市公司共计166,500,000股无限售流通股进行司法拍卖，根据淘宝网司法拍卖网络平台发布的",
+            "text": "无锡市锡山区人民法院于2026年9月20日至2026年9月21日在无锡市锡山区",
+            "text_raw": "无锡市锡山区人民法院于2026年9月20日至2026年9月21日在无锡市锡山区",
             "region": [
-              90.0,
+              114.0,
               280.49,
-              505.32,
-              341.28
+              505.2,
+              294.48
             ]
           },
           {
             "block_id": "d3d00372c_p010_b00007",
             "page": 10,
             "role": "BODY",
-            "text": "《网络竞价成功确认书》，拍卖结果如下：",
-            "text_raw": "《网络竞价成功确认书》，拍卖结果如下：",
+            "text": "人民法院淘宝网司法拍卖网络平台上就红豆集团所持有的上市公司共计166,500,000股无限售流通股进行司法拍卖，根据淘宝网司法拍卖网络平台发布的《网络竞价成功确认书》，拍卖结果如下：",
+            "text_raw": "人民法院淘宝网司法拍卖网络平台上就红豆集团所持有的上市公司共计166,500,000股无限售流通股进行司法拍卖，根据淘宝网司法拍卖网络平台发布的《网络竞价成功确认书》，拍卖结果如下：",
             "region": [
               90.0,
-              350.69,
-              318.0,
+              303.89,
+              505.32,
               362.69
             ]
           },
@@ -13066,56 +13718,43 @@
             "block_id": "d3d00372c_p010_b00009",
             "page": 10,
             "role": "BODY",
-            "text": "的“红豆集团有限公司持有的83000000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的",
-            "text_raw": "的“红豆集团有限公司持有的83000000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的",
+            "text": "的“红豆集团有限公司持有的83000000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的网络拍卖成交价格：¥228582000（贰亿贰仟捌佰伍拾捌万贰仟元）。",
+            "text_raw": "的“红豆集团有限公司持有的83000000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的网络拍卖成交价格：¥228582000（贰亿贰仟捌佰伍拾捌万贰仟元）。",
             "region": [
               90.0,
               405.29,
               505.32,
-              442.68
+              466.08
             ]
           },
           {
             "block_id": "d3d00372c_p010_b00010",
             "page": 10,
             "role": "BODY",
-            "text": "网络拍卖成交价格：¥228582000（贰亿贰仟捌佰伍拾捌万贰仟元）。",
-            "text_raw": "网络拍卖成交价格：¥228582000（贰亿贰仟捌佰伍拾捌万贰仟元）。",
+            "text": "用户姓名魏巍通过竞买号M2760于2026/09/2110:00:00在阿里资产平台开展",
+            "text_raw": "用户姓名魏巍通过竞买号M2760于2026/09/2110:00:00在阿里资产平台开展",
             "region": [
-              90.0,
-              452.09,
-              450.0,
-              466.08
+              114.0,
+              483.29,
+              505.2,
+              497.28
             ]
           },
           {
             "block_id": "d3d00372c_p010_b00011",
             "page": 10,
             "role": "BODY",
-            "text": "用户姓名魏巍通过竞买号M2760于2026/09/2110:00:00在阿里资产平台开展的“红豆集团有限公司持有的83500000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的",
-            "text_raw": "用户姓名魏巍通过竞买号M2760于2026/09/2110:00:00在阿里资产平台开展的“红豆集团有限公司持有的83500000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的",
+            "text": "的“红豆集团有限公司持有的83500000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的网络拍卖成交价格：¥230959000（贰亿叁仟零玖拾伍万玖仟元）。",
+            "text_raw": "的“红豆集团有限公司持有的83500000股江苏红豆实业股份有限公司股票（股票代码600400.SH，无限售流通股）”项目公开竞价中，以最高应价胜出。该标的网络拍卖成交价格：¥230959000（贰亿叁仟零玖拾伍万玖仟元）。",
             "region": [
               90.0,
-              483.29,
+              506.69,
               505.32,
-              544.08
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p010_b00012",
-            "page": 10,
-            "role": "BODY",
-            "text": "网络拍卖成交价格：¥230959000（贰亿叁仟零玖拾伍万玖仟元）。",
-            "text_raw": "网络拍卖成交价格：¥230959000（贰亿叁仟零玖拾伍万玖仟元）。",
-            "region": [
-              90.0,
-              553.49,
-              438.0,
               567.48
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00013",
+            "block_id": "d3d00372c_p010_b00012",
             "page": 10,
             "role": "BODY",
             "text": "2026年9月29日，上述司法拍卖股份完成过户登记手续。被动减持后，红豆",
@@ -13128,33 +13767,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00014",
+            "block_id": "d3d00372c_p010_b00013",
             "page": 10,
             "role": "BODY",
-            "text": "集团及其一致行动人的持股数量由1,325,635,213股减少至1,159,135,213股，持股",
-            "text_raw": "集团及其一致行动人的持股数量由1,325,635,213股减少至1,159,135,213股，持股",
+            "text": "集团及其一致行动人的持股数量由1,325,635,213股减少至1,159,135,213股，持股比例由57.85%减少至50.59%，权益变动跨越5%的整数倍。",
+            "text_raw": "集团及其一致行动人的持股数量由1,325,635,213股减少至1,159,135,213股，持股比例由57.85%减少至50.59%，权益变动跨越5%的整数倍。",
             "region": [
               90.0,
               608.09,
               505.2,
-              622.08
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p010_b00015",
-            "page": 10,
-            "role": "BODY",
-            "text": "比例由57.85%减少至50.59%，权益变动跨越5%的整数倍。",
-            "text_raw": "比例由57.85%减少至50.59%，权益变动跨越5%的整数倍。",
-            "region": [
-              90.0,
-              631.49,
-              396.0,
               645.48
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00016",
+            "block_id": "d3d00372c_p010_b00014",
             "page": 10,
             "role": "BODY",
             "text": "权益变动前后，信息披露义务人持有红豆股份变化情况详见下表：",
@@ -13167,7 +13793,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00017",
+            "block_id": "d3d00372c_p010_b00015",
             "page": 10,
             "role": "BODY",
             "text": "本次权益",
@@ -13180,7 +13806,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00018",
+            "block_id": "d3d00372c_p010_b00016",
+            "page": 10,
+            "role": "BODY",
+            "text": "变动后",
+            "text_raw": "变动后",
+            "region": [
+              469.44,
+              682.0,
+              541.21,
+              707.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p010_b00017",
             "page": 10,
             "role": "BODY",
             "text": "股份性质",
@@ -13193,7 +13832,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00019",
+            "block_id": "d3d00372c_p010_b00018",
             "page": 10,
             "role": "BODY",
             "text": "本次权益变动前",
@@ -13206,16 +13845,29 @@
             ]
           },
           {
+            "block_id": "d3d00372c_p010_b00019",
+            "page": 10,
+            "role": "BODY",
+            "text": "股东名称",
+            "text_raw": "股东名称",
+            "region": [
+              59.28,
+              701.82,
+              119.29,
+              730.9
+            ]
+          },
+          {
             "block_id": "d3d00372c_p010_b00020",
             "page": 10,
             "role": "BODY",
-            "text": "变动后股东名称",
-            "text_raw": "变动后股东名称",
+            "text": "持股比例（%）",
+            "text_raw": "持股比例（%）",
             "region": [
-              68.28,
-              689.82,
-              500.89,
-              712.27
+              469.44,
+              707.0,
+              541.21,
+              730.9
             ]
           },
           {
@@ -13261,13 +13913,13 @@
             "block_id": "d3d00372c_p010_b00024",
             "page": 10,
             "role": "BODY",
-            "text": "持股比例（%）红豆集团有限公司 48.21",
-            "text_raw": "持股比例（%）红豆集团有限公司48.21",
+            "text": "48.21",
+            "text_raw": "48.21",
             "region": [
-              59.28,
-              713.7,
+              469.44,
+              730.9,
               541.21,
-              759.79
+              763.56
             ]
           },
           {
@@ -13325,6 +13977,19 @@
           {
             "block_id": "d3d00372c_p010_b00029",
             "page": 10,
+            "role": "BODY",
+            "text": "红豆集团有限公司",
+            "text_raw": "红豆集团有限公司",
+            "region": [
+              59.28,
+              733.74,
+              119.29,
+              759.79
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p010_b00030",
+            "page": 10,
             "role": "FOOTER",
             "text": "9",
             "text_raw": "9",
@@ -13339,6 +14004,19 @@
             "block_id": "d3d00372c_p011_b00001",
             "page": 11,
             "role": "BODY",
+            "text": "1.06",
+            "text_raw": "1.06",
+            "region": [
+              512.4,
+              73.6,
+              535.98,
+              98.6
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00002",
+            "page": 11,
+            "role": "BODY",
             "text": "无限售条件股份",
             "text_raw": "无限售条件股份",
             "region": [
@@ -13349,7 +14027,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00002",
+            "block_id": "d3d00372c_p011_b00003",
             "page": 11,
             "role": "BODY",
             "text": "24,391,391",
@@ -13362,7 +14040,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00003",
+            "block_id": "d3d00372c_p011_b00004",
             "page": 11,
             "role": "BODY",
             "text": "1.06",
@@ -13375,7 +14053,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00004",
+            "block_id": "d3d00372c_p011_b00005",
             "page": 11,
             "role": "BODY",
             "text": "24,391,391",
@@ -13388,20 +14066,33 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00005",
+            "block_id": "d3d00372c_p011_b00006",
             "page": 11,
             "role": "BODY",
-            "text": "周海江 1.06龚新度 0.15无锡红闳服饰有限公司 1.16无锡天人国际投资有限 0.00公司",
-            "text_raw": "周海江1.06龚新度0.15无锡红闳服饰有限公司1.16无锡天人国际投资有限0.00公司",
+            "text": "周海江龚新度无锡红闳服饰有限公司无锡天人国际投资有限公司",
+            "text_raw": "周海江龚新度无锡红闳服饰有限公司无锡天人国际投资有限公司",
             "region": [
               59.28,
               81.42,
-              535.98,
+              119.29,
               198.67
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00006",
+            "block_id": "d3d00372c_p011_b00007",
+            "page": 11,
+            "role": "BODY",
+            "text": "0.15",
+            "text_raw": "0.15",
+            "region": [
+              512.4,
+              98.6,
+              535.98,
+              122.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00008",
             "page": 11,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -13414,7 +14105,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00007",
+            "block_id": "d3d00372c_p011_b00009",
             "page": 11,
             "role": "BODY",
             "text": "3,515,604",
@@ -13427,7 +14118,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00008",
+            "block_id": "d3d00372c_p011_b00010",
             "page": 11,
             "role": "BODY",
             "text": "0.15",
@@ -13440,7 +14131,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00009",
+            "block_id": "d3d00372c_p011_b00011",
             "page": 11,
             "role": "BODY",
             "text": "3,515,604",
@@ -13453,7 +14144,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00010",
+            "block_id": "d3d00372c_p011_b00012",
+            "page": 11,
+            "role": "BODY",
+            "text": "1.16",
+            "text_raw": "1.16",
+            "region": [
+              512.4,
+              122.5,
+              535.98,
+              154.2
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00013",
             "page": 11,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -13466,7 +14170,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00011",
+            "block_id": "d3d00372c_p011_b00014",
             "page": 11,
             "role": "BODY",
             "text": "26,519,700",
@@ -13479,7 +14183,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00012",
+            "block_id": "d3d00372c_p011_b00015",
             "page": 11,
             "role": "BODY",
             "text": "1.16",
@@ -13492,7 +14196,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00013",
+            "block_id": "d3d00372c_p011_b00016",
             "page": 11,
             "role": "BODY",
             "text": "26,519,700",
@@ -13505,7 +14209,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00014",
+            "block_id": "d3d00372c_p011_b00017",
+            "page": 11,
+            "role": "BODY",
+            "text": "0.00",
+            "text_raw": "0.00",
+            "region": [
+              512.4,
+              154.2,
+              535.98,
+              201.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00018",
             "page": 11,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -13518,7 +14235,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00015",
+            "block_id": "d3d00372c_p011_b00019",
             "page": 11,
             "role": "BODY",
             "text": "100",
@@ -13531,7 +14248,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00016",
+            "block_id": "d3d00372c_p011_b00020",
             "page": 11,
             "role": "BODY",
             "text": "0.00",
@@ -13544,7 +14261,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00017",
+            "block_id": "d3d00372c_p011_b00021",
             "page": 11,
             "role": "BODY",
             "text": "100",
@@ -13557,33 +14274,33 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00018",
+            "block_id": "d3d00372c_p011_b00022",
             "page": 11,
             "role": "BODY",
-            "text": "合计",
-            "text_raw": "合计",
+            "text": "50.59",
+            "text_raw": "50.59",
             "region": [
-              124.8,
+              512.4,
               201.5,
-              223.9,
+              535.98,
               226.46
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00019",
+            "block_id": "d3d00372c_p011_b00023",
             "page": 11,
             "role": "BODY",
-            "text": "1,325,635,213",
-            "text_raw": "1,325,635,213",
+            "text": "合计 1,325,635,213",
+            "text_raw": "合计1,325,635,213",
             "region": [
-              223.95,
+              128.4,
               201.54,
               309.0,
               226.46
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00020",
+            "block_id": "d3d00372c_p011_b00024",
             "page": 11,
             "role": "BODY",
             "text": "57.85",
@@ -13596,7 +14313,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00021",
+            "block_id": "d3d00372c_p011_b00025",
             "page": 11,
             "role": "BODY",
             "text": "1,159,135,213",
@@ -13609,59 +14326,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00022",
+            "block_id": "d3d00372c_p011_b00026",
             "page": 11,
             "role": "BODY",
-            "text": "50.59",
-            "text_raw": "50.59",
-            "region": [
-              512.4,
-              210.0,
-              535.98,
-              220.45
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p011_b00023",
-            "page": 11,
-            "role": "SECTION",
-            "text": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公",
-            "text_raw": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公",
+            "text": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公司之间的其他安排（一）最近一年一期内与上市公司之间的重大交易情况",
+            "text_raw": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公司之间的其他安排（一）最近一年一期内与上市公司之间的重大交易情况",
             "region": [
               90.0,
               244.75,
               505.32,
-              258.8
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p011_b00024",
-            "page": 11,
-            "role": "BODY",
-            "text": "司之间的其他安排",
-            "text_raw": "司之间的其他安排",
-            "region": [
-              90.0,
-              275.95,
-              202.09,
-              290.0
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p011_b00025",
-            "page": 11,
-            "role": "SECTION",
-            "text": "（一）最近一年一期内与上市公司之间的重大交易情况",
-            "text_raw": "（一）最近一年一期内与上市公司之间的重大交易情况",
-            "region": [
-              90.0,
-              311.93,
-              379.08,
               323.93
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00026",
+            "block_id": "d3d00372c_p011_b00027",
             "page": 11,
             "role": "BODY",
             "text": "最近一年一期，信息披露义务人与上市公司的重大交易具体情况请参见红豆",
@@ -13674,46 +14352,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00027",
+            "block_id": "d3d00372c_p011_b00028",
             "page": 11,
             "role": "BODY",
-            "text": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易",
-            "text_raw": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易",
+            "text": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易外，信息披露义务人与红豆股份之间未发生其它重大交易。（二）未来与上市公司之间的其他安排",
+            "text_raw": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易外，信息披露义务人与红豆股份之间未发生其它重大交易。（二）未来与上市公司之间的其他安排",
             "region": [
               90.0,
               366.53,
               505.32,
-              378.53
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p011_b00028",
-            "page": 11,
-            "role": "BODY",
-            "text": "外，信息披露义务人与红豆股份之间未发生其它重大交易。",
-            "text_raw": "外，信息披露义务人与红豆股份之间未发生其它重大交易。",
-            "region": [
-              90.0,
-              389.93,
-              402.0,
-              401.93
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p011_b00029",
-            "page": 11,
-            "role": "SECTION",
-            "text": "（二）未来与上市公司之间的其他安排",
-            "text_raw": "（二）未来与上市公司之间的其他安排",
-            "region": [
-              90.0,
-              421.13,
-              294.72,
               433.13
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00030",
+            "block_id": "d3d00372c_p011_b00029",
             "page": 11,
             "role": "BODY",
             "text": "截至本报告书签署日，信息披露义务人与红豆股份未来不存在其他安排。",
@@ -13726,33 +14378,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00031",
+            "block_id": "d3d00372c_p011_b00030",
             "page": 11,
-            "role": "SECTION",
-            "text": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利",
-            "text_raw": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利",
+            "role": "BODY",
+            "text": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利限制，包括但不限于股份被质押、冻结等情况",
+            "text_raw": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利限制，包括但不限于股份被质押、冻结等情况",
             "region": [
               90.0,
               486.55,
               505.32,
-              500.6
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p011_b00032",
-            "page": 11,
-            "role": "BODY",
-            "text": "限制，包括但不限于股份被质押、冻结等情况",
-            "text_raw": "限制，包括但不限于股份被质押、冻结等情况",
-            "region": [
-              90.0,
-              517.75,
-              370.09,
               531.8
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00033",
+            "block_id": "d3d00372c_p011_b00031",
             "page": 11,
             "role": "BODY",
             "text": "截至本报告书签署之日，红豆集团及其一致行动人周海江、红闳服饰共质押",
@@ -13765,33 +14404,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00034",
+            "block_id": "d3d00372c_p011_b00032",
             "page": 11,
             "role": "BODY",
-            "text": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结",
-            "text_raw": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结",
+            "text": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结3,342,027,691股。",
+            "text_raw": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结3,342,027,691股。",
             "region": [
               90.0,
               577.13,
               505.32,
-              614.52
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p011_b00035",
-            "page": 11,
-            "role": "BODY",
-            "text": "3,342,027,691股。",
-            "text_raw": "3,342,027,691股。",
-            "region": [
-              90.0,
-              623.93,
-              183.0,
               637.92
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00036",
+            "block_id": "d3d00372c_p011_b00033",
             "page": 11,
             "role": "BODY",
             "text": "除此之外，信息披露义务人持有的上市公司股份中不存在被质押、冻结等其",
@@ -13804,7 +14430,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00037",
+            "block_id": "d3d00372c_p011_b00034",
             "page": 11,
             "role": "BODY",
             "text": "他任何形式的权利限制。",
@@ -13817,7 +14443,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00038",
+            "block_id": "d3d00372c_p011_b00035",
             "page": 11,
             "role": "FOOTER",
             "text": "10",

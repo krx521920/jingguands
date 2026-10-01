@@ -7,7 +7,7 @@
     "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
     "file_size": 339627,
     "page_count": 18,
-    "parsed_at": "2026-10-01T21:29:46+08:00",
+    "parsed_at": "2026-10-01T21:33:25+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -6676,14 +6676,14 @@
           ],
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
-            "cell_id": "da8d294d2_p008_t001_c008",
-            "cell_ref": "r1c3",
+            "cell_id": "da8d294d2_p008_t001_c011",
+            "cell_ref": "r1c4",
             "row": 0,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益/持股数量（股）"
+            "header_path": "本次权益"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6696,18 +6696,28 @@
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
           "text": "变动后",
           "text_raw": "变动后",
           "region": [
             428.16,
-            243.13,
-            458.87,
-            253.08
+            235.2,
+            501.83,
+            257.7
           ],
-          "table_ref": null,
-          "font_size": 9.95,
+          "table_ref": {
+            "table_id": "da8d294d2_p008_t001",
+            "cell_id": "da8d294d2_p008_t001_c008",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "变动后/持股比例（%）"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -6823,7 +6833,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益/持股数量（股）"
+            "header_path": "持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6836,18 +6846,28 @@
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
           "text": "持股比例（%）",
           "text_raw": "持股比例（%）",
           "region": [
-            431.76,
-            263.65,
+            428.16,
+            257.7,
             501.83,
-            275.25
+            277.9
           ],
-          "table_ref": null,
-          "font_size": 9.95,
+          "table_ref": {
+            "table_id": "da8d294d2_p008_t001",
+            "cell_id": "da8d294d2_p008_t001_c009",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "变动后/持股比例（%）"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -6941,7 +6961,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益/持股数量（股）"
+            "header_path": "持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6954,18 +6974,28 @@
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "SECTION",
-          "text": "二、本次权益变动方式",
-          "text_raw": "二、本次权益变动方式",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
           "region": [
-            118.68,
-            313.75,
-            257.41,
-            327.8
+            428.16,
+            277.9,
+            501.83,
+            300.18
           ],
-          "table_ref": null,
-          "font_size": 14.05,
+          "table_ref": {
+            "table_id": "da8d294d2_p008_t001",
+            "cell_id": "da8d294d2_p008_t001_c010",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "变动后/持股比例（%）"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -6973,292 +7003,6 @@
         },
         {
           "block_id": "da8d294d2_p008_b00018",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "根据《上市公司国有股权监督管理办法》（国资委 财政部 证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
-          "text_raw": "根据《上市公司国有股权监督管理办法》（国资委财政部证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
-          "region": [
-            90.36,
-            341.45,
-            507.72,
-            423.29
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00019",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "SECTION",
-          "text": "三、本次权益变动相关协议的主要内容",
-          "text_raw": "三、本次权益变动相关协议的主要内容",
-          "region": [
-            118.68,
-            434.23,
-            355.2,
-            448.28
-          ],
-          "table_ref": null,
-          "font_size": 14.05,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00020",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
-          "text_raw": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
-          "region": [
-            114.36,
-            461.81,
-            495.36,
-            475.68
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00021",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "下：",
-          "text_raw": "下：",
-          "region": [
-            90.36,
-            485.21,
-            114.0,
-            497.21
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00022",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "SECTION",
-          "text": "（一）协议主体",
-          "text_raw": "（一）协议主体",
-          "region": [
-            113.28,
-            508.61,
-            197.28,
-            520.61
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00023",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "甲方（转让方）：浙江省国际贸易集团有限公司",
-          "text_raw": "甲方（转让方）：浙江省国际贸易集团有限公司",
-          "region": [
-            116.28,
-            532.01,
-            368.28,
-            544.01
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00024",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
-          "text_raw": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
-          "region": [
-            116.28,
-            555.41,
-            476.28,
-            567.41
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00025",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "SECTION",
-          "text": "（二）股份转让协议的主要条款",
-          "text_raw": "（二）股份转让协议的主要条款",
-          "region": [
-            113.28,
-            578.81,
-            281.28,
-            590.81
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00026",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "1.标的股份数量",
-          "text_raw": "1.标的股份数量",
-          "region": [
-            116.28,
-            602.21,
-            197.28,
-            616.2
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00027",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
-          "text_raw": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
-          "region": [
-            89.28,
-            625.61,
-            507.96,
-            684.41
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00028",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
-          "text_raw": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
-          "region": [
-            113.28,
-            695.81,
-            507.83,
-            709.8
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00029",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
-          "text_raw": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
-          "region": [
-            89.28,
-            719.21,
-            507.94,
-            754.73
-          ],
-          "table_ref": null,
-          "font_size": 12.0,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00030",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "FOOTER",
-          "text": "8",
-          "text_raw": "8",
-          "region": [
-            295.92,
-            782.88,
-            301.15,
-            793.33
-          ],
-          "table_ref": null,
-          "font_size": 10.45,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00031",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -7280,22 +7024,308 @@
           "missing_reason": null
         },
         {
-          "block_id": "da8d294d2_p008_b00032",
+          "block_id": "da8d294d2_p008_b00019",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "二、本次权益变动方式",
+          "text_raw": "二、本次权益变动方式",
+          "region": [
+            118.68,
+            313.75,
+            257.41,
+            327.8
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00020",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "BODY",
-          "text": "0",
-          "text_raw": "0",
+          "text": "根据《上市公司国有股权监督管理办法》（国资委 财政部 证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
+          "text_raw": "根据《上市公司国有股权监督管理办法》（国资委财政部证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
           "region": [
-            476.76,
-            286.78,
-            481.73,
-            296.73
+            90.36,
+            341.45,
+            507.72,
+            423.29
           ],
           "table_ref": null,
-          "font_size": 9.95,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00021",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "三、本次权益变动相关协议的主要内容",
+          "text_raw": "三、本次权益变动相关协议的主要内容",
+          "region": [
+            118.68,
+            434.23,
+            355.2,
+            448.28
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00022",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
+          "text_raw": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
+          "region": [
+            114.36,
+            461.81,
+            495.36,
+            475.68
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00023",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "下：",
+          "text_raw": "下：",
+          "region": [
+            90.36,
+            485.21,
+            114.0,
+            497.21
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00024",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（一）协议主体",
+          "text_raw": "（一）协议主体",
+          "region": [
+            113.28,
+            508.61,
+            197.28,
+            520.61
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00025",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "甲方（转让方）：浙江省国际贸易集团有限公司",
+          "text_raw": "甲方（转让方）：浙江省国际贸易集团有限公司",
+          "region": [
+            116.28,
+            532.01,
+            368.28,
+            544.01
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00026",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "text_raw": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "region": [
+            116.28,
+            555.41,
+            476.28,
+            567.41
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00027",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（二）股份转让协议的主要条款",
+          "text_raw": "（二）股份转让协议的主要条款",
+          "region": [
+            113.28,
+            578.81,
+            281.28,
+            590.81
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00028",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1.标的股份数量",
+          "text_raw": "1.标的股份数量",
+          "region": [
+            116.28,
+            602.21,
+            197.28,
+            616.2
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00029",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
+          "text_raw": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
+          "region": [
+            89.28,
+            625.61,
+            507.96,
+            684.41
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00030",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
+          "text_raw": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
+          "region": [
+            113.28,
+            695.81,
+            507.83,
+            709.8
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00031",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
+          "text_raw": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
+          "region": [
+            89.28,
+            719.21,
+            507.94,
+            754.73
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00032",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "FOOTER",
+          "text": "8",
+          "text_raw": "8",
+          "region": [
+            295.92,
+            782.88,
+            301.15,
+            793.33
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -7313,7 +7343,7 @@
             300.18
           ],
           "n_rows": 3,
-          "n_cols": 3,
+          "n_cols": 5,
           "continued_from": null
         }
       ]
@@ -14141,9 +14171,9 @@
             "text_raw": "变动后",
             "region": [
               428.16,
-              243.13,
-              458.87,
-              253.08
+              235.2,
+              501.83,
+              257.7
             ]
           },
           {
@@ -14205,10 +14235,10 @@
             "text": "持股比例（%）",
             "text_raw": "持股比例（%）",
             "region": [
-              431.76,
-              263.65,
+              428.16,
+              257.7,
               501.83,
-              275.25
+              277.9
             ]
           },
           {
@@ -14253,187 +14283,18 @@
           {
             "block_id": "da8d294d2_p008_b00017",
             "page": 8,
-            "role": "SECTION",
-            "text": "二、本次权益变动方式",
-            "text_raw": "二、本次权益变动方式",
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0",
             "region": [
-              118.68,
-              313.75,
-              257.41,
-              327.8
+              428.16,
+              277.9,
+              501.83,
+              300.18
             ]
           },
           {
             "block_id": "da8d294d2_p008_b00018",
-            "page": 8,
-            "role": "BODY",
-            "text": "根据《上市公司国有股权监督管理办法》（国资委 财政部 证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
-            "text_raw": "根据《上市公司国有股权监督管理办法》（国资委财政部证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
-            "region": [
-              90.36,
-              341.45,
-              507.72,
-              423.29
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00019",
-            "page": 8,
-            "role": "SECTION",
-            "text": "三、本次权益变动相关协议的主要内容",
-            "text_raw": "三、本次权益变动相关协议的主要内容",
-            "region": [
-              118.68,
-              434.23,
-              355.2,
-              448.28
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00020",
-            "page": 8,
-            "role": "BODY",
-            "text": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
-            "text_raw": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
-            "region": [
-              114.36,
-              461.81,
-              495.36,
-              475.68
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00021",
-            "page": 8,
-            "role": "BODY",
-            "text": "下：",
-            "text_raw": "下：",
-            "region": [
-              90.36,
-              485.21,
-              114.0,
-              497.21
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00022",
-            "page": 8,
-            "role": "SECTION",
-            "text": "（一）协议主体",
-            "text_raw": "（一）协议主体",
-            "region": [
-              113.28,
-              508.61,
-              197.28,
-              520.61
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00023",
-            "page": 8,
-            "role": "BODY",
-            "text": "甲方（转让方）：浙江省国际贸易集团有限公司",
-            "text_raw": "甲方（转让方）：浙江省国际贸易集团有限公司",
-            "region": [
-              116.28,
-              532.01,
-              368.28,
-              544.01
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00024",
-            "page": 8,
-            "role": "BODY",
-            "text": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
-            "text_raw": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
-            "region": [
-              116.28,
-              555.41,
-              476.28,
-              567.41
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00025",
-            "page": 8,
-            "role": "SECTION",
-            "text": "（二）股份转让协议的主要条款",
-            "text_raw": "（二）股份转让协议的主要条款",
-            "region": [
-              113.28,
-              578.81,
-              281.28,
-              590.81
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00026",
-            "page": 8,
-            "role": "BODY",
-            "text": "1.标的股份数量",
-            "text_raw": "1.标的股份数量",
-            "region": [
-              116.28,
-              602.21,
-              197.28,
-              616.2
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00027",
-            "page": 8,
-            "role": "BODY",
-            "text": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
-            "text_raw": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
-            "region": [
-              89.28,
-              625.61,
-              507.96,
-              684.41
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00028",
-            "page": 8,
-            "role": "BODY",
-            "text": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
-            "text_raw": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
-            "region": [
-              113.28,
-              695.81,
-              507.83,
-              709.8
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00029",
-            "page": 8,
-            "role": "BODY",
-            "text": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
-            "text_raw": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
-            "region": [
-              89.28,
-              719.21,
-              507.94,
-              754.73
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00030",
-            "page": 8,
-            "role": "FOOTER",
-            "text": "8",
-            "text_raw": "8",
-            "region": [
-              295.92,
-              782.88,
-              301.15,
-              793.33
-            ]
-          },
-          {
-            "block_id": "da8d294d2_p008_b00031",
             "page": 8,
             "role": "BODY",
             "text": "国贸集团",
@@ -14446,16 +14307,185 @@
             ]
           },
           {
-            "block_id": "da8d294d2_p008_b00032",
+            "block_id": "da8d294d2_p008_b00019",
+            "page": 8,
+            "role": "SECTION",
+            "text": "二、本次权益变动方式",
+            "text_raw": "二、本次权益变动方式",
+            "region": [
+              118.68,
+              313.75,
+              257.41,
+              327.8
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00020",
             "page": 8,
             "role": "BODY",
-            "text": "0",
-            "text_raw": "0",
+            "text": "根据《上市公司国有股权监督管理办法》（国资委 财政部 证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
+            "text_raw": "根据《上市公司国有股权监督管理办法》（国资委财政部证监会令第36号）等相关规定及国贸集团内部决策程序，经浙江省人民政府国有资产监督管理委员会预审核同意，国贸集团以公开征集转让方式协议转让所持有上市公司股份。",
             "region": [
-              476.76,
-              286.78,
-              481.73,
-              296.73
+              90.36,
+              341.45,
+              507.72,
+              423.29
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00021",
+            "page": 8,
+            "role": "SECTION",
+            "text": "三、本次权益变动相关协议的主要内容",
+            "text_raw": "三、本次权益变动相关协议的主要内容",
+            "region": [
+              118.68,
+              434.23,
+              355.2,
+              448.28
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00022",
+            "page": 8,
+            "role": "BODY",
+            "text": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
+            "text_raw": "2026年9月27日，国贸集团与金浦浙展签署《股份转让协议》,主要内容如",
+            "region": [
+              114.36,
+              461.81,
+              495.36,
+              475.68
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00023",
+            "page": 8,
+            "role": "BODY",
+            "text": "下：",
+            "text_raw": "下：",
+            "region": [
+              90.36,
+              485.21,
+              114.0,
+              497.21
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00024",
+            "page": 8,
+            "role": "SECTION",
+            "text": "（一）协议主体",
+            "text_raw": "（一）协议主体",
+            "region": [
+              113.28,
+              508.61,
+              197.28,
+              520.61
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00025",
+            "page": 8,
+            "role": "BODY",
+            "text": "甲方（转让方）：浙江省国际贸易集团有限公司",
+            "text_raw": "甲方（转让方）：浙江省国际贸易集团有限公司",
+            "region": [
+              116.28,
+              532.01,
+              368.28,
+              544.01
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00026",
+            "page": 8,
+            "role": "BODY",
+            "text": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "text_raw": "乙方（受让方）：金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "region": [
+              116.28,
+              555.41,
+              476.28,
+              567.41
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00027",
+            "page": 8,
+            "role": "SECTION",
+            "text": "（二）股份转让协议的主要条款",
+            "text_raw": "（二）股份转让协议的主要条款",
+            "region": [
+              113.28,
+              578.81,
+              281.28,
+              590.81
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00028",
+            "page": 8,
+            "role": "BODY",
+            "text": "1.标的股份数量",
+            "text_raw": "1.标的股份数量",
+            "region": [
+              116.28,
+              602.21,
+              197.28,
+              616.2
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00029",
+            "page": 8,
+            "role": "BODY",
+            "text": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
+            "text_raw": "1.1双方一致同意，甲方通过协议转让的方式将其持有的标的公司72,673,907股无限售A股流通股股份（占标的公司总股本的6.16%）及标的股份对应的所有股东权益转让给乙方。",
+            "region": [
+              89.28,
+              625.61,
+              507.96,
+              684.41
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00030",
+            "page": 8,
+            "role": "BODY",
+            "text": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
+            "text_raw": "1.2双方同意在本协议签署日起至标的股份完成过户期间，若标的公司发生",
+            "region": [
+              113.28,
+              695.81,
+              507.83,
+              709.8
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00031",
+            "page": 8,
+            "role": "BODY",
+            "text": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
+            "text_raw": "送股、转增股本、配股等除权事项，则标的股份数量、股份转让价格应作相应调整，标的股份转让价款总额不变；若标的公司发生现金分红等除息事项，则",
+            "region": [
+              89.28,
+              719.21,
+              507.94,
+              754.73
+            ]
+          },
+          {
+            "block_id": "da8d294d2_p008_b00032",
+            "page": 8,
+            "role": "FOOTER",
+            "text": "8",
+            "text_raw": "8",
+            "region": [
+              295.92,
+              782.88,
+              301.15,
+              793.33
             ]
           },
           {
