@@ -7,7 +7,7 @@
     "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
     "file_size": 339627,
     "page_count": 18,
-    "parsed_at": "2026-10-01T21:33:25+08:00",
+    "parsed_at": "2026-10-01T21:41:08+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -6639,16 +6639,16 @@
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
             "cell_id": "da8d294d2_p008_t001_c001",
-            "cell_ref": "r1c1",
+            "cell_ref": "r1c2",
             "row": 0,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 2,
             "covers": [
               {
                 "row": 0,
-                "col": 1,
-                "cell_ref": "r1c2"
+                "col": 2,
+                "cell_ref": "r1c3"
               }
             ],
             "header_path": "本次权益变动前/持股数量（股）"
@@ -6676,14 +6676,14 @@
           ],
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
-            "cell_id": "da8d294d2_p008_t001_c011",
+            "cell_id": "da8d294d2_p008_t001_c014",
             "cell_ref": "r1c4",
             "row": 0,
             "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益"
+            "header_path": "本次权益/持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6708,7 +6708,7 @@
           ],
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
-            "cell_id": "da8d294d2_p008_t001_c008",
+            "cell_id": "da8d294d2_p008_t001_c011",
             "cell_ref": "r1c5",
             "row": 0,
             "col": 4,
@@ -6728,7 +6728,7 @@
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
           "text": "股东名称",
           "text_raw": "股东名称",
@@ -6736,10 +6736,20 @@
             108.12,
             253.33,
             149.15,
-            263.28
+            277.9
           ],
-          "table_ref": null,
-          "font_size": 9.95,
+          "table_ref": {
+            "table_id": "da8d294d2_p008_t001",
+            "cell_id": "da8d294d2_p008_t001_c009",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -6763,9 +6773,9 @@
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
             "cell_id": "da8d294d2_p008_t001_c002",
-            "cell_ref": "r2c1",
+            "cell_ref": "r2c2",
             "row": 1,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -6795,9 +6805,9 @@
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
             "cell_id": "da8d294d2_p008_t001_c004",
-            "cell_ref": "r2c2",
+            "cell_ref": "r2c3",
             "row": 1,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -6827,13 +6837,13 @@
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
             "cell_id": "da8d294d2_p008_t001_c006",
-            "cell_ref": "r2c3",
+            "cell_ref": "r2c4",
             "row": 1,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "持股数量（股）"
+            "header_path": "本次权益/持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6858,7 +6868,7 @@
           ],
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
-            "cell_id": "da8d294d2_p008_t001_c009",
+            "cell_id": "da8d294d2_p008_t001_c012",
             "cell_ref": "r2c5",
             "row": 1,
             "col": 4,
@@ -6891,9 +6901,9 @@
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
             "cell_id": "da8d294d2_p008_t001_c003",
-            "cell_ref": "r3c1",
+            "cell_ref": "r3c2",
             "row": 2,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -6923,9 +6933,9 @@
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
             "cell_id": "da8d294d2_p008_t001_c005",
-            "cell_ref": "r3c2",
+            "cell_ref": "r3c3",
             "row": 2,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -6955,13 +6965,13 @@
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
             "cell_id": "da8d294d2_p008_t001_c007",
-            "cell_ref": "r3c3",
+            "cell_ref": "r3c4",
             "row": 2,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "持股数量（股）"
+            "header_path": "本次权益/持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6971,6 +6981,38 @@
         },
         {
           "block_id": "da8d294d2_p008_b00017",
+          "doc_id": "da8d294d2",
+          "page": 8,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "国贸集团",
+          "text_raw": "国贸集团",
+          "region": [
+            108.12,
+            277.9,
+            149.15,
+            300.18
+          ],
+          "table_ref": {
+            "table_id": "da8d294d2_p008_t001",
+            "cell_id": "da8d294d2_p008_t001_c010",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da8d294d2_p008_b00018",
           "doc_id": "da8d294d2",
           "page": 8,
           "type": "TEXT",
@@ -6986,7 +7028,7 @@
           ],
           "table_ref": {
             "table_id": "da8d294d2_p008_t001",
-            "cell_id": "da8d294d2_p008_t001_c010",
+            "cell_id": "da8d294d2_p008_t001_c013",
             "cell_ref": "r3c5",
             "row": 2,
             "col": 4,
@@ -6996,28 +7038,6 @@
             "header_path": "变动后/持股比例（%）"
           },
           "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da8d294d2_p008_b00018",
-          "doc_id": "da8d294d2",
-          "page": 8,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "国贸集团",
-          "text_raw": "国贸集团",
-          "region": [
-            108.48,
-            283.93,
-            149.15,
-            293.88
-          ],
-          "table_ref": null,
-          "font_size": 9.95,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -14186,7 +14206,7 @@
               108.12,
               253.33,
               149.15,
-              263.28
+              277.9
             ]
           },
           {
@@ -14284,12 +14304,12 @@
             "block_id": "da8d294d2_p008_b00017",
             "page": 8,
             "role": "BODY",
-            "text": "0",
-            "text_raw": "0",
+            "text": "国贸集团",
+            "text_raw": "国贸集团",
             "region": [
-              428.16,
+              108.12,
               277.9,
-              501.83,
+              149.15,
               300.18
             ]
           },
@@ -14297,13 +14317,13 @@
             "block_id": "da8d294d2_p008_b00018",
             "page": 8,
             "role": "BODY",
-            "text": "国贸集团",
-            "text_raw": "国贸集团",
+            "text": "0",
+            "text_raw": "0",
             "region": [
-              108.48,
-              283.93,
-              149.15,
-              293.88
+              428.16,
+              277.9,
+              501.83,
+              300.18
             ]
           },
           {

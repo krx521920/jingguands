@@ -7,7 +7,7 @@
     "file_sha256": "3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
     "file_size": 232567,
     "page_count": 18,
-    "parsed_at": "2026-10-01T21:33:26+08:00",
+    "parsed_at": "2026-10-01T21:41:09+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -3181,9 +3181,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c001",
-            "cell_ref": "r1c1",
+            "cell_ref": "r1c2",
             "row": 0,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3213,9 +3213,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c007",
-            "cell_ref": "r1c2",
+            "cell_ref": "r1c3",
             "row": 0,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3245,9 +3245,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c013",
-            "cell_ref": "r1c3",
+            "cell_ref": "r1c4",
             "row": 0,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3277,9 +3277,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c019",
-            "cell_ref": "r1c4",
+            "cell_ref": "r1c5",
             "row": 0,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3309,9 +3309,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c025",
-            "cell_ref": "r1c5",
+            "cell_ref": "r1c6",
             "row": 0,
-            "col": 4,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3341,9 +3341,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c031",
-            "cell_ref": "r1c6",
+            "cell_ref": "r1c7",
             "row": 0,
-            "col": 5,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3362,24 +3362,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "其他国家居留权情况",
-          "text_raw": "其他国家居留权情况",
+          "text": "序号",
+          "text_raw": "序号",
           "region": [
-            408.6,
+            90.84,
             395.5,
-            503.41,
+            111.85,
             413.5
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c037",
-            "cell_ref": "r1c8",
+            "cell_ref": "r1c1",
             "row": 0,
-            "col": 7,
+            "col": 0,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "其他国家居留权情况/无"
+            "header_path": "序号/1/2"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -3392,18 +3392,28 @@
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "序号1 2 3 4 5",
-          "text_raw": "序号12345",
+          "text": "其他国家居留权情况",
+          "text_raw": "其他国家居留权情况",
           "region": [
-            90.84,
-            399.54,
-            111.85,
-            499.21
+            408.6,
+            395.5,
+            503.41,
+            413.5
           ],
-          "table_ref": null,
-          "font_size": 10.45,
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c043",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -3427,9 +3437,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c002",
-            "cell_ref": "r2c1",
+            "cell_ref": "r2c2",
             "row": 1,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3459,9 +3469,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c008",
-            "cell_ref": "r2c2",
+            "cell_ref": "r2c3",
             "row": 1,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3491,9 +3501,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c014",
-            "cell_ref": "r2c3",
+            "cell_ref": "r2c4",
             "row": 1,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3523,9 +3533,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c020",
-            "cell_ref": "r2c4",
+            "cell_ref": "r2c5",
             "row": 1,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3555,9 +3565,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c026",
-            "cell_ref": "r2c5",
+            "cell_ref": "r2c6",
             "row": 1,
-            "col": 4,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3587,9 +3597,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c032",
-            "cell_ref": "r2c6",
+            "cell_ref": "r2c7",
             "row": 1,
-            "col": 5,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3608,6 +3618,38 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            90.84,
+            413.5,
+            111.85,
+            431.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c038",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00026",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
           "text": "无",
           "text_raw": "无",
           "region": [
@@ -3618,7 +3660,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
-            "cell_id": "d3d00372c_p007_t001_c038",
+            "cell_id": "d3d00372c_p007_t001_c044",
             "cell_ref": "r2c8",
             "row": 1,
             "col": 7,
@@ -3634,7 +3676,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00026",
+          "block_id": "d3d00372c_p007_b00027",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3651,9 +3693,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c003",
-            "cell_ref": "r3c1",
+            "cell_ref": "r3c2",
             "row": 2,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3666,7 +3708,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00027",
+          "block_id": "d3d00372c_p007_b00028",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3683,9 +3725,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c009",
-            "cell_ref": "r3c2",
+            "cell_ref": "r3c3",
             "row": 2,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3698,7 +3740,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00028",
+          "block_id": "d3d00372c_p007_b00029",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3715,9 +3757,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c015",
-            "cell_ref": "r3c3",
+            "cell_ref": "r3c4",
             "row": 2,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3730,7 +3772,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00029",
+          "block_id": "d3d00372c_p007_b00030",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3747,9 +3789,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c021",
-            "cell_ref": "r3c4",
+            "cell_ref": "r3c5",
             "row": 2,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3762,7 +3804,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00030",
+          "block_id": "d3d00372c_p007_b00031",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3779,9 +3821,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c027",
-            "cell_ref": "r3c5",
+            "cell_ref": "r3c6",
             "row": 2,
-            "col": 4,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3794,7 +3836,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00031",
+          "block_id": "d3d00372c_p007_b00032",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3811,45 +3853,13 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c033",
-            "cell_ref": "r3c6",
+            "cell_ref": "r3c7",
             "row": 2,
-            "col": 5,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
             "header_path": "居住地/无锡"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00032",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "无",
-          "text_raw": "无",
-          "region": [
-            408.6,
-            431.0,
-            503.41,
-            448.5
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t001",
-            "cell_id": "d3d00372c_p007_t001_c039",
-            "cell_ref": "r3c8",
-            "row": 2,
-            "col": 7,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "其他国家居留权情况/无"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -3864,24 +3874,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "龚新度",
-          "text_raw": "龚新度",
+          "text": "2",
+          "text_raw": "2",
           "region": [
-            118.15,
-            448.49,
-            167.85,
-            465.99
+            90.84,
+            431.0,
+            111.85,
+            448.5
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
-            "cell_id": "d3d00372c_p007_t001_c004",
-            "cell_ref": "r4c1",
-            "row": 3,
+            "cell_id": "d3d00372c_p007_t001_c039",
+            "cell_ref": "r3c1",
+            "row": 2,
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "姓名/周海江/周海燕"
+            "header_path": "序号/1/2"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -3899,6 +3909,70 @@
           "text": "无",
           "text_raw": "无",
           "region": [
+            408.6,
+            431.0,
+            503.41,
+            448.5
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c045",
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "其他国家居留权情况/无"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00035",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "龚新度",
+          "text_raw": "龚新度",
+          "region": [
+            118.15,
+            448.49,
+            167.85,
+            465.99
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c004",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "姓名/周海江/周海燕"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00036",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
             167.85,
             448.49,
             210.45,
@@ -3907,9 +3981,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c010",
-            "cell_ref": "r4c2",
+            "cell_ref": "r4c3",
             "row": 3,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3922,7 +3996,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00035",
+          "block_id": "d3d00372c_p007_b00037",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3939,9 +4013,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c016",
-            "cell_ref": "r4c3",
+            "cell_ref": "r4c4",
             "row": 3,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3954,7 +4028,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00036",
+          "block_id": "d3d00372c_p007_b00038",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -3971,9 +4045,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c022",
-            "cell_ref": "r4c4",
+            "cell_ref": "r4c5",
             "row": 3,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -3986,7 +4060,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00037",
+          "block_id": "d3d00372c_p007_b00039",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4003,9 +4077,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c028",
-            "cell_ref": "r4c5",
+            "cell_ref": "r4c6",
             "row": 3,
-            "col": 4,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4018,7 +4092,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00038",
+          "block_id": "d3d00372c_p007_b00040",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4035,9 +4109,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c034",
-            "cell_ref": "r4c6",
+            "cell_ref": "r4c7",
             "row": 3,
-            "col": 5,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4050,7 +4124,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00039",
+          "block_id": "d3d00372c_p007_b00041",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "3",
+          "text_raw": "3",
+          "region": [
+            90.84,
+            448.5,
+            111.85,
+            466.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c040",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00042",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4066,7 +4172,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
-            "cell_id": "d3d00372c_p007_t001_c040",
+            "cell_id": "d3d00372c_p007_t001_c046",
             "cell_ref": "r4c8",
             "row": 3,
             "col": 7,
@@ -4082,7 +4188,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00040",
+          "block_id": "d3d00372c_p007_b00043",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4099,9 +4205,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c005",
-            "cell_ref": "r5c1",
+            "cell_ref": "r5c2",
             "row": 4,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4114,7 +4220,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00041",
+          "block_id": "d3d00372c_p007_b00044",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4131,9 +4237,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c011",
-            "cell_ref": "r5c2",
+            "cell_ref": "r5c3",
             "row": 4,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4146,7 +4252,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00042",
+          "block_id": "d3d00372c_p007_b00045",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4163,9 +4269,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c017",
-            "cell_ref": "r5c3",
+            "cell_ref": "r5c4",
             "row": 4,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4178,7 +4284,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00043",
+          "block_id": "d3d00372c_p007_b00046",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4195,9 +4301,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c023",
-            "cell_ref": "r5c4",
+            "cell_ref": "r5c5",
             "row": 4,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4210,7 +4316,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00044",
+          "block_id": "d3d00372c_p007_b00047",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4227,9 +4333,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c029",
-            "cell_ref": "r5c5",
+            "cell_ref": "r5c6",
             "row": 4,
-            "col": 4,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4242,7 +4348,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00045",
+          "block_id": "d3d00372c_p007_b00048",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4259,9 +4365,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c035",
-            "cell_ref": "r5c6",
+            "cell_ref": "r5c7",
             "row": 4,
-            "col": 5,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4274,7 +4380,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00046",
+          "block_id": "d3d00372c_p007_b00049",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "4",
+          "text_raw": "4",
+          "region": [
+            90.84,
+            466.0,
+            111.85,
+            483.5
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c041",
+            "cell_ref": "r5c1",
+            "row": 4,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00050",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4290,7 +4428,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
-            "cell_id": "d3d00372c_p007_t001_c041",
+            "cell_id": "d3d00372c_p007_t001_c047",
             "cell_ref": "r5c8",
             "row": 4,
             "col": 7,
@@ -4306,7 +4444,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00047",
+          "block_id": "d3d00372c_p007_b00051",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4323,9 +4461,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c006",
-            "cell_ref": "r6c1",
+            "cell_ref": "r6c2",
             "row": 5,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4338,7 +4476,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00048",
+          "block_id": "d3d00372c_p007_b00052",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4355,9 +4493,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c012",
-            "cell_ref": "r6c2",
+            "cell_ref": "r6c3",
             "row": 5,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4370,7 +4508,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00049",
+          "block_id": "d3d00372c_p007_b00053",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4387,9 +4525,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c018",
-            "cell_ref": "r6c3",
+            "cell_ref": "r6c4",
             "row": 5,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4402,7 +4540,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00050",
+          "block_id": "d3d00372c_p007_b00054",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4419,9 +4557,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c024",
-            "cell_ref": "r6c4",
+            "cell_ref": "r6c5",
             "row": 5,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4434,7 +4572,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00051",
+          "block_id": "d3d00372c_p007_b00055",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4451,9 +4589,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c030",
-            "cell_ref": "r6c5",
+            "cell_ref": "r6c6",
             "row": 5,
-            "col": 4,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4466,7 +4604,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00052",
+          "block_id": "d3d00372c_p007_b00056",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4483,9 +4621,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
             "cell_id": "d3d00372c_p007_t001_c036",
-            "cell_ref": "r6c6",
+            "cell_ref": "r6c7",
             "row": 5,
-            "col": 5,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4498,7 +4636,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00053",
+          "block_id": "d3d00372c_p007_b00057",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "5",
+          "text_raw": "5",
+          "region": [
+            90.84,
+            483.5,
+            111.85,
+            501.47
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t001",
+            "cell_id": "d3d00372c_p007_t001_c042",
+            "cell_ref": "r6c1",
+            "row": 5,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00058",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4514,7 +4684,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t001",
-            "cell_id": "d3d00372c_p007_t001_c042",
+            "cell_id": "d3d00372c_p007_t001_c048",
             "cell_ref": "r6c8",
             "row": 5,
             "col": 7,
@@ -4530,7 +4700,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00054",
+          "block_id": "d3d00372c_p007_b00059",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4552,7 +4722,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00055",
+          "block_id": "d3d00372c_p007_b00060",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4569,9 +4739,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c001",
-            "cell_ref": "r1c1",
+            "cell_ref": "r1c2",
             "row": 0,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4584,7 +4754,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00056",
+          "block_id": "d3d00372c_p007_b00061",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4601,9 +4771,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c005",
-            "cell_ref": "r1c2",
+            "cell_ref": "r1c3",
             "row": 0,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4616,7 +4786,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00057",
+          "block_id": "d3d00372c_p007_b00062",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4633,9 +4803,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c009",
-            "cell_ref": "r1c3",
+            "cell_ref": "r1c4",
             "row": 0,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4648,7 +4818,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00058",
+          "block_id": "d3d00372c_p007_b00063",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4665,9 +4835,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c013",
-            "cell_ref": "r1c4",
+            "cell_ref": "r1c5",
             "row": 0,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4680,7 +4850,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00059",
+          "block_id": "d3d00372c_p007_b00064",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4697,9 +4867,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c017",
-            "cell_ref": "r1c5",
+            "cell_ref": "r1c6",
             "row": 0,
-            "col": 4,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4712,7 +4882,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00060",
+          "block_id": "d3d00372c_p007_b00065",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4729,9 +4899,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c021",
-            "cell_ref": "r1c6",
+            "cell_ref": "r1c7",
             "row": 0,
-            "col": 5,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -4744,7 +4914,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00061",
+          "block_id": "d3d00372c_p007_b00066",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "序号",
+          "text_raw": "序号",
+          "region": [
+            90.84,
+            537.3,
+            111.85,
+            555.3
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c025",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00067",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4760,7 +4962,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c025",
+            "cell_id": "d3d00372c_p007_t002_c029",
             "cell_ref": "r1c8",
             "row": 0,
             "col": 7,
@@ -4776,29 +4978,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00062",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "序号1 2 3",
-          "text_raw": "序号123",
-          "region": [
-            90.84,
-            541.26,
-            111.85,
-            606.01
-          ],
-          "table_ref": null,
-          "font_size": 10.45,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00063",
+          "block_id": "d3d00372c_p007_b00068",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -4815,173 +4995,13 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c002",
-            "cell_ref": "r2c1",
-            "row": 1,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "姓名/王晓军/任朗宁"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00064",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "无",
-          "text_raw": "无",
-          "region": [
-            160.95,
-            555.29,
-            203.45,
-            572.79
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c006",
             "cell_ref": "r2c2",
             "row": 1,
             "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "曾用名/无/任越"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00065",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "男",
-          "text_raw": "男",
-          "region": [
-            203.45,
-            555.29,
-            238.9,
-            572.79
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c010",
-            "cell_ref": "r2c3",
-            "row": 1,
-            "col": 2,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "性别/男"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00066",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "董事长",
-          "text_raw": "董事长",
-          "region": [
-            238.9,
-            555.29,
-            316.63,
-            572.79
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c014",
-            "cell_ref": "r2c4",
-            "row": 1,
-            "col": 3,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "职务/董事长/副董事长"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00067",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "中国",
-          "text_raw": "中国",
-          "region": [
-            316.63,
-            555.29,
-            359.08,
-            572.79
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c018",
-            "cell_ref": "r2c5",
-            "row": 1,
-            "col": 4,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "国籍/中国"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00068",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "无锡",
-          "text_raw": "无锡",
-          "region": [
-            359.08,
-            555.29,
-            401.53,
-            572.79
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c022",
-            "cell_ref": "r2c6",
-            "row": 1,
-            "col": 5,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "居住地/无锡"
+            "header_path": "姓名/王晓军/任朗宁"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -4999,6 +5019,198 @@
           "text": "无",
           "text_raw": "无",
           "region": [
+            160.95,
+            555.29,
+            203.45,
+            572.79
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c006",
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "曾用名/无/任越"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00070",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "男",
+          "text_raw": "男",
+          "region": [
+            203.45,
+            555.29,
+            238.9,
+            572.79
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c010",
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "性别/男"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00071",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "董事长",
+          "text_raw": "董事长",
+          "region": [
+            238.9,
+            555.29,
+            316.63,
+            572.79
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c014",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "职务/董事长/副董事长"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00072",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "中国",
+          "text_raw": "中国",
+          "region": [
+            316.63,
+            555.29,
+            359.08,
+            572.79
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c018",
+            "cell_ref": "r2c6",
+            "row": 1,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "国籍/中国"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00073",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无锡",
+          "text_raw": "无锡",
+          "region": [
+            359.08,
+            555.29,
+            401.53,
+            572.79
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c022",
+            "cell_ref": "r2c7",
+            "row": 1,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "居住地/无锡"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00074",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            90.84,
+            555.3,
+            111.85,
+            572.8
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c026",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00075",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
             408.72,
             555.3,
             503.53,
@@ -5006,7 +5218,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c026",
+            "cell_id": "d3d00372c_p007_t002_c030",
             "cell_ref": "r2c8",
             "row": 1,
             "col": 7,
@@ -5022,7 +5234,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00070",
+          "block_id": "d3d00372c_p007_b00076",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5039,9 +5251,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c003",
-            "cell_ref": "r3c1",
+            "cell_ref": "r3c2",
             "row": 2,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5054,7 +5266,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00071",
+          "block_id": "d3d00372c_p007_b00077",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5071,9 +5283,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c007",
-            "cell_ref": "r3c2",
+            "cell_ref": "r3c3",
             "row": 2,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5086,7 +5298,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00072",
+          "block_id": "d3d00372c_p007_b00078",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5103,9 +5315,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c011",
-            "cell_ref": "r3c3",
+            "cell_ref": "r3c4",
             "row": 2,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5118,7 +5330,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00073",
+          "block_id": "d3d00372c_p007_b00079",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5135,9 +5347,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c015",
-            "cell_ref": "r3c4",
+            "cell_ref": "r3c5",
             "row": 2,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5150,7 +5362,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00074",
+          "block_id": "d3d00372c_p007_b00080",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5167,9 +5379,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c019",
-            "cell_ref": "r3c5",
+            "cell_ref": "r3c6",
             "row": 2,
-            "col": 4,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5182,7 +5394,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00075",
+          "block_id": "d3d00372c_p007_b00081",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -5199,205 +5411,13 @@
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
             "cell_id": "d3d00372c_p007_t002_c023",
-            "cell_ref": "r3c6",
+            "cell_ref": "r3c7",
             "row": 2,
-            "col": 5,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
             "header_path": "居住地/无锡"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00076",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "无",
-          "text_raw": "无",
-          "region": [
-            408.72,
-            572.8,
-            503.53,
-            590.3
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c027",
-            "cell_ref": "r3c8",
-            "row": 2,
-            "col": 7,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "其他国家居留权情况/无"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00077",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "周兵",
-          "text_raw": "周兵",
-          "region": [
-            118.15,
-            590.29,
-            160.95,
-            608.27
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c004",
-            "cell_ref": "r4c1",
-            "row": 3,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "姓名/王晓军/任朗宁"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00078",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "无",
-          "text_raw": "无",
-          "region": [
-            160.95,
-            590.29,
-            203.45,
-            608.27
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c008",
-            "cell_ref": "r4c2",
-            "row": 3,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "曾用名/无/任越"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00079",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "男",
-          "text_raw": "男",
-          "region": [
-            203.45,
-            590.29,
-            238.9,
-            608.27
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c012",
-            "cell_ref": "r4c3",
-            "row": 3,
-            "col": 2,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "性别/男"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00080",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "董事兼总经理",
-          "text_raw": "董事兼总经理",
-          "region": [
-            238.9,
-            590.29,
-            316.63,
-            608.27
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c016",
-            "cell_ref": "r4c4",
-            "row": 3,
-            "col": 3,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "职务/董事长/副董事长"
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p007_b00081",
-          "doc_id": "d3d00372c",
-          "page": 7,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "中国",
-          "text_raw": "中国",
-          "region": [
-            316.63,
-            590.29,
-            359.08,
-            608.27
-          ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c020",
-            "cell_ref": "r4c5",
-            "row": 3,
-            "col": 4,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": "国籍/中国"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5412,24 +5432,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "无锡",
-          "text_raw": "无锡",
+          "text": "2",
+          "text_raw": "2",
           "region": [
-            359.08,
-            590.29,
-            401.53,
-            608.27
+            90.84,
+            572.8,
+            111.85,
+            590.3
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c024",
-            "cell_ref": "r4c6",
-            "row": 3,
-            "col": 5,
+            "cell_id": "d3d00372c_p007_t002_c027",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "居住地/无锡"
+            "header_path": "序号/1/2"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5448,15 +5468,15 @@
           "text_raw": "无",
           "region": [
             408.72,
-            590.3,
+            572.8,
             503.53,
-            608.27
+            590.3
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t002",
-            "cell_id": "d3d00372c_p007_t002_c028",
-            "cell_ref": "r4c8",
-            "row": 3,
+            "cell_id": "d3d00372c_p007_t002_c031",
+            "cell_ref": "r3c8",
+            "row": 2,
             "col": 7,
             "rowspan": 1,
             "colspan": 1,
@@ -5474,18 +5494,28 @@
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "信息披露义务人天人国际投资的主要负责人情况如下：序号1",
-          "text_raw": "信息披露义务人天人国际投资的主要负责人情况如下：序号1",
+          "text": "周兵",
+          "text_raw": "周兵",
           "region": [
-            90.84,
-            622.61,
-            402.0,
-            674.77
+            118.15,
+            590.29,
+            160.95,
+            608.27
           ],
-          "table_ref": null,
-          "font_size": 12.0,
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c004",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "姓名/王晓军/任朗宁"
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -5498,24 +5528,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "其他国家居留权情况",
-          "text_raw": "其他国家居留权情况",
+          "text": "无",
+          "text_raw": "无",
           "region": [
-            408.6,
-            641.0,
-            503.41,
-            659.0
+            160.95,
+            590.29,
+            203.45,
+            608.27
           ],
           "table_ref": {
-            "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c013",
-            "cell_ref": "r1c8",
-            "row": 0,
-            "col": 7,
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c008",
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": null
+            "header_path": "曾用名/无/任越"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5530,24 +5560,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "姓名",
-          "text_raw": "姓名",
+          "text": "男",
+          "text_raw": "男",
           "region": [
-            118.15,
-            641.02,
-            167.85,
-            659.04
+            203.45,
+            590.29,
+            238.9,
+            608.27
           ],
           "table_ref": {
-            "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c001",
-            "cell_ref": "r1c1",
-            "row": 0,
-            "col": 0,
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c012",
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": null
+            "header_path": "性别/男"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5562,24 +5592,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "曾用名",
-          "text_raw": "曾用名",
+          "text": "董事兼总经理",
+          "text_raw": "董事兼总经理",
           "region": [
-            167.85,
-            641.02,
-            210.45,
-            659.04
+            238.9,
+            590.29,
+            316.63,
+            608.27
           ],
           "table_ref": {
-            "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c003",
-            "cell_ref": "r1c2",
-            "row": 0,
-            "col": 1,
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c016",
+            "cell_ref": "r4c5",
+            "row": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": null
+            "header_path": "职务/董事长/副董事长"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5594,24 +5624,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "性别",
-          "text_raw": "性别",
+          "text": "中国",
+          "text_raw": "中国",
           "region": [
-            210.45,
-            641.02,
-            252.75,
-            659.04
+            316.63,
+            590.29,
+            359.08,
+            608.27
           ],
           "table_ref": {
-            "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c005",
-            "cell_ref": "r1c3",
-            "row": 0,
-            "col": 2,
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c020",
+            "cell_ref": "r4c6",
+            "row": 3,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": null
+            "header_path": "国籍/中国"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5626,24 +5656,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "职务",
-          "text_raw": "职务",
+          "text": "无锡",
+          "text_raw": "无锡",
           "region": [
-            252.75,
-            641.02,
-            316.63,
-            659.04
+            359.08,
+            590.29,
+            401.53,
+            608.27
           ],
           "table_ref": {
-            "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c007",
-            "cell_ref": "r1c4",
-            "row": 0,
-            "col": 3,
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c024",
+            "cell_ref": "r4c7",
+            "row": 3,
+            "col": 6,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": null
+            "header_path": "居住地/无锡"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5658,24 +5688,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "国籍",
-          "text_raw": "国籍",
+          "text": "3",
+          "text_raw": "3",
           "region": [
-            316.63,
-            641.02,
-            359.08,
-            659.04
+            90.84,
+            590.3,
+            111.85,
+            608.27
           ],
           "table_ref": {
-            "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c009",
-            "cell_ref": "r1c5",
-            "row": 0,
-            "col": 4,
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c028",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": null
+            "header_path": "序号/1/2"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5690,24 +5720,24 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "居住地",
-          "text_raw": "居住地",
+          "text": "无",
+          "text_raw": "无",
           "region": [
-            359.08,
-            641.02,
-            401.53,
-            659.04
+            408.72,
+            590.3,
+            503.53,
+            608.27
           ],
           "table_ref": {
-            "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c011",
-            "cell_ref": "r1c6",
-            "row": 0,
-            "col": 5,
+            "table_id": "d3d00372c_p007_t002",
+            "cell_id": "d3d00372c_p007_t002_c032",
+            "cell_ref": "r4c8",
+            "row": 3,
+            "col": 7,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": null
+            "header_path": "其他国家居留权情况/无"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -5720,28 +5750,18 @@
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "无",
-          "text_raw": "无",
+          "text": "信息披露义务人天人国际投资的主要负责人情况如下：",
+          "text_raw": "信息披露义务人天人国际投资的主要负责人情况如下：",
           "region": [
-            408.6,
-            659.0,
-            503.41,
-            677.02
+            114.0,
+            622.61,
+            402.0,
+            634.61
           ],
-          "table_ref": {
-            "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c014",
-            "cell_ref": "r2c8",
-            "row": 1,
-            "col": 7,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 12.0,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -5754,19 +5774,19 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "严永新",
-          "text_raw": "严永新",
+          "text": "序号",
+          "text_raw": "序号",
           "region": [
-            118.15,
-            659.04,
-            167.85,
-            677.02
+            90.84,
+            641.0,
+            111.85,
+            659.0
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c002",
-            "cell_ref": "r2c1",
-            "row": 1,
+            "cell_id": "d3d00372c_p007_t003_c013",
+            "cell_ref": "r1c1",
+            "row": 0,
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
@@ -5786,20 +5806,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "无",
-          "text_raw": "无",
+          "text": "其他国家居留权情况",
+          "text_raw": "其他国家居留权情况",
           "region": [
-            167.85,
-            659.04,
-            210.45,
-            677.02
+            408.6,
+            641.0,
+            503.41,
+            659.0
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c004",
-            "cell_ref": "r2c2",
-            "row": 1,
-            "col": 1,
+            "cell_id": "d3d00372c_p007_t003_c015",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5818,20 +5838,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "男",
-          "text_raw": "男",
+          "text": "姓名",
+          "text_raw": "姓名",
           "region": [
-            210.45,
-            659.04,
-            252.75,
-            677.02
+            118.15,
+            641.02,
+            167.85,
+            659.04
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c006",
-            "cell_ref": "r2c3",
-            "row": 1,
-            "col": 2,
+            "cell_id": "d3d00372c_p007_t003_c001",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5850,20 +5870,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "董事兼经理",
-          "text_raw": "董事兼经理",
+          "text": "曾用名",
+          "text_raw": "曾用名",
           "region": [
-            252.75,
-            659.04,
-            316.63,
-            677.02
+            167.85,
+            641.02,
+            210.45,
+            659.04
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c008",
-            "cell_ref": "r2c4",
-            "row": 1,
-            "col": 3,
+            "cell_id": "d3d00372c_p007_t003_c003",
+            "cell_ref": "r1c3",
+            "row": 0,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5882,20 +5902,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "中国",
-          "text_raw": "中国",
+          "text": "性别",
+          "text_raw": "性别",
           "region": [
-            316.63,
-            659.04,
-            359.08,
-            677.02
+            210.45,
+            641.02,
+            252.75,
+            659.04
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c010",
-            "cell_ref": "r2c5",
-            "row": 1,
-            "col": 4,
+            "cell_id": "d3d00372c_p007_t003_c005",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -5914,17 +5934,305 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "无锡",
-          "text_raw": "无锡",
+          "text": "职务",
+          "text_raw": "职务",
+          "region": [
+            252.75,
+            641.02,
+            316.63,
+            659.04
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c007",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00099",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "国籍",
+          "text_raw": "国籍",
+          "region": [
+            316.63,
+            641.02,
+            359.08,
+            659.04
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c009",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00100",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "居住地",
+          "text_raw": "居住地",
           "region": [
             359.08,
-            659.04,
+            641.02,
             401.53,
+            659.04
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c011",
+            "cell_ref": "r1c7",
+            "row": 0,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00101",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            90.84,
+            659.0,
+            111.85,
             677.02
           ],
           "table_ref": {
             "table_id": "d3d00372c_p007_t003",
-            "cell_id": "d3d00372c_p007_t003_c012",
+            "cell_id": "d3d00372c_p007_t003_c014",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00102",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            408.6,
+            659.0,
+            503.41,
+            677.02
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c016",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00103",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "严永新",
+          "text_raw": "严永新",
+          "region": [
+            118.15,
+            659.04,
+            167.85,
+            677.02
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c002",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00104",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无",
+          "text_raw": "无",
+          "region": [
+            167.85,
+            659.04,
+            210.45,
+            677.02
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c004",
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00105",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "男",
+          "text_raw": "男",
+          "region": [
+            210.45,
+            659.04,
+            252.75,
+            677.02
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c006",
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00106",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "董事兼经理",
+          "text_raw": "董事兼经理",
+          "region": [
+            252.75,
+            659.04,
+            316.63,
+            677.02
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c008",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00107",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "中国",
+          "text_raw": "中国",
+          "region": [
+            316.63,
+            659.04,
+            359.08,
+            677.02
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c010",
             "cell_ref": "r2c6",
             "row": 1,
             "col": 5,
@@ -5940,7 +6248,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p007_b00099",
+          "block_id": "d3d00372c_p007_b00108",
+          "doc_id": "d3d00372c",
+          "page": 7,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无锡",
+          "text_raw": "无锡",
+          "region": [
+            359.08,
+            659.04,
+            401.53,
+            677.02
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p007_t003",
+            "cell_id": "d3d00372c_p007_t003_c012",
+            "cell_ref": "r2c7",
+            "row": 1,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p007_b00109",
           "doc_id": "d3d00372c",
           "page": 7,
           "type": "TEXT",
@@ -6687,14 +7027,14 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
-            "cell_id": "d3d00372c_p010_t001_c014",
+            "cell_id": "d3d00372c_p010_t001_c016",
             "cell_ref": "r1c5",
             "row": 0,
             "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "本次权益"
+            "header_path": "本次权益/持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6719,7 +7059,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
-            "cell_id": "d3d00372c_p010_t001_c011",
+            "cell_id": "d3d00372c_p010_t001_c013",
             "cell_ref": "r1c6",
             "row": 0,
             "col": 5,
@@ -6752,12 +7092,18 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c001",
-            "cell_ref": "r1c1",
+            "cell_ref": "r1c2",
             "row": 0,
-            "col": 0,
+            "col": 1,
             "rowspan": 2,
             "colspan": 1,
-            "covers": null,
+            "covers": [
+              {
+                "row": 1,
+                "col": 1,
+                "cell_ref": "r2c2"
+              }
+            ],
             "header_path": "股份性质"
           },
           "font_size": null,
@@ -6784,16 +7130,16 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c003",
-            "cell_ref": "r1c2",
+            "cell_ref": "r1c3",
             "row": 0,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 2,
             "covers": [
               {
                 "row": 0,
-                "col": 2,
-                "cell_ref": "r1c3"
+                "col": 3,
+                "cell_ref": "r1c4"
               }
             ],
             "header_path": "本次权益变动前/持股数量（股）"
@@ -6821,14 +7167,14 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
-            "cell_id": "d3d00372c_p010_t001_c010",
+            "cell_id": "d3d00372c_p010_t001_c011",
             "cell_ref": "r2c1",
             "row": 1,
             "col": 0,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "股份性质"
+            "header_path": "股东名称"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6853,7 +7199,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
-            "cell_id": "d3d00372c_p010_t001_c012",
+            "cell_id": "d3d00372c_p010_t001_c014",
             "cell_ref": "r2c6",
             "row": 1,
             "col": 5,
@@ -6886,9 +7232,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c004",
-            "cell_ref": "r2c2",
+            "cell_ref": "r2c3",
             "row": 1,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -6918,9 +7264,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c006",
-            "cell_ref": "r2c3",
+            "cell_ref": "r2c4",
             "row": 1,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -6950,13 +7296,13 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c008",
-            "cell_ref": "r2c4",
+            "cell_ref": "r2c5",
             "row": 1,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "持股数量（股）"
+            "header_path": "本次权益/持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6966,6 +7312,38 @@
         },
         {
           "block_id": "d3d00372c_p010_b00024",
+          "doc_id": "d3d00372c",
+          "page": 10,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "红豆集团有限公司",
+          "text_raw": "红豆集团有限公司",
+          "region": [
+            59.28,
+            730.9,
+            119.29,
+            763.56
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p010_t001",
+            "cell_id": "d3d00372c_p010_t001_c012",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p010_b00025",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6981,7 +7359,7 @@
           ],
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
-            "cell_id": "d3d00372c_p010_t001_c013",
+            "cell_id": "d3d00372c_p010_t001_c015",
             "cell_ref": "r3c6",
             "row": 2,
             "col": 5,
@@ -6997,7 +7375,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00025",
+          "block_id": "d3d00372c_p010_b00026",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -7014,9 +7392,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c002",
-            "cell_ref": "r3c1",
+            "cell_ref": "r3c2",
             "row": 2,
-            "col": 0,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7029,7 +7407,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00026",
+          "block_id": "d3d00372c_p010_b00027",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -7046,9 +7424,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c005",
-            "cell_ref": "r3c2",
+            "cell_ref": "r3c3",
             "row": 2,
-            "col": 1,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7061,7 +7439,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00027",
+          "block_id": "d3d00372c_p010_b00028",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -7078,9 +7456,9 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c007",
-            "cell_ref": "r3c3",
+            "cell_ref": "r3c4",
             "row": 2,
-            "col": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7093,7 +7471,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00028",
+          "block_id": "d3d00372c_p010_b00029",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -7110,37 +7488,15 @@
           "table_ref": {
             "table_id": "d3d00372c_p010_t001",
             "cell_id": "d3d00372c_p010_t001_c009",
-            "cell_ref": "r3c4",
+            "cell_ref": "r3c5",
             "row": 2,
-            "col": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "持股数量（股）"
+            "header_path": "本次权益/持股数量（股）"
           },
           "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "d3d00372c_p010_b00029",
-          "doc_id": "d3d00372c",
-          "page": 10,
-          "type": "TEXT",
-          "source_type": "paragraph",
-          "role": "BODY",
-          "text": "红豆集团有限公司",
-          "text_raw": "红豆集团有限公司",
-          "region": [
-            59.28,
-            733.74,
-            119.29,
-            759.79
-          ],
-          "table_ref": null,
-          "font_size": 10.45,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -7214,20 +7570,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "1.06",
-          "text_raw": "1.06",
+          "text": "周海江",
+          "text_raw": "周海江",
           "region": [
-            512.4,
+            59.28,
             73.6,
-            535.98,
+            119.29,
             98.6
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c021",
-            "cell_ref": "r1c6",
+            "cell_id": "d3d00372c_p011_t001_c020",
+            "cell_ref": "r1c1",
             "row": 0,
-            "col": 5,
+            "col": 0,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7246,20 +7602,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "无限售条件股份",
-          "text_raw": "无限售条件股份",
+          "text": "1.06",
+          "text_raw": "1.06",
           "region": [
-            124.75,
-            73.62,
-            223.95,
-            98.64
+            512.4,
+            73.6,
+            535.98,
+            98.6
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c001",
-            "cell_ref": "r1c1",
+            "cell_id": "d3d00372c_p011_t001_c025",
+            "cell_ref": "r1c6",
             "row": 0,
-            "col": 0,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7278,17 +7634,17 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "24,391,391",
-          "text_raw": "24,391,391",
+          "text": "无限售条件股份",
+          "text_raw": "无限售条件股份",
           "region": [
-            223.95,
+            124.75,
             73.62,
-            309.0,
+            223.95,
             98.64
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c005",
+            "cell_id": "d3d00372c_p011_t001_c001",
             "cell_ref": "r1c2",
             "row": 0,
             "col": 1,
@@ -7310,17 +7666,17 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "1.06",
-          "text_raw": "1.06",
+          "text": "24,391,391",
+          "text_raw": "24,391,391",
           "region": [
-            309.0,
+            223.95,
             73.62,
-            387.0,
+            309.0,
             98.64
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c010",
+            "cell_id": "d3d00372c_p011_t001_c005",
             "cell_ref": "r1c3",
             "row": 0,
             "col": 2,
@@ -7342,17 +7698,17 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "24,391,391",
-          "text_raw": "24,391,391",
+          "text": "1.06",
+          "text_raw": "1.06",
           "region": [
-            387.0,
+            309.0,
             73.62,
-            466.4,
+            387.0,
             98.64
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c015",
+            "cell_id": "d3d00372c_p011_t001_c010",
             "cell_ref": "r1c4",
             "row": 0,
             "col": 3,
@@ -7372,18 +7728,28 @@
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
-          "source_type": "paragraph",
+          "source_type": "cell",
           "role": "BODY",
-          "text": "周海江龚新度无锡红闳服饰有限公司无锡天人国际投资有限公司",
-          "text_raw": "周海江龚新度无锡红闳服饰有限公司无锡天人国际投资有限公司",
+          "text": "24,391,391",
+          "text_raw": "24,391,391",
           "region": [
-            59.28,
-            81.42,
-            119.29,
-            198.67
+            387.0,
+            73.62,
+            466.4,
+            98.64
           ],
-          "table_ref": null,
-          "font_size": 10.45,
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c015",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -7396,20 +7762,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "0.15",
-          "text_raw": "0.15",
+          "text": "龚新度",
+          "text_raw": "龚新度",
           "region": [
-            512.4,
+            59.28,
             98.6,
-            535.98,
+            119.29,
             122.5
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c022",
-            "cell_ref": "r2c6",
+            "cell_id": "d3d00372c_p011_t001_c021",
+            "cell_ref": "r2c1",
             "row": 1,
-            "col": 5,
+            "col": 0,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7428,20 +7794,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "无限售条件股份",
-          "text_raw": "无限售条件股份",
+          "text": "0.15",
+          "text_raw": "0.15",
           "region": [
-            124.75,
-            98.64,
-            223.95,
-            122.54
+            512.4,
+            98.6,
+            535.98,
+            122.5
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c002",
-            "cell_ref": "r2c1",
+            "cell_id": "d3d00372c_p011_t001_c026",
+            "cell_ref": "r2c6",
             "row": 1,
-            "col": 0,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7460,17 +7826,17 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "3,515,604",
-          "text_raw": "3,515,604",
+          "text": "无限售条件股份",
+          "text_raw": "无限售条件股份",
           "region": [
-            223.95,
+            124.75,
             98.64,
-            309.0,
+            223.95,
             122.54
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c006",
+            "cell_id": "d3d00372c_p011_t001_c002",
             "cell_ref": "r2c2",
             "row": 1,
             "col": 1,
@@ -7492,17 +7858,17 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "0.15",
-          "text_raw": "0.15",
+          "text": "3,515,604",
+          "text_raw": "3,515,604",
           "region": [
-            309.0,
+            223.95,
             98.64,
-            387.0,
+            309.0,
             122.54
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c011",
+            "cell_id": "d3d00372c_p011_t001_c006",
             "cell_ref": "r2c3",
             "row": 1,
             "col": 2,
@@ -7524,17 +7890,17 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "3,515,604",
-          "text_raw": "3,515,604",
+          "text": "0.15",
+          "text_raw": "0.15",
           "region": [
-            387.0,
+            309.0,
             98.64,
-            466.4,
+            387.0,
             122.54
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c016",
+            "cell_id": "d3d00372c_p011_t001_c011",
             "cell_ref": "r2c4",
             "row": 1,
             "col": 3,
@@ -7556,20 +7922,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "1.16",
-          "text_raw": "1.16",
+          "text": "3,515,604",
+          "text_raw": "3,515,604",
           "region": [
-            512.4,
-            122.5,
-            535.98,
-            154.2
+            387.0,
+            98.64,
+            466.4,
+            122.54
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c023",
-            "cell_ref": "r3c6",
-            "row": 2,
-            "col": 5,
+            "cell_id": "d3d00372c_p011_t001_c016",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7588,17 +7954,17 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "无限售条件股份",
-          "text_raw": "无限售条件股份",
+          "text": "无锡红闳服饰有限公司",
+          "text_raw": "无锡红闳服饰有限公司",
           "region": [
-            124.75,
-            122.54,
-            223.95,
-            154.24
+            59.28,
+            122.5,
+            119.29,
+            154.2
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c003",
+            "cell_id": "d3d00372c_p011_t001_c022",
             "cell_ref": "r3c1",
             "row": 2,
             "col": 0,
@@ -7620,20 +7986,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "26,519,700",
-          "text_raw": "26,519,700",
+          "text": "1.16",
+          "text_raw": "1.16",
           "region": [
-            223.95,
-            122.54,
-            309.0,
-            154.24
+            512.4,
+            122.5,
+            535.98,
+            154.2
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c007",
-            "cell_ref": "r3c2",
+            "cell_id": "d3d00372c_p011_t001_c027",
+            "cell_ref": "r3c6",
             "row": 2,
-            "col": 1,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7652,20 +8018,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "1.16",
-          "text_raw": "1.16",
+          "text": "无限售条件股份",
+          "text_raw": "无限售条件股份",
           "region": [
-            309.0,
+            124.75,
             122.54,
-            387.0,
+            223.95,
             154.24
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c012",
-            "cell_ref": "r3c3",
+            "cell_id": "d3d00372c_p011_t001_c003",
+            "cell_ref": "r3c2",
             "row": 2,
-            "col": 2,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7687,17 +8053,17 @@
           "text": "26,519,700",
           "text_raw": "26,519,700",
           "region": [
-            387.0,
+            223.95,
             122.54,
-            466.4,
+            309.0,
             154.24
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c017",
-            "cell_ref": "r3c4",
+            "cell_id": "d3d00372c_p011_t001_c007",
+            "cell_ref": "r3c3",
             "row": 2,
-            "col": 3,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7716,20 +8082,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "0.00",
-          "text_raw": "0.00",
+          "text": "1.16",
+          "text_raw": "1.16",
           "region": [
-            512.4,
-            154.2,
-            535.98,
-            201.5
+            309.0,
+            122.54,
+            387.0,
+            154.24
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c024",
-            "cell_ref": "r4c6",
-            "row": 3,
-            "col": 5,
+            "cell_id": "d3d00372c_p011_t001_c012",
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7748,20 +8114,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "无限售条件股份",
-          "text_raw": "无限售条件股份",
+          "text": "26,519,700",
+          "text_raw": "26,519,700",
           "region": [
-            124.75,
-            154.24,
-            223.95,
-            201.54
+            387.0,
+            122.54,
+            466.4,
+            154.24
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c004",
-            "cell_ref": "r4c1",
-            "row": 3,
-            "col": 0,
+            "cell_id": "d3d00372c_p011_t001_c017",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7780,20 +8146,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "100",
-          "text_raw": "100",
+          "text": "无锡天人国际投资有限公司",
+          "text_raw": "无锡天人国际投资有限公司",
           "region": [
-            223.95,
-            154.24,
-            309.0,
-            201.54
+            59.28,
+            154.2,
+            119.29,
+            201.5
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c008",
-            "cell_ref": "r4c2",
+            "cell_id": "d3d00372c_p011_t001_c023",
+            "cell_ref": "r4c1",
             "row": 3,
-            "col": 1,
+            "col": 0,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7815,17 +8181,17 @@
           "text": "0.00",
           "text_raw": "0.00",
           "region": [
-            309.0,
-            154.24,
-            387.0,
-            201.54
+            512.4,
+            154.2,
+            535.98,
+            201.5
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c013",
-            "cell_ref": "r4c3",
+            "cell_id": "d3d00372c_p011_t001_c028",
+            "cell_ref": "r4c6",
             "row": 3,
-            "col": 2,
+            "col": 5,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7844,20 +8210,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "100",
-          "text_raw": "100",
+          "text": "无限售条件股份",
+          "text_raw": "无限售条件股份",
           "region": [
-            387.0,
+            124.75,
             154.24,
-            466.4,
+            223.95,
             201.54
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c018",
-            "cell_ref": "r4c4",
+            "cell_id": "d3d00372c_p011_t001_c004",
+            "cell_ref": "r4c2",
             "row": 3,
-            "col": 3,
+            "col": 1,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7876,20 +8242,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "50.59",
-          "text_raw": "50.59",
+          "text": "100",
+          "text_raw": "100",
           "region": [
-            512.4,
-            201.5,
-            535.98,
-            226.46
+            223.95,
+            154.24,
+            309.0,
+            201.54
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c025",
-            "cell_ref": "r5c6",
-            "row": 4,
-            "col": 5,
+            "cell_id": "d3d00372c_p011_t001_c008",
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7908,20 +8274,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "合计 1,325,635,213",
-          "text_raw": "合计1,325,635,213",
+          "text": "0.00",
+          "text_raw": "0.00",
           "region": [
-            128.4,
-            201.54,
             309.0,
-            226.46
+            154.24,
+            387.0,
+            201.54
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c009",
-            "cell_ref": "r5c2",
-            "row": 4,
-            "col": 1,
+            "cell_id": "d3d00372c_p011_t001_c013",
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7940,20 +8306,20 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "57.85",
-          "text_raw": "57.85",
+          "text": "100",
+          "text_raw": "100",
           "region": [
-            309.0,
-            201.54,
             387.0,
-            226.46
+            154.24,
+            466.4,
+            201.54
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c014",
-            "cell_ref": "r5c3",
-            "row": 4,
-            "col": 2,
+            "cell_id": "d3d00372c_p011_t001_c018",
+            "cell_ref": "r4c5",
+            "row": 3,
+            "col": 4,
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
@@ -7972,17 +8338,113 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
-          "text": "1,159,135,213",
-          "text_raw": "1,159,135,213",
+          "text": "合计",
+          "text_raw": "合计",
           "region": [
-            387.0,
-            201.54,
-            466.4,
+            124.8,
+            201.5,
+            223.9,
             226.46
           ],
           "table_ref": {
             "table_id": "d3d00372c_p011_t001",
-            "cell_id": "d3d00372c_p011_t001_c019",
+            "cell_id": "d3d00372c_p011_t001_c030",
+            "cell_ref": "r5c2",
+            "row": 4,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00026",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "50.59",
+          "text_raw": "50.59",
+          "region": [
+            512.4,
+            201.5,
+            535.98,
+            226.46
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c029",
+            "cell_ref": "r5c6",
+            "row": 4,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00027",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "1,325,635,213",
+          "text_raw": "1,325,635,213",
+          "region": [
+            223.95,
+            201.54,
+            309.0,
+            226.46
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c009",
+            "cell_ref": "r5c3",
+            "row": 4,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00028",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "57.85",
+          "text_raw": "57.85",
+          "region": [
+            309.0,
+            201.54,
+            387.0,
+            226.46
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c014",
             "cell_ref": "r5c4",
             "row": 4,
             "col": 3,
@@ -7998,7 +8460,39 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00026",
+          "block_id": "d3d00372c_p011_b00029",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "1,159,135,213",
+          "text_raw": "1,159,135,213",
+          "region": [
+            387.0,
+            201.54,
+            466.4,
+            226.46
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c019",
+            "cell_ref": "r5c5",
+            "row": 4,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00030",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8020,7 +8514,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00027",
+          "block_id": "d3d00372c_p011_b00031",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8042,7 +8536,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00028",
+          "block_id": "d3d00372c_p011_b00032",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8064,7 +8558,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00029",
+          "block_id": "d3d00372c_p011_b00033",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8086,7 +8580,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00030",
+          "block_id": "d3d00372c_p011_b00034",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8108,7 +8602,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00031",
+          "block_id": "d3d00372c_p011_b00035",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8130,7 +8624,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00032",
+          "block_id": "d3d00372c_p011_b00036",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8152,7 +8646,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00033",
+          "block_id": "d3d00372c_p011_b00037",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8174,7 +8668,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00034",
+          "block_id": "d3d00372c_p011_b00038",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -8196,7 +8690,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00035",
+          "block_id": "d3d00372c_p011_b00039",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -10572,6 +11066,16 @@
     "d3d00372c_p007_b00097",
     "d3d00372c_p007_b00098",
     "d3d00372c_p007_b00099",
+    "d3d00372c_p007_b00100",
+    "d3d00372c_p007_b00101",
+    "d3d00372c_p007_b00102",
+    "d3d00372c_p007_b00103",
+    "d3d00372c_p007_b00104",
+    "d3d00372c_p007_b00105",
+    "d3d00372c_p007_b00106",
+    "d3d00372c_p007_b00107",
+    "d3d00372c_p007_b00108",
+    "d3d00372c_p007_b00109",
     "d3d00372c_p008_b00001",
     "d3d00372c_p008_b00002",
     "d3d00372c_p008_b00003",
@@ -10650,6 +11154,10 @@
     "d3d00372c_p011_b00033",
     "d3d00372c_p011_b00034",
     "d3d00372c_p011_b00035",
+    "d3d00372c_p011_b00036",
+    "d3d00372c_p011_b00037",
+    "d3d00372c_p011_b00038",
+    "d3d00372c_p011_b00039",
     "d3d00372c_p012_b00001",
     "d3d00372c_p012_b00002",
     "d3d00372c_p013_b00001",
@@ -12366,12 +12874,12 @@
             "block_id": "d3d00372c_p007_b00017",
             "page": 7,
             "role": "BODY",
-            "text": "其他国家居留权情况",
-            "text_raw": "其他国家居留权情况",
+            "text": "序号",
+            "text_raw": "序号",
             "region": [
-              408.6,
+              90.84,
               395.5,
-              503.41,
+              111.85,
               413.5
             ]
           },
@@ -12379,13 +12887,13 @@
             "block_id": "d3d00372c_p007_b00018",
             "page": 7,
             "role": "BODY",
-            "text": "序号1 2 3 4 5",
-            "text_raw": "序号12345",
+            "text": "其他国家居留权情况",
+            "text_raw": "其他国家居留权情况",
             "region": [
-              90.84,
-              399.54,
-              111.85,
-              499.21
+              408.6,
+              395.5,
+              503.41,
+              413.5
             ]
           },
           {
@@ -12470,6 +12978,19 @@
             "block_id": "d3d00372c_p007_b00025",
             "page": 7,
             "role": "BODY",
+            "text": "1",
+            "text_raw": "1",
+            "region": [
+              90.84,
+              413.5,
+              111.85,
+              431.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00026",
+            "page": 7,
+            "role": "BODY",
             "text": "无",
             "text_raw": "无",
             "region": [
@@ -12480,7 +13001,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00026",
+            "block_id": "d3d00372c_p007_b00027",
             "page": 7,
             "role": "BODY",
             "text": "周海燕",
@@ -12493,7 +13014,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00027",
+            "block_id": "d3d00372c_p007_b00028",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12506,7 +13027,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00028",
+            "block_id": "d3d00372c_p007_b00029",
             "page": 7,
             "role": "BODY",
             "text": "女",
@@ -12519,7 +13040,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00029",
+            "block_id": "d3d00372c_p007_b00030",
             "page": 7,
             "role": "BODY",
             "text": "副董事长",
@@ -12532,7 +13053,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00030",
+            "block_id": "d3d00372c_p007_b00031",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12545,7 +13066,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00031",
+            "block_id": "d3d00372c_p007_b00032",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12558,7 +13079,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00032",
+            "block_id": "d3d00372c_p007_b00033",
+            "page": 7,
+            "role": "BODY",
+            "text": "2",
+            "text_raw": "2",
+            "region": [
+              90.84,
+              431.0,
+              111.85,
+              448.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00034",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12571,7 +13105,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00033",
+            "block_id": "d3d00372c_p007_b00035",
             "page": 7,
             "role": "BODY",
             "text": "龚新度",
@@ -12584,7 +13118,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00034",
+            "block_id": "d3d00372c_p007_b00036",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12597,7 +13131,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00035",
+            "block_id": "d3d00372c_p007_b00037",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -12610,7 +13144,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00036",
+            "block_id": "d3d00372c_p007_b00038",
             "page": 7,
             "role": "BODY",
             "text": "董事",
@@ -12623,7 +13157,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00037",
+            "block_id": "d3d00372c_p007_b00039",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12636,7 +13170,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00038",
+            "block_id": "d3d00372c_p007_b00040",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12649,7 +13183,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00039",
+            "block_id": "d3d00372c_p007_b00041",
+            "page": 7,
+            "role": "BODY",
+            "text": "3",
+            "text_raw": "3",
+            "region": [
+              90.84,
+              448.5,
+              111.85,
+              466.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00042",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12662,7 +13209,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00040",
+            "block_id": "d3d00372c_p007_b00043",
             "page": 7,
             "role": "BODY",
             "text": "刘连红",
@@ -12675,7 +13222,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00041",
+            "block_id": "d3d00372c_p007_b00044",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12688,7 +13235,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00042",
+            "block_id": "d3d00372c_p007_b00045",
             "page": 7,
             "role": "BODY",
             "text": "女",
@@ -12701,7 +13248,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00043",
+            "block_id": "d3d00372c_p007_b00046",
             "page": 7,
             "role": "BODY",
             "text": "董事",
@@ -12714,7 +13261,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00044",
+            "block_id": "d3d00372c_p007_b00047",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12727,7 +13274,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00045",
+            "block_id": "d3d00372c_p007_b00048",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12740,7 +13287,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00046",
+            "block_id": "d3d00372c_p007_b00049",
+            "page": 7,
+            "role": "BODY",
+            "text": "4",
+            "text_raw": "4",
+            "region": [
+              90.84,
+              466.0,
+              111.85,
+              483.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00050",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12753,7 +13313,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00047",
+            "block_id": "d3d00372c_p007_b00051",
             "page": 7,
             "role": "BODY",
             "text": "王晓军",
@@ -12766,7 +13326,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00048",
+            "block_id": "d3d00372c_p007_b00052",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12779,7 +13339,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00049",
+            "block_id": "d3d00372c_p007_b00053",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -12792,7 +13352,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00050",
+            "block_id": "d3d00372c_p007_b00054",
             "page": 7,
             "role": "BODY",
             "text": "董事兼经理",
@@ -12805,7 +13365,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00051",
+            "block_id": "d3d00372c_p007_b00055",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -12818,7 +13378,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00052",
+            "block_id": "d3d00372c_p007_b00056",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -12831,7 +13391,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00053",
+            "block_id": "d3d00372c_p007_b00057",
+            "page": 7,
+            "role": "BODY",
+            "text": "5",
+            "text_raw": "5",
+            "region": [
+              90.84,
+              483.5,
+              111.85,
+              501.47
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00058",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12844,7 +13417,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00054",
+            "block_id": "d3d00372c_p007_b00059",
             "page": 7,
             "role": "BODY",
             "text": "信息披露义务人红闳服饰设有董事会，董事会成员主要情况如下：",
@@ -12857,7 +13430,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00055",
+            "block_id": "d3d00372c_p007_b00060",
             "page": 7,
             "role": "BODY",
             "text": "姓名",
@@ -12870,7 +13443,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00056",
+            "block_id": "d3d00372c_p007_b00061",
             "page": 7,
             "role": "BODY",
             "text": "曾用名",
@@ -12883,7 +13456,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00057",
+            "block_id": "d3d00372c_p007_b00062",
             "page": 7,
             "role": "BODY",
             "text": "性别",
@@ -12896,7 +13469,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00058",
+            "block_id": "d3d00372c_p007_b00063",
             "page": 7,
             "role": "BODY",
             "text": "职务",
@@ -12909,7 +13482,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00059",
+            "block_id": "d3d00372c_p007_b00064",
             "page": 7,
             "role": "BODY",
             "text": "国籍",
@@ -12922,7 +13495,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00060",
+            "block_id": "d3d00372c_p007_b00065",
             "page": 7,
             "role": "BODY",
             "text": "居住地",
@@ -12935,7 +13508,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00061",
+            "block_id": "d3d00372c_p007_b00066",
+            "page": 7,
+            "role": "BODY",
+            "text": "序号",
+            "text_raw": "序号",
+            "region": [
+              90.84,
+              537.3,
+              111.85,
+              555.3
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00067",
             "page": 7,
             "role": "BODY",
             "text": "其他国家居留权情况",
@@ -12948,20 +13534,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00062",
-            "page": 7,
-            "role": "BODY",
-            "text": "序号1 2 3",
-            "text_raw": "序号123",
-            "region": [
-              90.84,
-              541.26,
-              111.85,
-              606.01
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p007_b00063",
+            "block_id": "d3d00372c_p007_b00068",
             "page": 7,
             "role": "BODY",
             "text": "王晓军",
@@ -12974,7 +13547,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00064",
+            "block_id": "d3d00372c_p007_b00069",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -12987,7 +13560,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00065",
+            "block_id": "d3d00372c_p007_b00070",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -13000,7 +13573,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00066",
+            "block_id": "d3d00372c_p007_b00071",
             "page": 7,
             "role": "BODY",
             "text": "董事长",
@@ -13013,7 +13586,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00067",
+            "block_id": "d3d00372c_p007_b00072",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -13026,7 +13599,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00068",
+            "block_id": "d3d00372c_p007_b00073",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -13039,7 +13612,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00069",
+            "block_id": "d3d00372c_p007_b00074",
+            "page": 7,
+            "role": "BODY",
+            "text": "1",
+            "text_raw": "1",
+            "region": [
+              90.84,
+              555.3,
+              111.85,
+              572.8
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00075",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -13052,7 +13638,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00070",
+            "block_id": "d3d00372c_p007_b00076",
             "page": 7,
             "role": "BODY",
             "text": "任朗宁",
@@ -13065,7 +13651,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00071",
+            "block_id": "d3d00372c_p007_b00077",
             "page": 7,
             "role": "BODY",
             "text": "任越",
@@ -13078,7 +13664,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00072",
+            "block_id": "d3d00372c_p007_b00078",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -13091,7 +13677,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00073",
+            "block_id": "d3d00372c_p007_b00079",
             "page": 7,
             "role": "BODY",
             "text": "副董事长",
@@ -13104,7 +13690,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00074",
+            "block_id": "d3d00372c_p007_b00080",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -13117,7 +13703,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00075",
+            "block_id": "d3d00372c_p007_b00081",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -13130,7 +13716,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00076",
+            "block_id": "d3d00372c_p007_b00082",
+            "page": 7,
+            "role": "BODY",
+            "text": "2",
+            "text_raw": "2",
+            "region": [
+              90.84,
+              572.8,
+              111.85,
+              590.3
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00083",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -13143,7 +13742,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00077",
+            "block_id": "d3d00372c_p007_b00084",
             "page": 7,
             "role": "BODY",
             "text": "周兵",
@@ -13156,7 +13755,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00078",
+            "block_id": "d3d00372c_p007_b00085",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -13169,7 +13768,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00079",
+            "block_id": "d3d00372c_p007_b00086",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -13182,7 +13781,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00080",
+            "block_id": "d3d00372c_p007_b00087",
             "page": 7,
             "role": "BODY",
             "text": "董事兼总经理",
@@ -13195,7 +13794,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00081",
+            "block_id": "d3d00372c_p007_b00088",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -13208,7 +13807,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00082",
+            "block_id": "d3d00372c_p007_b00089",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -13221,7 +13820,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00083",
+            "block_id": "d3d00372c_p007_b00090",
+            "page": 7,
+            "role": "BODY",
+            "text": "3",
+            "text_raw": "3",
+            "region": [
+              90.84,
+              590.3,
+              111.85,
+              608.27
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00091",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -13234,20 +13846,33 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00084",
+            "block_id": "d3d00372c_p007_b00092",
             "page": 7,
             "role": "BODY",
-            "text": "信息披露义务人天人国际投资的主要负责人情况如下：序号1",
-            "text_raw": "信息披露义务人天人国际投资的主要负责人情况如下：序号1",
+            "text": "信息披露义务人天人国际投资的主要负责人情况如下：",
+            "text_raw": "信息披露义务人天人国际投资的主要负责人情况如下：",
             "region": [
-              90.84,
+              114.0,
               622.61,
               402.0,
-              674.77
+              634.61
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00085",
+            "block_id": "d3d00372c_p007_b00093",
+            "page": 7,
+            "role": "BODY",
+            "text": "序号",
+            "text_raw": "序号",
+            "region": [
+              90.84,
+              641.0,
+              111.85,
+              659.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00094",
             "page": 7,
             "role": "BODY",
             "text": "其他国家居留权情况",
@@ -13260,7 +13885,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00086",
+            "block_id": "d3d00372c_p007_b00095",
             "page": 7,
             "role": "BODY",
             "text": "姓名",
@@ -13273,7 +13898,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00087",
+            "block_id": "d3d00372c_p007_b00096",
             "page": 7,
             "role": "BODY",
             "text": "曾用名",
@@ -13286,7 +13911,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00088",
+            "block_id": "d3d00372c_p007_b00097",
             "page": 7,
             "role": "BODY",
             "text": "性别",
@@ -13299,7 +13924,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00089",
+            "block_id": "d3d00372c_p007_b00098",
             "page": 7,
             "role": "BODY",
             "text": "职务",
@@ -13312,7 +13937,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00090",
+            "block_id": "d3d00372c_p007_b00099",
             "page": 7,
             "role": "BODY",
             "text": "国籍",
@@ -13325,7 +13950,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00091",
+            "block_id": "d3d00372c_p007_b00100",
             "page": 7,
             "role": "BODY",
             "text": "居住地",
@@ -13338,7 +13963,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00092",
+            "block_id": "d3d00372c_p007_b00101",
+            "page": 7,
+            "role": "BODY",
+            "text": "1",
+            "text_raw": "1",
+            "region": [
+              90.84,
+              659.0,
+              111.85,
+              677.02
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p007_b00102",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -13351,7 +13989,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00093",
+            "block_id": "d3d00372c_p007_b00103",
             "page": 7,
             "role": "BODY",
             "text": "严永新",
@@ -13364,7 +14002,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00094",
+            "block_id": "d3d00372c_p007_b00104",
             "page": 7,
             "role": "BODY",
             "text": "无",
@@ -13377,7 +14015,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00095",
+            "block_id": "d3d00372c_p007_b00105",
             "page": 7,
             "role": "BODY",
             "text": "男",
@@ -13390,7 +14028,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00096",
+            "block_id": "d3d00372c_p007_b00106",
             "page": 7,
             "role": "BODY",
             "text": "董事兼经理",
@@ -13403,7 +14041,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00097",
+            "block_id": "d3d00372c_p007_b00107",
             "page": 7,
             "role": "BODY",
             "text": "中国",
@@ -13416,7 +14054,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00098",
+            "block_id": "d3d00372c_p007_b00108",
             "page": 7,
             "role": "BODY",
             "text": "无锡",
@@ -13429,7 +14067,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p007_b00099",
+            "block_id": "d3d00372c_p007_b00109",
             "page": 7,
             "role": "FOOTER",
             "text": "6",
@@ -13913,6 +14551,19 @@
             "block_id": "d3d00372c_p010_b00024",
             "page": 10,
             "role": "BODY",
+            "text": "红豆集团有限公司",
+            "text_raw": "红豆集团有限公司",
+            "region": [
+              59.28,
+              730.9,
+              119.29,
+              763.56
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p010_b00025",
+            "page": 10,
+            "role": "BODY",
             "text": "48.21",
             "text_raw": "48.21",
             "region": [
@@ -13923,7 +14574,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00025",
+            "block_id": "d3d00372c_p010_b00026",
             "page": 10,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -13936,7 +14587,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00026",
+            "block_id": "d3d00372c_p010_b00027",
             "page": 10,
             "role": "BODY",
             "text": "1,271,208,418",
@@ -13949,7 +14600,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00027",
+            "block_id": "d3d00372c_p010_b00028",
             "page": 10,
             "role": "BODY",
             "text": "55.48",
@@ -13962,7 +14613,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00028",
+            "block_id": "d3d00372c_p010_b00029",
             "page": 10,
             "role": "BODY",
             "text": "1,104,708,418",
@@ -13972,19 +14623,6 @@
               730.94,
               466.4,
               763.56
-            ]
-          },
-          {
-            "block_id": "d3d00372c_p010_b00029",
-            "page": 10,
-            "role": "BODY",
-            "text": "红豆集团有限公司",
-            "text_raw": "红豆集团有限公司",
-            "region": [
-              59.28,
-              733.74,
-              119.29,
-              759.79
             ]
           },
           {
@@ -14004,6 +14642,19 @@
             "block_id": "d3d00372c_p011_b00001",
             "page": 11,
             "role": "BODY",
+            "text": "周海江",
+            "text_raw": "周海江",
+            "region": [
+              59.28,
+              73.6,
+              119.29,
+              98.6
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00002",
+            "page": 11,
+            "role": "BODY",
             "text": "1.06",
             "text_raw": "1.06",
             "region": [
@@ -14014,7 +14665,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00002",
+            "block_id": "d3d00372c_p011_b00003",
             "page": 11,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -14027,7 +14678,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00003",
+            "block_id": "d3d00372c_p011_b00004",
             "page": 11,
             "role": "BODY",
             "text": "24,391,391",
@@ -14040,7 +14691,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00004",
+            "block_id": "d3d00372c_p011_b00005",
             "page": 11,
             "role": "BODY",
             "text": "1.06",
@@ -14053,7 +14704,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00005",
+            "block_id": "d3d00372c_p011_b00006",
             "page": 11,
             "role": "BODY",
             "text": "24,391,391",
@@ -14066,20 +14717,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00006",
+            "block_id": "d3d00372c_p011_b00007",
             "page": 11,
             "role": "BODY",
-            "text": "周海江龚新度无锡红闳服饰有限公司无锡天人国际投资有限公司",
-            "text_raw": "周海江龚新度无锡红闳服饰有限公司无锡天人国际投资有限公司",
+            "text": "龚新度",
+            "text_raw": "龚新度",
             "region": [
               59.28,
-              81.42,
+              98.6,
               119.29,
-              198.67
+              122.5
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00007",
+            "block_id": "d3d00372c_p011_b00008",
             "page": 11,
             "role": "BODY",
             "text": "0.15",
@@ -14092,7 +14743,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00008",
+            "block_id": "d3d00372c_p011_b00009",
             "page": 11,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -14105,7 +14756,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00009",
+            "block_id": "d3d00372c_p011_b00010",
             "page": 11,
             "role": "BODY",
             "text": "3,515,604",
@@ -14118,7 +14769,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00010",
+            "block_id": "d3d00372c_p011_b00011",
             "page": 11,
             "role": "BODY",
             "text": "0.15",
@@ -14131,7 +14782,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00011",
+            "block_id": "d3d00372c_p011_b00012",
             "page": 11,
             "role": "BODY",
             "text": "3,515,604",
@@ -14144,7 +14795,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00012",
+            "block_id": "d3d00372c_p011_b00013",
+            "page": 11,
+            "role": "BODY",
+            "text": "无锡红闳服饰有限公司",
+            "text_raw": "无锡红闳服饰有限公司",
+            "region": [
+              59.28,
+              122.5,
+              119.29,
+              154.2
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00014",
             "page": 11,
             "role": "BODY",
             "text": "1.16",
@@ -14157,7 +14821,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00013",
+            "block_id": "d3d00372c_p011_b00015",
             "page": 11,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -14170,7 +14834,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00014",
+            "block_id": "d3d00372c_p011_b00016",
             "page": 11,
             "role": "BODY",
             "text": "26,519,700",
@@ -14183,7 +14847,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00015",
+            "block_id": "d3d00372c_p011_b00017",
             "page": 11,
             "role": "BODY",
             "text": "1.16",
@@ -14196,7 +14860,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00016",
+            "block_id": "d3d00372c_p011_b00018",
             "page": 11,
             "role": "BODY",
             "text": "26,519,700",
@@ -14209,7 +14873,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00017",
+            "block_id": "d3d00372c_p011_b00019",
+            "page": 11,
+            "role": "BODY",
+            "text": "无锡天人国际投资有限公司",
+            "text_raw": "无锡天人国际投资有限公司",
+            "region": [
+              59.28,
+              154.2,
+              119.29,
+              201.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00020",
             "page": 11,
             "role": "BODY",
             "text": "0.00",
@@ -14222,7 +14899,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00018",
+            "block_id": "d3d00372c_p011_b00021",
             "page": 11,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -14235,7 +14912,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00019",
+            "block_id": "d3d00372c_p011_b00022",
             "page": 11,
             "role": "BODY",
             "text": "100",
@@ -14248,7 +14925,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00020",
+            "block_id": "d3d00372c_p011_b00023",
             "page": 11,
             "role": "BODY",
             "text": "0.00",
@@ -14261,7 +14938,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00021",
+            "block_id": "d3d00372c_p011_b00024",
             "page": 11,
             "role": "BODY",
             "text": "100",
@@ -14274,7 +14951,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00022",
+            "block_id": "d3d00372c_p011_b00025",
+            "page": 11,
+            "role": "BODY",
+            "text": "合计",
+            "text_raw": "合计",
+            "region": [
+              124.8,
+              201.5,
+              223.9,
+              226.46
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00026",
             "page": 11,
             "role": "BODY",
             "text": "50.59",
@@ -14287,20 +14977,20 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00023",
+            "block_id": "d3d00372c_p011_b00027",
             "page": 11,
             "role": "BODY",
-            "text": "合计 1,325,635,213",
-            "text_raw": "合计1,325,635,213",
+            "text": "1,325,635,213",
+            "text_raw": "1,325,635,213",
             "region": [
-              128.4,
+              223.95,
               201.54,
               309.0,
               226.46
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00024",
+            "block_id": "d3d00372c_p011_b00028",
             "page": 11,
             "role": "BODY",
             "text": "57.85",
@@ -14313,7 +15003,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00025",
+            "block_id": "d3d00372c_p011_b00029",
             "page": 11,
             "role": "BODY",
             "text": "1,159,135,213",
@@ -14326,7 +15016,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00026",
+            "block_id": "d3d00372c_p011_b00030",
             "page": 11,
             "role": "BODY",
             "text": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公司之间的其他安排（一）最近一年一期内与上市公司之间的重大交易情况",
@@ -14339,7 +15029,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00027",
+            "block_id": "d3d00372c_p011_b00031",
             "page": 11,
             "role": "BODY",
             "text": "最近一年一期，信息披露义务人与上市公司的重大交易具体情况请参见红豆",
@@ -14352,7 +15042,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00028",
+            "block_id": "d3d00372c_p011_b00032",
             "page": 11,
             "role": "BODY",
             "text": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易外，信息披露义务人与红豆股份之间未发生其它重大交易。（二）未来与上市公司之间的其他安排",
@@ -14365,7 +15055,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00029",
+            "block_id": "d3d00372c_p011_b00033",
             "page": 11,
             "role": "BODY",
             "text": "截至本报告书签署日，信息披露义务人与红豆股份未来不存在其他安排。",
@@ -14378,7 +15068,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00030",
+            "block_id": "d3d00372c_p011_b00034",
             "page": 11,
             "role": "BODY",
             "text": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利限制，包括但不限于股份被质押、冻结等情况",
@@ -14391,7 +15081,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00031",
+            "block_id": "d3d00372c_p011_b00035",
             "page": 11,
             "role": "BODY",
             "text": "截至本报告书签署之日，红豆集团及其一致行动人周海江、红闳服饰共质押",
@@ -14404,7 +15094,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00032",
+            "block_id": "d3d00372c_p011_b00036",
             "page": 11,
             "role": "BODY",
             "text": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结3,342,027,691股。",
@@ -14417,7 +15107,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00033",
+            "block_id": "d3d00372c_p011_b00037",
             "page": 11,
             "role": "BODY",
             "text": "除此之外，信息披露义务人持有的上市公司股份中不存在被质押、冻结等其",
@@ -14430,7 +15120,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00034",
+            "block_id": "d3d00372c_p011_b00038",
             "page": 11,
             "role": "BODY",
             "text": "他任何形式的权利限制。",
@@ -14443,7 +15133,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00035",
+            "block_id": "d3d00372c_p011_b00039",
             "page": 11,
             "role": "FOOTER",
             "text": "10",

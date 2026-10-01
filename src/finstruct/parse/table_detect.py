@@ -178,6 +178,12 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
             col_bands = sorted(list(col_bands) + extra_cols, key=lambda b: b[0])
             col_lefts = [b[0] for b in col_bands]
             n_cols = len(col_bands)
+            # **已有单元格的 col 必须按新网格重算**。它们的 col 是插入新列之前算的，
+            # 不重算就会与新补的格拿到同一个 cell_ref（实测 r1c1 撞车），
+            # 列归属全乱，补出的列等于没补 —— 「序号」那列仍留在正文流里。
+            for c in cell_boxes:
+                c["col"] = _nearest(col_lefts, c["box"][0])
+                c["cell_ref"] = f"r{c['row'] + 1}c{c['col'] + 1}"
             occupied = {(c["row"], c["col"]) for c in cell_boxes}
             # 该列各区间的字符，按**最近行带**归行（不要求严格落在带内）——
             # 补出的列与中间列的行高未必一致，严格包含会有字符认领不到。
