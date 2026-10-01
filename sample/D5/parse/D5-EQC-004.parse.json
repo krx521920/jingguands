@@ -7,7 +7,7 @@
     "file_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
     "file_size": 307617,
     "page_count": 21,
-    "parsed_at": "2026-10-01T21:41:07+08:00",
+    "parsed_at": "2026-10-01T21:45:01+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -8924,28 +8924,18 @@
           "doc_id": "da00b31da",
           "page": 19,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "权益变动方式（可多选）",
-          "text_raw": "权益变动方式（可多选）",
+          "text": "通过证券交易所的集中交易 □ 协议转让 √",
+          "text_raw": "通过证券交易所的集中交易□协议转让√",
           "region": [
-            72.15,
-            112.47,
-            192.5,
-            304.92
+            200.16,
+            131.34,
+            515.53,
+            145.39
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p019_t001",
-            "cell_id": "da00b31da_p019_t001_c001",
-            "cell_ref": "r1c1",
-            "row": 0,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -8956,28 +8946,18 @@
           "doc_id": "da00b31da",
           "page": 19,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "通过证券交易所的集中交易 □ 协议转让 √国有股行政划转或变更 □ 间接方式转让 □取得上市公司发行的新股 □ 执行法院裁定 □继承 □ 赠与 □其他 □ （请注明）",
-          "text_raw": "通过证券交易所的集中交易□协议转让√国有股行政划转或变更□间接方式转让□取得上市公司发行的新股□执行法院裁定□继承□赠与□其他□（请注明）",
+          "text": "国有股行政划转或变更 □ 间接方式转让 □",
+          "text_raw": "国有股行政划转或变更□间接方式转让□",
           "region": [
-            192.5,
-            112.47,
-            523.1,
-            304.92
+            200.16,
+            172.5,
+            519.85,
+            186.55
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p019_t001",
-            "cell_id": "da00b31da_p019_t001_c004",
-            "cell_ref": "r1c2",
-            "row": 0,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -8988,28 +8968,18 @@
           "doc_id": "da00b31da",
           "page": 19,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "信 息 披 露 义务 人 披 露 前 拥有权益的股份数量及占 上市公司已发 行股份比例",
-          "text_raw": "信息披露义务人披露前拥有权益的股份数量及占上市公司已发行股份比例",
+          "text": "权益变动方式（可多",
+          "text_raw": "权益变动方式（可多",
           "region": [
-            72.15,
-            304.92,
-            192.5,
-            553.87
+            78.48,
+            187.5,
+            192.85,
+            201.55
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p019_t001",
-            "cell_id": "da00b31da_p019_t001_c002",
-            "cell_ref": "r2c1",
-            "row": 1,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -9020,28 +8990,18 @@
           "doc_id": "da00b31da",
           "page": 19,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "股票种类：无持股数量：0持股比例：0",
-          "text_raw": "股票种类：无持股数量：0持股比例：0",
+          "text": "选） 取得上市公司发行的新股 □ 执行法院裁定 □",
+          "text_raw": "选）取得上市公司发行的新股□执行法院裁定□",
           "region": [
-            192.5,
-            304.92,
-            523.1,
-            553.87
+            79.2,
+            213.54,
+            521.89,
+            232.75
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p019_t001",
-            "cell_id": "da00b31da_p019_t001_c005",
-            "cell_ref": "r2c2",
-            "row": 1,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -9052,28 +9012,18 @@
           "doc_id": "da00b31da",
           "page": 19,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "本 次 权 益 变 动后，信息披露义务人 拥 有权益的股份 数 量 及 变 动比例",
-          "text_raw": "本次权益变动后，信息披露义务人拥有权益的股份数量及变动比例",
+          "text": "继承 □ 赠与 □",
+          "text_raw": "继承□赠与□",
           "region": [
-            72.15,
-            553.87,
-            192.5,
-            732.77
+            198.84,
+            248.22,
+            382.45,
+            262.27
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p019_t001",
-            "cell_id": "da00b31da_p019_t001_c003",
-            "cell_ref": "r3c1",
-            "row": 2,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -9084,28 +9034,18 @@
           "doc_id": "da00b31da",
           "page": 19,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "股票种类：人民币普通股变动数量：72,673,907股股份变动比例：6.16%",
-          "text_raw": "股票种类：人民币普通股变动数量：72,673,907股股份变动比例：6.16%",
+          "text": "其他 □ （请注明）",
+          "text_raw": "其他□（请注明）",
           "region": [
-            192.5,
-            553.87,
-            523.1,
-            732.77
+            198.72,
+            282.54,
+            484.69,
+            296.59
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p019_t001",
-            "cell_id": "da00b31da_p019_t001_c006",
-            "cell_ref": "r3c2",
-            "row": 2,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -9113,6 +9053,292 @@
         },
         {
           "block_id": "da00b31da_p019_b00007",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "股票种类：无",
+          "text_raw": "股票种类：无",
+          "region": [
+            198.6,
+            338.94,
+            280.69,
+            352.99
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00008",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "信 息 披 露 义",
+          "text_raw": "信息披露义",
+          "region": [
+            78.6,
+            323.82,
+            183.97,
+            337.87
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00009",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "务 人 披 露 前 拥",
+          "text_raw": "务人披露前拥",
+          "region": [
+            78.6,
+            355.02,
+            187.93,
+            369.07
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00010",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "量及占 上市公 持股数量：0",
+          "text_raw": "量及占上市公持股数量：0",
+          "region": [
+            78.6,
+            417.3,
+            274.02,
+            431.47
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00011",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "有权益的股份数",
+          "text_raw": "有权益的股份数",
+          "region": [
+            78.6,
+            386.22,
+            183.85,
+            400.27
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00012",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "持股比例：0",
+          "text_raw": "持股比例：0",
+          "region": [
+            198.48,
+            495.66,
+            274.02,
+            509.71
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00013",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "司已发 行股份比例",
+          "text_raw": "司已发行股份比例",
+          "region": [
+            78.6,
+            448.62,
+            183.97,
+            493.87
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00014",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本 次 权 益 变 动 股票种类：人民币普通股",
+          "text_raw": "本次权益变动股票种类：人民币普通股",
+          "region": [
+            78.48,
+            567.42,
+            347.29,
+            587.23
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00015",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "人 拥 有权益的股 变动数量：72,673,907股股份",
+          "text_raw": "人拥有权益的股变动数量：72,673,907股股份",
+          "region": [
+            78.6,
+            635.58,
+            377.41,
+            652.99
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00016",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "后，信息披露义务",
+          "text_raw": "后，信息披露义务",
+          "region": [
+            78.6,
+            604.38,
+            183.85,
+            618.43
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00017",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "份 数 量 及 变 动",
+          "text_raw": "份数量及变动",
+          "region": [
+            78.6,
+            666.78,
+            187.81,
+            680.83
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00018",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "变动比例：6.16%",
+          "text_raw": "变动比例：6.16%",
+          "region": [
+            199.32,
+            710.34,
+            300.06,
+            724.39
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00019",
+          "doc_id": "da00b31da",
+          "page": 19,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "比例",
+          "text_raw": "比例",
+          "region": [
+            78.6,
+            697.98,
+            106.09,
+            712.03
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "da00b31da_p019_b00020",
           "doc_id": "da00b31da",
           "page": 19,
           "type": "TEXT",
@@ -9134,21 +9360,7 @@
           "missing_reason": null
         }
       ],
-      "tables": [
-        {
-          "table_id": "da00b31da_p019_t001",
-          "page": 19,
-          "region": [
-            72.15,
-            112.47,
-            523.1,
-            732.77
-          ],
-          "n_rows": 3,
-          "n_cols": 2,
-          "continued_from": null
-        }
-      ]
+      "tables": []
     },
     {
       "page": 20,
@@ -9177,28 +9389,18 @@
           "doc_id": "da00b31da",
           "page": 20,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "在上市公司中拥有权益的股份变动的时间及方式",
-          "text_raw": "在上市公司中拥有权益的股份变动的时间及方式",
+          "text": "在上市公司中拥有权益 时间：办理完毕转让过户相关手续之日的股份变动的时间及方 方式：协议转让式",
+          "text_raw": "在上市公司中拥有权益时间：办理完毕转让过户相关手续之日的股份变动的时间及方方式：协议转让式",
           "region": [
-            72.15,
-            72.12,
-            192.5,
-            264.27
+            78.48,
+            91.38,
+            413.89,
+            255.91
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p020_t001",
-            "cell_id": "da00b31da_p020_t001_c001",
-            "cell_ref": "r1c1",
-            "row": 0,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -9209,28 +9411,18 @@
           "doc_id": "da00b31da",
           "page": 20,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "时间：办理完毕转让过户相关手续之日方式：协议转让",
-          "text_raw": "时间：办理完毕转让过户相关手续之日方式：协议转让",
+          "text": "是 否 已 充 分披露资金来 源 是 √ 否 □",
+          "text_raw": "是否已充分披露资金来源是√否□",
           "region": [
-            192.5,
-            72.12,
-            523.1,
-            264.27
+            78.24,
+            306.78,
+            349.21,
+            352.03
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p020_t001",
-            "cell_id": "da00b31da_p020_t001_c005",
-            "cell_ref": "r1c2",
-            "row": 0,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -9241,28 +9433,18 @@
           "doc_id": "da00b31da",
           "page": 20,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "是 否 已 充 分披露资金来 源",
-          "text_raw": "是否已充分披露资金来源",
+          "text": "信 息 披 露 义 务人是否拟于未来12个月 内 继 续 增 是 □ 否 √持信 息 披 露 义 务人在此前6个月是否在二 级 市 场买卖该 上市公 是 □ 否 √司股票",
+          "text_raw": "信息披露义务人是否拟于未来12个月内继续增是□否√持信息披露义务人在此前6个月是否在二级市场买卖该上市公是□否√司股票",
           "region": [
-            72.15,
-            264.27,
-            192.5,
-            382.92
+            78.36,
+            401.94,
+            355.33,
+            681.91
           ],
-          "table_ref": {
-            "table_id": "da00b31da_p020_t001",
-            "cell_id": "da00b31da_p020_t001_c002",
-            "cell_ref": "r2c1",
-            "row": 1,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 14.05,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -9270,166 +9452,6 @@
         },
         {
           "block_id": "da00b31da_p020_b00004",
-          "doc_id": "da00b31da",
-          "page": 20,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "是 √ 否 □",
-          "text_raw": "是√否□",
-          "region": [
-            192.5,
-            264.27,
-            523.1,
-            382.92
-          ],
-          "table_ref": {
-            "table_id": "da00b31da_p020_t001",
-            "cell_id": "da00b31da_p020_t001_c006",
-            "cell_ref": "r2c2",
-            "row": 1,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da00b31da_p020_b00005",
-          "doc_id": "da00b31da",
-          "page": 20,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "信 息 披 露 义 务人是否拟于未来12个月 内 继 续 增持",
-          "text_raw": "信息披露义务人是否拟于未来12个月内继续增持",
-          "region": [
-            72.15,
-            382.92,
-            192.5,
-            523.37
-          ],
-          "table_ref": {
-            "table_id": "da00b31da_p020_t001",
-            "cell_id": "da00b31da_p020_t001_c003",
-            "cell_ref": "r3c1",
-            "row": 2,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da00b31da_p020_b00006",
-          "doc_id": "da00b31da",
-          "page": 20,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "是 □ 否 √",
-          "text_raw": "是□否√",
-          "region": [
-            192.5,
-            382.92,
-            523.1,
-            523.37
-          ],
-          "table_ref": {
-            "table_id": "da00b31da_p020_t001",
-            "cell_id": "da00b31da_p020_t001_c007",
-            "cell_ref": "r3c2",
-            "row": 2,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da00b31da_p020_b00007",
-          "doc_id": "da00b31da",
-          "page": 20,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "信 息 披 露 义 务人在此前6个月是否在二 级 市 场买卖该 上市公司股票",
-          "text_raw": "信息披露义务人在此前6个月是否在二级市场买卖该上市公司股票",
-          "region": [
-            72.15,
-            523.37,
-            192.5,
-            692.67
-          ],
-          "table_ref": {
-            "table_id": "da00b31da_p020_t001",
-            "cell_id": "da00b31da_p020_t001_c004",
-            "cell_ref": "r4c1",
-            "row": 3,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da00b31da_p020_b00008",
-          "doc_id": "da00b31da",
-          "page": 20,
-          "type": "TEXT",
-          "source_type": "cell",
-          "role": "BODY",
-          "text": "是 □ 否 √",
-          "text_raw": "是□否√",
-          "region": [
-            192.5,
-            523.37,
-            523.1,
-            692.67
-          ],
-          "table_ref": {
-            "table_id": "da00b31da_p020_t001",
-            "cell_id": "da00b31da_p020_t001_c008",
-            "cell_ref": "r4c2",
-            "row": 3,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
-          "source": "TEXT_LAYER",
-          "ocr_confidence": null,
-          "degraded": false,
-          "missing_reason": null
-        },
-        {
-          "block_id": "da00b31da_p020_b00009",
           "doc_id": "da00b31da",
           "page": 20,
           "type": "TEXT",
@@ -9451,21 +9473,7 @@
           "missing_reason": null
         }
       ],
-      "tables": [
-        {
-          "table_id": "da00b31da_p020_t001",
-          "page": 20,
-          "region": [
-            72.15,
-            72.12,
-            523.1,
-            692.67
-          ],
-          "n_rows": 4,
-          "n_cols": 2,
-          "continued_from": null
-        }
-      ]
+      "tables": []
     },
     {
       "page": 21,
@@ -9936,15 +9944,23 @@
     "da00b31da_p019_b00005",
     "da00b31da_p019_b00006",
     "da00b31da_p019_b00007",
+    "da00b31da_p019_b00008",
+    "da00b31da_p019_b00009",
+    "da00b31da_p019_b00010",
+    "da00b31da_p019_b00011",
+    "da00b31da_p019_b00012",
+    "da00b31da_p019_b00013",
+    "da00b31da_p019_b00014",
+    "da00b31da_p019_b00015",
+    "da00b31da_p019_b00016",
+    "da00b31da_p019_b00017",
+    "da00b31da_p019_b00018",
+    "da00b31da_p019_b00019",
+    "da00b31da_p019_b00020",
     "da00b31da_p020_b00001",
     "da00b31da_p020_b00002",
     "da00b31da_p020_b00003",
     "da00b31da_p020_b00004",
-    "da00b31da_p020_b00005",
-    "da00b31da_p020_b00006",
-    "da00b31da_p020_b00007",
-    "da00b31da_p020_b00008",
-    "da00b31da_p020_b00009",
     "da00b31da_p021_b00001",
     "da00b31da_p021_b00002",
     "da00b31da_p021_b00003",
@@ -13905,82 +13921,251 @@
             "block_id": "da00b31da_p019_b00001",
             "page": 19,
             "role": "BODY",
-            "text": "权益变动方式（可多选）",
-            "text_raw": "权益变动方式（可多选）",
+            "text": "通过证券交易所的集中交易 □ 协议转让 √",
+            "text_raw": "通过证券交易所的集中交易□协议转让√",
             "region": [
-              72.15,
-              112.47,
-              192.5,
-              304.92
+              200.16,
+              131.34,
+              515.53,
+              145.39
             ]
           },
           {
             "block_id": "da00b31da_p019_b00002",
             "page": 19,
             "role": "BODY",
-            "text": "通过证券交易所的集中交易 □ 协议转让 √国有股行政划转或变更 □ 间接方式转让 □取得上市公司发行的新股 □ 执行法院裁定 □继承 □ 赠与 □其他 □ （请注明）",
-            "text_raw": "通过证券交易所的集中交易□协议转让√国有股行政划转或变更□间接方式转让□取得上市公司发行的新股□执行法院裁定□继承□赠与□其他□（请注明）",
+            "text": "国有股行政划转或变更 □ 间接方式转让 □",
+            "text_raw": "国有股行政划转或变更□间接方式转让□",
             "region": [
-              192.5,
-              112.47,
-              523.1,
-              304.92
+              200.16,
+              172.5,
+              519.85,
+              186.55
             ]
           },
           {
             "block_id": "da00b31da_p019_b00003",
             "page": 19,
             "role": "BODY",
-            "text": "信 息 披 露 义务 人 披 露 前 拥有权益的股份数量及占 上市公司已发 行股份比例",
-            "text_raw": "信息披露义务人披露前拥有权益的股份数量及占上市公司已发行股份比例",
+            "text": "权益变动方式（可多",
+            "text_raw": "权益变动方式（可多",
             "region": [
-              72.15,
-              304.92,
-              192.5,
-              553.87
+              78.48,
+              187.5,
+              192.85,
+              201.55
             ]
           },
           {
             "block_id": "da00b31da_p019_b00004",
             "page": 19,
             "role": "BODY",
-            "text": "股票种类：无持股数量：0持股比例：0",
-            "text_raw": "股票种类：无持股数量：0持股比例：0",
+            "text": "选） 取得上市公司发行的新股 □ 执行法院裁定 □",
+            "text_raw": "选）取得上市公司发行的新股□执行法院裁定□",
             "region": [
-              192.5,
-              304.92,
-              523.1,
-              553.87
+              79.2,
+              213.54,
+              521.89,
+              232.75
             ]
           },
           {
             "block_id": "da00b31da_p019_b00005",
             "page": 19,
             "role": "BODY",
-            "text": "本 次 权 益 变 动后，信息披露义务人 拥 有权益的股份 数 量 及 变 动比例",
-            "text_raw": "本次权益变动后，信息披露义务人拥有权益的股份数量及变动比例",
+            "text": "继承 □ 赠与 □",
+            "text_raw": "继承□赠与□",
             "region": [
-              72.15,
-              553.87,
-              192.5,
-              732.77
+              198.84,
+              248.22,
+              382.45,
+              262.27
             ]
           },
           {
             "block_id": "da00b31da_p019_b00006",
             "page": 19,
             "role": "BODY",
-            "text": "股票种类：人民币普通股变动数量：72,673,907股股份变动比例：6.16%",
-            "text_raw": "股票种类：人民币普通股变动数量：72,673,907股股份变动比例：6.16%",
+            "text": "其他 □ （请注明）",
+            "text_raw": "其他□（请注明）",
             "region": [
-              192.5,
-              553.87,
-              523.1,
-              732.77
+              198.72,
+              282.54,
+              484.69,
+              296.59
             ]
           },
           {
             "block_id": "da00b31da_p019_b00007",
+            "page": 19,
+            "role": "BODY",
+            "text": "股票种类：无",
+            "text_raw": "股票种类：无",
+            "region": [
+              198.6,
+              338.94,
+              280.69,
+              352.99
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00008",
+            "page": 19,
+            "role": "BODY",
+            "text": "信 息 披 露 义",
+            "text_raw": "信息披露义",
+            "region": [
+              78.6,
+              323.82,
+              183.97,
+              337.87
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00009",
+            "page": 19,
+            "role": "BODY",
+            "text": "务 人 披 露 前 拥",
+            "text_raw": "务人披露前拥",
+            "region": [
+              78.6,
+              355.02,
+              187.93,
+              369.07
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00010",
+            "page": 19,
+            "role": "BODY",
+            "text": "量及占 上市公 持股数量：0",
+            "text_raw": "量及占上市公持股数量：0",
+            "region": [
+              78.6,
+              417.3,
+              274.02,
+              431.47
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00011",
+            "page": 19,
+            "role": "BODY",
+            "text": "有权益的股份数",
+            "text_raw": "有权益的股份数",
+            "region": [
+              78.6,
+              386.22,
+              183.85,
+              400.27
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00012",
+            "page": 19,
+            "role": "BODY",
+            "text": "持股比例：0",
+            "text_raw": "持股比例：0",
+            "region": [
+              198.48,
+              495.66,
+              274.02,
+              509.71
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00013",
+            "page": 19,
+            "role": "BODY",
+            "text": "司已发 行股份比例",
+            "text_raw": "司已发行股份比例",
+            "region": [
+              78.6,
+              448.62,
+              183.97,
+              493.87
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00014",
+            "page": 19,
+            "role": "BODY",
+            "text": "本 次 权 益 变 动 股票种类：人民币普通股",
+            "text_raw": "本次权益变动股票种类：人民币普通股",
+            "region": [
+              78.48,
+              567.42,
+              347.29,
+              587.23
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00015",
+            "page": 19,
+            "role": "BODY",
+            "text": "人 拥 有权益的股 变动数量：72,673,907股股份",
+            "text_raw": "人拥有权益的股变动数量：72,673,907股股份",
+            "region": [
+              78.6,
+              635.58,
+              377.41,
+              652.99
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00016",
+            "page": 19,
+            "role": "BODY",
+            "text": "后，信息披露义务",
+            "text_raw": "后，信息披露义务",
+            "region": [
+              78.6,
+              604.38,
+              183.85,
+              618.43
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00017",
+            "page": 19,
+            "role": "BODY",
+            "text": "份 数 量 及 变 动",
+            "text_raw": "份数量及变动",
+            "region": [
+              78.6,
+              666.78,
+              187.81,
+              680.83
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00018",
+            "page": 19,
+            "role": "BODY",
+            "text": "变动比例：6.16%",
+            "text_raw": "变动比例：6.16%",
+            "region": [
+              199.32,
+              710.34,
+              300.06,
+              724.39
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00019",
+            "page": 19,
+            "role": "BODY",
+            "text": "比例",
+            "text_raw": "比例",
+            "region": [
+              78.6,
+              697.98,
+              106.09,
+              712.03
+            ]
+          },
+          {
+            "block_id": "da00b31da_p019_b00020",
             "page": 19,
             "role": "FOOTER",
             "text": "16",
@@ -13996,108 +14181,43 @@
             "block_id": "da00b31da_p020_b00001",
             "page": 20,
             "role": "BODY",
-            "text": "在上市公司中拥有权益的股份变动的时间及方式",
-            "text_raw": "在上市公司中拥有权益的股份变动的时间及方式",
+            "text": "在上市公司中拥有权益 时间：办理完毕转让过户相关手续之日的股份变动的时间及方 方式：协议转让式",
+            "text_raw": "在上市公司中拥有权益时间：办理完毕转让过户相关手续之日的股份变动的时间及方方式：协议转让式",
             "region": [
-              72.15,
-              72.12,
-              192.5,
-              264.27
+              78.48,
+              91.38,
+              413.89,
+              255.91
             ]
           },
           {
             "block_id": "da00b31da_p020_b00002",
             "page": 20,
             "role": "BODY",
-            "text": "时间：办理完毕转让过户相关手续之日方式：协议转让",
-            "text_raw": "时间：办理完毕转让过户相关手续之日方式：协议转让",
+            "text": "是 否 已 充 分披露资金来 源 是 √ 否 □",
+            "text_raw": "是否已充分披露资金来源是√否□",
             "region": [
-              192.5,
-              72.12,
-              523.1,
-              264.27
+              78.24,
+              306.78,
+              349.21,
+              352.03
             ]
           },
           {
             "block_id": "da00b31da_p020_b00003",
             "page": 20,
             "role": "BODY",
-            "text": "是 否 已 充 分披露资金来 源",
-            "text_raw": "是否已充分披露资金来源",
+            "text": "信 息 披 露 义 务人是否拟于未来12个月 内 继 续 增 是 □ 否 √持信 息 披 露 义 务人在此前6个月是否在二 级 市 场买卖该 上市公 是 □ 否 √司股票",
+            "text_raw": "信息披露义务人是否拟于未来12个月内继续增是□否√持信息披露义务人在此前6个月是否在二级市场买卖该上市公是□否√司股票",
             "region": [
-              72.15,
-              264.27,
-              192.5,
-              382.92
+              78.36,
+              401.94,
+              355.33,
+              681.91
             ]
           },
           {
             "block_id": "da00b31da_p020_b00004",
-            "page": 20,
-            "role": "BODY",
-            "text": "是 √ 否 □",
-            "text_raw": "是√否□",
-            "region": [
-              192.5,
-              264.27,
-              523.1,
-              382.92
-            ]
-          },
-          {
-            "block_id": "da00b31da_p020_b00005",
-            "page": 20,
-            "role": "BODY",
-            "text": "信 息 披 露 义 务人是否拟于未来12个月 内 继 续 增持",
-            "text_raw": "信息披露义务人是否拟于未来12个月内继续增持",
-            "region": [
-              72.15,
-              382.92,
-              192.5,
-              523.37
-            ]
-          },
-          {
-            "block_id": "da00b31da_p020_b00006",
-            "page": 20,
-            "role": "BODY",
-            "text": "是 □ 否 √",
-            "text_raw": "是□否√",
-            "region": [
-              192.5,
-              382.92,
-              523.1,
-              523.37
-            ]
-          },
-          {
-            "block_id": "da00b31da_p020_b00007",
-            "page": 20,
-            "role": "BODY",
-            "text": "信 息 披 露 义 务人在此前6个月是否在二 级 市 场买卖该 上市公司股票",
-            "text_raw": "信息披露义务人在此前6个月是否在二级市场买卖该上市公司股票",
-            "region": [
-              72.15,
-              523.37,
-              192.5,
-              692.67
-            ]
-          },
-          {
-            "block_id": "da00b31da_p020_b00008",
-            "page": 20,
-            "role": "BODY",
-            "text": "是 □ 否 √",
-            "text_raw": "是□否√",
-            "region": [
-              192.5,
-              523.37,
-              523.1,
-              692.67
-            ]
-          },
-          {
-            "block_id": "da00b31da_p020_b00009",
             "page": 20,
             "role": "FOOTER",
             "text": "17",

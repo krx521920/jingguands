@@ -7,7 +7,7 @@
     "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
     "file_size": 638950,
     "page_count": 64,
-    "parsed_at": "2026-10-01T21:41:04+08:00",
+    "parsed_at": "2026-10-01T21:44:55+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -35339,12 +35339,12 @@
           "source_type": "paragraph",
           "role": "HEADER",
           "text": "洛阳科创新材料股份有限公司                                                详式权益变动报告书",
-          "text_raw": "洛阳科创新材料股份有限公司                                                详式权益变动报告书   ",
+          "text_raw": "洛阳科创新材料股份有限公司                                                详式权益变动报告书 ",
           "region": [
-            90.02,
+            90.74,
             45.07,
             509.46,
-            190.3
+            54.07
           ],
           "table_ref": null,
           "font_size": 9.0,
@@ -35358,33 +35358,18 @@
           "doc_id": "d46bc2ef0",
           "page": 62,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "权过半数通过；2、北京证券交易所合规性确认并在中国证券登记结算有限责任公司北京分公司办理协议转让股份过户的相关手续等；3、相关法律法规要求的其他可能涉及的批准或核准。",
-          "text_raw": "权过半数通过； 2、北京证券交易所合规性确认并在中国证券登记结算有限责任公司北京分公司办理协议转让股份过户的相关手续等； 3、相关法律法规要求的其他可能涉及的批准或核准。 ",
+          "text": "权过半数通过；",
+          "text_raw": "权过半数通过； ",
           "region": [
-            170.53,
-            72.84,
-            523.82,
-            128.18
+            170.45,
+            75.05,
+            243.05,
+            86.4
           ],
-          "table_ref": {
-            "table_id": "d46bc2ef0_p062_t001",
-            "cell_id": "d46bc2ef0_p062_t001_c003",
-            "cell_ref": "r1c2",
-            "row": 0,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null,
-            "continues": {
-              "table_id": "d46bc2ef0_p061_t001",
-              "cell_ref": "r12c2",
-              "block_id": "d46bc2ef0_p061_b00024"
-            }
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -35395,28 +35380,18 @@
           "doc_id": "d46bc2ef0",
           "page": 62,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "信息披露义务人及其一致行动人是否声明放弃行使相关股份的表决权",
-          "text_raw": "信息披露义务人及其一致行动人是否声明放弃行使相关股份的表决权 ",
+          "text": "2、北京证券交易所合规性确认并在中国证券登记结算有限责任公司北京分公司",
+          "text_raw": "2、北京证券交易所合规性确认并在中国证券登记结算有限责任公司北京分公司",
           "region": [
-            71.77,
-            128.18,
-            170.53,
-            183.65
+            170.45,
+            88.63,
+            515.82,
+            99.98
           ],
-          "table_ref": {
-            "table_id": "d46bc2ef0_p062_t001",
-            "cell_id": "d46bc2ef0_p062_t001_c002",
-            "cell_ref": "r2c1",
-            "row": 1,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -35427,28 +35402,18 @@
           "doc_id": "d46bc2ef0",
           "page": 62,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "是□    否√",
-          "text_raw": "是□    否√ ",
+          "text": "办理协议转让股份过户的相关手续等；",
+          "text_raw": "办理协议转让股份过户的相关手续等； ",
           "region": [
-            170.53,
-            128.18,
-            523.82,
-            183.65
+            170.45,
+            102.19,
+            343.15,
+            113.54
           ],
-          "table_ref": {
-            "table_id": "d46bc2ef0_p062_t001",
-            "cell_id": "d46bc2ef0_p062_t001_c004",
-            "cell_ref": "r2c2",
-            "row": 1,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -35456,6 +35421,50 @@
         },
         {
           "block_id": "d46bc2ef0_p062_b00005",
+          "doc_id": "d46bc2ef0",
+          "page": 62,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、相关法律法规要求的其他可能涉及的批准或核准。信息披露义务人及其一致行动人是否",
+          "text_raw": "3、相关法律法规要求的其他可能涉及的批准或核准。 信息披露义务人及其一致行动人是否",
+          "region": [
+            72.5,
+            115.87,
+            407.86,
+            154.15
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d46bc2ef0_p062_b00006",
+          "doc_id": "d46bc2ef0",
+          "page": 62,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "是□    否√声明放弃行使相关股份的表决权",
+          "text_raw": "是□    否√ 声明放弃行使相关股份的表决权   ",
+          "region": [
+            72.5,
+            150.43,
+            370.51,
+            190.3
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d46bc2ef0_p062_b00007",
           "doc_id": "d46bc2ef0",
           "page": 62,
           "type": "TEXT",
@@ -35477,7 +35486,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d46bc2ef0_p062_b00006",
+          "block_id": "d46bc2ef0_p062_b00008",
           "doc_id": "d46bc2ef0",
           "page": 62,
           "type": "TEXT",
@@ -35499,21 +35508,7 @@
           "missing_reason": null
         }
       ],
-      "tables": [
-        {
-          "table_id": "d46bc2ef0_p062_t001",
-          "page": 62,
-          "region": [
-            71.77,
-            72.84,
-            523.82,
-            183.65
-          ],
-          "n_rows": 2,
-          "n_cols": 2,
-          "continued_from": "d46bc2ef0_p061_t001"
-        }
-      ]
+      "tables": []
     },
     {
       "page": 63,
@@ -37296,6 +37291,8 @@
     "d46bc2ef0_p062_b00004",
     "d46bc2ef0_p062_b00005",
     "d46bc2ef0_p062_b00006",
+    "d46bc2ef0_p062_b00007",
+    "d46bc2ef0_p062_b00008",
     "d46bc2ef0_p063_b00001",
     "d46bc2ef0_p063_b00002",
     "d46bc2ef0_p063_b00003",
@@ -55151,55 +55148,81 @@
             "page": 62,
             "role": "HEADER",
             "text": "洛阳科创新材料股份有限公司                                                详式权益变动报告书",
-            "text_raw": "洛阳科创新材料股份有限公司                                                详式权益变动报告书   ",
+            "text_raw": "洛阳科创新材料股份有限公司                                                详式权益变动报告书 ",
             "region": [
-              90.02,
+              90.74,
               45.07,
               509.46,
-              190.3
+              54.07
             ]
           },
           {
             "block_id": "d46bc2ef0_p062_b00002",
             "page": 62,
             "role": "BODY",
-            "text": "权过半数通过；2、北京证券交易所合规性确认并在中国证券登记结算有限责任公司北京分公司办理协议转让股份过户的相关手续等；3、相关法律法规要求的其他可能涉及的批准或核准。",
-            "text_raw": "权过半数通过； 2、北京证券交易所合规性确认并在中国证券登记结算有限责任公司北京分公司办理协议转让股份过户的相关手续等； 3、相关法律法规要求的其他可能涉及的批准或核准。 ",
+            "text": "权过半数通过；",
+            "text_raw": "权过半数通过； ",
             "region": [
-              170.53,
-              72.84,
-              523.82,
-              128.18
+              170.45,
+              75.05,
+              243.05,
+              86.4
             ]
           },
           {
             "block_id": "d46bc2ef0_p062_b00003",
             "page": 62,
             "role": "BODY",
-            "text": "信息披露义务人及其一致行动人是否声明放弃行使相关股份的表决权",
-            "text_raw": "信息披露义务人及其一致行动人是否声明放弃行使相关股份的表决权 ",
+            "text": "2、北京证券交易所合规性确认并在中国证券登记结算有限责任公司北京分公司",
+            "text_raw": "2、北京证券交易所合规性确认并在中国证券登记结算有限责任公司北京分公司",
             "region": [
-              71.77,
-              128.18,
-              170.53,
-              183.65
+              170.45,
+              88.63,
+              515.82,
+              99.98
             ]
           },
           {
             "block_id": "d46bc2ef0_p062_b00004",
             "page": 62,
             "role": "BODY",
-            "text": "是□    否√",
-            "text_raw": "是□    否√ ",
+            "text": "办理协议转让股份过户的相关手续等；",
+            "text_raw": "办理协议转让股份过户的相关手续等； ",
             "region": [
-              170.53,
-              128.18,
-              523.82,
-              183.65
+              170.45,
+              102.19,
+              343.15,
+              113.54
             ]
           },
           {
             "block_id": "d46bc2ef0_p062_b00005",
+            "page": 62,
+            "role": "BODY",
+            "text": "3、相关法律法规要求的其他可能涉及的批准或核准。信息披露义务人及其一致行动人是否",
+            "text_raw": "3、相关法律法规要求的其他可能涉及的批准或核准。 信息披露义务人及其一致行动人是否",
+            "region": [
+              72.5,
+              115.87,
+              407.86,
+              154.15
+            ]
+          },
+          {
+            "block_id": "d46bc2ef0_p062_b00006",
+            "page": 62,
+            "role": "BODY",
+            "text": "是□    否√声明放弃行使相关股份的表决权",
+            "text_raw": "是□    否√ 声明放弃行使相关股份的表决权   ",
+            "region": [
+              72.5,
+              150.43,
+              370.51,
+              190.3
+            ]
+          },
+          {
+            "block_id": "d46bc2ef0_p062_b00007",
             "page": 62,
             "role": "FOOTER",
             "text": "",
@@ -55212,7 +55235,7 @@
             ]
           },
           {
-            "block_id": "d46bc2ef0_p062_b00006",
+            "block_id": "d46bc2ef0_p062_b00008",
             "page": 62,
             "role": "FOOTER",
             "text": "61",
@@ -55484,8 +55507,7 @@
     "warnings": [
       "page 6: 表 d46bc2ef0_p006_t001 续自 d46bc2ef0_p005_t001（行边界断开，行本身完整）",
       "page 9: 表 d46bc2ef0_p009_t001 续自 d46bc2ef0_p008_t001，且首行有 1 个单元格是被页边界切断的碎片（已标 table_ref.continues，消费方需与上一页同列单元格拼接后再取值）",
-      "page 10: 表 d46bc2ef0_p010_t001 续自 d46bc2ef0_p009_t001（行边界断开，行本身完整）",
-      "page 62: 表 d46bc2ef0_p062_t001 续自 d46bc2ef0_p061_t001，且首行有 1 个单元格是被页边界切断的碎片（已标 table_ref.continues，消费方需与上一页同列单元格拼接后再取值）"
+      "page 10: 表 d46bc2ef0_p010_t001 续自 d46bc2ef0_p009_t001（行边界断开，行本身完整）"
     ]
   }
 }

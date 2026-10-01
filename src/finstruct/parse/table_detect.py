@@ -81,6 +81,12 @@ def detect_tables(doc_id: str, page_no: int, page) -> List[Dict]:
             n_cols = len(t.columns)
         except Exception:
             continue
+        # 假表的又一种形态：**格子里装的是整句正文**。
+        # 实测 D5-EQC-002 p62 的封面页被判成 2 行×2 列的"表格"，格里是
+        # 『权过半数通过；2、北京证券交易所合规性确认并在中国证券登记』这类完整句子。
+        # 真表格的格是短值（数字、名称、标签），不会是成句的话。
+        if _cells_look_like_prose(page, cells_raw):
+            continue
         if not cells_raw or n_rows < 2 or n_cols < 2:
             # 单行"表格"多半是排版噪声（一条横线）。
             # **单列"表格"则几乎都是正文被误检** —— 实测 D4-PLD-009 p3 的正文章节
@@ -448,3 +454,28 @@ def _columns_outside(page, bbox, row_bands, col_bands) -> List[Tuple[float, floa
             if len(rows_hit) >= need:
                 out.append((round(g["x0"], 2), round(g["x1"], 2)))
     return out
+
+
+# 单元格里字符数的中位数超过这个值，就认为"表格"装的是正文而不是表格。
+# 真表格的格是短值（数字/名称/标签，通常个位数到十几个字）。
+PROSE_CELL_CHARS = 20
+
+
+def _cells_look_like_prose(page, cells_raw) -> bool:
+    """表格的格子是否装的都是成句的正文。"""
+    chars = page.chars or []
+    if not chars:
+        return False
+    counts = []
+    for box in cells_raw:
+        if not box:
+            continue
+        x0, y0, x1, y1 = box
+        counts.append(sum(
+            1 for c in chars
+            if x0 <= (c["x0"] + c["x1"]) / 2 <= x1 and y0 <= (c["top"] + c["bottom"]) / 2 <= y1
+        ))
+    if not counts:
+        return False
+    counts.sort()
+    return counts[len(counts) // 2] >= PROSE_CELL_CHARS

@@ -7,7 +7,7 @@
     "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
     "file_size": 416150,
     "page_count": 35,
-    "parsed_at": "2026-10-01T21:41:02+08:00",
+    "parsed_at": "2026-10-01T21:44:50+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -20966,28 +20966,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "马军强变动种类：A股普通股变动数量：减少2,975,600股变动比例：减少3.46%杨占坡变动种类：A股普通股变动数量：减少430,000股变动比例：减少0.50%蔚文举持股种类：A股普通股持股数量：1,341,600股持股比例：减少1.56%",
-          "text_raw": "马军强 变动种类：A股普通股 变动数量：减少2,975,600股 变动比例：减少3.46% 杨占坡 变动种类：A股普通股 变动数量：减少430,000股 变动比例：减少0.50% 蔚文举 持股种类：A股普通股 持股数量：1,341,600股 持股比例：减少1.56% ",
+          "text": "马军强",
+          "text_raw": "马军强 ",
           "region": [
-            288.43,
-            72.24,
-            523.92,
-            235.58
+            390.94,
+            73.97,
+            424.18,
+            85.32
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c008",
-            "cell_ref": "r1c2",
-            "row": 0,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -20998,28 +20988,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "在上市公司中拥有权益的股份变动的时间及方式",
-          "text_raw": "在上市公司中拥有权益的股份变动的时间及方式  ",
+          "text": "变动种类：A股普通股",
+          "text_raw": "变动种类：A股普通股 ",
           "region": [
-            71.66,
-            235.58,
-            288.43,
-            372.89
+            355.75,
+            87.67,
+            459.34,
+            99.02
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c002",
-            "cell_ref": "r2c1",
-            "row": 1,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21030,28 +21010,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "2026年9月23日，信息披露义务人与于春生签署了《股份转让协议》，约定信息披露义务人将其合计持有的科创新材8,427,900股股份转让给于春生，交易股份数占科创新材总股本的9.80%。2026年9月23日，信息披露义务人签署《一致行动协议之解除协议》。2026年9月23日，于春生与蔚文绪、蔚文举签订《一致行动协议》，三人合计持有公司股份25,790,521股，占科创新材总股本的29.99%，于春生将作为实际控制人，蔚文绪、蔚文举将作为一致行动人控制上市公司。",
-          "text_raw": "2026年9月23日，信息披露义务人与于春生签署了《股份转让协议》，约定信息披露义务人将其合计持有的科创新材8,427,900股股份转让给于春生，交易股份数占科创新材总股本的9.80%。 2026年9月23日，信息披露义务人签署《一致行动协议之解除协议》。2026年9月23日，于春生与蔚文绪、蔚文举签订《一致行动协议》，三人合计持有公司股份25,790,521股，占科创新材总股本的29.99%，于春生将作为实际控制人，蔚文绪、蔚文举将作为一致行动人控制上市公司。 ",
+          "text": "变动数量：减少2,975,600股",
+          "text_raw": "变动数量：减少2,975,600股 ",
           "region": [
-            288.43,
-            235.58,
-            523.92,
-            372.89
+            343.15,
+            101.23,
+            471.94,
+            112.58
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c009",
-            "cell_ref": "r2c2",
-            "row": 1,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21062,28 +21032,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "信息披露义务人是否拟于未来12个月内继续增持或减持",
-          "text_raw": "信息披露义务人是否拟于未来12个月内继续增持或减持 ",
+          "text": "变动比例：减少3.46%",
+          "text_raw": "变动比例：减少3.46% ",
           "region": [
-            71.66,
-            372.89,
-            288.43,
-            427.85
+            357.07,
+            114.91,
+            458.02,
+            126.26
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c003",
-            "cell_ref": "r3c1",
-            "row": 2,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21094,28 +21054,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "是□    否√备注：截至本报告书签署之日，信息披露义务人没有未来12个月内继续增持或减持上市公司股份的其他计划。",
-          "text_raw": "是□    否√ 备注：截至本报告书签署之日，信息披露义务人没有未来12个月内继续增持或减持上市公司股份的其他计划。 ",
+          "text": "杨占坡",
+          "text_raw": "杨占坡 ",
           "region": [
-            288.43,
-            372.89,
-            523.92,
-            427.85
+            390.94,
+            128.47,
+            424.18,
+            139.82
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c010",
-            "cell_ref": "r3c2",
-            "row": 2,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21126,28 +21076,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "信息披露义务人前6个月是否在二级市场买卖该上市公司股票",
-          "text_raw": "信息披露义务人前6个月是否在二级市场买卖该上市公司股票 ",
+          "text": "变动种类：A股普通股",
+          "text_raw": "变动种类：A股普通股 ",
           "region": [
-            71.66,
-            427.85,
-            288.43,
-            463.25
+            355.75,
+            142.15,
+            459.34,
+            153.5
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c004",
-            "cell_ref": "r4c1",
-            "row": 3,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21158,28 +21098,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "是□    否√",
-          "text_raw": "是□    否√ ",
+          "text": "变动数量：减少430,000股",
+          "text_raw": "变动数量：减少430,000股 ",
           "region": [
-            288.43,
-            427.85,
-            523.92,
-            463.25
+            347.11,
+            155.71,
+            467.86,
+            167.06
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c011",
-            "cell_ref": "r4c2",
-            "row": 3,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21190,28 +21120,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "控股股东或实际控制人减持时是否存在侵害上市公司和股东权益问题",
-          "text_raw": "控股股东或实际控制人减持时是否存在侵害上市公司和股东权益问题 ",
+          "text": "变动比例：减少0.50%",
+          "text_raw": "变动比例：减少0.50% ",
           "region": [
-            71.66,
-            463.25,
-            288.43,
-            490.99
+            357.07,
+            169.39,
+            458.02,
+            180.74
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c005",
-            "cell_ref": "r5c1",
-            "row": 4,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21222,28 +21142,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "是□    否√",
-          "text_raw": "是□    否√ ",
+          "text": "蔚文举",
+          "text_raw": "蔚文举 ",
           "region": [
-            288.43,
-            463.25,
-            523.92,
-            490.99
+            390.94,
+            182.95,
+            424.18,
+            194.3
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c012",
-            "cell_ref": "r5c2",
-            "row": 4,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21254,28 +21164,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提供的担保，或者损害公司利益的其他情形",
-          "text_raw": "控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提供的担保，或者损害公司利益的其他情形 ",
+          "text": "持股种类：A股普通股",
+          "text_raw": "持股种类：A股普通股 ",
           "region": [
-            71.66,
-            490.99,
-            288.43,
-            532.39
+            355.15,
+            196.51,
+            459.94,
+            207.86
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c006",
-            "cell_ref": "r6c1",
-            "row": 5,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21286,28 +21186,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "是□   否√",
-          "text_raw": "是□   否√ ",
+          "text": "持股数量：1,341,600股",
+          "text_raw": "持股数量：1,341,600股 ",
           "region": [
-            288.43,
-            490.99,
-            523.92,
-            532.39
+            353.71,
+            210.19,
+            461.38,
+            221.54
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c013",
-            "cell_ref": "r6c2",
-            "row": 5,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21318,28 +21208,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "本次权益变动是否需取得批准",
-          "text_raw": "本次权益变动是否需取得批准 ",
+          "text": "持股比例：减少1.56%",
+          "text_raw": "持股比例：减少1.56% ",
           "region": [
-            71.66,
-            532.39,
-            288.43,
-            574.51
+            357.31,
+            223.75,
+            457.66,
+            235.1
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c007",
-            "cell_ref": "r7c1",
-            "row": 6,
-            "col": 0,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21350,28 +21230,18 @@
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
-          "source_type": "cell",
+          "source_type": "paragraph",
           "role": "BODY",
-          "text": "是☑    否□本次权益变动构成管理层收购，尚需履行管理层收购相关程序，并获得股东会审议通过。",
-          "text_raw": "是☑    否□ 本次权益变动构成管理层收购，尚需履行管理层收购相关程序，并获得股东会审议通过。 ",
+          "text": "2026年9月23日，信息披露义务人与于春生签署了",
+          "text_raw": "2026年9月23日，信息披露义务人与于春生签署了",
           "region": [
-            288.43,
-            532.39,
-            523.92,
-            574.51
+            288.79,
+            237.91,
+            523.56,
+            249.26
           ],
-          "table_ref": {
-            "table_id": "d9d5be14f_p034_t001",
-            "cell_id": "d9d5be14f_p034_t001_c014",
-            "cell_ref": "r7c2",
-            "row": 6,
-            "col": 1,
-            "rowspan": 1,
-            "colspan": 1,
-            "covers": null,
-            "header_path": null
-          },
-          "font_size": null,
+          "table_ref": null,
+          "font_size": 10.56,
           "source": "TEXT_LAYER",
           "ocr_confidence": null,
           "degraded": false,
@@ -21379,6 +21249,446 @@
         },
         {
           "block_id": "d9d5be14f_p034_b00014",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "《股份转让协议》，约定信息披露义务人将其合计持",
+          "text_raw": "《股份转让协议》，约定信息披露义务人将其合计持",
+          "region": [
+            288.79,
+            251.59,
+            523.92,
+            262.15
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00015",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "有的科创新材8,427,900股股份转让给于春生，交易",
+          "text_raw": "有的科创新材8,427,900股股份转让给于春生，交易",
+          "region": [
+            288.79,
+            265.15,
+            523.8,
+            276.5
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00016",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "股份数占科创新材总股本的9.80%。在上市公司中拥有权益的股份变动的时间及2026年9月23日，信息披露义务人签署《一致行动协",
+          "text_raw": "股份数占科创新材总股本的9.80%。 在上市公司中拥有权益的股份变动的时间及2026年9月23日，信息披露义务人签署《一致行动协",
+          "region": [
+            72.74,
+            278.74,
+            523.78,
+            303.77
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00017",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "方式    议之解除协议》。2026年9月23日，于春生与蔚文绪、",
+          "text_raw": "方式  议之解除协议》。2026年9月23日，于春生与蔚文绪、",
+          "region": [
+            168.89,
+            305.98,
+            529.07,
+            317.33
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00018",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "蔚文举签订《一致行动协议》，三人合计持有公司股",
+          "text_raw": "蔚文举签订《一致行动协议》，三人合计持有公司股",
+          "region": [
+            288.79,
+            319.66,
+            523.78,
+            330.22
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00019",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "份25,790,521股，占科创新材总股本的29.99%，于春",
+          "text_raw": "份25,790,521股，占科创新材总股本的29.99%，于春",
+          "region": [
+            288.79,
+            333.22,
+            523.8,
+            344.57
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00020",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "生将作为实际控制人，蔚文绪、蔚文举将作为一致行",
+          "text_raw": "生将作为实际控制人，蔚文绪、蔚文举将作为一致行",
+          "region": [
+            288.79,
+            346.9,
+            523.79,
+            357.46
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00021",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "动人控制上市公司。",
+          "text_raw": "动人控制上市公司。 ",
+          "region": [
+            288.79,
+            360.46,
+            386.02,
+            371.81
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00022",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "是□    否√信息披露义务人是否拟于未来12个月内继续备注：截至本报告书签署之日，信息披露义务人没有",
+          "text_raw": "是□    否√ 信息披露义务人是否拟于未来12个月内继续备注：截至本报告书签署之日，信息披露义务人没有",
+          "region": [
+            74.42,
+            374.62,
+            523.78,
+            399.53
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00023",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "增持或减持  未来12个月内继续增持或减持上市公司股份的其他",
+          "text_raw": "增持或减持 未来12个月内继续增持或减持上市公司股份的其他",
+          "region": [
+            154.82,
+            401.86,
+            519.48,
+            413.21
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00024",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "计划。",
+          "text_raw": "计划。 ",
+          "region": [
+            288.79,
+            415.42,
+            322.99,
+            426.77
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00025",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "信息披露义务人前6个月是否在二级市场买卖",
+          "text_raw": "信息披露义务人前6个月是否在二级市场买卖",
+          "region": [
+            72.14,
+            433.42,
+            287.21,
+            444.77
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00026",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "是□    否√",
+          "text_raw": "是□    否√ ",
+          "region": [
+            380.02,
+            440.26,
+            434.98,
+            451.61
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00027",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "该上市公司股票",
+          "text_raw": "该上市公司股票 ",
+          "region": [
+            142.34,
+            447.1,
+            220.49,
+            458.45
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00028",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "控股股东或实际控制人减持时是否存在侵害",
+          "text_raw": "控股股东或实际控制人减持时是否存在侵害",
+          "region": [
+            73.7,
+            465.0,
+            285.69,
+            475.56
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00029",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "是□    否√",
+          "text_raw": "是□    否√ ",
+          "region": [
+            380.02,
+            471.84,
+            434.98,
+            483.19
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00030",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "上市公司和股东权益问题控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提 是□   否√供的担保，或者损害公司利益的其他情形",
+          "text_raw": "上市公司和股东权益问题 控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提是□   否√ 供的担保，或者损害公司利益的其他情形 ",
+          "region": [
+            73.7,
+            478.68,
+            432.46,
+            531.43
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00031",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "是☑    否□",
+          "text_raw": "是☑    否□ ",
+          "region": [
+            378.19,
+            534.96,
+            436.9,
+            546.31
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00032",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本次权益变动是否需取得批准  本次权益变动构成管理层收购，尚需履行管理层收",
+          "text_raw": "本次权益变动是否需取得批准 本次权益变动构成管理层收购，尚需履行管理层收",
+          "region": [
+            106.58,
+            548.16,
+            519.8,
+            559.51
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00033",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "购相关程序，并获得股东会审议通过。",
+          "text_raw": "购相关程序，并获得股东会审议通过。 ",
+          "region": [
+            318.67,
+            562.08,
+            496.44,
+            573.43
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00034",
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
@@ -21400,18 +21710,40 @@
           "missing_reason": null
         },
         {
-          "block_id": "d9d5be14f_p034_b00015",
+          "block_id": "d9d5be14f_p034_b00035",
           "doc_id": "d9d5be14f",
           "page": 34,
           "type": "TEXT",
           "source_type": "paragraph",
           "role": "FOOTER",
           "text": "34",
-          "text_raw": "34  ",
+          "text_raw": "34 ",
           "region": [
-            90.02,
+            293.35,
             771.12,
             304.6,
+            780.12
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d9d5be14f_p034_b00036",
+          "doc_id": "d9d5be14f",
+          "page": 34,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "FOOTER",
+          "text": "",
+          "text_raw": " ",
+          "region": [
+            90.02,
+            781.94,
+            92.49,
             790.94
           ],
           "table_ref": null,
@@ -21422,21 +21754,7 @@
           "missing_reason": null
         }
       ],
-      "tables": [
-        {
-          "table_id": "d9d5be14f_p034_t001",
-          "page": 34,
-          "region": [
-            71.66,
-            72.24,
-            523.92,
-            574.51
-          ],
-          "n_rows": 7,
-          "n_cols": 2,
-          "continued_from": null
-        }
-      ]
+      "tables": []
     },
     {
       "page": 35,
@@ -22725,6 +23043,27 @@
     "d9d5be14f_p034_b00013",
     "d9d5be14f_p034_b00014",
     "d9d5be14f_p034_b00015",
+    "d9d5be14f_p034_b00016",
+    "d9d5be14f_p034_b00017",
+    "d9d5be14f_p034_b00018",
+    "d9d5be14f_p034_b00019",
+    "d9d5be14f_p034_b00020",
+    "d9d5be14f_p034_b00021",
+    "d9d5be14f_p034_b00022",
+    "d9d5be14f_p034_b00023",
+    "d9d5be14f_p034_b00024",
+    "d9d5be14f_p034_b00025",
+    "d9d5be14f_p034_b00026",
+    "d9d5be14f_p034_b00027",
+    "d9d5be14f_p034_b00028",
+    "d9d5be14f_p034_b00029",
+    "d9d5be14f_p034_b00030",
+    "d9d5be14f_p034_b00031",
+    "d9d5be14f_p034_b00032",
+    "d9d5be14f_p034_b00033",
+    "d9d5be14f_p034_b00034",
+    "d9d5be14f_p034_b00035",
+    "d9d5be14f_p034_b00036",
     "d9d5be14f_p035_b00001",
     "d9d5be14f_p035_b00002",
     "d9d5be14f_p035_b00003",
@@ -33225,173 +33564,433 @@
             "block_id": "d9d5be14f_p034_b00001",
             "page": 34,
             "role": "BODY",
-            "text": "马军强变动种类：A股普通股变动数量：减少2,975,600股变动比例：减少3.46%杨占坡变动种类：A股普通股变动数量：减少430,000股变动比例：减少0.50%蔚文举持股种类：A股普通股持股数量：1,341,600股持股比例：减少1.56%",
-            "text_raw": "马军强 变动种类：A股普通股 变动数量：减少2,975,600股 变动比例：减少3.46% 杨占坡 变动种类：A股普通股 变动数量：减少430,000股 变动比例：减少0.50% 蔚文举 持股种类：A股普通股 持股数量：1,341,600股 持股比例：减少1.56% ",
+            "text": "马军强",
+            "text_raw": "马军强 ",
             "region": [
-              288.43,
-              72.24,
-              523.92,
-              235.58
+              390.94,
+              73.97,
+              424.18,
+              85.32
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00002",
             "page": 34,
             "role": "BODY",
-            "text": "在上市公司中拥有权益的股份变动的时间及方式",
-            "text_raw": "在上市公司中拥有权益的股份变动的时间及方式  ",
+            "text": "变动种类：A股普通股",
+            "text_raw": "变动种类：A股普通股 ",
             "region": [
-              71.66,
-              235.58,
-              288.43,
-              372.89
+              355.75,
+              87.67,
+              459.34,
+              99.02
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00003",
             "page": 34,
             "role": "BODY",
-            "text": "2026年9月23日，信息披露义务人与于春生签署了《股份转让协议》，约定信息披露义务人将其合计持有的科创新材8,427,900股股份转让给于春生，交易股份数占科创新材总股本的9.80%。2026年9月23日，信息披露义务人签署《一致行动协议之解除协议》。2026年9月23日，于春生与蔚文绪、蔚文举签订《一致行动协议》，三人合计持有公司股份25,790,521股，占科创新材总股本的29.99%，于春生将作为实际控制人，蔚文绪、蔚文举将作为一致行动人控制上市公司。",
-            "text_raw": "2026年9月23日，信息披露义务人与于春生签署了《股份转让协议》，约定信息披露义务人将其合计持有的科创新材8,427,900股股份转让给于春生，交易股份数占科创新材总股本的9.80%。 2026年9月23日，信息披露义务人签署《一致行动协议之解除协议》。2026年9月23日，于春生与蔚文绪、蔚文举签订《一致行动协议》，三人合计持有公司股份25,790,521股，占科创新材总股本的29.99%，于春生将作为实际控制人，蔚文绪、蔚文举将作为一致行动人控制上市公司。 ",
+            "text": "变动数量：减少2,975,600股",
+            "text_raw": "变动数量：减少2,975,600股 ",
             "region": [
-              288.43,
-              235.58,
-              523.92,
-              372.89
+              343.15,
+              101.23,
+              471.94,
+              112.58
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00004",
             "page": 34,
             "role": "BODY",
-            "text": "信息披露义务人是否拟于未来12个月内继续增持或减持",
-            "text_raw": "信息披露义务人是否拟于未来12个月内继续增持或减持 ",
+            "text": "变动比例：减少3.46%",
+            "text_raw": "变动比例：减少3.46% ",
             "region": [
-              71.66,
-              372.89,
-              288.43,
-              427.85
+              357.07,
+              114.91,
+              458.02,
+              126.26
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00005",
             "page": 34,
             "role": "BODY",
-            "text": "是□    否√备注：截至本报告书签署之日，信息披露义务人没有未来12个月内继续增持或减持上市公司股份的其他计划。",
-            "text_raw": "是□    否√ 备注：截至本报告书签署之日，信息披露义务人没有未来12个月内继续增持或减持上市公司股份的其他计划。 ",
+            "text": "杨占坡",
+            "text_raw": "杨占坡 ",
             "region": [
-              288.43,
-              372.89,
-              523.92,
-              427.85
+              390.94,
+              128.47,
+              424.18,
+              139.82
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00006",
             "page": 34,
             "role": "BODY",
-            "text": "信息披露义务人前6个月是否在二级市场买卖该上市公司股票",
-            "text_raw": "信息披露义务人前6个月是否在二级市场买卖该上市公司股票 ",
+            "text": "变动种类：A股普通股",
+            "text_raw": "变动种类：A股普通股 ",
             "region": [
-              71.66,
-              427.85,
-              288.43,
-              463.25
+              355.75,
+              142.15,
+              459.34,
+              153.5
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00007",
             "page": 34,
             "role": "BODY",
-            "text": "是□    否√",
-            "text_raw": "是□    否√ ",
+            "text": "变动数量：减少430,000股",
+            "text_raw": "变动数量：减少430,000股 ",
             "region": [
-              288.43,
-              427.85,
-              523.92,
-              463.25
+              347.11,
+              155.71,
+              467.86,
+              167.06
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00008",
             "page": 34,
             "role": "BODY",
-            "text": "控股股东或实际控制人减持时是否存在侵害上市公司和股东权益问题",
-            "text_raw": "控股股东或实际控制人减持时是否存在侵害上市公司和股东权益问题 ",
+            "text": "变动比例：减少0.50%",
+            "text_raw": "变动比例：减少0.50% ",
             "region": [
-              71.66,
-              463.25,
-              288.43,
-              490.99
+              357.07,
+              169.39,
+              458.02,
+              180.74
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00009",
             "page": 34,
             "role": "BODY",
-            "text": "是□    否√",
-            "text_raw": "是□    否√ ",
+            "text": "蔚文举",
+            "text_raw": "蔚文举 ",
             "region": [
-              288.43,
-              463.25,
-              523.92,
-              490.99
+              390.94,
+              182.95,
+              424.18,
+              194.3
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00010",
             "page": 34,
             "role": "BODY",
-            "text": "控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提供的担保，或者损害公司利益的其他情形",
-            "text_raw": "控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提供的担保，或者损害公司利益的其他情形 ",
+            "text": "持股种类：A股普通股",
+            "text_raw": "持股种类：A股普通股 ",
             "region": [
-              71.66,
-              490.99,
-              288.43,
-              532.39
+              355.15,
+              196.51,
+              459.94,
+              207.86
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00011",
             "page": 34,
             "role": "BODY",
-            "text": "是□   否√",
-            "text_raw": "是□   否√ ",
+            "text": "持股数量：1,341,600股",
+            "text_raw": "持股数量：1,341,600股 ",
             "region": [
-              288.43,
-              490.99,
-              523.92,
-              532.39
+              353.71,
+              210.19,
+              461.38,
+              221.54
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00012",
             "page": 34,
             "role": "BODY",
-            "text": "本次权益变动是否需取得批准",
-            "text_raw": "本次权益变动是否需取得批准 ",
+            "text": "持股比例：减少1.56%",
+            "text_raw": "持股比例：减少1.56% ",
             "region": [
-              71.66,
-              532.39,
-              288.43,
-              574.51
+              357.31,
+              223.75,
+              457.66,
+              235.1
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00013",
             "page": 34,
             "role": "BODY",
-            "text": "是☑    否□本次权益变动构成管理层收购，尚需履行管理层收购相关程序，并获得股东会审议通过。",
-            "text_raw": "是☑    否□ 本次权益变动构成管理层收购，尚需履行管理层收购相关程序，并获得股东会审议通过。 ",
+            "text": "2026年9月23日，信息披露义务人与于春生签署了",
+            "text_raw": "2026年9月23日，信息披露义务人与于春生签署了",
             "region": [
-              288.43,
-              532.39,
-              523.92,
-              574.51
+              288.79,
+              237.91,
+              523.56,
+              249.26
             ]
           },
           {
             "block_id": "d9d5be14f_p034_b00014",
+            "page": 34,
+            "role": "BODY",
+            "text": "《股份转让协议》，约定信息披露义务人将其合计持",
+            "text_raw": "《股份转让协议》，约定信息披露义务人将其合计持",
+            "region": [
+              288.79,
+              251.59,
+              523.92,
+              262.15
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00015",
+            "page": 34,
+            "role": "BODY",
+            "text": "有的科创新材8,427,900股股份转让给于春生，交易",
+            "text_raw": "有的科创新材8,427,900股股份转让给于春生，交易",
+            "region": [
+              288.79,
+              265.15,
+              523.8,
+              276.5
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00016",
+            "page": 34,
+            "role": "BODY",
+            "text": "股份数占科创新材总股本的9.80%。在上市公司中拥有权益的股份变动的时间及2026年9月23日，信息披露义务人签署《一致行动协",
+            "text_raw": "股份数占科创新材总股本的9.80%。 在上市公司中拥有权益的股份变动的时间及2026年9月23日，信息披露义务人签署《一致行动协",
+            "region": [
+              72.74,
+              278.74,
+              523.78,
+              303.77
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00017",
+            "page": 34,
+            "role": "BODY",
+            "text": "方式    议之解除协议》。2026年9月23日，于春生与蔚文绪、",
+            "text_raw": "方式  议之解除协议》。2026年9月23日，于春生与蔚文绪、",
+            "region": [
+              168.89,
+              305.98,
+              529.07,
+              317.33
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00018",
+            "page": 34,
+            "role": "BODY",
+            "text": "蔚文举签订《一致行动协议》，三人合计持有公司股",
+            "text_raw": "蔚文举签订《一致行动协议》，三人合计持有公司股",
+            "region": [
+              288.79,
+              319.66,
+              523.78,
+              330.22
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00019",
+            "page": 34,
+            "role": "BODY",
+            "text": "份25,790,521股，占科创新材总股本的29.99%，于春",
+            "text_raw": "份25,790,521股，占科创新材总股本的29.99%，于春",
+            "region": [
+              288.79,
+              333.22,
+              523.8,
+              344.57
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00020",
+            "page": 34,
+            "role": "BODY",
+            "text": "生将作为实际控制人，蔚文绪、蔚文举将作为一致行",
+            "text_raw": "生将作为实际控制人，蔚文绪、蔚文举将作为一致行",
+            "region": [
+              288.79,
+              346.9,
+              523.79,
+              357.46
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00021",
+            "page": 34,
+            "role": "BODY",
+            "text": "动人控制上市公司。",
+            "text_raw": "动人控制上市公司。 ",
+            "region": [
+              288.79,
+              360.46,
+              386.02,
+              371.81
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00022",
+            "page": 34,
+            "role": "BODY",
+            "text": "是□    否√信息披露义务人是否拟于未来12个月内继续备注：截至本报告书签署之日，信息披露义务人没有",
+            "text_raw": "是□    否√ 信息披露义务人是否拟于未来12个月内继续备注：截至本报告书签署之日，信息披露义务人没有",
+            "region": [
+              74.42,
+              374.62,
+              523.78,
+              399.53
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00023",
+            "page": 34,
+            "role": "BODY",
+            "text": "增持或减持  未来12个月内继续增持或减持上市公司股份的其他",
+            "text_raw": "增持或减持 未来12个月内继续增持或减持上市公司股份的其他",
+            "region": [
+              154.82,
+              401.86,
+              519.48,
+              413.21
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00024",
+            "page": 34,
+            "role": "BODY",
+            "text": "计划。",
+            "text_raw": "计划。 ",
+            "region": [
+              288.79,
+              415.42,
+              322.99,
+              426.77
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00025",
+            "page": 34,
+            "role": "BODY",
+            "text": "信息披露义务人前6个月是否在二级市场买卖",
+            "text_raw": "信息披露义务人前6个月是否在二级市场买卖",
+            "region": [
+              72.14,
+              433.42,
+              287.21,
+              444.77
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00026",
+            "page": 34,
+            "role": "BODY",
+            "text": "是□    否√",
+            "text_raw": "是□    否√ ",
+            "region": [
+              380.02,
+              440.26,
+              434.98,
+              451.61
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00027",
+            "page": 34,
+            "role": "BODY",
+            "text": "该上市公司股票",
+            "text_raw": "该上市公司股票 ",
+            "region": [
+              142.34,
+              447.1,
+              220.49,
+              458.45
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00028",
+            "page": 34,
+            "role": "BODY",
+            "text": "控股股东或实际控制人减持时是否存在侵害",
+            "text_raw": "控股股东或实际控制人减持时是否存在侵害",
+            "region": [
+              73.7,
+              465.0,
+              285.69,
+              475.56
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00029",
+            "page": 34,
+            "role": "BODY",
+            "text": "是□    否√",
+            "text_raw": "是□    否√ ",
+            "region": [
+              380.02,
+              471.84,
+              434.98,
+              483.19
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00030",
+            "page": 34,
+            "role": "BODY",
+            "text": "上市公司和股东权益问题控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提 是□   否√供的担保，或者损害公司利益的其他情形",
+            "text_raw": "上市公司和股东权益问题 控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提是□   否√ 供的担保，或者损害公司利益的其他情形 ",
+            "region": [
+              73.7,
+              478.68,
+              432.46,
+              531.43
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00031",
+            "page": 34,
+            "role": "BODY",
+            "text": "是☑    否□",
+            "text_raw": "是☑    否□ ",
+            "region": [
+              378.19,
+              534.96,
+              436.9,
+              546.31
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00032",
+            "page": 34,
+            "role": "BODY",
+            "text": "本次权益变动是否需取得批准  本次权益变动构成管理层收购，尚需履行管理层收",
+            "text_raw": "本次权益变动是否需取得批准 本次权益变动构成管理层收购，尚需履行管理层收",
+            "region": [
+              106.58,
+              548.16,
+              519.8,
+              559.51
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00033",
+            "page": 34,
+            "role": "BODY",
+            "text": "购相关程序，并获得股东会审议通过。",
+            "text_raw": "购相关程序，并获得股东会审议通过。 ",
+            "region": [
+              318.67,
+              562.08,
+              496.44,
+              573.43
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00034",
             "page": 34,
             "role": "BODY",
             "text": "",
@@ -33404,15 +34003,28 @@
             ]
           },
           {
-            "block_id": "d9d5be14f_p034_b00015",
+            "block_id": "d9d5be14f_p034_b00035",
             "page": 34,
             "role": "FOOTER",
             "text": "34",
-            "text_raw": "34  ",
+            "text_raw": "34 ",
             "region": [
-              90.02,
+              293.35,
               771.12,
               304.6,
+              780.12
+            ]
+          },
+          {
+            "block_id": "d9d5be14f_p034_b00036",
+            "page": 34,
+            "role": "FOOTER",
+            "text": "",
+            "text_raw": " ",
+            "region": [
+              90.02,
+              781.94,
+              92.49,
               790.94
             ]
           },

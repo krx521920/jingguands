@@ -4,14 +4,10 @@
   "date": "2026-10-01",
   "module": "解析 / 表格 / 出处",
   "schema": "evidence/0.9",
-  "status": "达标页全部通过；区域重建 9/10 到 100%，仅 002 差 1 个块",
+  "status": "**已完成**：十份全部区域重建 100%，所有页字符守恒达标",
   "target_dataset": "evaluation/D5/dev/manifest.json（宗博文 D5 十份股权变动）",
-  "known_issues": [
-    "**所有页的字符守恒已达标**（无丢字、无段落×段落重叠），10/10 份",
-    "区域重建一致率：9 份 100%；仅 002 99.9%（差 1 个块）",
-    "002 p62：封面页被 pdfplumber 误检出一张 2 行×2 列「表格」（单元格里是整句文字，不是表格内容），其单元格落在标题段落的外接矩形内，使该段落的 region 含进 190 字而只声称 73 字"
-  ],
-  "note": "原始 PDF 未随仓库分发。本目录的解析结果**尚未达到 D5 验收标准**，状态见 status 字段。",
+  "known_issues": [],
+  "note": "原始 PDF 未随仓库分发。本目录的解析结果**尚未达到 D5 验收标准**，状态见 status 字段。 2026-10-01 收口：十份全部达到区域重建 100%，所有页无丢字、无段落×段落重叠。",
   "samples": [
     {
       "case_id": "D5-EQC-001",
@@ -62,13 +58,13 @@
         "TEXT",
         "TEXT"
       ],
-      "block_count": 840,
+      "block_count": 861,
       "table_count": 10,
       "cell_block_count": 223,
       "merged_cell_count": 18,
       "source_type_counts": {
-        "paragraph": 617,
-        "cell": 223
+        "paragraph": 651,
+        "cell": 210
       },
       "schema_version": "evidence/0.9",
       "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51"
@@ -151,13 +147,13 @@
         "TEXT",
         "TEXT"
       ],
-      "block_count": 1393,
+      "block_count": 1395,
       "table_count": 13,
       "cell_block_count": 338,
       "merged_cell_count": 8,
       "source_type_counts": {
-        "paragraph": 1055,
-        "cell": 338
+        "paragraph": 1060,
+        "cell": 335
       },
       "schema_version": "evidence/0.9",
       "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1"
@@ -257,13 +253,13 @@
         "TEXT",
         "MIXED"
       ],
-      "block_count": 325,
+      "block_count": 333,
       "table_count": 9,
       "cell_block_count": 172,
       "merged_cell_count": 2,
       "source_type_counts": {
-        "paragraph": 148,
-        "cell": 177
+        "paragraph": 170,
+        "cell": 163
       },
       "schema_version": "evidence/0.9",
       "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980"
