@@ -254,14 +254,32 @@ D2 补丁（2026-09-28，依据张智博《契约对齐报告_D1》三处反馈�
 
 ```
 interface/
-  README.md                      ← 本文件（接口 v0.2 候选冻结稿）
-  event-envelope.schema.json     ← JSON Schema v0.2（机器可校验）
+  README.md                      ← 本文件（接口 v0.3）
+  event-envelope.schema.json     ← JSON Schema v0.3（机器可校验）
   samples/                       ← D1 冻结样例（合成文本，仅联调用）
 scripts/jingguan/
-  run_extract.mjs                ← 运行入口（抽取＋调用日志）
+  run_extract.mjs                ← 运行入口（抽取＋分块抽取＋调用日志）
+  run_batch.mjs                  ← 批量入口（一条命令跑 N 份＋Gold 对照＋envelopes 导出）
   validate_envelope.mjs          ← 共同契约校验器（全队必跑）
+  verify_pledge.mjs              ← 方核验工具接入（信封→PledgeInput→她的 CLI）
+  check_gold.mjs                 ← Gold 一致性机检（评测资产 vs 自带原文）
+  test_regression.mjs             ← 抽取行为回归（5 场景信封固化）
+  test_contract_sync.mjs         ← 契约五方一致性机检（schema/registry/TS/README/mock）
+  test_checks.mjs                ← 出处断言＋方向一致性单元测试
+  test_normalization.mjs         ← 方 D1+D2 用例验收（34 条）
+  clean_runs.mjs                 ← 安全清理（只删未跟踪运行目录）
+  gates.mjs                      ← 总门禁（10 道一次跑完）
+  fetch_cninfo.py                ← 巨潮公告抓取器（合规：限速/去重/PDF不入库）
   lib/schema_validator.mjs       ← 零依赖 JSON Schema 子集校验器
-  lib/registry.mjs               ← 字段注册表 JS 单一真源（校验器与 runner 共用）
-packages/jingguan/core/          ← dsh 插件（工具注册＋结构校验，v0.2 同步）
+  lib/registry.mjs               ← 字段注册表 JS 单一真源
+  lib/fang_normalize.mjs         ← 方 D1 标准化移植（D1+D2 用例验收通过）
+  lib/checks.mjs                 ← 出处断言＋方向一致性＋Gold 支撑性＋页面越界
+  testdata/regression/           ← 5 场景回归信封（多事件/万股/release/条件日期/扫描）
+  testdata/D4-SCAN-001.parse.json ← 扫描降级测试用解析
+corpus/                          ← 队友语料 vendor（zhangzhibo/zongbowen，注明出处）
+tools/fang-verify/               ← 方 D3 核验工具 vendor（原样保留）
+tools/fang-boundary/             ← 方 D4 边界检查 vendor（原样保留）
+packages/jingguan/core/          ← dsh 插件（工具注册＋结构校验，v0.3 同步）
 runs/<run_id>/                   ← 每次运行的输出＋调用日志（证据）
+runs/batch-<stamp>/              ← 批量报告＋envelopes/<case_id>.json 导出
 ```
