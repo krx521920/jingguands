@@ -64,6 +64,16 @@
       "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-28/1225581073.PDF",
       "source_hash_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
       "announce_date": "2026-09-28"
+    },
+    {
+      "parse_file": "parse/equity-synth.parse.json",
+      "case_id": "D5-EQC-SYNTH",
+      "event_type": "equity_change",
+      "company": "合成Fixture（张智博）",
+      "title": "equity_change_synthetic（张 D5 预备）",
+      "source_url": null,
+      "source_hash_sha256": null,
+      "note": "张智博 tests/fixtures/equity_change_synthetic.pdf 生成（cace3e83）"
     }
   ]
 }
