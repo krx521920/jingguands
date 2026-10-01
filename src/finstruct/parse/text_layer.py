@@ -317,10 +317,6 @@ def parse_page_text_layer(
                 cell_owner[idx] = cid
                 break
 
-    grouped: Dict[str, list] = {}
-    for idx, cid in cell_owner.items():
-        grouped.setdefault(cid, []).append(chars[idx])
-
     # ---- 1a) 补齐 pdfplumber 漏检的单元格
     #   pdfplumber 的单元格检测依赖绘制线，竖线缺失时**整列会漏**。
     #   实测 D5-EQC-007 p1：它报 6 行×5 列却只给出 20 格 —— 「序号」列与「通讯地址」列
@@ -349,8 +345,21 @@ def parse_page_text_layer(
                 continue
             existing = occupied.get((r, c))
             if existing is not None:
-                # 该格有单元格却没认领：多半是字符中心擦在边界外，补认领即可
+                # 该格有单元格却没认领：字符中心在网格位上、却落在 pdfplumber 检出的
+                # 格子矩形之外（它的矩形可能比网格带窄）。
+                # **只补认领是不够的**：块的 region 仍是那个窄矩形，装不下这个字符，
+                # 于是字符变成"有主但不在任何 region 内" —— 表现为丢字。
+                # 实测 D5-EQC-007 p1 因此有 81 个字符未被覆盖。
+                # 不变量：**块的 region 必须容纳它自己的字符**。
                 cell_owner[idx] = existing["cell_id"]
+                bx0, by0, bx1, by1 = existing["box"]
+                if not (bx0 <= cx <= bx1 and by0 <= cy <= by1):
+                    existing["box"] = [
+                        round(min(bx0, ch["x0"]), 2),
+                        round(min(by0, ch["top"]), 2),
+                        round(max(bx1, ch["x1"]), 2),
+                        round(max(by1, ch["bottom"]), 2),
+                    ]
                 continue
             pending.setdefault((r, c), []).append(idx)
 
@@ -372,9 +381,21 @@ def parse_page_text_layer(
             }
             next_ord += 1
             tb["_cells"].append(cell)
+            # **必须同步登记进 cell_index**：它是第 1 步按当时的 _cells 建的，
+            # 漏登记会让下游 cell_index[cid] 抛 KeyError，整份文档解析失败。
+            cell_index[cell["cell_id"]] = cell
             occupied[(r, c)] = cell
             for idx in idxs:
                 cell_owner[idx] = cell["cell_id"]
+
+    # 按单元格分组字符。**必须在 1a 之后** —— 1a 会往 cell_owner 里补认领
+    # （漏检单元格的字符），在它之前分组会把那些字符整个漏掉：
+    # 它们有主、却进不了任何单元格的文本，于是没有任何块覆盖它们 —— 表现为丢字。
+    # 实测 D5-EQC-007 p1 因此有 81 个字符未被覆盖。
+    # 这个顺序问题存在已久，但 1a 是后加的、此前的文档恰好没有"补认领"的情况，所以从未暴露。
+    grouped: Dict[str, list] = {}
+    for idx, cid in cell_owner.items():
+        grouped.setdefault(cid, []).append(chars[idx])
 
     # ---- 1b) 单元格文本 + 多层表头
     # 文本要对**所有**单元格算（含空的）：表头识别与 header_path 拼接都要读表头

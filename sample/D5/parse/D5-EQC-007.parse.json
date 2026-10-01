@@ -7,7 +7,7 @@
     "file_sha256": "3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
     "file_size": 232567,
     "page_count": 18,
-    "parsed_at": "2026-10-01T20:55:49+08:00",
+    "parsed_at": "2026-10-01T21:11:08+08:00",
     "parser": {
       "name": "finstruct.parse",
       "version": "0.9.0"
@@ -118,7 +118,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "序号"
+            "header_path": "序号/1/2"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -246,7 +246,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "通讯地址"
+            "header_path": "通讯地址/江苏省无锡市锡山区东港镇红豆集团有限公司/江苏省无锡市锡山区东港镇***"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -357,6 +357,134 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            95.5,
+            264.7,
+            131.8,
+            304.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c021",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00012",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "江苏省无锡市锡山区东港镇红豆集团有限公司",
+          "text_raw": "江苏省无锡市锡山区东港镇红豆集团有限公司",
+          "region": [
+            380.7,
+            264.7,
+            499.8,
+            304.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c022",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "通讯地址/江苏省无锡市锡山区东港镇红豆集团有限公司/江苏省无锡市锡山区东港镇***"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00013",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2",
+          "text_raw": "2",
+          "region": [
+            95.5,
+            304.0,
+            131.8,
+            343.2
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c023",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00014",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "江苏省无锡市锡山区东港镇***",
+          "text_raw": "江苏省无锡市锡山区东港镇***",
+          "region": [
+            380.7,
+            304.0,
+            499.8,
+            343.2
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c024",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "通讯地址/江苏省无锡市锡山区东港镇红豆集团有限公司/江苏省无锡市锡山区东港镇***"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00015",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
           "text": "信息披露义务人",
           "text_raw": "信息披露义务人",
           "region": [
@@ -383,7 +511,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00012",
+          "block_id": "d3d00372c_p001_b00016",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -415,7 +543,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00013",
+          "block_id": "d3d00372c_p001_b00017",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -447,7 +575,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00014",
+          "block_id": "d3d00372c_p001_b00018",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -479,7 +607,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00015",
+          "block_id": "d3d00372c_p001_b00019",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -511,7 +639,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00016",
+          "block_id": "d3d00372c_p001_b00020",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -543,7 +671,71 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00017",
+          "block_id": "d3d00372c_p001_b00021",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "3",
+          "text_raw": "3",
+          "region": [
+            95.5,
+            343.2,
+            131.8,
+            382.3
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c025",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00022",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "江苏省无锡市锡山区东港镇***",
+          "text_raw": "江苏省无锡市锡山区东港镇***",
+          "region": [
+            380.7,
+            343.2,
+            499.8,
+            382.3
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c026",
+            "cell_ref": "r4c5",
+            "row": 3,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "通讯地址/江苏省无锡市锡山区东港镇红豆集团有限公司/江苏省无锡市锡山区东港镇***"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00023",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -575,7 +767,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00018",
+          "block_id": "d3d00372c_p001_b00024",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -607,7 +799,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00019",
+          "block_id": "d3d00372c_p001_b00025",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -639,7 +831,71 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00020",
+          "block_id": "d3d00372c_p001_b00026",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "4",
+          "text_raw": "4",
+          "region": [
+            95.5,
+            382.3,
+            131.8,
+            421.4
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c027",
+            "cell_ref": "r5c1",
+            "row": 4,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00027",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无锡市锡山区东港镇港下锡港东路2号",
+          "text_raw": "无锡市锡山区东港镇港下锡港东路2号",
+          "region": [
+            380.7,
+            382.3,
+            499.8,
+            421.4
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c028",
+            "cell_ref": "r5c5",
+            "row": 4,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "通讯地址/江苏省无锡市锡山区东港镇红豆集团有限公司/江苏省无锡市锡山区东港镇***"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00028",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -671,7 +927,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00021",
+          "block_id": "d3d00372c_p001_b00029",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -703,7 +959,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00022",
+          "block_id": "d3d00372c_p001_b00030",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -735,7 +991,71 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00023",
+          "block_id": "d3d00372c_p001_b00031",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "5",
+          "text_raw": "5",
+          "region": [
+            95.5,
+            421.4,
+            131.8,
+            460.87
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c029",
+            "cell_ref": "r6c1",
+            "row": 5,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "序号/1/2"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00032",
+          "doc_id": "d3d00372c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "无锡市锡山区东港镇",
+          "text_raw": "无锡市锡山区东港镇",
+          "region": [
+            380.7,
+            421.4,
+            499.8,
+            460.87
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p001_t001",
+            "cell_id": "d3d00372c_p001_t001_c030",
+            "cell_ref": "r6c5",
+            "row": 5,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "通讯地址/江苏省无锡市锡山区东港镇红豆集团有限公司/江苏省无锡市锡山区东港镇***"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p001_b00033",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -757,7 +1077,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p001_b00024",
+          "block_id": "d3d00372c_p001_b00034",
           "doc_id": "d3d00372c",
           "page": 1,
           "type": "TEXT",
@@ -5951,6 +6271,38 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
+          "text": "本次权益",
+          "text_raw": "本次权益",
+          "region": [
+            387.0,
+            682.0,
+            466.4,
+            707.0
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p010_t001",
+            "cell_id": "d3d00372c_p010_t001_c010",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次权益/持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p010_b00018",
+          "doc_id": "d3d00372c",
+          "page": 10,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
           "text": "股份性质",
           "text_raw": "股份性质",
           "region": [
@@ -5983,7 +6335,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00018",
+          "block_id": "d3d00372c_p010_b00019",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6021,7 +6373,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00019",
+          "block_id": "d3d00372c_p010_b00020",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6043,7 +6395,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00020",
+          "block_id": "d3d00372c_p010_b00021",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6075,7 +6427,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00021",
+          "block_id": "d3d00372c_p010_b00022",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6107,7 +6459,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00022",
+          "block_id": "d3d00372c_p010_b00023",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6130,7 +6482,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "持股数量（股）"
+            "header_path": "本次权益/持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6139,7 +6491,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00023",
+          "block_id": "d3d00372c_p010_b00024",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6161,7 +6513,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00024",
+          "block_id": "d3d00372c_p010_b00025",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6193,7 +6545,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00025",
+          "block_id": "d3d00372c_p010_b00026",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6225,7 +6577,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00026",
+          "block_id": "d3d00372c_p010_b00027",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6257,7 +6609,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00027",
+          "block_id": "d3d00372c_p010_b00028",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6280,7 +6632,7 @@
             "rowspan": 1,
             "colspan": 1,
             "covers": null,
-            "header_path": "持股数量（股）"
+            "header_path": "本次权益/持股数量（股）"
           },
           "font_size": null,
           "source": "TEXT_LAYER",
@@ -6289,7 +6641,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p010_b00028",
+          "block_id": "d3d00372c_p010_b00029",
           "doc_id": "d3d00372c",
           "page": 10,
           "type": "TEXT",
@@ -6890,6 +7242,38 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
+          "text": "合计",
+          "text_raw": "合计",
+          "region": [
+            124.8,
+            201.5,
+            223.9,
+            226.46
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p011_t001",
+            "cell_id": "d3d00372c_p011_t001_c020",
+            "cell_ref": "r5c1",
+            "row": 4,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p011_b00019",
+          "doc_id": "d3d00372c",
+          "page": 11,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
           "text": "1,325,635,213",
           "text_raw": "1,325,635,213",
           "region": [
@@ -6916,7 +7300,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00019",
+          "block_id": "d3d00372c_p011_b00020",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -6948,7 +7332,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00020",
+          "block_id": "d3d00372c_p011_b00021",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -6980,7 +7364,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00021",
+          "block_id": "d3d00372c_p011_b00022",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7002,7 +7386,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00022",
+          "block_id": "d3d00372c_p011_b00023",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7024,7 +7408,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00023",
+          "block_id": "d3d00372c_p011_b00024",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7046,7 +7430,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00024",
+          "block_id": "d3d00372c_p011_b00025",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7068,7 +7452,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00025",
+          "block_id": "d3d00372c_p011_b00026",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7090,7 +7474,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00026",
+          "block_id": "d3d00372c_p011_b00027",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7112,7 +7496,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00027",
+          "block_id": "d3d00372c_p011_b00028",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7134,7 +7518,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00028",
+          "block_id": "d3d00372c_p011_b00029",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7156,7 +7540,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00029",
+          "block_id": "d3d00372c_p011_b00030",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7178,7 +7562,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00030",
+          "block_id": "d3d00372c_p011_b00031",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7200,7 +7584,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00031",
+          "block_id": "d3d00372c_p011_b00032",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7222,7 +7606,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00032",
+          "block_id": "d3d00372c_p011_b00033",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7244,7 +7628,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00033",
+          "block_id": "d3d00372c_p011_b00034",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7266,7 +7650,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00034",
+          "block_id": "d3d00372c_p011_b00035",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7288,7 +7672,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00035",
+          "block_id": "d3d00372c_p011_b00036",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7310,7 +7694,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00036",
+          "block_id": "d3d00372c_p011_b00037",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -7332,7 +7716,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p011_b00037",
+          "block_id": "d3d00372c_p011_b00038",
           "doc_id": "d3d00372c",
           "page": 11,
           "type": "TEXT",
@@ -9006,6 +9390,38 @@
           "type": "TEXT",
           "source_type": "cell",
           "role": "BODY",
+          "text": "续增持",
+          "text_raw": "续增持",
+          "region": [
+            62.2,
+            72.2,
+            168.0,
+            93.5
+          ],
+          "table_ref": {
+            "table_id": "d3d00372c_p017_t001",
+            "cell_id": "d3d00372c_p017_t001_c013",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3d00372c_p017_b00002",
+          "doc_id": "d3d00372c",
+          "page": 17,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
           "text": "信息披露义务人在此前6个月内是否在二级市场买卖该上市公司股票",
           "text_raw": "信息披露义务人在此前6个月内是否在二级市场买卖该上市公司股票",
           "region": [
@@ -9032,7 +9448,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00002",
+          "block_id": "d3d00372c_p017_b00003",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9064,7 +9480,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00003",
+          "block_id": "d3d00372c_p017_b00004",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9102,7 +9518,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00004",
+          "block_id": "d3d00372c_p017_b00005",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9134,7 +9550,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00005",
+          "block_id": "d3d00372c_p017_b00006",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9166,7 +9582,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00006",
+          "block_id": "d3d00372c_p017_b00007",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9198,7 +9614,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00007",
+          "block_id": "d3d00372c_p017_b00008",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9230,7 +9646,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00008",
+          "block_id": "d3d00372c_p017_b00009",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9262,7 +9678,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00009",
+          "block_id": "d3d00372c_p017_b00010",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9294,7 +9710,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00010",
+          "block_id": "d3d00372c_p017_b00011",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9326,7 +9742,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00011",
+          "block_id": "d3d00372c_p017_b00012",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9358,7 +9774,7 @@
           "missing_reason": null
         },
         {
-          "block_id": "d3d00372c_p017_b00012",
+          "block_id": "d3d00372c_p017_b00013",
           "doc_id": "d3d00372c",
           "page": 17,
           "type": "TEXT",
@@ -9491,6 +9907,16 @@
     "d3d00372c_p001_b00022",
     "d3d00372c_p001_b00023",
     "d3d00372c_p001_b00024",
+    "d3d00372c_p001_b00025",
+    "d3d00372c_p001_b00026",
+    "d3d00372c_p001_b00027",
+    "d3d00372c_p001_b00028",
+    "d3d00372c_p001_b00029",
+    "d3d00372c_p001_b00030",
+    "d3d00372c_p001_b00031",
+    "d3d00372c_p001_b00032",
+    "d3d00372c_p001_b00033",
+    "d3d00372c_p001_b00034",
     "d3d00372c_p002_b00001",
     "d3d00372c_p002_b00002",
     "d3d00372c_p002_b00003",
@@ -9692,6 +10118,7 @@
     "d3d00372c_p010_b00026",
     "d3d00372c_p010_b00027",
     "d3d00372c_p010_b00028",
+    "d3d00372c_p010_b00029",
     "d3d00372c_p011_b00001",
     "d3d00372c_p011_b00002",
     "d3d00372c_p011_b00003",
@@ -9729,6 +10156,7 @@
     "d3d00372c_p011_b00035",
     "d3d00372c_p011_b00036",
     "d3d00372c_p011_b00037",
+    "d3d00372c_p011_b00038",
     "d3d00372c_p012_b00001",
     "d3d00372c_p012_b00002",
     "d3d00372c_p013_b00001",
@@ -9789,6 +10217,7 @@
     "d3d00372c_p017_b00010",
     "d3d00372c_p017_b00011",
     "d3d00372c_p017_b00012",
+    "d3d00372c_p017_b00013",
     "d3d00372c_p018_b00001",
     "d3d00372c_p018_b00002"
   ],
@@ -9936,6 +10365,58 @@
             "block_id": "d3d00372c_p001_b00011",
             "page": 1,
             "role": "BODY",
+            "text": "1",
+            "text_raw": "1",
+            "region": [
+              95.5,
+              264.7,
+              131.8,
+              304.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00012",
+            "page": 1,
+            "role": "BODY",
+            "text": "江苏省无锡市锡山区东港镇红豆集团有限公司",
+            "text_raw": "江苏省无锡市锡山区东港镇红豆集团有限公司",
+            "region": [
+              380.7,
+              264.7,
+              499.8,
+              304.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00013",
+            "page": 1,
+            "role": "BODY",
+            "text": "2",
+            "text_raw": "2",
+            "region": [
+              95.5,
+              304.0,
+              131.8,
+              343.2
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00014",
+            "page": 1,
+            "role": "BODY",
+            "text": "江苏省无锡市锡山区东港镇***",
+            "text_raw": "江苏省无锡市锡山区东港镇***",
+            "region": [
+              380.7,
+              304.0,
+              499.8,
+              343.2
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00015",
+            "page": 1,
+            "role": "BODY",
             "text": "信息披露义务人",
             "text_raw": "信息披露义务人",
             "region": [
@@ -9946,7 +10427,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00012",
+            "block_id": "d3d00372c_p001_b00016",
             "page": 1,
             "role": "BODY",
             "text": "周海江",
@@ -9959,7 +10440,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00013",
+            "block_id": "d3d00372c_p001_b00017",
             "page": 1,
             "role": "BODY",
             "text": "江苏省无锡市锡山区东港镇***",
@@ -9972,7 +10453,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00014",
+            "block_id": "d3d00372c_p001_b00018",
             "page": 1,
             "role": "BODY",
             "text": "信息披露义务人",
@@ -9985,7 +10466,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00015",
+            "block_id": "d3d00372c_p001_b00019",
             "page": 1,
             "role": "BODY",
             "text": "龚新度",
@@ -9998,7 +10479,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00016",
+            "block_id": "d3d00372c_p001_b00020",
             "page": 1,
             "role": "BODY",
             "text": "江苏省无锡市锡山区东港镇***",
@@ -10011,7 +10492,33 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00017",
+            "block_id": "d3d00372c_p001_b00021",
+            "page": 1,
+            "role": "BODY",
+            "text": "3",
+            "text_raw": "3",
+            "region": [
+              95.5,
+              343.2,
+              131.8,
+              382.3
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00022",
+            "page": 1,
+            "role": "BODY",
+            "text": "江苏省无锡市锡山区东港镇***",
+            "text_raw": "江苏省无锡市锡山区东港镇***",
+            "region": [
+              380.7,
+              343.2,
+              499.8,
+              382.3
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00023",
             "page": 1,
             "role": "BODY",
             "text": "信息披露义务人",
@@ -10024,7 +10531,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00018",
+            "block_id": "d3d00372c_p001_b00024",
             "page": 1,
             "role": "BODY",
             "text": "无锡红闳服饰有限公司",
@@ -10037,7 +10544,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00019",
+            "block_id": "d3d00372c_p001_b00025",
             "page": 1,
             "role": "BODY",
             "text": "无锡市锡山区东港镇港下锡港东路2号",
@@ -10050,7 +10557,33 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00020",
+            "block_id": "d3d00372c_p001_b00026",
+            "page": 1,
+            "role": "BODY",
+            "text": "4",
+            "text_raw": "4",
+            "region": [
+              95.5,
+              382.3,
+              131.8,
+              421.4
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00027",
+            "page": 1,
+            "role": "BODY",
+            "text": "无锡市锡山区东港镇港下锡港东路2号",
+            "text_raw": "无锡市锡山区东港镇港下锡港东路2号",
+            "region": [
+              380.7,
+              382.3,
+              499.8,
+              421.4
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00028",
             "page": 1,
             "role": "BODY",
             "text": "信息披露义务人",
@@ -10063,7 +10596,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00021",
+            "block_id": "d3d00372c_p001_b00029",
             "page": 1,
             "role": "BODY",
             "text": "无锡天人国际投资有限公司",
@@ -10076,7 +10609,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00022",
+            "block_id": "d3d00372c_p001_b00030",
             "page": 1,
             "role": "BODY",
             "text": "无锡市锡山区东港镇",
@@ -10089,7 +10622,33 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00023",
+            "block_id": "d3d00372c_p001_b00031",
+            "page": 1,
+            "role": "BODY",
+            "text": "5",
+            "text_raw": "5",
+            "region": [
+              95.5,
+              421.4,
+              131.8,
+              460.87
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00032",
+            "page": 1,
+            "role": "BODY",
+            "text": "无锡市锡山区东港镇",
+            "text_raw": "无锡市锡山区东港镇",
+            "region": [
+              380.7,
+              421.4,
+              499.8,
+              460.87
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p001_b00033",
             "page": 1,
             "role": "BODY",
             "text": "股份变动性质：股份减少",
@@ -10102,7 +10661,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p001_b00024",
+            "block_id": "d3d00372c_p001_b00034",
             "page": 1,
             "role": "BODY",
             "text": "签署日期：二零二六年九月",
@@ -12575,6 +13134,19 @@
             "block_id": "d3d00372c_p010_b00017",
             "page": 10,
             "role": "BODY",
+            "text": "本次权益",
+            "text_raw": "本次权益",
+            "region": [
+              387.0,
+              682.0,
+              466.4,
+              707.0
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p010_b00018",
+            "page": 10,
+            "role": "BODY",
             "text": "股份性质",
             "text_raw": "股份性质",
             "region": [
@@ -12585,7 +13157,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00018",
+            "block_id": "d3d00372c_p010_b00019",
             "page": 10,
             "role": "BODY",
             "text": "本次权益变动前",
@@ -12598,7 +13170,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00019",
+            "block_id": "d3d00372c_p010_b00020",
             "page": 10,
             "role": "BODY",
             "text": "变动后股东名称",
@@ -12611,7 +13183,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00020",
+            "block_id": "d3d00372c_p010_b00021",
             "page": 10,
             "role": "BODY",
             "text": "持股数量（股）",
@@ -12624,7 +13196,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00021",
+            "block_id": "d3d00372c_p010_b00022",
             "page": 10,
             "role": "BODY",
             "text": "持股比例（%）",
@@ -12637,7 +13209,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00022",
+            "block_id": "d3d00372c_p010_b00023",
             "page": 10,
             "role": "BODY",
             "text": "持股数量（股）",
@@ -12650,7 +13222,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00023",
+            "block_id": "d3d00372c_p010_b00024",
             "page": 10,
             "role": "BODY",
             "text": "持股比例（%）红豆集团有限公司 48.21",
@@ -12663,7 +13235,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00024",
+            "block_id": "d3d00372c_p010_b00025",
             "page": 10,
             "role": "BODY",
             "text": "无限售条件股份",
@@ -12676,7 +13248,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00025",
+            "block_id": "d3d00372c_p010_b00026",
             "page": 10,
             "role": "BODY",
             "text": "1,271,208,418",
@@ -12689,7 +13261,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00026",
+            "block_id": "d3d00372c_p010_b00027",
             "page": 10,
             "role": "BODY",
             "text": "55.48",
@@ -12702,7 +13274,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00027",
+            "block_id": "d3d00372c_p010_b00028",
             "page": 10,
             "role": "BODY",
             "text": "1,104,708,418",
@@ -12715,7 +13287,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p010_b00028",
+            "block_id": "d3d00372c_p010_b00029",
             "page": 10,
             "role": "FOOTER",
             "text": "9",
@@ -12952,6 +13524,19 @@
             "block_id": "d3d00372c_p011_b00018",
             "page": 11,
             "role": "BODY",
+            "text": "合计",
+            "text_raw": "合计",
+            "region": [
+              124.8,
+              201.5,
+              223.9,
+              226.46
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p011_b00019",
+            "page": 11,
+            "role": "BODY",
             "text": "1,325,635,213",
             "text_raw": "1,325,635,213",
             "region": [
@@ -12962,7 +13547,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00019",
+            "block_id": "d3d00372c_p011_b00020",
             "page": 11,
             "role": "BODY",
             "text": "57.85",
@@ -12975,7 +13560,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00020",
+            "block_id": "d3d00372c_p011_b00021",
             "page": 11,
             "role": "BODY",
             "text": "1,159,135,213",
@@ -12988,7 +13573,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00021",
+            "block_id": "d3d00372c_p011_b00022",
             "page": 11,
             "role": "BODY",
             "text": "50.59",
@@ -13001,7 +13586,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00022",
+            "block_id": "d3d00372c_p011_b00023",
             "page": 11,
             "role": "SECTION",
             "text": "三、最近一年一期内与上市公司之间的重大交易情况及未来与上市公",
@@ -13014,7 +13599,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00023",
+            "block_id": "d3d00372c_p011_b00024",
             "page": 11,
             "role": "BODY",
             "text": "司之间的其他安排",
@@ -13027,7 +13612,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00024",
+            "block_id": "d3d00372c_p011_b00025",
             "page": 11,
             "role": "SECTION",
             "text": "（一）最近一年一期内与上市公司之间的重大交易情况",
@@ -13040,7 +13625,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00025",
+            "block_id": "d3d00372c_p011_b00026",
             "page": 11,
             "role": "BODY",
             "text": "最近一年一期，信息披露义务人与上市公司的重大交易具体情况请参见红豆",
@@ -13053,7 +13638,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00026",
+            "block_id": "d3d00372c_p011_b00027",
             "page": 11,
             "role": "BODY",
             "text": "股份披露的定期报告及临时报告。除在定期报告或临时报告中已披露的重大交易",
@@ -13066,7 +13651,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00027",
+            "block_id": "d3d00372c_p011_b00028",
             "page": 11,
             "role": "BODY",
             "text": "外，信息披露义务人与红豆股份之间未发生其它重大交易。",
@@ -13079,7 +13664,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00028",
+            "block_id": "d3d00372c_p011_b00029",
             "page": 11,
             "role": "SECTION",
             "text": "（二）未来与上市公司之间的其他安排",
@@ -13092,7 +13677,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00029",
+            "block_id": "d3d00372c_p011_b00030",
             "page": 11,
             "role": "BODY",
             "text": "截至本报告书签署日，信息披露义务人与红豆股份未来不存在其他安排。",
@@ -13105,7 +13690,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00030",
+            "block_id": "d3d00372c_p011_b00031",
             "page": 11,
             "role": "SECTION",
             "text": "四、信息披露义务人在红豆股份中拥有权益的股份是否存在任何权利",
@@ -13118,7 +13703,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00031",
+            "block_id": "d3d00372c_p011_b00032",
             "page": 11,
             "role": "BODY",
             "text": "限制，包括但不限于股份被质押、冻结等情况",
@@ -13131,7 +13716,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00032",
+            "block_id": "d3d00372c_p011_b00033",
             "page": 11,
             "role": "BODY",
             "text": "截至本报告书签署之日，红豆集团及其一致行动人周海江、红闳服饰共质押",
@@ -13144,7 +13729,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00033",
+            "block_id": "d3d00372c_p011_b00034",
             "page": 11,
             "role": "BODY",
             "text": "上市公司股份1,146,690,900股。红豆集团及其一致行动人周海江持有的上市公司股份中累计司法冻结902,329,809股，司法标记226,770,000股，轮候冻结",
@@ -13157,7 +13742,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00034",
+            "block_id": "d3d00372c_p011_b00035",
             "page": 11,
             "role": "BODY",
             "text": "3,342,027,691股。",
@@ -13170,7 +13755,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00035",
+            "block_id": "d3d00372c_p011_b00036",
             "page": 11,
             "role": "BODY",
             "text": "除此之外，信息披露义务人持有的上市公司股份中不存在被质押、冻结等其",
@@ -13183,7 +13768,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00036",
+            "block_id": "d3d00372c_p011_b00037",
             "page": 11,
             "role": "BODY",
             "text": "他任何形式的权利限制。",
@@ -13196,7 +13781,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p011_b00037",
+            "block_id": "d3d00372c_p011_b00038",
             "page": 11,
             "role": "FOOTER",
             "text": "10",
@@ -13836,6 +14421,19 @@
             "block_id": "d3d00372c_p017_b00001",
             "page": 17,
             "role": "BODY",
+            "text": "续增持",
+            "text_raw": "续增持",
+            "region": [
+              62.2,
+              72.2,
+              168.0,
+              93.5
+            ]
+          },
+          {
+            "block_id": "d3d00372c_p017_b00002",
+            "page": 17,
+            "role": "BODY",
             "text": "信息披露义务人在此前6个月内是否在二级市场买卖该上市公司股票",
             "text_raw": "信息披露义务人在此前6个月内是否在二级市场买卖该上市公司股票",
             "region": [
@@ -13846,7 +14444,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00002",
+            "block_id": "d3d00372c_p017_b00003",
             "page": 17,
             "role": "BODY",
             "text": "是 否",
@@ -13859,7 +14457,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00003",
+            "block_id": "d3d00372c_p017_b00004",
             "page": 17,
             "role": "BODY",
             "text": "涉及上市公司控股股东或实际控制人减持股份的，信息披露义务人还应当就以下内容予以说明：",
@@ -13872,7 +14470,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00004",
+            "block_id": "d3d00372c_p017_b00005",
             "page": 17,
             "role": "BODY",
             "text": "控股股东或实际控制人减持时是否存在侵害上市公司和股东权益问题",
@@ -13885,7 +14483,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00005",
+            "block_id": "d3d00372c_p017_b00006",
             "page": 17,
             "role": "BODY",
             "text": "是  否 ",
@@ -13898,7 +14496,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00006",
+            "block_id": "d3d00372c_p017_b00007",
             "page": 17,
             "role": "BODY",
             "text": "控股股东或实际控制人减持时是否存在未清偿其对公司的负债，未解除公司为其负债提供的担保，或者损害公司利益的其他情形",
@@ -13911,7 +14509,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00007",
+            "block_id": "d3d00372c_p017_b00008",
             "page": 17,
             "role": "BODY",
             "text": "是  否  （如是，请注明具体情况）",
@@ -13924,7 +14522,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00008",
+            "block_id": "d3d00372c_p017_b00009",
             "page": 17,
             "role": "BODY",
             "text": "本次权益变动是否需取得批准",
@@ -13937,7 +14535,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00009",
+            "block_id": "d3d00372c_p017_b00010",
             "page": 17,
             "role": "BODY",
             "text": "是  否 ",
@@ -13950,7 +14548,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00010",
+            "block_id": "d3d00372c_p017_b00011",
             "page": 17,
             "role": "BODY",
             "text": "是否已得到批准",
@@ -13963,7 +14561,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00011",
+            "block_id": "d3d00372c_p017_b00012",
             "page": 17,
             "role": "BODY",
             "text": "是  否  不适用",
@@ -13976,7 +14574,7 @@
             ]
           },
           {
-            "block_id": "d3d00372c_p017_b00012",
+            "block_id": "d3d00372c_p017_b00013",
             "page": 17,
             "role": "FOOTER",
             "text": "16",

@@ -107,13 +107,13 @@
         "MIXED",
         "TEXT"
       ],
-      "block_count": 322,
+      "block_count": 323,
       "table_count": 9,
-      "cell_block_count": 171,
+      "cell_block_count": 172,
       "merged_cell_count": 2,
       "source_type_counts": {
         "paragraph": 151,
-        "cell": 171
+        "cell": 172
       },
       "schema_version": "evidence/0.9"
     },
@@ -132,13 +132,13 @@
       "page_forms": [
         "TEXT"
       ],
-      "block_count": 372,
+      "block_count": 373,
       "table_count": 7,
-      "cell_block_count": 191,
+      "cell_block_count": 192,
       "merged_cell_count": 13,
       "source_type_counts": {
         "paragraph": 181,
-        "cell": 191
+        "cell": 192
       },
       "schema_version": "evidence/0.9"
     },
@@ -183,13 +183,13 @@
         "MIXED",
         "TEXT"
       ],
-      "block_count": 324,
+      "block_count": 337,
       "table_count": 8,
-      "cell_block_count": 164,
+      "cell_block_count": 177,
       "merged_cell_count": 10,
       "source_type_counts": {
         "paragraph": 160,
-        "cell": 164
+        "cell": 177
       },
       "schema_version": "evidence/0.9"
     },

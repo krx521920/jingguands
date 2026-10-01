@@ -1193,3 +1193,46 @@ def test_变动前后表的跨行列都用跨度表达():
     assert by_ref["r1c4"]["colspan"] == 2, "本次变动后应跨 2 列"
     # 跨列的表头要写出它覆盖的列
     assert len(by_ref["r1c2"].get("covers") or []) == 1
+
+
+# ------------------------------------------------------------ 补格路径的回归
+def test_补格后每个字符都有块覆盖():
+    """补出的单元格必须真的产出块 —— 覆盖"有主却无出处"这类丢字。
+
+    这里锁的是两个真实 bug：
+      ① 按单元格分组（grouped）曾写在补格之前 —— 补认领的字符进不了任何
+         单元格的文本，于是没有任何块覆盖它们。实测 D5-EQC-007 p1 丢 81 个字符。
+      ② 补出的单元格没登记进 cell_index —— 下游 cell_index[cid] 直接 KeyError，
+         整份文档解析失败。
+
+    判据用「每个字符都落在至少一个块的 region 内」，与 check_evidence.py 的
+    "未覆盖" 一致，但独立实现（不依赖检查器的输出格式）。
+    """
+    import pdfplumber
+
+    raw = os.path.join(ROOT, "sample", "D5", "raw")
+    parse_dir = os.path.join(ROOT, "sample", "D5", "parse")
+    if not os.path.isdir(raw):
+        pytest.skip("缺 sample/D5/raw")
+    cases = sorted(f for f in os.listdir(raw) if f.endswith(".pdf"))
+    if not cases:
+        pytest.skip("sample/D5/raw 为空")
+    for fn in cases:
+        cid = fn[:-4]
+        d = pp.parse_pdf(os.path.join(raw, fn))
+        with pdfplumber.open(os.path.join(raw, fn)) as pdf:
+            for pg in d["pages"]:
+                chars = pdf.pages[pg["page"] - 1].chars or []
+                if not chars:
+                    continue          # 扫描页无文本层
+                regs = [b["region"] for b in pg["blocks"]]
+                lost = [
+                    c for c in chars
+                    if not any(r[0] - .5 <= (c["x0"] + c["x1"]) / 2 <= r[2] + .5
+                               and r[1] - .5 <= (c["top"] + c["bottom"]) / 2 <= r[3] + .5
+                               for r in regs)
+                ]
+                assert not lost, (
+                    f"{cid} p{pg['page']} 有 {len(lost)} 个字符未被任何块覆盖："
+                    f"{''.join(c['text'] for c in lost)[:40]!r}"
+                )
