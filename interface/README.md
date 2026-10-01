@@ -197,6 +197,11 @@ FieldValue（**核心结构，四个人都要消费**）：
 
 ## 八、v0.1 → v0.2 变更记录、降级规则与字段丢失清单
 
+**D5 增补（2026-10-01，schema 保持 v0.3 向后兼容）**
+
+1. pledge 注册表新增 `direction`（text：pledge/release）于 v0.4 提前落地 D4——本日新增的是**方向一致性断言**（`checkEquityDirection`：shares_before > after → direction 必须 decrease，反之 increase；入 runner/validator/单测三方，D5 完成标准"前后方向不得默默反转"由机器强制）。
+2. **分块抽取器**（v0.4.1）：超长文档（标注文本 >60K 字符）按块分组 ≤50K/块逐次调模型，事件按（主体×对手方×direction）键去重合并。64 页 90K 字符文档实测 2 块→3 事件全覆盖（此前截断丢后半事件）。
+
 **D4 增补（2026-09-29 夜，宗博文 17:30 后裁决，schema 保持向后兼容）**
 
 1. pledge 注册表新增 `direction`（text：pledge/release）——解除质押不再丢弃："质押及解质押"公告中解押部分为独立事件（direction=release），同（质押人×质权人）先押后解是两个事件；对照器事件键同步为（质押人×质权人×direction）三元组（修同键碰撞）。gold 侧待宗 D4 补 direction 标注；陈页面侧渲染区分由宗另派。

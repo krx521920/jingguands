@@ -629,7 +629,7 @@ async function main() {
     request: {
       system_prompt: buildSystemPrompt(eventType, parseDoc !== null),
       user_message_chars: modelInput.length,
-      mode: parseDoc !== null ? 'parse-blocks' : 'raw-text',
+      mode: modelInput.length > INPUT_LIMIT && parseDoc !== null ? 'parse-blocks-chunked' : (parseDoc !== null ? 'parse-blocks' : 'raw-text'),
       temperature: 0,
       response_format: { type: 'json_object' },
     },
