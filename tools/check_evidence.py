@@ -49,7 +49,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from finstruct.parse import text_layer as tl  # noqa: E402
 
 
-def chars_in_region(chars, region, pad=0.5):
+def chars_in_region(chars, region, pad=0.05):
+    """取出中心落在 region 内的字符。
+
+    pad 只用来吸收浮点噪声，**不能大到跨进邻格**。原值 0.5pt 会把隔壁单元格
+    压在边界上的字符（实测 D5-EQC-004 p9 的 `）`：中心 224.2，本格边界 224.6，
+    相差 0.4pt）算进本格，造成假阳性。一个汉字宽约 12pt，0.05pt 已足够吸收噪声。
+    """
     """取中心点落在 region 内的字符。"""
     x0, y0, x1, y1 = region
     out = []
