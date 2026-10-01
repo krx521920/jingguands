@@ -123,7 +123,13 @@ export function normalizeFieldValue(fieldName, fv, unitHint = null) {
   const kind = UNIT_TO_KIND[fv.unit]
   if (kind === undefined || (fv.status !== 'extracted')) return null
   if (typeof fv.raw_value !== 'string' || fv.raw_value.trim().length === 0) {
-    return `[标准化] ${fieldName}: status=extracted 但 raw_value 缺失，无法标准化`
+    // 模型偶尔给出计算值但缺 raw_value（如 change_shares = before - after）
+    // 值可能是对的但无原文依据——保持标准化=false 并标注"计算值待核"
+    fv.standardized = false
+    if (fv.value !== null) {
+      fv.note = `${fv.note ?? ''}［计算值：模型给出但缺原文依据，待人工核验］`
+    }
+    return `[标准化] ${fieldName}: status=extracted 但 raw_value 缺失${fv.value !== null ? `（value=${fv.value} 为模型计算值，缺原文依据）` : '，无法标准化'}`
   }
   const scope = fieldName.endsWith('_cumulative') ? 'cumulative'
     : fieldName.endsWith('_this_time') ? 'single' : 'unknown'

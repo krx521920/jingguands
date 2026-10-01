@@ -1,0 +1,264 @@
+{
+  "stamp": "20261001T094559",
+  "mock": false,
+  "results": [
+    {
+      "case": "D4-PLD-001",
+      "event_type": "pledge",
+      "file": "D4-PLD-001.parse.json",
+      "run_id": "20261001T094559-pledge-083b",
+      "ok": true,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 3,
+        "needs_review": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 36,
+        "value_hit": 36,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-002",
+      "event_type": "pledge",
+      "file": "D4-PLD-002.parse.json",
+      "run_id": "20261001T094610-pledge-7a75",
+      "ok": true,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 13,
+        "value_hit": 13,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-003",
+      "event_type": "pledge",
+      "file": "D4-PLD-003.parse.json",
+      "run_id": "20261001T094614-pledge-cc5c",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-004",
+      "event_type": "pledge",
+      "file": "D4-PLD-004.parse.json",
+      "run_id": "20261001T094618-pledge-86c3",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-005",
+      "event_type": "pledge",
+      "file": "D4-PLD-005.parse.json",
+      "run_id": "20261001T094622-pledge-4363",
+      "ok": true,
+      "status_count": {
+        "extracted": 25,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 25,
+        "value_hit": 25,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 2,
+        "mine_events": 2,
+        "matched_events": 2
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-006",
+      "event_type": "pledge",
+      "file": "D4-PLD-006.parse.json",
+      "run_id": "20261001T094629-pledge-0a19",
+      "ok": true,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 13,
+        "value_hit": 13,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-007",
+      "event_type": "pledge",
+      "file": "D4-PLD-007.parse.json",
+      "run_id": "20261001T094633-pledge-808f",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-008",
+      "event_type": "pledge",
+      "file": "D4-PLD-008.parse.json",
+      "run_id": "20261001T094637-pledge-7b79",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 11,
+        "value_hit": 11,
+        "field_accuracy": 1,
+        "wrong_filled": 1,
+        "status_match_ratio": 0.9286,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": [
+        {
+          "field": "E01.announcement_date",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=not_mentioned mine=extracted(\"2026-09-25\")"
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-009",
+      "event_type": "pledge",
+      "file": "D4-PLD-009.parse.json",
+      "run_id": "20261001T094642-pledge-591b",
+      "ok": true,
+      "status_count": {
+        "extracted": 37,
+        "not_mentioned": 5
+      },
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 36,
+        "value_hit": 36,
+        "field_accuracy": 1,
+        "wrong_filled": 1,
+        "status_match_ratio": 0.9762,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": [
+        {
+          "field": "E03.start_date",
+          "verdict": "WRONG_FILLED",
+          "detail": "gold=not_mentioned mine=extracted(\"2026-09-22/2026-09-23\")"
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-010",
+      "event_type": "pledge",
+      "file": "D4-PLD-010.parse.json",
+      "run_id": "20261001T094652-pledge-4548",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "stamp": "20261001T094711",
+  "mock": false,
+  "results": [
+    {
+      "case": "bid-001",
+      "event_type": "award_contract",
+      "file": "bid-001.parse.json",
+      "run_id": "20261001T094712-award_contract-e86a",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 6,
+        "not_applicable": 2,
+        "not_disclosed": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "bid-002",
+      "event_type": "award_contract",
+      "file": "bid-002.parse.json",
+      "run_id": "20261001T094715-award_contract-638d",
+      "ok": true,
+      "status_count": {
+        "extracted": 24,
+        "not_mentioned": 20,
+        "not_applicable": 8,
+        "not_disclosed": 4
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "bid-003",
+      "event_type": "award_contract",
+      "file": "bid-003.parse.json",
+      "run_id": "20261001T094726-award_contract-0763",
+      "ok": true,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "bid-004",
+      "event_type": "award_contract",
+      "file": "bid-004.parse.json",
+      "run_id": "20261001T094735-award_contract-6f21",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "bid-005",
+      "event_type": "award_contract",
+      "file": "bid-005.parse.json",
+      "run_id": "20261001T094739-award_contract-a4c6",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "bid-006",
+      "event_type": "award_contract",
+      "file": "bid-006.parse.json",
+      "run_id": "20261001T094745-award_contract-173c",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_mentioned": 5
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "bid-007",
+      "event_type": "award_contract",
+      "file": "bid-007.parse.json",
+      "run_id": "20261001T094748-award_contract-ce51",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 7,
+        "not_applicable": 2
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "bid-008",
+      "event_type": "award_contract",
+      "file": "bid-008.parse.json",
+      "run_id": "20261001T094752-award_contract-4d5b",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "not_mentioned": 4,
+        "not_applicable": 2
+      },
+      "validation_errors": 0
+    }
+  ]
+}
