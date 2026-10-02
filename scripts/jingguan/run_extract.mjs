@@ -19,6 +19,7 @@
 import { createHash } from 'node:crypto'
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
+import { execSync } from 'node:child_process'
 import { validateAgainstSchema } from './lib/schema_validator.mjs'
 import { FIELD_REGISTRY, checkRegistry } from './lib/registry.mjs'
 import { normalizeFieldValue } from './lib/fang_normalize.mjs'
@@ -675,6 +676,12 @@ async function main() {
       model: isMock ? 'mock' : model,
       started_at: startedAt,
       duration_ms: durationMs,
+      // D6-④ 运行版本/哈希日志：记录代码版本（git commit）和接口版本
+      code_version: (() => {
+        try { return execSync('git rev-parse --short HEAD', { cwd: REPO_ROOT, encoding: 'utf8', stdio: 'pipe' }).trim() }
+        catch { return 'dev' }
+      })(),
+      interface_version: 'v0.3',
       errors: callError ? [`模型调用失败：${callError.message}`] : [],
     },
   }
