@@ -1,33 +1,17 @@
 {
-  "report_id": "financial-events-30-five-metric-v0.2",
-  "created_on": "2026-10-02",
-  "batch": {
-    "stamp": "20261002T120859",
-    "commit": "2eb871394dd946b1c23225b24c4d00e2bf4bd7e1"
-  },
-  "core_30": {
+  "checked_on": "2026-10-02",
+  "source_commit": "2eb871394dd946b1c23225b24c4d00e2bf4bd7e1",
+  "batch": "runs/batch-20261002T120859",
+  "core": {
     "documents": 30,
-    "events": 48,
-    "extracted_fields": 437,
-    "field_accuracy": 1,
+    "zero_error_documents": 30,
     "format_compliance": 1,
-    "event_coverage": 1,
-    "normalization_accuracy": 1,
-    "evidence_spot_checks": {
-      "passed": 60,
-      "total": 60,
-      "d4": 20,
-      "d5": 20,
-      "d6": 20
-    },
-    "d5_full_evidence": "137/137",
-    "wrong_fill": {
-      "numerator": 0,
-      "denominator": 109,
-      "rate": 0
-    }
+    "gold_extracted_fields": 437,
+    "value_hits": 437,
+    "field_accuracy": 1,
+    "wrong_filled": 0
   },
-  "full_batch_35": {
+  "adversarial": {
     "inputs": 5,
     "completed": 1,
     "failed": 4,
@@ -69,13 +53,12 @@
       }
     ]
   },
-  "policy": {
-    "missing_inputs_retained_in_denominator": true,
-    "normal_batch_excludes_known_adversarial_failures_from_correctness_rate": true
+  "manifest_alignment": {
+    "our_cases": 30,
+    "combined_cases": 30,
+    "missing": [],
+    "extra": [],
+    "result": "MATCH"
   },
-  "caveats": [
-    "Core30 correctness uses the same code-state batch 20261002T120859.",
-    "Five adversarial inputs are reported separately; four failures remain in the 35-input denominator.",
-    "D5 full evidence is 137/137; D4/D6 use their 20-point evidence spot checks."
-  ]
+  "batch_result": "PASS"
 }
