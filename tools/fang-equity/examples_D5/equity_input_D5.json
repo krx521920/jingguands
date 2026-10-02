@@ -1,0 +1,253 @@
+{
+  "schema_version": "0.3",
+  "run_id": "synthetic-fang-D5",
+  "is_mock": true,
+  "source": {
+    "file_name": "synthetic_D5.txt",
+    "file_id": "synthetic-D5",
+    "file_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "parse_meta": null
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "合成股东甲",
+          "value": "合成股东甲",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-0",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c1",
+              "region": [
+                0,
+                10,
+                19,
+                20
+              ],
+              "quote": "合成测试字段 holder: 合成股东甲"
+            }
+          ]
+        },
+        "direction": {
+          "raw_value": "decrease",
+          "value": "decrease",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-1",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c2",
+              "region": [
+                20,
+                10,
+                39,
+                20
+              ],
+              "quote": "合成测试字段 direction: decrease"
+            }
+          ]
+        },
+        "shares_before": {
+          "raw_value": "1000000",
+          "value": "1000000",
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-2",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c3",
+              "region": [
+                40,
+                10,
+                59,
+                20
+              ],
+              "quote": "合成测试字段 shares_before: 1000000"
+            }
+          ]
+        },
+        "shares_after": {
+          "raw_value": "800000",
+          "value": "800000",
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-3",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c4",
+              "region": [
+                60,
+                10,
+                79,
+                20
+              ],
+              "quote": "合成测试字段 shares_after: 800000"
+            }
+          ]
+        },
+        "ratio_before": {
+          "raw_value": "10",
+          "value": "10",
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": "total_share_capital",
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-4",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c5",
+              "region": [
+                80,
+                10,
+                99,
+                20
+              ],
+              "quote": "合成测试字段 ratio_before: 10"
+            }
+          ]
+        },
+        "ratio_after": {
+          "raw_value": "8",
+          "value": "8",
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": "total_share_capital",
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-5",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c6",
+              "region": [
+                100,
+                10,
+                119,
+                20
+              ],
+              "quote": "合成测试字段 ratio_after: 8"
+            }
+          ]
+        },
+        "change_shares": {
+          "raw_value": "200000",
+          "value": "200000",
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-6",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c7",
+              "region": [
+                120,
+                10,
+                139,
+                20
+              ],
+              "quote": "合成测试字段 change_shares: 200000"
+            }
+          ]
+        },
+        "method": {
+          "raw_value": "合成减持测试",
+          "value": "合成减持测试",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-7",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c8",
+              "region": [
+                140,
+                10,
+                159,
+                20
+              ],
+              "quote": "合成测试字段 method: 合成减持测试"
+            }
+          ]
+        },
+        "change_date": {
+          "raw_value": "2026-09-20/2026-09-24",
+          "value": "2026-09-20/2026-09-24",
+          "unit": "date_range",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-8",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c9",
+              "region": [
+                160,
+                10,
+                179,
+                20
+              ],
+              "quote": "合成测试字段 change_date: 2026-09-20/2026-09-24"
+            }
+          ]
+        }
+      },
+      "extraction_method": "mock",
+      "notes": "合成输入，不计入真实公告成绩"
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-10-01T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}
