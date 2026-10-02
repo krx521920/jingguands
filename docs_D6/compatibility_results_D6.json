@@ -1,0 +1,2420 @@
+{
+  "tested_at": "2026-10-02T12:53:11.674Z",
+  "node": "v24.21.0",
+  "pins": {
+    "fang": "24d067abc8088f50c0919c12205f5e57be247aeb",
+    "wei": "2eb871394dd946b1c23225b24c4d00e2bf4bd7e1",
+    "chen": "7cc470e4645ce9a50d5f3ef25282904274627c8c",
+    "zong": "ea1c248b6c942cbf2149fd06c933807541e52a6c",
+    "zhang": "be86f4d9d61a2573f99ceb24402f2c2772260dab"
+  },
+  "mode": "offline_replay",
+  "model_called": false,
+  "source_contents_verified": false,
+  "artifacts": {
+    "schema_sha256": "2c0205067f374af5e5360b23e4c5f45611a97b677d748da5cf76d7f74c7356a3",
+    "bridge_sha256": "c0dd497b25b0451bb83628ec55bf0317c9cc4d704c1e11b6bdf300a06c9d55cf"
+  },
+  "documents": [
+    {
+      "group": "gold",
+      "id": "D6-AWD-001",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-001.envelope.json",
+      "input_sha256": "f67d4d014fd895443d73dfd72d2c1bfaaec3f56987be2db852e5cdfe7f6d9fdd",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "CURRENCY_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "currency"
+              ],
+              "message": "缺少已确认币种"
+            },
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            },
+            {
+              "code": "AMOUNT_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "bid_amount"
+              ],
+              "message": "缺少可用中标金额"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-002",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-002.envelope.json",
+      "input_sha256": "e1efd39b441f7bb62997c7c5ef8e607c8b8f65d238c7f46ff2c0c8243122d1d9",
+      "event_count": 4,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "31624628.62",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E02",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "29598219.34",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "4560926.3",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E04",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "14850116.4",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-003",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-003.envelope.json",
+      "input_sha256": "24f6e793755fd32eefb8913199697cdeda623007c0bd98beaef9706d228e45e7",
+      "event_count": 3,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "529000000",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E02",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "290000000",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "157000000",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-004",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-004.envelope.json",
+      "input_sha256": "1b3b40300a6b6d3d3cee441ff46bbb87091b48a41b73fa0179cab8eff65187ab",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": true,
+            "bid_amount": "54000000",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "NONEXACT_AMOUNT",
+              "severity": "review",
+              "fields": [
+                "bid_amount"
+              ],
+              "message": "暂定/约数/上下界不能作为精确分配总额"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-005",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-005.envelope.json",
+      "input_sha256": "9fba965ba6ef4c9fa228a7734042ffe92b7d5bb620e3abece3768a7523039a7b",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": true,
+            "bid_amount": "148882000",
+            "amount_unit": "元",
+            "consortium_members": [
+              "吉峰三农科技服务股份有限公司",
+              "南京莱斯信息技术股份有限公司",
+              "中国铁塔股份有限公司江苏省分公司"
+            ],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "SHARES_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "consortium_shares"
+              ],
+              "message": "未披露金额份额，不均分、不按牵头身份分配、不用剩余比例补齐"
+            },
+            {
+              "code": "ALLOCATION_BLOCKED",
+              "severity": "review",
+              "fields": [
+                "bid_amount",
+                "currency",
+                "tax_included",
+                "consortium_members",
+                "consortium_shares"
+              ],
+              "message": "拆分前提不完整，分配结果保持空数组"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-006",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-006.envelope.json",
+      "input_sha256": "9de95d811c9d0fd0bc1b8bcbbd677517de43b56e498af3d527d48fa4f8ae2b1b",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "809714662",
+            "amount_unit": "元",
+            "consortium_members": [
+              "上海同济建设有限公司",
+              "上海天华建筑设计有限公司"
+            ],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            },
+            {
+              "code": "SHARES_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "consortium_shares"
+              ],
+              "message": "未披露金额份额，不均分、不按牵头身份分配、不用剩余比例补齐"
+            },
+            {
+              "code": "ALLOCATION_BLOCKED",
+              "severity": "review",
+              "fields": [
+                "bid_amount",
+                "currency",
+                "tax_included",
+                "consortium_members",
+                "consortium_shares"
+              ],
+              "message": "拆分前提不完整，分配结果保持空数组"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-007",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-007.envelope.json",
+      "input_sha256": "de410771ed7e40778835220b0847eae72c0af6b50a243d6df8169d6cc0f2e6cb",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            },
+            {
+              "code": "MULTI_AMOUNT_OR_FX",
+              "severity": "review",
+              "fields": [
+                "bid_amount",
+                "currency"
+              ],
+              "message": "原文含多金额/折算表达，需上游明确选定金额与币种"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-008",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-008.envelope.json",
+      "input_sha256": "36610f68f842352601685839288b4d86d51d7eab830652537ddcdf968a738373",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "141640735",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-009",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-009.envelope.json",
+      "input_sha256": "cdc42b645f9a80c2349ee9a8fc7cf696059d6d0780a037221d1e6d5119c62e91",
+      "event_count": 3,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "196565875",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E02",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "107586198",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "65772673",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "gold",
+      "id": "D6-AWD-010",
+      "input_path": "evaluation/D6/dev/gold/D6-AWD-010.envelope.json",
+      "input_sha256": "1fb4f551a1af80761991d20bf70ff4113639fd29369b323530aa3e479c54cdb6",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [
+        "$.source.parse_meta.blocks: 类型应为 array|null，实际 integer",
+        "$.run_meta.note: 不在允许的字段列表中"
+      ],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "CURRENCY_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "currency"
+              ],
+              "message": "缺少已确认币种"
+            },
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            },
+            {
+              "code": "AMOUNT_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "bid_amount"
+              ],
+              "message": "缺少可用中标金额"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-001",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-001.json",
+      "input_sha256": "cc2d879e6c0f3a2c8554460fd0d317facdb35b98b0ed1f44451371e0ef7d9ed4",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "CURRENCY_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "currency"
+              ],
+              "message": "缺少已确认币种"
+            },
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            },
+            {
+              "code": "AMOUNT_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "bid_amount"
+              ],
+              "message": "缺少可用中标金额"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-002",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-002.json",
+      "input_sha256": "de25ec1ac1cf5ae0a9dd544e7370a247dc2fdddcfadd4d96d0451b42db26e17a",
+      "event_count": 4,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "31624628.62",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E02",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "29598219.34",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "4560926.3",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E04",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "14850116.4",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-003",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-003.json",
+      "input_sha256": "42f371636a19aa4a860a5fd47ffb3c5ac3bc4fd25f63a8278a97f5e896dc5a92",
+      "event_count": 3,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "529000000",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E02",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "290000000",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "157000000",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-004",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-004.json",
+      "input_sha256": "ef1fc74e9f6c04390d8d4d60ef3367372e8d2991f21bd7c215a11e2d2d7e0ec6",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": true,
+            "bid_amount": "54000000",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "NONEXACT_AMOUNT",
+              "severity": "review",
+              "fields": [
+                "bid_amount"
+              ],
+              "message": "暂定/约数/上下界不能作为精确分配总额"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-005",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-005.json",
+      "input_sha256": "ea6193523e7d3b5d35dba18b9685979a4b2e3f3f37ea4463d0e7f2b4e0f8f806",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": true,
+            "bid_amount": "148882000",
+            "amount_unit": "元",
+            "consortium_members": [
+              "吉峰三农科技服务股份有限公司",
+              "南京莱斯信息技术股份有限公司",
+              "中国铁塔股份有限公司江苏省分公司"
+            ],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "SHARES_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "consortium_shares"
+              ],
+              "message": "未披露金额份额，不均分、不按牵头身份分配、不用剩余比例补齐"
+            },
+            {
+              "code": "ALLOCATION_BLOCKED",
+              "severity": "review",
+              "fields": [
+                "bid_amount",
+                "currency",
+                "tax_included",
+                "consortium_members",
+                "consortium_shares"
+              ],
+              "message": "拆分前提不完整，分配结果保持空数组"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-006",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-006.json",
+      "input_sha256": "7fce24ff88cf68511e9278f8f9484bcd04141707ff75645f1a4cf753c08f23c7",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "809714662",
+            "amount_unit": "元",
+            "consortium_members": [
+              "上海同济建设有限公司",
+              "上海天华建筑设计有限公司"
+            ],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            },
+            {
+              "code": "SHARES_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "consortium_shares"
+              ],
+              "message": "未披露金额份额，不均分、不按牵头身份分配、不用剩余比例补齐"
+            },
+            {
+              "code": "ALLOCATION_BLOCKED",
+              "severity": "review",
+              "fields": [
+                "bid_amount",
+                "currency",
+                "tax_included",
+                "consortium_members",
+                "consortium_shares"
+              ],
+              "message": "拆分前提不完整，分配结果保持空数组"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-007",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-007.json",
+      "input_sha256": "1e7649e4efe00752df2b4134b76077d529161631a9ee8287e04f3733cdf659e1",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "CURRENCY_CONFLICT",
+              "severity": "review",
+              "fields": [
+                "currency"
+              ],
+              "message": "币种值与原文币种矛盾"
+            },
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            },
+            {
+              "code": "FOREIGN_OR_UNKNOWN_CURRENCY",
+              "severity": "review",
+              "fields": [
+                "bid_amount",
+                "currency"
+              ],
+              "message": "公共 cny 单位不能承载未知/外币金额，不自行换汇"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-008",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-008.json",
+      "input_sha256": "9ea048c60e3aedf0651f54a3d125e834eed17b56e7312f74ddf716638c9e30bc",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "141640735",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-009",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-009.json",
+      "input_sha256": "4c1a04b8d248f2ffaa685ffdc62a2253a6280f9ac93d32f5597e04b44d21bc60",
+      "event_count": 3,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "196565875",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "contract_signed"
+              ],
+              "message": "候选值不进入计算"
+            },
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E02",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "107586198",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "contract_signed"
+              ],
+              "message": "候选值不进入计算"
+            },
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        },
+        {
+          "event_id": "E03",
+          "status": "needs_review",
+          "normalized": {
+            "currency": "CNY",
+            "tax_included": null,
+            "bid_amount": "65772673",
+            "amount_unit": "元",
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "contract_signed"
+              ],
+              "message": "候选值不进入计算"
+            },
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D6-AWD-010",
+      "input_path": "runs/batch-20261002T120859/envelopes/D6-AWD-010.json",
+      "input_sha256": "568f488e09333b1e5e5062dc0abb27c344ef1388dc7817bac2e59854ec806119",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "needs_review",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "needs_review",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "not_applicable",
+            "formula": null
+          },
+          "findings": [
+            {
+              "code": "UNCONFIRMED_FIELD",
+              "severity": "review",
+              "fields": [
+                "duration"
+              ],
+              "message": "候选值不进入计算"
+            },
+            {
+              "code": "CURRENCY_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "currency"
+              ],
+              "message": "缺少已确认币种"
+            },
+            {
+              "code": "TAX_UNKNOWN",
+              "severity": "review",
+              "fields": [
+                "tax_included"
+              ],
+              "message": "未披露/无法确认含税状态，不默认含税或不含税"
+            },
+            {
+              "code": "AMOUNT_UNAVAILABLE",
+              "severity": "review",
+              "fields": [
+                "bid_amount"
+              ],
+              "message": "缺少可用中标金额"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-001",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-001.json",
+      "input_sha256": "e20f6730ad5f13966aaa93bac5d9b7a3b197b7de7ef9427c4d7d712a3847e657",
+      "event_count": 3,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E02",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E03",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-002",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-002.json",
+      "input_sha256": "a5a2107f508121eaaccc3b0dcb47ca7082a7f9f36852178f21f9e4e37ad73b5a",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-003",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-003.json",
+      "input_sha256": "565e1d538029b3d7acde3bf60cb8ad41652e56425a9c7aa2cb6d2712aa75ce3d",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-004",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-004.json",
+      "input_sha256": "879feb9a860517efe9e784e7d53d04f15e78b90280370ec8bbd3caba506debc3",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-005",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-005.json",
+      "input_sha256": "771a50bf0adbf9127bb0b040b991203613df138caf49b9c35fb608c6448b0d91",
+      "event_count": 2,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E02",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-006",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-006.json",
+      "input_sha256": "4243d6daf18e9c5595a134f3f336c6d5c0cbab47ae6078913fd746b448d9391a",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-007",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-007.json",
+      "input_sha256": "a4e8f7f444e21a864558ea3f62394f1b1553cd9afbc4b4aeebffc65b60e2a7d4",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-008",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-008.json",
+      "input_sha256": "0e99f97f82ebed6874d79b77d26027b22d163c58c187f1547e4ee7357e1498fd",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-009",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-009.json",
+      "input_sha256": "bfb8b5e11bfa87416393885d636221f4bc189eb7397bf63098c19de5670f220c",
+      "event_count": 3,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E02",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E03",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D4-PLD-010",
+      "input_path": "runs/batch-20261002T120859/envelopes/D4-PLD-010.json",
+      "input_sha256": "2a6e9c8ba14b0ea3295dbecda760aeb310f131b83c77ce1c229ffad483a6eb63",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-001",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-001.json",
+      "input_sha256": "62d8b7191278d00074af2ec92d58431203a1e7b6b0650db94258ca6dbe9bec40",
+      "event_count": 5,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E02",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E03",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E04",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E05",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-002",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-002.json",
+      "input_sha256": "7d07931d1636195ba330502222f6999eed3e03a836cb221f30e1147d1eb41e72",
+      "event_count": 3,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E03",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        },
+        {
+          "event_id": "E05",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-003",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-003.json",
+      "input_sha256": "46e57234c6d50bc03dad174fa4573970d7de20088dfb18d46c14cc6c7fd4ee57",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-004",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-004.json",
+      "input_sha256": "d34221c143d68b4fef8804d21d42c35f01a629157cb4a8fbee5ec31b6e868556",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-005",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-005.json",
+      "input_sha256": "adf5f543bc8911cbe9754f77fbf46796350b44688e33f62d7a7618c33be10519",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-006",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-006.json",
+      "input_sha256": "359f71c2623c067235b791e8d1527ef604e271f5de7b1516515286f404396ab9",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-007",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-007.json",
+      "input_sha256": "32b34ea5207fd33d35e9e9a3f09c3673e2a64ac46b07f4f2b42b49b45ed6043e",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-008",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-008.json",
+      "input_sha256": "b1e572e99685dc8bd82b00eae72eb8668a328f6342e8e3c66be11a8110b90429",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-009",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-009.json",
+      "input_sha256": "523dfccda814ed53038e977057c4691f70fa9c89db672447d39fe5c0745b14da",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    },
+    {
+      "group": "upstream",
+      "id": "D5-EQC-010",
+      "input_path": "runs/batch-20261002T120859/envelopes/D5-EQC-010.json",
+      "input_sha256": "1562f2b8c84df3c2b16e87c1de9187567be86cde416b65c1d662ced093ea8ed4",
+      "event_count": 1,
+      "input_unchanged": true,
+      "chen_bridge_unchanged": true,
+      "d5_d6_order_independent": true,
+      "schema_issues": [],
+      "status": "skipped",
+      "events": [
+        {
+          "event_id": "E01",
+          "status": "skipped",
+          "normalized": {
+            "currency": null,
+            "tax_included": null,
+            "bid_amount": null,
+            "amount_unit": null,
+            "consortium_members": [],
+            "consortium_shares": []
+          },
+          "calculations": {
+            "allocations": [],
+            "allocation_status": "blocked",
+            "formula": null
+          },
+          "findings": []
+        }
+      ]
+    }
+  ],
+  "parser_references": [
+    {
+      "id": "D6-AWD-001",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-001.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-001.parse.json",
+      "raw_git_sha256": "77500ac606ff217ceb89cae843a71ab4c08deb2ca09a6f29c674dad0afdb0a24",
+      "parser_git_sha256": "77500ac606ff217ceb89cae843a71ab4c08deb2ca09a6f29c674dad0afdb0a24",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 5,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-002",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-002.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-002.parse.json",
+      "raw_git_sha256": "77964f2402f01a0e43f3766bf3d83fab52e962cdb5e0a177e94ddad18d37805e",
+      "parser_git_sha256": "77964f2402f01a0e43f3766bf3d83fab52e962cdb5e0a177e94ddad18d37805e",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 24,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-003",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-003.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-003.parse.json",
+      "raw_git_sha256": "83d54fc4178f460b2c6d2aea5c661df7a76095d8048e3f22efa6f1993f722bf1",
+      "parser_git_sha256": "83d54fc4178f460b2c6d2aea5c661df7a76095d8048e3f22efa6f1993f722bf1",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 21,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-004",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-004.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-004.parse.json",
+      "raw_git_sha256": "16a0c3a3d83b652a10c00d980a5e7c5dbcbb630e3a2d1afaf201a198fa68a7bd",
+      "parser_git_sha256": "16a0c3a3d83b652a10c00d980a5e7c5dbcbb630e3a2d1afaf201a198fa68a7bd",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 10,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-005",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-005.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-005.parse.json",
+      "raw_git_sha256": "accd10e426142690efa72999094269d7a6072aed1d608a66dfca789a87ad91d0",
+      "parser_git_sha256": "accd10e426142690efa72999094269d7a6072aed1d608a66dfca789a87ad91d0",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 13,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-006",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-006.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-006.parse.json",
+      "raw_git_sha256": "29c23f9d37cf30bedd11fa49e469e7e8dc3b2a063970f8662635d0e1eae1a846",
+      "parser_git_sha256": "29c23f9d37cf30bedd11fa49e469e7e8dc3b2a063970f8662635d0e1eae1a846",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 9,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-007",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-007.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-007.parse.json",
+      "raw_git_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
+      "parser_git_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 6,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-008",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-008.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-008.parse.json",
+      "raw_git_sha256": "59d517a223aa3840f873e8087753d8a03bc194ee6d8e631193ae8cef87035c04",
+      "parser_git_sha256": "59d517a223aa3840f873e8087753d8a03bc194ee6d8e631193ae8cef87035c04",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 10,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-009",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-009.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-009.parse.json",
+      "raw_git_sha256": "65657f5186e971519082c0fc8a6dce9466bdd619185cdf8f3ad14aa6fc09509b",
+      "parser_git_sha256": "65657f5186e971519082c0fc8a6dce9466bdd619185cdf8f3ad14aa6fc09509b",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 21,
+      "unresolved": []
+    },
+    {
+      "id": "D6-AWD-010",
+      "raw_path": "evaluation/D6/dev/raw/D6-AWD-010.raw.json",
+      "parser_copy_path": "corpus/zhangzhibo/d6/parse/bid-010.parse.json",
+      "raw_git_sha256": "a1e7b9f6b39d2efee44dd87603b54a167a9ac8c795eda6785fad49a2e37e2106",
+      "parser_git_sha256": "a1e7b9f6b39d2efee44dd87603b54a167a9ac8c795eda6785fad49a2e37e2106",
+      "source_sha256_matches": true,
+      "parser_data_equal": true,
+      "references": 6,
+      "unresolved": []
+    }
+  ],
+  "summary": {
+    "gold_award_documents": 10,
+    "upstream_award_documents": 10,
+    "other_documents": 20,
+    "total_replay_documents": 40,
+    "total_replay_events": 65,
+    "gold_award_events": 17,
+    "upstream_award_events": 17,
+    "schema_issue_documents": 10,
+    "unmodified_inputs": true,
+    "chen_bridge_unchanged": true,
+    "d5_d6_order_independent": true,
+    "references": 125,
+    "unresolved_references": 0,
+    "synthetic_schema_valid": true,
+    "registry_aligned": true
+  },
+  "upstream_batch_keys": [
+    "stamp",
+    "mock",
+    "results"
+  ]
+}
