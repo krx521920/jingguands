@@ -1,0 +1,27 @@
+{
+  "baseline_id": "financial-events-30-dev-baseline-v0.1",
+  "created_on": "2026-10-02",
+  "dataset_manifest": "evaluation/dev-30/manifest.json",
+  "scope": "three event types, ten public development documents each",
+  "aggregate": {
+    "documents": 30,
+    "events": 48,
+    "fields": 592,
+    "by_type": {
+      "pledge": {"documents": 10, "events": 15, "fields": 210, "evidence_records": 191, "spot_checks": 20, "gold_validation": "pass", "upstream_documents_available": 10, "upstream_status": "10/10 match", "field_accuracy": 1.0},
+      "equity_change": {"documents": 10, "events": 16, "fields": 144, "evidence_records": 138, "spot_checks": 20, "gold_validation": "pass", "upstream_documents_available": 10, "upstream_status": "best observed batch 128/133 value hits = 96.24%, DIFF", "field_accuracy": 0.9624},
+      "award_contract": {"documents": 10, "events": 17, "fields": 238, "evidence_records": 125, "spot_checks": 20, "gold_validation": "pass", "upstream_documents_available": 8, "upstream_status": "8/10 documents compared; 92/92 extracted fields match; 2 documents pending model run", "field_accuracy": 1.0}
+    }
+  },
+  "notes": [
+    "The 30-document set is complete at the Gold/format/evidence layer.",
+    "Upstream model coverage is not yet 30/30 because the award-contract batch has only eight committed real outputs.",
+    "Equity-change upstream accuracy is recorded as the best observed evaluated batch before the final ten-document clean batch; do not present it as final 100%.",
+    "Raw PDFs are not redistributed; source hashes and URLs are recorded in each type manifest."
+  ],
+  "source_manifests": [
+    "evaluation/D4/dev/manifest.json",
+    "evaluation/D5/dev/manifest.json",
+    "evaluation/D6/dev/manifest.json"
+  ]
+}

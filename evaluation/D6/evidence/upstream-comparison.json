@@ -1,0 +1,15 @@
+{
+  "upstream_branch": "weiwenyu",
+  "upstream_commit": "af42d88c9ab1ddee9acd8aa0c204869d2d8c7e23",
+  "upstream_batch": "runs/batch-20261001T094711",
+  "documents_available": 8,
+  "gold_documents": 10,
+  "events_compared": 13,
+  "total_fields": 182,
+  "extracted_fields_expected": 92,
+  "value_hits": 92,
+  "field_accuracy": 1,
+  "differences": [],
+  "result": "MATCH",
+  "coverage_note": "Only 8 of 10 award-contract documents have a committed upstream real run; the 2 new documents are Gold/evidence validated but not yet model-compared."
+}
