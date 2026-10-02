@@ -18,11 +18,25 @@
       "event_type": "equity_change",
       "fields": {
         "holder": {
-          "raw_value": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资",
-          "value": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资",
+          "raw_value": "红豆集团有限公司及其一致行动人",
+          "value": "红豆集团有限公司及其一致行动人",
           "unit": "text",
           "status": "extracted",
           "provenance": [
+            {
+              "block_id": "d3d00372c_p002_b00004",
+              "source_type": "paragraph",
+              "page": 2,
+              "region": [
+                114,
+                194.69,
+                510,
+                206.69
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "本次信息披露义务人为红豆集团有限公司"
+            },
             {
               "block_id": "d3d00372c_p002_b00005",
               "source_type": "paragraph",
@@ -35,12 +49,12 @@
               ],
               "table_id": null,
               "cell_ref": null,
-              "quote": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资"
+              "quote": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资构成一致行动人"
             }
           ],
           "standardized": true,
           "denominator": null,
-          "note": null
+          "note": "Canonical aggregate holder: full legal entity plus its disclosed concert parties."
         },
         "direction": {
           "raw_value": "股份减少",
@@ -199,6 +213,20 @@
           "status": "extracted",
           "provenance": [
             {
+              "block_id": "d3d00372c_p010_b00006",
+              "source_type": "paragraph",
+              "page": 10,
+              "region": [
+                90,
+                280.49,
+                505.32,
+                341.28
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "司法拍卖"
+            },
+            {
               "block_id": "d3d00372c_p010_b00013",
               "source_type": "paragraph",
               "page": 10,
@@ -215,7 +243,7 @@
           ],
           "standardized": true,
           "denominator": null,
-          "note": null
+          "note": "Canonical method combining the disclosed judicial auction and passive reduction; keep 2026-09-29 as the effective change date."
         },
         "change_date": {
           "raw_value": "2026年9月29日",

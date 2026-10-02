@@ -19,7 +19,7 @@
 - 最佳批次证据：`evidence/upstream/`
 - 最新批次回归：`evidence/upstream-latest/`
 - 张解析核验：`evidence/zhang-parse-verification.json`
-- 方检查器核验：`evidence/fang-d5-verification.json`
+- 方检查器核验：`evidence/fang-d5-verification.json`\n- Gold裁决记录：`handoffs/D5-gold-decisions.md`
 
 ## 验证
 

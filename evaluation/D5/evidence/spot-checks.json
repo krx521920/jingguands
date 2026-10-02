@@ -141,18 +141,18 @@
       "case_id": "D5-EQC-005",
       "event_id": "E01",
       "field": "holder",
-      "block_id": "da8d294d2_p008_b00002",
-      "page": 8,
+      "block_id": "da8d294d2_p001_b00008",
+      "source_type": "paragraph",
+      "page": 1,
       "region": [
         114.24,
-        83.09,
-        500.16,
-        157.56
+        341.21,
+        365.28,
+        353.21
       ],
       "table_id": null,
       "cell_ref": null,
-      "source_type": "paragraph",
-      "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份"
+      "quote": "浙江省国际贸易集团有限公司"
     },
     {
       "case_id": "D5-EQC-005",
@@ -209,18 +209,18 @@
       "case_id": "D5-EQC-007",
       "event_id": "E01",
       "field": "holder",
-      "block_id": "d3d00372c_p002_b00005",
+      "block_id": "d3d00372c_p002_b00004",
       "source_type": "paragraph",
       "page": 2,
       "region": [
-        90,
-        218.09,
-        505.32,
-        370.49
+        114,
+        194.69,
+        510,
+        206.69
       ],
       "table_id": null,
       "cell_ref": null,
-      "quote": "红豆集团、周海江、龚新度、红闳服饰、天人国际投资"
+      "quote": "本次信息披露义务人为红豆集团有限公司"
     },
     {
       "case_id": "D5-EQC-007",

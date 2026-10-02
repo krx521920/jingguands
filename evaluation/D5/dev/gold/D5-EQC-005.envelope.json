@@ -25,22 +25,22 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "da8d294d2_p008_b00002",
-              "page": 8,
+              "block_id": "da8d294d2_p001_b00008",
+              "source_type": "paragraph",
+              "page": 1,
               "region": [
                 114.24,
-                83.09,
-                500.16,
-                157.56
+                341.21,
+                365.28,
+                353.21
               ],
               "table_id": null,
               "cell_ref": null,
-              "source_type": "paragraph",
-              "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份"
+              "quote": "浙江省国际贸易集团有限公司"
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "Use the full legal name; 国贸集团 is only the disclosed abbreviation."
         },
         "direction": {
           "raw_value": "减少",

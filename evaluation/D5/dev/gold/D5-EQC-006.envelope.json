@@ -194,7 +194,7 @@
         },
         "method": {
           "raw_value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。",
-          "value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。",
+          "value": "可转债转股被动稀释",
           "unit": "text",
           "standardized": true,
           "status": "extracted",
@@ -215,7 +215,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "Canonical method label; keep the full disclosure sentence in raw_value/provenance."
         },
         "change_date": {
           "raw_value": "2026年9月22日至2026年9月23日",

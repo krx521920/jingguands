@@ -45,17 +45,18 @@
     },
     "D5-EQC-005": {
       "value_diff": 1,
-      "notes": "method: 公开征集协议转让 vs 公开征集转让方式协议转让"
+      "notes": "Canonical method remains 公开征集协议转让; the upstream phrase is a wording variant."
     },
     "D5-EQC-006": {
       "value_diff": 1,
-      "notes": "method differs only by trailing punctuation in the current Gold comparison."
+      "notes": "Canonical method is 可转债转股被动稀释; the upstream sentence is semantically similar but not the frozen label."
     },
     "D5-EQC-007": {
       "identity_fallback": 1,
       "value_diffs": 3,
-      "notes": "holder uses 红豆集团有限公司 instead of the disclosed group list; method=司法拍卖 instead of 司法拍卖被动减持; change_date records the auction window instead of the 2026-09-29 transfer-completion date."
+      "notes": "Holdings are now canonicalized to 红豆集团有限公司及其一致行动人; method=司法拍卖被动减持; change_date uses the 2026-09-29 transfer-completion date."
     }
   },
-  "recommendation": "Use 134046 for diagnosis only; repair its 11 contract errors and D5-EQC-002/007 issues before calling D5 upstream integrated. The 135159 and 135902 batches are regressions and must not be used as the final baseline."
+  "recommendation": "Use 134046 for diagnosis only; repair its 11 contract errors and D5-EQC-002/007 issues before calling D5 upstream integrated. The 135159 and 135902 batches are regressions and must not be used as the final baseline.",
+  "gold_decisions": "handoffs/D5-gold-decisions.md"
 }
