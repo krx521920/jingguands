@@ -7,7 +7,9 @@
  *   npm run jingguan:batch -- corpus/zhangzhibo/parse                  # 张的真实解析
  *   npm run jingguan:batch -- corpus/zongbowen/dev/raw --gold          # 宗 D2 受控样例＋Gold对照
  *   npm run jingguan:batch -- corpus/zongbowen/d3/raw --gold --gold-manifest corpus/zongbowen/d3/manifest.json
- *   # ↑ D3 评测集；每次批量自动导出 envelopes/<case_id>.json（评测 compare-fields.mjs 用 --system-dir 消费）
+ *   npm run jingguan:batch -- corpus/zongbowen/d5/raw --gold --gold-manifest corpus/zongbowen/d5/manifest.json
+ *   npm run jingguan:batch -- corpus/zongbowen/d6/raw --gold --gold-manifest corpus/zongbowen/d6/manifest.json
+ *   # ↑ D3/D5 评测集；D6 raw/ 即张官方解析（evidence/0.9，哈希一致），自动走块级出处模式
  *
  * 文件类型自动识别：
  *   *.parse.json            → 解析块模式（evidence/0.2，块级出处）
@@ -73,10 +75,23 @@ function fixtureToText(jsonPath, tmpDir) {
   return { input: txtPath, caseId, text }
 }
 
+/** 宗 D6 评测集 raw/ 即张的官方解析（evidence/0.9，manifest 哈希一致）——判定后走块级出处模式。 */
+function isZhangParse(jsonPath) {
+  try {
+    const d = JSON.parse(readFileSync(jsonPath, 'utf8'))
+    return Array.isArray(d.pages) && Array.isArray(d.pages[0]?.blocks)
+  } catch { return false }
+}
+
 // ---------- Gold 对照 ----------
 
 function valuesEqual(a, b) {
   if (a === b) return true
+  // gold 侧布尔与系统侧字符串("true"/"false")视为同值（接口规定 value 用字符串，gold 偶用原生布尔）
+  const norm = (v) => (v === true ? 'true' : v === false ? 'false' : v)
+  if (typeof a === 'boolean' || typeof b === 'boolean' || a === 'true' || a === 'false' || b === 'true' || b === 'false') {
+    return norm(a) === norm(b)
+  }
   const na = Number(a), nb = Number(b)
   if (a !== null && b !== null && !Number.isNaN(na) && !Number.isNaN(nb)
     && typeof a !== 'boolean' && typeof b !== 'boolean') return Math.abs(na - nb) < 1e-9
@@ -233,6 +248,10 @@ for (const file of files) {
   if (/\.parse\.json$/i.test(name)) {
     runArgs = ['--parse', file, '--event-type', eventType]
     caseId = name.replace(/\.parse\.json$/, '')
+  } else if (/\.raw\.json$/i.test(name) && isZhangParse(file)) {
+    // 宗 D6 raw/ = 张官方解析（哈希一致）——块级出处模式，case_id 与 manifest 对齐
+    runArgs = ['--parse', file, '--event-type', eventType]
+    caseId = name.replace(/\.raw\.json$/, '')
   } else if (/\.json$/i.test(name)) {
     const fx = fixtureToText(file, join(batchDir, 'inputs'))
     if (fx === null) { console.log(`[跳过] ${name}：非评测样例格式`); continue }
