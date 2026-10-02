@@ -107,7 +107,7 @@ function handleExport(res, urlObj, readDataset) {
 function listDatasets() {
   try {
     return fs.readdirSync(DATA_DIR)
-      .filter(f => f.endsWith(".json"))
+      .filter(f => f.endsWith(".json") && !f.endsWith(".check.json"))   // D5：.check.json 是方的旁路核验 sidecar，不是数据集
       .map(f => path.basename(f, ".json"));
   } catch {
     return [];
@@ -126,7 +126,8 @@ function fetchRemote(dataset, res) {
   }).on("error", e => sendJSON(res, 502, { error: "remote fetch failed: " + e.message }));
 }
 
-/** 读取 mock 数据集并过桥；失败抛错（NOT_FOUND / parse error），供 result 与 export 共用。 */
+/** 读取 mock 数据集并过桥；失败抛错（NOT_FOUND / parse error），供 result 与 export 共用。
+ *  D5：同名 .check.json（方的 equity_check_D5 旁路核验报告）若存在，挂到 check_report 由转接口合并。 */
 function readDataset(dataset) {
   const file = path.join(DATA_DIR, dataset + ".json");
   if (!file.startsWith(DATA_DIR) || !fs.existsSync(file)) {   // 目录逃逸防护
@@ -134,7 +135,13 @@ function readDataset(dataset) {
     err.code = "NOT_FOUND";
     throw err;
   }
-  return toContract(JSON.parse(fs.readFileSync(file, "utf8")));
+  const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
+  const checkFile = path.join(DATA_DIR, dataset + ".check.json");
+  if (fs.existsSync(checkFile)) {
+    try { parsed.check_report = JSON.parse(fs.readFileSync(checkFile, "utf8")); }
+    catch { /* sidecar 坏了不阻塞主数据，留痕 */ parsed.check_report_error = "check sidecar parse failed"; }
+  }
+  return toContract(parsed);
 }
 
 function handleApi(req, res, urlObj) {

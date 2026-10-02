@@ -38,4 +38,10 @@ workspace/cjh/
     └── _ref_zong_D4-evaluation.md            # 只读参照：源=origin/zongbowen@728d2334，D4 评测 10/10 MATCH（勿改）
 ```
 
+**查找规范（任务/进度查证顺序）**：
+1. **某天该干什么、干到哪一步** → 仓库外 `D:\chenjh\code\program\jingguanpluge\team_plan_14days.xlsx` 的**「陈家浩_D1-D14明细」表**（2026-10-01 新增：64 条单元任务，含产出物/协作对象/状态列，公式汇总在表尾）；
+2. **当天的执行细节** → `docs/cjh_workspace_0N_DN任务规划.md` 对应天的文档 + `docs/cjh_workspace_02_临时.md`（当日 TODO / 待确认区 / 阻塞记录）；
+3. **冲突裁决**：xlsx 状态列与文档记录不一致时，**以当日实际执行记录（02_临时/日志）为准**，并回填 xlsx 状态列；
+4. **接口/证据结构** → `docs/_ref_*` 只读参照文件（源头是他人的分支提交，勿改）。
+
 **纪律**：目录结构变更须同步本文件与 page_prototype/README.md；提交等领导指令。

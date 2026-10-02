@@ -171,7 +171,9 @@ function cmpPair(label, fB, fA, suffix) {
   return row;
 }
 
-/** equity_change 专属：前后股数/前后比例并排展示；有据可查的矛盾给冲突提示（只比对页面内自有字段，不猜测）。 */
+/** equity_change 专属：前后股数/前后比例并排展示 + 分母口径提示 + 冲突提示。
+ *  冲突码口径对齐方轩诚 equity_check_D5 v0.5.0（CHANGE_SHARES_MISMATCH / DIRECTION_MISMATCH /
+ *  RATIO_DIRECTION_CONFLICT / RATIO_BASIS_MISMATCH）；若有方核验报告（ev.checks）则原样展示，本地检查退位。 */
 export function renderComparison(container, ev) {
   if (ev.event_type !== "equity_change") return;
   const F = ev.fields || {};
@@ -182,35 +184,93 @@ export function renderComparison(container, ev) {
   const pairRatio = cmpPair("比例", F.ratio_before, F.ratio_after, "%");
   if (pairShares) block.append(pairShares);
   if (pairRatio) block.append(pairRatio);
-  if (!pairShares && !pairRatio) return;
 
-  const conflicts = [];
+  // 分母口径提示（口径字典 §3：比例分母必须显式，不默认总股本）
+  if (pairRatio) {
+    const dk = f => (f && f.denominator && f.denominator.kind) || null;
+    const d1 = dk(F.ratio_before), d2 = dk(F.ratio_after);
+    const hint = document.createElement("div");
+    hint.className = "cmp-denominator";
+    if (d1 && d1 === d2) hint.textContent = "分母口径：" + (F.ratio_before.denominator.kind_text || d1);
+    else if (d1 || d2) hint.textContent = "⚠ 分母口径不一致（" + (d1 || "未声明") + " vs " + (d2 || "未声明") + "），比例不相减";
+    else hint.textContent = "⚠ 分母口径未声明（不默认总股本）";
+    block.append(hint);
+  }
+
+  if (!pairShares && !pairRatio && !ev.checks) return;
+
+  // 方核验报告优先（sidecar check_report → ev.checks）；无报告时页面本地兜底检查（同码口径）
+  const conflicts = ev.checks
+    ? ev.checks.map(c => ({ code: c.code, severity: c.severity, message: c.message }))
+    : localEquityChecks(F);
+
+  const conflictsBox = document.createElement("div");
+  conflictsBox.className = "cmp-conflicts";
+  const sevText = { error: "错误", conflict: "冲突", review: "复核" };
+  for (const c of conflicts) {
+    const line = document.createElement("div");
+    line.className = "cmp-conflict sev-" + (c.severity || "review");
+    const code = document.createElement("span");
+    code.className = "cmp-code";
+    code.textContent = c.code;
+    line.append(code, document.createTextNode((sevText[c.severity] || c.severity || "") + "：" + (c.message || "")));
+    if (c.fields && c.fields.length) {
+      const fl = document.createElement("span");
+      fl.className = "cmp-fields";
+      fl.textContent = " [" + c.fields.join(", ") + "]";
+      line.append(fl);
+    }
+    conflictsBox.append(line);
+  }
+  if (conflictsBox.children.length) {
+    const label = document.createElement("div");
+    label.className = "cmp-conflicts-label";
+    label.textContent = ev.checks ? "方 equity_check_D5 核验结果：" : "页面侧冲突检查（对齐方 equity_check_D5 v0.5.0 码表）：";
+    block.append(label, conflictsBox);
+  }
+  container.append(block);
+}
+
+/** 页面本地兜底检查（仅在无方核验报告时使用）。码值/语义对齐 equity_check_D5 v0.5.0，只比页面自有字段。 */
+function localEquityChecks(F) {
+  const out = [];
   const sb = cmpNum(F.shares_before), sa = cmpNum(F.shares_after);
   const rb = cmpNum(F.ratio_before), ra = cmpNum(F.ratio_after);
   const cs = cmpNum(F.change_shares);
-  // ① 勾稽：变动后 - 变动前 应等于 变动股数（0.5 股容差，兼容万股口径四舍五入）
-  if (sb != null && sa != null && cs != null && Math.abs((sa - sb) - cs) > 0.5) {
-    conflicts.push(`前后股数差 ${(sa - sb).toLocaleString("zh-CN")} 股 ≠ 变动股数 ${cs.toLocaleString("zh-CN")} 股`);
+  // CHANGE_SHARES_MISMATCH：披露变动绝对量与 |后股数−前股数| 不符
+  if (sb != null && sa != null && cs != null && Math.abs(Math.abs(sa - sb) - cs) > 0.5) {
+    out.push({ code: "CHANGE_SHARES_MISMATCH", severity: "conflict",
+      message: `披露变动绝对量与 |后股数−前股数| 不符：Δ=${(sa - sb).toLocaleString("zh-CN")} 股，变动股数=${cs.toLocaleString("zh-CN")} 股`,
+      fields: ["shares_before", "shares_after", "change_shares"] });
   }
-  // ② 方向核对：increase/decrease 与前后值的大小关系必须一致
+  // DIRECTION_MISMATCH：前后股数与披露方向反转
   const dF = F.direction;
   const dirKey = dF && (DIRECTION_TEXT[dF.normalized] ? dF.normalized : (DIRECTION_TEXT[dF.value] ? dF.value : null));
-  if (dirKey === "increase" && sb != null && sa != null && sa < sb) conflicts.push("方向=增持 但 变动后股数 < 变动前股数");
-  if (dirKey === "decrease" && sb != null && sa != null && sa > sb) conflicts.push("方向=减持 但 变动后股数 > 变动前股数");
-  // ③ 比例方向与股数方向相反 → 可能存在总股本变动，只提示不判错（增发/回购会合法地改变比例）
-  if (sb != null && sa != null && rb != null && ra != null) {
-    const sSign = Math.sign(sa - sb), rSign = Math.sign(ra - rb);
-    if (sSign !== 0 && rSign !== 0 && sSign !== rSign) {
-      conflicts.push("比例变动方向与股数变动方向相反（可能存在总股本变动），建议人工复核");
+  if (dirKey === "increase" && sb != null && sa != null && sa < sb) {
+    out.push({ code: "DIRECTION_MISMATCH", severity: "conflict", message: "前后股数与披露方向反转（方向=增持 但 变动后 < 变动前），保留原值供核对",
+      fields: ["shares_before", "shares_after", "direction"] });
+  }
+  if (dirKey === "decrease" && sb != null && sa != null && sa > sb) {
+    out.push({ code: "DIRECTION_MISMATCH", severity: "conflict", message: "前后股数与披露方向反转（方向=减持 但 变动后 > 变动前），保留原值供核对",
+      fields: ["shares_before", "shares_after", "direction"] });
+  }
+  // RATIO_BASIS_MISMATCH / RATIO_DIRECTION_CONFLICT：分母一致才相减比较
+  const d1 = F.ratio_before && F.ratio_before.denominator && F.ratio_before.denominator.kind;
+  const d2 = F.ratio_after && F.ratio_after.denominator && F.ratio_after.denominator.kind;
+  if (rb != null && ra != null) {
+    if (d1 !== d2 || !["total_share_capital", "holder_shares"].includes(d1)) {
+      if (d1 || d2) out.push({ code: "RATIO_BASIS_MISMATCH", severity: "review",
+        message: "比例分母种类不同或不属于支持的股份分母，不相减", fields: ["ratio_before", "ratio_after"] });
+    } else if (sb != null && sa != null) {
+      const sSign = Math.sign(sa - sb), rSign = Math.sign(ra - rb);
+      if (sSign !== 0 && rSign !== 0 && sSign !== rSign) {
+        out.push({ code: "RATIO_DIRECTION_CONFLICT", severity: "review",
+          message: "股数与披露比例反向变化，需核对分母变动；不自动推翻股数方向",
+          fields: ["shares_before", "shares_after", "ratio_before", "ratio_after"] });
+      }
     }
   }
-  if (conflicts.length) {
-    const c = document.createElement("div");
-    c.className = "cmp-conflict";
-    c.textContent = "⚠ 冲突提示：" + conflicts.join("；");
-    block.append(c);
-  }
-  container.append(block);
+  return out;
 }
 
 export function renderResults(container, data, onFocusEvidence) {

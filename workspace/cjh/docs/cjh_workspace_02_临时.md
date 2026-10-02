@@ -72,7 +72,21 @@
 - [x] 自测：桥 11/11 数据集全过；server 端到端（/api/result share_change 200 三事件 dir=increase、/api/export CSV 28 行含 EQC）
 - [ ] **仍待魏（阻塞项 1）**：干净十份批次发布 + D5-EQC-002/007 修复后，真实 D5-EQC-001..010 run 落 `data/`（或走 remote 模式）即可直接消费——页面侧已就绪，无需再改代码
 
+## 1f. D6（10-02）TODO —— 真实股权变动页面闭环（领导晨会清单逐项收口，"拉取最新码"）
+
+- [x] **拉最新码**：GitHub 网络劣化（~10KB/s，全量 fetch 卡死 11 分钟）→ 改 **blobless 浅拉**（--depth=1 --filter=blob:none，秒级）+ `git show` 按需取 blob；远端定位：魏批次 `runs/batch-20261002T120859`（十份 EQC 校验问题全 0=干净批次）、方 `tools/fang-equity/src_D5/equity_check_D5.ts` v0.5.0
+- [x] **真实 D5-EQC-001..010 信封入页面**：`data/wei_real_eqc_001..010.json`（is_mock:false，001 含 5 事件 / 002 含 3 事件；004/008 增持、其余减持；比例分母声明 total_share_capital，仅 003 比例未提及）
+- [x] **接入方冲突码**：方的核验报告以 **sidecar**（`data/<dataset>.check.json`）随数据集走——server.readDataset 自动挂 `check_report` → bridge 按事件 id/index 合并 `ev.checks[]`（code/severity/fields/message 原样，不翻译码值）→ 页面对比块下按严重级渲染（冲突/错误红、复核黄）；报告全文 `contract.check_report` 只增不改
+- [x] **页面侧兜底检查改方码**：无报告数据集（mock）本地检查同码口径——CHANGE_SHARES_MISMATCH / DIRECTION_MISMATCH / RATIO_DIRECTION_CONFLICT / RATIO_BASIS_MISMATCH（有报告则方报告优先，本地退位防重复）
+- [x] **分母口径提示**：比例行下显式显示"分母口径：公司总股本"；未声明→"⚠ 分母口径未声明（不默认总股本）"；两侧分母不同→"⚠ 分母口径不一致，比例不相减"；mock 比例字段已补分母声明
+- [x] **方向徽章/前后并排**（昨夜 7cc470e4 已有，本轮回归验证通过）：增持红/减持绿；股数、比例 前→后（Δ）并排
+- [x] **证据展开验证（脚本断言）**：十份真实信封全部字段"有值必有出处、证据引用必存在、quote 必非空"零失败；integrity 全 ok；桥 20/20 数据集通过
+- [x] **server e2e**：21 数据集（.check.json 不进下拉）；`/api/result wei_real_eqc_003` → mode=real + check_report(tool=equity_check_D5) + ev.checks=MISSING_SHARE_PAIR,MISSING_RATIO_PAIR；eqc_006 → EQUAL_SHARES_NO_DIRECTION,RATIO_CHANGED_WITH_EQUAL_SHARES；CSV 导出 200
+- [x] 方核验实测（npx tsx 跑 equity_check_D5）：001/002/007/008/009 verified；003 前后值不全；006 股数相等但比例变化；004/005/010 UNCONFIRMED_FIELD+MISSING_OR_INVALID_PERIOD；**clean 批次零 conflict 级 finding**
+- [ ] 方 equity_output_D5.json / README_D5.md 快照 → `_ref_*`（本轮只取了核验模块源码；正式快照待下轮补）
+
 ## 2. 待确认区（阻塞于交流数据 / 待拍板文件，等总体完成后统一请领导确认）
+
 
 
 > 用法：凡是"需要队友给数据"或"需要领导拍板"导致做不下去的项，全部挂到这里，先推进其他不阻塞的工作；**总体完成后一次性请领导确认**，不零碎打扰。

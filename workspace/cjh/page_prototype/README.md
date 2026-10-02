@@ -26,14 +26,16 @@ page_prototype/
 │   └── API.md              # 调用文档：数据契约 v0.3、接口清单、状态枚举、转接口、扩展指南
 ├── data/                   # 数据集（mock 模式：server 自动列举，放进来即出现在下拉）
 │   ├── pledge.json         # 质押事件样例（D1 mock，旧提案字段，保留兼容）
-│   ├── share_change.json   # 股权变动样例（D5 升级：v0.3 信封 equity_change ×3——增持/减持/冲突演示；真实 D5-EQC-001..010 待魏批次）
+│   ├── share_change.json   # 股权变动样例（D5：v0.3 信封 equity_change ×3——增持/减持/冲突演示，比例带分母声明）
 │   ├── upstream_case.json  # 方口径上游格式合成用例（经转接口转换展示，D2 验证）
 │   ├── wei_run_pledge.json # 魏文宇 v0.3 信封真实运行输出（09-28，D2 接入）
 │   ├── wei_real_pledge_0197.json  # 魏 D3 真实 PDF run（pledge.pdf · deepseek-chat · is_mock:false，质押闭环主线）
 │   ├── wei_real_pledge_ce37.json  # 同源对照 run（D3）
 │   ├── wei_real_PLD001_3ev.json   # 魏 D4 真实 run：PLD-001 三事件 + 未提及/待复核异常态（异常汇总条演示）
 │   ├── wei_real_PLD005_release.json # 魏 D4 真实 run：E01 质押 + E02 解除质押（direction=release 渲染）
-│   └── wei_real_D4_scan.json      # 魏 D4 真实扫描件 run：14 字段全 unreadable（无法读取全量场景，09-30 晚补）
+│   ├── wei_real_D4_scan.json      # 魏 D4 真实扫描件 run：14 字段全 unreadable（无法读取全量场景，09-30 晚补）
+│   ├── wei_real_eqc_001..010.json # 魏 D5 真实 equity_change 批次 batch-20261002T120859 十份信封（契约问题清零，含多事件 001×5 / 002×3）
+│   └── wei_real_eqc_XXX.check.json # 上列十份的同名 sidecar：方 equity_check_D5 v0.5.0 旁路核验报告（冲突码/复核码，不进下拉）
 ├── public/                 # 前端（原生 ES Modules，无构建步骤）
 │   ├── index.html          # 三栏页面骨架：上传 / 结果 / 证据
 │   ├── css/
@@ -44,10 +46,10 @@ page_prototype/
 │       ├── status.js       # 状态枚举单一事实源（成功/失败/无法读取/待复核/模拟）
 │       └── render/         # 渲染器（注册式，可扩展新栏/新视图）
 │           ├── upload.js     # 栏一：上传（D1 仅入口；真实解析属 D2）
-│           ├── results.js    # 栏二：事件卡片 + 字段表 + 证据锚点（v0.3 事件类型/字段注册表 + 口径标注）
+│           ├── results.js    # 栏二：事件卡片 + 字段表 + 证据锚点（v0.3 注册表 + 口径标注 + D5 股权变动前后对比块/分母口径/方冲突码）
 │           └── evidences.js  # 栏三：证据列表 + 高亮联动（含表格证据 table_id/cell_ref）
 └── demo/
-    └── 使用演示.md          # 完整使用 demo（9 个演示）：统一样例 D4-PLD-001 全链路/异常汇总条/导出/扫描降级/扩展/remote/自检
+    └── 使用演示.md          # 完整使用 demo（10 个演示）：统一样例全链路/异常汇总条/导出/扫描降级/扩展/remote/自检/股权变动对比页（真实批次+方冲突码）
 ```
 
 ## 架构（三条缝，扩展不动骨架）

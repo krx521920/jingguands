@@ -43,7 +43,15 @@ tr.flash > td { animation: rowFlash 1.2s ease-out 1; }
 .cmp-val.after { font-weight: 700; }
 .cmp-arrow { color: var(--muted); }
 .cmp-delta { font-size: 12px; color: var(--muted); margin-left: auto; font-family: Consolas, monospace; }
-.cmp-conflict { color: #b02a0c; background: #fdecec; border: 1px solid #eeb4b4; border-radius: 4px; padding: 4px 8px; font-size: 12.5px; font-weight: 600; line-height: 1.5; }
+.cmp-denominator { font-size: 12px; color: var(--muted); }
+/* D5：核验结果（方 equity_check_D5 冲突码 / 页面侧同码兜底） */
+.cmp-conflicts-label { font-size: 12px; font-weight: 700; color: var(--muted); margin-top: 2px; }
+.cmp-conflicts { display: flex; flex-direction: column; gap: 4px; }
+.cmp-conflict { border-radius: 4px; padding: 4px 8px; font-size: 12.5px; line-height: 1.5; }
+.cmp-conflict.sev-conflict, .cmp-conflict.sev-error { color: #b02a0c; background: #fdecec; border: 1px solid #eeb4b4; font-weight: 600; }
+.cmp-conflict.sev-review { color: #7a5b00; background: #fff8e6; border: 1px solid #f0d48a; }
+.cmp-code { font-family: Consolas, monospace; font-weight: 700; margin-right: 6px; }
+.cmp-fields { color: var(--muted); font-size: 11.5px; font-family: Consolas, monospace; }
 .ev-item.ev-degraded { border-left: 3px solid #e3b341; background: #fffdf5; }
 .ev-note { font-size: 12px; color: #6b6b6b; margin: 2px 0 0 2px; }
 .ev-note.warn { color: #a05a00; }

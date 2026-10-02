@@ -125,13 +125,23 @@ function checkIntegrity(events, evidences) {
   return { ok: !issues.some(i => i.level === "error"), issues };
 }
 
-/** 魏文宇事件信封 v0.3 → 契约 v0.3（字段只增不改）。 */
+/** 魏文宇事件信封 v0.3 → 契约 v0.3（字段只增不改）。
+ *  D5 增补：up.check_report（方的 equity_check_D5 旁路核验报告）→ 事件挂 checks[]，契约挂 check_report 全文。 */
 function fromWeiEnvelope(up) {
   const notes = [];
   const evidences = [];
   const events = [];
 
-  for (const ev of up.events || []) {
+  // 方冲突码报告：按 event_id / event_index 建索引（信封内事件 id 可重复于多文件合并场景，索引优先）
+  const checksBy = new Map();
+  if (up.check_report && Array.isArray(up.check_report.events)) {
+    for (const c of up.check_report.events) {
+      if (typeof c.event_index === "number") checksBy.set("#" + c.event_index, c);
+      if (c.event_id) checksBy.set(c.event_id, c);
+    }
+  }
+
+  up.events.forEach((ev, evIndex) => {
     const out = {
       event_id: ev.event_id,
       event_type: ev.event_type,             // v0.3：pledge | equity_change | award_contract（bid_won 已改名）
@@ -139,6 +149,11 @@ function fromWeiEnvelope(up) {
       fields: {}
     };
     if (ev.extraction_method) out.extraction_method = ev.extraction_method;
+
+    // 方核验 findings 挂事件（code/severity/fields/message 原样，不猜测不翻译码值）
+    const c = checksBy.get(ev.event_id) ?? checksBy.get("#" + evIndex);
+    if (c && Array.isArray(c.findings) && c.findings.length) out.checks = c.findings;
+    if (c && c.calculations) out.check_calculations = c.calculations;
 
     for (const [name, fv] of Object.entries(ev.fields || {})) {
       const override = WEI_STATUS_MAP[fv.status];
@@ -191,7 +206,7 @@ function fromWeiEnvelope(up) {
     const ov = Object.values(out.fields).map(f => f.status_override);
     if (ov.includes("unreadable") || ov.includes("pending_review")) out.status = "pending_review";
     events.push(out);
-  }
+  });
 
   const contract = {
     run_id: up.run_id || "wei-run-0001",
@@ -213,6 +228,7 @@ function fromWeiEnvelope(up) {
   };
   if (up.run_meta) contract.run_meta = up.run_meta;
   if (up.source?.parse_meta) contract.source_file.parse_meta = up.source.parse_meta;
+  if (up.check_report) contract.check_report = up.check_report;   // D5：方 equity_check_D5 旁路报告全文（只增不改）
   contract.integrity = checkIntegrity(events, evidences);   // D3：断链/错位自检
   return contract;
 }
