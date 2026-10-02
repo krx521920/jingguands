@@ -261,7 +261,12 @@ for (const file of files) {
     caseId = name.replace(/\.raw\.json$/, '')
   } else if (/\.json$/i.test(name)) {
     const fx = fixtureToText(file, join(batchDir, 'inputs'))
-    if (fx === null) { console.log(`[跳过] ${name}：非评测样例格式`); continue }
+    if (fx === null) {
+      // 失败计数闭环：无法识别的文件不得从分母中消失——记 skipped
+      console.log(`[跳过] ${name}：非评测样例格式`)
+      results.push({ case: name.replace(/\.json$/i, ''), event_type: eventType, file: name, run_id: null, ok: false, status: 'skipped', skip_reason: '非评测样例格式（JSON 无 pages[].text 且非解析块格式）' })
+      continue
+    }
     runArgs = ['--input', fx.input, '--event-type', eventType]
     caseId = fx.caseId
     rawText = fx.text
@@ -279,15 +284,22 @@ for (const file of files) {
   const entry = { case: caseId, event_type: eventType, file: name, run_id: runId, ok: proc.status === 0 && runId !== null }
   if (!entry.ok) entry.output_tail = out.split('\n').slice(-6).join('\n')
   if (runId !== null) {
-    const events = JSON.parse(readFileSync(join(REPO_ROOT, 'runs', runId, 'events.json'), 'utf8'))
-    const statusCount = {}
-    for (const ev of events.events ?? []) for (const fv of Object.values(ev.fields ?? {})) statusCount[fv.status] = (statusCount[fv.status] ?? 0) + 1
-    entry.status_count = statusCount
-    entry.validation_errors = events.run_meta?.errors?.length ?? 0
-    if (args.gold && goldMap.has(caseId)) {
-      const cmp = compareWithGold(events, goldMap.get(caseId).gold, rawText)
-      entry.gold = cmp.metrics
-      entry.gold_rows = cmp.rows.filter((r) => r.verdict !== 'MATCH')
+    // 失败隔离：单文件产物损坏/不可读不得炸整批——按失败记录后继续
+    try {
+      const events = JSON.parse(readFileSync(join(REPO_ROOT, 'runs', runId, 'events.json'), 'utf8'))
+      const statusCount = {}
+      for (const ev of events.events ?? []) for (const fv of Object.values(ev.fields ?? {})) statusCount[fv.status] = (statusCount[fv.status] ?? 0) + 1
+      entry.status_count = statusCount
+      entry.validation_errors = events.run_meta?.errors?.length ?? 0
+      if (args.gold && goldMap.has(caseId)) {
+        const cmp = compareWithGold(events, goldMap.get(caseId).gold, rawText)
+        entry.gold = cmp.metrics
+        entry.gold_rows = cmp.rows.filter((r) => r.verdict !== 'MATCH')
+      }
+    } catch (err) {
+      entry.ok = false
+      entry.status = 'failed'
+      entry.skip_reason = `产物不可读/损坏：${String(err.message).slice(0, 120)}`
     }
   }
   results.push(entry)

@@ -1,0 +1,46 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "advscan01",
+    "file_id": "sha256:advscan01",
+    "file_name": "pledge-scan-degrade.pdf",
+    "file_sha256": "advscan01",
+    "page_count": 1
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "SCANNED",
+      "width": 595,
+      "height": 842,
+      "blocks": [
+        {
+          "block_id": "advscan01_p001_b00001",
+          "doc_id": "advscan01",
+          "page": 1,
+          "type": "scan_region",
+          "source_type": "scan_region",
+          "role": "figure",
+          "text": "",
+          "text_raw": "",
+          "region": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "degraded": true,
+          "missing_reason": "scanned_no_text"
+        }
+      ]
+    }
+  ],
+  "reading_order": [
+    "advscan01_p001_b00001"
+  ],
+  "quality": {
+    "degrade_reasons": [
+      "all_pages_scanned"
+    ]
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261002T120959-pledge-f39d",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:1e5e73361091ce50",
+    "file_name": "D4-PLD-010.txt",
+    "file_sha256": "1e5e73361091ce50d89fb1292bd4d086379fd87b407dc53bd30badefa8cfa7c8",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "质押",
+          "value": "pledge",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "广弘元将其持有的本公司5,200,000股无限售流通股份质押给中信银行股\n份有限公司宁波分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "广弘元",
+          "value": "广弘元",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "广弘元将其持有的本公司5,200,000股无限售流通股份质押给中信银行股\n份有限公司宁波分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "中信银行宁波分行",
+          "value": "中信银行宁波分行",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "中信银行宁波分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "5,200,000股",
+          "value": 5200000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "广弘元将其持有的本公司5,200,000股无限售流通股份质押给中信银行股\n份有限公司宁波分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "15,200,000股",
+          "value": 15200000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "本次质押后，广弘元累计质押股份数量为15,200,000股（含本次）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "10.09%",
+          "value": 10.09,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "10.09%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "1.99%",
+          "value": 1.99,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "1.99%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "29.48%",
+          "value": 29.48,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占\n其持股数量的比例为29.48%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "5.81%",
+          "value": 5.81,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占公司总股本的比例为5.81%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026年9月21日",
+          "value": "2026-09-21",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月21日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "至办理解除质押登记手续之日止",
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "needs_review",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "至办理解除质押登记手续之日止"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "质押担保",
+          "value": "质押担保",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "质押担保"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月25日",
+          "value": "2026-09-25",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月25日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-02T12:09:59.989Z",
+    "duration_ms": 3840,
+    "code_version": "37afd2e3",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

@@ -7,10 +7,73 @@
  * D2 计划：接入解析（DocumentIR blocks→provenance）与标准化接口，模型调用改走 ctx.llm。
  * 契约文档：interface/README.md；机器可校验版本：interface/event-envelope.schema.json。
  * v0.3：中标事件改名 award_contract；分母枚举 holder_shares/total_share_capital/net_assets/other。
+ * v0.4（2026-10-02，评测方反馈"工具仍返回模拟骨架"）：mode 默认 real——委托
+ * scripts/jingguan/run_extract.mjs（已验证 30 份 ×100% 的真实抽取管线，含宗 D5 冻结口径
+ * 确定性规则、方标准化、块级/单元格级出处、扫描降级）；mode="mock" 保留 D1 骨架联调行为。
  */
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
 import { defineTool } from '@deepseek-ai/dsh-tools'
+import { spawn } from 'node:child_process'
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { dirname, join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+/** 定位真实抽取 CLI（src/ 与 lib/ 两种安装形态向上查找仓库根）。 */
+function resolveExtractorCli(): string {
+  const here = dirname(fileURLToPath(import.meta.url))
+  let dir = here
+  for (let i = 0; i < 8; i++) {
+    const cand = resolve(dir, 'scripts/jingguan/run_extract.mjs')
+    if (existsSync(cand)) return cand
+    const parent = dirname(dir)
+    if (parent === dir) break
+    dir = parent
+  }
+  throw new Error('未找到 scripts/jingguan/run_extract.mjs：真实抽取 CLI 不在预期位置（应在仓库根 scripts/ 下）')
+}
+
+/** 调 CLI 抽取并读取信封；CLI 的 stdout 含 "runs/<run_id>/events.json" 行用于定位产物。 */
+async function extractViaCli(documentText: string, eventType: EventType, runId: string): Promise<EventEnvelope> {
+  const apiKey = process.env.JINGGUAN_LLM_API_KEY ?? process.env.DEEPSEEK_API_KEY
+  if (!apiKey) {
+    throw new Error('真实抽取需要模型密钥：请设置 JINGGUAN_LLM_API_KEY（或 DEEPSEEK_API_KEY），或改用 mode="mock" 联调接口结构')
+  }
+  const cli = resolveExtractorCli()
+  const tmpDir = mkdtempSync(join(tmpdir(), 'jingguan-tool-'))
+  const inputFile = join(tmpDir, `${runId}.txt`)
+  writeFileSync(inputFile, documentText, 'utf8')
+  try {
+    const envelope = await new Promise<EventEnvelope>((resolvePromise, rejectPromise) => {
+      const child = spawn(process.execPath, [cli, '--input', inputFile, '--event-type', eventType, '--out-dir', join(tmpDir, 'runs')], {
+        env: process.env, stdio: ['ignore', 'pipe', 'pipe'],
+      })
+      let stdout = ''
+      let stderr = ''
+      const timer = setTimeout(() => { child.kill(); rejectPromise(new Error('真实抽取超时（>300 秒），已终止子进程')) }, 300_000)
+      child.stdout.on('data', (d: Buffer) => { stdout += d.toString() })
+      child.stderr.on('data', (d: Buffer) => { stderr += d.toString() })
+      child.on('error', (err) => { clearTimeout(timer); rejectPromise(err) })
+      child.on('close', (code) => {
+        clearTimeout(timer)
+        const m = [...stdout.matchAll(/runs[\\/](\S+?)[\\/]events\.json/g)].pop()
+        if (code !== 0 || m === undefined) {
+          rejectPromise(new Error(`抽取 CLI 失败（exit=${code}）：${(stderr || stdout).split('\n').filter(Boolean).slice(-3).join(' | ').slice(0, 300)}`))
+          return
+        }
+        try {
+          resolvePromise(JSON.parse(readFileSync(join(tmpDir, 'runs', m[1], 'events.json'), 'utf8')) as EventEnvelope)
+        } catch (err) {
+          rejectPromise(new Error(`信封产物不可读：${String(err)}`))
+        }
+      })
+    })
+    return envelope
+  } finally {
+    rmSync(tmpDir, { recursive: true, force: true })
+  }
+}
 
 /** Stable Loader identity. */
 export const name = 'jingguan-core'
@@ -197,32 +260,34 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
 
 /**
  * 注册 jingguan_extract_events 工具。
- * D1 行为：按事件类型返回全 not_mentioned 的 v0.2 信封骨架并做结构校验，
- * 供会话内联调接口契约；真实模型抽取自 D2 起接入。
+ * v0.4 行为：mode 缺省 "real"——委托 scripts/jingguan/run_extract.mjs 做真实抽取
+ * （模型调用＋方标准化＋宗 D5 冻结口径确定性规则＋块级/单元格级出处＋扫描降级），
+ * 返回真实 v0.3 信封与结构校验问题清单；mode="mock" 返回 D1 全 not_mentioned 骨架（接口联调）。
  */
 export function apply(ctx: Context, config: Config): void {
   configStrict = config.strict
   ctx.tools.register(defineTool({
     name: 'jingguan_extract_events',
-    description: '按事件 JSON 接口 v0.3 生成公告事件的信封骨架并校验结构。'
-      + '输入公告文本与事件类型（pledge/equity_change/award_contract），返回注册表全字段的 not_mentioned 骨架；'
-      + '字段抽取与模型调用自 D2 版本接入。',
+    description: '从公告正文抽取结构化事件（pledge/equity_change/award_contract），返回事件 JSON 接口 v0.3 信封＋结构校验问题。'
+      + 'mode="real"（默认）走真实抽取管线：模型调用＋数值/日期标准化＋出处回填（quote 锚定原文块，表格证据带 table_id/cell_ref）；'
+      + '需设置 JINGGUAN_LLM_API_KEY（或 DEEPSEEK_API_KEY）。mode="mock" 返回全 not_mentioned 骨架供接口联调。',
     parameters: {
-      document_text: { type: 'string', required: true, description: '公告正文文本（D1 为纯文本，D2 起支持解析块）' },
+      document_text: { type: 'string', required: true, description: '公告正文文本' },
       event_type: { type: 'string', required: true, description: 'pledge | equity_change | award_contract' },
       run_id: { type: 'string', description: '调用方指定的运行 ID；缺省自动生成' },
+      mode: { type: 'string', description: 'real（默认，真实抽取） | mock（骨架联调）' },
     },
     output: {
       schema: {
         type: 'object', additionalProperties: false,
         properties: {
-          envelope: { type: 'object', description: 'v0.3 事件信封' },
-          issues: { type: 'array', items: { type: 'string' }, description: '结构校验问题清单' },
+          envelope: { type: 'object', description: 'v0.3 事件信封（is_mock 标注数据来源）' },
+          issues: { type: 'array', items: { type: 'string' }, description: '结构校验＋管线运行问题清单' },
         },
       },
       render: (_args, value) => [{
         type: 'text',
-        text: `v0.3 信封骨架已生成：${value.envelope.events.length} 个事件，校验问题 ${value.issues.length} 条`,
+        text: `v0.3 信封已生成（${value.envelope.is_mock ? 'mock 骨架' : '真实抽取'}）：${value.envelope.events.length} 个事件，问题 ${value.issues.length} 条`,
       }],
     },
     async execute(args) {
@@ -234,21 +299,30 @@ export function apply(ctx: Context, config: Config): void {
         throw new Error('document_text 不能为空')
       }
       const runId = args.run_id ?? `tool-${new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14)}`
-      const envelope: EventEnvelope = {
-        schema_version: '0.3',
-        run_id: runId,
-        is_mock: true,
-        source: { file_id: null, file_name: null, file_sha256: null, parse_meta: null },
-        events: [{
-          event_id: 'E01',
-          event_type: args.event_type as EventType,
-          fields: skeletonFields(args.event_type as EventType),
-          extraction_method: 'mock',
-          notes: 'D1 骨架：字段尚未抽取（not_mentioned），仅用于接口联调',
-        }],
-        run_meta: { entry: 'tool', model: null, started_at: new Date().toISOString(), duration_ms: 0, errors: [] },
+      const mode = args.mode ?? 'real'
+      if (mode !== 'real' && mode !== 'mock') {
+        throw new Error(`mode 必须是 real 或 mock，实际：${mode}`)
       }
-      const issues = validateEnvelope(envelope)
+      let envelope: EventEnvelope
+      if (mode === 'mock') {
+        envelope = {
+          schema_version: '0.3',
+          run_id: runId,
+          is_mock: true,
+          source: { file_id: null, file_name: null, file_sha256: null, parse_meta: null },
+          events: [{
+            event_id: 'E01',
+            event_type: args.event_type as EventType,
+            fields: skeletonFields(args.event_type as EventType),
+            extraction_method: 'mock',
+            notes: 'mock 骨架：字段未抽取（not_mentioned），仅用于接口联调',
+          }],
+          run_meta: { entry: 'tool', model: null, started_at: new Date().toISOString(), duration_ms: 0, errors: [] },
+        }
+      } else {
+        envelope = await extractViaCli(args.document_text, args.event_type as EventType, runId)
+      }
+      const issues = [...validateEnvelope(envelope), ...envelope.run_meta.errors]
       envelope.run_meta.errors = issues
       return { envelope, issues }
     },
