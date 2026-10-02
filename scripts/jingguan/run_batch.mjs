@@ -221,7 +221,12 @@ const results = []
 for (const file of files) {
   const name = basename(file)
   const eventType = inferEventType(name)
-  if (eventType === null) { console.log(`[跳过] ${name}：无法推断事件类型`); continue }
+  if (eventType === null) {
+    // D6 完成标准：失败/跳过的文件不可从报告分母中删除——记入 results 标记 skipped
+    console.log(`[跳过] ${name}：无法推断事件类型`)
+    results.push({ case: name.replace(/\.(parse\.)?json$/i, ''), event_type: '?', file: name, run_id: null, ok: false, status: 'skipped', skip_reason: '无法推断事件类型' })
+    continue
+  }
   let runArgs
   let caseId = null
   let rawText = null

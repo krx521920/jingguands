@@ -84,6 +84,24 @@
       "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-23/1225578115.PDF",
       "source_hash_sha256": "aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
       "announce_date": "2026-09-23"
+    },
+    {
+      "parse_file": "parse/bid-009.parse.json",
+      "case_id": "D6-AWD-017",
+      "event_type": "award_contract",
+      "company": "大丰实业",
+      "title": "浙江大丰实业股份有限公司关于项目中标的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-23/1225576929.PDF",
+      "source_hash_sha256": "3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956"
+    },
+    {
+      "parse_file": "parse/bid-010.parse.json",
+      "case_id": "D6-AWD-018",
+      "event_type": "award_contract",
+      "company": "飞南资源",
+      "title": "关于中标项目的公告",
+      "source_url": "http://static.cninfo.com.cn/finalpage/2026-09-23/1225576084.PDF",
+      "source_hash_sha256": "74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702"
     }
   ]
 }
