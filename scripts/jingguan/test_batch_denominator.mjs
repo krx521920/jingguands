@@ -47,12 +47,22 @@ writeFileSync(join(inputs, 'note-unknown-type.json'), JSON.stringify({
 const INPUT_COUNT = 7
 
 // ---------- 2. 跑批量（--mock：合法样例走 mock 抽取，无需密钥） ----------
-const before = new Set(readdirSync(join(REPO_ROOT, 'runs')))
+// 批次目录从 stdout 的 "[报告] runs/batch-XXX/batch_report.md" 行解析——秒级时间戳同名碰撞时
+// 前后 diff 会漏检（步骤3/4 的批次落在同一秒即同名合并），stdout 是确定性来源
+const batchDirFromStdout = (out) => {
+  const ms = [...String(out ?? '').matchAll(/\[报告\] runs[\\/]([^\\/]+)/g)]
+  return ms.length > 0 ? ms[ms.length - 1][1].replace(/[\\/].*$/, '').trim() : null
+}
+const madeBatches = []
+const madeRunIds = []
+const runsBefore = new Set(readdirSync(join(REPO_ROOT, 'runs')))
 const r1 = spawnSync(process.execPath, ['scripts/jingguan/run_batch.mjs', inputs, '--mock'], { cwd: REPO_ROOT, encoding: 'utf8' })
 check(r1.status === 0 || r1.status === 1, `批量进程异常退出（status=${r1.status}）：${(r1.stderr ?? '').slice(-200)}`) // exit 1＝设计内失败信号，非崩溃
-const created = readdirSync(join(REPO_ROOT, 'runs')).filter((d) => d.startsWith('batch-') && !before.has(d))
-check(created.length === 1, `应恰好产出 1 个批次目录，实际 ${created.length}`)
-const report = JSON.parse(readFileSync(join(REPO_ROOT, 'runs', created[0], 'batch_report.json'), 'utf8'))
+const batch1 = batchDirFromStdout(r1.stdout)
+check(batch1 !== null, '未能从 stdout 解析出批次目录（run_batch 输出格式变更？）')
+if (batch1 !== null) madeBatches.push(batch1)
+const report = JSON.parse(readFileSync(join(REPO_ROOT, 'runs', batch1, 'batch_report.json'), 'utf8'))
+for (const c of report.results) if (c.run_id) madeRunIds.push(c.run_id)
 
 // ---------- 3. 分母断言 ----------
 check(report.results.length === INPUT_COUNT, `分母丢失：输入 ${INPUT_COUNT} 个文件，results 仅 ${report.results.length} 条`)
@@ -86,11 +96,12 @@ check(patched !== batchSrc, 'RUNNER 常量替换失败（run_batch.mjs 结构变
 const testCopy = join(REPO_ROOT, 'scripts/jingguan', '.tmp_denom_batch.mjs')
 writeFileSync(testCopy, patched, 'utf8')
 try {
-  const before2 = new Set(readdirSync(join(REPO_ROOT, 'runs')))
   const r2 = spawnSync(process.execPath, [testCopy, inputs, '--mock'], { cwd: REPO_ROOT, encoding: 'utf8' })
   check(r2.status === 0 || r2.status === 1, `产物损坏场景：批次进程不应崩溃（status=${r2.status}）：${(r2.stderr ?? '').split('\n').filter(Boolean).slice(-2).join(' | ')}`)
-  const created2 = readdirSync(join(REPO_ROOT, 'runs')).filter((d) => d.startsWith('batch-') && !before2.has(d))
-  const report2 = JSON.parse(readFileSync(join(REPO_ROOT, 'runs', created2[0], 'batch_report.json'), 'utf8'))
+  const batch2 = batchDirFromStdout(r2.stdout)
+  check(batch2 !== null, '产物损坏场景：未能从 stdout 解析出批次目录')
+  if (batch2 !== null && !madeBatches.includes(batch2)) madeBatches.push(batch2)
+  const report2 = JSON.parse(readFileSync(join(REPO_ROOT, 'runs', batch2, 'batch_report.json'), 'utf8'))
   check(report2.results.length === INPUT_COUNT, `产物损坏场景分母丢失：${report2.results.length}/${INPUT_COUNT}`)
   const valid2 = report2.results.find((c) => c.case === 'pledge-valid')
   check(valid2 !== undefined && valid2.ok === false, '产物损坏场景：合法样例应记 failed（而非崩溃或成功）')
@@ -99,10 +110,17 @@ try {
   rmSync(testCopy, { force: true })
 }
 
-// ---------- 5. 清理本测试产生的批次目录与临时目录 ----------
-const after = readdirSync(join(REPO_ROOT, 'runs')).filter((d) => (d.startsWith('batch-') || d.startsWith('FAKE')) && !before.has(d) && !before.has('FAKE-CORRUPT-PRODUCT'))
-for (const d of after) rmSync(join(REPO_ROOT, 'runs', d), { recursive: true, force: true })
-rmSync(TMP, { recursive: true, force: true })
+// ---------- 5. 清理（process exit 钩子：快照对比清扫，账本式清理对时间戳碰撞免疫） ----------
+process.on('exit', () => {
+  try {
+    for (const d of readdirSync(join(REPO_ROOT, 'runs'))) {
+      if (!runsBefore.has(d) && (/^batch-/.test(d) || /^\d{8}T/.test(d) || /^FAKE/.test(d))) {
+        rmSync(join(REPO_ROOT, 'runs', d), { recursive: true, force: true })
+      }
+    }
+  } catch { /* 清理尽力而为，不影响测试结论 */ }
+  rmSync(TMP, { recursive: true, force: true })
+})
 
 // ---------- 结果 ----------
 if (issues.length === 0) {
