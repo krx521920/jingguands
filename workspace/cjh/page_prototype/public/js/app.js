@@ -1,6 +1,6 @@
 // app.js —— 装配入口：模式横幅 → 数据集选择 → 三栏渲染
 import { fetchDatasets, fetchResult } from "./adapter.js";
-import { initUpload, renderSourceFile, clearUpload } from "./render/upload.js";
+import { initUpload, uploadBatch, renderBatchReport, renderPendingFiles, renderProgress, renderSourceFile, clearUpload } from "./render/upload.js";
 import { renderResults, clearResults } from "./render/results.js";
 import { renderEvidences, focusEvidence, clearEvidences } from "./render/evidences.js";
 
@@ -54,15 +54,9 @@ function resetAll() {
 async function boot() {
   // 数据集下拉（由 server 的 /api/datasets 动态列举 data/*.json）
   try {
-    const { datasets } = await fetchDatasets();
-    const sel = $("datasetSel");
-    for (const d of datasets) {
-      const opt = document.createElement("option");
-      opt.value = d; opt.textContent = d;
-      sel.append(opt);
-    }
-    sel.addEventListener("change", () => loadDataset(sel.value));
-    if (datasets.length) await loadDataset(datasets[0]);   // 启动即加载首个数据集
+    await refreshDatasets();
+    $("datasetSel").addEventListener("change", () => loadDataset($("datasetSel").value));
+    if ($("datasetSel").options.length) await loadDataset($("datasetSel").value);   // 启动即加载首个数据集
   } catch (e) {
     console.error("boot failed:", e);
   }
@@ -72,13 +66,41 @@ async function boot() {
   $("exportCsvBtn").addEventListener("click", () => exportDataset("csv"));     // D3：导出
   $("exportJsonBtn").addEventListener("click", () => exportDataset("json"));
 
-  // 本地文件上传：D1 只读文本内容做长度占位，真实解析走 D2（对接张的解析结果）
-  initUpload(async f => {
-    if (f.name.endsWith(".txt")) {
-      const text = await f.text();
-      console.log(`[D1 占位] 本地读取 ${f.name}：${text.length} 字符（真实解析属 D2）`);
+  // D6 批量上传闭环：选文件 → 进度条 → 服务端校验/过桥/落数据集 → 失败列表 → 自动加载首个成功数据集
+  initUpload(async files => {
+    const list = $("fileList");
+    renderPendingFiles(list, files);
+    try {
+      const report = await uploadBatch(files, pct => renderProgress(list, pct));
+      renderBatchReport(list, report);
+      await refreshDatasets();                       // 新数据集进下拉
+      const firstOk = report.results.find(r => r.ok);
+      if (firstOk) {                                 // 真实闭环：上传成功即展示（结果/证据/对比同源生效）
+        $("datasetSel").value = firstOk.dataset;
+        await loadDataset(firstOk.dataset);
+      }
+    } catch (e) {
+      list.replaceChildren();
+      const err = document.createElement("div");
+      err.className = "up-failures";
+      err.textContent = "⚠ 上传失败：" + e.message;
+      list.append(err);
     }
   });
+}
+
+/** 重建数据集下拉（保留当前选中项）。 */
+async function refreshDatasets() {
+  const { datasets } = await fetchDatasets();
+  const sel = $("datasetSel");
+  const prev = sel.value;
+  sel.replaceChildren();
+  for (const d of datasets) {
+    const opt = document.createElement("option");
+    opt.value = d; opt.textContent = d;
+    sel.append(opt);
+  }
+  if (prev && datasets.includes(prev)) sel.value = prev;
 }
 
 boot();

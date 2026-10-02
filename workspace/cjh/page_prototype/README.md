@@ -17,7 +17,7 @@ node server.js
 
 ```
 page_prototype/
-├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式，读数自动过转接口）+ /api/export（D3：JSON/CSV 导出）
+├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式，读数自动过转接口）+ /api/export（D3：JSON/CSV 导出）+ /api/upload（D6：批量上传，坏文件进失败列表）+ /api/upload/log（D6：上传日志下载）
 ├── bridge/
 │   └── upstream_bridge.js  # 转接口（D2/D3）：上游格式（方口径记录 / 魏事件信封 v0.3b）→ 契约；完整性断链检查；未知格式透传留痕
 ├── package.json            # scripts: start / demo（仅声明，无需 install）
@@ -45,7 +45,7 @@ page_prototype/
 │       ├── adapter.js      # 数据源适配层（前端不感知 mock/remote）
 │       ├── status.js       # 状态枚举单一事实源（成功/失败/无法读取/待复核/模拟）
 │       └── render/         # 渲染器（注册式，可扩展新栏/新视图）
-│           ├── upload.js     # 栏一：上传（D1 仅入口；真实解析属 D2）
+│           ├── upload.js     # 栏一：批量上传（D6 闭环：多文件 + 进度条 + 失败列表 + 日志下载；坏文件永远可见）
 │           ├── results.js    # 栏二：事件卡片 + 字段表 + 证据锚点（v0.3 注册表 + 口径标注 + D5 股权变动前后对比块/分母口径/方冲突码）
 │           └── evidences.js  # 栏三：证据列表 + 高亮联动（含表格证据 table_id/cell_ref）
 └── demo/
@@ -60,6 +60,7 @@ page_prototype/
       ▼                                            ▼
 ┌─────────────────────── server.js /api ───────────────────────┐
 │  /api/datasets（列举）  /api/result?dataset=x  /api/export（D3）│
+│  /api/upload（D6 批量上传）  /api/upload/log（D6 日志下载）      │
 │           bridge/upstream_bridge.js：上游格式 → 契约 + 断链自检  │
 └──────────────────────────────┬───────────────────────────────┘
                                ▼

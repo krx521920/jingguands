@@ -46,9 +46,9 @@
 - [x] JSON/CSV 导出：`/api/export?dataset=x&format=json|csv`（与 result 同路径同桥；CSV 18 列 + BOM + RFC4180）；前端"导出 CSV/JSON"按钮
 - [x] 证据锚点升级：`证据 ev-0001 · 表格#r2c1`；证据栏显示出处类型中文
 - [x] 自测：桥 5 项（含故意破坏检测）+ server 冒烟（6 数据集 CSV 全 200、JSON 导出逐字节一致、路径注入 400）+ 前端 3 模块语法
-- [ ] 给魏确认：CSV 状态列字段级口径（`status_raw` 保留 6 态）是否符合其统计需要 → **已关闭（领导 09-29 21:47：无需转告，附加内容仅为页面侧判断）**
+- [x] 给魏确认：CSV 状态列字段级口径（`status_raw` 保留 6 态）是否符合其统计需要 → **已关闭（领导 09-29 21:47：无需转告，附加内容仅为页面侧判断）**
 - [ ] 张的 `continues` 跨页续表拼接 → D4 做（页面先忠实展示不拼接）
-- [ ] award_contract 14 字段中文注册表 → D6 前补
+- [x] award_contract 14 字段中文注册表 → **已补（10-02 晚）**：FIELD_TEXT 按 v0.3c 权威清单补齐（consortium 拆分为 members/shares + contract_signed / formal_award_notice_received / price_adjustment_status / recognized_revenue；旧字段名 consortium 保留兼容）
 
 ## 1d. D4（今天 09-30）TODO —— 证据查看与异常状态页面
 
@@ -70,7 +70,7 @@
 - [x] **冲突提示**（只比对页面内自有字段，不猜测）：① 勾稽——变动后−变动前 ≠ 变动股数（0.5 股容差）；② 方向核对——increase/decrease 与前后值大小关系矛盾；③ 比例变动方向与股数方向相反 → 提示"可能存在总股本变动，建议人工复核"（不判错，增发/回购合法）
 - [x] **mock 数据集升级**：`data/share_change.json` 从 D1 旧字段（share_change/change_reason，契约 v0.1）重写为魏 v0.3 信封格式 equity_change 三事件（is_mock:true）：D5-EQC-M01 增持（勾稽一致）、D5-EQC-M02 减持（勾稽一致）、D5-EQC-M03 故意构造变动股数冲突（演示冲突提示）；事件号带 M 前缀，明确区别于魏的真实 D5-EQC-001..010
 - [x] 自测：桥 11/11 数据集全过；server 端到端（/api/result share_change 200 三事件 dir=increase、/api/export CSV 28 行含 EQC）
-- [ ] **仍待魏（阻塞项 1）**：干净十份批次发布 + D5-EQC-002/007 修复后，真实 D5-EQC-001..010 run 落 `data/`（或走 remote 模式）即可直接消费——页面侧已就绪，无需再改代码
+- [x] ~~仍待魏（阻塞项 1）~~ → **已解决（10-02）**：魏干净批次 `batch-20261002T120859` 已发布（D5-EQC-002/007 已修），十份真实信封已接入 `data/wei_real_eqc_001..010.json`，页面零改动消费（见 §1f）
 
 ## 1f. D6（10-02）TODO —— 真实股权变动页面闭环（领导晨会清单逐项收口，"拉取最新码"）
 
@@ -83,7 +83,18 @@
 - [x] **证据展开验证（脚本断言）**：十份真实信封全部字段"有值必有出处、证据引用必存在、quote 必非空"零失败；integrity 全 ok；桥 20/20 数据集通过
 - [x] **server e2e**：21 数据集（.check.json 不进下拉）；`/api/result wei_real_eqc_003` → mode=real + check_report(tool=equity_check_D5) + ev.checks=MISSING_SHARE_PAIR,MISSING_RATIO_PAIR；eqc_006 → EQUAL_SHARES_NO_DIRECTION,RATIO_CHANGED_WITH_EQUAL_SHARES；CSV 导出 200
 - [x] 方核验实测（npx tsx 跑 equity_check_D5）：001/002/007/008/009 verified；003 前后值不全；006 股数相等但比例变化；004/005/010 UNCONFIRMED_FIELD+MISSING_OR_INVALID_PERIOD；**clean 批次零 conflict 级 finding**
-- [ ] 方 equity_output_D5.json / README_D5.md 快照 → `_ref_*`（本轮只取了核验模块源码；正式快照待下轮补）
+- [x] 方 D5 快照 → `_ref_*`：`_ref_fang_D5_README.md` / `_ref_fang_D5_equity_output.json` / `_ref_fang_D5_equity_check_src.ts`（核验模块源码 v0.5.0，此前只在临时目录，本轮正式入库）
+
+## 1g. D6（10-02 晚）批量上传闭环 —— 领导截图差距项逐条收口（"快快快补全"）
+
+截图差距项四件套 + D3 遗留上传回调，全部实现并 e2e 12/12 通过：
+
+- [x] **批量上传**：`POST /api/upload`（零依赖 multipart 解析，多文件）——逐文件"JSON 校验 → 过桥干跑（toContract）→ 落数据集"；同名再传自动改名 `-2/-3` 不覆盖
+- [x] **进度**：XHR upload.onprogress 字节级总进度条（`up-progress`）
+- [x] **失败列表**：坏文件（坏 JSON / 非 JSON / 缺 events / 过桥失败）**每条都在批次报告里，绝不消失**（对应领导复盘优先修复项 1）——红色置顶块 + 明确失败原因
+- [x] **日志下载**：`logs/upload_log.jsonl`（JSONL 逐文件一行，含 batch_id/size/error）+ `GET /api/upload/log` 附件下载；页面报告底部与上传区 hint 均有入口
+- [x] **真实上传闭环（D3 遗留，原 D1 占位"只读文本长度打印日志"作废）**：上传成功 → 自动刷新下拉 → 首个成功数据集自动加载 → 栏二结果/栏三证据/股权对比同源生效
+- [x] e2e（临时脚本，4 文件批次）：好信封 ok+事件数上报；坏 JSON/非 JSON/缺 events 三种失败原因各自明确；落数据集后 `/api/result` 可加载；下拉自动进新数据集；同名查重改名；日志 5 行含失败项 —— **12/12 PASS**；测试残留已清（data/good_envelope*、logs/）
 
 ## 2. 待确认区（阻塞于交流数据 / 待拍板文件，等总体完成后统一请领导确认）
 

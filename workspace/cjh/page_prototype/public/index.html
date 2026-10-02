@@ -21,10 +21,10 @@
     <h2>① 上传</h2>
     <div class="body">
       <div class="drop" id="drop">
-        <div>点击或拖入公告文件</div>
-        <div class="hint">支持 .txt（D1 仅入口；.pdf/.docx 解析属 D2）</div>
+        <div>点击或拖入事件信封（可多选 / 整批拖入）</div>
+        <div class="hint">支持 .json 信封批量上传 · 坏文件进失败列表 · <a href="/api/upload/log" download="upload_log.jsonl">下载上传日志</a></div>
       </div>
-      <input type="file" id="fileInput" accept=".txt" hidden>
+      <input type="file" id="fileInput" accept=".json" multiple hidden>
       <div id="fileList"></div>
       <div class="dataset-row">
         <select id="datasetSel" class="sel"></select>

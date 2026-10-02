@@ -14,6 +14,8 @@ const { toContract } = require("./bridge/upstream_bridge.js");   // 转接口：
 const ROOT = __dirname;                       // 工程根（相对锚点）
 const PUBLIC_DIR = path.join(ROOT, "public");
 const DATA_DIR = path.join(ROOT, "data");
+const LOG_DIR = path.join(ROOT, "logs");      // D6：上传日志（JSONL，逐文件一行）
+const LOG_FILE = path.join(LOG_DIR, "upload_log.jsonl");
 
 const PORT = process.env.PORT || 8642;
 const DATA_SOURCE = process.env.DATA_SOURCE || "mock";        // mock | remote
@@ -144,6 +146,111 @@ function readDataset(dataset) {
   return toContract(parsed);
 }
 
+// ---- D6：批量上传闭环（零依赖 multipart/form-data 解析）----
+// 口径：每个文件独立入报告——坏文件（非 JSON / 缺 events / 过桥失败）也必须出现在失败列表，
+// 绝不允许"坏文件从批次报告消失"（D6 复盘优先修复项 1）。
+const UPLOAD_BATCH_ID = new Date().toISOString().replace(/[-:T]/g, "").slice(0, 14) + "-" + process.pid;
+
+/** 解析 multipart/form-data 请求体 → [{ filename, data(Buffer) }]。零依赖：按 boundary 手工切分。 */
+function parseMultipart(buf, contentType) {
+  const m = /boundary=(?:"([^"]+)"|([^;]+))/i.exec(contentType || "");
+  if (!m) { const e = new Error("multipart boundary missing"); e.code = "BAD_REQUEST"; throw e; }
+  const boundary = Buffer.from("--" + (m[1] || m[2]).trim());
+  const parts = [];
+  let pos = buf.indexOf(boundary);
+  while (pos !== -1) {
+    const next = buf.indexOf(boundary, pos + boundary.length);
+    if (next === -1) break;
+    // part 内容：跳过 boundary 行的 \r\n，去掉结尾 \r\n
+    const chunk = buf.subarray(pos + boundary.length + 2, next - 2);
+    const headerEnd = chunk.indexOf("\r\n\r\n");
+    if (headerEnd !== -1) {
+      const headers = chunk.subarray(0, headerEnd).toString("utf8");
+      const body = chunk.subarray(headerEnd + 4);
+      const fn = /filename="([^"]*)"/i.exec(headers);
+      if (fn) parts.push({ filename: fn[1], data: body });
+    }
+    pos = next;
+  }
+  return parts;
+}
+
+/** 文件名 → 安全数据集名：非 [a-z0-9_-] 归一为 -，与 /api/result 的名称校验对齐。 */
+function safeDatasetName(filename) {
+  return path.basename(filename).replace(/\.json$/i, "").replace(/[^a-zA-Z0-9_-]+/g, "-").replace(/^-+|-+$/g, "").toLowerCase() || "upload";
+}
+
+/** 数据集名查重：data/ 下已存在则追加 -2、-3…，绝不静默覆盖既有数据集。 */
+function dedupeDatasetName(base) {
+  if (!fs.existsSync(path.join(DATA_DIR, base + ".json"))) return base;
+  for (let i = 2; ; i++) if (!fs.existsSync(path.join(DATA_DIR, base + "-" + i + ".json"))) return base + "-" + i;
+}
+
+/** 单文件入账：校验 → 过桥 → 落 data/。返回报告条目（ok 或失败原因，二者必有其一）。 */
+function processUploadFile(filename, data) {
+  const entry = { filename, size: data.length, batch_id: UPLOAD_BATCH_ID, ts: new Date().toISOString() };
+  try {
+    if (!/\.json$/i.test(filename)) entry.error = "仅接受 .json 信封文件";
+    if (!entry.error && (!data || data.length === 0)) entry.error = "空文件";
+    if (!entry.error) {
+      const parsed = JSON.parse(data.toString("utf8"));   // 坏 JSON 在此显式失败并进报告
+      if (!Array.isArray(parsed.events)) entry.error = "缺少 events 数组（非事件信封）";
+      else if (!parsed.schema_version) entry.error = "缺少 schema_version";
+      if (!entry.error) {
+        toContract(parsed);   // 过桥干跑：转换失败即上传失败（真实闭环的校验闸门）
+        const dataset = dedupeDatasetName(safeDatasetName(filename));
+        fs.writeFileSync(path.join(DATA_DIR, dataset + ".json"), JSON.stringify(parsed, null, 2) + "\n");
+        entry.ok = true;
+        entry.dataset = dataset;
+        entry.events = parsed.events.length;
+      }
+    }
+  } catch (e) {
+    entry.error = e instanceof SyntaxError ? "JSON 解析失败：" + e.message.slice(0, 160) : String(e.message || e).slice(0, 160);
+  }
+  appendUploadLog(entry);
+  return entry;
+}
+
+/** 上传日志：JSONL 追加（逐文件一行，含失败项），供 /api/upload/log 下载。 */
+function appendUploadLog(entry) {
+  try {
+    if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR, { recursive: true });
+    fs.appendFileSync(LOG_FILE, JSON.stringify(entry) + "\n");
+  } catch { /* 日志落盘失败不阻塞上传响应 */ }
+}
+
+function handleUpload(req, res) {
+  const ct = req.headers["content-type"] || "";
+  if (!/multipart\/form-data/i.test(ct)) return sendJSON(res, 400, { error: "content-type must be multipart/form-data" });
+  const chunks = [];
+  req.on("data", c => chunks.push(c));
+  req.on("end", () => {
+    let parts;
+    try { parts = parseMultipart(Buffer.concat(chunks), ct); }
+    catch (e) { return sendJSON(res, 400, { error: e.message }); }
+    if (!parts.length) return sendJSON(res, 400, { error: "no file part in request" });
+    const results = parts.map(p => processUploadFile(p.filename, p.data));   // 坏文件也进报告
+    const ok = results.filter(r => r.ok).length;
+    sendJSON(res, 200, {
+      batch_id: UPLOAD_BATCH_ID, total: results.length, ok, failed: results.length - ok,
+      log: "/api/upload/log",
+      results
+    });
+  });
+  req.on("error", () => sendJSON(res, 500, { error: "upload stream error" }));
+}
+
+/** 上传日志下载：text/plain 附件（逐行 JSONL，可直接人工排查失败原因）。 */
+function handleUploadLog(res) {
+  if (!fs.existsSync(LOG_FILE)) {
+    res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8", "Content-Disposition": 'attachment; filename="upload_log.jsonl"' });
+    return res.end("(空) 尚无上传记录\n");
+  }
+  res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8", "Content-Disposition": 'attachment; filename="upload_log.jsonl"' });
+  res.end(fs.readFileSync(LOG_FILE));
+}
+
 function handleApi(req, res, urlObj) {
   if (urlObj.pathname === "/api/datasets") {
     return sendJSON(res, 200, { source: DATA_SOURCE, datasets: listDatasets() });
@@ -163,6 +270,12 @@ function handleApi(req, res, urlObj) {
   }
   if (urlObj.pathname === "/api/export") {
     return handleExport(res, urlObj, readDataset);   // D3：导出当前数据集为 JSON/CSV（与页面同源同桥）
+  }
+  if (urlObj.pathname === "/api/upload" && req.method === "POST") {
+    return handleUpload(req, res);                   // D6：批量上传（坏文件进失败列表，不消失）
+  }
+  if (urlObj.pathname === "/api/upload/log") {
+    return handleUploadLog(res);                     // D6：上传日志下载
   }
   sendJSON(res, 404, { error: "unknown api" });
 }

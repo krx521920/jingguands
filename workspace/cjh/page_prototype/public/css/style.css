@@ -72,6 +72,19 @@ main { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 14px; padding: 
 .drop:hover, .drop.over { border-color: var(--accent); background: var(--accent-weak); }
 .drop .hint { font-size: 12px; margin-top: 6px; }
 .file-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; margin-top: 10px; flex-wrap: wrap; }
+
+/* ---- D6 批量上传：进度条 / 批次摘要 / 失败列表 / 日志入口 ---- */
+.up-progress { height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; margin: 10px 0 2px; }
+.up-progress-inner { height: 100%; width: 0; background: var(--accent); border-radius: 3px; transition: width .15s; }
+.up-summary { margin-top: 10px; }
+.up-badge { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 4px; padding: 2px 10px; }
+.up-badge-ok { background: #eef4ee; color: #2f6b34; border: 1px solid #bcd4bd; }
+.up-badge-fail { background: #fdecec; color: #b02a0c; border: 1px solid #eeb4b4; }
+.up-failures { border: 1px solid #eeb4b4; background: #fdecec; border-radius: 6px; padding: 8px 10px; margin-top: 10px; }
+.up-failures-head { font-size: 12.5px; font-weight: 700; color: #b02a0c; margin-bottom: 6px; }
+.up-fail-row { font-size: 12.5px; color: #8a1f06; line-height: 1.55; word-break: break-all; }
+.up-log-row { margin-top: 10px; font-size: 12.5px; }
+.up-log-row a { color: var(--accent); }
 .dataset-row { display: flex; gap: 8px; margin-top: 14px; }
 .sel { flex: 1; border: 1px solid var(--border); border-radius: 6px; padding: 7px 8px; font-size: 13px; background: #fff; }
 .btn { display: inline-block; border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: 6px; padding: 7px 14px; font-size: 13px; cursor: pointer; margin-top: 0; }

@@ -21,10 +21,15 @@ export const FIELD_TEXT = {
   holder: "变动股东", direction: "业务方向", shares_before: "变动前持股", shares_after: "变动后持股",
   ratio_before: "变动前比例", ratio_after: "变动后比例", change_shares: "变动股数", method: "变动方式",
   change_date: "变动完成日",
-  // —— award_contract 中标/合同签署（9 字段，v0.3 由 bid_won 改名）——
+  // —— award_contract 中标/合同签署（14 字段：10 必选＋4 专业边界可选，v0.3c 权威清单）——
+  // 专业边界语义：bid_amount（合同金额）≠ recognized_revenue（当期收入）；调价 not_disclosed ≠ 固定价格
   bidder: "中标人", tenderer: "招标人", project_name: "项目名称", bid_amount: "中标金额",
-  currency: "币种", tax_included: "是否含税", duration: "工期", consortium: "联合体及份额",
-  bid_date: "中标/公告日期"
+  currency: "币种", tax_included: "是否含税", duration: "工期",
+  consortium_members: "联合体成员名单", consortium_shares: "联合体份额",
+  consortium: "联合体及份额",   // v0.3b 前旧字段名（consortium 拆分前的历史数据兼容）
+  bid_date: "中标/公告日期",
+  contract_signed: "是否已签署合同", formal_award_notice_received: "是否收到正式中标通知书",
+  price_adjustment_status: "调价条款状态", recognized_revenue: "当期确认收入"
 };
 
 // D2 转接口附带的口径标记（qualifier/scope → 中文；分母；标准化值）
