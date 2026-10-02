@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T134137-equity_change-ca04",
+  "run_id": "20261002T051211-equity_change-9e41",
   "is_mock": false,
   "source": {
     "file_id": "sha256:31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
@@ -2548,18 +2548,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d31d2e428_p007_b00023",
-              "page": 7,
+              "block_id": "d31d2e428_p001_b00004",
+              "page": 1,
               "region": [
-                89.75,
-                657.84,
-                205.55,
-                681.34
+                114.12,
+                280.49,
+                349.44,
+                317.88
               ],
-              "table_id": "d31d2e428_p007_t001",
-              "cell_ref": "r3c1",
-              "source_type": "cell",
-              "quote": "RONGJIANLU（陆荣健）"
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "信息披露义务人：RONGJIANLU（陆荣健）"
             }
           ],
           "denominator": null,
@@ -2575,11 +2575,16 @@
             {
               "block_id": "d31d2e428_p007_b00011",
               "page": 7,
-              "region": null,
+              "region": [
+                114,
+                444.29,
+                505.32,
+                456.29
+              ],
               "table_id": null,
               "cell_ref": null,
-              "source_type": null,
-              "quote": "减少"
+              "source_type": "paragraph",
+              "quote": "持有公司股份数量由21,743,750"
             }
           ],
           "denominator": null,
@@ -2718,17 +2723,22 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d31d2e428_p007_b00013",
-              "page": 7,
-              "region": null,
+              "block_id": "d31d2e428_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                350.69,
+                511.32,
+                388.08
+              ],
               "table_id": null,
               "cell_ref": null,
-              "source_type": null,
-              "quote": "集中竞价、大宗交易"
+              "source_type": "paragraph",
+              "quote": "持股比例被动稀释及股份减少（集中竞价、大宗交易）"
             }
           ],
           "denominator": null,
-          "note": "［措辞归一：集中竞价、大宗交易→集中竞价及大宗交易］"
+          "note": null
         },
         "change_date": {
           "raw_value": "2026年8月7日至2026年9月28日",
@@ -2763,11 +2773,10 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T13:41:37.071Z",
-    "duration_ms": 3204,
-    "errors": [
-      "[解析] events[0].fields.direction.provenance[0]: quote 不是块 d31d2e428_p007_b00011 text_raw 的子串",
-      "[解析] events[0].fields.method.provenance[0]: quote 不是块 d31d2e428_p007_b00013 text_raw 的子串"
-    ]
+    "started_at": "2026-10-02T05:12:11.461Z",
+    "duration_ms": 3130,
+    "code_version": "af42d88c",
+    "interface_version": "v0.3",
+    "errors": []
   }
 }

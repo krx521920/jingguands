@@ -1,24 +1,24 @@
 {
   "upstream_branch": "weiwenyu",
-  "upstream_commit": "55fd805dc30d317f18dae2fcae80f70845e481cf",
-  "upstream_batch": "runs/batch-20261001T134046",
+  "upstream_commit": "932f1dc9f0695e2e06cb138aad770d40c2a75265",
+  "upstream_batch": "runs/batch-20261002T051119",
   "baseline_reason": "Selected as the highest-accuracy observed ten-document batch; the newer 20261001T135159 and 20261001T135902 batches regressed and are recorded separately.",
   "documents_compared": 10,
   "gold_documents": 10,
   "gold_events": 16,
-  "upstream_events": 18,
+  "upstream_events": 16,
   "aligned_events": 16,
-  "exact_key_matches": 15,
-  "fallback_matches": 1,
+  "exact_key_matches": 16,
+  "fallback_matches": 0,
   "missing_events": 0,
-  "extra_events": 2,
-  "gold_extracted_fields": 133,
-  "value_hits": 128,
-  "field_accuracy": 0.9624,
-  "status_differences": 4,
-  "wrong_filled": 4,
+  "extra_events": 0,
+  "gold_extracted_fields": 137,
+  "value_hits": 137,
+  "field_accuracy": 1,
+  "status_differences": 0,
+  "wrong_filled": 0,
   "missing_values": 0,
-  "result": "DIFF",
+  "result": "MATCH",
   "cases": [
     {
       "case_id": "D5-EQC-001",
@@ -39,57 +39,18 @@
     {
       "case_id": "D5-EQC-002",
       "gold_events": 3,
-      "upstream_events": 5,
+      "upstream_events": 3,
       "aligned_events": 3,
       "exact_key_matches": 3,
       "fallback_matches": 0,
       "missing_events": 0,
-      "extra_events": 2,
-      "extracted_fields": 23,
-      "value_hits": 23,
-      "status_diffs": 4,
-      "wrong_filled": 4,
+      "extra_events": 0,
+      "extracted_fields": 27,
+      "value_hits": 27,
+      "status_diffs": 0,
+      "wrong_filled": 0,
       "missing_values": 0,
-      "differences": [
-        {
-          "event_id": "E02",
-          "field": "shares_after",
-          "verdict": "WRONG_FILLED",
-          "gold": "not_mentioned",
-          "upstream": "extracted"
-        },
-        {
-          "event_id": "E02",
-          "field": "ratio_after",
-          "verdict": "WRONG_FILLED",
-          "gold": "not_mentioned",
-          "upstream": "extracted"
-        },
-        {
-          "event_id": "E03",
-          "field": "shares_after",
-          "verdict": "WRONG_FILLED",
-          "gold": "not_mentioned",
-          "upstream": "extracted"
-        },
-        {
-          "event_id": "E03",
-          "field": "ratio_after",
-          "verdict": "WRONG_FILLED",
-          "gold": "not_mentioned",
-          "upstream": "extracted"
-        },
-        {
-          "event_id": "E02",
-          "verdict": "EXTRA_EVENT",
-          "key": "马军强|decrease|14410068"
-        },
-        {
-          "event_id": "E04",
-          "verdict": "EXTRA_EVENT",
-          "key": "杨占坡|decrease|3684053"
-        }
-      ]
+      "differences": []
     },
     {
       "case_id": "D5-EQC-003",
@@ -133,19 +94,11 @@
       "missing_events": 0,
       "extra_events": 0,
       "extracted_fields": 8,
-      "value_hits": 7,
+      "value_hits": 8,
       "status_diffs": 0,
       "wrong_filled": 0,
       "missing_values": 0,
-      "differences": [
-        {
-          "event_id": "E01",
-          "field": "method",
-          "verdict": "VALUE_DIFF",
-          "gold": "公开征集协议转让",
-          "upstream": "公开征集转让方式协议转让"
-        }
-      ]
+      "differences": []
     },
     {
       "case_id": "D5-EQC-006",
@@ -157,64 +110,27 @@
       "missing_events": 0,
       "extra_events": 0,
       "extracted_fields": 9,
-      "value_hits": 8,
+      "value_hits": 9,
       "status_diffs": 0,
       "wrong_filled": 0,
       "missing_values": 0,
-      "differences": [
-        {
-          "event_id": "E01",
-          "field": "method",
-          "verdict": "VALUE_DIFF",
-          "gold": "可转债转股被动稀释",
-          "upstream": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释"
-        }
-      ]
+      "differences": []
     },
     {
       "case_id": "D5-EQC-007",
       "gold_events": 1,
       "upstream_events": 1,
       "aligned_events": 1,
-      "exact_key_matches": 0,
-      "fallback_matches": 1,
+      "exact_key_matches": 1,
+      "fallback_matches": 0,
       "missing_events": 0,
       "extra_events": 0,
       "extracted_fields": 9,
-      "value_hits": 6,
+      "value_hits": 9,
       "status_diffs": 0,
       "wrong_filled": 0,
       "missing_values": 0,
-      "differences": [
-        {
-          "event_id": "E01",
-          "verdict": "IDENTITY_DIFF",
-          "alignment": "single_event_fallback",
-          "gold_key": "红豆集团有限公司及其一致行动人|decrease|1325635213",
-          "upstream_key": "红豆集团有限公司|decrease|1325635213"
-        },
-        {
-          "event_id": "E01",
-          "field": "holder",
-          "verdict": "VALUE_DIFF",
-          "gold": "红豆集团有限公司及其一致行动人",
-          "upstream": "红豆集团有限公司"
-        },
-        {
-          "event_id": "E01",
-          "field": "method",
-          "verdict": "VALUE_DIFF",
-          "gold": "司法拍卖被动减持",
-          "upstream": "司法拍卖"
-        },
-        {
-          "event_id": "E01",
-          "field": "change_date",
-          "verdict": "VALUE_DIFF",
-          "gold": "2026-09-29",
-          "upstream": "2026-09-20/2026-09-21"
-        }
-      ]
+      "differences": []
     },
     {
       "case_id": "D5-EQC-008",

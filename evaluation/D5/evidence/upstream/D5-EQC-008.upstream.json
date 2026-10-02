@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T134134-equity_change-8f8a",
+  "run_id": "20261002T051208-equity_change-69de",
   "is_mock": false,
   "source": {
     "file_id": "sha256:af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695",
@@ -2432,17 +2432,30 @@
           "block_id": "daf34725a_p014_b00002",
           "page": 14,
           "role": "BODY",
-          "text": "一、备查文件1、信息披露义务人1、2的注册证书及商业登记证；",
-          "text_raw": "一、备查文件1、信息披露义务人1、2的注册证书及商业登记证；",
+          "text": "1、信息披露义务人1、2的注册证书及商业登记证；",
+          "text_raw": "1、信息披露义务人1、2的注册证书及商业登记证；",
           "region": [
             90,
-            155.69,
+            179.09,
             365.4,
             193.08
           ]
         },
         {
           "block_id": "daf34725a_p014_b00003",
+          "page": 14,
+          "role": "SECTION",
+          "text": "一、备查文件",
+          "text_raw": "一、备查文件",
+          "region": [
+            90,
+            155.69,
+            162.24,
+            167.69
+          ]
+        },
+        {
+          "block_id": "daf34725a_p014_b00004",
           "page": 14,
           "role": "BODY",
           "text": "2、信息披露义务人3的身份证明文件；",
@@ -2455,20 +2468,33 @@
           ]
         },
         {
-          "block_id": "daf34725a_p014_b00004",
+          "block_id": "daf34725a_p014_b00005",
           "page": 14,
           "role": "BODY",
-          "text": "二、备查文件置备地点1、地点：公司董事会办公室",
-          "text_raw": "二、备查文件置备地点1、地点：公司董事会办公室",
+          "text": "1、地点：公司董事会办公室",
+          "text_raw": "1、地点：公司董事会办公室",
           "region": [
             90,
-            249.29,
+            272.69,
             240,
             286.68
           ]
         },
         {
-          "block_id": "daf34725a_p014_b00005",
+          "block_id": "daf34725a_p014_b00006",
+          "page": 14,
+          "role": "SECTION",
+          "text": "二、备查文件置备地点",
+          "text_raw": "二、备查文件置备地点",
+          "region": [
+            90,
+            249.29,
+            210.48,
+            261.29
+          ]
+        },
+        {
+          "block_id": "daf34725a_p014_b00007",
           "page": 14,
           "role": "BODY",
           "text": "2、电话：021-62109966",
@@ -2481,7 +2507,7 @@
           ]
         },
         {
-          "block_id": "daf34725a_p014_b00006",
+          "block_id": "daf34725a_p014_b00008",
           "page": 14,
           "role": "FOOTER",
           "text": "14",
@@ -3262,13 +3288,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "daf34725a_p009_b00003",
+              "block_id": "daf34725a_p009_b00004",
               "page": 9,
-              "region": null,
+              "region": [
+                90,
+                186.89,
+                506.04,
+                247.68
+              ],
               "table_id": null,
               "cell_ref": null,
-              "source_type": null,
-              "quote": "增持"
+              "source_type": "paragraph",
+              "quote": "价交易方式增持彤程新材H股股份733,400股"
             }
           ],
           "denominator": null,
@@ -3393,14 +3424,14 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "733,400股"
+              "quote": "价交易方式增持彤程新材H股股份733,400股"
             }
           ],
           "denominator": null,
           "note": null
         },
         "method": {
-          "raw_value": "集中竞价交易",
+          "raw_value": "通过联交所集中竞价交易方式增持",
           "value": "集中竞价交易",
           "unit": "text",
           "standardized": true,
@@ -3409,11 +3440,16 @@
             {
               "block_id": "daf34725a_p009_b00003",
               "page": 9,
-              "region": null,
+              "region": [
+                114,
+                163.49,
+                505.32,
+                177.48
+              ],
               "table_id": null,
               "cell_ref": null,
-              "source_type": null,
-              "quote": "集中竞价交易"
+              "source_type": "paragraph",
+              "quote": "通过联交所集中竞"
             }
           ],
           "denominator": null,
@@ -3442,7 +3478,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "［单位修正：date→date_range（注册表规定）］"
         }
       },
       "extraction_method": "model",
@@ -3452,11 +3488,10 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T13:41:34.105Z",
-    "duration_ms": 2862,
-    "errors": [
-      "[解析] events[0].fields.direction.provenance[0]: quote 不是块 daf34725a_p009_b00003 text_raw 的子串",
-      "[解析] events[0].fields.method.provenance[0]: quote 不是块 daf34725a_p009_b00003 text_raw 的子串"
-    ]
+    "started_at": "2026-10-02T05:12:08.359Z",
+    "duration_ms": 2956,
+    "code_version": "af42d88c",
+    "interface_version": "v0.3",
+    "errors": []
   }
 }

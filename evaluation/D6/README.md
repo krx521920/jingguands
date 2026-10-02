@@ -10,24 +10,17 @@
 - 结构、单位、字段注册和出处校验：PASS。
 - 统一30份开发集：质押10 + 股权变动10 + 中标10。
 
-## 数据入口
+## Gold构建说明
 
-- 本类型Manifest：`dev/manifest.json`
-- 原始出处包：`dev/raw/D6-AWD-*.raw.json`
-- Gold：`dev/gold/D6-AWD-*.envelope.json`
-- 统一30份Manifest：`../dev-30/manifest.json`
-- 分类型基线报告：`../dev-30/baseline-report.md`
+- `D6-AWD-001..008`：基于已提交上游真实信封冻结，并逐字段核对原文块和契约。
+- `D6-AWD-009..010`：直接按原文块手工标注。
+- `D6-AWD-002 E03/E04`的`formal_award_notice_received`按原文未说明处理为`not_mentioned`。
 
-## Gold construction note
+## 最新上游对拍
 
-- `D6-AWD-001..008`: Gold candidates frozen from the committed upstream real envelopes, then checked field-by-field against source blocks and the contract registry.
-- `D6-AWD-009..010`: manually annotated from source blocks because no committed upstream real run exists yet.
-- This distinction matters: 8/10 have model-output coverage; 10/10 have Gold/evidence coverage.
-## 当前上游覆盖
-
-- 已提交的上游真实输出覆盖`D6-AWD-001..008`。
-- `D6-AWD-009`（大丰实业，3项目）和`D6-AWD-010`（飞南资源，单一中标）已完成Gold与证据校验，但仍待上游补跑真实模型批次。
-- 已对拍的8份中标文档：13个事件、92个有值字段，当前全部MATCH。
+- 最新批次：`runs/batch-20261002T051220`。
+- 10/10文档、17/17事件、118/118有值字段、0校验问题、MATCH。
+- `true/false`文本型布尔值按语义归一后比较。
 
 ## 验证
 

@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094735-award_contract-6f21",
+  "run_id": "20261002T051245-award_contract-833b",
   "is_mock": false,
   "source": {
     "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
@@ -1090,20 +1090,6 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d0be9f419_p001_b00002",
-              "page": 1,
-              "region": [
-                166.2,
-                117.08,
-                423.1,
-                162.19
-              ],
-              "table_id": null,
-              "cell_ref": null,
-              "source_type": "paragraph",
-              "quote": "武汉"
-            },
-            {
               "block_id": "d0be9f419_p001_b00009",
               "page": 1,
               "region": [
@@ -1115,7 +1101,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程"
+              "quote": "武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包"
             }
           ],
           "denominator": null,
@@ -1329,8 +1315,10 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:47:35.972Z",
-    "duration_ms": 3848,
+    "started_at": "2026-10-02T05:12:45.468Z",
+    "duration_ms": 4097,
+    "code_version": "af42d88c",
+    "interface_version": "v0.3",
     "errors": []
   }
 }

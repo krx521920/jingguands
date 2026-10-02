@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094748-award_contract-ce51",
+  "run_id": "20261002T051258-award_contract-cac7",
   "is_mock": false,
   "source": {
     "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
@@ -168,20 +168,6 @@
               "cell_ref": null,
               "source_type": "paragraph",
               "quote": "全资子公司江河幕墙中东工程"
-            },
-            {
-              "block_id": "d3a6938fe_p001_b00005",
-              "page": 1,
-              "region": [
-                90,
-                288.17,
-                517.32,
-                346.97
-              ],
-              "table_id": null,
-              "cell_ref": null,
-              "source_type": "paragraph",
-              "quote": "有限公司近日在中东迪拜中标WResidences幕墙工程"
             }
           ],
           "denominator": null,
@@ -248,7 +234,7 @@
           "note": "原文同时给出阿联酋迪拉姆金额及折合人民币金额，取折合人民币金额"
         },
         "currency": {
-          "raw_value": "人民币",
+          "raw_value": "阿联酋迪拉姆",
           "value": "CNY",
           "unit": "text",
           "standardized": true,
@@ -266,11 +252,11 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "折合人民币317,915,000元"
+              "quote": "173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "原文币种为阿联酋迪拉姆，折合人民币；bid_amount 取折合人民币金额，故 currency 记为 CNY"
         },
         "tax_included": {
           "raw_value": null,
@@ -300,7 +286,7 @@
           "status": "not_applicable",
           "provenance": [],
           "denominator": null,
-          "note": null
+          "note": "公告未提及联合体中标"
         },
         "consortium_shares": {
           "raw_value": null,
@@ -310,7 +296,7 @@
           "status": "not_applicable",
           "provenance": [],
           "denominator": null,
-          "note": null
+          "note": "公告未提及联合体中标"
         },
         "bid_date": {
           "raw_value": null,
@@ -341,7 +327,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "截至本公告披露日，公司尚未完成与相关方签订正式合同"
+              "quote": "公司尚未完成与相关方签订正式合同"
             }
           ],
           "denominator": null,
@@ -385,8 +371,10 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:47:48.790Z",
-    "duration_ms": 3274,
+    "started_at": "2026-10-02T05:12:58.449Z",
+    "duration_ms": 3502,
+    "code_version": "af42d88c",
+    "interface_version": "v0.3",
     "errors": []
   }
 }

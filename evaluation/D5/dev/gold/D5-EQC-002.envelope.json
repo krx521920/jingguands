@@ -354,14 +354,29 @@
           "note": null
         },
         "shares_after": {
-          "raw_value": null,
-          "value": null,
+          "raw_value": "11,042,217股",
+          "value": 11042217,
           "unit": "shares",
-          "standardized": false,
-          "status": "not_mentioned",
-          "provenance": [],
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d46bc2ef0_p017_b00008",
+              "source_type": "paragraph",
+              "page": 17,
+              "region": [
+                90.02,
+                285.18,
+                517.68,
+                344.76
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "11,042,217"
+            }
+          ],
+          "standardized": true,
           "denominator": null,
-          "note": null
+          "note": "Adjudication A: source explicitly discloses the concert party after value."
         },
         "ratio_before": {
           "raw_value": "17.12%",
@@ -389,14 +404,29 @@
           "note": null
         },
         "ratio_after": {
-          "raw_value": null,
-          "value": null,
+          "raw_value": "12.84%",
+          "value": 12.84,
           "unit": "percent",
-          "standardized": false,
-          "status": "not_mentioned",
-          "provenance": [],
-          "denominator": null,
-          "note": null
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d46bc2ef0_p017_b00008",
+              "source_type": "paragraph",
+              "page": 17,
+              "region": [
+                90.02,
+                285.18,
+                517.68,
+                344.76
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "12.84%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": "Denominator is the listed company total share capital."
         },
         "change_shares": {
           "raw_value": "3,680,700股",
@@ -557,14 +587,29 @@
           "note": null
         },
         "shares_after": {
-          "raw_value": null,
-          "value": null,
+          "raw_value": "1,848,404股",
+          "value": 1848404,
           "unit": "shares",
-          "standardized": false,
-          "status": "not_mentioned",
-          "provenance": [],
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d46bc2ef0_p017_b00008",
+              "source_type": "paragraph",
+              "page": 17,
+              "region": [
+                90.02,
+                285.18,
+                517.68,
+                344.76
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "1,848,404"
+            }
+          ],
+          "standardized": true,
           "denominator": null,
-          "note": null
+          "note": "Adjudication A: source explicitly discloses the concert party after value."
         },
         "ratio_before": {
           "raw_value": "3.71%",
@@ -592,14 +637,29 @@
           "note": null
         },
         "ratio_after": {
-          "raw_value": null,
-          "value": null,
+          "raw_value": "2.15%",
+          "value": 2.15,
           "unit": "percent",
-          "standardized": false,
-          "status": "not_mentioned",
-          "provenance": [],
-          "denominator": null,
-          "note": null
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d46bc2ef0_p017_b00008",
+              "source_type": "paragraph",
+              "page": 17,
+              "region": [
+                90.02,
+                285.18,
+                517.68,
+                344.76
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "2.15%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": "Denominator is the listed company total share capital."
         },
         "change_shares": {
           "raw_value": "1,341,600股",

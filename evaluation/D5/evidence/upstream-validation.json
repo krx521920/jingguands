@@ -1,62 +1,29 @@
 {
-  "checked_on": "2026-10-01",
+  "checked_on": "2026-10-02",
   "upstream_branch": "weiwenyu",
-  "upstream_commit": "55fd805dc30d317f18dae2fcae80f70845e481cf",
-  "best_observed_batch": {
-    "batch": "runs/batch-20261001T134046",
+  "upstream_commit": "932f1dc9f0695e2e06cb138aad770d40c2a75265",
+  "latest_batch": {
+    "batch": "runs/batch-20261002T051119",
     "documents": 10,
-    "gold_events": 16,
-    "matched_events": 16,
-    "field_value_hits": 128,
-    "gold_extracted_fields": 133,
-    "field_accuracy": 0.9624,
-    "wrong_filled": 6,
-    "validation_errors": 11,
-    "identity_fallback_events": 1,
-    "extra_events": 2,
-    "not_release_ready_reason": "Still has 11 contract-validation errors, two extra events in D5-EQC-002, and one event paired only by single-event fallback because the holder string differs in D5-EQC-007."
+    "events": "16/16",
+    "field_value_hits": 137,
+    "gold_extracted_fields": 137,
+    "field_accuracy": 1,
+    "validation_errors": 0,
+    "status_match_ratio": 1,
+    "result": "MATCH"
   },
-  "newest_batch": {
-    "batch": "runs/batch-20261001T135902",
-    "documents": 10,
-    "matched_events": 15,
-    "gold_events": 16,
-    "field_value_hits": 115,
-    "aligned_gold_extracted_fields": 124,
-    "field_accuracy_on_aligned": 0.9274,
-    "coverage_weighted_field_accuracy": 0.8647,
-    "validation_errors": 17,
-    "missing_events": 1,
-    "regression": "The newest batch still has a missing event, an extra event, 17 contract-validation errors, and lower field accuracy than 134046."
+  "adjudication": {
+    "case_id": "D5-EQC-002",
+    "decision": "A",
+    "meaning": "Concert-party shares_after and ratio_after are explicitly disclosed in the same sentence and must be extracted.",
+    "gold_updated": true
   },
-  "previous_latest_regression": {
-    "batch": "runs/batch-20261001T135159",
-    "field_value_hits": 116,
-    "aligned_gold_extracted_fields": 124,
-    "field_accuracy_on_aligned": 0.9355,
-    "validation_errors": 19,
-    "missing_events": 1
-  },
-  "best_batch_issue_cases": {
-    "D5-EQC-002": {
-      "wrong_filled": 4,
-      "extra_events": 2,
-      "notes": "shares_after/ratio_after in E02/E03 are wrongly filled; 马军强 and 杨占坡 appear as extra events."
-    },
-    "D5-EQC-005": {
-      "value_diff": 1,
-      "notes": "Canonical method remains 公开征集协议转让; the upstream phrase is a wording variant."
-    },
-    "D5-EQC-006": {
-      "value_diff": 1,
-      "notes": "Canonical method is 可转债转股被动稀释; the upstream sentence is semantically similar but not the frozen label."
-    },
-    "D5-EQC-007": {
-      "identity_fallback": 1,
-      "value_diffs": 3,
-      "notes": "Holdings are now canonicalized to 红豆集团有限公司及其一致行动人; method=司法拍卖被动减持; change_date uses the 2026-09-29 transfer-completion date."
-    }
-  },
-  "recommendation": "Use 134046 for diagnosis only; repair its 11 contract errors and D5-EQC-002/007 issues before calling D5 upstream integrated. The 135159 and 135902 batches are regressions and must not be used as the final baseline.",
-  "gold_decisions": "handoffs/D5-gold-decisions.md"
+  "historical_regressions": [
+    "runs/batch-20261001T134046",
+    "runs/batch-20261001T135159",
+    "runs/batch-20261001T135902"
+  ],
+  "gold_decisions": "handoffs/D5-gold-decisions.md",
+  "blocking": false
 }

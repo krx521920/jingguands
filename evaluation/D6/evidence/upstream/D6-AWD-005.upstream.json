@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094739-award_contract-a4c6",
+  "run_id": "20261002T051249-award_contract-a075",
   "is_mock": false,
   "source": {
     "file_id": "sha256:dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
@@ -1078,20 +1078,6 @@
               "cell_ref": null,
               "source_type": "paragraph",
               "quote": "承包方、乙方：吉峰三农科技服务股份有限公司、南京莱斯信息技术股份有"
-            },
-            {
-              "block_id": "ddd80cf89_p002_b00013",
-              "page": 2,
-              "region": [
-                90,
-                384.89,
-                378,
-                396.89
-              ],
-              "table_id": null,
-              "cell_ref": null,
-              "source_type": "paragraph",
-              "quote": "限公司、中国铁塔股份有限公司江苏省分公司联合体。"
             }
           ],
           "denominator": null,
@@ -1166,7 +1152,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致"
             }
           ],
           "denominator": null,
@@ -1191,7 +1177,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致"
             }
           ],
           "denominator": null,
@@ -1216,7 +1202,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致"
             }
           ],
           "denominator": null,
@@ -1266,7 +1252,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "公司作为联合体牵头人，与南京莱斯信息技术股份有限公司、中国铁塔股份有限公司江苏省分公司组成的联合体中标“宿城区低空全域智慧运营体系设备采购及配套服务项目”（以下简称“本项目”）。"
+              "quote": "与南京莱斯信息技术股份有限公司、中国铁塔股份有限公司江苏省分公司组成的联合体中标"
             }
           ],
           "denominator": null,
@@ -1311,7 +1297,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "股份有限公司江苏省分公司组成的联合体与发包人江苏众安建设投资（集团）有限公司正式签署了《采购合同》，合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+              "quote": "正式签署了《采购合同》"
             }
           ],
           "denominator": null,
@@ -1336,14 +1322,14 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "露了《关于项目中标结果公示并收到中标通知书的公告》（公告编号：2026-076）。"
+              "quote": "露了《关于项目中标结果公示并收到中标通知书的公告》"
             }
           ],
           "denominator": null,
           "note": null
         },
         "price_adjustment_status": {
-          "raw_value": "若在项目实施过程中甲方要求增加合同总价以外的项目，乙方实施前须递交书面申请（含单价、数量、原因），经甲方、监理单位核准后方可实施，最终价格以甲方审计结果为准。",
+          "raw_value": "若在项目实施过程中甲方要求增加合同总价以外的项目，乙方实施前须递交书面申请（含单价、数量、原因），经甲方、监理单位核准后方可实施，最终价格以甲方审计结果为准",
           "value": "adjustable",
           "unit": "text",
           "standardized": true,
@@ -1362,20 +1348,6 @@
               "cell_ref": null,
               "source_type": "paragraph",
               "quote": "若在项目实施过程中甲方要求增加合同总价以外的项目，乙方实施前须递交"
-            },
-            {
-              "block_id": "ddd80cf89_p003_b00007",
-              "page": 3,
-              "region": [
-                90,
-                381.89,
-                505.2,
-                417.29
-              ],
-              "table_id": null,
-              "cell_ref": null,
-              "source_type": "paragraph",
-              "quote": "书面申请（含单价、数量、原因），经甲方、监理单位核准后方可实施，最终价格以甲方审计结果为准。"
             }
           ],
           "denominator": null,
@@ -1399,8 +1371,10 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:47:39.919Z",
-    "duration_ms": 5000,
+    "started_at": "2026-10-02T05:12:49.697Z",
+    "duration_ms": 4608,
+    "code_version": "af42d88c",
+    "interface_version": "v0.3",
     "errors": []
   }
 }

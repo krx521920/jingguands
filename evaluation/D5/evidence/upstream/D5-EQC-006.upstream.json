@@ -1,10 +1,10 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T134126-equity_change-a06c",
+  "run_id": "20261002T051200-equity_change-ae05",
   "is_mock": false,
   "source": {
     "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
-    "file_name": "equity-006.pdf",
+    "file_name": "D5-EQC-006.pdf",
     "file_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
     "parse_meta": {
       "parser_version": "finstruct.parse/0.9.0",
@@ -1707,14 +1707,14 @@
           "note": null
         },
         "shares_before": {
-          "raw_value": "249,519,764",
+          "raw_value": "商晓波合计持有股份249,519,764…249,519,764",
           "value": 249519764,
           "unit": "shares",
-          "standardized": true,
           "status": "extracted",
           "provenance": [
             {
               "block_id": "d97e2cfab_p002_b00035",
+              "source_type": "cell",
               "page": 2,
               "region": [
                 211.9,
@@ -1724,37 +1724,37 @@
               ],
               "table_id": "d97e2cfab_p002_t001",
               "cell_ref": "r14c3",
-              "source_type": "cell",
               "quote": "249,519,764"
             }
           ],
+          "standardized": true,
           "denominator": null,
-          "note": "商晓波本次变动前合计持有股份"
+          "note": "［规则校正口径：被动稀释数量不变，表格明列牵头主体行变动前后股数（D5-GOLD-004）］"
         },
         "shares_after": {
-          "raw_value": "249,519,764",
+          "raw_value": "商晓波合计持有股份249,519,764…249,519,764",
           "value": 249519764,
           "unit": "shares",
-          "standardized": true,
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d97e2cfab_p002_b00037",
+              "block_id": "d97e2cfab_p002_b00035",
+              "source_type": "cell",
               "page": 2,
               "region": [
-                372.5,
+                211.9,
                 463.37,
-                471.4,
+                307.3,
                 483.62
               ],
               "table_id": "d97e2cfab_p002_t001",
-              "cell_ref": "r14c5",
-              "source_type": "cell",
+              "cell_ref": "r14c3",
               "quote": "249,519,764"
             }
           ],
+          "standardized": true,
           "denominator": null,
-          "note": "商晓波本次变动后合计持有股份"
+          "note": "［规则校正口径：被动稀释数量不变，表格明列牵头主体行变动前后股数（D5-GOLD-004）］"
         },
         "ratio_before": {
           "raw_value": "45.62%",
@@ -1829,11 +1829,11 @@
             }
           ],
           "denominator": null,
-          "note": "不涉及其持股数量的变化"
+          "note": "不涉及持股数量变化"
         },
         "method": {
-          "raw_value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释",
-          "value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释",
+          "raw_value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。",
+          "value": "可转债转股被动稀释",
           "unit": "text",
           "standardized": true,
           "status": "extracted",
@@ -1850,7 +1850,7 @@
               "table_id": "d97e2cfab_p002_t001",
               "cell_ref": "r9c3",
               "source_type": "cell",
-              "quote": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释"
+              "quote": "其他因可转债转股使公司总股本增加，导致股东持股比例被动稀释。"
             }
           ],
           "denominator": null,
@@ -1889,8 +1889,10 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T13:41:27.001Z",
-    "duration_ms": 2896,
+    "started_at": "2026-10-02T05:12:00.533Z",
+    "duration_ms": 3943,
+    "code_version": "af42d88c",
+    "interface_version": "v0.3",
     "errors": []
   }
 }

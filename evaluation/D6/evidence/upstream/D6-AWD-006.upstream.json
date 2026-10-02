@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T094745-award_contract-173c",
+  "run_id": "20261002T051254-award_contract-e870",
   "is_mock": false,
   "source": {
     "file_id": "sha256:fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
@@ -188,7 +188,7 @@
       "event_type": "award_contract",
       "fields": {
         "bidder": {
-          "raw_value": "上海同济建设有限公司",
+          "raw_value": "上海同济建设有限公司与上海天华建筑设计有限公司联合",
           "value": "上海同济建设有限公司",
           "unit": "text",
           "standardized": true,
@@ -210,7 +210,7 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "［口径精简：上海同济建设有限公司与上海天华建筑设计有限公司联合→上海同济建设有限公司（牵头方）］"
         },
         "tenderer": {
           "raw_value": "上海金滨海房地产开发有限公司",
@@ -256,7 +256,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "中标金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目"
+              "quote": "金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目"
             }
           ],
           "denominator": null,
@@ -288,7 +288,7 @@
           "note": null
         },
         "currency": {
-          "raw_value": "人民币",
+          "raw_value": "万元",
           "value": "CNY",
           "unit": "text",
           "standardized": true,
@@ -323,7 +323,7 @@
           "note": null
         },
         "duration": {
-          "raw_value": "750天",
+          "raw_value": "施工周期750天",
           "value": "750天",
           "unit": "text",
           "standardized": true,
@@ -345,10 +345,10 @@
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "［口径精简：施工周期750天→750天（工期分句/去标签前缀）］"
         },
         "consortium_members": {
-          "raw_value": "上海同济建设有限公司与上海天华建筑设计有限公司",
+          "raw_value": "上海同济建设有限公司与上海天华建筑设计有限公司联合",
           "value": "上海同济建设有限公司、上海天华建筑设计有限公司",
           "unit": "text",
           "standardized": true,
@@ -393,7 +393,7 @@
           "note": null
         },
         "contract_signed": {
-          "raw_value": "已完成合同签署",
+          "raw_value": "上海同济建设有限公司已完成合同签署",
           "value": "true",
           "unit": "text",
           "standardized": true,
@@ -436,7 +436,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "公司全资子公司上海同济建设有限公司收到上海金滨海房地产开发有限公"
+              "quote": "收到上海金滨海房地产开发有限公"
             }
           ],
           "denominator": null,
@@ -470,8 +470,10 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T09:47:45.022Z",
-    "duration_ms": 3637,
+    "started_at": "2026-10-02T05:12:54.436Z",
+    "duration_ms": 3900,
+    "code_version": "af42d88c",
+    "interface_version": "v0.3",
     "errors": []
   }
 }

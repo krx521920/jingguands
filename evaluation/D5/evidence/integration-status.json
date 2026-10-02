@@ -1,44 +1,12 @@
 {
-  "checked_on": "2026-10-01",
+  "checked_on": "2026-10-02",
   "evaluation_status": "complete",
   "integration_status": "blocked",
   "members": {
-    "weiwenyu": {
-      "status": "needs_fix",
-      "branch": "weiwenyu",
-      "commit": "55fd805dc30d317f18dae2fcae80f70845e481cf",
-      "best_batch": "runs/batch-20261001T134046",
-      "field_accuracy": 0.9624,
-      "validation_errors": 11,
-      "blocking": true,
-      "reason": "Best batch still has two extra events, one identity fallback, and 11 contract-validation errors; newest batch 135902 remains a regression."
-    },
-    "zhangzhibo": {
-      "status": "accepted",
-      "branch": "zhangzhibo",
-      "commit": "be86f4d9d61a2573f99ceb24402f2c2772260dab",
-      "documents_verified": 10,
-      "blocking": false,
-      "reason": "Official D5 parse package matches source hash, doc_id, page count, schema, and event count."
-    },
-    "fangxuancheng": {
-      "status": "accepted",
-      "branch": "feature/fang-rules",
-      "commit": "24d067abc8088f50c0919c12205f5e57be247aeb",
-      "blocking": false,
-      "reason": "D5 checker delivery hashes pass 12/12, CLI runs, 10/10 challenge cases pass, and Gold inputs remain unchanged."
-    },
-    "chenjiahui": {
-      "status": "partial",
-      "branch": "feature/chen-ui",
-      "commit": "13e12c0832b9e46918100d47356ad6a7256eab3f",
-      "blocking": true,
-      "reason": "D5 demo prep exists, but no real equity_change envelopes, increase/decrease rendering, or before/after conflict UI."
-    }
+    "weiwenyu": {"status": "accepted", "branch": "weiwenyu", "commit": "932f1dc9f0695e2e06cb138aad770d40c2a75265", "batch": "runs/batch-20261002T051119", "field_accuracy": 1.0, "validation_errors": 0, "blocking": false, "reason": "Latest ten-document batch matches the updated 137-field Gold with zero validation errors."},
+    "zhangzhibo": {"status": "accepted", "branch": "zhangzhibo", "commit": "be86f4d9d61a2573f99ceb24402f2c2772260dab", "documents_verified": 10, "blocking": false, "reason": "Official D5 parse package passes metadata/evidence checks."},
+    "fangxuancheng": {"status": "accepted", "branch": "feature/fang-rules", "commit": "24d067abc8088f50c0919c12205f5e57be247aeb", "blocking": false, "reason": "D5 checker passes 10/10 challenge cases and Gold inputs remain unchanged."},
+    "chenjiahui": {"status": "partial", "branch": "feature/chen-ui", "commit": "7cc470e4645ce9a50d5f3ef25282904274627c8c", "blocking": true, "reason": "D5 comparison page code is delivered, but independent runtime/acceptance verification is still pending."}
   },
-  "required_before_completion": [
-    "Wei publishes a clean ten-document batch with no extra events and no contract-validation errors.",
-    "Chen renders and verifies real before/after equity-change data.",
-    "Second-person review is recorded."
-  ]
+  "required_before_completion": ["Chen page smoke/acceptance test", "Second-person review record"]
 }

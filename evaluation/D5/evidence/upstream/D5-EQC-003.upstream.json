@@ -1,10 +1,10 @@
 {
   "schema_version": "0.3",
-  "run_id": "20261001T134117-equity_change-4ae9",
+  "run_id": "20261002T051150-equity_change-486d",
   "is_mock": false,
   "source": {
     "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
-    "file_name": "equity-003.pdf",
+    "file_name": "D5-EQC-003.pdf",
     "file_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
     "parse_meta": {
       "parser_version": "finstruct.parse/0.9.0",
@@ -8099,18 +8099,18 @@
           "status": "extracted",
           "provenance": [
             {
-              "block_id": "d173fee90_p018_b00013",
+              "block_id": "d173fee90_p018_b00014",
               "page": 18,
               "region": [
-                113.64,
-                537.89,
-                505.2,
-                551.88
+                90,
+                561.29,
+                511.08,
+                760.49
               ],
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "蔚文绪、马军强、杨占坡和蔚文举"
+              "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份"
             }
           ],
           "denominator": null,
@@ -8135,7 +8135,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "转让"
+              "quote": "转让给信息披露义务人于春生"
             }
           ],
           "denominator": null,
@@ -8147,9 +8147,24 @@
           "unit": "shares",
           "standardized": false,
           "status": "not_mentioned",
-          "provenance": [],
+          "provenance": [
+            {
+              "block_id": "d173fee90_p018_b00014",
+              "page": 18,
+              "region": [
+                90,
+                561.29,
+                511.08,
+                760.49
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合计持有的科创新材8,427,900股股份"
+            }
+          ],
           "denominator": null,
-          "note": null
+          "note": "［口径修正：该数值为合计变动量（与 change_shares 同源），多人合并事件无单一期初值→shares_before 置 not_mentioned］"
         },
         "shares_after": {
           "raw_value": null,
@@ -8167,9 +8182,24 @@
           "unit": "percent",
           "standardized": false,
           "status": "not_mentioned",
-          "provenance": [],
-          "denominator": null,
-          "note": null
+          "provenance": [
+            {
+              "block_id": "d173fee90_p018_b00014",
+              "page": 18,
+              "region": [
+                90,
+                561.29,
+                511.08,
+                760.49
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "占科创新材总股本的9.80%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": "［口径修正：该数值为合计变动量（与 change_shares 同源），多人合并事件无单一期初值→ratio_before 置 not_mentioned］"
         },
         "ratio_after": {
           "raw_value": null,
@@ -8200,7 +8230,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "8,427,900股"
+              "quote": "合计持有的科创新材8,427,900股股份"
             }
           ],
           "denominator": null,
@@ -8225,7 +8255,7 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "《股份转让协议》"
+              "quote": "分别签署了《股份转让协议》"
             }
           ],
           "denominator": null,
@@ -8234,7 +8264,7 @@
         "change_date": {
           "raw_value": "2026年9月23日",
           "value": "2026-09-23",
-          "unit": "date",
+          "unit": "date_range",
           "standardized": true,
           "status": "extracted",
           "provenance": [
@@ -8250,11 +8280,11 @@
               "table_id": null,
               "cell_ref": null,
               "source_type": "paragraph",
-              "quote": "2026年9月23日"
+              "quote": "2026年9月23日，信息披露义务人于春生与蔚文绪、马军强、杨占坡和蔚文举"
             }
           ],
           "denominator": null,
-          "note": null
+          "note": "［单位修正：date→date_range（注册表规定）］"
         }
       },
       "extraction_method": "model",
@@ -8264,11 +8294,10 @@
   "run_meta": {
     "entry": "cli",
     "model": "deepseek-chat",
-    "started_at": "2026-10-01T13:41:17.236Z",
-    "duration_ms": 2981,
-    "errors": [
-      "[降级] MIXED 文档：第 34 页为 SCANNED（无可读文本），仅从 TEXT 页抽取——扫描页上的事件可能缺失",
-      "[注册表] events[0].fields.change_date.unit 应为 \"date_range\"，实际 \"date\""
-    ]
+    "started_at": "2026-10-02T05:11:50.853Z",
+    "duration_ms": 2872,
+    "code_version": "af42d88c",
+    "interface_version": "v0.3",
+    "errors": []
   }
 }
