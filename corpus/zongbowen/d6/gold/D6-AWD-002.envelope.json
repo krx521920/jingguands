@@ -698,10 +698,10 @@
           "value": null,
           "unit": "text",
           "standardized": false,
-          "status": "not_disclosed",
+          "status": "not_mentioned",
           "provenance": [],
           "denominator": null,
-          "note": null
+          "note": "Source does not state whether the formal award notice was received for this project."
         },
         "price_adjustment_status": {
           "raw_value": null,
@@ -936,10 +936,10 @@
           "value": null,
           "unit": "text",
           "standardized": false,
-          "status": "not_disclosed",
+          "status": "not_mentioned",
           "provenance": [],
           "denominator": null,
-          "note": null
+          "note": "Source does not state whether the formal award notice was received for this project."
         },
         "price_adjustment_status": {
           "raw_value": null,
