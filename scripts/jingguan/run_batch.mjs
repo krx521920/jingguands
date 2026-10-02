@@ -167,10 +167,17 @@ function compareWithGold(mine, gold, goldText) {
     matched_events: 0,
   }
   if (goldEvents.length === 0 && mineEvents.length === 0) return { rows, metrics }
-  // 按自然键对齐（同键多事件按出现顺序配对）；名称形态容差：全称/简称互含视为同主体
+  // 按自然键对齐（同键多事件按出现顺序配对）；名称形态容差：全称/简称互含或子序列（"有格投资"⊂"有格创业投资有限公司"，简称常抽字而成非连续子串）
   const minePool = [...mineEvents]
   let sum = { goldExtracted: 0, hit: 0, wrongFilled: 0, statusMatch: 0, neutral: 0, goldUnsupported: 0, denom: 0 }
-  const sameName = (a, b) => a === b || (a.length >= 3 && b.length >= 3 && (a.includes(b) || b.includes(a)))
+  const subseq = (short, full) => { let i = 0; for (const ch of full) { if (ch === short[i]) i++ } return i === short.length }
+  const sameName = (a, b) => {
+    if (a === b) return true
+    if (a.length < 2 || b.length < 2) return false
+    if (a.includes(b) || b.includes(a)) return true
+    const [s2, f2] = a.length <= b.length ? [a, b] : [b, a]
+    return s2[0] === f2[0] && subseq(s2, f2)
+  }
   for (const gEv of goldEvents) {
     const key = eventKey(gEv)
     const gk = key.split('|')

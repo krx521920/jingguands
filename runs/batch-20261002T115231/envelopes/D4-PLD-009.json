@@ -1,0 +1,840 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261002T115317-pledge-0fd1",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:ee9b85734fc1c58c",
+    "file_name": "D4-PLD-009.txt",
+    "file_sha256": "ee9b85734fc1c58c7d563cea79ac220de69f911683f671f42b4e53e0d3f10e5b",
+    "parse_meta": {
+      "parser_version": null,
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "质押",
+          "value": "pledge",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "有格投资还办理了将1175万股质押给中国银河证券"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "有格投资",
+          "value": "有格投资",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "有格投资还办理了将1175万股质押给中国银河证券"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "中国银河证券股份有限公司",
+          "value": "中国银河证券股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "有格投资还办理了将1175万股质押给中国银河证券"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "11,750,000",
+          "value": 11750000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "11,750,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "33,344,000股",
+          "value": 33344000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "有格投资累计质押本公司股票合计33,344,000股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "3.65",
+          "value": 3.65,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "3.65"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "0.76",
+          "value": 0.76,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "0.76"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "10.36%",
+          "value": 10.36,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占其持有的本公司股份的10.36%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "2.15%",
+          "value": 2.15,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占\n本公司总股本的2.15%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026/9/22",
+          "value": "2026-09-22",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026/9/22"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2028/9/21",
+          "value": "2028-09-21",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2028/9/21"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "补充流动资金",
+          "value": "补充流动资金",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "补充流动资金"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月25日",
+          "value": "2026-09-25",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月25日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    },
+    {
+      "event_id": "E02",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "展期",
+          "value": "pledge",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "将余下146万股办理了展期手续"
+            }
+          ],
+          "denominator": null,
+          "note": "质押展期，按质押处理"
+        },
+        "pledgor": {
+          "raw_value": "有格投资",
+          "value": "有格投资",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "有格投资于2026年9月22日办理了其中69万股质押解除手续，并于2026年9月23日将余下146万股办理了展期手续"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "光大证券股份有限公司",
+          "value": "光大证券股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2025年9月23日有格投资将215万股质押给光大证券股份有限公"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "1,460,000",
+          "value": 1460000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "1,460,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "33,344,000股",
+          "value": 33344000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "有格投资累计质押本公司股票合计33,344,000股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "0.45",
+          "value": 0.45,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "0.45"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "0.09",
+          "value": 0.09,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "0.09"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "10.36%",
+          "value": 10.36,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占其持有的本公司股份的10.36%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "2.15%",
+          "value": 2.15,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占\n本公司总股本的2.15%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026/9/23",
+          "value": "2026-09-23",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026/9/23"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2027/9/23",
+          "value": "2027-09-23",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2027/9/23"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "补充流动资金",
+          "value": "补充流动资金",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "补充流动资金"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月25日",
+          "value": "2026-09-25",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月25日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    },
+    {
+      "event_id": "E03",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "解除质押",
+          "value": "release",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "本次原质押给中国银河证券股份有限公司的18,564,000股已解除质押"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "有格创业投资有限公司",
+          "value": "有格创业投资有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "有格投资本次将19,254,000股办理了质押解除手续"
+            }
+          ],
+          "denominator": null,
+          "note": "［口径合并：解质汇总表股东名称］"
+        },
+        "pledgee": {
+          "raw_value": "中国银河证券股份有限公司",
+          "value": "中国银河证券股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "本次原质押给中国银河证券股份有限公司的18,564,000股已解除质押"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "综上所述，有格投资本次将19,254,000股办理了质押解除手续，如本次解质股份用于后续质押，本公司将及时履行信息披露义务。",
+          "value": 19254000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "综上所述，有格投资本次将19,254,000股办理了质押解除手续，如本次解质股份用于后续质押，本公司将及时履行信息披露义务。"
+            }
+          ],
+          "denominator": null,
+          "note": "［口径合并：组件解除合计＝总额句（其中句不拆总量）］"
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "33,344,000股",
+          "value": 33344000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "有格投资累计质押本公司股票合计33,344,000股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "股东名称有格创业投资有限公司本次解质股份19,254,000股占其所持股份比例5.98%占公司总股本比例1.24%",
+          "value": 5.98,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "source_type": "document",
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "综上所述，有格投资本次将19,254,000股办理了质押解除手续，如本次解质股份用于后续质押，本公司将及时履行信息披露义务。"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares",
+          "note": "［口径合并：解质汇总表明示比例］"
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "股东名称有格创业投资有限公司本次解质股份19,254,000股占其所持股份比例5.98%占公司总股本比例1.24%",
+          "value": 1.24,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "source_type": "document",
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "综上所述，有格投资本次将19,254,000股办理了质押解除手续，如本次解质股份用于后续质押，本公司将及时履行信息披露义务。"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": "［口径合并：解质汇总表明示比例］"
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "10.36%",
+          "value": 10.36,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占其持有的本公司股份的10.36%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "2.15%",
+          "value": 2.15,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "占\n本公司总股本的2.15%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "解质时间：2026年9月22日至2026年9月23日",
+          "value": null,
+          "unit": "date",
+          "standardized": true,
+          "status": "needs_review",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月22日至2026年9月23日"
+            }
+          ],
+          "denominator": null,
+          "note": "解质时间［口径修正：解质时间为过程区间、无单一解除完成日→needs_review］"
+        },
+        "purpose": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月25日",
+          "value": "2026-09-25",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": null,
+              "quote": "2026年9月25日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-02T11:53:17.129Z",
+    "duration_ms": 12594,
+    "code_version": "7a36b85c",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

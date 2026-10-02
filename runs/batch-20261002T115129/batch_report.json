@@ -1,0 +1,240 @@
+{
+  "stamp": "20261002T115129",
+  "mock": false,
+  "results": [
+    {
+      "case": "D5-EQC-001",
+      "event_type": "equity_change",
+      "file": "D5-EQC-001.parse.json",
+      "run_id": "20261002T115129-equity_change-ccf1",
+      "ok": true,
+      "status_count": {
+        "extracted": 45
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 45,
+        "value_hit": 45,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 5,
+        "mine_events": 5,
+        "matched_events": 5
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-002",
+      "event_type": "equity_change",
+      "file": "D5-EQC-002.parse.json",
+      "run_id": "20261002T115142-equity_change-c9f2",
+      "ok": true,
+      "status_count": {
+        "extracted": 27
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 27,
+        "value_hit": 27,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-003",
+      "event_type": "equity_change",
+      "file": "D5-EQC-003.parse.json",
+      "run_id": "20261002T115200-equity_change-b768",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 4
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-004",
+      "event_type": "equity_change",
+      "file": "D5-EQC-004.parse.json",
+      "run_id": "20261002T115204-equity_change-5352",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-005",
+      "event_type": "equity_change",
+      "file": "D5-EQC-005.parse.json",
+      "run_id": "20261002T115207-equity_change-221b",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-006",
+      "event_type": "equity_change",
+      "file": "D5-EQC-006.parse.json",
+      "run_id": "20261002T115210-equity_change-ed2b",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-007",
+      "event_type": "equity_change",
+      "file": "D5-EQC-007.parse.json",
+      "run_id": "20261002T115215-equity_change-abed",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-008",
+      "event_type": "equity_change",
+      "file": "D5-EQC-008.parse.json",
+      "run_id": "20261002T115218-equity_change-0a61",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-009",
+      "event_type": "equity_change",
+      "file": "D5-EQC-009.parse.json",
+      "run_id": "20261002T115222-equity_change-3e86",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-010",
+      "event_type": "equity_change",
+      "file": "D5-EQC-010.parse.json",
+      "run_id": "20261002T115225-equity_change-2d27",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    }
+  ]
+}

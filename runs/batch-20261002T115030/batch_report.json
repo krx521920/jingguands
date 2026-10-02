@@ -1,0 +1,257 @@
+{
+  "stamp": "20261002T115030",
+  "mock": false,
+  "results": [
+    {
+      "case": "D6-AWD-001",
+      "event_type": "award_contract",
+      "file": "D6-AWD-001.raw.json",
+      "run_id": "20261002T115030-award_contract-a668",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 6,
+        "not_applicable": 2,
+        "not_disclosed": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-002",
+      "event_type": "award_contract",
+      "file": "D6-AWD-002.raw.json",
+      "run_id": "20261002T115033-award_contract-e3e7",
+      "ok": true,
+      "status_count": {
+        "extracted": 24,
+        "not_mentioned": 22,
+        "not_applicable": 8,
+        "not_disclosed": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 24,
+        "value_hit": 24,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 4,
+        "mine_events": 4,
+        "matched_events": 4
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-003",
+      "event_type": "award_contract",
+      "file": "D6-AWD-003.raw.json",
+      "run_id": "20261002T115045-award_contract-49bb",
+      "ok": true,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 21,
+        "value_hit": 21,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-004",
+      "event_type": "award_contract",
+      "file": "D6-AWD-004.raw.json",
+      "run_id": "20261002T115055-award_contract-f237",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-005",
+      "event_type": "award_contract",
+      "file": "D6-AWD-005.raw.json",
+      "run_id": "20261002T115059-award_contract-0c3d",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 11,
+        "value_hit": 11,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-006",
+      "event_type": "award_contract",
+      "file": "D6-AWD-006.raw.json",
+      "run_id": "20261002T115104-award_contract-ee15",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_mentioned": 5
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-007",
+      "event_type": "award_contract",
+      "file": "D6-AWD-007.raw.json",
+      "run_id": "20261002T115108-award_contract-257f",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 7,
+        "not_applicable": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-008",
+      "event_type": "award_contract",
+      "file": "D6-AWD-008.raw.json",
+      "run_id": "20261002T115112-award_contract-634c",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "not_mentioned": 4,
+        "not_applicable": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-009",
+      "event_type": "award_contract",
+      "file": "D6-AWD-009.raw.json",
+      "run_id": "20261002T115116-award_contract-2527",
+      "ok": true,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 21,
+        "value_hit": 21,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-010",
+      "event_type": "award_contract",
+      "file": "D6-AWD-010.raw.json",
+      "run_id": "20261002T115125-award_contract-ec85",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_disclosed": 1,
+        "not_mentioned": 6,
+        "not_applicable": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    }
+  ]
+}

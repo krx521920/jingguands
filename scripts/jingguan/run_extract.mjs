@@ -110,7 +110,7 @@ function buildSystemPrompt(eventType, parseMode) {
     '5. 换算依据不足时 standardized=false 且 status="needs_review"，不要猜测。',
     '6. 本次/累计是不同字段，各自独立抽取；比例字段的 denominator 按字段定义填，不要混用口径。denominator 枚举：holder_shares（占该股东所持股份）/ total_share_capital（占公司总股本）/ net_assets（占净资产）/ other（其他，须在 note 说明）。',
     '7. 日期区间（unit=date_range 的字段，如 change_date）：必须 unit="date_range"，value 必须是 ISO 区间字符串 "起始日/结束日"（如 "2026-09-20/2026-09-24"），status=extracted——区间是原文明确给出的值。禁止把 value 写成 {start,end} 对象，禁止用 unit="date" 装区间。',
-    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）：股权变动类优先用封面"信息披露义务人：X"给出的法定全称，正文只有简称且封面有全称时必须用全称；质押/中标类跟锚定句写法。禁止虚构原文没有的名称或定义句式。一致行动人口径（D5 冻结口径）：原文以"X及其一致行动人"合并披露持股数量/比例（群体口径数字）时，holder 写"牵头主体全称及其一致行动人"，股数用群体数字；原文逐人列表披露变动（每人一行前后股数）时按人各建事件，holder 用该人名称——"本次权益变动前后持股情况"表内每一行主体（含"及相关各方"表中的受让方增持行）都各建事件；只有不在变动披露表内、仅在协议描述中出现的交易对手才不建事件（他们另发公告）。method 用规范标签：协议转让/公开征集协议转让/司法拍卖被动减持/集中竞价交易/集中竞价及大宗交易/可转债转股被动稀释——保留全部限定词（公开征集/被动/减持/稀释不得丢弃），raw_value 保留完整原文表述。',
+    '8. 主体字段（pledgor/pledgee/holder/bidder/tenderer）：股权变动类（holder）优先用封面"信息披露义务人：X"给出的法定全称，正文只有简称且封面有全称时必须用全称；质押类（pledgor/pledgee）与中标类跟锚定句写法——原文出现"某某有限公司简称某某集团"式简称标注时用简称（如 gold：兰石集团）。禁止虚构原文没有的名称或定义句式。一致行动人口径（D5 冻结口径）：原文以"X及其一致行动人"合并披露持股数量/比例（群体口径数字）时，holder 写"牵头主体全称及其一致行动人"，股数用群体数字；原文逐人列表披露变动（每人一行前后股数）时按人各建事件，holder 用该人名称——"本次权益变动前后持股情况"表内每一行主体（含"及相关各方"表中的受让方增持行）都各建事件；只有不在变动披露表内、仅在协议描述中出现的交易对手才不建事件（他们另发公告）。method 用规范标签：协议转让/公开征集协议转让/司法拍卖被动减持/集中竞价交易/集中竞价及大宗交易/可转债转股被动稀释——保留全部限定词（公开征集/被动/减持/稀释不得丢弃），raw_value 保留完整原文表述。',
     '9. 日期规则：单日值直接 unit="date"＋"YYYY-MM-DD"；仅当字段本身是起止区间（如质押期限、变动期间）才用 date_range，同日起止不算区间。若原文给的是条件性描述而非日期（如"申请解除质押登记日""至本公告披露日"）：status=needs_review、unit 保持字段规定的日期单位、value=null、raw_value 保留原文——不要编造日期，也不要把 unit 改成 text。解除质押（direction=release）事件的日期同样按原文：公告明确给了解除/起始日期就抽取，只字未提才 not_mentioned——不要预设"解除必无日期"。股权变动的 change_date 用权益变动的生效/完成日（如"X日完成过户登记手续"的日期），不是拍卖成交日/竞价窗口等中间过程日；原文没有给完成日期时，用权益变动发生日（协议签署日等明确给出的日历日期）兜底；原文以条件性时间字段（"办理完毕…之日"）界定变动时间的置 needs_review；报告书/公告自身的签署日期永远不是 change_date；原文明确"权益变动时间/变动期间"区间时用该区间。变动前后持股数量相等（如可转债转股被动稀释"不涉及持股数量的变化"）时，shares_before 和 shares_after 都必须照实分别填同一数值——相等不等于缺失，禁止因"没变"写 not_mentioned。',
     '10. 联合体判定：公告没有联合体→consortium_members 和 consortium_shares 都 not_applicable；有联合体→consortium_members=extracted（名单）；份额没写→consortium_shares=not_mentioned；份额写了→extracted。direction 的 quote 必须至少 4 个字（如"本次增持股份""通过集中竞价减持"），不要只写"增持"或"减持"一个两字词——太短无法定位唯一出处。中标类口径：招标方信息因商业机密豁免披露时 tenderer=not_disclosed（"某知名企业"类匿名描述不是招标方名称）；duration 填含"工期/服务期"的核心分句（如"总建设工期24个月"），不要整段照抄条款。',
     '11. 多事件：一份公告可含多个事件——质押按（质押人×质权人×业务方向）组合各建一个事件，event_id 依次 E01/E02/E03…；表格中每组新的[质押数量+质权人+起始日]即为一个新事件，股东名称跨行共享时后续行沿用同一质押人；"合计"行不是事件、禁止抽取；累计质押情况（累计股数/累计占比）对每个事件相同就分别填入。direction 字段（v0.4）：普通质押填 "pledge"；"已解除质押/办理解除质押业务"为独立事件填 "release"——同一（质押人×质权人）先押后解时是两个事件，各带各自 direction。direction 的 quote 用原文中的短词即可（"质押"或"解除质押"），不要引长句。release 事件的 pledged_shares_this_time 取"本次将X股办理了质押解除手续/解除了X股"句中的股数——锚定解除句本身，不要取其他句子的数字；"其中Y股办理了…"的"其中"句是总数的组成部分，禁止据此另立事件或拆分总量。股权变动的事件粒度：变动表逐行给出各主体自身的变动数（增减股数列）时按行拆分为独立事件（含受让方增持行，"总股本/实际控制人持股/合计"行除外）；变动数只在群体层面披露（如"信息披露义务人合计持有…本次权益变动后合计持有…""X及其一致行动人的持股数量由…减少至"）时只建一个聚合事件——holder 用"牵头主体全称及其一致行动人"或文中列名的全体信息披露义务人，数字用群体合计；即使附表按成员逐行列示持股数量也不拆分。',
@@ -324,16 +324,44 @@ function splitQuoteAcrossBlocks(quote, blocks, maxSegs = 4) {
 }
 
 /** 解析块模式出处回填：按 block_id 从解析结果填 page/region/table；真实模式缺 block_id 记错，mock 允许按 quote 定位块。 */
-/** 出处修复：省略号 quote 截为原文子串；引用块不含 quote 时按最长前缀在同页/全库唯一块重锚。 */
+/** 出处修复：省略号 quote 截为原文子串；引用块不含 quote 时按最长前缀在同页/全库唯一块重锚。文本模式只做截取。 */
 function repairQuotes(events, parseDoc, inputText, repairs) {
-  if (!parseDoc) return
-  const allBlocks = parseDoc.blocks
+  const fullText = parseDoc ? parseDoc.joinedRaw : inputText
   events.forEach((ev, i) => {
     for (const [name, fv] of Object.entries(ev.fields ?? {})) {
       fv.provenance?.forEach((p, pi) => {
         if (typeof p.quote !== 'string' || p.quote.length < 6) return
+        if (parseDoc === null) {
+          // 文本模式：quote 只须是全文子串——省略号截为最长原文前缀；换行断词（"占\n其"）按去空白索引回映
+          if (fullText.includes(p.quote)) return
+          const stripped = fullText.replace(/\s+/g, '')
+          const origIdx = []
+          for (let k = 0; k < fullText.length; k++) if (!/\s/.test(fullText[k])) origIdx.push(k)
+          const parts = p.quote.split(/…|\.\.\.|⋯/).map((s) => s.trim()).filter((s) => s.length >= 3)
+          for (const t of parts) {
+            for (let len = t.length; len >= 3; len--) {
+              const seg = t.slice(0, len)
+              if (fullText.includes(seg)) {
+                repairs.push(`[出处修复] events[${i}].fields.${name}: quote 含省略号/非原文，已截为原文子串（${seg.slice(0, 20)}…）`)
+                p.quote = seg
+                return
+              }
+              const sIdx = stripped.indexOf(seg)
+              if (sIdx !== -1 && origIdx[sIdx + seg.length - 1] !== undefined) {
+                const quote2 = fullText.slice(origIdx[sIdx], origIdx[sIdx + seg.length - 1] + 1)
+                if (quote2.replace(/\s+/g, '') === seg) {
+                  repairs.push(`[出处修复] events[${i}].fields.${name}: quote 跨换行断词，已回映为原文连续子串（${seg.slice(0, 16)}…）`)
+                  p.quote = quote2
+                  return
+                }
+              }
+            }
+          }
+          return
+        }
         const cited = p.block_id ? parseDoc.blockIndex.get(p.block_id) : undefined
         if (cited && cited.text_raw.includes(p.quote)) return
+        const allBlocks = parseDoc.blocks
         // 候选：省略号分段 + 完整/去首字符前缀（块可能从词中间断开，如"露了《…"缺"披"）
         const tries = []
         for (const part of p.quote.split(/…|\.\.\.|⋯/).map((s) => s.trim()).filter((s) => s.length >= 8)) {
@@ -580,18 +608,127 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
           bd.value = m[1]
         }
       }
+      // W4b. consortium_members 名单连接符统一顿号（gold："X、Y"）
+      const cm = ev.fields?.consortium_members
+      if (cm?.status === 'extracted' && typeof cm.value === 'string' && cm.value.includes('与')) {
+        const parts = cm.value.split(/与|、/).map((s) => s.trim()).filter(Boolean)
+        if (parts.length >= 2 && parts.every((s) => /(公司|企业|院|所|中心|集团)$/.test(s))) {
+          cm.note = `${cm.note ?? ''}［口径归一：与→、（名单连接符）］`
+          cm.value = parts.join('、')
+        }
+      }
+    }
+    // W6. 金额未披露时币种不默认：bid_amount 非 extracted 而 currency=CNY → currency not_mentioned
+    for (const ev of awEvents) {
+      const ba = ev.fields?.bid_amount
+      const cu = ev.fields?.currency
+      if (cu?.status === 'extracted' && cu.value === 'CNY' && ba !== undefined && ba.status !== 'extracted') {
+        cu.status = 'not_mentioned'
+        cu.value = null
+        cu.note = `${cu.note ?? ''}［口径修正：金额未披露，币种不得默认 CNY→not_mentioned］`
+      }
     }
     // W5. price_adjustment_status 证据锚定：quote 讲"份额/股权"调整而非"价格"调整 → not_mentioned
     for (const ev of awEvents) {
       const pa = ev.fields?.price_adjustment_status
       const q = pa?.provenance?.[0]?.quote ?? ''
-      if (pa?.status === 'extracted' && typeof q === 'string' && q.length > 0
+      if ((pa?.status === 'extracted' || pa?.status === 'needs_review') && typeof q === 'string' && q.length > 0
         && /份额|股权/.test(q) && !/价格|单价|费率/.test(q)) {
         pa.status = 'not_mentioned'
         pa.value = null
         pa.raw_value = null
         pa.note = `${pa.note ?? ''}［口径修正：出处讲份额/股权调整而非价格调整→not_mentioned］`
         pa.provenance = []
+      }
+    }
+  }
+
+  // ---- P. 质押类口径 ----
+  const plEvents = events.filter((ev) => ev.event_type === 'pledge')
+  if (plEvents.length > 0) {
+    // P2. 质押主体简称（gold 惯例）：原文"全称（以下简称'简称'）"定义存在且字段值为全称 → 用简称（解质表口径的 P1 在其后可覆盖回全称）
+    const shortDefs = [...compact.matchAll(/([^，。；\s]{4,60}?)（以下简称["“']?([^)”']{2,20})["”']?）/g)]
+    if (shortDefs.length > 0) {
+      for (const ev of plEvents) {
+        for (const fname of ['pledgor', 'pledgee']) {
+          const f = ev.fields?.[fname]
+          if (f?.status !== 'extracted' || typeof f.value !== 'string') continue
+          // 后缀匹配：定义句 capture 以字段值结尾（前缀噪声如"接到公司控股股东"被自然忽略）
+          const def = shortDefs.find((dm) => dm[1].endsWith(f.value) && dm[1].length - f.value.length <= 58)
+          if (def !== undefined && def[2] !== f.value) {
+            f.note = `${f.note ?? ''}［口径归一：${f.value}→${def[2]}（原文简称定义，质押主体跟简称）］`
+            f.value = def[2]
+          }
+        }
+      }
+    }
+
+    // P1. 解除质押组件合并：存在"将X股办理了质押解除手续"总额句且＝组件和 → 合并为一个总事件（gold 口径：其中句不拆总量）
+    const releaseGroups = new Map()
+    for (const ev of plEvents) {
+      if ((ev.fields?.direction?.value ?? 'pledge') !== 'release') continue
+      const k = String(ev.fields?.pledgor?.value ?? '')
+      if (!releaseGroups.has(k)) releaseGroups.set(k, [])
+      releaseGroups.get(k).push(ev)
+    }
+    for (const [, group] of releaseGroups) {
+      if (group.length < 2) continue
+      const totalM = compact.match(/将([\d,]+)股办理了质押解除手续/)
+      if (totalM === null) continue
+      const total = Number(totalM[1].replace(/,/g, ''))
+      const sumShares = group.reduce((n, ev) => n + (Number(ev.fields?.pledged_shares_this_time?.value) || 0), 0)
+      if (total !== sumShares) continue
+      // 解质汇总表（gold 的 release 事件来源）：股东名称/本次解质股份/两比例——比"综上所述"句更完整
+      const tableM = compact.match(/股东名称(.{2,30}?)本次解质股份([\d,]+)股占其所持股份比例(\d+(?:\.\d+)?)%占公司总股本比例(\d+(?:\.\d+)?)%/)
+      const main = [...group].sort((a, b) => (Number(b.fields?.pledged_shares_this_time?.value) || 0) - (Number(a.fields?.pledged_shares_this_time?.value) || 0))[0]
+      const anchor = docText.indexOf(totalM[1] + '股办理了质押解除手续')
+      const sent = anchor === -1 ? totalM[0] : docText.slice(Math.max(0, docText.lastIndexOf('。', anchor) + 1), docText.indexOf('。', anchor) + 1)
+      const psFv = main.fields?.pledged_shares_this_time
+      if (psFv !== undefined) {
+        psFv.value = total
+        psFv.raw_value = sent.trim()
+        psFv.note = `${psFv.note ?? ''}［口径合并：组件解除合计＝总额句（其中句不拆总量）］`
+        const blk = parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.replace(/\s+/g, '').includes('股办理了质押解除手续'))
+        if (psFv.provenance?.[0] && blk) {
+          psFv.provenance[0].block_id = blk.block_id
+          psFv.provenance[0].page = blk.page
+          psFv.provenance[0].quote = blk.text_raw.includes(sent.trim().slice(0, 10)) ? sent.trim() : blk.text_raw.trim()
+        } else if (psFv.provenance?.[0]) {
+          psFv.provenance[0].quote = sent.trim()
+        }
+      }
+      if (tableM !== null && Number(tableM[2].replace(/,/g, '')) === total) {
+        const tableName = tableM[1].replace(/^[:：\s]+/, '').trim()
+        if (tableName.length >= 2 && main.fields?.pledgor !== undefined) {
+          main.fields.pledgor.value = tableName
+          main.fields.pledgor.raw_value = tableName
+          main.fields.pledgor.note = `${main.fields.pledgor.note ?? ''}［口径合并：解质汇总表股东名称］`
+        }
+        const tblAnchor = docText.indexOf('本次解质股份')
+        const tblSent = tblAnchor === -1 ? tableM[0] : docText.slice(Math.max(0, docText.lastIndexOf('。', tblAnchor) + 1), docText.indexOf('。', tblAnchor) + 1)
+        const mkRel = (val, denom) => ({
+          raw_value: tableM[0].slice(0, 60), value: val, unit: 'percent', status: 'extracted',
+          provenance: [{ block_id: null, source_type: 'document', page: 1, region: null, table_id: null, cell_ref: null, quote: tblSent.trim() }],
+          standardized: true, denominator: denom, note: '［口径合并：解质汇总表明示比例］',
+        })
+        if (main.fields?.pledged_ratio_this_time_of_held?.status !== 'extracted') main.fields.pledged_ratio_this_time_of_held = mkRel(Number(tableM[3]), 'holder_shares')
+        if (main.fields?.pledged_ratio_this_time_of_total?.status !== 'extracted') main.fields.pledged_ratio_this_time_of_total = mkRel(Number(tableM[4]), 'total_share_capital')
+        // 解质时间为区间（过程窗口）→ end_date 无单一解除日，置 needs_review（gold 口径）
+        const rangeAfter = compact.slice(compact.indexOf(tableM[0]) + tableM[0].length).match(/^解质时间(20\d{2})年(\d{1,2})月(\d{1,2})日至(20\d{2})年(\d{1,2})月(\d{1,2})日/)
+        const edFv = main.fields?.end_date
+        if (rangeAfter !== null && edFv?.status === 'extracted') {
+          edFv.status = 'needs_review'
+          edFv.value = null
+          edFv.raw_value = rangeAfter[0].replace(/^解质时间/, '解质时间：')
+          edFv.unit = 'date'
+          edFv.note = `${edFv.note ?? ''}［口径修正：解质时间为过程区间、无单一解除完成日→needs_review］`
+        }
+      }
+      for (const ev of group) {
+        if (ev === main) continue
+        const idx = events.indexOf(ev)
+        events.splice(idx, 1)
+        repairs.push(`［口径合并］解除质押组件事件（${ev.fields?.pledgee?.value} ${ev.fields?.pledged_shares_this_time?.value}股）并入总额事件（${total}股）`)
       }
     }
   }
@@ -612,9 +749,12 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
     || groupChangePhrase
   const eqAll = events.filter((ev) => ev.event_type === 'equity_change')
   if (groupDisclosure && !perRowChangeTable && eqAll.length > 0) {
-    // 群体句解析（合并/改写两路径共用）
-    const transferorM = compact.match(/([^\s。]{6,40})将其合计持有的/)
-    const transferorNames = transferorM?.[1] ?? null
+    // 群体句解析（合并/改写两路径共用）；名单句起点不得跨越逗号/分号，且名单须是纯人名/公司名枚举（≤20字、无叙述词）
+    const rawList = compact.match(/([^。；：，\s]{6,40})将其合计持有的/)?.[1] ?? null
+    const transferorNames = rawList !== null && rawList.length <= 20 && !/本次|权益|变动|方式|指|拟|通过|公告|报告书|签署|持有/.test(rawList) ? rawList : null
+    // 群体 holder：转让方名单句 > 封面义务人名单（顿号原样）
+    const groupHolder = transferorNames
+      ?? (disclosers.length >= 2 && compact.includes(disclosers.join('、')) ? disclosers.join('、') : null)
     const beforeM = compact.match(/权益变动前[^。]{0,25}?(?:信息披露义务人[^。]{0,15}?)?合计持有[^。]{0,25}?([\d,][\d,.]*)股?[^。]{0,60}?占[^。]{0,6}?总股本[^。]{0,6}?(\d+(?:\.\d+)?)%/)
     const afterM = compact.match(/变动后[^。]{0,25}?合计持有[^。]{0,25}?([\d,][\d,.]*)股?[^。]{0,60}?占[^。]{0,6}?总股本[^。]{0,6}?(\d+(?:\.\d+)?)%/)
     const sumM = beforeM && afterM ? [beforeM[1], beforeM[2], afterM[1], afterM[2]] : null
@@ -626,7 +766,7 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
     const anchorBlock = anchorNum !== null ? parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.includes(anchorNum)) : undefined
     const mkProv = () => anchorBlock
       ? [{ block_id: anchorBlock.block_id, source_type: anchorBlock.source_type ?? 'paragraph', page: anchorBlock.page, region: anchorBlock.region ?? null, table_id: anchorBlock.table_ref?.table_id ?? null, cell_ref: anchorBlock.table_ref?.cell_ref ?? null, quote: anchorBlock.text_raw.trim() }]
-      : [{ block_id: null, source_type: 'document', page: null, region: null, table_id: null, cell_ref: null, quote: null }]
+      : [{ block_id: null, source_type: 'document', page: 1, region: null, table_id: null, cell_ref: null, quote: null }]
     const groupFv = (val, unit, label) => val !== null && val !== undefined && !Number.isNaN(val)
       ? { raw_value: anchorNum, value: val, unit, status: 'extracted', provenance: mkProv(), standardized: true, denominator: label?.startsWith('ratio') ? 'total_share_capital' : null, note: '［口径合并：群体口径披露的合计值（gold 惯例）］' }
       : { raw_value: null, value: null, unit, status: 'not_mentioned', provenance: [], standardized: false, denominator: null, note: '［口径合并：原文未披露群体合计值］' }
@@ -638,7 +778,7 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
       const majority = dirs.filter((d) => d === 'decrease').length > dirs.length / 2 ? 'decrease' : 'increase'
       const members = eqAll.filter((ev) => (ev.fields?.direction?.value ?? 'increase') === majority)
       if (members.length === 1) {
-        // 模型已自发聚成单个群体事件：只删少数方向的多余事件
+        // 模型已自发聚成单个群体事件：删少数方向的多余事件；幸存者 holder 为句片段时按群体名单改写
         for (let i = events.length - 1; i >= 0; i--) {
           const ev = events[i]
           if (ev.event_type === 'equity_change' && (ev.fields?.direction?.value ?? 'increase') !== majority) {
@@ -646,19 +786,45 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
             repairs.push(`［口径过滤］删除反向受让方个体事件：holder=${ev.fields?.holder?.value}（其变动属于对方报告书口径）`)
           }
         }
+        const solo = members[0]
+        const sh = String(solo.fields?.holder?.value ?? '')
+        if (groupHolder !== null && !groupHolder.includes(sh) && !sh.includes(groupHolder)) {
+          const keepProv = JSON.parse(JSON.stringify(solo.fields?.holder?.provenance ?? []))
+          solo.fields = {
+            ...JSON.parse(JSON.stringify(solo.fields)),
+            holder: { raw_value: groupHolder, value: groupHolder, unit: 'text', status: 'extracted', provenance: keepProv, standardized: true, denominator: null, note: `［口径改写：${sh.slice(0, 20)}${sh.length > 20 ? '…' : ''}→${groupHolder}（原文名单/封面义务人）］` },
+            shares_before: groupFv(gBefore, 'shares'),
+            shares_after: groupFv(gAfter, 'shares'),
+            change_shares: groupFv(gChange, 'shares'),
+            ratio_before: groupFv(sumM ? Number(sumM[1]) : null, 'percent', 'ratio_before'),
+            ratio_after: groupFv(sumM ? Number(sumM[3]) : null, 'percent', 'ratio_after'),
+          }
+          repairs.push(`［口径改写］幸存单事件 holder 非群体名单，改写为 ${groupHolder}`)
+        }
       } else if (members.length > 1) {
-        const names = [...new Set(members.map((ev) => String(ev.fields?.holder?.value ?? '').trim()).filter(Boolean))]
-        // holder 连接符跟原文：顿号连"和"与纯顿号两种形式，选原文出现的
-        const joinDun = names.join('、')
-        const joinHe = names.length > 1 ? names.slice(0, -1).join('、') + '和' + names[names.length - 1] : joinDun
-        const holderValue = compact.includes(joinHe.replace(/\s+/g, '')) ? joinHe : joinDun
+        // holder 来源优先级：原文转让方名单句 > 封面义务人名单前缀（从长到短试原文命中，过滤尾部垃圾项）> 成员名拼接
+        let holderValue = transferorNames
+        if (holderValue === null && disclosers.length >= 2) {
+          for (let k = disclosers.length; k >= 2 && holderValue === null; k--) {
+            const dj = disclosers.slice(0, k).join('、')
+            const dh = disclosers.slice(0, k - 1).join('、') + '和' + disclosers[k - 1]
+            holderValue = compact.includes(dh) ? dh : (compact.includes(dj) ? dj : null)
+          }
+        }
+        if (holderValue === null) {
+          const names = [...new Set(members.map((ev) => String(ev.fields?.holder?.value ?? '').trim()).filter(Boolean))]
+          // holder 连接符跟原文：顿号连"和"与纯顿号两种形式，选原文出现的
+          const joinDun = names.join('、')
+          const joinHe = names.length > 1 ? names.slice(0, -1).join('、') + '和' + names[names.length - 1] : joinDun
+          holderValue = compact.includes(joinHe.replace(/\s+/g, '')) ? joinHe : joinDun
+        }
         const base = members[0]
         const merged = {
           event_id: 'E01',
           event_type: 'equity_change',
           fields: {
             ...JSON.parse(JSON.stringify(base.fields)),
-            holder: { raw_value: holderValue, value: holderValue, unit: 'text', status: 'extracted', provenance: JSON.parse(JSON.stringify(base.fields?.holder?.provenance ?? [])), standardized: true, denominator: null, note: `［口径合并：${names.join('、')}→群体事件（无逐行变动数表，变动数仅群体披露）］` },
+            holder: { raw_value: holderValue, value: holderValue, unit: 'text', status: 'extracted', provenance: JSON.parse(JSON.stringify(base.fields?.holder?.provenance ?? [])), standardized: true, denominator: null, note: `［口径合并：${holderValue.slice(0, 30)}→群体事件（无逐行变动数表，变动数仅群体披露）］` },
             shares_before: groupFv(gBefore, 'shares'),
             shares_after: groupFv(gAfter, 'shares'),
             change_shares: groupFv(gChange, 'shares'),
@@ -666,7 +832,7 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
             ratio_after: groupFv(sumM ? Number(sumM[3]) : null, 'percent', 'ratio_after'),
           },
           extraction_method: base.extraction_method ?? null,
-          notes: `［A3 群体合并］成员事件 ${names.join('、')}（方向 ${majority}）合并为群体事件`,
+          notes: `［A3 群体合并］成员事件 ${holderValue.slice(0, 30)}（方向 ${majority}）合并为群体事件`,
         }
         // 替换：删全部股权事件，插入合并事件（保持其余类型事件不动）
         for (let i = events.length - 1; i >= 0; i--) if (events[i].event_type === 'equity_change') events.splice(i, 1)
@@ -674,22 +840,24 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
         repairs.push(`［口径合并］无逐行变动数表且变动数仅群体披露：${eqAll.length} 个成员事件合并为 1 个群体事件（holder=${holderValue}）`)
       }
     } else {
-      // 路径2：模型只给了受让方视角单事件（如 EQC-003 只出"于春生 increase"）→ 按原文转让方名单改写为群体减持事件
+      // 路径2：模型只给了单个非群体口径事件（受让方视角或夹句片段的 holder）→ 按原文名单改写为群体减持事件
       const solo = eqAll[0]
       const soloHolder = String(solo.fields?.holder?.value ?? '')
-      if (transferorNames !== null && !transferorNames.includes(soloHolder) && !soloHolder.includes('、')) {
+      const groupHolder = transferorNames
+        ?? (disclosers.length >= 2 && compact.includes(disclosers.join('、')) ? disclosers.join('、') : null)
+      if (groupHolder !== null && !groupHolder.includes(soloHolder) && !soloHolder.includes(groupHolder)) {
         solo.fields = {
           ...JSON.parse(JSON.stringify(solo.fields)),
-          holder: { raw_value: transferorNames, value: transferorNames, unit: 'text', status: 'extracted', provenance: JSON.parse(JSON.stringify(solo.fields?.holder?.provenance ?? [])), standardized: true, denominator: null, note: `［口径改写：${soloHolder}→${transferorNames}（原文转让方名单句，群体口径披露）］` },
-          direction: { raw_value: '将其合计持有', value: 'decrease', unit: 'text', status: 'extracted', provenance: transferorBlk ? [{ block_id: transferorBlk.block_id, source_type: transferorBlk.source_type ?? 'paragraph', page: transferorBlk.page, region: transferorBlk.region ?? null, table_id: transferorBlk.table_ref?.table_id ?? null, cell_ref: transferorBlk.table_ref?.cell_ref ?? null, quote: '将其合计持有' }] : [{ block_id: null, source_type: 'document', page: null, region: null, table_id: null, cell_ref: null, quote: '将其合计持有' }], standardized: true, denominator: null, note: '［口径改写：转让方合计转让→decrease］' },
+          holder: { raw_value: groupHolder, value: groupHolder, unit: 'text', status: 'extracted', provenance: JSON.parse(JSON.stringify(solo.fields?.holder?.provenance ?? [])), standardized: true, denominator: null, note: `［口径改写：${soloHolder.slice(0, 20)}${soloHolder.length > 20 ? '…' : ''}→${groupHolder}（原文名单/封面义务人，群体口径披露）］` },
+          direction: { raw_value: '将其合计持有', value: 'decrease', unit: 'text', status: 'extracted', provenance: transferorBlk ? [{ block_id: transferorBlk.block_id, source_type: transferorBlk.source_type ?? 'paragraph', page: transferorBlk.page, region: transferorBlk.region ?? null, table_id: transferorBlk.table_ref?.table_id ?? null, cell_ref: transferorBlk.table_ref?.cell_ref ?? null, quote: '将其合计持有' }] : [{ block_id: null, source_type: 'document', page: 1, region: null, table_id: null, cell_ref: null, quote: '将其合计持有' }], standardized: true, denominator: null, note: '［口径改写：转让方合计转让→decrease］' },
           shares_before: groupFv(gBefore, 'shares'),
           shares_after: groupFv(gAfter, 'shares'),
           change_shares: groupFv(gChange, 'shares'),
           ratio_before: groupFv(sumM ? Number(sumM[1]) : null, 'percent', 'ratio_before'),
           ratio_after: groupFv(sumM ? Number(sumM[3]) : null, 'percent', 'ratio_after'),
         }
-        solo.notes = `${solo.notes ?? ''}［A3 路径2 群体改写：${soloHolder}→${transferorNames}］`
-        repairs.push(`［口径改写］单事件（${soloHolder}）非原文转让方名单，按群体口径改写为 ${transferorNames} 群体事件`)
+        solo.notes = `${solo.notes ?? ''}［A3 路径2 群体改写：${soloHolder.slice(0, 20)}→${groupHolder}］`
+        repairs.push(`［口径改写］单事件 holder 非群体口径名单，按群体口径改写为 ${groupHolder} 群体事件`)
       }
     }
   }
@@ -821,7 +989,7 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
             cd.provenance = [{ block_id: blk.block_id, source_type: blk.source_type ?? 'paragraph', page: blk.page, region: blk.region ?? null, table_id: blk.table_ref?.table_id ?? null, cell_ref: blk.table_ref?.cell_ref ?? null, quote: frag }]
           }
         } else {
-          cd.provenance = [{ block_id: null, source_type: 'document', page: null, region: null, table_id: null, cell_ref: null, quote: frag }]
+          cd.provenance = [{ block_id: null, source_type: 'document', page: 1, region: null, table_id: null, cell_ref: null, quote: frag }]
         }
       }
     }
@@ -891,7 +1059,7 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
         // 回退：含该数值的块（quote＝数值原文，必为单块子串）
         const blk = parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.includes(row[Number(val) === before ? 1 : 2]))
         if (blk) return [{ block_id: blk.block_id, source_type: blk.source_type ?? 'cell', page: blk.page, region: blk.region ?? null, table_id: blk.table_ref?.table_id ?? null, cell_ref: blk.table_ref?.cell_ref ?? null, quote: row[Number(val) === before ? 1 : 2] }]
-        return [{ block_id: null, source_type: 'document', page: null, region: null, table_id: null, cell_ref: null, quote: null }]
+        return [{ block_id: null, source_type: 'document', page: 1, region: null, table_id: null, cell_ref: null, quote: null }]
       }
       const mkFv = (val, why) => ({
         raw_value: `${lead}合计持有股份${row[1]}…${row[2]}`, value: val, unit: 'shares', status: 'extracted',
@@ -1107,7 +1275,7 @@ async function main() {
       }
     }
   }
-  if (parseDoc !== null) repairQuotes(events, parseDoc, inputText, repairs)
+  repairQuotes(events, parseDoc, inputText, repairs)
   if (parseDoc !== null) backfillProvenance(events, parseDoc.blockIndex, isMock, postErrors, parseDoc.blocks, repairs)
   let normalizedCount = 0
   for (const ev of events) {
@@ -1180,6 +1348,18 @@ async function main() {
 
   // ---- 宗 D5 冻结口径（0de17901 handoffs/D5-gold-decisions.md）四类确定性规则 ----
   applyGoldConventions(events, inputText, parseDoc, postErrors, repairs)
+
+  // 硬性规则 1 清扫：非 extracted/needs_review 状态禁止携带值（模型偶发把 "not_disclosed" 写进 value）
+  for (const ev of events) {
+    for (const [fname, fv] of Object.entries(ev.fields ?? {})) {
+      if (fv === null || typeof fv !== 'object') continue
+      if (fv.status !== 'extracted' && fv.status !== 'needs_review' && fv.value !== null && fv.value !== undefined) {
+        fv.note = `${fv.note ?? ''}［规则1清扫：${fv.status} 状态禁止携带值，置 null］`
+        fv.value = null
+        if (typeof fv.raw_value === 'string' && /not_(disclosed|mentioned|applicable)|unreadable/.test(fv.raw_value)) fv.raw_value = null
+      }
+    }
+  }
 
   // 口径过滤/合并可能已删除事件或替换字段——清掉指向已不存在出处项的过期校验错误
   for (let ei = postErrors.length - 1; ei >= 0; ei--) {
