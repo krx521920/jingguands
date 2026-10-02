@@ -131,7 +131,7 @@ export interface EventEnvelope {
   is_mock: boolean
   source: { file_id: string | null, file_name: string | null, file_sha256: string | null, parse_meta: { parser_version: string | null, page_count: number | null, blocks?: Array<Record<string, unknown>> | null } | null }
   events: Event[]
-  run_meta: { entry: 'cli' | 'web' | 'tool', model: string | null, started_at: string, duration_ms: number | null, errors: string[] }
+  run_meta: { entry: 'cli' | 'web' | 'tool', model: string | null, started_at: string, duration_ms: number | null, code_version?: string, interface_version?: string, errors: string[] }
 }
 
 /** 按注册表生成全 not_mentioned 的字段骨架（模型/规则抽取的起始容器）。 */

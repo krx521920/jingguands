@@ -38,6 +38,8 @@
         "model": { "type": ["string", "null"] },
         "started_at": { "type": "string" },
         "duration_ms": { "type": ["integer", "null"], "minimum": 0 },
+        "code_version": { "type": "string", "description": "抽取代码的 git commit hash（D6-④ 运行版本日志）" },
+        "interface_version": { "type": "string", "description": "事件 JSON 接口版本（如 v0.3）" },
         "errors": { "type": "array", "items": { "type": "string" } }
       }
     }
