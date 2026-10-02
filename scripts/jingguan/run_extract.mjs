@@ -611,53 +611,86 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
     || /合计持有[^。]{0,30}?[\d,]{6,}[^。]{0,80}?本次权益变动后[^。]{0,30}?合计持有/.test(compact)
     || groupChangePhrase
   const eqAll = events.filter((ev) => ev.event_type === 'equity_change')
-  if (eqAll.length > 1 && groupDisclosure && !perRowChangeTable) {
-    // 成员＝多数方向的事件（剔除反向的受让方个体事件）
-    const dirs = eqAll.map((ev) => ev.fields?.direction?.value ?? 'increase')
-    const majority = dirs.filter((d) => d === 'decrease').length > dirs.length / 2 ? 'decrease' : 'increase'
-    const members = eqAll.filter((ev) => (ev.fields?.direction?.value ?? 'increase') === majority)
-    if (members.length > 1) {
-      const names = [...new Set(members.map((ev) => String(ev.fields?.holder?.value ?? '').trim()).filter(Boolean))]
-      // holder 连接符跟原文：顿号连"和"与纯顿号两种形式，选原文出现的
-      const joinDun = names.join('、')
-      const joinHe = names.length > 1 ? names.slice(0, -1).join('、') + '和' + names[names.length - 1] : joinDun
-      const holderValue = compact.includes(joinHe.replace(/\s+/g, '')) ? joinHe : joinDun
-      const base = members[0]
-      // 群体句中的前后股数/比例（前值必须带"权益变动前"前缀防误配更早的转让句；找不到则置 not_mentioned）
-      const beforeM = compact.match(/权益变动前[^。]{0,25}?(?:信息披露义务人[^。]{0,15}?)?合计持有[^。]{0,25}?([\d,][\d,.]*)股?[^。]{0,60}?占[^。]{0,6}?总股本[^。]{0,6}?(\d+(?:\.\d+)?)%/)
-      const afterM = compact.match(/变动后[^。]{0,25}?合计持有[^。]{0,25}?([\d,][\d,.]*)股?[^。]{0,60}?占[^。]{0,6}?总股本[^。]{0,6}?(\d+(?:\.\d+)?)%/)
-      const sumM = beforeM && afterM ? [beforeM[1], beforeM[2], afterM[1], afterM[2]] : null
-      const transferM = compact.match(/将其合计持有的[^。]{0,15}?([\d,][\d,.]*)股[^。]{0,60}?占[^。]{0,10}?(\d+(?:\.\d+)?)%/)
-      const gBefore = sumM ? Number(sumM[0].replace(/,/g, '')) : null
-      const gAfter = sumM ? Number(sumM[2].replace(/,/g, '')) : null
-      const gChange = sumM ? Math.abs(gBefore - gAfter) : (transferM ? Number(transferM[1].replace(/,/g, '')) : null)
-      const anchorNum = sumM ? sumM[0] : (transferM ? transferM[1] : null)
-      const anchorBlock = anchorNum !== null ? parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.includes(anchorNum)) : undefined
-      const mkProv = () => anchorBlock
-        ? [{ block_id: anchorBlock.block_id, source_type: anchorBlock.source_type ?? 'paragraph', page: anchorBlock.page, region: anchorBlock.region ?? null, table_id: anchorBlock.table_ref?.table_id ?? null, cell_ref: anchorBlock.table_ref?.cell_ref ?? null, quote: anchorBlock.text_raw.trim() }]
-        : [{ block_id: null, source_type: 'document', page: null, region: null, table_id: null, cell_ref: null, quote: null }]
-      const groupFv = (val, unit, label) => val !== null && val !== undefined && !Number.isNaN(val)
-        ? { raw_value: anchorNum, value: val, unit, status: 'extracted', provenance: mkProv(), standardized: true, denominator: label?.startsWith('ratio') ? 'total_share_capital' : null, note: '［口径合并：群体口径披露的合计值（gold 惯例）］' }
-        : { raw_value: null, value: null, unit, status: 'not_mentioned', provenance: [], standardized: false, denominator: null, note: '［口径合并：原文未披露群体合计值］' }
-      const merged = {
-        event_id: 'E01',
-        event_type: 'equity_change',
-        fields: {
-          ...JSON.parse(JSON.stringify(base.fields)),
-          holder: { raw_value: holderValue, value: holderValue, unit: 'text', status: 'extracted', provenance: JSON.parse(JSON.stringify(base.fields?.holder?.provenance ?? [])), standardized: true, denominator: null, note: `［口径合并：${names.join('、')}→群体事件（无逐行变动数表，变动数仅群体披露）］` },
+  if (groupDisclosure && !perRowChangeTable && eqAll.length > 0) {
+    // 群体句解析（合并/改写两路径共用）
+    const transferorM = compact.match(/([^\s。]{6,40})将其合计持有的/)
+    const transferorNames = transferorM?.[1] ?? null
+    const beforeM = compact.match(/权益变动前[^。]{0,25}?(?:信息披露义务人[^。]{0,15}?)?合计持有[^。]{0,25}?([\d,][\d,.]*)股?[^。]{0,60}?占[^。]{0,6}?总股本[^。]{0,6}?(\d+(?:\.\d+)?)%/)
+    const afterM = compact.match(/变动后[^。]{0,25}?合计持有[^。]{0,25}?([\d,][\d,.]*)股?[^。]{0,60}?占[^。]{0,6}?总股本[^。]{0,6}?(\d+(?:\.\d+)?)%/)
+    const sumM = beforeM && afterM ? [beforeM[1], beforeM[2], afterM[1], afterM[2]] : null
+    const transferM = compact.match(/将其合计持有的[^。]{0,15}?([\d,][\d,.]*)股[^。]{0,60}?占[^。]{0,10}?(\d+(?:\.\d+)?)%/)
+    const gBefore = sumM ? Number(sumM[0].replace(/,/g, '')) : null
+    const gAfter = sumM ? Number(sumM[2].replace(/,/g, '')) : null
+    const gChange = sumM ? Math.abs(gBefore - gAfter) : (transferM ? Number(transferM[1].replace(/,/g, '')) : null)
+    const anchorNum = sumM ? sumM[0] : (transferM ? transferM[1] : null)
+    const anchorBlock = anchorNum !== null ? parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.includes(anchorNum)) : undefined
+    const mkProv = () => anchorBlock
+      ? [{ block_id: anchorBlock.block_id, source_type: anchorBlock.source_type ?? 'paragraph', page: anchorBlock.page, region: anchorBlock.region ?? null, table_id: anchorBlock.table_ref?.table_id ?? null, cell_ref: anchorBlock.table_ref?.cell_ref ?? null, quote: anchorBlock.text_raw.trim() }]
+      : [{ block_id: null, source_type: 'document', page: null, region: null, table_id: null, cell_ref: null, quote: null }]
+    const groupFv = (val, unit, label) => val !== null && val !== undefined && !Number.isNaN(val)
+      ? { raw_value: anchorNum, value: val, unit, status: 'extracted', provenance: mkProv(), standardized: true, denominator: label?.startsWith('ratio') ? 'total_share_capital' : null, note: '［口径合并：群体口径披露的合计值（gold 惯例）］' }
+      : { raw_value: null, value: null, unit, status: 'not_mentioned', provenance: [], standardized: false, denominator: null, note: '［口径合并：原文未披露群体合计值］' }
+    const transferorBlk = parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.replace(/\s+/g, '').includes('将其合计持有'))
+
+    if (eqAll.length > 1) {
+      // 成员＝多数方向的事件（剔除反向的受让方个体事件——其变动属于对方自己的报告书）
+      const dirs = eqAll.map((ev) => ev.fields?.direction?.value ?? 'increase')
+      const majority = dirs.filter((d) => d === 'decrease').length > dirs.length / 2 ? 'decrease' : 'increase'
+      const members = eqAll.filter((ev) => (ev.fields?.direction?.value ?? 'increase') === majority)
+      if (members.length === 1) {
+        // 模型已自发聚成单个群体事件：只删少数方向的多余事件
+        for (let i = events.length - 1; i >= 0; i--) {
+          const ev = events[i]
+          if (ev.event_type === 'equity_change' && (ev.fields?.direction?.value ?? 'increase') !== majority) {
+            events.splice(i, 1)
+            repairs.push(`［口径过滤］删除反向受让方个体事件：holder=${ev.fields?.holder?.value}（其变动属于对方报告书口径）`)
+          }
+        }
+      } else if (members.length > 1) {
+        const names = [...new Set(members.map((ev) => String(ev.fields?.holder?.value ?? '').trim()).filter(Boolean))]
+        // holder 连接符跟原文：顿号连"和"与纯顿号两种形式，选原文出现的
+        const joinDun = names.join('、')
+        const joinHe = names.length > 1 ? names.slice(0, -1).join('、') + '和' + names[names.length - 1] : joinDun
+        const holderValue = compact.includes(joinHe.replace(/\s+/g, '')) ? joinHe : joinDun
+        const base = members[0]
+        const merged = {
+          event_id: 'E01',
+          event_type: 'equity_change',
+          fields: {
+            ...JSON.parse(JSON.stringify(base.fields)),
+            holder: { raw_value: holderValue, value: holderValue, unit: 'text', status: 'extracted', provenance: JSON.parse(JSON.stringify(base.fields?.holder?.provenance ?? [])), standardized: true, denominator: null, note: `［口径合并：${names.join('、')}→群体事件（无逐行变动数表，变动数仅群体披露）］` },
+            shares_before: groupFv(gBefore, 'shares'),
+            shares_after: groupFv(gAfter, 'shares'),
+            change_shares: groupFv(gChange, 'shares'),
+            ratio_before: groupFv(sumM ? Number(sumM[1]) : null, 'percent', 'ratio_before'),
+            ratio_after: groupFv(sumM ? Number(sumM[3]) : null, 'percent', 'ratio_after'),
+          },
+          extraction_method: base.extraction_method ?? null,
+          notes: `［A3 群体合并］成员事件 ${names.join('、')}（方向 ${majority}）合并为群体事件`,
+        }
+        // 替换：删全部股权事件，插入合并事件（保持其余类型事件不动）
+        for (let i = events.length - 1; i >= 0; i--) if (events[i].event_type === 'equity_change') events.splice(i, 1)
+        events.push(merged)
+        repairs.push(`［口径合并］无逐行变动数表且变动数仅群体披露：${eqAll.length} 个成员事件合并为 1 个群体事件（holder=${holderValue}）`)
+      }
+    } else {
+      // 路径2：模型只给了受让方视角单事件（如 EQC-003 只出"于春生 increase"）→ 按原文转让方名单改写为群体减持事件
+      const solo = eqAll[0]
+      const soloHolder = String(solo.fields?.holder?.value ?? '')
+      if (transferorNames !== null && !transferorNames.includes(soloHolder) && !soloHolder.includes('、')) {
+        solo.fields = {
+          ...JSON.parse(JSON.stringify(solo.fields)),
+          holder: { raw_value: transferorNames, value: transferorNames, unit: 'text', status: 'extracted', provenance: JSON.parse(JSON.stringify(solo.fields?.holder?.provenance ?? [])), standardized: true, denominator: null, note: `［口径改写：${soloHolder}→${transferorNames}（原文转让方名单句，群体口径披露）］` },
+          direction: { raw_value: '将其合计持有', value: 'decrease', unit: 'text', status: 'extracted', provenance: transferorBlk ? [{ block_id: transferorBlk.block_id, source_type: transferorBlk.source_type ?? 'paragraph', page: transferorBlk.page, region: transferorBlk.region ?? null, table_id: transferorBlk.table_ref?.table_id ?? null, cell_ref: transferorBlk.table_ref?.cell_ref ?? null, quote: '将其合计持有' }] : [{ block_id: null, source_type: 'document', page: null, region: null, table_id: null, cell_ref: null, quote: '将其合计持有' }], standardized: true, denominator: null, note: '［口径改写：转让方合计转让→decrease］' },
           shares_before: groupFv(gBefore, 'shares'),
           shares_after: groupFv(gAfter, 'shares'),
           change_shares: groupFv(gChange, 'shares'),
           ratio_before: groupFv(sumM ? Number(sumM[1]) : null, 'percent', 'ratio_before'),
           ratio_after: groupFv(sumM ? Number(sumM[3]) : null, 'percent', 'ratio_after'),
-        },
-        extraction_method: base.extraction_method ?? null,
-        notes: `［A3 群体合并］成员事件 ${names.join('、')}（方向 ${majority}）合并为群体事件`,
+        }
+        solo.notes = `${solo.notes ?? ''}［A3 路径2 群体改写：${soloHolder}→${transferorNames}］`
+        repairs.push(`［口径改写］单事件（${soloHolder}）非原文转让方名单，按群体口径改写为 ${transferorNames} 群体事件`)
       }
-      // 替换：删全部股权事件，插入合并事件（保持其余类型事件不动）
-      for (let i = events.length - 1; i >= 0; i--) if (events[i].event_type === 'equity_change') events.splice(i, 1)
-      events.push(merged)
-      repairs.push(`［口径合并］无逐行变动数表且变动数仅群体披露：${eqAll.length} 个成员事件合并为 1 个群体事件（holder=${holderValue}）`)
     }
   }
 

@@ -1,0 +1,479 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261002T065325-award_contract-4509",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
+    "file_name": "bid-006.pdf",
+    "file_sha256": "fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 1,
+      "blocks": [
+        {
+          "block_id": "dfc6c3d84_p001_b00001",
+          "page": 1,
+          "role": "TITLE",
+          "text": "证券代码：600846 股票名称：同济科技 公告编号：2026-041",
+          "text_raw": "证券代码：600846股票名称：同济科技公告编号：2026-041",
+          "region": [
+            101.76,
+            80.83,
+            491.34,
+            96.87
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "上海同济科技实业股份有限公司关于全资子公司项目中标的公告特别提示本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者",
+          "text_raw": "上海同济科技实业股份有限公司关于全资子公司项目中标的公告特别提示本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者",
+          "region": [
+            96.84,
+            133.42,
+            520.31,
+            234.41
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "text_raw": "重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "region": [
+            72.84,
+            245.69,
+            420.84,
+            257.69
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "公司全资子公司上海同济建设有限公司收到上海金滨海房地产开发有限公",
+          "text_raw": "公司全资子公司上海同济建设有限公司收到上海金滨海房地产开发有限公",
+          "region": [
+            114,
+            291.29,
+            505.32,
+            303.29
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "司发出的中标通知书，上海同济建设有限公司与上海天华建筑设计有限公司联合",
+          "text_raw": "司发出的中标通知书，上海同济建设有限公司与上海天华建筑设计有限公司联合",
+          "region": [
+            90,
+            314.57,
+            505.32,
+            326.57
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "中标金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目。",
+          "text_raw": "中标金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目。",
+          "region": [
+            90,
+            337.97,
+            473.28,
+            351.96
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": "该项目位于上海市金山区山阳镇，东至蒙山北路，西至卫零北路，南至南阳",
+          "text_raw": "该项目位于上海市金山区山阳镇，东至蒙山北路，西至卫零北路，南至南阳",
+          "region": [
+            114,
+            361.37,
+            505.32,
+            373.37
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "湾路，北至龙山路。该项目为新建商品房项目，总建筑面积约123,234.21平方米，其中地上总建筑面积82,034.21平方米，地下总建筑面积41,200平方米；包括新建6栋7-9层洋房住宅及2栋5-7层洋房住宅、9栋叠墅住宅、20栋联排住宅、东侧住宅区设置架空车库、1栋地面配电房、室外总体、示范区、景观等。项目中标价格80,971.4662万元，其中施工价格79,821.6018万元，施工周期750天。",
+          "text_raw": "湾路，北至龙山路。该项目为新建商品房项目，总建筑面积约123,234.21平方米，其中地上总建筑面积82,034.21平方米，地下总建筑面积41,200平方米；包括新建6栋7-9层洋房住宅及2栋5-7层洋房住宅、9栋叠墅住宅、20栋联排住宅、东侧住宅区设置架空车库、1栋地面配电房、室外总体、示范区、景观等。项目中标价格80,971.4662万元，其中施工价格79,821.6018万元，施工周期750天。",
+          "region": [
+            90,
+            384.65,
+            511.32,
+            492
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "截至本公告披露日，上海同济建设有限公司已完成合同签署。项目工期较长，",
+          "text_raw": "截至本公告披露日，上海同济建设有限公司已完成合同签署。项目工期较长，",
+          "region": [
+            114,
+            501.41,
+            511.32,
+            513.41
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00010",
+          "page": 1,
+          "role": "BODY",
+          "text": "预计对公司当期营业收入、利润影响有限。敬请广大投资者注意投资风险。",
+          "text_raw": "预计对公司当期营业收入、利润影响有限。敬请广大投资者注意投资风险。",
+          "region": [
+            90,
+            524.69,
+            486,
+            536.69
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00011",
+          "page": 1,
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114,
+            568.73,
+            174,
+            580.73
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "上海同济科技实业股份有限公司董事会",
+          "text_raw": "上海同济科技实业股份有限公司董事会",
+          "region": [
+            301.32,
+            623.81,
+            505.32,
+            635.81
+          ]
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "二〇二六年九月二十四日",
+          "text_raw": "二〇二六年九月二十四日",
+          "region": [
+            355.32,
+            651.17,
+            487.32,
+            663.17
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "上海同济建设有限公司与上海天华建筑设计有限公司联合",
+          "value": "上海同济建设有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                314.57,
+                505.32,
+                326.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "上海同济建设有限公司与上海天华建筑设计有限公司联合"
+            }
+          ],
+          "denominator": null,
+          "note": "［口径精简：上海同济建设有限公司与上海天华建筑设计有限公司联合→上海同济建设有限公司（牵头方）］"
+        },
+        "tenderer": {
+          "raw_value": "上海金滨海房地产开发有限公司",
+          "value": "上海金滨海房地产开发有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00004",
+              "page": 1,
+              "region": [
+                114,
+                291.29,
+                505.32,
+                303.29
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "上海金滨海房地产开发有限公"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目",
+          "value": "金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00006",
+              "page": 1,
+              "region": [
+                90,
+                337.97,
+                473.28,
+                351.96
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "80,971.4662万元",
+          "value": 809714662,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00008",
+              "page": 1,
+              "region": [
+                90,
+                384.65,
+                511.32,
+                492
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "项目中标价格80,971.4662万元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "万元",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00008",
+              "page": 1,
+              "region": [
+                90,
+                384.65,
+                511.32,
+                492
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "项目中标价格80,971.4662万元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "施工周期750天",
+          "value": "750天",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00008",
+              "page": 1,
+              "region": [
+                90,
+                384.65,
+                511.32,
+                492
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "施工周期750天"
+            }
+          ],
+          "denominator": null,
+          "note": "［口径精简：施工周期750天→750天（工期分句/去标签前缀）］"
+        },
+        "consortium_members": {
+          "raw_value": "上海同济建设有限公司与上海天华建筑设计有限公司联合",
+          "value": "上海同济建设有限公司、上海天华建筑设计有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                314.57,
+                505.32,
+                326.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "上海同济建设有限公司与上海天华建筑设计有限公司联合"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "上海同济建设有限公司已完成合同签署",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00009",
+              "page": 1,
+              "region": [
+                114,
+                501.41,
+                511.32,
+                513.41
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "上海同济建设有限公司已完成合同签署"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": "收到上海金滨海房地产开发有限公司发出的中标通知书",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dfc6c3d84_p001_b00004",
+              "page": 1,
+              "region": [
+                114,
+                291.29,
+                505.32,
+                303.29
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "收到上海金滨海房地产开发有限公"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-02T06:53:25.917Z",
+    "duration_ms": 3816,
+    "code_version": "86af5966",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}
