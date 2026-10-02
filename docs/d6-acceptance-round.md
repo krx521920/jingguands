@@ -47,6 +47,15 @@ node scripts/jingguan/run_batch.mjs \
 2. **完整验收记录**：本文档＋`runs/batch-20261002T120859/batch_report.{md,json}`＋envelopes/ 逐份信封——同一轮 30＋5、四种失败路径、页面形态全覆盖。
 3. **Harness 工具接真实抽取**：`packages/jingguan/core/src/index.ts` v0.4——`jingguan_extract_events` 默认 `mode="real"`，spawn `scripts/jingguan/run_extract.mjs`（30 份 ×100% 验证过的管线），返回真实 v0.3 信封＋校验问题；`mode="mock"` 保留 D1 骨架联调。行为冒烟已通过（pledgor=广弘元、pledgee=中信银行宁波分行、shares=5,200,000、ratio=10.08、quote 锚定原文）。
 
-## 五、门禁
+## 五、自动化回归（评测方要求：损坏 JSON／损失文件批量回归，常驻门禁）
 
-修复后全量门禁 10/10 通过（含契约五方一致、全量信封校验、gold 一致性、行为回归、git 守卫、远端同步）。
+`scripts/jingguan/test_batch_denominator.mjs`（已纳入 gates.mjs 第 8 道门禁，每次改动自动跑）：
+
+- 7 种输入形态一次批量：合法样例＋JSON 截断＋pages=[] 内容损失＋无 pages 键结构损失＋非 UTF-8 二进制＋纯空白文本＋无法推断类型
+- 断言：`results.length === 输入数`（分母零丢失）、每类坏文件的 ok/skip_reason/拒绝原因、合法样例不受污染（隔离对照）
+- 产物损坏路径：假 RUNNER 模拟"打印 runs 路径但产物缺失"→ 断言记 `failed（产物不可读/损坏）` 且批次不崩、报告照常产出
+- 批量进程 exit 1 是设计内失败信号（`errTotal>0 || ok<total`），测试判 0/1 均为正常完成，仅 null/信号为崩溃
+
+## 六、门禁
+
+修复后全量门禁通过（含契约五方一致、全量信封校验、gold 一致性、行为回归、**批量分母回归**、git 守卫、远端同步）。
