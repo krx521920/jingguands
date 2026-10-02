@@ -624,6 +624,11 @@ async function main() {
         fv.value = Math.abs(fv.value)
         fv.note = `${fv.note ?? ''}［原模型输出为负值，已归一化为非负量级（direction 表达方向）］`
       }
+      // 注册表规定的单位强制修正（change_date 必须为 date_range）
+      if (name === 'change_date' && fv.unit === 'date' && fv.status === 'extracted') {
+        fv.unit = 'date_range'
+        fv.note = `${fv.note ?? ''}［单位修正：date→date_range（注册表规定）］`
+      }
     }
   }
 
