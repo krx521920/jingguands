@@ -1,0 +1,116 @@
+{
+  "report_id": "financial-events-30-five-metric-v0.1",
+  "created_on": "2026-10-02",
+  "policy": {
+    "missing_documents_stay_in_denominator": true,
+    "not_applicable_excluded": true,
+    "strict_and_alias_adjusted_reported_separately": true,
+    "boolean_string_normalization": true
+  },
+  "types": {
+    "pledge": {
+      "documents": 10,
+      "zero_error_documents": 9,
+      "events_gold": 15,
+      "events_strict": 14,
+      "events_alias_adjusted": 15,
+      "extracted_fields_gold": 182,
+      "value_hits_strict": 172,
+      "value_hits_alias_adjusted": 182,
+      "normalization_denominator": 172,
+      "normalization_hits": 172,
+      "evidence_denominator": null,
+      "evidence_hits": null,
+      "evidence_spot_checks": "20/20",
+      "wrong_fill_denominator": 19,
+      "wrong_filled": 1,
+      "notes": [
+        "Stored batch has one document with 6 validation errors and one entity-name mismatch; alias-adjusted event coverage is 15/15."
+      ],
+      "field_accuracy_strict": 0.9451,
+      "field_accuracy_alias_adjusted": 1,
+      "normalization_accuracy": 1,
+      "evidence_hit_rate": null,
+      "wrong_fill_rate": 0.0526,
+      "format_compliance": 0.9
+    },
+    "equity_change": {
+      "documents": 10,
+      "zero_error_documents": 10,
+      "events_gold": 16,
+      "events_strict": 16,
+      "events_alias_adjusted": 16,
+      "extracted_fields_gold": 137,
+      "value_hits_strict": 137,
+      "value_hits_alias_adjusted": 137,
+      "normalization_denominator": 137,
+      "normalization_hits": 137,
+      "evidence_denominator": 137,
+      "evidence_hits": 130,
+      "wrong_fill_denominator": 4,
+      "wrong_filled": 0,
+      "notes": [
+        "Latest batch 20261002T051119; EQC-002 adjudication A included."
+      ],
+      "field_accuracy_strict": 1,
+      "field_accuracy_alias_adjusted": 1,
+      "normalization_accuracy": 1,
+      "evidence_hit_rate": 0.9489,
+      "wrong_fill_rate": 0,
+      "format_compliance": 1
+    },
+    "award_contract": {
+      "documents": 10,
+      "zero_error_documents": 10,
+      "events_gold": 17,
+      "events_strict": 17,
+      "events_alias_adjusted": 17,
+      "extracted_fields_gold": 118,
+      "value_hits_strict": 118,
+      "value_hits_alias_adjusted": 118,
+      "normalization_denominator": 118,
+      "normalization_hits": 118,
+      "evidence_denominator": 118,
+      "evidence_hits": 118,
+      "wrong_fill_denominator": 86,
+      "wrong_filled": 0,
+      "notes": [
+        "Latest batch 20261002T051220; true/false string values normalized semantically."
+      ],
+      "field_accuracy_strict": 1,
+      "field_accuracy_alias_adjusted": 1,
+      "normalization_accuracy": 1,
+      "evidence_hit_rate": 1,
+      "wrong_fill_rate": 0,
+      "format_compliance": 1
+    }
+  },
+  "aggregate": {
+    "documents": 30,
+    "zero_error_documents": 29,
+    "format_compliance": 0.9667,
+    "events_gold": 48,
+    "events_strict": 47,
+    "events_alias_adjusted": 48,
+    "event_coverage_strict": 0.9792,
+    "event_coverage_alias_adjusted": 1,
+    "extracted_fields_gold": 437,
+    "value_hits_strict": 427,
+    "value_hits_alias_adjusted": 437,
+    "field_accuracy_strict": 0.9771,
+    "field_accuracy_alias_adjusted": 1,
+    "normalization_accuracy_matched": 1,
+    "evidence_denominator": 255,
+    "evidence_hits": 248,
+    "evidence_hit_rate_available_outputs": 0.9725,
+    "wrong_fill_denominator": 109,
+    "wrong_filled": 1,
+    "wrong_fill_rate": 0.0092
+  },
+  "caveats": [
+    "D4 stored batch includes one entity-name alias mismatch and 6 validation errors for D4-PLD-009; strict and alias-adjusted event coverage are both reported.",
+    "D4 full system evidence cannot be recomputed because the latest batch report is stored without the ten envelopes; only the 20/20 spot checks are available.",
+    "D5/D6 latest batches have zero validation errors; evidence hit is computed from every extracted field provenance.",
+    "The blank/missing-file denominator guard is policy-level in this report; the upstream batch runner must retain failed files in its own report denominator."
+  ]
+}

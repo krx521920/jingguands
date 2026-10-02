@@ -1,0 +1,13 @@
+{
+  "status": "pending",
+  "requested_on": "2026-10-02",
+  "recommended_reviewers": ["Wei", "Zhang"],
+  "checklist": [
+    "D5-EQC-002 adjudication A",
+    "D5 latest batch fields and events",
+    "D6 latest batch fields and events",
+    "D6 Zhang parse 20/20 evidence spot checks",
+    "D4 strict caveat remains visible",
+    "five-metric denominators include missing documents and fields"
+  ]
+}

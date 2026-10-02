@@ -2,24 +2,21 @@
   "baseline_id": "financial-events-30-dev-baseline-v0.1",
   "created_on": "2026-10-02",
   "dataset_manifest": "evaluation/dev-30/manifest.json",
+  "five_metric_report": "evaluation/dev-30/five-metric-report.json",
   "scope": "three event types, ten public development documents each",
   "aggregate": {
     "documents": 30,
     "events": 48,
     "fields": 592,
     "upstream_model_documents_available": 30,
-    "by_type": {
-      "pledge": {"documents": 10, "events": 15, "fields": 210, "evidence_records": 191, "spot_checks": 20, "gold_validation": "pass", "upstream_documents_available": 10, "upstream_status": "10/10 match", "field_accuracy": 1.0},
-      "equity_change": {"documents": 10, "events": 16, "fields": 144, "extracted_fields_expected": 137, "evidence_records": 138, "spot_checks": 20, "gold_validation": "pass", "upstream_documents_available": 10, "upstream_batch": "runs/batch-20261002T051119", "upstream_status": "16/16 events and 137/137 extracted fields match; zero validation errors", "field_accuracy": 1.0},
-      "award_contract": {"documents": 10, "events": 17, "fields": 238, "extracted_fields_expected": 118, "evidence_records": 125, "spot_checks": 20, "gold_validation": "pass", "upstream_documents_available": 10, "upstream_batch": "runs/batch-20261002T051220", "upstream_status": "17/17 events and 118/118 extracted fields match; zero validation errors after semantic boolean normalization", "field_accuracy": 1.0}
-    }
+    "strict": {"format_compliance": "29/30", "event_coverage": "47/48", "field_accuracy": "427/437", "evidence_hit_available_outputs": "248/255", "wrong_fill": "1/109"},
+    "alias_adjusted": {"event_coverage": "48/48", "field_accuracy": "437/437", "note": "Only D4-PLD-009 entity-name alias adjustment; strict metrics remain separately reported."}
   },
-  "notes": [
-    "The 30-document set is complete at the Gold/format/evidence layer.",
-    "All 30 documents now have an independently compared upstream real batch.",
-    "D5-EQC-002 adjudication A added the explicitly disclosed concert-party after values.",
-    "D6 boolean-like true/false strings are normalized semantically for comparison.",
-    "Raw PDFs are not redistributed; source hashes and URLs are recorded in each type manifest."
-  ],
+  "by_type": {
+    "pledge": {"documents": 10, "strict_zero_error_documents": "9/10", "strict_event_coverage": "14/15", "alias_adjusted_event_coverage": "15/15", "strict_field_accuracy": "172/182", "alias_adjusted_field_accuracy": "182/182", "evidence_spot_checks": "20/20", "wrong_fill": "1/55"},
+    "equity_change": {"documents": 10, "zero_error_documents": "10/10", "events": "16/16", "field_accuracy": "137/137", "evidence_hits": "137/137", "wrong_fill": "0/30"},
+    "award_contract": {"documents": 10, "zero_error_documents": "10/10", "events": "17/17", "field_accuracy": "118/118", "evidence_hits": "111/118", "wrong_fill": "0/24"}
+  },
+  "caveats": ["D4-PLD-009 has one entity-name alias mismatch and six validation errors in the stored batch.", "D4 full system evidence is not recomputable from the stored batch; only 20/20 spot checks are available.", "D5 uses adjudication A for EQC-002 concert-party after values.", "D6 true/false strings are semantically normalized.", "Second-person review is still pending."],
   "source_manifests": ["evaluation/D4/dev/manifest.json", "evaluation/D5/dev/manifest.json", "evaluation/D6/dev/manifest.json"]
 }
