@@ -1,0 +1,187 @@
+{
+  "owner": "方轩诚",
+  "day": "D7",
+  "date": "2026-10-03",
+  "version": "0.7.0",
+  "repository": "https://github.com/krx521920/jingguands",
+  "pins": {
+    "fang": "4e886d33fb902cd18d4742780a8eaa6fa33a1232",
+    "wei": "34f938a636807ecb4ca4974152f880bc02ed2177",
+    "zong": "bbe5d220bc0f0b078c4f46c22c32ee9a4fef8a01",
+    "chen": "759bfcf911e774d7eb29d61c484c24637a7b3fed",
+    "zhang": "d5ffa1eb9b1b7c3cd569f92ff542914e9c7936b2"
+  },
+  "runtime": "Node.js >=24",
+  "runtime_dependencies": [],
+  "reused_sources": [
+    {
+      "source": "src_D4/normalization/normalization_D4.ts",
+      "commit": "4e886d33fb902cd18d4742780a8eaa6fa33a1232",
+      "source_sha256": "a115c3bb03095d9c2b539b2d6687fa422b8f3fe4412fc48373f5981e78d39747",
+      "delivered": "src_D7/decimal_D7.mts",
+      "delivered_sha256": "a115c3bb03095d9c2b539b2d6687fa422b8f3fe4412fc48373f5981e78d39747",
+      "content_unchanged_ignoring_line_endings": true
+    },
+    {
+      "source": "D2 tests_D2/fixtures/normalization_cases_D2.json",
+      "delivered": "tests_D7/legacy_cases_D7.json",
+      "sha256": "81650a2ef7c5597eb59ef54dedfd30e29954c0ce9dc5e857602fe004b253c3ec"
+    }
+  ],
+  "checks": {
+    "date": "2026-10-03",
+    "filename_suffix_check": true,
+    "markdown_links_check": true,
+    "core_tests": 90,
+    "previous_tests": 274,
+    "typecheck": "PASS",
+    "runtime": "Node.js v24.21.0",
+    "standalone_output_has_no_package_json": true,
+    "prior_delivery_files_modified": false,
+    "repository_tracked_diff_empty": true,
+    "pushed": false,
+    "local_D6_comparison": [
+      {
+        "path": "src_D6/award_check_D6.ts",
+        "local_sha256": "27b8ddcea1ba43f8b882677e4296c5b767996a8f0aea07bd8d123257fa02979b",
+        "remote_sha256": "27b8ddcea1ba43f8b882677e4296c5b767996a8f0aea07bd8d123257fa02979b",
+        "content_matches": true
+      },
+      {
+        "path": "src_D6/cli_D6.ts",
+        "local_sha256": "0d86dfba187b866008723fb52272dfb9691b01879c0c7df4dfcb1af706735b8f",
+        "remote_sha256": "0d86dfba187b866008723fb52272dfb9691b01879c0c7df4dfcb1af706735b8f",
+        "content_matches": true
+      }
+    ]
+  },
+  "limitations": [
+    "只执行固定公开开发集离线回放，未调用新模型",
+    "B接口为提案，全部unknown/may_compare=false，不执行D8同事件判断",
+    "121/181为当前可独立复算覆盖率，非官方标准化准确率",
+    "可选接入补丁只在临时副本检查，未应用集成仓库",
+    "未读取封存测试，未推送GitHub"
+  ],
+  "files": [
+    {
+      "path": "docs_D7/A_regression_results_D7.json",
+      "bytes": 442047,
+      "sha256": "1f77157a5b92e83cac578be1dac9a49bcd807949e75da8766db09fa993749334"
+    },
+    {
+      "path": "docs_D7/integration_patch_check_D7.json",
+      "bytes": 420,
+      "sha256": "e0ccf875044b824b177b941fd269ad7081f602dca24f6fb5d90b9fe12e5023bf"
+    },
+    {
+      "path": "docs_D7/packaging_log_D7.json",
+      "bytes": 899,
+      "sha256": "d1d788f9f6f593d0c00892ccad9c5863fa5cd179c525871b4b419de5a96fd663"
+    },
+    {
+      "path": "docs_D7/previous_regression_log_D7.txt",
+      "bytes": 13471,
+      "sha256": "4bc806c471c2fb12af02760a8c360e5c125bcd467f322556db3dfe78dbc972a1"
+    },
+    {
+      "path": "docs_D7/typecheck_log_D7.txt",
+      "bytes": 102,
+      "sha256": "06d204e5c870499e3e741dfe5dc0ba252ad213c5948d0879527d402390abcad8"
+    },
+    {
+      "path": "docs_D7/unit_log_D7.txt",
+      "bytes": 4241,
+      "sha256": "5e2306425773e2242797766d3269c7c0c3469fe36882713505ed9b77a19a742c"
+    },
+    {
+      "path": "docs_D7/验收记录_D7.md",
+      "bytes": 7132,
+      "sha256": "131049a34ddb9e6910c13ac52982c6ff987c0bcd8104cd1115d942039d252f98"
+    },
+    {
+      "path": "examples_D7/A_input_D7.json",
+      "bytes": 6593,
+      "sha256": "8c04569442bd10b13991d08b5874bfe6f8de3a03864703ee91529ff6560592c3"
+    },
+    {
+      "path": "examples_D7/B_pairs_D7.json",
+      "bytes": 253065,
+      "sha256": "4e8edb5c77f825ce2b138610d654afdb950fabe3aa664f6a8fe5dd5dae1d92d9"
+    },
+    {
+      "path": "examples_D7/B_schema_D7.json",
+      "bytes": 13250,
+      "sha256": "e01c65be1c5a5a330c0c506271d8e7789de54c48aa773041a5a8d69c931f528c"
+    },
+    {
+      "path": "examples_D7/metrics_input_D7.json",
+      "bytes": 22975,
+      "sha256": "264f8ef1e073e47a8a9e2d5f41f5cf0283477c387ae2440ed4fa95980833641e"
+    },
+    {
+      "path": "integration_D7.patch",
+      "bytes": 1286,
+      "sha256": "142cf6d8da61c3832cda500f8932c03a3853e320de2d3f8452ae02d7b799fe70"
+    },
+    {
+      "path": "README_D7.md",
+      "bytes": 5411,
+      "sha256": "3550684e23b6bbaf7b970177de63907d3d000cae31233c1e80947dfbd4550cb8"
+    },
+    {
+      "path": "src_D7/alignment_D7.mts",
+      "bytes": 3868,
+      "sha256": "83d65b1ccc5282d619c00aa51076938b4d4743bdbe190a7f66662f6b1879e719"
+    },
+    {
+      "path": "src_D7/cli_D7.mts",
+      "bytes": 1891,
+      "sha256": "052602e98cea44452b85775ec235b1e0321de8c3c02890d4ae701164c5d9daad"
+    },
+    {
+      "path": "src_D7/decimal_D7.mts",
+      "bytes": 4776,
+      "sha256": "a115c3bb03095d9c2b539b2d6687fa422b8f3fe4412fc48373f5981e78d39747"
+    },
+    {
+      "path": "src_D7/normalization_D7.mts",
+      "bytes": 13075,
+      "sha256": "8efe4a2ec78eae7f4ac7f9617a31f461932f30e1add6358e7f41b6edcb118d11"
+    },
+    {
+      "path": "src_D7/statistics_D7.mts",
+      "bytes": 7309,
+      "sha256": "c27e6fa414e954aa84c75e136cf42c6fed479afeaf9fcea6f9d863e4f7cd8512"
+    },
+    {
+      "path": "tests_D7/build_examples_D7.mjs",
+      "bytes": 4881,
+      "sha256": "afd19ea2c5524b343a3bf61f5ed0d6eb174f7a5c73392bea678997f8948b826f"
+    },
+    {
+      "path": "tests_D7/compatibility_D7.mjs",
+      "bytes": 8292,
+      "sha256": "6fce11fb1a020e14661caa371a1b7c549f3b75b84b71e176d27f9877d2f8d59b"
+    },
+    {
+      "path": "tests_D7/fixtures_D7.mjs",
+      "bytes": 3780,
+      "sha256": "7ca1faedfbd22f93ed861d2674c1c4a3f32ccc10a581d73e83888df66fa65331"
+    },
+    {
+      "path": "tests_D7/legacy_cases_D7.json",
+      "bytes": 9805,
+      "sha256": "81650a2ef7c5597eb59ef54dedfd30e29954c0ce9dc5e857602fe004b253c3ec"
+    },
+    {
+      "path": "tests_D7/rules.test_D7.mjs",
+      "bytes": 12072,
+      "sha256": "0cdbf3000a53af2fc03214ef27440e917d1fb81f8268b61d1dff983240780576"
+    },
+    {
+      "path": "tsconfig_D7.json",
+      "bytes": 552,
+      "sha256": "a39ea543bec46effb42ac32c22acff46ae2f47cb25d7c85658b8226ea201c6b1"
+    }
+  ]
+}

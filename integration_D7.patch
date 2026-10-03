@@ -1,0 +1,23 @@
+--- a/scripts/jingguan/run_extract.mjs
++++ b/scripts/jingguan/run_extract.mjs
+@@ -22,7 +22,7 @@
+ import { execSync } from 'node:child_process'
+ import { validateAgainstSchema } from './lib/schema_validator.mjs'
+ import { FIELD_REGISTRY, checkRegistry } from './lib/registry.mjs'
+-import { normalizeFieldValue } from './lib/fang_normalize.mjs'
++import { normalizeFieldValue, eventContext } from '../../src_D7/normalization_D7.mts'
+ import { checkProvenance, checkPageBounds, checkEquityDirection } from './lib/checks.mjs'
+ 
+ const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
+@@ -1293,9 +1293,9 @@
+           else if (hp.includes('万元')) unitHint = '万元'
+         }
+       }
+-      const err = normalizeFieldValue(name, fv, unitHint)
++      const err = normalizeFieldValue(name, fv, unitHint, eventContext(ev))
+       if (err !== null) postErrors.push(err)
+-      else if (fv.standardized === true) normalizedCount++
++      else if (['shares', 'cny', 'percent'].includes(fv.unit) && fv.status === 'extracted' && fv.standardized === true) normalizedCount++
+       // 方向由 direction 表达，change_shares 强制非负（宗 D5 评估规则）
+       if (name === 'change_shares' && typeof fv.value === 'number' && fv.value < 0) {
+         fv.value = Math.abs(fv.value)

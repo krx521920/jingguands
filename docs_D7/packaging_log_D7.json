@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-03",
+  "filename_suffix_check": true,
+  "markdown_links_check": true,
+  "core_tests": 90,
+  "previous_tests": 274,
+  "typecheck": "PASS",
+  "runtime": "Node.js v24.21.0",
+  "standalone_output_has_no_package_json": true,
+  "prior_delivery_files_modified": false,
+  "repository_tracked_diff_empty": true,
+  "pushed": false,
+  "local_D6_comparison": [
+    {
+      "path": "src_D6/award_check_D6.ts",
+      "local_sha256": "27b8ddcea1ba43f8b882677e4296c5b767996a8f0aea07bd8d123257fa02979b",
+      "remote_sha256": "27b8ddcea1ba43f8b882677e4296c5b767996a8f0aea07bd8d123257fa02979b",
+      "content_matches": true
+    },
+    {
+      "path": "src_D6/cli_D6.ts",
+      "local_sha256": "0d86dfba187b866008723fb52272dfb9691b01879c0c7df4dfcb1af706735b8f",
+      "remote_sha256": "0d86dfba187b866008723fb52272dfb9691b01879c0c7df4dfcb1af706735b8f",
+      "content_matches": true
+    }
+  ]
+}

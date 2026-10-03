@@ -1,0 +1,10 @@
+{
+  "source_commit": "34f938a636807ecb4ca4974152f880bc02ed2177",
+  "source_sha256": "a21f29260106121f7a2cbe52d73d537fe11bfa556ed841a8ae464898eb642a86",
+  "patch_sha256": "142cf6d8da61c3832cda500f8932c03a3853e320de2d3f8452ae02d7b799fe70",
+  "git_apply_check": true,
+  "temporary_copy_applied": true,
+  "node_syntax_check": true,
+  "real_extraction_executed": false,
+  "integration_repository_modified": false
+}
