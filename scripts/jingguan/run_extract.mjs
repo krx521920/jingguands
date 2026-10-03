@@ -364,6 +364,8 @@ function repairQuotes(events, parseDoc, inputText, repairs) {
             if (ownerVal.length >= 2 && blk.text_raw.includes(ownerVal)) score += 2
             if (sharesRaw.length >= 3 && blk.text_raw.includes(sharesRaw)) score += 2
             if ((blk.header_path ?? '').includes(p.quote)) score += 1
+            // 动词语境：质押/解除质押类方向词锚向交易句本身（"…质押给…""办理…质押…"）
+            if (/质押给|办理.{0,6}质押|质押业务|解除质押/.test(blk.text_raw)) score += 2
             if (score > bestScore) { bestScore = score; best = blk; tie = false }
             else if (score === bestScore && best !== null) tie = true
           }
