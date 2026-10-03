@@ -45,3 +45,11 @@
 - 批量机械核验：`evaluation/dev-30/evidence/combined-batch-verification.json`
 - 封存单文档：`evaluation/sealed/single/manifest.json`
 - 封存跨文档：`evaluation/sealed/cross-doc/manifest.json`
+
+## 第二人复核补充
+
+- Zhang解析/出处复核为条件通过（复核提交 `58a562f6`）。
+- D4-PLD 182条为文本模式弱锚定；D5/D6 257条为块级强锚定，两类不得混入同一证据分母。
+- 45条quote在缺少 `block_id` 时存在多块歧义，证据页必须使用 `block_id` 定位。
+- 提取语义复核由Wei完成记录前，第二人复核状态仍为 partial。
+- 跨组对接明细见 `evaluation/D7/handoffs/D7-cross-team-handoff.md`。

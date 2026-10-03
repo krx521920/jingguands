@@ -1,13 +1,24 @@
 {
-  "status": "pending",
-  "requested_on": "2026-10-02",
-  "recommended_reviewers": ["Wei", "Zhang"],
-  "checklist": [
-    "D5-EQC-002 adjudication A",
-    "D5 latest batch fields and events",
-    "D6 latest batch fields and events",
-    "D6 Zhang parse 20/20 evidence spot checks",
-    "D4 strict caveat remains visible",
-    "five-metric denominators include missing documents and fields"
+  "status": "partial",
+  "checked_on": "2026-10-03",
+  "reviews": {
+    "parser_evidence": {
+      "reviewer": "Zhang",
+      "status": "conditional_pass",
+      "commit": "58a562f6",
+      "findings": [
+        "F1 evidence strength differs by input mode",
+        "F3 quote-only lookup is ambiguous",
+        "F4 cross-block quote newline representation difference"
+      ]
+    },
+    "extraction_semantics": {
+      "reviewer": "Wei",
+      "status": "pending"
+    }
+  },
+  "blocking": [
+    "split strong and weak evidence denominators or rerun D4 in parse-block mode",
+    "record extraction-semantics review"
   ]
 }
