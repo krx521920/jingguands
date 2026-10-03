@@ -330,6 +330,54 @@ function repairQuotes(events, parseDoc, inputText, repairs) {
   events.forEach((ev, i) => {
     for (const [name, fv] of Object.entries(ev.fields ?? {})) {
       fv.provenance?.forEach((p, pi) => {
+        if (typeof p.quote !== 'string' || p.quote.length < 2) return
+        // 短 quote（2-5 字，如 direction="质押"）：引用块不含时按"事件一致性"重锚——
+        // 同事件其他字段已锚定的块中含该词者（方向词与股数/主体通常同块）
+        if (parseDoc !== null && p.quote.length < 6) {
+          const cited = p.block_id ? parseDoc.blockIndex.get(p.block_id) : undefined
+          if (cited && cited.text_raw.includes(p.quote)) return
+          const siblingBlocks = new Set()
+          for (const [, sf] of Object.entries(ev.fields ?? {})) {
+            if (sf === fv) continue
+            for (const sp of sf.provenance ?? []) if (sp.block_id) siblingBlocks.add(sp.block_id)
+          }
+          for (const bid of siblingBlocks) {
+            const blk = parseDoc.blockIndex.get(bid)
+            if (blk && blk.text_raw.includes(p.quote)) {
+              repairs.push(`[出处修复] events[${i}].fields.${name}.provenance[${pi}]: 短 quote 未命中引用块，按事件一致性重锚至 ${bid}（${p.quote}）`)
+              p.block_id = blk.block_id
+              p.page = blk.page
+              p.region = blk.region ?? null
+              p.table_id = blk.table_ref?.table_id ?? null
+              p.cell_ref = blk.table_ref?.cell_ref ?? null
+              p.source_type = blk.source_type ?? null
+              return
+            }
+          }
+          // 兜底：事件内容评分重锚——含该词的块中，选同时含本事件主体名/股数原文者（唯一最高分才动）
+          const ownerVal = String(ev.fields?.pledgor?.value ?? ev.fields?.holder?.value ?? ev.fields?.bidder?.value ?? '')
+          const sharesRaw = String(ev.fields?.pledged_shares_this_time?.raw_value ?? ev.fields?.shares_before?.raw_value ?? '').replace(/[^\d,]/g, '')
+          let best = null, bestScore = 0, tie = false
+          for (const blk of parseDoc.blocks) {
+            if (!blk.text_raw || !blk.text_raw.includes(p.quote)) continue
+            let score = 1
+            if (ownerVal.length >= 2 && blk.text_raw.includes(ownerVal)) score += 2
+            if (sharesRaw.length >= 3 && blk.text_raw.includes(sharesRaw)) score += 2
+            if ((blk.header_path ?? '').includes(p.quote)) score += 1
+            if (score > bestScore) { bestScore = score; best = blk; tie = false }
+            else if (score === bestScore && best !== null) tie = true
+          }
+          if (best !== null && !tie && bestScore >= 3) {
+            repairs.push(`[出处修复] events[${i}].fields.${name}.provenance[${pi}]: 短 quote 按事件内容评分重锚至 ${best.block_id}（${p.quote}，score=${bestScore}）`)
+            p.block_id = best.block_id
+            p.page = best.page
+            p.region = best.region ?? null
+            p.table_id = best.table_ref?.table_id ?? null
+            p.cell_ref = best.table_ref?.cell_ref ?? null
+            p.source_type = best.source_type ?? null
+          }
+          return
+        }
         if (typeof p.quote !== 'string' || p.quote.length < 6) return
         if (parseDoc === null) {
           // 文本模式：quote 只须是全文子串——省略号截为最长原文前缀；换行断词（"占\n其"）按去空白索引回映
@@ -663,6 +711,30 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
       }
     }
 
+    // P3. 公告日期证据锚定：出处为"报备/备查文件"落款日（quote 含标志词，或解析模式下锚块的相邻块即报备/备查清单）→ not_mentioned
+    for (const ev of plEvents) {
+      const ad = ev.fields?.announcement_date
+      if (ad?.status !== 'extracted') continue
+      const q = ad.provenance?.[0]?.quote ?? ad.raw_value ?? ''
+      if (/公告日期|披露日期/.test(String(q))) continue // 明确标签的公告日期不降级
+      let isFilingDate = /报备文件|备查文件|落款|签字日期|盖章日期/.test(String(q))
+      if (!isFilingDate && parseDoc !== null) {
+        const bid = ad.provenance?.[0]?.block_id
+        const bIdx = bid ? parseDoc.blocks.findIndex((b) => b.block_id === bid) : -1
+        if (bIdx !== -1) {
+          const next = parseDoc.blocks[bIdx + 1]?.text_raw ?? ''
+          if (/^报备文件|^备查文件|^\d+、[^。]{0,25}文件/.test(next.replace(/^\s*/, ''))) isFilingDate = true
+        }
+      }
+      if (isFilingDate) {
+        ad.status = 'not_mentioned'
+        ad.value = null
+        ad.raw_value = null
+        ad.provenance = []
+        ad.note = `${ad.note ?? ''}［口径修正：出处为报备/备查文件落款日期而非公告披露日→not_mentioned］`
+      }
+    }
+
     // P1. 解除质押组件合并：存在"将X股办理了质押解除手续"总额句且＝组件和 → 合并为一个总事件（gold 口径：其中句不拆总量）
     const releaseGroups = new Map()
     for (const ev of plEvents) {
@@ -706,9 +778,14 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
         }
         const tblAnchor = docText.indexOf('本次解质股份')
         const tblSent = tblAnchor === -1 ? tableM[0] : docText.slice(Math.max(0, docText.lastIndexOf('。', tblAnchor) + 1), docText.indexOf('。', tblAnchor) + 1)
+        // 解质表证据块：解析模式下锚定到真实块（含"本次解质股份"或股东名称的块），保证 block_id 存在
+        const tblBlk = parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.replace(/\s+/g, '').includes('本次解质股份'))
+          ?? parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.includes(tableName ?? '解质'))
         const mkRel = (val, denom) => ({
           raw_value: tableM[0].slice(0, 60), value: val, unit: 'percent', status: 'extracted',
-          provenance: [{ block_id: null, source_type: 'document', page: 1, region: null, table_id: null, cell_ref: null, quote: tblSent.trim() }],
+          provenance: [tblBlk
+            ? { block_id: tblBlk.block_id, source_type: tblBlk.source_type ?? 'cell', page: tblBlk.page, region: tblBlk.region ?? null, table_id: tblBlk.table_ref?.table_id ?? null, cell_ref: tblBlk.table_ref?.cell_ref ?? null, quote: tblBlk.text_raw.trim().slice(0, 80) }
+            : { block_id: null, source_type: 'document', page: 1, region: null, table_id: null, cell_ref: null, quote: tblSent.trim() }],
           standardized: true, denominator: denom, note: '［口径合并：解质汇总表明示比例］',
         })
         if (main.fields?.pledged_ratio_this_time_of_held?.status !== 'extracted') main.fields.pledged_ratio_this_time_of_held = mkRel(Number(tableM[3]), 'holder_shares')
@@ -729,6 +806,43 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
         const idx = events.indexOf(ev)
         events.splice(idx, 1)
         repairs.push(`［口径合并］解除质押组件事件（${ev.fields?.pledgee?.value} ${ev.fields?.pledged_shares_this_time?.value}股）并入总额事件（${total}股）`)
+      }
+    }
+    // 解质表口径对"自然单 release 事件"（模型已自发聚合、未走合并路径）同样生效——幂等守卫
+    const tblSolo = compact.match(/股东名称(.{2,30}?)本次解质股份([\d,]+)股占其所持股份比例(\d+(?:\.\d+)?)%占公司总股本比例(\d+(?:\.\d+)?)%/)
+    if (tblSolo !== null) {
+      const tName = tblSolo[1].replace(/^[:：\s]+/, '').trim()
+      const tTotal = Number(tblSolo[2].replace(/,/g, ''))
+      const tBlk = parseDoc?.blocks.find((b) => b.text_raw && b.text_raw.replace(/\s+/g, '').includes('本次解质股份'))
+      for (const ev of plEvents) {
+        if ((ev.fields?.direction?.value ?? 'pledge') !== 'release') continue
+        const ps = ev.fields?.pledged_shares_this_time
+        if (ps?.status !== 'extracted' || Number(ps.value) !== tTotal) continue
+        if (tName.length >= 2 && ev.fields?.pledgor !== undefined && ev.fields.pledgor.value !== tName) {
+          ev.fields.pledgor.value = tName
+          ev.fields.pledgor.raw_value = tName
+          ev.fields.pledgor.note = `${ev.fields.pledgor.note ?? ''}［口径归一：解质汇总表股东名称］`
+        }
+        const mkProv = () => tBlk
+          ? [{ block_id: tBlk.block_id, source_type: tBlk.source_type ?? 'cell', page: tBlk.page, region: tBlk.region ?? null, table_id: tBlk.table_ref?.table_id ?? null, cell_ref: tBlk.table_ref?.cell_ref ?? null, quote: tBlk.text_raw.trim().slice(0, 80) }]
+          : [{ block_id: null, source_type: 'document', page: 1, region: null, table_id: null, cell_ref: null, quote: tblSolo[0].slice(0, 60) }]
+        const mkRel2 = (val, denom) => ({ raw_value: tblSolo[0].slice(0, 60), value: val, unit: 'percent', status: 'extracted', provenance: mkProv(), standardized: true, denominator: denom, note: '［口径回填：解质汇总表明示比例］' })
+        if (ev.fields?.pledged_ratio_this_time_of_held?.status !== 'extracted') ev.fields.pledged_ratio_this_time_of_held = mkRel2(Number(tblSolo[3]), 'holder_shares')
+        if (ev.fields?.pledged_ratio_this_time_of_total?.status !== 'extracted') ev.fields.pledged_ratio_this_time_of_total = mkRel2(Number(tblSolo[4]), 'total_share_capital')
+        const rngAfter = compact.slice(compact.indexOf(tblSolo[0]) + tblSolo[0].length).match(/^解质时间(20\d{2})年(\d{1,2})月(\d{1,2})日至(20\d{2})年(\d{1,2})月(\d{1,2})日/)
+        if (rngAfter !== null) {
+          const rng = `${rngAfter[1]}-${String(rngAfter[2]).padStart(2, '0')}-${String(rngAfter[3]).padStart(2, '0')}/${rngAfter[4]}-${String(rngAfter[5]).padStart(2, '0')}-${String(rngAfter[6]).padStart(2, '0')}`
+          for (const dn of ['end_date', 'start_date']) {
+            const f = ev.fields?.[dn]
+            if (f?.status === 'extracted' && String(f.value) === rng) {
+              f.status = dn === 'end_date' ? 'needs_review' : 'not_mentioned'
+              f.value = null
+              f.raw_value = rngAfter[0].replace(/^解质时间/, '解质时间：')
+              f.unit = 'date'
+              f.note = `${f.note ?? ''}［口径修正：解质时间为过程区间（${rng}），${dn === 'end_date' ? '无单一解除完成日→needs_review' : '非质押起始日→not_mentioned'}］`
+            }
+          }
+        }
       }
     }
   }

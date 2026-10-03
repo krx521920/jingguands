@@ -1,0 +1,5866 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "d44e95085",
+    "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+    "file_name": "D4-PLD-001.pdf",
+    "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+    "file_size": 107365,
+    "page_count": 2,
+    "parsed_at": "2026-09-30T19:10:03+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.9.0"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.25,
+      "height": 842.0,
+      "form_evidence": {
+        "text_chars": 880,
+        "text_area_ratio": 0.2389,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d44e95085_p001_b00001",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "证券代码：300552 证券简称：万集科技 公告编号：2026-046",
+          "text_raw": "证券代码：300552证券简称：万集科技公告编号：2026-046",
+          "region": [
+            56.64,
+            73.78,
+            538.44,
+            87.72
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00002",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告",
+          "text_raw": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告",
+          "region": [
+            134.88,
+            129.65,
+            451.08,
+            166.25
+          ],
+          "table_ref": null,
+          "font_size": 15.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00003",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重",
+          "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重",
+          "region": [
+            77.64,
+            190.54,
+            529.07,
+            200.99
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00004",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "大遗漏。",
+          "text_raw": "大遗漏。",
+          "region": [
+            56.64,
+            210.46,
+            98.53,
+            220.91
+          ],
+          "table_ref": null,
+          "font_size": 10.45,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00005",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "一、股东股份质押基本情况",
+          "text_raw": "一、股东股份质押基本情况",
+          "region": [
+            80.64,
+            252.82,
+            225.12,
+            264.82
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00006",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "股东及其一致行动人所持股份涉及以下哪种情形：",
+          "text_raw": "股东及其一致行动人所持股份涉及以下哪种情形：",
+          "region": [
+            80.64,
+            276.22,
+            344.64,
+            288.22
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00007",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "股份质押□股份冻结□股份拍卖",
+          "text_raw": "股份质押□股份冻结□股份拍卖",
+          "region": [
+            80.64,
+            299.62,
+            255.84,
+            313.44
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00008",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "北京万集科技股份有限公司（以下简称“公司”）于近日接到公司控股股东、实际控制",
+          "text_raw": "北京万集科技股份有限公司（以下简称“公司”）于近日接到公司控股股东、实际控制",
+          "region": [
+            80.64,
+            323.02,
+            523.32,
+            336.84
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00009",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "人翟军先生的通知，翟军先生将其持有的公司部分股份办理了质押业务，具体事项如下：",
+          "text_raw": "人翟军先生的通知，翟军先生将其持有的公司部分股份办理了质押业务，具体事项如下：",
+          "region": [
+            56.64,
+            346.42,
+            524.64,
+            358.42
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00010",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（一）股东股份质押基本情况",
+          "text_raw": "（一）股东股份质押基本情况",
+          "region": [
+            80.64,
+            369.82,
+            236.64,
+            381.82
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00011",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1．本次股份质押基本情况",
+          "text_raw": "1．本次股份质押基本情况",
+          "region": [
+            80.64,
+            393.22,
+            218.64,
+            407.04
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00012",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            37.12,
+            410.92,
+            74.5,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00013",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是否为控股股东或第一大股东及其一致行动人",
+          "text_raw": "是否为控股股东或第一大股东及其一致行动人",
+          "region": [
+            74.5,
+            410.92,
+            124.5,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c004",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东或第一大股东及其一致行动人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00014",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "本次质押数量（股）",
+          "text_raw": "本次质押数量（股）",
+          "region": [
+            124.5,
+            410.92,
+            180.3,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c009",
+            "cell_ref": "r1c3",
+            "row": 0,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00015",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占其所持股份比例（%）",
+          "text_raw": "占其所持股份比例（%）",
+          "region": [
+            180.3,
+            410.92,
+            230.3,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c014",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00016",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占公司总股本比例（%）",
+          "text_raw": "占公司总股本比例（%）",
+          "region": [
+            230.3,
+            410.92,
+            280.75,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c019",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00017",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是否为限售股（如是，注明限售类型）",
+          "text_raw": "是否为限售股（如是，注明限售类型）",
+          "region": [
+            280.75,
+            410.92,
+            329.85,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c024",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股（如是，注明限售类型）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00018",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是否为补充质押",
+          "text_raw": "是否为补充质押",
+          "region": [
+            329.85,
+            410.92,
+            361.45,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c029",
+            "cell_ref": "r1c7",
+            "row": 0,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为补充质押"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00019",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质押起始日",
+          "text_raw": "质押起始日",
+          "region": [
+            361.45,
+            410.92,
+            423.95,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c034",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押起始日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00020",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质押到期日",
+          "text_raw": "质押到期日",
+          "region": [
+            423.95,
+            410.92,
+            466.25,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c039",
+            "cell_ref": "r1c9",
+            "row": 0,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00021",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质权人",
+          "text_raw": "质权人",
+          "region": [
+            466.25,
+            410.92,
+            519.85,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c044",
+            "cell_ref": "r1c10",
+            "row": 0,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00022",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质押用途",
+          "text_raw": "质押用途",
+          "region": [
+            519.85,
+            410.92,
+            558.08,
+            469.52
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c049",
+            "cell_ref": "r1c11",
+            "row": 0,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押用途"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00023",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "翟军",
+          "text_raw": "翟军",
+          "region": [
+            37.12,
+            469.52,
+            74.5,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 3,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 2,
+                "col": 0,
+                "cell_ref": "r3c1"
+              },
+              {
+                "row": 3,
+                "col": 0,
+                "cell_ref": "r4c1"
+              }
+            ],
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00024",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            74.5,
+            469.52,
+            124.5,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c005",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东或第一大股东及其一致行动人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00025",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2,100,000",
+          "text_raw": "2,100,000",
+          "region": [
+            124.5,
+            469.52,
+            180.3,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c010",
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00026",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2.40%",
+          "text_raw": "2.40%",
+          "region": [
+            180.3,
+            469.52,
+            230.3,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c015",
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00027",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0.99%",
+          "text_raw": "0.99%",
+          "region": [
+            230.3,
+            469.52,
+            280.75,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c020",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00028",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            280.75,
+            469.52,
+            329.85,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c025",
+            "cell_ref": "r2c6",
+            "row": 1,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股（如是，注明限售类型）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00029",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            329.85,
+            469.52,
+            361.45,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c030",
+            "cell_ref": "r2c7",
+            "row": 1,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为补充质押"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00030",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2026年09月23日",
+          "text_raw": "2026年09月23日",
+          "region": [
+            361.45,
+            469.52,
+            423.95,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c035",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押起始日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00031",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "申请解除质押登记日",
+          "text_raw": "申请解除质押登记日",
+          "region": [
+            423.95,
+            469.52,
+            466.25,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c040",
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00032",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "建德市新安小额贷款股份有限公司",
+          "text_raw": "建德市新安小额贷款股份有限公司",
+          "region": [
+            466.25,
+            469.52,
+            519.85,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c045",
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00033",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "融资",
+          "text_raw": "融资",
+          "region": [
+            519.85,
+            469.52,
+            558.08,
+            504.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c050",
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押用途"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00034",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            74.5,
+            504.82,
+            124.5,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c006",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东或第一大股东及其一致行动人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00035",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2,650,000",
+          "text_raw": "2,650,000",
+          "region": [
+            124.5,
+            504.82,
+            180.3,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c011",
+            "cell_ref": "r3c3",
+            "row": 2,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00036",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "3.03%",
+          "text_raw": "3.03%",
+          "region": [
+            180.3,
+            504.82,
+            230.3,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c016",
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00037",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "1.24%",
+          "text_raw": "1.24%",
+          "region": [
+            230.3,
+            504.82,
+            280.75,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c021",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00038",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            280.75,
+            504.82,
+            329.85,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c026",
+            "cell_ref": "r3c6",
+            "row": 2,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股（如是，注明限售类型）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00039",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            329.85,
+            504.82,
+            361.45,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c031",
+            "cell_ref": "r3c7",
+            "row": 2,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为补充质押"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00040",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2026年09月23日",
+          "text_raw": "2026年09月23日",
+          "region": [
+            361.45,
+            504.82,
+            423.95,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c036",
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押起始日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00041",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "申请解除质押登记日",
+          "text_raw": "申请解除质押登记日",
+          "region": [
+            423.95,
+            504.82,
+            466.25,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c041",
+            "cell_ref": "r3c9",
+            "row": 2,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00042",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "海宁鸿丰小额贷款股份有限公司",
+          "text_raw": "海宁鸿丰小额贷款股份有限公司",
+          "region": [
+            466.25,
+            504.82,
+            519.85,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c046",
+            "cell_ref": "r3c10",
+            "row": 2,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00043",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "融资",
+          "text_raw": "融资",
+          "region": [
+            519.85,
+            504.82,
+            558.08,
+            540.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c051",
+            "cell_ref": "r3c11",
+            "row": 2,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押用途"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00044",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            74.5,
+            540.07,
+            124.5,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c007",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东或第一大股东及其一致行动人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00045",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "3,050,000",
+          "text_raw": "3,050,000",
+          "region": [
+            124.5,
+            540.07,
+            180.3,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c012",
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00046",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "3.49%",
+          "text_raw": "3.49%",
+          "region": [
+            180.3,
+            540.07,
+            230.3,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c017",
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00047",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "1.43%",
+          "text_raw": "1.43%",
+          "region": [
+            230.3,
+            540.07,
+            280.75,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c022",
+            "cell_ref": "r4c5",
+            "row": 3,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00048",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            280.75,
+            540.07,
+            329.85,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c027",
+            "cell_ref": "r4c6",
+            "row": 3,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股（如是，注明限售类型）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00049",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            329.85,
+            540.07,
+            361.45,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c032",
+            "cell_ref": "r4c7",
+            "row": 3,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为补充质押"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00050",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2026年09月23日",
+          "text_raw": "2026年09月23日",
+          "region": [
+            361.45,
+            540.07,
+            423.95,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c037",
+            "cell_ref": "r4c8",
+            "row": 3,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押起始日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00051",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "申请解除质押登记日",
+          "text_raw": "申请解除质押登记日",
+          "region": [
+            423.95,
+            540.07,
+            466.25,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c042",
+            "cell_ref": "r4c9",
+            "row": 3,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00052",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "苏州市吴中典当有限责任公司",
+          "text_raw": "苏州市吴中典当有限责任公司",
+          "region": [
+            466.25,
+            540.07,
+            519.85,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c047",
+            "cell_ref": "r4c10",
+            "row": 3,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00053",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "融资",
+          "text_raw": "融资",
+          "region": [
+            519.85,
+            540.07,
+            558.08,
+            575.32
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c052",
+            "cell_ref": "r4c11",
+            "row": 3,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押用途"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00054",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "合计",
+          "text_raw": "合计",
+          "region": [
+            37.12,
+            575.32,
+            74.5,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c003",
+            "cell_ref": "r5c1",
+            "row": 4,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00055",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            74.5,
+            575.32,
+            124.5,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c008",
+            "cell_ref": "r5c2",
+            "row": 4,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东或第一大股东及其一致行动人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00056",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "7,800,000",
+          "text_raw": "7,800,000",
+          "region": [
+            124.5,
+            575.32,
+            180.3,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c013",
+            "cell_ref": "r5c3",
+            "row": 4,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00057",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "8.92%",
+          "text_raw": "8.92%",
+          "region": [
+            180.3,
+            575.32,
+            230.3,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c018",
+            "cell_ref": "r5c4",
+            "row": 4,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00058",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "3.66%",
+          "text_raw": "3.66%",
+          "region": [
+            230.3,
+            575.32,
+            280.75,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c023",
+            "cell_ref": "r5c5",
+            "row": 4,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00059",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            280.75,
+            575.32,
+            329.85,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c028",
+            "cell_ref": "r5c6",
+            "row": 4,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股（如是，注明限售类型）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00060",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            329.85,
+            575.32,
+            361.45,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c033",
+            "cell_ref": "r5c7",
+            "row": 4,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为补充质押"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00061",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            361.45,
+            575.32,
+            423.95,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c038",
+            "cell_ref": "r5c8",
+            "row": 4,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押起始日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00062",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            423.95,
+            575.32,
+            466.25,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c043",
+            "cell_ref": "r5c9",
+            "row": 4,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00063",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            466.25,
+            575.32,
+            519.85,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c048",
+            "cell_ref": "r5c10",
+            "row": 4,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00064",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "——",
+          "text_raw": "——",
+          "region": [
+            519.85,
+            575.32,
+            558.08,
+            595.57
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t001",
+            "cell_id": "d44e95085_p001_t001_c053",
+            "cell_ref": "r5c11",
+            "row": 4,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押用途"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00065",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2．股东股份累计质押情况",
+          "text_raw": "2．股东股份累计质押情况",
+          "region": [
+            80.64,
+            601.42,
+            218.64,
+            615.36
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00066",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "截至公告披露日，上述股东及其一致行动人所持质押股份情况如下：",
+          "text_raw": "截至公告披露日，上述股东及其一致行动人所持质押股份情况如下：",
+          "region": [
+            80.64,
+            624.82,
+            440.64,
+            636.82
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00067",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            37.12,
+            642.62,
+            74.5,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 0,
+                "cell_ref": "r2c1"
+              }
+            ],
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00068",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股数量（股）",
+          "text_raw": "持股数量（股）",
+          "region": [
+            74.5,
+            642.62,
+            124.5,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c004",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 1,
+                "cell_ref": "r2c2"
+              }
+            ],
+            "header_path": "持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00069",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股比例（%）",
+          "text_raw": "持股比例（%）",
+          "region": [
+            124.5,
+            642.62,
+            169.6,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c007",
+            "cell_ref": "r1c3",
+            "row": 0,
+            "col": 2,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 2,
+                "cell_ref": "r2c3"
+              }
+            ],
+            "header_path": "持股比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00070",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "本次质押前质押股份数量（股）",
+          "text_raw": "本次质押前质押股份数量（股）",
+          "region": [
+            169.6,
+            642.62,
+            222.1,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c010",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 3,
+                "cell_ref": "r2c4"
+              }
+            ],
+            "header_path": "本次质押前质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00071",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "本次质押后质押股份数量（股）",
+          "text_raw": "本次质押后质押股份数量（股）",
+          "region": [
+            222.1,
+            642.62,
+            276.1,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c013",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 4,
+                "cell_ref": "r2c5"
+              }
+            ],
+            "header_path": "本次质押后质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00072",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占其所持股份比例（%）",
+          "text_raw": "占其所持股份比例（%）",
+          "region": [
+            276.1,
+            642.62,
+            314.1,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c016",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 5,
+                "cell_ref": "r2c6"
+              }
+            ],
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00073",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占公司总股本比例（%）",
+          "text_raw": "占公司总股本比例（%）",
+          "region": [
+            314.1,
+            642.62,
+            352.6,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c019",
+            "cell_ref": "r1c7",
+            "row": 0,
+            "col": 6,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 6,
+                "cell_ref": "r2c7"
+              }
+            ],
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00074",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "已质押股份情况",
+          "text_raw": "已质押股份情况",
+          "region": [
+            352.6,
+            642.62,
+            459.1,
+            662.87
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c022",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 8,
+                "cell_ref": "r1c9"
+              }
+            ],
+            "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00075",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "未质押股份情况",
+          "text_raw": "未质押股份情况",
+          "region": [
+            459.1,
+            642.62,
+            558.08,
+            662.87
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c029",
+            "cell_ref": "r1c10",
+            "row": 0,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 10,
+                "cell_ref": "r1c11"
+              }
+            ],
+            "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00076",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "已质押股份限售和冻结、标记数量（股）",
+          "text_raw": "已质押股份限售和冻结、标记数量（股）",
+          "region": [
+            352.6,
+            662.87,
+            410.6,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c023",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00077",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占已质押股份比例（%）",
+          "text_raw": "占已质押股份比例（%）",
+          "region": [
+            410.6,
+            662.87,
+            459.1,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c026",
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/占已质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00078",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "未质押股份限售和冻结数量（股）",
+          "text_raw": "未质押股份限售和冻结数量（股）",
+          "region": [
+            459.1,
+            662.87,
+            512.1,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c030",
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00079",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占未质押股份比例（%）",
+          "text_raw": "占未质押股份比例（%）",
+          "region": [
+            512.1,
+            662.87,
+            558.08,
+            709.82
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c033",
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/占未质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00080",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "翟军",
+          "text_raw": "翟军",
+          "region": [
+            37.12,
+            709.82,
+            74.5,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c002",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00081",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "87,437,136",
+          "text_raw": "87,437,136",
+          "region": [
+            74.5,
+            709.82,
+            124.5,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c005",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00082",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "41.02%",
+          "text_raw": "41.02%",
+          "region": [
+            124.5,
+            709.82,
+            169.6,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c008",
+            "cell_ref": "r3c3",
+            "row": 2,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00083",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "42,550,000",
+          "text_raw": "42,550,000",
+          "region": [
+            169.6,
+            709.82,
+            222.1,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c011",
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押前质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00084",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "50,350,000",
+          "text_raw": "50,350,000",
+          "region": [
+            222.1,
+            709.82,
+            276.1,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c014",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押后质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00085",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "57.58%",
+          "text_raw": "57.58%",
+          "region": [
+            276.1,
+            709.82,
+            314.1,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c017",
+            "cell_ref": "r3c6",
+            "row": 2,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00086",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "23.62%",
+          "text_raw": "23.62%",
+          "region": [
+            314.1,
+            709.82,
+            352.6,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c020",
+            "cell_ref": "r3c7",
+            "row": 2,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00087",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "50,350,000",
+          "text_raw": "50,350,000",
+          "region": [
+            352.6,
+            709.82,
+            410.6,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c024",
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00088",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "100.00%",
+          "text_raw": "100.00%",
+          "region": [
+            410.6,
+            709.82,
+            459.1,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c027",
+            "cell_ref": "r3c9",
+            "row": 2,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/占已质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00089",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "15,227,852",
+          "text_raw": "15,227,852",
+          "region": [
+            459.1,
+            709.82,
+            512.1,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c031",
+            "cell_ref": "r3c10",
+            "row": 2,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00090",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "41.06%",
+          "text_raw": "41.06%",
+          "region": [
+            512.1,
+            709.82,
+            558.08,
+            730.07
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c034",
+            "cell_ref": "r3c11",
+            "row": 2,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/占未质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00091",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "山东省国际信托股份",
+          "text_raw": "山东省国际信托股份",
+          "region": [
+            37.12,
+            730.07,
+            74.5,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c003",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00092",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "4,058,200",
+          "text_raw": "4,058,200",
+          "region": [
+            74.5,
+            730.07,
+            124.5,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c006",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00093",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "1.90%",
+          "text_raw": "1.90%",
+          "region": [
+            124.5,
+            730.07,
+            169.6,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c009",
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00094",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            169.6,
+            730.07,
+            222.1,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c012",
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押前质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00095",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            222.1,
+            730.07,
+            276.1,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c015",
+            "cell_ref": "r4c5",
+            "row": 3,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押后质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00096",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0.00%",
+          "text_raw": "0.00%",
+          "region": [
+            276.1,
+            730.07,
+            314.1,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c018",
+            "cell_ref": "r4c6",
+            "row": 3,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00097",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0.00%",
+          "text_raw": "0.00%",
+          "region": [
+            314.1,
+            730.07,
+            352.6,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c021",
+            "cell_ref": "r4c7",
+            "row": 3,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00098",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            352.6,
+            730.07,
+            410.6,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c025",
+            "cell_ref": "r4c8",
+            "row": 3,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份限售和冻结、标记数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00099",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0.00%",
+          "text_raw": "0.00%",
+          "region": [
+            410.6,
+            730.07,
+            459.1,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c028",
+            "cell_ref": "r4c9",
+            "row": 3,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/占已质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00100",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            459.1,
+            730.07,
+            512.1,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c032",
+            "cell_ref": "r4c10",
+            "row": 3,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p001_b00101",
+          "doc_id": "d44e95085",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0.00%",
+          "text_raw": "0.00%",
+          "region": [
+            512.1,
+            730.07,
+            558.08,
+            765.22
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p001_t002",
+            "cell_id": "d44e95085_p001_t002_c035",
+            "cell_ref": "r4c11",
+            "row": 3,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/占未质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "d44e95085_p001_t001",
+          "page": 1,
+          "region": [
+            37.12,
+            410.92,
+            558.08,
+            595.57
+          ],
+          "n_rows": 5,
+          "n_cols": 11,
+          "continued_from": null
+        },
+        {
+          "table_id": "d44e95085_p001_t002",
+          "page": 1,
+          "region": [
+            37.12,
+            642.62,
+            558.08,
+            765.22
+          ],
+          "n_rows": 4,
+          "n_cols": 11,
+          "continued_from": null
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "form": "TEXT",
+      "width": 595.25,
+      "height": 842.0,
+      "form_evidence": {
+        "text_chars": 690,
+        "text_area_ratio": 0.2278,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d44e95085_p002_b00001",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "有限公司－山东信托·传字6364号财富传承财产信托",
+          "text_raw": "有限公司－山东信托·传字6364号财富传承财产信托",
+          "region": [
+            37.1,
+            72.12,
+            74.6,
+            165.77
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "有限公司－山东信托·传字6364号财富传承财产信托",
+            "continues": {
+              "table_id": "d44e95085_p001_t002",
+              "cell_ref": "r4c1",
+              "block_id": "d44e95085_p001_b00091"
+            }
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00002",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "合计",
+          "text_raw": "合计",
+          "region": [
+            37.1,
+            165.77,
+            74.6,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "有限公司－山东信托·传字6364号财富传承财产信托"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00003",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "91,495,336",
+          "text_raw": "91,495,336",
+          "region": [
+            74.6,
+            165.77,
+            124.6,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c004",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00004",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "42.93%",
+          "text_raw": "42.93%",
+          "region": [
+            124.6,
+            165.77,
+            169.6,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c006",
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00005",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "42,550,000",
+          "text_raw": "42,550,000",
+          "region": [
+            169.6,
+            165.77,
+            222.1,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c008",
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00006",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "50,350,000",
+          "text_raw": "50,350,000",
+          "region": [
+            222.1,
+            165.77,
+            276.1,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c010",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00007",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "55.03%",
+          "text_raw": "55.03%",
+          "region": [
+            276.1,
+            165.77,
+            314.1,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c012",
+            "cell_ref": "r2c6",
+            "row": 1,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00008",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "23.62%",
+          "text_raw": "23.62%",
+          "region": [
+            314.1,
+            165.77,
+            352.6,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c014",
+            "cell_ref": "r2c7",
+            "row": 1,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00009",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "50,350,000",
+          "text_raw": "50,350,000",
+          "region": [
+            352.6,
+            165.77,
+            410.6,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c016",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00010",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "100.00%",
+          "text_raw": "100.00%",
+          "region": [
+            410.6,
+            165.77,
+            459.1,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c018",
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00011",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "15,227,852",
+          "text_raw": "15,227,852",
+          "region": [
+            459.1,
+            165.77,
+            512.1,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c020",
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00012",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "37.01%",
+          "text_raw": "37.01%",
+          "region": [
+            512.1,
+            165.77,
+            558.1,
+            186.02
+          ],
+          "table_ref": {
+            "table_id": "d44e95085_p002_t001",
+            "cell_id": "d44e95085_p002_t001_c022",
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": null
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00013",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "注：（1）上述表格中若出现总数与分项数值之和不符的情况，均为四舍五入原因造成。",
+          "text_raw": "注：（1）上述表格中若出现总数与分项数值之和不符的情况，均为四舍五入原因造成。",
+          "region": [
+            74.64,
+            193.35,
+            421.2,
+            203.8
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00014",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（二）控股股东或第一大股东及其一致行动人股份质押情况",
+          "text_raw": "（二）控股股东或第一大股东及其一致行动人股份质押情况",
+          "region": [
+            80.64,
+            215.26,
+            392.64,
+            227.26
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00015",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1.本次股份质押与上市公司生产经营无关。",
+          "text_raw": "1.本次股份质押与上市公司生产经营无关。",
+          "region": [
+            80.64,
+            238.66,
+            308.64,
+            252.6
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00016",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2.截至本公告披露日，控股股东翟军先生及其一致行动人未来一年内到期的质押股份",
+          "text_raw": "2.截至本公告披露日，控股股东翟军先生及其一致行动人未来一年内到期的质押股份",
+          "region": [
+            80.64,
+            262.06,
+            524.64,
+            276.0
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00017",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "累计数量为41,630,000股，占其所持股份比例45.50%，占公司总股本的19.53%，对应融资余额为人民币31,500万元。其中，控股股东翟军及其一致行动人未来半年内到期的质押股份累计数量为39,530,000股，占其所持股份比例43.20%，占公司总股本的18.55%，对应融资余额为人民币30,000万元。控股股东翟军及其一致行动人具备相应资金偿还能力，还款资金来源包括自有或自筹资金。",
+          "text_raw": "累计数量为41,630,000股，占其所持股份比例45.50%，占公司总股本的19.53%，对应融资余额为人民币31,500万元。其中，控股股东翟军及其一致行动人未来半年内到期的质押股份累计数量为39,530,000股，占其所持股份比例43.20%，占公司总股本的18.55%，对应融资余额为人民币30,000万元。控股股东翟军及其一致行动人具备相应资金偿还能力，还款资金来源包括自有或自筹资金。",
+          "region": [
+            56.64,
+            285.46,
+            527.04,
+            391.06
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00018",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3.截至本公告披露日，公司控股股东及其一致行动人不存在非经营性资金占用、违规",
+          "text_raw": "3.截至本公告披露日，公司控股股东及其一致行动人不存在非经营性资金占用、违规",
+          "region": [
+            80.64,
+            402.46,
+            524.28,
+            416.4
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00019",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "担保等侵害上市公司利益的情形。",
+          "text_raw": "担保等侵害上市公司利益的情形。",
+          "region": [
+            56.64,
+            425.86,
+            236.64,
+            437.86
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00020",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "4.截至本公告披露日，公司控股股东翟军先生本次股份质押风险在可控范围内，不会",
+          "text_raw": "4.截至本公告披露日，公司控股股东翟军先生本次股份质押风险在可控范围内，不会",
+          "region": [
+            80.64,
+            449.26,
+            524.64,
+            463.2
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00021",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "导致公司的控制权发生变更，不会对上市公司生产经营、公司治理、业绩补偿义务履行等产生实质性影响。公司将持续关注股东股份质押的后续进展情况，并按规定及时履行信息披露义务，敬请投资者注意投资风险。",
+          "text_raw": "导致公司的控制权发生变更，不会对上市公司生产经营、公司治理、业绩补偿义务履行等产生实质性影响。公司将持续关注股东股份质押的后续进展情况，并按规定及时履行信息披露义务，敬请投资者注意投资风险。",
+          "region": [
+            56.64,
+            472.66,
+            524.64,
+            531.46
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00022",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "二、备查文件",
+          "text_raw": "二、备查文件",
+          "region": [
+            80.64,
+            542.86,
+            152.88,
+            554.86
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00023",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1.中国证券登记结算有限责任公司证券质押登记证明；",
+          "text_raw": "1.中国证券登记结算有限责任公司证券质押登记证明；",
+          "region": [
+            80.64,
+            566.26,
+            368.64,
+            580.2
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00024",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2.深交所要求的其他文件。",
+          "text_raw": "2.深交所要求的其他文件。",
+          "region": [
+            80.64,
+            589.66,
+            224.64,
+            603.6
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00025",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            80.64,
+            636.46,
+            140.64,
+            648.46
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00026",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "北京万集科技股份有限公司董事会",
+          "text_raw": "北京万集科技股份有限公司董事会",
+          "region": [
+            349.2,
+            706.66,
+            529.2,
+            718.66
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d44e95085_p002_b00027",
+          "doc_id": "d44e95085",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2026年09月25日",
+          "text_raw": "2026年09月25日",
+          "region": [
+            432.0,
+            730.06,
+            529.2,
+            744.0
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "d44e95085_p002_t001",
+          "page": 2,
+          "region": [
+            37.1,
+            72.12,
+            558.1,
+            186.02
+          ],
+          "n_rows": 2,
+          "n_cols": 11,
+          "continued_from": "d44e95085_p001_t002"
+        }
+      ]
+    }
+  ],
+  "reading_order": [
+    "d44e95085_p001_b00001",
+    "d44e95085_p001_b00002",
+    "d44e95085_p001_b00003",
+    "d44e95085_p001_b00004",
+    "d44e95085_p001_b00005",
+    "d44e95085_p001_b00006",
+    "d44e95085_p001_b00007",
+    "d44e95085_p001_b00008",
+    "d44e95085_p001_b00009",
+    "d44e95085_p001_b00010",
+    "d44e95085_p001_b00011",
+    "d44e95085_p001_b00012",
+    "d44e95085_p001_b00013",
+    "d44e95085_p001_b00014",
+    "d44e95085_p001_b00015",
+    "d44e95085_p001_b00016",
+    "d44e95085_p001_b00017",
+    "d44e95085_p001_b00018",
+    "d44e95085_p001_b00019",
+    "d44e95085_p001_b00020",
+    "d44e95085_p001_b00021",
+    "d44e95085_p001_b00022",
+    "d44e95085_p001_b00023",
+    "d44e95085_p001_b00024",
+    "d44e95085_p001_b00025",
+    "d44e95085_p001_b00026",
+    "d44e95085_p001_b00027",
+    "d44e95085_p001_b00028",
+    "d44e95085_p001_b00029",
+    "d44e95085_p001_b00030",
+    "d44e95085_p001_b00031",
+    "d44e95085_p001_b00032",
+    "d44e95085_p001_b00033",
+    "d44e95085_p001_b00034",
+    "d44e95085_p001_b00035",
+    "d44e95085_p001_b00036",
+    "d44e95085_p001_b00037",
+    "d44e95085_p001_b00038",
+    "d44e95085_p001_b00039",
+    "d44e95085_p001_b00040",
+    "d44e95085_p001_b00041",
+    "d44e95085_p001_b00042",
+    "d44e95085_p001_b00043",
+    "d44e95085_p001_b00044",
+    "d44e95085_p001_b00045",
+    "d44e95085_p001_b00046",
+    "d44e95085_p001_b00047",
+    "d44e95085_p001_b00048",
+    "d44e95085_p001_b00049",
+    "d44e95085_p001_b00050",
+    "d44e95085_p001_b00051",
+    "d44e95085_p001_b00052",
+    "d44e95085_p001_b00053",
+    "d44e95085_p001_b00054",
+    "d44e95085_p001_b00055",
+    "d44e95085_p001_b00056",
+    "d44e95085_p001_b00057",
+    "d44e95085_p001_b00058",
+    "d44e95085_p001_b00059",
+    "d44e95085_p001_b00060",
+    "d44e95085_p001_b00061",
+    "d44e95085_p001_b00062",
+    "d44e95085_p001_b00063",
+    "d44e95085_p001_b00064",
+    "d44e95085_p001_b00065",
+    "d44e95085_p001_b00066",
+    "d44e95085_p001_b00067",
+    "d44e95085_p001_b00068",
+    "d44e95085_p001_b00069",
+    "d44e95085_p001_b00070",
+    "d44e95085_p001_b00071",
+    "d44e95085_p001_b00072",
+    "d44e95085_p001_b00073",
+    "d44e95085_p001_b00074",
+    "d44e95085_p001_b00075",
+    "d44e95085_p001_b00076",
+    "d44e95085_p001_b00077",
+    "d44e95085_p001_b00078",
+    "d44e95085_p001_b00079",
+    "d44e95085_p001_b00080",
+    "d44e95085_p001_b00081",
+    "d44e95085_p001_b00082",
+    "d44e95085_p001_b00083",
+    "d44e95085_p001_b00084",
+    "d44e95085_p001_b00085",
+    "d44e95085_p001_b00086",
+    "d44e95085_p001_b00087",
+    "d44e95085_p001_b00088",
+    "d44e95085_p001_b00089",
+    "d44e95085_p001_b00090",
+    "d44e95085_p001_b00091",
+    "d44e95085_p001_b00092",
+    "d44e95085_p001_b00093",
+    "d44e95085_p001_b00094",
+    "d44e95085_p001_b00095",
+    "d44e95085_p001_b00096",
+    "d44e95085_p001_b00097",
+    "d44e95085_p001_b00098",
+    "d44e95085_p001_b00099",
+    "d44e95085_p001_b00100",
+    "d44e95085_p001_b00101",
+    "d44e95085_p002_b00001",
+    "d44e95085_p002_b00002",
+    "d44e95085_p002_b00003",
+    "d44e95085_p002_b00004",
+    "d44e95085_p002_b00005",
+    "d44e95085_p002_b00006",
+    "d44e95085_p002_b00007",
+    "d44e95085_p002_b00008",
+    "d44e95085_p002_b00009",
+    "d44e95085_p002_b00010",
+    "d44e95085_p002_b00011",
+    "d44e95085_p002_b00012",
+    "d44e95085_p002_b00013",
+    "d44e95085_p002_b00014",
+    "d44e95085_p002_b00015",
+    "d44e95085_p002_b00016",
+    "d44e95085_p002_b00017",
+    "d44e95085_p002_b00018",
+    "d44e95085_p002_b00019",
+    "d44e95085_p002_b00020",
+    "d44e95085_p002_b00021",
+    "d44e95085_p002_b00022",
+    "d44e95085_p002_b00023",
+    "d44e95085_p002_b00024",
+    "d44e95085_p002_b00025",
+    "d44e95085_p002_b00026",
+    "d44e95085_p002_b00027"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "file_name": "D4-PLD-001.pdf",
+      "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.9.0",
+        "page_count": 2,
+        "blocks": [
+          {
+            "block_id": "d44e95085_p001_b00001",
+            "page": 1,
+            "role": "BODY",
+            "text": "证券代码：300552 证券简称：万集科技 公告编号：2026-046",
+            "text_raw": "证券代码：300552证券简称：万集科技公告编号：2026-046",
+            "region": [
+              56.64,
+              73.78,
+              538.44,
+              87.72
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00002",
+            "page": 1,
+            "role": "BODY",
+            "text": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告",
+            "text_raw": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告",
+            "region": [
+              134.88,
+              129.65,
+              451.08,
+              166.25
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重",
+            "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重",
+            "region": [
+              77.64,
+              190.54,
+              529.07,
+              200.99
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "大遗漏。",
+            "text_raw": "大遗漏。",
+            "region": [
+              56.64,
+              210.46,
+              98.53,
+              220.91
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00005",
+            "page": 1,
+            "role": "SECTION",
+            "text": "一、股东股份质押基本情况",
+            "text_raw": "一、股东股份质押基本情况",
+            "region": [
+              80.64,
+              252.82,
+              225.12,
+              264.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00006",
+            "page": 1,
+            "role": "BODY",
+            "text": "股东及其一致行动人所持股份涉及以下哪种情形：",
+            "text_raw": "股东及其一致行动人所持股份涉及以下哪种情形：",
+            "region": [
+              80.64,
+              276.22,
+              344.64,
+              288.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00007",
+            "page": 1,
+            "role": "BODY",
+            "text": "股份质押□股份冻结□股份拍卖",
+            "text_raw": "股份质押□股份冻结□股份拍卖",
+            "region": [
+              80.64,
+              299.62,
+              255.84,
+              313.44
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00008",
+            "page": 1,
+            "role": "BODY",
+            "text": "北京万集科技股份有限公司（以下简称“公司”）于近日接到公司控股股东、实际控制",
+            "text_raw": "北京万集科技股份有限公司（以下简称“公司”）于近日接到公司控股股东、实际控制",
+            "region": [
+              80.64,
+              323.02,
+              523.32,
+              336.84
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00009",
+            "page": 1,
+            "role": "BODY",
+            "text": "人翟军先生的通知，翟军先生将其持有的公司部分股份办理了质押业务，具体事项如下：",
+            "text_raw": "人翟军先生的通知，翟军先生将其持有的公司部分股份办理了质押业务，具体事项如下：",
+            "region": [
+              56.64,
+              346.42,
+              524.64,
+              358.42
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00010",
+            "page": 1,
+            "role": "SECTION",
+            "text": "（一）股东股份质押基本情况",
+            "text_raw": "（一）股东股份质押基本情况",
+            "region": [
+              80.64,
+              369.82,
+              236.64,
+              381.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00011",
+            "page": 1,
+            "role": "BODY",
+            "text": "1．本次股份质押基本情况",
+            "text_raw": "1．本次股份质押基本情况",
+            "region": [
+              80.64,
+              393.22,
+              218.64,
+              407.04
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00012",
+            "page": 1,
+            "role": "BODY",
+            "text": "股东名称",
+            "text_raw": "股东名称",
+            "region": [
+              37.12,
+              410.92,
+              74.5,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00013",
+            "page": 1,
+            "role": "BODY",
+            "text": "是否为控股股东或第一大股东及其一致行动人",
+            "text_raw": "是否为控股股东或第一大股东及其一致行动人",
+            "region": [
+              74.5,
+              410.92,
+              124.5,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00014",
+            "page": 1,
+            "role": "BODY",
+            "text": "本次质押数量（股）",
+            "text_raw": "本次质押数量（股）",
+            "region": [
+              124.5,
+              410.92,
+              180.3,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00015",
+            "page": 1,
+            "role": "BODY",
+            "text": "占其所持股份比例（%）",
+            "text_raw": "占其所持股份比例（%）",
+            "region": [
+              180.3,
+              410.92,
+              230.3,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00016",
+            "page": 1,
+            "role": "BODY",
+            "text": "占公司总股本比例（%）",
+            "text_raw": "占公司总股本比例（%）",
+            "region": [
+              230.3,
+              410.92,
+              280.75,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00017",
+            "page": 1,
+            "role": "BODY",
+            "text": "是否为限售股（如是，注明限售类型）",
+            "text_raw": "是否为限售股（如是，注明限售类型）",
+            "region": [
+              280.75,
+              410.92,
+              329.85,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00018",
+            "page": 1,
+            "role": "BODY",
+            "text": "是否为补充质押",
+            "text_raw": "是否为补充质押",
+            "region": [
+              329.85,
+              410.92,
+              361.45,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00019",
+            "page": 1,
+            "role": "BODY",
+            "text": "质押起始日",
+            "text_raw": "质押起始日",
+            "region": [
+              361.45,
+              410.92,
+              423.95,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00020",
+            "page": 1,
+            "role": "BODY",
+            "text": "质押到期日",
+            "text_raw": "质押到期日",
+            "region": [
+              423.95,
+              410.92,
+              466.25,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00021",
+            "page": 1,
+            "role": "BODY",
+            "text": "质权人",
+            "text_raw": "质权人",
+            "region": [
+              466.25,
+              410.92,
+              519.85,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00022",
+            "page": 1,
+            "role": "BODY",
+            "text": "质押用途",
+            "text_raw": "质押用途",
+            "region": [
+              519.85,
+              410.92,
+              558.08,
+              469.52
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00023",
+            "page": 1,
+            "role": "BODY",
+            "text": "翟军",
+            "text_raw": "翟军",
+            "region": [
+              37.12,
+              469.52,
+              74.5,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00024",
+            "page": 1,
+            "role": "BODY",
+            "text": "是",
+            "text_raw": "是",
+            "region": [
+              74.5,
+              469.52,
+              124.5,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00025",
+            "page": 1,
+            "role": "BODY",
+            "text": "2,100,000",
+            "text_raw": "2,100,000",
+            "region": [
+              124.5,
+              469.52,
+              180.3,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00026",
+            "page": 1,
+            "role": "BODY",
+            "text": "2.40%",
+            "text_raw": "2.40%",
+            "region": [
+              180.3,
+              469.52,
+              230.3,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00027",
+            "page": 1,
+            "role": "BODY",
+            "text": "0.99%",
+            "text_raw": "0.99%",
+            "region": [
+              230.3,
+              469.52,
+              280.75,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00028",
+            "page": 1,
+            "role": "BODY",
+            "text": "否",
+            "text_raw": "否",
+            "region": [
+              280.75,
+              469.52,
+              329.85,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00029",
+            "page": 1,
+            "role": "BODY",
+            "text": "否",
+            "text_raw": "否",
+            "region": [
+              329.85,
+              469.52,
+              361.45,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00030",
+            "page": 1,
+            "role": "BODY",
+            "text": "2026年09月23日",
+            "text_raw": "2026年09月23日",
+            "region": [
+              361.45,
+              469.52,
+              423.95,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00031",
+            "page": 1,
+            "role": "BODY",
+            "text": "申请解除质押登记日",
+            "text_raw": "申请解除质押登记日",
+            "region": [
+              423.95,
+              469.52,
+              466.25,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00032",
+            "page": 1,
+            "role": "BODY",
+            "text": "建德市新安小额贷款股份有限公司",
+            "text_raw": "建德市新安小额贷款股份有限公司",
+            "region": [
+              466.25,
+              469.52,
+              519.85,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00033",
+            "page": 1,
+            "role": "BODY",
+            "text": "融资",
+            "text_raw": "融资",
+            "region": [
+              519.85,
+              469.52,
+              558.08,
+              504.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00034",
+            "page": 1,
+            "role": "BODY",
+            "text": "是",
+            "text_raw": "是",
+            "region": [
+              74.5,
+              504.82,
+              124.5,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00035",
+            "page": 1,
+            "role": "BODY",
+            "text": "2,650,000",
+            "text_raw": "2,650,000",
+            "region": [
+              124.5,
+              504.82,
+              180.3,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00036",
+            "page": 1,
+            "role": "BODY",
+            "text": "3.03%",
+            "text_raw": "3.03%",
+            "region": [
+              180.3,
+              504.82,
+              230.3,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00037",
+            "page": 1,
+            "role": "BODY",
+            "text": "1.24%",
+            "text_raw": "1.24%",
+            "region": [
+              230.3,
+              504.82,
+              280.75,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00038",
+            "page": 1,
+            "role": "BODY",
+            "text": "否",
+            "text_raw": "否",
+            "region": [
+              280.75,
+              504.82,
+              329.85,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00039",
+            "page": 1,
+            "role": "BODY",
+            "text": "否",
+            "text_raw": "否",
+            "region": [
+              329.85,
+              504.82,
+              361.45,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00040",
+            "page": 1,
+            "role": "BODY",
+            "text": "2026年09月23日",
+            "text_raw": "2026年09月23日",
+            "region": [
+              361.45,
+              504.82,
+              423.95,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00041",
+            "page": 1,
+            "role": "BODY",
+            "text": "申请解除质押登记日",
+            "text_raw": "申请解除质押登记日",
+            "region": [
+              423.95,
+              504.82,
+              466.25,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00042",
+            "page": 1,
+            "role": "BODY",
+            "text": "海宁鸿丰小额贷款股份有限公司",
+            "text_raw": "海宁鸿丰小额贷款股份有限公司",
+            "region": [
+              466.25,
+              504.82,
+              519.85,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00043",
+            "page": 1,
+            "role": "BODY",
+            "text": "融资",
+            "text_raw": "融资",
+            "region": [
+              519.85,
+              504.82,
+              558.08,
+              540.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00044",
+            "page": 1,
+            "role": "BODY",
+            "text": "是",
+            "text_raw": "是",
+            "region": [
+              74.5,
+              540.07,
+              124.5,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00045",
+            "page": 1,
+            "role": "BODY",
+            "text": "3,050,000",
+            "text_raw": "3,050,000",
+            "region": [
+              124.5,
+              540.07,
+              180.3,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00046",
+            "page": 1,
+            "role": "BODY",
+            "text": "3.49%",
+            "text_raw": "3.49%",
+            "region": [
+              180.3,
+              540.07,
+              230.3,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00047",
+            "page": 1,
+            "role": "BODY",
+            "text": "1.43%",
+            "text_raw": "1.43%",
+            "region": [
+              230.3,
+              540.07,
+              280.75,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00048",
+            "page": 1,
+            "role": "BODY",
+            "text": "否",
+            "text_raw": "否",
+            "region": [
+              280.75,
+              540.07,
+              329.85,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00049",
+            "page": 1,
+            "role": "BODY",
+            "text": "否",
+            "text_raw": "否",
+            "region": [
+              329.85,
+              540.07,
+              361.45,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00050",
+            "page": 1,
+            "role": "BODY",
+            "text": "2026年09月23日",
+            "text_raw": "2026年09月23日",
+            "region": [
+              361.45,
+              540.07,
+              423.95,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00051",
+            "page": 1,
+            "role": "BODY",
+            "text": "申请解除质押登记日",
+            "text_raw": "申请解除质押登记日",
+            "region": [
+              423.95,
+              540.07,
+              466.25,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00052",
+            "page": 1,
+            "role": "BODY",
+            "text": "苏州市吴中典当有限责任公司",
+            "text_raw": "苏州市吴中典当有限责任公司",
+            "region": [
+              466.25,
+              540.07,
+              519.85,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00053",
+            "page": 1,
+            "role": "BODY",
+            "text": "融资",
+            "text_raw": "融资",
+            "region": [
+              519.85,
+              540.07,
+              558.08,
+              575.32
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00054",
+            "page": 1,
+            "role": "BODY",
+            "text": "合计",
+            "text_raw": "合计",
+            "region": [
+              37.12,
+              575.32,
+              74.5,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00055",
+            "page": 1,
+            "role": "BODY",
+            "text": "——",
+            "text_raw": "——",
+            "region": [
+              74.5,
+              575.32,
+              124.5,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00056",
+            "page": 1,
+            "role": "BODY",
+            "text": "7,800,000",
+            "text_raw": "7,800,000",
+            "region": [
+              124.5,
+              575.32,
+              180.3,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00057",
+            "page": 1,
+            "role": "BODY",
+            "text": "8.92%",
+            "text_raw": "8.92%",
+            "region": [
+              180.3,
+              575.32,
+              230.3,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00058",
+            "page": 1,
+            "role": "BODY",
+            "text": "3.66%",
+            "text_raw": "3.66%",
+            "region": [
+              230.3,
+              575.32,
+              280.75,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00059",
+            "page": 1,
+            "role": "BODY",
+            "text": "——",
+            "text_raw": "——",
+            "region": [
+              280.75,
+              575.32,
+              329.85,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00060",
+            "page": 1,
+            "role": "BODY",
+            "text": "——",
+            "text_raw": "——",
+            "region": [
+              329.85,
+              575.32,
+              361.45,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00061",
+            "page": 1,
+            "role": "BODY",
+            "text": "——",
+            "text_raw": "——",
+            "region": [
+              361.45,
+              575.32,
+              423.95,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00062",
+            "page": 1,
+            "role": "BODY",
+            "text": "——",
+            "text_raw": "——",
+            "region": [
+              423.95,
+              575.32,
+              466.25,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00063",
+            "page": 1,
+            "role": "BODY",
+            "text": "——",
+            "text_raw": "——",
+            "region": [
+              466.25,
+              575.32,
+              519.85,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00064",
+            "page": 1,
+            "role": "BODY",
+            "text": "——",
+            "text_raw": "——",
+            "region": [
+              519.85,
+              575.32,
+              558.08,
+              595.57
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00065",
+            "page": 1,
+            "role": "BODY",
+            "text": "2．股东股份累计质押情况",
+            "text_raw": "2．股东股份累计质押情况",
+            "region": [
+              80.64,
+              601.42,
+              218.64,
+              615.36
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00066",
+            "page": 1,
+            "role": "BODY",
+            "text": "截至公告披露日，上述股东及其一致行动人所持质押股份情况如下：",
+            "text_raw": "截至公告披露日，上述股东及其一致行动人所持质押股份情况如下：",
+            "region": [
+              80.64,
+              624.82,
+              440.64,
+              636.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00067",
+            "page": 1,
+            "role": "BODY",
+            "text": "股东名称",
+            "text_raw": "股东名称",
+            "region": [
+              37.12,
+              642.62,
+              74.5,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00068",
+            "page": 1,
+            "role": "BODY",
+            "text": "持股数量（股）",
+            "text_raw": "持股数量（股）",
+            "region": [
+              74.5,
+              642.62,
+              124.5,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00069",
+            "page": 1,
+            "role": "BODY",
+            "text": "持股比例（%）",
+            "text_raw": "持股比例（%）",
+            "region": [
+              124.5,
+              642.62,
+              169.6,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00070",
+            "page": 1,
+            "role": "BODY",
+            "text": "本次质押前质押股份数量（股）",
+            "text_raw": "本次质押前质押股份数量（股）",
+            "region": [
+              169.6,
+              642.62,
+              222.1,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00071",
+            "page": 1,
+            "role": "BODY",
+            "text": "本次质押后质押股份数量（股）",
+            "text_raw": "本次质押后质押股份数量（股）",
+            "region": [
+              222.1,
+              642.62,
+              276.1,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00072",
+            "page": 1,
+            "role": "BODY",
+            "text": "占其所持股份比例（%）",
+            "text_raw": "占其所持股份比例（%）",
+            "region": [
+              276.1,
+              642.62,
+              314.1,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00073",
+            "page": 1,
+            "role": "BODY",
+            "text": "占公司总股本比例（%）",
+            "text_raw": "占公司总股本比例（%）",
+            "region": [
+              314.1,
+              642.62,
+              352.6,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00074",
+            "page": 1,
+            "role": "BODY",
+            "text": "已质押股份情况",
+            "text_raw": "已质押股份情况",
+            "region": [
+              352.6,
+              642.62,
+              459.1,
+              662.87
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00075",
+            "page": 1,
+            "role": "BODY",
+            "text": "未质押股份情况",
+            "text_raw": "未质押股份情况",
+            "region": [
+              459.1,
+              642.62,
+              558.08,
+              662.87
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00076",
+            "page": 1,
+            "role": "BODY",
+            "text": "已质押股份限售和冻结、标记数量（股）",
+            "text_raw": "已质押股份限售和冻结、标记数量（股）",
+            "region": [
+              352.6,
+              662.87,
+              410.6,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00077",
+            "page": 1,
+            "role": "BODY",
+            "text": "占已质押股份比例（%）",
+            "text_raw": "占已质押股份比例（%）",
+            "region": [
+              410.6,
+              662.87,
+              459.1,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00078",
+            "page": 1,
+            "role": "BODY",
+            "text": "未质押股份限售和冻结数量（股）",
+            "text_raw": "未质押股份限售和冻结数量（股）",
+            "region": [
+              459.1,
+              662.87,
+              512.1,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00079",
+            "page": 1,
+            "role": "BODY",
+            "text": "占未质押股份比例（%）",
+            "text_raw": "占未质押股份比例（%）",
+            "region": [
+              512.1,
+              662.87,
+              558.08,
+              709.82
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00080",
+            "page": 1,
+            "role": "BODY",
+            "text": "翟军",
+            "text_raw": "翟军",
+            "region": [
+              37.12,
+              709.82,
+              74.5,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00081",
+            "page": 1,
+            "role": "BODY",
+            "text": "87,437,136",
+            "text_raw": "87,437,136",
+            "region": [
+              74.5,
+              709.82,
+              124.5,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00082",
+            "page": 1,
+            "role": "BODY",
+            "text": "41.02%",
+            "text_raw": "41.02%",
+            "region": [
+              124.5,
+              709.82,
+              169.6,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00083",
+            "page": 1,
+            "role": "BODY",
+            "text": "42,550,000",
+            "text_raw": "42,550,000",
+            "region": [
+              169.6,
+              709.82,
+              222.1,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00084",
+            "page": 1,
+            "role": "BODY",
+            "text": "50,350,000",
+            "text_raw": "50,350,000",
+            "region": [
+              222.1,
+              709.82,
+              276.1,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00085",
+            "page": 1,
+            "role": "BODY",
+            "text": "57.58%",
+            "text_raw": "57.58%",
+            "region": [
+              276.1,
+              709.82,
+              314.1,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00086",
+            "page": 1,
+            "role": "BODY",
+            "text": "23.62%",
+            "text_raw": "23.62%",
+            "region": [
+              314.1,
+              709.82,
+              352.6,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00087",
+            "page": 1,
+            "role": "BODY",
+            "text": "50,350,000",
+            "text_raw": "50,350,000",
+            "region": [
+              352.6,
+              709.82,
+              410.6,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00088",
+            "page": 1,
+            "role": "BODY",
+            "text": "100.00%",
+            "text_raw": "100.00%",
+            "region": [
+              410.6,
+              709.82,
+              459.1,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00089",
+            "page": 1,
+            "role": "BODY",
+            "text": "15,227,852",
+            "text_raw": "15,227,852",
+            "region": [
+              459.1,
+              709.82,
+              512.1,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00090",
+            "page": 1,
+            "role": "BODY",
+            "text": "41.06%",
+            "text_raw": "41.06%",
+            "region": [
+              512.1,
+              709.82,
+              558.08,
+              730.07
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00091",
+            "page": 1,
+            "role": "BODY",
+            "text": "山东省国际信托股份",
+            "text_raw": "山东省国际信托股份",
+            "region": [
+              37.12,
+              730.07,
+              74.5,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00092",
+            "page": 1,
+            "role": "BODY",
+            "text": "4,058,200",
+            "text_raw": "4,058,200",
+            "region": [
+              74.5,
+              730.07,
+              124.5,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00093",
+            "page": 1,
+            "role": "BODY",
+            "text": "1.90%",
+            "text_raw": "1.90%",
+            "region": [
+              124.5,
+              730.07,
+              169.6,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00094",
+            "page": 1,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0",
+            "region": [
+              169.6,
+              730.07,
+              222.1,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00095",
+            "page": 1,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0",
+            "region": [
+              222.1,
+              730.07,
+              276.1,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00096",
+            "page": 1,
+            "role": "BODY",
+            "text": "0.00%",
+            "text_raw": "0.00%",
+            "region": [
+              276.1,
+              730.07,
+              314.1,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00097",
+            "page": 1,
+            "role": "BODY",
+            "text": "0.00%",
+            "text_raw": "0.00%",
+            "region": [
+              314.1,
+              730.07,
+              352.6,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00098",
+            "page": 1,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0",
+            "region": [
+              352.6,
+              730.07,
+              410.6,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00099",
+            "page": 1,
+            "role": "BODY",
+            "text": "0.00%",
+            "text_raw": "0.00%",
+            "region": [
+              410.6,
+              730.07,
+              459.1,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00100",
+            "page": 1,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0",
+            "region": [
+              459.1,
+              730.07,
+              512.1,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p001_b00101",
+            "page": 1,
+            "role": "BODY",
+            "text": "0.00%",
+            "text_raw": "0.00%",
+            "region": [
+              512.1,
+              730.07,
+              558.08,
+              765.22
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00001",
+            "page": 2,
+            "role": "BODY",
+            "text": "有限公司－山东信托·传字6364号财富传承财产信托",
+            "text_raw": "有限公司－山东信托·传字6364号财富传承财产信托",
+            "region": [
+              37.1,
+              72.12,
+              74.6,
+              165.77
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00002",
+            "page": 2,
+            "role": "BODY",
+            "text": "合计",
+            "text_raw": "合计",
+            "region": [
+              37.1,
+              165.77,
+              74.6,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00003",
+            "page": 2,
+            "role": "BODY",
+            "text": "91,495,336",
+            "text_raw": "91,495,336",
+            "region": [
+              74.6,
+              165.77,
+              124.6,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00004",
+            "page": 2,
+            "role": "BODY",
+            "text": "42.93%",
+            "text_raw": "42.93%",
+            "region": [
+              124.6,
+              165.77,
+              169.6,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00005",
+            "page": 2,
+            "role": "BODY",
+            "text": "42,550,000",
+            "text_raw": "42,550,000",
+            "region": [
+              169.6,
+              165.77,
+              222.1,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00006",
+            "page": 2,
+            "role": "BODY",
+            "text": "50,350,000",
+            "text_raw": "50,350,000",
+            "region": [
+              222.1,
+              165.77,
+              276.1,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00007",
+            "page": 2,
+            "role": "BODY",
+            "text": "55.03%",
+            "text_raw": "55.03%",
+            "region": [
+              276.1,
+              165.77,
+              314.1,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00008",
+            "page": 2,
+            "role": "BODY",
+            "text": "23.62%",
+            "text_raw": "23.62%",
+            "region": [
+              314.1,
+              165.77,
+              352.6,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00009",
+            "page": 2,
+            "role": "BODY",
+            "text": "50,350,000",
+            "text_raw": "50,350,000",
+            "region": [
+              352.6,
+              165.77,
+              410.6,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00010",
+            "page": 2,
+            "role": "BODY",
+            "text": "100.00%",
+            "text_raw": "100.00%",
+            "region": [
+              410.6,
+              165.77,
+              459.1,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00011",
+            "page": 2,
+            "role": "BODY",
+            "text": "15,227,852",
+            "text_raw": "15,227,852",
+            "region": [
+              459.1,
+              165.77,
+              512.1,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00012",
+            "page": 2,
+            "role": "BODY",
+            "text": "37.01%",
+            "text_raw": "37.01%",
+            "region": [
+              512.1,
+              165.77,
+              558.1,
+              186.02
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00013",
+            "page": 2,
+            "role": "BODY",
+            "text": "注：（1）上述表格中若出现总数与分项数值之和不符的情况，均为四舍五入原因造成。",
+            "text_raw": "注：（1）上述表格中若出现总数与分项数值之和不符的情况，均为四舍五入原因造成。",
+            "region": [
+              74.64,
+              193.35,
+              421.2,
+              203.8
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00014",
+            "page": 2,
+            "role": "SECTION",
+            "text": "（二）控股股东或第一大股东及其一致行动人股份质押情况",
+            "text_raw": "（二）控股股东或第一大股东及其一致行动人股份质押情况",
+            "region": [
+              80.64,
+              215.26,
+              392.64,
+              227.26
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00015",
+            "page": 2,
+            "role": "BODY",
+            "text": "1.本次股份质押与上市公司生产经营无关。",
+            "text_raw": "1.本次股份质押与上市公司生产经营无关。",
+            "region": [
+              80.64,
+              238.66,
+              308.64,
+              252.6
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00016",
+            "page": 2,
+            "role": "BODY",
+            "text": "2.截至本公告披露日，控股股东翟军先生及其一致行动人未来一年内到期的质押股份",
+            "text_raw": "2.截至本公告披露日，控股股东翟军先生及其一致行动人未来一年内到期的质押股份",
+            "region": [
+              80.64,
+              262.06,
+              524.64,
+              276.0
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00017",
+            "page": 2,
+            "role": "BODY",
+            "text": "累计数量为41,630,000股，占其所持股份比例45.50%，占公司总股本的19.53%，对应融资余额为人民币31,500万元。其中，控股股东翟军及其一致行动人未来半年内到期的质押股份累计数量为39,530,000股，占其所持股份比例43.20%，占公司总股本的18.55%，对应融资余额为人民币30,000万元。控股股东翟军及其一致行动人具备相应资金偿还能力，还款资金来源包括自有或自筹资金。",
+            "text_raw": "累计数量为41,630,000股，占其所持股份比例45.50%，占公司总股本的19.53%，对应融资余额为人民币31,500万元。其中，控股股东翟军及其一致行动人未来半年内到期的质押股份累计数量为39,530,000股，占其所持股份比例43.20%，占公司总股本的18.55%，对应融资余额为人民币30,000万元。控股股东翟军及其一致行动人具备相应资金偿还能力，还款资金来源包括自有或自筹资金。",
+            "region": [
+              56.64,
+              285.46,
+              527.04,
+              391.06
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00018",
+            "page": 2,
+            "role": "BODY",
+            "text": "3.截至本公告披露日，公司控股股东及其一致行动人不存在非经营性资金占用、违规",
+            "text_raw": "3.截至本公告披露日，公司控股股东及其一致行动人不存在非经营性资金占用、违规",
+            "region": [
+              80.64,
+              402.46,
+              524.28,
+              416.4
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00019",
+            "page": 2,
+            "role": "BODY",
+            "text": "担保等侵害上市公司利益的情形。",
+            "text_raw": "担保等侵害上市公司利益的情形。",
+            "region": [
+              56.64,
+              425.86,
+              236.64,
+              437.86
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00020",
+            "page": 2,
+            "role": "BODY",
+            "text": "4.截至本公告披露日，公司控股股东翟军先生本次股份质押风险在可控范围内，不会",
+            "text_raw": "4.截至本公告披露日，公司控股股东翟军先生本次股份质押风险在可控范围内，不会",
+            "region": [
+              80.64,
+              449.26,
+              524.64,
+              463.2
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00021",
+            "page": 2,
+            "role": "BODY",
+            "text": "导致公司的控制权发生变更，不会对上市公司生产经营、公司治理、业绩补偿义务履行等产生实质性影响。公司将持续关注股东股份质押的后续进展情况，并按规定及时履行信息披露义务，敬请投资者注意投资风险。",
+            "text_raw": "导致公司的控制权发生变更，不会对上市公司生产经营、公司治理、业绩补偿义务履行等产生实质性影响。公司将持续关注股东股份质押的后续进展情况，并按规定及时履行信息披露义务，敬请投资者注意投资风险。",
+            "region": [
+              56.64,
+              472.66,
+              524.64,
+              531.46
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00022",
+            "page": 2,
+            "role": "SECTION",
+            "text": "二、备查文件",
+            "text_raw": "二、备查文件",
+            "region": [
+              80.64,
+              542.86,
+              152.88,
+              554.86
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00023",
+            "page": 2,
+            "role": "BODY",
+            "text": "1.中国证券登记结算有限责任公司证券质押登记证明；",
+            "text_raw": "1.中国证券登记结算有限责任公司证券质押登记证明；",
+            "region": [
+              80.64,
+              566.26,
+              368.64,
+              580.2
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00024",
+            "page": 2,
+            "role": "BODY",
+            "text": "2.深交所要求的其他文件。",
+            "text_raw": "2.深交所要求的其他文件。",
+            "region": [
+              80.64,
+              589.66,
+              224.64,
+              603.6
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00025",
+            "page": 2,
+            "role": "BODY",
+            "text": "特此公告。",
+            "text_raw": "特此公告。",
+            "region": [
+              80.64,
+              636.46,
+              140.64,
+              648.46
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00026",
+            "page": 2,
+            "role": "BODY",
+            "text": "北京万集科技股份有限公司董事会",
+            "text_raw": "北京万集科技股份有限公司董事会",
+            "region": [
+              349.2,
+              706.66,
+              529.2,
+              718.66
+            ]
+          },
+          {
+            "block_id": "d44e95085_p002_b00027",
+            "page": 2,
+            "role": "BODY",
+            "text": "2026年09月25日",
+            "text_raw": "2026年09月25日",
+            "region": [
+              432.0,
+              730.06,
+              529.2,
+              744.0
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [],
+    "warnings": [
+      "page 2: 表 d44e95085_p002_t001 续自 d44e95085_p001_t002，且首行有 1 个单元格是被页边界切断的碎片（已标 table_ref.continues，消费方需与上一页同列单元格拼接后再取值）"
+    ]
+  }
+}
