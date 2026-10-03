@@ -56,6 +56,11 @@ tr.flash > td { animation: rowFlash 1.2s ease-out 1; }
 .ev-note { font-size: 12px; color: #6b6b6b; margin: 2px 0 0 2px; }
 .ev-note.warn { color: #a05a00; }
 .ev-note.warn::before { content: "⚠ "; }
+/* D7：出处口径说明（栏三顶部可折叠块） */
+.ev-guarantee { border: 1px dashed var(--border); border-radius: 6px; padding: 6px 10px; margin-bottom: 10px; font-size: 12px; }
+.ev-guarantee summary { cursor: pointer; color: var(--muted); user-select: none; }
+.ev-guarantee[open] summary { margin-bottom: 4px; }
+.ev-guarantee .ev-note { line-height: 1.6; }
 
 /* D3：完整性检查警告条（断链=红 / 仅提示=黄） */
 .integrity-warn { background: var(--bad-bg); color: var(--bad); border: 1px solid var(--bad); border-radius: 6px; padding: 8px 10px; font-size: 12px; line-height: 1.6; margin-bottom: 10px; word-break: break-all; }

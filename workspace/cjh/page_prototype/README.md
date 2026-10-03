@@ -35,7 +35,8 @@ page_prototype/
 │   ├── wei_real_PLD005_release.json # 魏 D4 真实 run：E01 质押 + E02 解除质押（direction=release 渲染）
 │   ├── wei_real_D4_scan.json      # 魏 D4 真实扫描件 run：14 字段全 unreadable（无法读取全量场景，09-30 晚补）
 │   ├── wei_real_eqc_001..010.json # 魏 D5 真实 equity_change 批次 batch-20261002T120859 十份信封（契约问题清零，含多事件 001×5 / 002×3）
-│   └── wei_real_eqc_XXX.check.json # 上列十份的同名 sidecar：方 equity_check_D5 v0.5.0 旁路核验报告（冲突码/复核码，不进下拉）
+│   ├── wei_real_eqc_XXX.check.json # 上列十份的同名 sidecar：方 equity_check_D5 v0.5.0 旁路核验报告（冲突码/复核码，不进下拉）
+│   └── wei_real_awd_001..010.json # 魏 D6 真实 award_contract 同批次十份信封（17 事件 × 14 字段全带出处，14 字段注册表实证；D7 晚补入）
 ├── public/                 # 前端（原生 ES Modules，无构建步骤）
 │   ├── index.html          # 三栏页面骨架：上传 / 结果 / 证据
 │   ├── css/
@@ -47,7 +48,7 @@ page_prototype/
 │       └── render/         # 渲染器（注册式，可扩展新栏/新视图）
 │           ├── upload.js     # 栏一：批量上传（D6 闭环：多文件 + 进度条 + 失败列表 + 日志下载；坏文件永远可见）
 │           ├── results.js    # 栏二：事件卡片 + 字段表 + 证据锚点（v0.3 注册表 + 口径标注 + D5 股权变动前后对比块/分母口径/方冲突码）
-│           └── evidences.js  # 栏三：证据列表 + 高亮联动（含表格证据 table_id/cell_ref）
+│           └── evidences.js  # 栏三：证据列表 + 高亮联动（含表格证据 table_id/cell_ref；D7 出处口径说明块 + 弱锚定/quote 歧义提示）
 └── demo/
     └── 使用演示.md          # 完整使用 demo（10 个演示）：统一样例全链路/异常汇总条/导出/扫描降级/扩展/remote/自检/股权变动对比页（真实批次+方冲突码）
 ```
