@@ -1,0 +1,117 @@
+{
+  "schema": "evidence/0.9",
+  "updated": "2026-10-02",
+  "author": "zhangzhibo",
+  "supported": [
+    {
+      "id": "grid_table",
+      "desc": "有框网格表",
+      "evidence": "35 份真实文档"
+    },
+    {
+      "id": "multi_level_header",
+      "desc": "多层表头拼 header_path",
+      "evidence": "equity_change_synthetic.pdf"
+    },
+    {
+      "id": "merged_cell",
+      "desc": "rowspan/colspan + covers",
+      "evidence": "D3-PLD-001"
+    },
+    {
+      "id": "missing_column",
+      "desc": "竖线缺失漏检的列按行覆盖率补出",
+      "evidence": "D5-EQC-007 p11"
+    },
+    {
+      "id": "continued_table",
+      "desc": "跨页续表打标不拼接",
+      "evidence": "pledge-001 p2"
+    },
+    {
+      "id": "two_column",
+      "desc": "双栏版面按栏定序",
+      "evidence": "twocol_synthetic.pdf"
+    },
+    {
+      "id": "sparse_text_page",
+      "desc": "稀疏文本页可读文本照常产出",
+      "evidence": "equity-change-001 p4"
+    },
+    {
+      "id": "scan_page",
+      "desc": "扫描页产出带坐标 scan_region",
+      "evidence": "D4-SCAN-001 期望值五项全中"
+    }
+  ],
+  "unsupported": [
+    {
+      "id": "borderless_table",
+      "severity": "loses_column_semantics",
+      "desc": "无框表格完全检不出；内容不丢但无 cell/header_path",
+      "evidence": "tests/fixtures/borderless_table.pdf：tables=0、整页 1 个段落块、字符守恒 100%"
+    },
+    {
+      "id": "nested_columns",
+      "severity": "treats_as_single_column",
+      "desc": "只处理竖向栏缝，栏内再分栏不支持"
+    },
+    {
+      "id": "table_straddles_gutter",
+      "severity": "warns_no_split",
+      "desc": "表格横跨栏缝时不切栏并告警"
+    }
+  ],
+  "degradation_levels": [
+    {
+      "level": "page",
+      "trigger": "整页扫描",
+      "artifact": "1 个 scan_region 块",
+      "consumer": "该页字段按 unreadable"
+    },
+    {
+      "level": "region",
+      "trigger": "页内图片承载内容",
+      "artifact": "该区域 1 个 scan_region 块",
+      "consumer": "仅该区域内字段受影响"
+    },
+    {
+      "level": "block",
+      "trigger": "表格检出失败",
+      "artifact": "内容进正文流、无 cell 块",
+      "consumer": "内容可读但无列语义"
+    }
+  ],
+  "evidence_guarantees": {
+    "guaranteed": [
+      "每字符恰好属于一个块",
+      "text_raw 为原文子串（原始字符直拼）",
+      "region 为块自身字符的外接矩形"
+    ],
+    "not_guaranteed": [
+      "region 不含相邻块字符（外接矩形可交叠）",
+      "text_raw 含换行符（不含，故跨行 quote 需空白归一）",
+      "单靠 quote 唯一定位（表格内文字天然重复，必须带 block_id）"
+    ]
+  },
+  "untested": [
+    "竖排/旋转文字",
+    "公式与图表内文字",
+    "手写体 OCR",
+    "嵌入 Office 对象",
+    "页眉页脚跨页重复",
+    "超 100 页文档"
+  ],
+  "scope_recommendation": {
+    "formal": [
+      "文本层 PDF（表格/多层表头/合并单元格/双栏）",
+      "解析块输入"
+    ],
+    "experimental": [
+      "无框表格",
+      "扫描件",
+      "对抗输入",
+      "文本模式输入（出处无块级锚点）"
+    ]
+  }
+}

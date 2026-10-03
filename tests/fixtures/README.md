@@ -6,6 +6,7 @@
 | `make_twocol_synthetic.py` | 从 HTML 重新生成 PDF（PDF 已入库，测试不依赖它） |
 | `scanned_synthetic.pdf` | **合成**的纯扫描页（整页图片、零文本层），供扫描降级路径做正例 |
 | `mixed_synthetic.pdf` | **合成**的混合文档（4 页文本 + 1 页扫描），供混合场景做正例 |
+| `borderless_table.pdf` / `.html` | **合成**的无框表格（纯文本对齐、无边框线），用于**锁定已知边界**：检不出表格 |
 | `equity_change_synthetic.pdf` / `.html` | **合成**的变动前后持股表（两层表头 + 跨行跨列合并），供 D5 能力做正例 |
 
 ### 为什么要有合成的变动前后表

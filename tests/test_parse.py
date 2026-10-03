@@ -1236,3 +1236,40 @@ def test_补格后每个字符都有块覆盖():
                     f"{cid} p{pg['page']} 有 {len(lost)} 个字符未被任何块覆盖："
                     f"{''.join(c['text'] for c in lost)[:40]!r}"
                 )
+
+
+# ------------------------------------------------------------ 能力边界（D7）
+BORDERLESS_FIXTURE = os.path.join(ROOT, "tests", "fixtures", "borderless_table.pdf")
+
+
+def test_无框表格检不出_能力边界钉住():
+    """锁定一条**已知边界**，而不是锁定一个功能。
+
+    无框表格（纯文本对齐、无任何边框线）检不出 —— 实测此 fixture 得到
+    `tables` 0 张、整页只有 1 个段落块。内容不丢（字符守恒 100%），
+    但**列归属语义丢失**：没有 cell 块、没有 header_path。
+
+    这条写成测试的用意是：**若哪天它开始失败，说明无框表格被支持了**，
+    那时必须同步更新 `src/finstruct/docs/解析能力边界表.md` 与
+    `解析能力边界.json`（消费方按那份表决定降级提示文案）。
+    锁边界和锁功能一样重要 —— 能力悄悄变强而不通知下游，同样会造成对齐事故。
+    """
+    if not os.path.exists(BORDERLESS_FIXTURE):
+        pytest.skip("缺 borderless_table.pdf")
+    d = pp.parse_pdf(BORDERLESS_FIXTURE)
+    pg = d["pages"][0]
+    assert pg["tables"] == [], "无框表格开始被检出了 —— 请更新能力边界表"
+    cells = [b for b in pg["blocks"] if b["source_type"] == "cell"]
+    assert cells == [], "无框表格开始产出 cell 块了 —— 请更新能力边界表"
+
+
+def test_无框表格的内容不丢():
+    """边界归边界，**内容不能丢**：无框表格检不出，但字符守恒与区域重建仍须达标。"""
+    if not os.path.exists(BORDERLESS_FIXTURE):
+        pytest.skip("缺 borderless_table.pdf")
+    d = pp.parse_pdf(BORDERLESS_FIXTURE)
+    for pg in d["pages"]:
+        assert pg["blocks"], "整页不该为空块"
+    txt = "".join(b["text_raw"] for pg in d["pages"] for b in pg["blocks"])
+    for k in ("股东名称", "12,000,000", "8.50", "示例股东乙"):
+        assert k in txt, f"无框表格的 {k!r} 丢了"
