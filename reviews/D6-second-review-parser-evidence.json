@@ -1,0 +1,72 @@
+{
+  "reviewer": "zhangzhibo",
+  "role": "parser/evidence semantics",
+  "date": "2026-10-02",
+  "request_ref": "evaluation/dev-30/second-review-request.md",
+  "batch": "runs/batch-20261002T120859",
+  "our_schema": "evidence/0.9",
+  "checklist_item_4": {
+    "case": "D6 parse evidence spot checks + source-hash/schema alignment",
+    "result": "PASS",
+    "provenance_entries": 120,
+    "block_id_present": 120,
+    "region_match": 120,
+    "source_type_match": 120,
+    "table_id_match": 88,
+    "cell_ref_match": 88,
+    "quote_match": 120
+  },
+  "cross_check": {
+    "D5-EQC": {
+      "entries": 137,
+      "block_id_present": 137,
+      "all_consistent": true
+    },
+    "D4-PLD": {
+      "entries": 182,
+      "block_id_present": 0,
+      "anchorable_single_block": 165,
+      "anchorable_across_blocks": 17,
+      "unanchorable": 0,
+      "ambiguous_quote_multiple_blocks": 45,
+      "input_mode": "text (inputs/D4-PLD-*.txt present, no parse-block mode)"
+    }
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "needs_adjudication",
+      "title": "统一 30 份批次混了两种输入模式",
+      "detail": "inputs/ 只有 D4-PLD 的 10 个 .txt；D4-PLD 走文本模式（provenance 无 block_id），D5/D6 走解析块模式（有 block_id）。出处粒度不一致。"
+    },
+    {
+      "id": "F2",
+      "severity": "note",
+      "title": "182 条无 block_id 的出处全部可锚定，无编造",
+      "detail": "165 条单块内可锚定、17 条跨块可锚定、0 条无法锚定。"
+    },
+    {
+      "id": "F3",
+      "severity": "note",
+      "title": "45 条 quote 在解析输出里命中多个块（歧义）",
+      "detail": "如 '翟军' 命中 6 块、'50,350,000' 命中 4 块。无 block_id 时无法唯一定位。"
+    },
+    {
+      "id": "F4",
+      "severity": "note",
+      "title": "17 条跨块引用的成因是表示层差异",
+      "detail": "quote 含 \\n；而 text_raw 是原始字符直拼、不含换行，行边界即块边界。"
+    }
+  ],
+  "recommendations": [
+    "两类输入模式不得混入同一结论；D4-PLD 建议改用解析块模式重跑或单列为弱锚定组",
+    "契约明确跨行 quote 的锚定规则（空白归一 / 提供行切片 / 要求拆成多条 provenance）",
+    "无 block_id 的出处单独统计为弱出处，不与块级出处同一分母"
+  ],
+  "not_covered": [
+    "抽取语义（属魏文宇范围）",
+    "Gold 内容裁决",
+    "D4 严格口径与五指标分母",
+    "其他批次"
+  ]
+}
