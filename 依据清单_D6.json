@@ -1,0 +1,67 @@
+[
+  {
+    "local": "依据_D6/Gold原始_D6.json",
+    "commit": "643cdcb78cfb02ae3f9b2bcd8e63720b92085349",
+    "path": "evaluation/D6/dev/gold/D6-AWD-007.envelope.json",
+    "sha256": "de410771ed7e40778835220b0847eae72c0af6b50a243d6df8169d6cc0f2e6cb"
+  },
+  {
+    "local": "依据_D6/上游原始_D6.json",
+    "commit": "34f938a636807ecb4ca4974152f880bc02ed2177",
+    "path": "runs/batch-20261002T120859/envelopes/D6-AWD-007.json",
+    "sha256": "1e7649e4efe00752df2b4134b76077d529161631a9ee8287e04f3733cdf659e1"
+  },
+  {
+    "local": "依据_D6/解析原始_D6.json",
+    "commit": "d5ffa1eb9b1b7c3cd569f92ff542914e9c7936b2",
+    "path": "sample/D6/parse/D6-AWD-007.parse.json",
+    "sha256": "fb9a11aa02cf3ac005ba0077afbfd520e1f87c566d28432e7558f6a7a76e95ce"
+  },
+  {
+    "local": "依据_D6/公告页图_D6.png",
+    "commit": "d5ffa1eb9b1b7c3cd569f92ff542914e9c7936b2",
+    "path": "sample/D6/evidence/D6-AWD-007_p1.png",
+    "sha256": "7e8018943545a7761d918df02a2f3dab2fd15b98cc3c379ca18e55c25bd9b2ad"
+  },
+  {
+    "local": "依据_D6/公共契约_D6.json",
+    "commit": "34f938a636807ecb4ca4974152f880bc02ed2177",
+    "path": "interface/event-envelope.schema.json",
+    "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96"
+  },
+  {
+    "local": "依据_D6/上游标准化原始_D6.mjs",
+    "commit": "34f938a636807ecb4ca4974152f880bc02ed2177",
+    "path": "scripts/jingguan/lib/fang_normalize.mjs",
+    "sha256": "47b7cb6e26ab7bdc150bfe774313d7bd8443c397acce6482008f99a697f38692"
+  },
+  {
+    "local": "src_D6/award_check_D6.ts",
+    "source": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\方轩诚_中标口径工具_D6\\src_D6\\award_check_D6.ts",
+    "sha256": "27b8ddcea1ba43f8b882677e4296c5b767996a8f0aea07bd8d123257fa02979b"
+  },
+  {
+    "local": "依据_D6/schema_validator_D6.mjs",
+    "commit": "34f938a636807ecb4ca4974152f880bc02ed2177",
+    "path": "scripts/jingguan/lib/schema_validator.mjs",
+    "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+  },
+  {
+    "local": "依据_D6/registry_D6.mjs",
+    "commit": "34f938a636807ecb4ca4974152f880bc02ed2177",
+    "path": "scripts/jingguan/lib/registry.mjs",
+    "sha256": "6f51fc415664dd9bf483b7bfb6ee9ef1c33a0ac164f71fa31024a8c1d231fa66"
+  },
+  {
+    "local": "依据_D6/checks_D6.mjs",
+    "commit": "34f938a636807ecb4ca4974152f880bc02ed2177",
+    "path": "scripts/jingguan/lib/checks.mjs",
+    "sha256": "9794746c8ff488086f2eac7875e110d2c0379e714e258c7d3b69cf0d74f7b02b"
+  },
+  {
+    "local": "依据_D6/字段语义_D6.md",
+    "commit": "34f938a636807ecb4ca4974152f880bc02ed2177",
+    "path": "interface/README.md",
+    "sha256": "36cd21ee9ad3f5f1b5c0f37f83102a3302bdedc2c3be9be259d14879026f29f9"
+  }
+]

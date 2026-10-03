@@ -1,0 +1,110 @@
+{
+  "case_id": "D6-AWD-007",
+  "event_id": "E01",
+  "author": "方轩诚",
+  "date": "2026-10-03",
+  "artifact_type": "business_ruling_and_field_proposal",
+  "review_status": "pending_evaluation_confirmation",
+  "gold_modified": false,
+  "pushed": false,
+  "decision": "采用公告披露的CNY折合值317915000；禁止将AED原币值173800000直接标为cny。",
+  "source": {
+    "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+    "page": 1,
+    "block_id": "d3a6938fe_p001_b00005",
+    "region": [
+      90,
+      288.17,
+      517.32,
+      346.97
+    ],
+    "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+    "evidence_level": "repository_parse_and_supplied_page_image_checked",
+    "original_pdf_bytes_verified": false
+  },
+  "original_denomination": {
+    "raw_value": "173,800,000阿联酋迪拉姆",
+    "value": "173800000",
+    "currency": "AED"
+  },
+  "disclosed_equivalent": {
+    "raw_value": "人民币317,915,000元",
+    "value": "317915000",
+    "currency": "CNY"
+  },
+  "exchange_rate": {
+    "applied": false,
+    "source": "issuer_disclosed_equivalent",
+    "market_rate": null,
+    "rate_date": null,
+    "rate_type": null,
+    "implied_ratio": {
+      "numerator": "317915000",
+      "denominator": "173800000",
+      "reduced_fraction": "63583/34760",
+      "approx_cny_per_aed": "1.8292002301495973",
+      "purpose": "audit_only_not_a_market_rate",
+      "used_to_compute_amount": false
+    }
+  },
+  "application_scope": "仅在评测方确认后，以proposed_fields替换同一来源SHA、E01的两个字段。该文件不是EventEnvelope，不能直接送生产接口。",
+  "proposed_fields": {
+    "bid_amount": {
+      "raw_value": "人民币317,915,000元",
+      "value": 317915000,
+      "unit": "cny",
+      "standardized": true,
+      "status": "extracted",
+      "provenance": [
+        {
+          "block_id": "d3a6938fe_p001_b00005",
+          "page": 1,
+          "region": [
+            90,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "source_type": "paragraph",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+        }
+      ],
+      "denominator": null,
+      "note": "采用公告明示的人民币折合金额；原始计价金额为173,800,000 AED。未执行汇率计算，未推断含税状态。"
+    },
+    "currency": {
+      "raw_value": "人民币",
+      "value": "CNY",
+      "unit": "text",
+      "standardized": true,
+      "status": "extracted",
+      "provenance": [
+        {
+          "block_id": "d3a6938fe_p001_b00005",
+          "page": 1,
+          "region": [
+            90,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "source_type": "paragraph",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+        }
+      ],
+      "denominator": null,
+      "note": "本字段对应选定的人民币金额；原始计价币种AED保留在完整引文与独立判定记录中。"
+    }
+  },
+  "retained_unknowns": [
+    "tax_included",
+    "exchange_rate.market_rate",
+    "exchange_rate.rate_date",
+    "exchange_rate.rate_type"
+  ],
+  "statistics_rule": "该事件只计一次；AED原币金额与CNY等值金额不得相加、不得作为两个中标事件；原错误Gold须另版确认后重跑评测。"
+}

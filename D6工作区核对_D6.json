@@ -1,0 +1,108 @@
+{
+  "local": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\方轩诚_中标口径工具_D6",
+  "workspace": "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\work\\jingguands",
+  "files": [
+    {
+      "path": ".vscode\\launch.json",
+      "local_sha256": "498249f037df28eaeadd81e4244492ed5247d07465035536893e4a96de9b9171",
+      "workspace_sha256": null,
+      "identical": false
+    },
+    {
+      "path": "docs_D6\\compatibility_results_D6.json",
+      "local_sha256": "b9bf2686ff463502c329782a9fce34ce8e4c261baa038b10581a405209c6ae8f",
+      "workspace_sha256": "b9bf2686ff463502c329782a9fce34ce8e4c261baa038b10581a405209c6ae8f",
+      "identical": true
+    },
+    {
+      "path": "docs_D6\\packaging_log_D6.txt",
+      "local_sha256": "8ca1f771b72ab1dc365f2f578d547e6506e177a2c8d041584083d2153b822036",
+      "workspace_sha256": "8ca1f771b72ab1dc365f2f578d547e6506e177a2c8d041584083d2153b822036",
+      "identical": true
+    },
+    {
+      "path": "docs_D6\\regression_log_D6.txt",
+      "local_sha256": "c52893399def6980100c72bdb9e18f094aadc4d33475efd7752a60ce4f24deeb",
+      "workspace_sha256": "c52893399def6980100c72bdb9e18f094aadc4d33475efd7752a60ce4f24deeb",
+      "identical": true
+    },
+    {
+      "path": "docs_D6\\typecheck_log_D6.txt",
+      "local_sha256": "a6f96024d10199e8155c7b7a7d1fb8ea21e0ca13168524ea22bd76c1f8474a5f",
+      "workspace_sha256": "a6f96024d10199e8155c7b7a7d1fb8ea21e0ca13168524ea22bd76c1f8474a5f",
+      "identical": true
+    },
+    {
+      "path": "docs_D6\\unit_log_D6.txt",
+      "local_sha256": "e4552cf50b02dc5b455b3301cdd97fb1012395155bba7b9a24624a0c9d485f3b",
+      "workspace_sha256": "e4552cf50b02dc5b455b3301cdd97fb1012395155bba7b9a24624a0c9d485f3b",
+      "identical": true
+    },
+    {
+      "path": "docs_D6\\验收记录_D6.md",
+      "local_sha256": "84929180edb457a0f40e3bba943a6a838c6c9c3a02be2aaf86edef95b199004f",
+      "workspace_sha256": "84929180edb457a0f40e3bba943a6a838c6c9c3a02be2aaf86edef95b199004f",
+      "identical": true
+    },
+    {
+      "path": "examples_D6\\award_input_D6.json",
+      "local_sha256": "c38db4f822e465e0b539020034fd884584dd7180208a6aa2b77d078f387cc451",
+      "workspace_sha256": "c38db4f822e465e0b539020034fd884584dd7180208a6aa2b77d078f387cc451",
+      "identical": true
+    },
+    {
+      "path": "examples_D6\\award_output_D6.json",
+      "local_sha256": "3527d07e5f6a68e4737b2f76e8760a016440f4ae16e05f8f54ca16800490c61a",
+      "workspace_sha256": "3527d07e5f6a68e4737b2f76e8760a016440f4ae16e05f8f54ca16800490c61a",
+      "identical": true
+    },
+    {
+      "path": "README_D6.md",
+      "local_sha256": "cb6271cfe499c91f3aa2dc4c95e7b6141378a0b23b1c0ef2d60171bb8c5d5647",
+      "workspace_sha256": "cb6271cfe499c91f3aa2dc4c95e7b6141378a0b23b1c0ef2d60171bb8c5d5647",
+      "identical": true
+    },
+    {
+      "path": "src_D6\\award_check_D6.ts",
+      "local_sha256": "27b8ddcea1ba43f8b882677e4296c5b767996a8f0aea07bd8d123257fa02979b",
+      "workspace_sha256": "27b8ddcea1ba43f8b882677e4296c5b767996a8f0aea07bd8d123257fa02979b",
+      "identical": true
+    },
+    {
+      "path": "src_D6\\cli_D6.ts",
+      "local_sha256": "0d86dfba187b866008723fb52272dfb9691b01879c0c7df4dfcb1af706735b8f",
+      "workspace_sha256": "0d86dfba187b866008723fb52272dfb9691b01879c0c7df4dfcb1af706735b8f",
+      "identical": true
+    },
+    {
+      "path": "tests_D6\\boundary.test_D6.mjs",
+      "local_sha256": "0bbe68c689e984f642f4a01affa43c1fa8c23b018180164b8d923a4ef2c86850",
+      "workspace_sha256": "0bbe68c689e984f642f4a01affa43c1fa8c23b018180164b8d923a4ef2c86850",
+      "identical": true
+    },
+    {
+      "path": "tests_D6\\compatibility_D6.mjs",
+      "local_sha256": "392fed84d22771599e08ea028849d150289679d78cdb430285e1f32d0925942e",
+      "workspace_sha256": "392fed84d22771599e08ea028849d150289679d78cdb430285e1f32d0925942e",
+      "identical": true
+    },
+    {
+      "path": "tests_D6\\fixtures_D6.mjs",
+      "local_sha256": "69975a517401ff4a5686d42a98c5f2f6786312e259779a350845d4d5172b67a4",
+      "workspace_sha256": "69975a517401ff4a5686d42a98c5f2f6786312e259779a350845d4d5172b67a4",
+      "identical": true
+    },
+    {
+      "path": "tsconfig_D6.json",
+      "local_sha256": "8519b45ee9e87824a5d457b4621bf8eb0ebfda0c965464980c61ca127ff36027",
+      "workspace_sha256": "8519b45ee9e87824a5d457b4621bf8eb0ebfda0c965464980c61ca127ff36027",
+      "identical": true
+    },
+    {
+      "path": "交付清单_D6.json",
+      "local_sha256": "225270ad54b5405036a8687211e166a171237d0822dfd4153eb02793bff79286",
+      "workspace_sha256": "225270ad54b5405036a8687211e166a171237d0822dfd4153eb02793bff79286",
+      "identical": true
+    }
+  ]
+}

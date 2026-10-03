@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "esnext", "lib": ["esnext"], "module": "nodenext", "moduleResolution": "nodenext",
+    "moduleDetection": "force", "verbatimModuleSyntax": true, "types": ["node"],
+    "erasableSyntaxOnly": true, "allowImportingTsExtensions": true, "noEmit": true,
+    "strict": true, "noUncheckedIndexedAccess": true, "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true, "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true, "skipLibCheck": true
+  },
+  "include": ["src_D6/**/*.ts"]
+}

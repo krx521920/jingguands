@@ -1,0 +1,196 @@
+{
+  "owner": "方轩诚",
+  "day": "D6",
+  "package_version": "D6-integrated-1",
+  "tool_version": "0.6.0",
+  "task": "规范币种、含税状态、联合体份额；缺少依据不拆分金额。交付：中标口径工具＋边界测试。",
+  "task_source": {
+    "file": "team_plan_14days.xlsx",
+    "sheet": "14天并行分工",
+    "cell": "G12"
+  },
+  "runtime": "Node.js 24",
+  "runtime_dependencies": [],
+  "commands": {
+    "test": "node --test tests_D6/boundary.test_D6.mjs",
+    "currency_replay": "node 专项回放_D6.mjs",
+    "demo": "node src_D6/cli_D6.ts --synthetic-test examples_D6/award_input_D6.json",
+    "compatibility": "node tests_D6/compatibility_D6.mjs C:/path/to/jingguands"
+  },
+  "current_checks": {
+    "boundary": 89,
+    "currency_replay": 13,
+    "compatibility_documents": 40,
+    "compatibility_events": 65,
+    "evidence_references": 125,
+    "strict_typecheck": "PASS",
+    "extracted_package": "PASS"
+  },
+  "historical_checks_only": {
+    "previous_days": 185
+  },
+  "gold_modified": false,
+  "pushed": false,
+  "files": [
+    {
+      "path": "D6工作区核对_D6.json",
+      "bytes": 4755,
+      "sha256": "d8931beca2a26dd89d23fae9bdb211fd6445be225d0e369001b5c40b28f62387"
+    },
+    {
+      "path": "docs_D6/compatibility_results_D6.json",
+      "bytes": 73800,
+      "sha256": "81741a9976298132cfdc5ef0dff161aba6a13f1731352fe7108021b2040c1c52"
+    },
+    {
+      "path": "docs_D6/packaging_log_D6.txt",
+      "bytes": 331,
+      "sha256": "c59b2123841ede9202004ddab024e2f68f097e7f4da7e2d05c0bc188e113c7a9"
+    },
+    {
+      "path": "docs_D6/regression_log_D6.txt",
+      "bytes": 9637,
+      "sha256": "c52893399def6980100c72bdb9e18f094aadc4d33475efd7752a60ce4f24deeb"
+    },
+    {
+      "path": "docs_D6/typecheck_log_D6.txt",
+      "bytes": 103,
+      "sha256": "0e0aaaf78701e577a97169b1d2263e86e812663865d6f3e5aeff9eacea4232da"
+    },
+    {
+      "path": "docs_D6/unit_log_D6.txt",
+      "bytes": 3935,
+      "sha256": "9c8a437a974730ac803334ef7ede908660475ce7dedcbfd51012d8ca6bffc5cd"
+    },
+    {
+      "path": "docs_D6/历史验收记录_D6.md",
+      "bytes": 6004,
+      "sha256": "872d215728fa18ddbdbd15d0a13ba609aeaf8e7632f79a28ba4c9ed879549e6a"
+    },
+    {
+      "path": "docs_D6/验收记录_D6.md",
+      "bytes": 3343,
+      "sha256": "b2a100f036294bbc2c24e0982c94d9bffa32d25ad0b5f338324d0d3ecf890d7a"
+    },
+    {
+      "path": "examples_D6/award_input_D6.json",
+      "bytes": 8430,
+      "sha256": "c38db4f822e465e0b539020034fd884584dd7180208a6aa2b77d078f387cc451"
+    },
+    {
+      "path": "examples_D6/award_output_D6.json",
+      "bytes": 9608,
+      "sha256": "3527d07e5f6a68e4737b2f76e8760a016440f4ae16e05f8f54ca16800490c61a"
+    },
+    {
+      "path": "README_D6.md",
+      "bytes": 7685,
+      "sha256": "1a3bb52d38f7f33d4188c3e764819bc6bb21f4b671cd4a995efac35a0397440e"
+    },
+    {
+      "path": "src_D6/award_check_D6.ts",
+      "bytes": 20337,
+      "sha256": "27b8ddcea1ba43f8b882677e4296c5b767996a8f0aea07bd8d123257fa02979b"
+    },
+    {
+      "path": "src_D6/cli_D6.ts",
+      "bytes": 1585,
+      "sha256": "0d86dfba187b866008723fb52272dfb9691b01879c0c7df4dfcb1af706735b8f"
+    },
+    {
+      "path": "tests_D6/boundary.test_D6.mjs",
+      "bytes": 12314,
+      "sha256": "0bbe68c689e984f642f4a01affa43c1fa8c23b018180164b8d923a4ef2c86850"
+    },
+    {
+      "path": "tests_D6/compatibility_D6.mjs",
+      "bytes": 7102,
+      "sha256": "392fed84d22771599e08ea028849d150289679d78cdb430285e1f32d0925942e"
+    },
+    {
+      "path": "tests_D6/fixtures_D6.mjs",
+      "bytes": 2042,
+      "sha256": "69975a517401ff4a5686d42a98c5f2f6786312e259779a350845d4d5172b67a4"
+    },
+    {
+      "path": "tsconfig_D6.json",
+      "bytes": 551,
+      "sha256": "8519b45ee9e87824a5d457b4621bf8eb0ebfda0c965464980c61ca127ff36027"
+    },
+    {
+      "path": "专项回放_D6.mjs",
+      "bytes": 7326,
+      "sha256": "04e3d44606b53319b76e2a3b9be94cfd426f38e89fbddd796ac0427e8f171e0c"
+    },
+    {
+      "path": "专项回放结果_D6.json",
+      "bytes": 32609,
+      "sha256": "f8bc7e473725411302b25ba94dba5e10abe56abb21b032a7356d1e54a8dbbe49"
+    },
+    {
+      "path": "依据_D6/checks_D6.mjs",
+      "bytes": 4742,
+      "sha256": "9794746c8ff488086f2eac7875e110d2c0379e714e258c7d3b69cf0d74f7b02b"
+    },
+    {
+      "path": "依据_D6/Gold原始_D6.json",
+      "bytes": 7515,
+      "sha256": "de410771ed7e40778835220b0847eae72c0af6b50a243d6df8169d6cc0f2e6cb"
+    },
+    {
+      "path": "依据_D6/registry_D6.mjs",
+      "bytes": 5372,
+      "sha256": "6f51fc415664dd9bf483b7bfb6ee9ef1c33a0ac164f71fa31024a8c1d231fa66"
+    },
+    {
+      "path": "依据_D6/schema_validator_D6.mjs",
+      "bytes": 5057,
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+    },
+    {
+      "path": "依据_D6/上游原始_D6.json",
+      "bytes": 12334,
+      "sha256": "1e7649e4efe00752df2b4134b76077d529161631a9ee8287e04f3733cdf659e1"
+    },
+    {
+      "path": "依据_D6/上游标准化原始_D6.mjs",
+      "bytes": 8510,
+      "sha256": "47b7cb6e26ab7bdc150bfe774313d7bd8443c397acce6482008f99a697f38692"
+    },
+    {
+      "path": "依据_D6/公共契约_D6.json",
+      "bytes": 5350,
+      "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96"
+    },
+    {
+      "path": "依据_D6/公告页图_D6.png",
+      "bytes": 123339,
+      "sha256": "7e8018943545a7761d918df02a2f3dab2fd15b98cc3c379ca18e55c25bd9b2ad"
+    },
+    {
+      "path": "依据_D6/字段语义_D6.md",
+      "bytes": 21966,
+      "sha256": "36cd21ee9ad3f5f1b5c0f37f83102a3302bdedc2c3be9be259d14879026f29f9"
+    },
+    {
+      "path": "依据_D6/解析原始_D6.json",
+      "bytes": 16258,
+      "sha256": "fb9a11aa02cf3ac005ba0077afbfd520e1f87c566d28432e7558f6a7a76e95ce"
+    },
+    {
+      "path": "依据清单_D6.json",
+      "bytes": 2803,
+      "sha256": "c95e22168f9e3e33969911e3e4f1e9896604b3169a1a374ae4b85ee13bebe387"
+    },
+    {
+      "path": "字段修订建议_D6.json",
+      "bytes": 3547,
+      "sha256": "7d951d8d25985db4e3c10022b3f0a292e4b06cce2124b4a33ddb40767fb51f0b"
+    },
+    {
+      "path": "币种汇率判定与依据_D6.md",
+      "bytes": 8607,
+      "sha256": "2910e342cf8add46358fa41572b6c4b06371cee1522853b74848266e0b66896f"
+    }
+  ]
+}
