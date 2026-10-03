@@ -1,0 +1,13 @@
+{
+  "checked_on": "2026-10-02",
+  "evaluation_status": "complete",
+  "integration_status": "near_complete",
+  "members": {
+    "weiwenyu": {"status": "accepted", "commit": "2eb871394dd946b1c23225b24c4d00e2bf4bd7e1", "batch": "runs/batch-20261002T120859", "core_30": "437/437", "adversarial_denominator_preserved": true, "blocking": false},
+    "zhangzhibo": {"status": "accepted", "commit": "7d9aff60724a2067652ca6d726ad38d466d8baeb", "deliverable": "sample/D6 ten award-contract parse packages", "blocking": false},
+    "fangxuancheng": {"status": "accepted", "commit": "4e886d33fb902cd18d4742780a8eaa6fa33a1232", "deliverable": "D6 award currency/tax/consortium checker", "delivery_hashes": "15/15", "unit_tests": "89/89", "regression": "185/185", "blocking": false},
+    "chenjiahui": {"status": "partial", "commit": "759bfcf911e774d7eb29d61c484c24637a7b3fed", "deliverable": "D6 batch upload loop, failure list, log download, progress, 14-field award registry", "blocking": true, "reason": "Independent browser acceptance run still pending."}
+  },
+  "sealed": {"single_documents": 30, "cross_document_groups": 20, "related_groups": 4, "control_groups": 16, "verification": "PASS"},
+  "pending": ["Chen browser acceptance run", "Second-person review"]
+}
