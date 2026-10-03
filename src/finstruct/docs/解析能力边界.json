@@ -60,6 +60,13 @@
       "id": "table_straddles_gutter",
       "severity": "warns_no_split",
       "desc": "表格横跨栏缝时不切栏并告警"
+    },
+    {
+      "id": "codepoint_variant",
+      "severity": "passes_through_unnormalized",
+      "desc": "字符码位变体原样透传、不做归一（如康熙部首码位 示 U+793A → ⽰ U+2F70）",
+      "evidence": "tests/fixtures/borderless_table.pdf：Edge 生成的 PDF",
+      "consumer_action": "需比较字符串时自行 unicodedata.normalize('NFKC', s)"
     }
   ],
   "degradation_levels": [

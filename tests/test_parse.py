@@ -1270,6 +1270,13 @@ def test_无框表格的内容不丢():
     d = pp.parse_pdf(BORDERLESS_FIXTURE)
     for pg in d["pages"]:
         assert pg["blocks"], "整页不该为空块"
+    import unicodedata
+
     txt = "".join(b["text_raw"] for pg in d["pages"] for b in pg["blocks"])
+    # Edge 生成的这份 PDF 把部分汉字映射成了**康熙部首码位**
+    # （示 U+793A → ⽰ U+2F70、乙 → ⼄、比 → ⽐、日 → ⽇）。
+    # 解析层原样透传 PDF 的 ToUnicode 映射，不做归一 —— 这是已知边界，
+    # 详见 src/finstruct/docs/解析能力边界表.md。此处按 NFKC 归一再断言内容存在。
+    norm = unicodedata.normalize("NFKC", txt)
     for k in ("股东名称", "12,000,000", "8.50", "示例股东乙"):
-        assert k in txt, f"无框表格的 {k!r} 丢了"
+        assert k in norm, f"无框表格的 {k!r} 丢了"
