@@ -1,0 +1,788 @@
+{
+  "stamp": "20261004T093750",
+  "mock": false,
+  "results": [
+    {
+      "case": "D4-PLD-001",
+      "event_type": "pledge",
+      "file": "D4-PLD-001.parse.json",
+      "run_id": "20261004T093750-pledge-4ba4",
+      "ok": true,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 3,
+        "needs_review": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 36,
+        "value_hit": 36,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-002",
+      "event_type": "pledge",
+      "file": "D4-PLD-002.parse.json",
+      "run_id": "20261004T093800-pledge-751d",
+      "ok": true,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 13,
+        "value_hit": 13,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-003",
+      "event_type": "pledge",
+      "file": "D4-PLD-003.parse.json",
+      "run_id": "20261004T093804-pledge-bbbf",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-004",
+      "event_type": "pledge",
+      "file": "D4-PLD-004.parse.json",
+      "run_id": "20261004T093809-pledge-96f1",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-005",
+      "event_type": "pledge",
+      "file": "D4-PLD-005.parse.json",
+      "run_id": "20261004T093813-pledge-4fc4",
+      "ok": true,
+      "status_count": {
+        "extracted": 25,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 25,
+        "value_hit": 25,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 2,
+        "mine_events": 2,
+        "matched_events": 2
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-006",
+      "event_type": "pledge",
+      "file": "D4-PLD-006.parse.json",
+      "run_id": "20261004T093820-pledge-105e",
+      "ok": true,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 13,
+        "value_hit": 13,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-007",
+      "event_type": "pledge",
+      "file": "D4-PLD-007.parse.json",
+      "run_id": "20261004T093824-pledge-97a0",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-008",
+      "event_type": "pledge",
+      "file": "D4-PLD-008.parse.json",
+      "run_id": "20261004T093829-pledge-4373",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 2,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 11,
+        "value_hit": 11,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-009",
+      "event_type": "pledge",
+      "file": "D4-PLD-009.parse.json",
+      "run_id": "20261004T093833-pledge-b353",
+      "ok": true,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 6
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 36,
+        "value_hit": 36,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-010",
+      "event_type": "pledge",
+      "file": "D4-PLD-010.parse.json",
+      "run_id": "20261004T093844-pledge-d594",
+      "ok": true,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-001",
+      "event_type": "equity_change",
+      "file": "D5-EQC-001.parse.json",
+      "run_id": "20261004T093848-equity_change-eec5",
+      "ok": true,
+      "status_count": {
+        "extracted": 45
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 45,
+        "value_hit": 45,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 5,
+        "mine_events": 5,
+        "matched_events": 5
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-002",
+      "event_type": "equity_change",
+      "file": "D5-EQC-002.parse.json",
+      "run_id": "20261004T093901-equity_change-8518",
+      "ok": true,
+      "status_count": {
+        "extracted": 27
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 27,
+        "value_hit": 27,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-003",
+      "event_type": "equity_change",
+      "file": "D5-EQC-003.parse.json",
+      "run_id": "20261004T093920-equity_change-17aa",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 4
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-004",
+      "event_type": "equity_change",
+      "file": "D5-EQC-004.parse.json",
+      "run_id": "20261004T093923-equity_change-4807",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-005",
+      "event_type": "equity_change",
+      "file": "D5-EQC-005.parse.json",
+      "run_id": "20261004T093927-equity_change-3261",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-006",
+      "event_type": "equity_change",
+      "file": "D5-EQC-006.parse.json",
+      "run_id": "20261004T093930-equity_change-28e5",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-007",
+      "event_type": "equity_change",
+      "file": "D5-EQC-007.parse.json",
+      "run_id": "20261004T093934-equity_change-99b5",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-008",
+      "event_type": "equity_change",
+      "file": "D5-EQC-008.parse.json",
+      "run_id": "20261004T093937-equity_change-9e65",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-009",
+      "event_type": "equity_change",
+      "file": "D5-EQC-009.parse.json",
+      "run_id": "20261004T093940-equity_change-b8c8",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-010",
+      "event_type": "equity_change",
+      "file": "D5-EQC-010.parse.json",
+      "run_id": "20261004T093944-equity_change-38cc",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-001",
+      "event_type": "award_contract",
+      "file": "D6-AWD-001.raw.json",
+      "run_id": "20261004T093949-award_contract-23ab",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 6,
+        "not_applicable": 2,
+        "not_disclosed": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-002",
+      "event_type": "award_contract",
+      "file": "D6-AWD-002.raw.json",
+      "run_id": "20261004T093952-award_contract-09f8",
+      "ok": true,
+      "status_count": {
+        "extracted": 24,
+        "not_mentioned": 22,
+        "not_applicable": 8,
+        "not_disclosed": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 24,
+        "value_hit": 24,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 4,
+        "mine_events": 4,
+        "matched_events": 4
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-003",
+      "event_type": "award_contract",
+      "file": "D6-AWD-003.raw.json",
+      "run_id": "20261004T094004-award_contract-1482",
+      "ok": true,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 21,
+        "value_hit": 21,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-004",
+      "event_type": "award_contract",
+      "file": "D6-AWD-004.raw.json",
+      "run_id": "20261004T094013-award_contract-673f",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-005",
+      "event_type": "award_contract",
+      "file": "D6-AWD-005.raw.json",
+      "run_id": "20261004T094018-award_contract-8958",
+      "ok": true,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 11,
+        "value_hit": 11,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-006",
+      "event_type": "award_contract",
+      "file": "D6-AWD-006.raw.json",
+      "run_id": "20261004T094022-award_contract-803d",
+      "ok": true,
+      "status_count": {
+        "extracted": 9,
+        "not_mentioned": 5
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-007",
+      "event_type": "award_contract",
+      "file": "D6-AWD-007.raw.json",
+      "run_id": "20261004T094026-award_contract-84f5",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 7,
+        "not_applicable": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 4,
+        "field_accuracy": 0.8,
+        "wrong_filled": 0,
+        "status_match_ratio": 0.9286,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": [
+        {
+          "field": "E01.bid_amount",
+          "verdict": "VALUE_DIFF",
+          "detail": "gold=173800000 mine=317915000"
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-008",
+      "event_type": "award_contract",
+      "file": "D6-AWD-008.raw.json",
+      "run_id": "20261004T094029-award_contract-80a9",
+      "ok": true,
+      "status_count": {
+        "extracted": 8,
+        "not_mentioned": 4,
+        "not_applicable": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-009",
+      "event_type": "award_contract",
+      "file": "D6-AWD-009.raw.json",
+      "run_id": "20261004T094034-award_contract-bb57",
+      "ok": true,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 21,
+        "value_hit": 21,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-010",
+      "event_type": "award_contract",
+      "file": "D6-AWD-010.raw.json",
+      "run_id": "20261004T094043-award_contract-1a94",
+      "ok": true,
+      "status_count": {
+        "extracted": 5,
+        "not_disclosed": 1,
+        "not_mentioned": 6,
+        "not_applicable": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "award-empty-text",
+      "event_type": "award_contract",
+      "file": "award-empty-text.txt",
+      "run_id": null,
+      "ok": false,
+      "output_tail": "输入无可读文本（0 字符）——拒绝调用模型以免编造；扫描件请先走解析（--parse）获得降级块\n"
+    },
+    {
+      "case": "note-unknown",
+      "event_type": "?",
+      "file": "note-unknown.json",
+      "run_id": null,
+      "ok": false,
+      "status": "skipped",
+      "skip_reason": "无法推断事件类型"
+    },
+    {
+      "case": "pledge-corrupt",
+      "event_type": "pledge",
+      "file": "pledge-corrupt.json",
+      "run_id": null,
+      "ok": false,
+      "status": "skipped",
+      "skip_reason": "非评测样例格式（JSON 无 pages[].text 且非解析块格式）"
+    },
+    {
+      "case": "pledge-empty",
+      "event_type": "pledge",
+      "file": "pledge-empty.txt",
+      "run_id": null,
+      "ok": false,
+      "output_tail": "输入无可读文本（0 字符）——拒绝调用模型以免编造；扫描件请先走解析（--parse）获得降级块\n"
+    },
+    {
+      "case": "pledge-scan-degrade",
+      "event_type": "pledge",
+      "file": "pledge-scan-degrade.parse.json",
+      "run_id": "20261004T094046-pledge-scan",
+      "ok": true,
+      "status_count": {
+        "unreadable": 14
+      },
+      "validation_errors": 1
+    }
+  ]
+}

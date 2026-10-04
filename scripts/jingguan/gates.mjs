@@ -38,6 +38,7 @@ const results = [
   runGate('抽取行为回归', ['scripts/jingguan/test_regression.mjs']),
   runGate('批量分母回归', ['scripts/jingguan/test_batch_denominator.mjs']),
   runGate('跨文档核验回放', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', 'runs/batch-20261003T160213/envelopes', '--manifest', 'corpus/zongbowen/sealed/cross-doc-manifest.json', '--expect']),
+  runGate('宗D8配对严格评分', ['scripts/jingguan/test_d8_pairing.mjs']),
 ]
 
 // ---- 6 git 状态守卫 ----

@@ -99,3 +99,21 @@ node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir runs/batch-20261003T16
 4. **统一批次重跑**：35 输入，AWD-007 修订进入输出、其余 29 份 gold 案例不受损；方的
    checkAwardEnvelope 对新信封四类拦截码（MULTI_AMOUNT_OR_FX/CURRENCY_CONFLICT/
    AMOUNT_VALUE_MISMATCH/FOREIGN_OR_UNKNOWN_CURRENCY）全部缺席。证据：批次报告与本节记录。
+
+## 八、宗 D8 配对集接入：第三态＋--strict 13/13（2026-10-04）
+
+宗交付（zongbowen@e758d43a，已按 git hash 字节一致引入 evaluation/D8/）点名的三条行动项落实：
+
+1. **第三态**：`verify_crossdoc.mjs` 任一成员 0 可用字段（pledge-scan-degrade 全页扫描降级
+   14 字段全 unreadable）→ `predicted_relation="unknown"`＋reasons=
+   `[INSUFFICIENT_SIGNALS, MEMBER_NO_USABLE_FIELDS:<case>]`——证据不足不得强行判 unrelated。
+   `--expect` 三态匹配（unrelated 加 0 矛盾条件），与宗 score-pairs.mjs 判定逐条对齐。
+2. **B 全量（含 scan-degrade）**：统一批次 35 输入重跑（batch-20261004T093750，436/437
+   仅 AWD-007 待 gold），13 组全量 B 报告：related 4/4＋unrelated 8/8 零矛盾＋insufficient 1/1。
+3. **版本追踪补洞**：扫描降级路径的 run_meta 原缺 code_version/interface_version 版本戳
+   （D8-PAIR-013 曾因此 version_traceability 不达标）——已补齐与正常路径同规格（9ee9d0a9）。
+4. **--strict 终审**：宗 score-pairs.mjs --strict **PASS 13/13（0 fail 0 not_run）**；已固化为
+   门禁第 13 道（scripts/jingguan/test_d8_pairing.mjs，临时报告用后即删）。
+
+对陈家浩的接口意义：B 报告 `predicted_relation` 现有三态 related/unrelated/unknown，
+PAIR-013 类证据不足可直接渲染"证据不足"，不再与"不同事件"混淆。
