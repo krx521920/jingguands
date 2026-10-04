@@ -8,7 +8,7 @@
       "commit": "954381da031debcbde5cf9c1fe2def3f65adb2f0",
       "deliverable": "scripts/jingguan/verify_crossdoc.mjs + runs/crossdoc-report-20261003.json + docs/d8-crossdoc-verification.md",
       "evidence": "sealed cross-doc replay 20/20 (related 4/4, unrelated 0 false positives)",
-      "open": "emit unknown/INSUFFICIENT_SIGNALS for D8-PAIR-013; run B over the D8 pair manifest"
+      "open": "emit unknown/INSUFFICIENT_SIGNALS for D8-PAIR-013; run B over the D8 pair manifest; add defensive numeric coercion (numeric-like string -> Number) in anchorsOf"
     },
     "zhangzhibo": {
       "status": "delivered",
@@ -16,12 +16,23 @@
       "deliverable": "sample/D8/cross_index.json + sample/D8/pair_evidence.json + reviews/D8-跨文档索引交接给B流程.md",
       "open": "subject key for code-less docs (D5-EQC-003)"
     },
-    "fangxuancheng": {"status": "not_delivered", "expected": "同事件对齐规则（D08-4），用本清单作公开开发集"},
-    "chenjiahui": {"status": "not_delivered", "expected": "多文件上传＋事件分组＋双栏原文页（须显示双侧版本）"},
+    "fangxuancheng": {
+      "status": "not_delivered",
+      "expected": "同事件对齐规则（D08-4），用本清单作公开开发集"
+    },
+    "chenjiahui": {
+      "status": "not_delivered",
+      "expected": "多文件上传＋事件分组＋双栏原文页（须显示双侧版本）"
+    },
     "zongbowen": {
       "status": "delivered",
       "deliverable": "evaluation/D8/pairs/pairs.dev30.json + evaluation/D8/score-pairs.mjs + build-pairs.mjs + README + handoffs",
-      "composition": {"same_event": 4, "different_event": 8, "insufficient": 1, "total": 13},
+      "composition": {
+        "same_event": 4,
+        "different_event": 8,
+        "insufficient": 1,
+        "total": 13
+      },
       "self_check": "PASS",
       "offline_demo": "12 pass / 0 fail / 1 not_run (against weiwenyu 954381da report excerpt)",
       "honest_limit": "public dev-30 corpus supports only 4 verifiable same-event pairs (plan suggested 6)"

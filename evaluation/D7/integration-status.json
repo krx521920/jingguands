@@ -3,19 +3,98 @@
   "evaluation_status": "complete",
   "integration_status": "d7_closed_pending_reconfirm",
   "members": {
-    "weiwenyu": {"status": "accepted", "commit": "954381da031debcbde5cf9c1fe2def3f65adb2f0", "d7_closure_commit": "00e75b6c", "batch": "runs/batch-20261003T155712", "core_30": "437/437 (pre-Gold-fix)", "strong_block_evidence": "437/437", "adversarial_denominator_preserved": true, "independent_browser_acceptance": "Chen UI accepted", "blocking": false},
-    "zhangzhibo": {"status": "accepted", "commit": "1d3efad6ec6f0fa6f24a622f0240140ad68980cb", "review_commit": "58a562f6", "deliverable": "D8 cross-doc index + dual-side anchors; D6-AWD-005 column semantics confirmation", "blocking": false},
-    "fangxuancheng": {"status": "accepted", "commit": "4e886d33fb902cd18d4742780a8eaa6fa33a1232", "deliverable": "D6 award currency/tax/consortium checker", "delivery_hashes": "15/15", "unit_tests": "89/89", "regression": "185/185", "note": "branch head re-uploaded D6 workspace then reverted; no new D8 alignment rule yet", "blocking": false},
-    "chenjiahui": {"status": "accepted", "commit": "7b53917f46fbb5c09d78ce95032b13fed5ca8457", "deliverable": "D6 batch upload loop, D7 anchor/quote handling, capability-boundary snapshot", "independent_browser_acceptance": "performed by weiwenyu", "blocking": false}
+    "weiwenyu": {
+      "status": "accepted",
+      "commit": "954381da031debcbde5cf9c1fe2def3f65adb2f0",
+      "d7_closure_commit": "00e75b6c",
+      "batch": "runs/batch-20261003T155712",
+      "core_30": "437/437 (pre-Gold-fix)",
+      "strong_block_evidence": "437/437",
+      "adversarial_denominator_preserved": true,
+      "independent_browser_acceptance": "Chen UI accepted",
+      "blocking": false
+    },
+    "zhangzhibo": {
+      "status": "accepted",
+      "commit": "1d3efad6ec6f0fa6f24a622f0240140ad68980cb",
+      "review_commit": "58a562f6",
+      "deliverable": "D8 cross-doc index + dual-side anchors; D6-AWD-005 column semantics confirmation",
+      "blocking": false
+    },
+    "fangxuancheng": {
+      "status": "accepted",
+      "commit": "4e886d33fb902cd18d4742780a8eaa6fa33a1232",
+      "deliverable": "D6 award currency/tax/consortium checker",
+      "delivery_hashes": "15/15",
+      "unit_tests": "89/89",
+      "regression": "185/185",
+      "note": "branch head re-uploaded D6 workspace then reverted; no new D8 alignment rule yet",
+      "blocking": false
+    },
+    "chenjiahui": {
+      "status": "accepted",
+      "commit": "7b53917f46fbb5c09d78ce95032b13fed5ca8457",
+      "deliverable": "D6 batch upload loop, D7 anchor/quote handling, capability-boundary snapshot",
+      "independent_browser_acceptance": "performed by weiwenyu",
+      "blocking": false
+    }
   },
-  "sealed": {"single_documents": 30, "cross_document_groups": 20, "related_groups": 4, "control_groups": 16, "verification": "PASS", "consumed_by": "weiwenyu verify_crossdoc.mjs", "replay_result": "20/20 (related 4/4, unrelated 0 false positives)"},
-  "second_review": {"parser_evidence": "conditional_pass", "extraction_semantics": "passed_with_conditions"},
+  "sealed": {
+    "single_documents": 30,
+    "cross_document_groups": 20,
+    "related_groups": 4,
+    "control_groups": 16,
+    "verification": "PASS",
+    "consumed_by": "weiwenyu verify_crossdoc.mjs",
+    "replay_result": "20/20 (related 4/4, unrelated 0 false positives)"
+  },
+  "second_review": {
+    "parser_evidence": "conditional_pass",
+    "extraction_semantics": "passed_with_conditions"
+  },
   "blockers_closed": [
-    {"id": 1, "item": "weak text vs strong block evidence denominator", "closed_by": "weiwenyu 00e75b6c", "evidence": "corpus/zhangzhibo/d4/parse-official + runs/batch-20261003T155712 (437/437)"},
-    {"id": 2, "item": "extraction-semantics second review", "closed_by": "weiwenyu docs/reviews/D7-提取语义第二人复核.md"},
-    {"id": 3, "item": "D6-AWD-007 currency/FX conflict", "closed_by": "zong adjudication A", "gold_change": "evaluation/D6/dev/gold/D6-AWD-007.envelope.json bid_amount 173800000 -> 317915000"},
-    {"id": 4, "item": "D6-AWD-005 no-header fallback boundary", "closed_by": "weiwenyu + zhangzhibo c568addd", "evidence": "documented boundary, 100% on AWD-005"}
+    {
+      "id": 1,
+      "item": "weak text vs strong block evidence denominator",
+      "closed_by": "weiwenyu 00e75b6c",
+      "evidence": "corpus/zhangzhibo/d4/parse-official + runs/batch-20261003T155712 (437/437)"
+    },
+    {
+      "id": 2,
+      "item": "extraction-semantics second review",
+      "closed_by": "weiwenyu docs/reviews/D7-提取语义第二人复核.md"
+    },
+    {
+      "id": 3,
+      "item": "D6-AWD-007 currency/FX conflict",
+      "closed_by": "zong adjudication A",
+      "gold_change": "evaluation/D6/dev/gold/D6-AWD-007.envelope.json bid_amount 173800000 -> 317915000"
+    },
+    {
+      "id": 4,
+      "item": "D6-AWD-005 no-header fallback boundary",
+      "closed_by": "weiwenyu + zhangzhibo c568addd",
+      "evidence": "documented boundary, 100% on AWD-005"
+    }
   ],
-  "pending": ["weiwenyu aligned re-run for D6-AWD-007 option A to re-confirm 437/437"],
-  "note": "Post-Gold-fix, do not claim 437/437 until the aligned batch lands; report 437 denominator with 1 pending alignment."
+  "pending": [
+    "weiwenyu aligned re-run for D6-AWD-007 option A to re-confirm 437/437",
+    "weiwenyu: defensive numeric coercion in B anchor extraction (string -> Number), latent"
+  ],
+  "note": "Post-Gold-fix, do not claim 437/437 until the aligned batch lands; report 437 denominator with 1 pending alignment.",
+  "awd007_confirmation": {
+    "confirmed_by": "fangxuancheng (rule & adjudication basis)",
+    "matches_zong_adjudication": true,
+    "amount": 317915000,
+    "currency": "CNY",
+    "original_evidence_preserved": true,
+    "record": "evaluation/D7/handoffs/D7-AWD-007-cross-team-confirmation.md",
+    "b_numeric_type_check": {
+      "envelopes_scanned": 31,
+      "numeric_typed": 181,
+      "numeric_like_strings": 0,
+      "source": "weiwenyu@954381da runs/batch-20261003T155712/envelopes",
+      "verdict": "latent risk, not triggered on current D7 output"
+    }
+  }
 }
