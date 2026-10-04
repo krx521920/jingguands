@@ -1,0 +1,241 @@
+{
+  "mode": "score",
+  "result": "PASS",
+  "pairs_total": 13,
+  "scored": 12,
+  "pass": 12,
+  "fail": 0,
+  "not_run": 1,
+  "same_event": {
+    "total": 4,
+    "hit": 4
+  },
+  "different_event": {
+    "total": 8,
+    "clean": 8
+  },
+  "insufficient": {
+    "total": 1,
+    "ok": 0
+  },
+  "report_provenance": {
+    "b_run_id": "b-20261004024751",
+    "engine": "verify_crossdoc.mjs",
+    "matcher": {
+      "builtin": "nameEq+anchors"
+    },
+    "envelopes_dir": "runs/batch-20261003T160213/envelopes"
+  },
+  "rows": [
+    {
+      "group_id": "D8-PAIR-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-PAIR-002",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-PAIR-003",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-PAIR-004",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "REVERSE_MATCH"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-PAIR-005",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-006",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-007",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-008",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-009",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-010",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-011",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-012",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-013",
+      "members": [
+        "pledge-scan-degrade",
+        "D6-AWD-001"
+      ],
+      "expected": "insufficient",
+      "status": "not_run",
+      "pass": null
+    }
+  ]
+}
