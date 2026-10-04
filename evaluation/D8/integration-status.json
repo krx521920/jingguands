@@ -52,5 +52,13 @@
     "fang: same-event alignment rules (D08-4)",
     "chen: multi-file grouping UI",
     "weiwenyu: D7 gold snapshot re-sync"
-  ]
+  ],
+  "demo_decision": {
+    "decided_on": "2026-10-04",
+    "decided_by": "轮值主持人（拍板）",
+    "option": "B",
+    "title": "同公司同事件互证 + 语料边界如实说明",
+    "rationale": "语料不存在同公司不同事件样本对；补抓新公告需重跑A全链路并破坏预置封存口径；方案B零新增风险且用PAIR-013的unknown覆盖“同公司不同事件”的判定纪律",
+    "artifact": "evaluation/D8/D8-demo-script.md"
+  }
 }
