@@ -1,0 +1,382 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261004T105614-equity_change-662a",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:3a2d49ddd3b202f150193e44610f876db28a59e75d58cf68ac06d6f1d4cce8bd",
+    "file_name": "2026-09-28_1225583768.pdf",
+    "file_sha256": "3a2d49ddd3b202f150193e44610f876db28a59e75d58cf68ac06d6f1d4cce8bd",
+    "parse_meta": {
+      "parser_version": "pypdf-demo-0.1",
+      "page_count": 10,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "浙江省国际贸易集团有限公司",
+          "value": "浙江省国际贸易集团有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "转让方名称浙江省国际贸易集团有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "direction": {
+          "raw_value": "转让",
+          "value": "decrease",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "转让股份数量（股）72,673,907"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_before": {
+          "raw_value": "72,673,907股",
+          "value": 72673907,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "国贸集团72,673,9076.1672,673,9076.1600"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_after": {
+          "raw_value": "0股",
+          "value": 0,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "国贸集团72,673,9076.1672,673,9076.1600"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "ratio_before": {
+          "raw_value": "6.16%",
+          "value": 6.16,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "国贸集团72,673,9076.1672,673,9076.1600"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "ratio_after": {
+          "raw_value": "0%",
+          "value": 0,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "国贸集团72,673,9076.1672,673,9076.1600"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "change_shares": {
+          "raw_value": "72,673,907股",
+          "value": 72673907,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "转让股份数量（股）72,673,907"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "method": {
+          "raw_value": "公开征集转让方式协议转让",
+          "value": "公开征集协议转让",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p001_b00001",
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "国贸集团拟通过协议转让"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "change_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date_range",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    },
+    {
+      "event_id": "E02",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "value": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "受让方名称金浦浙展股权投资（丽水）合伙企业（有限合伙）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "direction": {
+          "raw_value": "受让",
+          "value": "increase",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "金浦浙展0072,673,9076.1672,673,9076.16"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_before": {
+          "raw_value": "0股",
+          "value": 0,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "金浦浙展0072,673,9076.1672,673,9076.16"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_after": {
+          "raw_value": "72,673,907股",
+          "value": 72673907,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "金浦浙展0072,673,9076.1672,673,9076.16"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "ratio_before": {
+          "raw_value": "0%",
+          "value": 0,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "金浦浙展0072,673,9076.1672,673,9076.16"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "ratio_after": {
+          "raw_value": "6.16%",
+          "value": 6.16,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "金浦浙展0072,673,9076.1672,673,9076.16"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "change_shares": {
+          "raw_value": "72,673,907股",
+          "value": 72673907,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p002_b00002",
+              "page": 2,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "转让股份数量（股）72,673,907"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "method": {
+          "raw_value": "公开征集转让方式协议转让",
+          "value": "协议转让",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "3a2d49dd_p001_b00001",
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "国贸集团拟通过协议转让"
+            }
+          ],
+          "denominator": null,
+          "note": "［方法规范：公开征集协议转让→协议转让（D5-GOLD-002 规范标签）］"
+        },
+        "change_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date_range",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-04T10:56:14.586Z",
+    "duration_ms": 5481,
+    "code_version": "90a4cb57",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

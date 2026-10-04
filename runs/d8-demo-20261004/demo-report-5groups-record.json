@@ -1,0 +1,424 @@
+{
+  "checked_on": "2026-10-04",
+  "b_run": {
+    "b_run_id": "b-20261004105725",
+    "engine": "verify_crossdoc.mjs",
+    "matcher": {
+      "builtin": "nameEq+anchors"
+    },
+    "envelopes_dir": "C:/Users/14975/AppData/Local/Temp/demo-envelopes"
+  },
+  "envelopes_dir": "C:/Users/14975/AppData/Local/Temp/demo-envelopes",
+  "manifest": "C:/Users/14975/AppData/Local/Temp/demo-manifest.json",
+  "expect_mode": false,
+  "groups_total": 5,
+  "groups_checked": 5,
+  "groups_missing_envelope": [],
+  "related_detected": 2,
+  "related_conflicts_total": 0,
+  "related_corroborations_total": 6,
+  "results": [
+    {
+      "group_id": "D8-DEMO-001",
+      "members": [
+        "DEMO-EQC-HZ-RESULT",
+        "D5-EQC-004"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "DEMO-EQC-HZ-RESULT",
+          "a_run_id": "20261004T105614-equity_change-662a",
+          "code_version": "90a4cb57",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-004",
+          "a_run_id": "20261004T093923-equity_change-4807",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "DEMO-EQC-HZ-RESULT",
+          "usable": 16,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-004",
+          "usable": 8,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "REVERSE_MATCH"
+      ],
+      "signals": {
+        "shared_entity_count": 1,
+        "shared_entities": [
+          "金浦浙展股权投资（丽水）合伙企业（有限合伙）"
+        ],
+        "shared_entities_from_pair": [
+          "DEMO-EQC-HZ-RESULT",
+          "D5-EQC-004"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          72673907
+        ],
+        "shared_anchors_from_pair": [
+          "DEMO-EQC-HZ-RESULT",
+          "D5-EQC-004"
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          72673907
+        ],
+        "reverse_from_pair": [
+          "DEMO-EQC-HZ-RESULT",
+          "D5-EQC-004"
+        ]
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "field": "shares_before",
+            "value": 0,
+            "docs": [
+              "DEMO-EQC-HZ-RESULT",
+              "D5-EQC-004"
+            ],
+            "quotes": [
+              "金浦浙展0072,673,9076.1672,673,9076.16",
+              "0"
+            ]
+          },
+          {
+            "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "field": "shares_after",
+            "value": 72673907,
+            "docs": [
+              "DEMO-EQC-HZ-RESULT",
+              "D5-EQC-004"
+            ],
+            "quotes": [
+              "金浦浙展0072,673,9076.1672,673,9076.16",
+              "72,673,907"
+            ]
+          },
+          {
+            "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "field": "change_shares",
+            "value": 72673907,
+            "docs": [
+              "DEMO-EQC-HZ-RESULT",
+              "D5-EQC-004"
+            ],
+            "quotes": [
+              "转让股份数量（股）72,673,907",
+              "变动数量：72,673,907股股份"
+            ]
+          }
+        ],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "浙江省国际贸易集团有限公司",
+            "only_in": "DEMO-EQC-HZ-RESULT"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-DEMO-002",
+      "members": [
+        "DEMO-EQC-HZ-RESULT",
+        "D5-EQC-005"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "DEMO-EQC-HZ-RESULT",
+          "a_run_id": "20261004T105614-equity_change-662a",
+          "code_version": "90a4cb57",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "a_run_id": "20261004T093927-equity_change-3261",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "DEMO-EQC-HZ-RESULT",
+          "usable": 16,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "usable": 8,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "REVERSE_MATCH"
+      ],
+      "signals": {
+        "shared_entity_count": 1,
+        "shared_entities": [
+          "浙江省国际贸易集团有限公司"
+        ],
+        "shared_entities_from_pair": [
+          "DEMO-EQC-HZ-RESULT",
+          "D5-EQC-005"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          72673907
+        ],
+        "shared_anchors_from_pair": [
+          "DEMO-EQC-HZ-RESULT",
+          "D5-EQC-005"
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          72673907
+        ],
+        "reverse_from_pair": [
+          "DEMO-EQC-HZ-RESULT",
+          "D5-EQC-005"
+        ]
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "entity": "浙江省国际贸易集团有限公司",
+            "field": "shares_before",
+            "value": 72673907,
+            "docs": [
+              "DEMO-EQC-HZ-RESULT",
+              "D5-EQC-005"
+            ],
+            "quotes": [
+              "国贸集团72,673,9076.1672,673,9076.1600",
+              "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份"
+            ]
+          },
+          {
+            "entity": "浙江省国际贸易集团有限公司",
+            "field": "shares_after",
+            "value": 0,
+            "docs": [
+              "DEMO-EQC-HZ-RESULT",
+              "D5-EQC-005"
+            ],
+            "quotes": [
+              "国贸集团72,673,9076.1672,673,9076.1600",
+              "本次权益变动后，信息披露义务人不再直接持有上市公司股份。"
+            ]
+          },
+          {
+            "entity": "浙江省国际贸易集团有限公司",
+            "field": "change_shares",
+            "value": 72673907,
+            "docs": [
+              "DEMO-EQC-HZ-RESULT",
+              "D5-EQC-005"
+            ],
+            "quotes": [
+              "转让股份数量（股）72,673,907",
+              "变动数量：减少72,673,907股"
+            ]
+          }
+        ],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "only_in": "DEMO-EQC-HZ-RESULT"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-DEMO-003",
+      "members": [
+        "D5-EQC-006",
+        "DEMO-EQC-HL-0930"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261004T093930-equity_change-28e5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "DEMO-EQC-HL-0930",
+          "a_run_id": "20261004T105620-equity_change-a567",
+          "code_version": "90a4cb57",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "DEMO-EQC-HL-0930",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_REVERSE_MATCH"
+      ],
+      "signals": {
+        "shared_entity_count": 1,
+        "shared_entities": [
+          "商晓波及其一致行动人"
+        ],
+        "shared_entities_from_pair": [
+          "D5-EQC-006",
+          "DEMO-EQC-HL-0930"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          249519764
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-006",
+          "DEMO-EQC-HL-0930"
+        ],
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-DEMO-004",
+      "members": [
+        "DEMO-EQC-HL-SIMPLE",
+        "DEMO-EQC-HL-0930"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "DEMO-EQC-HL-SIMPLE",
+          "a_run_id": "20261004T105623-equity_change-9d09",
+          "code_version": "90a4cb57",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "DEMO-EQC-HL-0930",
+          "a_run_id": "20261004T105620-equity_change-a567",
+          "code_version": "90a4cb57",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "DEMO-EQC-HL-SIMPLE",
+          "usable": 7,
+          "excluded": 0
+        },
+        {
+          "case_id": "DEMO-EQC-HL-0930",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ANCHOR",
+        "INSUFFICIENT_SIGNALS"
+      ],
+      "signals": {
+        "shared_entity_count": 1,
+        "shared_entities": [
+          "商晓波"
+        ],
+        "shared_entities_from_pair": [
+          "DEMO-EQC-HL-SIMPLE",
+          "DEMO-EQC-HL-0930"
+        ],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-DEMO-005",
+      "members": [
+        "DEMO-EQC-HL-SIMPLE",
+        "D5-EQC-006"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "DEMO-EQC-HL-SIMPLE",
+          "a_run_id": "20261004T105623-equity_change-9d09",
+          "code_version": "90a4cb57",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261004T093930-equity_change-28e5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "DEMO-EQC-HL-SIMPLE",
+          "usable": 7,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ANCHOR",
+        "INSUFFICIENT_SIGNALS"
+      ],
+      "signals": {
+        "shared_entity_count": 1,
+        "shared_entities": [
+          "商晓波"
+        ],
+        "shared_entities_from_pair": [
+          "DEMO-EQC-HL-SIMPLE",
+          "D5-EQC-006"
+        ],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    }
+  ]
+}

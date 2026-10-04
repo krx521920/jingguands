@@ -1,0 +1,41 @@
+{
+  "stamp": "20261004T105614",
+  "mock": false,
+  "results": [
+    {
+      "case": "DEMO-EQC-HZ-RESULT",
+      "event_type": "equity_change",
+      "file": "DEMO-EQC-HZ-RESULT.raw.json",
+      "run_id": "20261004T105614-equity_change-662a",
+      "ok": true,
+      "status_count": {
+        "extracted": 16,
+        "not_mentioned": 2
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "DEMO-EQC-HL-0930",
+      "event_type": "equity_change",
+      "file": "DEMO-EQC-HL-0930.raw.json",
+      "run_id": "20261004T105620-equity_change-a567",
+      "ok": true,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 2
+    },
+    {
+      "case": "DEMO-EQC-HL-SIMPLE",
+      "event_type": "equity_change",
+      "file": "DEMO-EQC-HL-SIMPLE.raw.json",
+      "run_id": "20261004T105623-equity_change-9d09",
+      "ok": true,
+      "status_count": {
+        "extracted": 7,
+        "not_mentioned": 2
+      },
+      "validation_errors": 0
+    }
+  ]
+}
