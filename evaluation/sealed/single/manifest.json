@@ -1,8 +1,8 @@
 {
-  "sealed_set_id": "financial-events-d7-single-freeze-v0.2",
+  "sealed_set_id": "financial-events-d7-single-freeze-v0.3",
   "created_on": "2026-10-02",
   "revised_on": "2026-10-04",
-  "revision_note": "D6-AWD-007 Gold corrected per zong adjudication A (bid_amount 173800000 -> 317915000, currency=CNY). Raw corpus unchanged; gold hash for D6-AWD-007 re-frozen.",
+  "revision_note": "v0.3: D6-AWD-007 Gold bid_amount/currency aligned to fang proposed_fields (value 317915000, raw_value 317,915,000 CNY substring, currency CNY) per joint ruling; raw corpus and cross-doc grouping unchanged.",
   "mode": "frozen_replay_of_public_dev_corpus",
   "total": 30,
   "cases": [
@@ -300,7 +300,7 @@
       "raw": "../../D6/dev/raw/D6-AWD-007.raw.json",
       "gold": "../../D6/dev/gold/D6-AWD-007.envelope.json",
       "raw_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
-      "gold_sha256": "1524d651763cccce55b459dca1d192c41ab9d53c154f457b7d6fd121d0b1b736",
+      "gold_sha256": "9e5434d6fe91fd46635e2ad9e05a90d5bd1f3f5c87cad22074014db840dc1622",
       "source_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33"
     },
     {

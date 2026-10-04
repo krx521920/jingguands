@@ -1,13 +1,14 @@
 # D7 sealed test freeze
 
 Date: 2026-10-02
-Revised: 2026-10-04 (v0.2)
+Revised: 2026-10-04 (v0.3)
 
-## Revision v0.2
+## Revision history
 
-- Trigger: 宗侧裁决 `D6-AWD-007` 币种口径为选项 A（`bid_amount 173800000 -> 317915000`, `currency=CNY`）。
-- Scope: **仅** `D6-AWD-007` 的 Gold 哈希重冻结；原始语料（raw）与跨文档分组/预期关系**未改动**。
-- Effect: `single`/`cross-doc` manifest 与 `hash-lock` 的版本号升为 `v0.2`，相关 sha256 改变；20 组跨文档的成员与 `expected_relation` 不变，故魏侧 20/20 回放结论仍成立。
+- **v0.2** — `D6-AWD-007` Gold `bid_amount` 值修正为 `317915000`（选项 A）。
+- **v0.3** — `D6-AWD-007` 的 `bid_amount` / `currency` 两字段按方 `字段修订建议_D6.json` 的 `proposed_fields` 对齐（`raw_value` 取公告明示的人民币子串 `人民币317,915,000元`、`currency=CNY`、补 `note`）。
+  - 仅 `D6-AWD-007` 的 Gold 哈希变化；**原始语料（raw）与跨文档分组/预期关系未改动**。
+  - 因分组与预期关系不变，魏侧跨文档回放结论继续成立。
 
 ## Contents
 

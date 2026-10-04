@@ -43,3 +43,22 @@
 | Gold 更新 | 宗 | 已完成（`efc09451`） |
 | B 数值类型防御 | 魏 | 待办（当前未触发） |
 | 重跑后重新确认 437/437 | 宗 | 待魏批次到位 |
+
+## 五、Gold 与方 proposed_fields 对齐（2026-10-04 追加）
+
+- 方 `字段修订建议_D6.json` 给出 `proposed_fields`（`bid_amount` + `currency` 两字段）。
+- 宗已把 `evaluation/D6/dev/gold/D6-AWD-007.envelope.json` 的这两个字段**逐字对齐**到该 `proposed_fields`：`raw_value="人民币317,915,000元"`、`value=317915000`、`unit=cny`、`currency=CNY`、含 `note`。
+- 封存集相应重冻结为 **v0.3**；`verify-sealed.mjs` = PASS。
+
+## 六、魏侧 436/437 的真实根因（评测侧定位）
+
+魏 `runs/batch-20261004T093750/batch_report.json` 显示 `D6-AWD-007` 唯一一处：
+
+```
+E01.bid_amount  VALUE_DIFF  gold=173800000 mine=317915000
+```
+
+- 说明魏的输出**已是正确值 317915000**，但**对照用的 Gold 仍是旧版 173800000**。
+- 定位：`scripts/jingguan/run_batch.mjs` 的 `GOLD_MANIFEST = corpus/zongbowen/dev/manifest.json`，指向魏仓库内 **宗 Gold 的副本**；该副本未随 `evaluation/` 更新。
+- 对照逻辑（`compareEventFields`）只比较 `status` 与 `value`（`valuesEqual`），**不比较 `raw_value`/`note`**；`goldFieldSupported` 对数值型 value 直接放行。
+- 结论：**宗侧 Gold 无需再改**；魏把 `corpus/zongbowen/` 的 Gold 副本从 `evaluation/` 重新同步，该批次即回 437/437。

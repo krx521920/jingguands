@@ -1,9 +1,9 @@
 {
   "locked_on": "2026-10-02",
   "revised_on": "2026-10-04",
-  "revision_note": "D6-AWD-007 Gold corrected per zong adjudication A (bid_amount 173800000 -> 317915000, currency=CNY). Raw corpus unchanged; gold hash for D6-AWD-007 re-frozen.",
-  "single_manifest_sha256": "112ead2ceaeb3ca0fed451cb48a3aa3d61bf565becc2065cea303c16659cf313",
-  "cross_doc_manifest_sha256": "acb086f5c4a308b125dd66d1bcc584f659fdcc999abe4162b60cf481037d0882",
+  "revision_note": "v0.3: D6-AWD-007 Gold bid_amount/currency aligned to fang proposed_fields (value 317915000, raw_value 317,915,000 CNY substring, currency CNY) per joint ruling; raw corpus and cross-doc grouping unchanged.",
+  "single_manifest_sha256": "b5e4f35253f9ab9af1bce6a239ca9df7990a3de1f8318ec8ad7ec22a4249aae9",
+  "cross_doc_manifest_sha256": "da70dd239f1e2d26c688400847daff482bfc41d4cab7a44311341f32489a7e14",
   "single_cases": [
     {
       "sealed_id": "D7-SEALED-001",
@@ -138,7 +138,7 @@
     {
       "sealed_id": "D7-SEALED-027",
       "raw_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
-      "gold_sha256": "1524d651763cccce55b459dca1d192c41ab9d53c154f457b7d6fd121d0b1b736"
+      "gold_sha256": "9e5434d6fe91fd46635e2ad9e05a90d5bd1f3f5c87cad22074014db840dc1622"
     },
     {
       "sealed_id": "D7-SEALED-028",
@@ -418,7 +418,7 @@
         {
           "case_id": "D6-AWD-007",
           "raw_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
-          "gold_sha256": "1524d651763cccce55b459dca1d192c41ab9d53c154f457b7d6fd121d0b1b736"
+          "gold_sha256": "9e5434d6fe91fd46635e2ad9e05a90d5bd1f3f5c87cad22074014db840dc1622"
         }
       ]
     },

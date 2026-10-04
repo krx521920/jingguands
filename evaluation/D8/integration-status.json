@@ -4,11 +4,11 @@
   "goal": "判断多份公告是否为同一事件（工作流B：跨文档关联）",
   "members": {
     "weiwenyu": {
-      "status": "delivered",
+      "status": "delivered_and_verified",
       "commit": "954381da031debcbde5cf9c1fe2def3f65adb2f0",
       "deliverable": "scripts/jingguan/verify_crossdoc.mjs + runs/crossdoc-report-20261003.json + docs/d8-crossdoc-verification.md",
-      "evidence": "sealed cross-doc replay 20/20 (related 4/4, unrelated 0 false positives)",
-      "open": "emit unknown/INSUFFICIENT_SIGNALS for D8-PAIR-013; run B over the D8 pair manifest; add defensive numeric coercion (numeric-like string -> Number) in anchorsOf"
+      "evidence": "sealed cross-doc replay 20/20; D8 pair manifest run runs/D8-b-report-20261004.json 13/13 (PAIR-013 unknown via INSUFFICIENT_SIGNALS + MEMBER_NO_USABLE_FIELDS)",
+      "open": "defensive numeric coercion (latent); D7 gold snapshot re-sync"
     },
     "zhangzhibo": {
       "status": "delivered",
@@ -35,14 +35,22 @@
       },
       "self_check": "PASS",
       "offline_demo": "12 pass / 0 fail / 1 not_run (against weiwenyu 954381da report excerpt)",
-      "honest_limit": "public dev-30 corpus supports only 4 verifiable same-event pairs (plan suggested 6)"
+      "honest_limit": "public dev-30 corpus supports only 4 verifiable same-event pairs (plan suggested 6)",
+      "strict_result": {
+        "pairs": 13,
+        "pass": 13,
+        "fail": 0,
+        "same_event": "4/4",
+        "different_event": "8/8 clean",
+        "insufficient": "1/1",
+        "reference": "evaluation/D8/reference/score-result-20261004.json"
+      }
     }
   },
   "interface_chain": "zong pairs -> zhang index -> fang/wei align -> wei B output -> chen UI",
   "pending": [
-    "wei: B run over D8 pair manifest incl. pledge-scan-degrade (third state)",
     "fang: same-event alignment rules (D08-4)",
     "chen: multi-file grouping UI",
-    "wei: aligned re-run for D6-AWD-007 (D7 carry-over)"
+    "weiwenyu: D7 gold snapshot re-sync"
   ]
 }

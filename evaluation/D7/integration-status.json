@@ -67,8 +67,8 @@
     {
       "id": 3,
       "item": "D6-AWD-007 currency/FX conflict",
-      "closed_by": "zong adjudication A",
-      "gold_change": "evaluation/D6/dev/gold/D6-AWD-007.envelope.json bid_amount 173800000 -> 317915000"
+      "closed_by": "zong adjudication A + fang proposed_fields",
+      "gold_change": "evaluation/D6/dev/gold/D6-AWD-007.envelope.json bid_amount/currency aligned to fang proposed_fields (value 317915000, raw_value 人民币317,915,000元, currency CNY) at sealed v0.3"
     },
     {
       "id": 4,
@@ -78,8 +78,8 @@
     }
   ],
   "pending": [
-    "weiwenyu aligned re-run for D6-AWD-007 option A to re-confirm 437/437",
-    "weiwenyu: defensive numeric coercion in B anchor extraction (string -> Number), latent"
+    "weiwenyu: re-sync corpus/zongbowen gold snapshot from evaluation/ to restore 437/437",
+    "weiwenyu: defensive numeric coercion in B anchor extraction (latent, not triggered)"
   ],
   "note": "Post-Gold-fix, do not claim 437/437 until the aligned batch lands; report 437 denominator with 1 pending alignment.",
   "awd007_confirmation": {
@@ -95,6 +95,18 @@
       "numeric_like_strings": 0,
       "source": "weiwenyu@954381da runs/batch-20261003T155712/envelopes",
       "verdict": "latent risk, not triggered on current D7 output"
+    },
+    "gold_aligned_to_proposed_fields": true,
+    "sealed_version": "v0.3",
+    "wei_436_of_437_root_cause": {
+      "finding": "wei output value 317915000 correct; comparison gold snapshot stale (173800000)",
+      "detail": "scripts/jingguan/run_batch.mjs GOLD_MANIFEST = corpus/zongbowen/dev/manifest.json points at wei-side copy of zong gold, not evaluation/",
+      "comparator_fields": [
+        "status",
+        "value"
+      ],
+      "raw_value_or_note_compared": false,
+      "action": "wei re-sync corpus/zongbowen gold copy from evaluation/"
     }
   }
 }

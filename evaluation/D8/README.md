@@ -10,8 +10,10 @@
 | `pairs/pairs.dev30.json` | 13 组公开开发配对清单（4 同事件 + 8 不同事件 + 1 证据不足），附预期与双侧出处哈希 |
 | `score-pairs.mjs` | 评分脚本：自检 + 对 B 流程输出打分 |
 | `build-pairs.mjs` | 可复现构建脚本（从 dev-30 与封存哈希重建清单） |
-| `reference/b-report-excerpt-20261003.json` | 魏 B 报告摘录（12 组，含来源提交），用于离线演示评分 |
-| `reference/score-result-excerpt.json` | 上述摘录的评分结果 |
+| `reference/b-report-20261004.json` | **魏 B 全量报告（本清单 13 组，含证据不足组）** — 严格评分依据 |
+| `reference/b-report-excerpt-20261003.json` | 魏 B 报告摘录（12 组，含来源提交），用于 D7 回放演示 |
+| `reference/score-result-20261004.json` | **13 组严格评分结果（PASS）** |
+| `reference/score-result-excerpt.json` | 12 组摘录的评分结果 |
 
 ## 二、诚实边界：同事件配对上界为 4，不是 6
 
@@ -63,4 +65,4 @@ node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <envelopes> `
   --manifest evaluation/D8/pairs/pairs.dev30.json --expect
 ```
 
-`--strict` 下，未出现在 B 报告中的配对计为失败；非 strict 下计为 `not_run`。当前 `D8-PAIR-013` 尚未被任何 B 运行覆盖，故演示结果为 `12 pass / 0 fail / 1 not_run`。
+`--strict` 下，未出现在 B 报告中的配对计为失败；非 strict 下计为 `not_run`。魏已于 2026-10-04 用真实 B 引擎（含 `pledge-scan-degrade` 信封）跑本清单：`runs/D8-b-report-20261004.json`，`D8-PAIR-013` 判定为 `unknown`（`reasons: INSUFFICIENT_SIGNALS, MEMBER_NO_USABLE_FIELDS:pledge-scan-degrade`）。宗侧 `--strict` 复评结果：**13/13 PASS**。
