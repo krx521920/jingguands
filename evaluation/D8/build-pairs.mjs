@@ -8,16 +8,18 @@ const rawOf=(id)=>{const c=dev.cases.find(x=>x.case_id===id); if(!c)return null;
 const textOf=(id)=>{const p=rawOf(id); if(!p)return ''; const raw=JSON.parse(fs.readFileSync(p,'utf8')); let t=''; for(const pg of (raw.pages||[])){ if(typeof pg.text==='string')t+=pg.text+'\n'; for(const b of (pg.blocks||[]))t+=(b.text||'')+'\n'; } return t;};
 function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
 function issuerCode(t){const m=t.match(/(?:证券代码|股票代码)[:：]\s*([0-9]{5,6})/); return m?m[1]:(t.match(/\b(920580|600267)\b/)||[])[1]||null;}
-function noticeNo(t){const m=t.match(/(?:公告编号|编号)[:：]?\s*([0-9]{4}-[0-9]{2,3})/); return m?m[1]:null;}
+function allNoticeNos(t){const flat=t.replace(/\s+/g,'');const out=[];const re=/(?:公告编号|编号)[:：]?([0-9]{4}-[0-9]{2,3})/g;let m;while((m=re.exec(flat)))out.push(m[1]);return [...new Set(out)];}
+function noticeNo(t){const head=t.replace(/\s+/g,'').slice(0,400);const m=head.match(/(?:公告编号|编号)[:：]?([0-9]{4}-[0-9]{2,3})/);return m?m[1]:null;}
+function referencedNoticeNos(t){const own=noticeNo(t);return allNoticeNos(t).filter(x=>x!==own);}
 function company(t){const m=t.match(/((?:北京|上海|浙江|江苏|洛阳|天津|广东|武汉|成都|兰州|青海|内蒙古|山东|深圳|杭州|宁波|福建省?|安徽省?|河南省?|四川省?)[^\n，。]{2,20}?(?:股份有限公司|集团有限公司|有限公司))/); return m?m[1]:null;}
-const meta=(id)=>({case_id:id,raw_sha256:sealedById[id]?sealedById[id].raw_sha256:sha(rawOf(id)),gold_sha256:sealedById[id]?sealedById[id].gold_sha256:null,issuer_code:issuerCode(textOf(id)),notice_number:noticeNo(textOf(id)),issuer_name:company(textOf(id))});
+const meta=(id)=>({case_id:id,raw_sha256:sealedById[id]?sealedById[id].raw_sha256:sha(rawOf(id)),gold_sha256:sealedById[id]?sealedById[id].gold_sha256:null,issuer_code:issuerCode(textOf(id)),notice_number:noticeNo(textOf(id)),referenced_notice_numbers:referencedNoticeNos(textOf(id)),notice_note:referencedNoticeNos(textOf(id)).length?'正文引用了前次/其他报告的公告编号，未作为本文件编号':null,issuer_name:company(textOf(id))});
 const DEG='pledge-scan-degrade';
 const degradedMeta={case_id:DEG,raw_sha256:'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',gold_sha256:null,issuer_code:null,notice_number:null,issuer_name:null};
 function g(group_id,members,expected_relation,test_purpose,relation_basis){const mm=members.map(m=>m===DEG?degradedMeta:meta(m));return {group_id,members,expected_relation,test_purpose,relation_basis,member_hashes:mm.map(m=>({case_id:m.case_id,raw_sha256:m.raw_sha256,gold_sha256:m.gold_sha256})),member_meta:mm};}
 const groups=[
  g('D8-PAIR-001',['D5-EQC-001','D5-EQC-002'],'related','same event, two disclosure layers','科创新材 2026-09-23 协议转让：简式（出让方）与详式（受让方）报告书'),
  g('D8-PAIR-002',['D5-EQC-001','D5-EQC-003'],'related','same event, issuer report vs advisor review','科创新材 2026-09-23 协议转让：简式报告书与财务顾问核查意见'),
- g('D8-PAIR-003',['D5-EQC-002','D5-EQC-003'],'related','same event, same notice number','科创新材详式报告书与财务顾问核查意见（同为2025-097）'),
+ g('D8-PAIR-003',['D5-EQC-002','D5-EQC-003'],'related','same event, same notice number','科创新材详式报告书与财务顾问核查意见（同一次2026-09-23协议转让；2025-097为正文对前次报告的引用，非本文件编号）'),
  g('D8-PAIR-004',['D5-EQC-004','D5-EQC-005'],'related','same event, transfer counterparties','海正药业协议转让：受让方与出让方双方报告书（72,673,907股）'),
  g('D8-PAIR-005',['D4-PLD-001','D4-PLD-002'],'unrelated','same type different issuer','万集科技 vs 兰石重装，不同主体'),
  g('D8-PAIR-006',['D5-EQC-006','D5-EQC-007'],'unrelated','same type different issuer','鸿路钢构 vs 红豆集团，不同主体'),
@@ -30,9 +32,9 @@ const groups=[
  g('D8-PAIR-013',[DEG,'D6-AWD-001'],'insufficient','degraded scan -> must not assert a conclusion','一侧为全页扫描降级（14字段全 unreadable、0可用字段），证据不足须输出信息不足'),
 ];
 const out={
- sealed_set_id:'financial-events-d8-pair-dev-v0.1',
+ sealed_set_id:'financial-events-d8-pair-dev-v0.2',
  created_on:'2026-10-04',
- mode:'public_dev_pairing_with_negative_controls',
+ mode:'public_dev_pairing_with_negative_controls',revised_on:'2026-10-04',revision_note:'v0.2: 公告编号仅取文件首页（本文件编号）；正文引用的前次报告编号改记 referenced_notice_numbers；D8-PAIR-003 说明文本更正。expected_relation 与成员未变。',
  corpus:'evaluation/dev-30（30份公开开发集）+ 1份对抗扫描降级样本',
  total:groups.length,
  expectation_values:['related','unrelated','insufficient'],

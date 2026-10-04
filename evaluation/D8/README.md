@@ -66,3 +66,29 @@ node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <envelopes> `
 ```
 
 `--strict` 下，未出现在 B 报告中的配对计为失败；非 strict 下计为 `not_run`。魏已于 2026-10-04 用真实 B 引擎（含 `pledge-scan-degrade` 信封）跑本清单：`runs/D8-b-report-20261004.json`，`D8-PAIR-013` 判定为 `unknown`（`reasons: INSUFFICIENT_SIGNALS, MEMBER_NO_USABLE_FIELDS:pledge-scan-degrade`）。宗侧 `--strict` 复评结果：**13/13 PASS**。
+
+## 八、v0.2 更正（方侧指出）
+
+- **公告编号误标**：方指出科创新材 `002`/`003` 的 `2025-097` 出现在正文「前次权益变动报告书的披露情况」引用中，不是本文件编号。
+  - 已核原文（`D5-EQC-002` 第16页 `d46bc2ef0_p016_b00010`；`D5-EQC-003` 第18页 `d173fee90_p018_b00008`）。
+  - `build-pairs.mjs` 改为**只取文件首页（前 400 字）的公告编号**作为本文件编号；正文引用编号改记 `referenced_notice_numbers` 并加 `notice_note`。
+  - 同时发现 `D5-EQC-009` 的 `2026-026` 实为《股东减持股份计划公告》引用，同类更正。
+  - `D8-PAIR-003` 的 `relation_basis` 由「同为2025-097」更正为「同一次2026-09-23协议转让；2025-097为正文对前次报告的引用」。`expected_relation` 与成员不变。
+- 清单版本升为 `financial-events-d8-pair-dev-v0.2`。
+
+## 九、扩展集独立验证（方完整三态入口）
+
+- 输入：方 `public_dev_D8/expanded_pairs_D8.json`（16 组 = 本包 13 组 + 魏方 3 组公开演示补料）。
+- 引擎：方 `src_D8/run_public_D8.mjs` → `docs_D8/validation_D8/expanded_report_D8.json`。
+- 宗侧评分：`node evaluation/D8/score-pairs.mjs --pairs <expanded_pairs> --report <expanded_report> --strict` → **16/16 PASS**（同事件 **6/6**、不同事件 **9/9**、证据不足 **1/1**）。
+- 结果文件：`evaluation/D8/reference/score-result-fang-expanded.json`；另对 13 组开发集运行方引擎得 `score-result-fang-public.json`（13/13）。
+- 口径声明：**组级三态判定归方模块**；`--matcher` 仅替换字段对齐，不接管组级判定与合计核验。
+
+### 上游文件哈希（方 `交付清单_D8.json`）
+
+| 文件 | sha256 |
+|---|---|
+| `public_dev_D8/expanded_pairs_D8.json` | `f40620854f813eea0c691c20be03161da1e8f2d38e3b17d7af39ec933e85717b` |
+| `docs_D8/validation_D8/expanded_report_D8.json` | `7c50132960e715fa44c5a8e9c4099abf0251108a3ad638d95e25efb0ffc935ad` |
+| `docs_D8/validation_D8/public_report_D8.json` | `669e34e3a04b3c98b6a5863aabfed3296ff9df8d8ffcd5f5aa9589bdd0903e11` |
+| `docs_D8/公告编号核对_D8.md` | `9038af69a6a41d0e30e7331b80a5dbdb5e76dab1dc1c856d86b9…` |

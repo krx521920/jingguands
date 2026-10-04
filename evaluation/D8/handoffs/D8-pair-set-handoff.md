@@ -47,3 +47,15 @@ node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <envelopes> `
 - 理由：公开语料不存在同公司不同事件样本对；补抓需重跑 A 全链路（解析→抽取→标注），破坏预置封存口径。
 - 演示脚本：`evaluation/D8/D8-demo-script.md`（含台词、真实数字证据、边界说明、追问应答预案）。
 - 「同公司不同事件」的判定纪律由 `D8-PAIR-013` 承担：证据不足 → `unknown`（`INSUFFICIENT_SIGNALS`），不硬判不同事件。
+
+## 七、v0.2 更正（方侧反馈）
+
+- 公告编号误标已修正：`2025-097` 是 EQC-002/003 正文对**前次**报告的引用，不是本文件编号。清单升 v0.2，本文件编号只取首页；引用编号另记 `referenced_notice_numbers`。
+- `D8-PAIR-003` 说明文本更正，成员与预期关系不变。
+
+## 八、给魏：组级入口请求（方提出，评测侧认可）
+
+- 现状：`--matcher` 只替换字段对齐（`alignEvents`）；组级关联判定与合计核验仍由魏引擎执行，且魏源码**先算 related 再调用 matcher**，插件无法改变三态结论。
+- 方已提供完整三态入口：`src_D8/matching_D8.mjs` 的 `alignDocuments(envA, envB)` 与 `explainGroup({group_id, members}, [env...])`。
+- **请求魏**：在任何数值/合计分支**之前**调用 `explainGroup`（或逐对 `alignDocuments`）；只有 `same` 的具体文档对进入后续可比性检查，`unknown`/`different` 不得执行数值核验。
+- 评测侧已用本评分脚本独立验证方入口：开发集 13/13、扩展集 16/16（含 6 同事件、9 不同事件、1 证据不足）。

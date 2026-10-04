@@ -17,8 +17,14 @@
       "open": "subject key for code-less docs (D5-EQC-003)"
     },
     "fangxuancheng": {
-      "status": "not_delivered",
-      "expected": "同事件对齐规则（D08-4），用本清单作公开开发集"
+      "status": "delivered",
+      "commit": "645ab53c582005a34ada0a0e8d6f56c0684689b2",
+      "deliverable": "D8.2 对齐规则与关联解释（src_D8/matching_D8.mjs: alignDocuments/explainGroup + run_public_D8）",
+      "verified_by_zong": {
+        "dev_set": "13/13 PASS (score-result-fang-public.json)",
+        "expanded": "16/16 PASS (score-result-fang-expanded.json)"
+      },
+      "open": "needs wei to add a group-level entry point (--matcher only swaps field alignment)"
     },
     "chenjiahui": {
       "status": "not_delivered",
@@ -49,9 +55,9 @@
   },
   "interface_chain": "zong pairs -> zhang index -> fang/wei align -> wei B output -> chen UI",
   "pending": [
-    "fang: same-event alignment rules (D08-4)",
+    "wei: add group-level three-state entry (fang explainGroup/alignDocuments) before numeric branches",
     "chen: multi-file grouping UI",
-    "weiwenyu: D7 gold snapshot re-sync"
+    "wei: D7 gold snapshot re-sync"
   ],
   "demo_decision": {
     "decided_on": "2026-10-04",
@@ -60,5 +66,17 @@
     "title": "同公司同事件互证 + 语料边界如实说明",
     "rationale": "语料不存在同公司不同事件样本对；补抓新公告需重跑A全链路并破坏预置封存口径；方案B零新增风险且用PAIR-013的unknown覆盖“同公司不同事件”的判定纪律",
     "artifact": "evaluation/D8/D8-demo-script.md"
-  }
+  },
+  "issues_found": [
+    {
+      "from": "fang",
+      "item": "notice number mis-attribution (EQC-002/003 2025-097 is a prior-report citation)",
+      "action": "fixed in build-pairs.mjs v0.2; only header notice numbers kept; referenced numbers recorded separately"
+    },
+    {
+      "from": "fang",
+      "item": "--matcher can only replace field alignment, not group-level relation or aggregate reconciliation",
+      "action": "wei must add new entry point calling explainGroup/alignDocuments before numeric branches"
+    }
+  ]
 }
