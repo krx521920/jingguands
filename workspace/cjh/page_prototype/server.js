@@ -251,6 +251,99 @@ function handleUploadLog(res) {
   res.end(fs.readFileSync(LOG_FILE));
 }
 
+// ---- D8：跨文档配对视图（宗清单 × 魏B 全量报告 → 双栏分组页数据）----
+// 数据放 data/pairs/ 子目录：不进数据集下拉（listDatasets 只看 data/ 顶层 .json）。
+const PAIRS_DIR = path.join(DATA_DIR, "pairs");
+
+/** case_id → 本地信封数据集名（能对上才给原文锚点；对不上只给清单元数据，不硬凑）。 */
+function localEnvelopeFor(caseId) {
+  let m = /^(D5-EQC|D6-AWD)-(\d{3})$/.exec(caseId);
+  if (m) return "wei_real_" + (m[1] === "D5-EQC" ? "eqc" : "awd") + "_" + m[2];
+  if (caseId === "D4-PLD-001") return "wei_real_PLD001_3ev";
+  if (caseId === "D4-PLD-005") return "wei_real_PLD005_release";
+  return null;
+}
+
+/** 本地信封代表原文锚点：第一个带 provenance.quote 的字段（双栏"原文"侧展示用）。 */
+function envelopeSnippet(caseId) {
+  const ds = localEnvelopeFor(caseId);
+  if (!ds) return null;
+  const file = path.join(DATA_DIR, ds + ".json");
+  if (!fs.existsSync(file)) return { dataset: ds, quote: null };
+  try {
+    const env = JSON.parse(fs.readFileSync(file, "utf8"));
+    for (const ev of env.events || []) {
+      for (const [fname, f] of Object.entries(ev.fields || {})) {
+        const p = (f.provenance || []).find(x => x.quote);
+        if (p) return { dataset: ds, event_id: ev.event_id, field: fname, quote: p.quote, page: p.page ?? null, block_id: p.block_id ?? null };
+      }
+    }
+    return { dataset: ds, quote: null };
+  } catch {
+    return { dataset: ds, quote: null, error: "local envelope parse failed" };
+  }
+}
+
+function handlePairs(res) {
+  const mf = path.join(PAIRS_DIR, "pairs_manifest.json");
+  if (!fs.existsSync(mf)) return sendJSON(res, 404, { error: "配对清单缺失（data/pairs/pairs_manifest.json）" });
+  try {
+    const man = JSON.parse(fs.readFileSync(mf, "utf8"));
+    const rptFile = path.join(PAIRS_DIR, "b_report.json");
+    const rpt = fs.existsSync(rptFile) ? JSON.parse(fs.readFileSync(rptFile, "utf8")) : null;
+    const byId = new Map(((rpt && rpt.results) || []).map(r => [r.group_id, r]));
+    const groups = man.groups.map(g => ({
+      group_id: g.group_id,
+      expected_relation: g.expected_relation,
+      test_purpose: g.test_purpose || null,
+      relation_basis: g.relation_basis || null,
+      members: (g.members || []).map(cid => {
+        const meta = (g.member_meta || []).find(x => x.case_id === cid) || {};
+        const hash = (g.member_hashes || []).find(x => x.case_id === cid) || {};
+        return {
+          case_id: cid,
+          issuer_name: meta.issuer_name || null,
+          issuer_code: meta.issuer_code || null,                 // 质疑①：双侧证券代码必须上屏
+          notice_number: meta.notice_number ?? null,             // 质疑①：双侧公告编号必须上屏（null 也要显式显示）
+          referenced_notice_numbers: meta.referenced_notice_numbers || [],
+          notice_note: meta.notice_note || null,
+          raw_sha256: hash.raw_sha256 || meta.raw_sha256 || null,
+          gold_sha256: hash.gold_sha256 || meta.gold_sha256 || null,
+          local: envelopeSnippet(cid)
+        };
+      }),
+      b: (() => {
+        const r = byId.get(g.group_id);
+        if (!r) return null;
+        const cons = r.consistency || {};
+        return {
+          predicted_relation: r.predicted_relation,              // 质疑②：unknown → "证据不足"，绝非"不同事件"
+          reasons: r.reasons || [],
+          fields_excluded: r.fields_excluded || [],
+          a_run_links: r.a_run_links || [],
+          conflicts_total: Array.isArray(cons.conflicts) ? cons.conflicts.length : (typeof cons.conflicts_total === "number" ? cons.conflicts_total : null),
+          corroborations_total: Array.isArray(cons.corroborations) ? cons.corroborations.length : null
+        };
+      })()
+    }));
+    sendJSON(res, 200, {
+      sealed_set_id: man.sealed_set_id,
+      corpus: man.corpus,
+      corpus_ceiling: man.corpus_ceiling,                        // 诚实边界：同事件上界 4，据实交付不凑 6
+      total: groups.length,
+      summary: rpt ? {
+        b_run: rpt.b_run, checked_on: rpt.checked_on,
+        groups_total: rpt.groups_total, groups_checked: rpt.groups_checked,
+        related_hit: rpt.related_hit, unrelated_clean: rpt.unrelated_clean,
+        insufficient_signalled: rpt.insufficient_signalled
+      } : null,
+      groups
+    });
+  } catch (e) {
+    sendJSON(res, 500, { error: "配对数据装配失败: " + e.message });
+  }
+}
+
 function handleApi(req, res, urlObj) {
   if (urlObj.pathname === "/api/datasets") {
     return sendJSON(res, 200, { source: DATA_SOURCE, datasets: listDatasets() });
@@ -276,6 +369,9 @@ function handleApi(req, res, urlObj) {
   }
   if (urlObj.pathname === "/api/upload/log") {
     return handleUploadLog(res);                     // D6：上传日志下载
+  }
+  if (urlObj.pathname === "/api/pairs") {
+    return handlePairs(res);                         // D8：跨文档配对（三态渲染 + 双侧 issuer/notice）
   }
   sendJSON(res, 404, { error: "unknown api" });
 }

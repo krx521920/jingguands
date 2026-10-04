@@ -108,6 +108,20 @@
 - [x] 回归：桥 31/31 数据集全过；server e2e（31 数据集、awd_002 四事件 14 字段、CSV/JSON 导出链路共用 readDataset 不受影响）
 - [ ] **张第三节口径问题（D4-PLD 重跑 vs 单列弱锚定组）**：等宗博文裁决——页面侧已按方案 2 做好弱锚定标注，裁决后若选重跑，数据零改动直接换
 
+## 1i. D8（10-04 晚）：跨文档配对视图——交接单点名两项 + 领导截图两条质疑，全部收口
+
+**交付（page_prototype）**
+- **`GET /api/pairs`**：宗 13 组封存清单 v0.2（`data/pairs/pairs_manifest.json`）× 魏 B 全量报告（`data/pairs/b_report.json`，20261004，PAIR-013=unknown）服务端合并；本地信封能对上的成员附代表原文锚点（provenance.quote + 页码），对不上的如实标"本地无此信封"。
+- **配对视图**（`render/pairs.js` + 头部「跨文档配对 D8」按钮，与三栏视图互斥切换）：每组卡片双栏并排。
+- **质疑①修复（双侧元数据上屏）**：A/B 两侧 `issuer_code` / `notice_number` 显式显示 + raw/gold sha256 前 12 位；编号 null 显式显示"—（首页无本文件编号）"+ 黄字"正文引用编号 2025-097（非本文件编号）"（宗 v0.2 更正口径）——EQC-003 清单本身 issuer_code=null（财务顾问核查意见首页无代码），如实显示"清单未登记"，不代填。
+- **质疑②修复（PAIR-013 三态）**：`predicted_relation=unknown` 一律渲染黄徽章「证据不足 · 无法判定」+ 黄条解释（INSUFFICIENT_SIGNALS / 一侧 0 可用字段）+ 卡片描边高亮；代码层 `clsOf()` 保证 insufficient/unknown 同态，**绝不落入"不同事件"**。
+- 每组附：预期（宗清单）→ 实判（魏 B）徽章 + 一致性勾叉、reasons 中文 chips、互证点/矛盾计数、A-run 链路（a_run_id@code_version，版本可追踪）。
+- 顶部诚实边界横幅：同事件上界 C(3,2)+C(2,2)=4，据实交付 13 组不凑 6（宗 README 口径）。
+
+**验证**：`/api/pairs` e2e 断言 3/3 PASS（13 组预期 vs 实判同态；013=unknown→证据不足；双侧元数据字段全送达）；原文锚点 20/26 成员命中（6 个缺：PLD-002/003/004/006/008 本地无信封 + pledge-scan-degrade 0 可用字段——如实标注）；datasets 回归 31 个不受影响；模块语法全过。
+
+**快照**：宗交接单 + 评测 README → `docs/_ref_zong_D8_配对清单交接单.md` / `_ref_zong_D8_评测README.md`。
+
 ## 2. 待确认区（阻塞于交流数据 / 待拍板文件，等总体完成后统一请领导确认）
 
 

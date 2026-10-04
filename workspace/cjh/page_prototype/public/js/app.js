@@ -3,6 +3,7 @@ import { fetchDatasets, fetchResult } from "./adapter.js";
 import { initUpload, uploadBatch, renderBatchReport, renderPendingFiles, renderProgress, renderSourceFile, clearUpload } from "./render/upload.js";
 import { renderResults, clearResults } from "./render/results.js";
 import { renderEvidences, focusEvidence, clearEvidences } from "./render/evidences.js";
+import { renderPairs, clearPairs } from "./render/pairs.js";
 
 const $ = id => document.getElementById(id);
 
@@ -60,6 +61,28 @@ async function boot() {
   } catch (e) {
     console.error("boot failed:", e);
   }
+
+  // D8：跨文档配对视图切换（与三栏单文档视图互斥；首次进入才拉 /api/pairs）
+  let pairsLoaded = false;
+  $("pairsBtn").addEventListener("click", async () => {
+    const view = $("pairsView");
+    const showPairs = view.hidden;
+    view.hidden = !showPairs;
+    document.querySelector("main").style.display = showPairs ? "none" : "";
+    $("pairsBtn").textContent = showPairs ? "返回单文档视图" : "跨文档配对 D8";
+    if (showPairs && !pairsLoaded) {
+      try {
+        const data = await (await fetch("/api/pairs")).json();
+        if (data.error) throw new Error(data.error);
+        renderPairs($("pairsList"), data);
+        pairsLoaded = true;
+      } catch (e) {
+        clearPairs($("pairsList"));
+        $("pairsList").innerHTML = "<div class='empty'>⚠ 配对数据加载失败：" + e.message + "</div>";
+      }
+    }
+    // 退出时保留已渲染内容（pairsLoaded 缓存），切回即现
+  });
 
   $("loadBtn").addEventListener("click", () => loadDataset($("datasetSel").value));
   $("resetBtn").addEventListener("click", resetAll);

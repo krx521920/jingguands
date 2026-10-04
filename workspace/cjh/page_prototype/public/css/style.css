@@ -78,6 +78,47 @@ main { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 14px; padding: 
 .drop .hint { font-size: 12px; margin-top: 6px; }
 .file-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; margin-top: 10px; flex-wrap: wrap; }
 
+/* ---- D8：跨文档配对视图 ---- */
+.pairs-view { padding: 14px 18px 30px; }
+.pairs-wrap { max-width: 1180px; margin: 0 auto; }
+.pairs-top { background: #f4f7f4; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 13.5px; margin-bottom: 14px; line-height: 1.7; }
+.pairs-ceiling { color: #8a6d1a; font-size: 12.5px; margin-top: 2px; }
+.pair-card { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 14px; background: #fff; overflow: hidden; }
+.pair-card-unknown { border-color: #e6c96a; box-shadow: 0 0 0 1px #e6c96a33; }
+.pair-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 9px 12px; background: #fafbfa; border-bottom: 1px solid var(--border); }
+.pair-title { font-weight: 700; font-size: 13.5px; }
+.pair-badges { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.pair-arrow { color: var(--muted); font-weight: 700; }
+.pair-match { font-size: 12px; font-weight: 700; border-radius: 4px; padding: 1px 8px; }
+.pair-match.ok { color: #2f6b34; background: #eef4ee; border: 1px solid #bcd4bd; }
+.pair-match.bad { color: #b02a0c; background: #fdecec; border: 1px solid #eeb4b4; }
+.rel-badge { font-size: 12px; border-radius: 4px; padding: 2px 9px; font-weight: 700; border: 1px solid transparent; }
+.rel-related { background: #eef4ee; color: #2f6b34; border-color: #bcd4bd; }
+.rel-unrelated { background: #f0f0f2; color: #55555e; border-color: #c9c9d2; }
+.rel-unknown { background: #fff6df; color: #8a6d1a; border-color: #e6c96a; }
+.pair-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.member-col { padding: 10px 14px; }
+.member-col:first-child { border-right: 1px dashed var(--border); }
+.pm-row { display: flex; gap: 8px; font-size: 13px; padding: 2.5px 0; line-height: 1.5; }
+.pm-label { flex: 0 0 68px; color: var(--muted); font-size: 12px; padding-top: 1px; }
+.pm-value { word-break: break-all; }
+.pm-strong { font-weight: 700; }
+.pm-code { font-family: Consolas, monospace; font-weight: 700; }
+.pm-missing { color: #a05a00; }
+.pm-note { color: #8a6d1a; font-size: 12.5px; }
+.pm-hash { font-family: Consolas, monospace; color: var(--muted); font-size: 12px; }
+.pm-quote { margin-top: 6px; font-size: 12.5px; color: #444; background: #f7f8f7; border-left: 3px solid #bcd4bd; border-radius: 0 4px 4px 0; padding: 5px 8px; line-height: 1.55; }
+.pm-quote-miss { border-left-color: #d8d8dc; color: #8a8a92; background: #fafafa; }
+.pair-basis { padding: 7px 12px 0; font-size: 12.5px; color: var(--muted); }
+.pair-foot { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 12px 4px; }
+.reason-chip { font-size: 12px; background: #f0f3f0; color: #3d5a3f; border: 1px solid #d3ded3; border-radius: 10px; padding: 1px 9px; }
+.reason-ok { background: #eef4ee; color: #2f6b34; border-color: #bcd4bd; }
+.reason-bad { background: #fdecec; color: #b02a0c; border-color: #eeb4b4; }
+.pair-runlinks { padding: 2px 12px 6px; font-size: 11.5px; color: var(--muted); font-family: Consolas, monospace; word-break: break-all; }
+.pair-unknown-note { margin: 6px 12px 10px; font-size: 12.5px; color: #8a6d1a; background: #fff6df; border: 1px solid #e6c96a; border-radius: 6px; padding: 6px 10px; line-height: 1.6; }
+.pairs-guarantee { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px; line-height: 1.7; }
+@media (max-width: 900px) { .pair-cols { grid-template-columns: 1fr; } .member-col:first-child { border-right: none; border-bottom: 1px dashed var(--border); } }
+
 /* ---- D6 批量上传：进度条 / 批次摘要 / 失败列表 / 日志入口 ---- */
 .up-progress { height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; margin: 10px 0 2px; }
 .up-progress-inner { height: 100%; width: 0; background: var(--accent); border-radius: 3px; transition: width .15s; }
