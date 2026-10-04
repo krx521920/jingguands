@@ -1276,6 +1276,13 @@ async function main() {
       }],
       run_meta: {
         entry: 'cli', model: null, started_at: new Date().toISOString(), duration_ms: 0,
+        // 版本戳与正常路径同规格（宗 D8 评分 version_traceability：a_run_id+code_version+is_mock，
+        // 降级信封同样是 A 侧记录，缺 code_version 会使 D8-PAIR-013 丢版本追踪）
+        code_version: (() => {
+          try { return execSync('git rev-parse --short HEAD', { cwd: REPO_ROOT, encoding: 'utf8', stdio: 'pipe' }).trim() }
+          catch { return 'dev' }
+        })(),
+        interface_version: 'v0.3',
         errors: [`[降级] 文档为扫描件/无可读文本（可读字符 ${parseDoc.joinedRaw.trim().length} < ${READABLE_MIN}），跳过模型调用，未产出任何字段值`],
       },
     }

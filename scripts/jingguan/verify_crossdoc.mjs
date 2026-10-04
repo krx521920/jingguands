@@ -190,9 +190,16 @@ function verifyGroup(group, envelopes, matcherFn = null) {
     }
   }
   const related = (maxE >= 2 && maxA >= 1) || (maxE >= 1 && maxA >= 2) || (maxA >= 1 && reverse)
+  // 第三态（宗 D8 配对集评分契约）：任一成员 0 可用字段（如 pledge-scan-degrade 全页
+  // 扫描降级 14 字段全 unreadable）→ 证据不足，不得强行判 unrelated。输出 unknown＋
+  // INSUFFICIENT_SIGNALS；两侧都有可用证据而不重合才是真 unrelated。
+  const insufficient = fields_excluded.some((x) => x.usable === 0)
   // B2：判定原因（unrelated 必带失败原因码；related 带命中信号码）
   const reasons = []
-  if (related) {
+  if (insufficient) {
+    reasons.push('INSUFFICIENT_SIGNALS')
+    for (const fe of fields_excluded) if (fe.usable === 0) reasons.push(`MEMBER_NO_USABLE_FIELDS:${fe.case_id}`)
+  } else if (related) {
     if (maxE >= 2 && maxA >= 1) reasons.push('SHARED_ENTITIES_AND_ANCHORS')
     else if (maxE >= 1 && maxA >= 2) reasons.push('ENTITY_WITH_MULTIPLE_ANCHORS')
     else reasons.push('REVERSE_MATCH')
@@ -208,7 +215,7 @@ function verifyGroup(group, envelopes, matcherFn = null) {
     members: group.members,
     a_run_links,
     fields_excluded,
-    predicted_relation: related ? 'related' : 'unrelated',
+    predicted_relation: insufficient ? 'unknown' : (related ? 'related' : 'unrelated'),
     reasons,
     signals: {
       // 注意：组级信号＝逐对最大值，各信号可能来自不同文档对（见 *_from_pair）——防误读为组内一致来源
@@ -312,7 +319,7 @@ const manifest = JSON.parse(readFileSync(resolve(REPO_ROOT, args.manifest), 'utf
 const envDir = resolve(REPO_ROOT, args.envelopesDir)
 const groups = manifest.groups ?? []
 const results = []
-let matched = 0, relatedHit = 0, unrelatedHit = 0, missing = []
+let matched = 0, relatedHit = 0, unrelatedHit = 0, insufficientHit = 0, missing = []
 for (const g of groups) {
   const envelopes = g.members.map((cs) => {
     for (const suffix of [`${cs}.json`, cs]) {
@@ -324,9 +331,15 @@ for (const g of groups) {
   if (envelopes.some((e) => e === null)) { missing.push(g.group_id); continue }
   const r = verifyGroup(g, envelopes, matcherFn)
   results.push(r)
-  if (!args.expect || r.predicted_relation === g.expected_relation) matched++
+  // 期望匹配三态（与宗 score-pairs.mjs 判定一致）：related→判 related；unrelated→判
+  // unrelated 且 0 矛盾；insufficient→判 unknown 或 reasons 含 INSUFFICIENT_SIGNALS
+  const predHit = g.expected_relation === 'related' ? r.predicted_relation === 'related'
+    : g.expected_relation === 'unrelated' ? r.predicted_relation === 'unrelated' && (r.consistency?.conflicts ?? []).length === 0
+      : r.predicted_relation === 'unknown' || (r.reasons ?? []).includes('INSUFFICIENT_SIGNALS')
+  if (!args.expect || predHit) matched++
   if (g.expected_relation === 'related' && r.predicted_relation === 'related') relatedHit++
-  if (g.expected_relation !== 'related' && r.predicted_relation !== 'related') unrelatedHit++
+  if (g.expected_relation === 'unrelated' && r.predicted_relation === 'unrelated') unrelatedHit++
+  if (g.expected_relation === 'insufficient' && predHit) insufficientHit++
 }
 const report = {
   checked_on: new Date().toISOString().slice(0, 10),
@@ -351,7 +364,8 @@ if (args.expect) {
   report.expected_match = matched
   report.expected_miss = groups.length - matched - missing.length
   report.related_hit = `${relatedHit}/${groups.filter((g) => g.expected_relation === 'related').length}`
-  report.unrelated_clean = `${unrelatedHit}/${groups.filter((g) => g.expected_relation !== 'related').length}`
+  report.unrelated_clean = `${unrelatedHit}/${groups.filter((g) => g.expected_relation === 'unrelated').length}`
+  report.insufficient_signalled = `${insufficientHit}/${groups.filter((g) => g.expected_relation === 'insufficient').length}`
 }
 const outStr = JSON.stringify(report, null, 2)
 if (args.out) writeFileSync(resolve(REPO_ROOT, args.out), outStr, 'utf8')
@@ -359,5 +373,7 @@ const rel = report.related_detected
 console.log(`[跨文档核验] ${report.groups_checked}/${groups.length} 组｜判定相关 ${rel}｜互证 ${report.related_corroborations_total}｜矛盾 ${report.related_conflicts_total}${missing.length ? `｜缺信封 ${missing.join(',')}` : ''}`)
 if (args.expect) {
   console.log(`[封存回放] 相关命中 ${report.related_hit}｜无关零误报 ${report.unrelated_clean}｜判定一致 ${matched}/${groups.length}`)
+  const insTotal = groups.filter((g) => g.expected_relation === 'insufficient').length
+  if (insTotal > 0) console.log(`[证据不足] 第三态命中 ${report.insufficient_signalled}`)
   if (matched !== groups.length || missing.length > 0) process.exit(1)
 }
