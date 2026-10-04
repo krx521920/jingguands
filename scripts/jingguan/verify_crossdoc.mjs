@@ -106,6 +106,18 @@ function entitiesOf(env) {
   return [...out]
 }
 
+/** 数值兼容（方 D6 标准化接口）：value 可为 number 或精确十进制字符串
+ *  （超精度值以字符串承载，如 "9007199254740993"）。字符串仅在能无损往返时转数值；
+ *  超出 Number 精度的字符串返回 null（不降级为浮点，避免跨信封伪相等）。 */
+function asNumber(v) {
+  if (typeof v === 'number') return Number.isFinite(v) ? v : null
+  if (typeof v === 'string' && /^-?\d+(?:\.\d+)?$/.test(v.trim())) {
+    const n = Number(v)
+    return String(n) === v.trim() ? n : null
+  }
+  return null
+}
+
 /** 数值锚点：非圆整大数（股数/金额）；direction 过滤用于反向咬合（null=不限）。 */
 function anchorsOf(env, direction) {
   const out = new Set()
@@ -114,8 +126,8 @@ function anchorsOf(env, direction) {
     if (direction !== null && d !== undefined && d !== direction) continue
     for (const [k, f] of Object.entries(ev.fields ?? {})) {
       if (!usableField(f)) continue // B1：无出处的字段不进 B
-      const v = f?.value
-      if (typeof v === 'number' && v >= 100000 && NUMERIC_FIELDS.has(k) && v % 10000 !== 0) out.add(v)
+      const v = asNumber(f?.value)
+      if (v !== null && v >= 100000 && NUMERIC_FIELDS.has(k) && v % 10000 !== 0) out.add(v)
     }
   }
   return [...out]
@@ -136,8 +148,8 @@ function entityFieldMap(env) {
       for (const [k, f] of Object.entries(ev.fields ?? {})) {
         if (!NUMERIC_FIELDS.has(k)) continue
         if (!usableField(f)) continue // B1：无出处的字段不进 B
-        const v = f?.value
-        if (typeof v !== 'number') continue
+        const v = asNumber(f?.value)
+        if (v === null) continue
         const key = `${t}|${k}`
         if (!map.has(key)) map.set(key, { entity: t, field: k, value: v, quote: f.provenance?.[0]?.quote ?? null, event_id: ev.event_id, aggregate: isAggregate, members: isAggregate ? members : null })
       }

@@ -1,0 +1,1852 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261004T092246-award_contract-3b4d",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+    "file_name": "bid-003.pdf",
+    "file_sha256": "0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 4,
+      "blocks": [
+        {
+          "block_id": "d0b56135e_p001_b00001",
+          "page": 1,
+          "role": "BODY",
+          "text": "证券代码：688009 证券简称：中国通号 公告编号：2026-030",
+          "text_raw": "证券代码：688009证券简称：中国通号公告编号：2026-030",
+          "region": [
+            89.88,
+            85.73,
+            497.76,
+            97.73
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "中国铁路通信信号股份有限公司关于自愿披露轨道交通市场重要项目中标的公告",
+          "text_raw": "中国铁路通信信号股份有限公司关于自愿披露轨道交通市场重要项目中标的公告",
+          "region": [
+            107.88,
+            140.86,
+            487.31,
+            188.86
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述",
+          "text_raw": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述",
+          "region": [
+            113.88,
+            235.25,
+            505.44,
+            247.25
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "或者重大遗漏，并对其内容的真实性、准确性和完整性依法承担法律责任。",
+          "text_raw": "或者重大遗漏，并对其内容的真实性、准确性和完整性依法承担法律责任。",
+          "region": [
+            89.88,
+            265.25,
+            485.88,
+            277.25
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "重要内容提示：",
+          "text_raw": "重要内容提示：",
+          "region": [
+            114,
+            312.17,
+            198.24,
+            324.17
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": " 中标共计三个铁路市场重要项目，分别为内蒙古阿拉善高新技术产业开发区巴音敖包工业园铁路专用线项目，中标金额5.29亿元；中国铁塔福建省分公司2026年高铁公网覆盖5G改造工程二期（7条线路）施工采购标段1项目，中标金额2.9亿元；中铁武汉电气化局集团有限公司新建西安至重庆高速铁路安康至重庆段正线局界至重庆西及樊哙经开州至万州连接线“四电”系统集成及相关工程XYKYRD-1标段第七批二次自购物资公开招标轨道电路材",
+          "text_raw": "中标共计三个铁路市场重要项目，分别为内蒙古阿拉善高新技术产业开发区巴音敖包工业园铁路专用线项目，中标金额5.29亿元；中国铁塔福建省分公司2026年高铁公网覆盖5G改造工程二期（7条线路）施工采购标段1项目，中标金额2.9亿元；中铁武汉电气化局集团有限公司新建西安至重庆高速铁路安康至重庆段正线局界至重庆西及樊哙经开州至万州连接线“四电”系统集成及相关工程XYKYRD-1标段第七批二次自购物资公开招标轨道电路材",
+          "region": [
+            110.88,
+            335.57,
+            511.44,
+            447.53
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": "料、设备采购项目，中标金额1.57亿元。",
+          "text_raw": "料、设备采购项目，中标金额1.57亿元。",
+          "region": [
+            110.88,
+            455.57,
+            326.88,
+            467.57
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": " 合同生效条件：双方法定代表人或其授权的代理人签署并加盖公章或者",
+          "text_raw": "合同生效条件：双方法定代表人或其授权的代理人签署并加盖公章或者",
+          "region": [
+            111.12,
+            475.49,
+            505.43,
+            488.33
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "合同专用章后正式生效（以及满足双方约定的其他条件）。",
+          "text_raw": "合同专用章后正式生效（以及满足双方约定的其他条件）。",
+          "region": [
+            110.88,
+            495.53,
+            416.88,
+            507.53
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00010",
+          "page": 1,
+          "role": "BODY",
+          "text": " 合同履行期限：合同签订日至项目质保期结束（以及满足双方约定的其",
+          "text_raw": "合同履行期限：合同签订日至项目质保期结束（以及满足双方约定的其",
+          "region": [
+            111.12,
+            515.57,
+            505.43,
+            528.29
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00011",
+          "page": 1,
+          "role": "BODY",
+          "text": "他条件）。",
+          "text_raw": "他条件）。",
+          "region": [
+            110.88,
+            535.49,
+            164.88,
+            547.49
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": " 风险提示：以上项目已中标公示，因涉及相关手续办理，尚未与招标人签订相关正式合同，存在不确定性；因以上项目需跨年分期实施，对当期业",
+          "text_raw": "风险提示：以上项目已中标公示，因涉及相关手续办理，尚未与招标人签订相关正式合同，存在不确定性；因以上项目需跨年分期实施，对当期业",
+          "region": [
+            110.88,
+            555.53,
+            505.44,
+            587.57
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "绩影响有不确定性，敬请广大投资者注意投资风险。",
+          "text_raw": "绩影响有不确定性，敬请广大投资者注意投资风险。",
+          "region": [
+            110.88,
+            595.49,
+            386.88,
+            607.49
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00014",
+          "page": 1,
+          "role": "BODY",
+          "text": "2026年7月至8月，中国铁路通信信号股份有限公司（以下简称“本公司”）",
+          "text_raw": "2026年7月至8月，中国铁路通信信号股份有限公司（以下简称“本公司”）",
+          "region": [
+            113.88,
+            631.13,
+            511.44,
+            643.13
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00015",
+          "page": 1,
+          "role": "BODY",
+          "text": "中标共计三个铁路市场重要项目。本次公告中标项目详细情况如下：",
+          "text_raw": "中标共计三个铁路市场重要项目。本次公告中标项目详细情况如下：",
+          "region": [
+            89.88,
+            654.53,
+            449.88,
+            666.53
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00016",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、铁路市场中标项目相关情况",
+          "text_raw": "一、铁路市场中标项目相关情况",
+          "region": [
+            114,
+            685.73,
+            282.6,
+            697.73
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00017",
+          "page": 1,
+          "role": "BODY",
+          "text": "项目一",
+          "text_raw": "项目一",
+          "region": [
+            196.5,
+            711.44,
+            357.3,
+            735.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00018",
+          "page": 1,
+          "role": "BODY",
+          "text": "项目二",
+          "text_raw": "项目二",
+          "region": [
+            357.3,
+            711.44,
+            516.1,
+            735.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p001_b00019",
+          "page": 1,
+          "role": "BODY",
+          "text": "一、项目基本情况",
+          "text_raw": "一、项目基本情况",
+          "region": [
+            79.15,
+            735.34,
+            516.1,
+            759.14
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00001",
+          "page": 2,
+          "role": "BODY",
+          "text": "1.项目名称",
+          "text_raw": "1.项目名称",
+          "region": [
+            79.15,
+            72.24,
+            196.5,
+            166.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00002",
+          "page": 2,
+          "role": "BODY",
+          "text": "内蒙古阿拉善高新技术产业开发区巴音敖包工业园铁路专用线项目",
+          "text_raw": "内蒙古阿拉善高新技术产业开发区巴音敖包工业园铁路专用线项目",
+          "region": [
+            196.5,
+            72.24,
+            357.3,
+            166.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "中国铁塔福建省分公司2026年高铁公网覆盖5G改造工程二期（7条线路）施工采购标段1项目",
+          "text_raw": "中国铁塔福建省分公司2026年高铁公网覆盖5G改造工程二期（7条线路）施工采购标段1项目",
+          "region": [
+            357.3,
+            72.24,
+            516.1,
+            166.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00004",
+          "page": 2,
+          "role": "BODY",
+          "text": "2.招标人",
+          "text_raw": "2.招标人",
+          "region": [
+            79.15,
+            166.34,
+            196.5,
+            307.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "阿拉善高新技术产业开发区实业投资运营集团有限公司",
+          "text_raw": "阿拉善高新技术产业开发区实业投资运营集团有限公司",
+          "region": [
+            196.5,
+            166.34,
+            357.3,
+            307.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00006",
+          "page": 2,
+          "role": "BODY",
+          "text": "中国铁塔股份有限公司福建省分公司中国电信股份有限公司福建分公司中国联合网络通信有限公司福建省分公司",
+          "text_raw": "中国铁塔股份有限公司福建省分公司中国电信股份有限公司福建分公司中国联合网络通信有限公司福建省分公司",
+          "region": [
+            357.3,
+            166.34,
+            516.1,
+            307.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "3.中标金额（亿元）",
+          "text_raw": "3.中标金额（亿元）",
+          "region": [
+            79.15,
+            307.24,
+            196.5,
+            331.14
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00008",
+          "page": 2,
+          "role": "BODY",
+          "text": "5.29",
+          "text_raw": "5.29",
+          "region": [
+            196.5,
+            307.24,
+            357.3,
+            331.14
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00009",
+          "page": 2,
+          "role": "BODY",
+          "text": "2.9",
+          "text_raw": "2.9",
+          "region": [
+            357.3,
+            307.24,
+            516.1,
+            331.14
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00010",
+          "page": 2,
+          "role": "BODY",
+          "text": "4.项目概况",
+          "text_raw": "4.项目概况",
+          "region": [
+            79.15,
+            331.14,
+            196.5,
+            429.84
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00011",
+          "page": 2,
+          "role": "BODY",
+          "text": "本项目线路全长7.977km。本公司将负责本项目建设及运营工作。",
+          "text_raw": "本项目线路全长7.977km。本公司将负责本项目建设及运营工作。",
+          "region": [
+            196.5,
+            331.14,
+            357.3,
+            429.84
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00012",
+          "page": 2,
+          "role": "BODY",
+          "text": "本项目为温福高铁公网覆盖5G改造工程。本公司将负责本项目通信系统施工建设工作。",
+          "text_raw": "本项目为温福高铁公网覆盖5G改造工程。本公司将负责本项目通信系统施工建设工作。",
+          "region": [
+            357.3,
+            331.14,
+            516.1,
+            429.84
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00013",
+          "page": 2,
+          "role": "BODY",
+          "text": "二、拟签订合同主要条款",
+          "text_raw": "二、拟签订合同主要条款",
+          "region": [
+            79.15,
+            429.84,
+            516.1,
+            453.74
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00014",
+          "page": 2,
+          "role": "BODY",
+          "text": "1.合同金额（亿元）",
+          "text_raw": "1.合同金额（亿元）",
+          "region": [
+            79.15,
+            453.74,
+            196.5,
+            477.64
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00015",
+          "page": 2,
+          "role": "BODY",
+          "text": "5.29",
+          "text_raw": "5.29",
+          "region": [
+            196.5,
+            453.74,
+            357.3,
+            477.64
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00016",
+          "page": 2,
+          "role": "BODY",
+          "text": "2.9",
+          "text_raw": "2.9",
+          "region": [
+            357.3,
+            453.74,
+            516.1,
+            477.64
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00017",
+          "page": 2,
+          "role": "BODY",
+          "text": "2.支付进度安排",
+          "text_raw": "2.支付进度安排",
+          "region": [
+            79.15,
+            477.64,
+            196.5,
+            548.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00018",
+          "page": 2,
+          "role": "BODY",
+          "text": "项目按照预付款、进度款、竣工结算款、质保款等流程进行支付。",
+          "text_raw": "项目按照预付款、进度款、竣工结算款、质保款等流程进行支付。",
+          "region": [
+            196.5,
+            477.64,
+            357.3,
+            548.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00019",
+          "page": 2,
+          "role": "BODY",
+          "text": "项目按照预付款、进度款、竣工结算款、质保款等流程进行支付。",
+          "text_raw": "项目按照预付款、进度款、竣工结算款、质保款等流程进行支付。",
+          "region": [
+            357.3,
+            477.64,
+            516.1,
+            548.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00020",
+          "page": 2,
+          "role": "BODY",
+          "text": "3.履行地点",
+          "text_raw": "3.履行地点",
+          "region": [
+            79.15,
+            548.34,
+            196.5,
+            572.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00021",
+          "page": 2,
+          "role": "BODY",
+          "text": "内蒙古自治区",
+          "text_raw": "内蒙古自治区",
+          "region": [
+            196.5,
+            548.34,
+            357.3,
+            572.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00022",
+          "page": 2,
+          "role": "BODY",
+          "text": "福建省",
+          "text_raw": "福建省",
+          "region": [
+            357.3,
+            548.34,
+            516.1,
+            572.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00023",
+          "page": 2,
+          "role": "BODY",
+          "text": "4.履行期限",
+          "text_raw": "4.履行期限",
+          "region": [
+            79.15,
+            572.24,
+            196.5,
+            666.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00024",
+          "page": 2,
+          "role": "BODY",
+          "text": "合同签订日至项目运营期结束，其中项目建设工期约为18个月。",
+          "text_raw": "合同签订日至项目运营期结束，其中项目建设工期约为18个月。",
+          "region": [
+            196.5,
+            572.24,
+            357.3,
+            666.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00025",
+          "page": 2,
+          "role": "BODY",
+          "text": "合同签订日至项目质保期结束，其中项目执行周期约为9个月，质保期为24个月，共计33个月。",
+          "text_raw": "合同签订日至项目质保期结束，其中项目执行周期约为9个月，质保期为24个月，共计33个月。",
+          "region": [
+            357.3,
+            572.24,
+            516.1,
+            666.34
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00026",
+          "page": 2,
+          "role": "BODY",
+          "text": "5.合同生效条件",
+          "text_raw": "5.合同生效条件",
+          "region": [
+            79.15,
+            666.34,
+            196.5,
+            737.04
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00027",
+          "page": 2,
+          "role": "BODY",
+          "text": "自双方法定代表人或委托代理人签字，并加盖公章或合同专用章之日起正式生效。",
+          "text_raw": "自双方法定代表人或委托代理人签字，并加盖公章或合同专用章之日起正式生效。",
+          "region": [
+            196.5,
+            666.34,
+            357.3,
+            737.04
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00028",
+          "page": 2,
+          "role": "BODY",
+          "text": "自双方法定代表人或委托代理人签字，并加盖公章或合同专用章之日起正式生效。",
+          "text_raw": "自双方法定代表人或委托代理人签字，并加盖公章或合同专用章之日起正式生效。",
+          "region": [
+            357.3,
+            666.34,
+            516.1,
+            737.04
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00029",
+          "page": 2,
+          "role": "BODY",
+          "text": "6.合同签署地点",
+          "text_raw": "6.合同签署地点",
+          "region": [
+            79.15,
+            737.04,
+            196.5,
+            767.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00030",
+          "page": 2,
+          "role": "BODY",
+          "text": "阿拉善盟",
+          "text_raw": "阿拉善盟",
+          "region": [
+            196.5,
+            737.04,
+            357.3,
+            767.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p002_b00031",
+          "page": 2,
+          "role": "BODY",
+          "text": "福州市",
+          "text_raw": "福州市",
+          "region": [
+            357.3,
+            737.04,
+            516.1,
+            767.24
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00001",
+          "page": 3,
+          "role": "BODY",
+          "text": "项目三",
+          "text_raw": "项目三",
+          "region": [
+            192.55,
+            95.64,
+            512.4,
+            119.54
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00002",
+          "page": 3,
+          "role": "BODY",
+          "text": "一、项目基本情况",
+          "text_raw": "一、项目基本情况",
+          "region": [
+            82.85,
+            119.54,
+            512.4,
+            143.44
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00003",
+          "page": 3,
+          "role": "BODY",
+          "text": "1.项目名称",
+          "text_raw": "1.项目名称",
+          "region": [
+            82.85,
+            143.44,
+            192.55,
+            237.54
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00004",
+          "page": 3,
+          "role": "BODY",
+          "text": "中铁武汉电气化局集团有限公司新建西安至重庆高速铁路安康至重庆段正线局界至重庆西及樊哙经开州至万州连接线“四电”系统集成及相关工程XYKYRD-1标段第七批二次自购物资公开招标轨道电路材料、设备采购项目",
+          "text_raw": "中铁武汉电气化局集团有限公司新建西安至重庆高速铁路安康至重庆段正线局界至重庆西及樊哙经开州至万州连接线“四电”系统集成及相关工程XYKYRD-1标段第七批二次自购物资公开招标轨道电路材料、设备采购项目",
+          "region": [
+            192.55,
+            143.44,
+            512.4,
+            237.54
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00005",
+          "page": 3,
+          "role": "BODY",
+          "text": "2.招标人",
+          "text_raw": "2.招标人",
+          "region": [
+            82.85,
+            237.54,
+            192.55,
+            284.29
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00006",
+          "page": 3,
+          "role": "BODY",
+          "text": "中铁武汉电气化局集团物资贸易有限公司",
+          "text_raw": "中铁武汉电气化局集团物资贸易有限公司",
+          "region": [
+            192.55,
+            237.54,
+            512.4,
+            284.29
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00007",
+          "page": 3,
+          "role": "BODY",
+          "text": "3.中标金额（亿元）",
+          "text_raw": "3.中标金额（亿元）",
+          "region": [
+            82.85,
+            284.29,
+            192.55,
+            308.19
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00008",
+          "page": 3,
+          "role": "BODY",
+          "text": "1.57",
+          "text_raw": "1.57",
+          "region": [
+            192.55,
+            284.29,
+            512.4,
+            308.19
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00009",
+          "page": 3,
+          "role": "BODY",
+          "text": "4.项目概况",
+          "text_raw": "4.项目概况",
+          "region": [
+            82.85,
+            308.19,
+            192.55,
+            410.64
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00010",
+          "page": 3,
+          "role": "BODY",
+          "text": "本项目线路全长353.002km，线路设计行车速度350km/h，将装备CTCS-3级列控系统。本公司将负责本项目轨道电路设备供货工作。",
+          "text_raw": "本项目线路全长353.002km，线路设计行车速度350km/h，将装备CTCS-3级列控系统。本公司将负责本项目轨道电路设备供货工作。",
+          "region": [
+            192.55,
+            308.19,
+            512.4,
+            410.64
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00011",
+          "page": 3,
+          "role": "BODY",
+          "text": "二、拟签订合同主要条款",
+          "text_raw": "二、拟签订合同主要条款",
+          "region": [
+            82.85,
+            410.64,
+            512.4,
+            434.54
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00012",
+          "page": 3,
+          "role": "BODY",
+          "text": "1.合同金额（亿元）",
+          "text_raw": "1.合同金额（亿元）",
+          "region": [
+            82.85,
+            434.54,
+            192.55,
+            458.44
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00013",
+          "page": 3,
+          "role": "BODY",
+          "text": "1.57",
+          "text_raw": "1.57",
+          "region": [
+            192.55,
+            434.54,
+            512.4,
+            458.44
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00014",
+          "page": 3,
+          "role": "BODY",
+          "text": "2.支付进度安排",
+          "text_raw": "2.支付进度安排",
+          "region": [
+            82.85,
+            458.44,
+            192.55,
+            501.64
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00015",
+          "page": 3,
+          "role": "BODY",
+          "text": "项目按照进度款、竣工结算款、质保款等流程进行支付。",
+          "text_raw": "项目按照进度款、竣工结算款、质保款等流程进行支付。",
+          "region": [
+            192.55,
+            458.44,
+            512.4,
+            501.64
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00016",
+          "page": 3,
+          "role": "BODY",
+          "text": "3.履行地点",
+          "text_raw": "3.履行地点",
+          "region": [
+            82.85,
+            501.64,
+            192.55,
+            525.54
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00017",
+          "page": 3,
+          "role": "BODY",
+          "text": "重庆市、四川省",
+          "text_raw": "重庆市、四川省",
+          "region": [
+            192.55,
+            501.64,
+            512.4,
+            525.54
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00018",
+          "page": 3,
+          "role": "BODY",
+          "text": "4.履行期限",
+          "text_raw": "4.履行期限",
+          "region": [
+            82.85,
+            525.54,
+            192.55,
+            587.99
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00019",
+          "page": 3,
+          "role": "BODY",
+          "text": "合同签订日至项目质保期结束，其中项目执行周期约为28个月，质保期为24个月，共计52个月。",
+          "text_raw": "合同签订日至项目质保期结束，其中项目执行周期约为28个月，质保期为24个月，共计52个月。",
+          "region": [
+            192.55,
+            525.54,
+            512.4,
+            587.99
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00020",
+          "page": 3,
+          "role": "BODY",
+          "text": "5.合同生效条件",
+          "text_raw": "5.合同生效条件",
+          "region": [
+            82.85,
+            587.99,
+            192.55,
+            619.14
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00021",
+          "page": 3,
+          "role": "BODY",
+          "text": "本合同自双方签字加盖合同专用章之日后生效。",
+          "text_raw": "本合同自双方签字加盖合同专用章之日后生效。",
+          "region": [
+            192.55,
+            587.99,
+            512.4,
+            619.14
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00022",
+          "page": 3,
+          "role": "BODY",
+          "text": "6.合同签署地点",
+          "text_raw": "6.合同签署地点",
+          "region": [
+            82.85,
+            619.14,
+            192.55,
+            650.54
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00023",
+          "page": 3,
+          "role": "BODY",
+          "text": "达州市",
+          "text_raw": "达州市",
+          "region": [
+            192.55,
+            619.14,
+            512.4,
+            650.54
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00024",
+          "page": 3,
+          "role": "SECTION",
+          "text": "二、对公司的影响",
+          "text_raw": "二、对公司的影响",
+          "region": [
+            114,
+            664.37,
+            210.36,
+            676.37
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00025",
+          "page": 3,
+          "role": "BODY",
+          "text": "1.以上项目中标金额总计约为人民币9.76亿元，约占本公司中国会计准则下",
+          "text_raw": "1.以上项目中标金额总计约为人民币9.76亿元，约占本公司中国会计准则下",
+          "region": [
+            113.88,
+            695.57,
+            505.44,
+            707.57
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p003_b00026",
+          "page": 3,
+          "role": "BODY",
+          "text": "2025年经审计营业总收入的2.81%。因为上述项目跨年分期实施，对当期业绩影响有不确定性；如以上项目签订正式合同并顺利实施，在项目执行期间预计对本",
+          "text_raw": "2025年经审计营业总收入的2.81%。因为上述项目跨年分期实施，对当期业绩影响有不确定性；如以上项目签订正式合同并顺利实施，在项目执行期间预计对本",
+          "region": [
+            89.88,
+            718.97,
+            505.44,
+            754.37
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p004_b00001",
+          "page": 4,
+          "role": "BODY",
+          "text": "公司产生较为积极的影响。2.本公司与上述招标人不存在关联关系，上述项目中标对本公司业务独立性",
+          "text_raw": "公司产生较为积极的影响。2.本公司与上述招标人不存在关联关系，上述项目中标对本公司业务独立性",
+          "region": [
+            89.88,
+            77.69,
+            505.44,
+            113.09
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p004_b00002",
+          "page": 4,
+          "role": "BODY",
+          "text": "不构成影响。三、可能存在的风险以上项目已中标公示，因涉及相关手续办理，尚未与招标人签订相关正式合",
+          "text_raw": "不构成影响。三、可能存在的风险以上项目已中标公示，因涉及相关手续办理，尚未与招标人签订相关正式合",
+          "region": [
+            89.88,
+            124.49,
+            505.44,
+            198.89
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p004_b00003",
+          "page": 4,
+          "role": "BODY",
+          "text": "同，存在不确定性。上述项目最终金额、履行条款等内容以正式签订的合同为准，",
+          "text_raw": "同，存在不确定性。上述项目最终金额、履行条款等内容以正式签订的合同为准，",
+          "region": [
+            89.88,
+            210.29,
+            511.44,
+            222.29
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p004_b00004",
+          "page": 4,
+          "role": "BODY",
+          "text": "敬请广大投资者注意投资风险。",
+          "text_raw": "敬请广大投资者注意投资风险。",
+          "region": [
+            89.88,
+            233.69,
+            257.88,
+            245.69
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p004_b00005",
+          "page": 4,
+          "role": "BODY",
+          "text": "特此公告。中国铁路通信信号股份有限公司董事会",
+          "text_raw": "特此公告。中国铁路通信信号股份有限公司董事会",
+          "region": [
+            113.88,
+            257.09,
+            505.44,
+            339.29
+          ]
+        },
+        {
+          "block_id": "d0b56135e_p004_b00006",
+          "page": 4,
+          "role": "BODY",
+          "text": "2026年9月25日",
+          "text_raw": "2026年9月25日",
+          "region": [
+            412.44,
+            350.69,
+            505.44,
+            362.69
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "中国铁路通信信号股份有限公司",
+          "value": "中国铁路通信信号股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00014",
+              "page": 1,
+              "region": [
+                113.88,
+                631.13,
+                511.44,
+                643.13
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中国铁路通信信号股份有限公司（以下简称“本公司”）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "阿拉善高新技术产业开发区实业投资运营集团有限公司",
+          "value": "阿拉善高新技术产业开发区实业投资运营集团有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p002_b00005",
+              "page": 2,
+              "region": [
+                196.5,
+                166.34,
+                357.3,
+                307.24
+              ],
+              "table_id": "d0b56135e_p002_t001",
+              "cell_ref": "r2c2",
+              "source_type": "cell",
+              "quote": "阿拉善高新技术产业开发区实业投资运营集团有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "内蒙古阿拉善高新技术产业开发区巴音敖包工业园铁路专用线项目",
+          "value": "内蒙古阿拉善高新技术产业开发区巴音敖包工业园铁路专用线项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p002_b00002",
+              "page": 2,
+              "region": [
+                196.5,
+                72.24,
+                357.3,
+                166.34
+              ],
+              "table_id": "d0b56135e_p002_t001",
+              "cell_ref": "r1c2",
+              "source_type": "cell",
+              "quote": "内蒙古阿拉善高新技术产业开发区巴音敖包工业园铁路专用线项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "5.29亿元",
+          "value": 529000000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00006",
+              "page": 1,
+              "region": [
+                110.88,
+                335.57,
+                511.44,
+                447.53
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标金额5.29亿元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p003_b00025",
+              "page": 3,
+              "region": [
+                113.88,
+                695.57,
+                505.44,
+                707.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "人民币"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "合同签订日至项目运营期结束，其中项目建设工期约为18个月。",
+          "value": "合同签订日至项目运营期结束，其中项目建设工期约为18个月。",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p002_b00024",
+              "page": 2,
+              "region": [
+                196.5,
+                572.24,
+                357.3,
+                666.34
+              ],
+              "table_id": "d0b56135e_p002_t001",
+              "cell_ref": "r9c2",
+              "source_type": "cell",
+              "quote": "合同签订日至项目运营期结束，其中项目建设工期约为18个月。"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "尚未与招标人签订相关正式合同",
+          "value": "false",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00012",
+              "page": 1,
+              "region": [
+                110.88,
+                555.53,
+                505.44,
+                587.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "尚未与招标人签订相关正式合同"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    },
+    {
+      "event_id": "E02",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "中国铁路通信信号股份有限公司",
+          "value": "中国铁路通信信号股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00014",
+              "page": 1,
+              "region": [
+                113.88,
+                631.13,
+                511.44,
+                643.13
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中国铁路通信信号股份有限公司（以下简称“本公司”）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "中国铁塔股份有限公司福建省分公司中国电信股份有限公司福建分公司中国联合网络通信有限公司福建省分公司",
+          "value": "中国铁塔股份有限公司福建省分公司中国电信股份有限公司福建分公司中国联合网络通信有限公司福建省分公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p002_b00006",
+              "page": 2,
+              "region": [
+                357.3,
+                166.34,
+                516.1,
+                307.24
+              ],
+              "table_id": "d0b56135e_p002_t001",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "中国铁塔股份有限公司福建省分公司中国电信股份有限公司福建分公司中国联合网络通信有限公司福建省分公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "中国铁塔福建省分公司2026年高铁公网覆盖5G改造工程二期（7条线路）施工采购标段1项目",
+          "value": "中国铁塔福建省分公司2026年高铁公网覆盖5G改造工程二期（7条线路）施工采购标段1项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p002_b00003",
+              "page": 2,
+              "region": [
+                357.3,
+                72.24,
+                516.1,
+                166.34
+              ],
+              "table_id": "d0b56135e_p002_t001",
+              "cell_ref": "r1c3",
+              "source_type": "cell",
+              "quote": "中国铁塔福建省分公司2026年高铁公网覆盖5G改造工程二期（7条线路）施工采购标段1项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "2.9亿元",
+          "value": 290000000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00006",
+              "page": 1,
+              "region": [
+                110.88,
+                335.57,
+                511.44,
+                447.53
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标金额2.9亿元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p003_b00025",
+              "page": 3,
+              "region": [
+                113.88,
+                695.57,
+                505.44,
+                707.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "人民币"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "合同签订日至项目质保期结束，其中项目执行周期约为9个月，质保期为24个月，共计33个月。",
+          "value": "合同签订日至项目质保期结束，其中项目执行周期约为9个月，质保期为24个月，共计33个月。",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p002_b00025",
+              "page": 2,
+              "region": [
+                357.3,
+                572.24,
+                516.1,
+                666.34
+              ],
+              "table_id": "d0b56135e_p002_t001",
+              "cell_ref": "r9c3",
+              "source_type": "cell",
+              "quote": "合同签订日至项目质保期结束，其中项目执行周期约为9个月，质保期为24个月，共计33个月。"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "尚未与招标人签订相关正式合同",
+          "value": "false",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00012",
+              "page": 1,
+              "region": [
+                110.88,
+                555.53,
+                505.44,
+                587.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "尚未与招标人签订相关正式合同"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    },
+    {
+      "event_id": "E03",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "中国铁路通信信号股份有限公司",
+          "value": "中国铁路通信信号股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00014",
+              "page": 1,
+              "region": [
+                113.88,
+                631.13,
+                511.44,
+                643.13
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中国铁路通信信号股份有限公司（以下简称“本公司”）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "中铁武汉电气化局集团物资贸易有限公司",
+          "value": "中铁武汉电气化局集团物资贸易有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p003_b00006",
+              "page": 3,
+              "region": [
+                192.55,
+                237.54,
+                512.4,
+                284.29
+              ],
+              "table_id": "d0b56135e_p003_t001",
+              "cell_ref": "r4c2",
+              "source_type": "cell",
+              "quote": "中铁武汉电气化局集团物资贸易有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "中铁武汉电气化局集团有限公司新建西安至重庆高速铁路安康至重庆段正线局界至重庆西及樊哙经开州至万州连接线“四电”系统集成及相关工程XYKYRD-1标段第七批二次自购物资公开招标轨道电路材料、设备采购项目",
+          "value": "中铁武汉电气化局集团有限公司新建西安至重庆高速铁路安康至重庆段正线局界至重庆西及樊哙经开州至万州连接线“四电”系统集成及相关工程XYKYRD-1标段第七批二次自购物资公开招标轨道电路材料、设备采购项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p003_b00004",
+              "page": 3,
+              "region": [
+                192.55,
+                143.44,
+                512.4,
+                237.54
+              ],
+              "table_id": "d0b56135e_p003_t001",
+              "cell_ref": "r3c2",
+              "source_type": "cell",
+              "quote": "中铁武汉电气化局集团有限公司新建西安至重庆高速铁路安康至重庆段正线局界至重庆西及樊哙经开州至万州连接线“四电”系统集成及相关工程XYKYRD-1标段第七批二次自购物资公开招标轨道电路材料、设备采购项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "1.57亿元",
+          "value": 157000000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00007",
+              "page": 1,
+              "region": [
+                110.88,
+                455.57,
+                326.88,
+                467.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标金额1.57亿元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p003_b00025",
+              "page": 3,
+              "region": [
+                113.88,
+                695.57,
+                505.44,
+                707.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "人民币"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "合同签订日至项目质保期结束，其中项目执行周期约为28个月，质保期为24个月，共计52个月。",
+          "value": "合同签订日至项目质保期结束，其中项目执行周期约为28个月，质保期为24个月，共计52个月。",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p003_b00019",
+              "page": 3,
+              "region": [
+                192.55,
+                525.54,
+                512.4,
+                587.99
+              ],
+              "table_id": "d0b56135e_p003_t001",
+              "cell_ref": "r11c2",
+              "source_type": "cell",
+              "quote": "合同签订日至项目质保期结束，其中项目执行周期约为28个月，质保期为24个月，共计52个月。"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "尚未与招标人签订相关正式合同",
+          "value": "false",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0b56135e_p001_b00012",
+              "page": 1,
+              "region": [
+                110.88,
+                555.53,
+                505.44,
+                587.57
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "尚未与招标人签订相关正式合同"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-04T09:22:46.925Z",
+    "duration_ms": 9863,
+    "code_version": "954381da",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

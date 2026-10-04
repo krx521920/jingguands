@@ -137,17 +137,53 @@ export function normalizeFieldValue(fieldName, fv, unitHint = null) {
   if (sourceUnit === null) {
     return `[标准化] ${fieldName}: 无法从原文 "${fv.raw_value}" 探测单位（${fv.unit}）`
   }
-  const rawDigits = fv.raw_value.replace(/[,\s，]/g, '').match(/-?\d+(?:\.\d+)?/)
-  if (rawDigits === null) {
-    return `[标准化] ${fieldName}: 原文 "${fv.raw_value}" 中找不到十进制数值`
+  // 方 D6 规则＋D6-AWD-007 判定书（2026-10-03）：多金额/折算文本不得取第一个数字——
+  // 旧路径曾把"173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"拼成
+  // 173800000×cny 且 standardized=true（已被其专项回放证实）。新路径：
+  // ① 文内明示人民币折合值 → 选折合值（单位=元），不换汇；
+  // ② 其他多金额（≥2 个金额量级数字）且无折合标记 → 拒绝标准化，不猜。
+  let picked = null // { digits, sourceUnit }
+  if (kind === 'amount') {
+    const fx = fv.raw_value.match(/折合人民币\s*([\d,，]+)(?:\s*元)?/)
+    if (fx !== null) {
+      picked = { digits: fx[1].replace(/[,，]/g, ''), sourceUnit: '元' }
+    }
   }
+  if (picked === null) {
+    // 金额量级判定：数字×单位因子（亿/万）≥1000 才算一个"金额数字"——
+    // "1.2亿元"的量级在单位上，纯数字 1.2 不计；"1.46%"之类占比也不计。
+    const tokenRe = /(\d+(?:\.\d+)?)\s*(亿元|万元|亿|万|元)?/g
+    const amountScale = []
+    let tok
+    while ((tok = tokenRe.exec(fv.raw_value.replace(/[,\s，]/g, ''))) !== null) {
+      const factor = tok[2] === '亿元' || tok[2] === '亿' ? 1e8 : tok[2] === '万元' || tok[2] === '万' ? 1e4 : 1
+      if (Number(tok[1]) * factor >= 1000) amountScale.push(tok[1])
+    }
+    if (kind === 'amount' && amountScale.length >= 2) {
+      fv.standardized = false
+      return `[标准化] ${fieldName}: 原文 "${fv.raw_value}" 含多个金额量级数值且无"折合人民币"明示选值，按方 D6 规则不取首数、不标准化`
+    }
+    const rawDigits = amountScale.length > 0 ? [amountScale[0]] : null
+    if (rawDigits === null) {
+      const anyNum = fv.raw_value.replace(/[,\s，]/g, '').match(/-?\d+(?:\.\d+)?/)
+      if (anyNum === null) {
+        return `[标准化] ${fieldName}: 原文 "${fv.raw_value}" 中找不到十进制数值`
+      }
+      picked = { digits: anyNum[0], sourceUnit }
+    } else {
+      picked = { digits: amountScale[0], sourceUnit }
+    }
+  } else {
+    fv.note = `${fv.note ?? ''}［口径A（方 D6-AWD-007 判定）：文内明示人民币折合值，原币金额见完整引文］`
+  }
+  const rawDigits = [picked.digits]
   let status = 'present'
   if (rawDigits[0] === '0' || /^0(?:\.0+)?$/.test(rawDigits[0])) status = 'explicit_zero'
   const input = {
     kind,
     rawText: fv.raw_value,
     rawValue: rawDigits[0],
-    sourceUnit,
+    sourceUnit: picked.sourceUnit,
     qualifier: detectQualifier(fv.raw_value),
     scope,
     status,

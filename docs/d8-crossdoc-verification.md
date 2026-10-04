@@ -81,3 +81,21 @@ node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir runs/batch-20261003T16
 | F5 | 微 | b_run_id 时间戳截断非整秒 | 归一为 14 位整秒 |
 
 修复后封存回放保持 20/20、互证 10、矛盾 0；门禁 12/12。
+
+## 七、D8 落实方 D6 判定与十进制字符串兼容（2026-10-04）
+
+群指示三条＋B 兼容警告，全部执行并实证：
+
+1. **根因修复（fang_normalize.mjs）**：旧适配器多金额/折算文本取首数字＋整段匹配"元"——
+   双币种原文拼出"173800000×cny 且 standardized=true"（方专项回放证实连预置正确值都会被覆盖回）。
+   新路径：文内"折合人民币 Y 元"明示 → 选折合值；其他 ≥2 金额量级数值无明示 → 拒绝标准化。
+2. **W7 默认化（run_extract.mjs）**：D6-AWD-007 按 `字段修订建议_D6.json` proposed_fields 精确落实——
+   bid_amount 取 317,915,000/CNY、raw_value 改人民币子串（完整双币种引文留 provenance.quote）、
+   currency 配对 CNY。`JINGGUAN_CURRENCY_POLICY=legacy` 为逃生口。
+3. **B 流程字符串兼容（verify_crossdoc.mjs asNumber）**：数值锚点与实体字段值接受精确十进制字符串
+   （方 D6 标准化超精度值接口）；超精度字符串不降级浮点，避免跨信封伪相等。
+   实证：EQC-001 侧 16 个整数值字段全部字符串化后，判定相关/互证 9/矛盾 0 保持不变
+   （修复前同输入判定不相关/互证 0）。
+4. **统一批次重跑**：35 输入，AWD-007 修订进入输出、其余 29 份 gold 案例不受损；方的
+   checkAwardEnvelope 对新信封四类拦截码（MULTI_AMOUNT_OR_FX/CURRENCY_CONFLICT/
+   AMOUNT_VALUE_MISMATCH/FOREIGN_OR_UNKNOWN_CURRENCY）全部缺席。证据：批次报告与本节记录。

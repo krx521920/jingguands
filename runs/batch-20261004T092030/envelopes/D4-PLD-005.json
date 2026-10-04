@@ -1,0 +1,1725 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261004T092053-pledge-4c8d",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+    "file_name": "D4-PLD-005.pdf",
+    "file_sha256": "5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 2,
+      "blocks": [
+        {
+          "block_id": "d5bf0524f_p001_b00001",
+          "page": 1,
+          "role": "HEADER",
+          "text": "北京光线传媒股份有限公司",
+          "text_raw": "北京光线传媒股份有限公司",
+          "region": [
+            394.44,
+            58.95,
+            502.44,
+            67.95
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "证券代码：300251 证券简称：光线传媒 公告编号：2026-043北京光线传媒股份有限公司关于控股股东部分股份质押及解除质押的公告",
+          "text_raw": "证券代码：300251证券简称：光线传媒公告编号：2026-043北京光线传媒股份有限公司关于控股股东部分股份质押及解除质押的公告",
+          "region": [
+            90,
+            77.74,
+            504.96,
+            161.81
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+          "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+          "region": [
+            114,
+            194,
+            505.19,
+            206
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "假记载、误导性陈述或重大遗漏。",
+          "text_raw": "假记载、误导性陈述或重大遗漏。",
+          "region": [
+            90,
+            217.4,
+            270.6,
+            229.4
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00005",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、股东股份质押及解除质押基本情况",
+          "text_raw": "一、股东股份质押及解除质押基本情况",
+          "region": [
+            114,
+            252.34,
+            318.72,
+            264.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "北京光线传媒股份有限公司（以下简称“公司”）近日接到控股股东光线控",
+          "text_raw": "北京光线传媒股份有限公司（以下简称“公司”）近日接到控股股东光线控",
+          "region": [
+            114,
+            287.74,
+            505.32,
+            299.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": "股有限公司（以下简称“光线控股”）的通知，光线控股将其所持有的部分公司",
+          "text_raw": "股有限公司（以下简称“光线控股”）的通知，光线控股将其所持有的部分公司",
+          "region": [
+            90,
+            311.14,
+            505.2,
+            323.14
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "股份办理了质押及解除质押，具体事项如下：",
+          "text_raw": "股份办理了质押及解除质押，具体事项如下：",
+          "region": [
+            90,
+            334.54,
+            330,
+            346.54
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "1. 本次股份质押基本情况",
+          "text_raw": "1.本次股份质押基本情况",
+          "region": [
+            114,
+            357.94,
+            249,
+            371.88
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00010",
+          "page": 1,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            14.07,
+            375.84,
+            55.27,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00011",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否为控股股东或第一大股东及其一致行动人",
+          "text_raw": "是否为控股股东或第一大股东及其一致行动人",
+          "region": [
+            55.27,
+            375.84,
+            111.3,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次质押股份数量",
+          "text_raw": "本次质押股份数量",
+          "region": [
+            111.3,
+            375.84,
+            175.05,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "占其所持股份比例",
+          "text_raw": "占其所持股份比例",
+          "region": [
+            175.05,
+            375.84,
+            217.6,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00014",
+          "page": 1,
+          "role": "BODY",
+          "text": "占公司总股本比例",
+          "text_raw": "占公司总股本比例",
+          "region": [
+            217.6,
+            375.84,
+            260.1,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00015",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否为限售股",
+          "text_raw": "是否为限售股",
+          "region": [
+            260.1,
+            375.84,
+            294.33,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00016",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否为补充质押",
+          "text_raw": "是否为补充质押",
+          "region": [
+            294.33,
+            375.84,
+            331,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00017",
+          "page": 1,
+          "role": "BODY",
+          "text": "质押起始日期",
+          "text_raw": "质押起始日期",
+          "region": [
+            331,
+            375.84,
+            398.3,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00018",
+          "page": 1,
+          "role": "BODY",
+          "text": "质押到期日期",
+          "text_raw": "质押到期日期",
+          "region": [
+            398.3,
+            375.84,
+            466.62,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00019",
+          "page": 1,
+          "role": "BODY",
+          "text": "质权人",
+          "text_raw": "质权人",
+          "region": [
+            466.62,
+            375.84,
+            538.4,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00020",
+          "page": 1,
+          "role": "BODY",
+          "text": "质押用途",
+          "text_raw": "质押用途",
+          "region": [
+            538.4,
+            375.84,
+            581.22,
+            476.34
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00021",
+          "page": 1,
+          "role": "BODY",
+          "text": "光线控股",
+          "text_raw": "光线控股",
+          "region": [
+            14.07,
+            476.34,
+            55.27,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00022",
+          "page": 1,
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            55.27,
+            476.34,
+            111.3,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00023",
+          "page": 1,
+          "role": "BODY",
+          "text": "25,310,000",
+          "text_raw": "25,310,000",
+          "region": [
+            111.3,
+            476.34,
+            175.05,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00024",
+          "page": 1,
+          "role": "BODY",
+          "text": "2.31%",
+          "text_raw": "2.31%",
+          "region": [
+            175.05,
+            476.34,
+            217.6,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00025",
+          "page": 1,
+          "role": "BODY",
+          "text": "0.86%",
+          "text_raw": "0.86%",
+          "region": [
+            217.6,
+            476.34,
+            260.1,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00026",
+          "page": 1,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            260.1,
+            476.34,
+            294.33,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00027",
+          "page": 1,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            294.33,
+            476.34,
+            331,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00028",
+          "page": 1,
+          "role": "BODY",
+          "text": "2026/9/23",
+          "text_raw": "2026/9/23",
+          "region": [
+            331,
+            476.34,
+            398.3,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00029",
+          "page": 1,
+          "role": "BODY",
+          "text": "2027/9/23",
+          "text_raw": "2027/9/23",
+          "region": [
+            398.3,
+            476.34,
+            466.62,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00030",
+          "page": 1,
+          "role": "BODY",
+          "text": "国泰海通证券股份有限公司",
+          "text_raw": "国泰海通证券股份有限公司",
+          "region": [
+            466.62,
+            476.34,
+            538.4,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00031",
+          "page": 1,
+          "role": "BODY",
+          "text": "偿还债务",
+          "text_raw": "偿还债务",
+          "region": [
+            538.4,
+            476.34,
+            581.22,
+            536.84
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00032",
+          "page": 1,
+          "role": "BODY",
+          "text": "2. 本次股份解除质押基本情况",
+          "text_raw": "2.本次股份解除质押基本情况",
+          "region": [
+            114,
+            542.86,
+            273,
+            556.8
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00033",
+          "page": 1,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            14.07,
+            560.74,
+            85.88,
+            641.24
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00034",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否为控股股东或第一大股东及其一致行动人",
+          "text_raw": "是否为控股股东或第一大股东及其一致行动人",
+          "region": [
+            85.88,
+            560.74,
+            154.45,
+            641.24
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00035",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次解除质押股份数量",
+          "text_raw": "本次解除质押股份数量",
+          "region": [
+            154.45,
+            560.74,
+            223.8,
+            641.24
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00036",
+          "page": 1,
+          "role": "BODY",
+          "text": "占其所持股份比例",
+          "text_raw": "占其所持股份比例",
+          "region": [
+            223.8,
+            560.74,
+            294.33,
+            641.24
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00037",
+          "page": 1,
+          "role": "BODY",
+          "text": "占公司总股本比例",
+          "text_raw": "占公司总股本比例",
+          "region": [
+            294.33,
+            560.74,
+            362.45,
+            641.24
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00038",
+          "page": 1,
+          "role": "BODY",
+          "text": "起始日期",
+          "text_raw": "起始日期",
+          "region": [
+            362.45,
+            560.74,
+            431.75,
+            641.24
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00039",
+          "page": 1,
+          "role": "BODY",
+          "text": "解除日期",
+          "text_raw": "解除日期",
+          "region": [
+            431.75,
+            560.74,
+            501.1,
+            641.24
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00040",
+          "page": 1,
+          "role": "BODY",
+          "text": "质权人",
+          "text_raw": "质权人",
+          "region": [
+            501.1,
+            560.74,
+            581.22,
+            641.24
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00041",
+          "page": 1,
+          "role": "BODY",
+          "text": "光线控股",
+          "text_raw": "光线控股",
+          "region": [
+            14.07,
+            641.24,
+            85.88,
+            681.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00042",
+          "page": 1,
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            85.88,
+            641.24,
+            154.45,
+            681.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00043",
+          "page": 1,
+          "role": "BODY",
+          "text": "24,000,000",
+          "text_raw": "24,000,000",
+          "region": [
+            154.45,
+            641.24,
+            223.8,
+            681.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00044",
+          "page": 1,
+          "role": "BODY",
+          "text": "2.19%",
+          "text_raw": "2.19%",
+          "region": [
+            223.8,
+            641.24,
+            294.33,
+            681.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00045",
+          "page": 1,
+          "role": "BODY",
+          "text": "0.82%",
+          "text_raw": "0.82%",
+          "region": [
+            294.33,
+            641.24,
+            362.45,
+            681.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00046",
+          "page": 1,
+          "role": "BODY",
+          "text": "2025/10/30",
+          "text_raw": "2025/10/30",
+          "region": [
+            362.45,
+            641.24,
+            431.75,
+            681.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00047",
+          "page": 1,
+          "role": "BODY",
+          "text": "2026/9/24",
+          "text_raw": "2026/9/24",
+          "region": [
+            431.75,
+            641.24,
+            501.1,
+            681.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00048",
+          "page": 1,
+          "role": "BODY",
+          "text": "国泰海通证券股份有限公司",
+          "text_raw": "国泰海通证券股份有限公司",
+          "region": [
+            501.1,
+            641.24,
+            581.22,
+            681.74
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00049",
+          "page": 1,
+          "role": "BODY",
+          "text": "3. 股东股份累计质押基本情况",
+          "text_raw": "3.股东股份累计质押基本情况",
+          "region": [
+            114,
+            687.82,
+            273,
+            701.64
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00050",
+          "page": 1,
+          "role": "BODY",
+          "text": "截至公告披露日，光线控股及其一致行动人所持质押股份情况如下：",
+          "text_raw": "截至公告披露日，光线控股及其一致行动人所持质押股份情况如下：",
+          "region": [
+            114,
+            711.22,
+            474,
+            723.22
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p001_b00051",
+          "page": 1,
+          "role": "BODY",
+          "text": "股东 持股数量 持股 累计质押 合计占 合计占 已质押股份情况 未质押股份情况",
+          "text_raw": "股东持股数量持股累计质押合计占合计占已质押股份情况未质押股份情况",
+          "region": [
+            24.36,
+            738.34,
+            561.25,
+            748.79
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00001",
+          "page": 2,
+          "role": "HEADER",
+          "text": "北京光线传媒股份有限公司",
+          "text_raw": "北京光线传媒股份有限公司",
+          "region": [
+            394.44,
+            58.95,
+            502.44,
+            67.95
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00002",
+          "page": 2,
+          "role": "BODY",
+          "text": "名称",
+          "text_raw": "名称",
+          "region": [
+            13.7,
+            71.09,
+            56,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "比例",
+          "text_raw": "比例",
+          "region": [
+            133.95,
+            71.09,
+            183.55,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00004",
+          "page": 2,
+          "role": "BODY",
+          "text": "数量",
+          "text_raw": "数量",
+          "region": [
+            183.55,
+            71.09,
+            254.45,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "其所持股份比例",
+          "text_raw": "其所持股份比例",
+          "region": [
+            254.45,
+            71.09,
+            304.05,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00006",
+          "page": 2,
+          "role": "BODY",
+          "text": "公司总股本比例",
+          "text_raw": "公司总股本比例",
+          "region": [
+            304.05,
+            71.09,
+            353.65,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "已质押股份限售和冻结、标记合计数量",
+          "text_raw": "已质押股份限售和冻结、标记合计数量",
+          "region": [
+            353.65,
+            71.09,
+            417.45,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00008",
+          "page": 2,
+          "role": "BODY",
+          "text": "占已质押股份比例",
+          "text_raw": "占已质押股份比例",
+          "region": [
+            417.45,
+            71.09,
+            467.6,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00009",
+          "page": 2,
+          "role": "BODY",
+          "text": "未质押股份限售和冻结合计数量",
+          "text_raw": "未质押股份限售和冻结合计数量",
+          "region": [
+            467.6,
+            71.09,
+            530.85,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00010",
+          "page": 2,
+          "role": "BODY",
+          "text": "占未质押股份比例",
+          "text_raw": "占未质押股份比例",
+          "region": [
+            530.85,
+            71.09,
+            581.6,
+            158.59
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00011",
+          "page": 2,
+          "role": "BODY",
+          "text": "光线控股",
+          "text_raw": "光线控股",
+          "region": [
+            13.7,
+            158.59,
+            56,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00012",
+          "page": 2,
+          "role": "BODY",
+          "text": "1,097,132,788",
+          "text_raw": "1,097,132,788",
+          "region": [
+            56,
+            158.59,
+            133.95,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00013",
+          "page": 2,
+          "role": "BODY",
+          "text": "37.40%",
+          "text_raw": "37.40%",
+          "region": [
+            133.95,
+            158.59,
+            183.55,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00014",
+          "page": 2,
+          "role": "BODY",
+          "text": "122,950,000",
+          "text_raw": "122,950,000",
+          "region": [
+            183.55,
+            158.59,
+            254.45,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00015",
+          "page": 2,
+          "role": "BODY",
+          "text": "11.21%",
+          "text_raw": "11.21%",
+          "region": [
+            254.45,
+            158.59,
+            304.05,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00016",
+          "page": 2,
+          "role": "BODY",
+          "text": "4.19%",
+          "text_raw": "4.19%",
+          "region": [
+            304.05,
+            158.59,
+            353.65,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00017",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            353.65,
+            158.59,
+            417.45,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00018",
+          "page": 2,
+          "role": "BODY",
+          "text": "0.00%",
+          "text_raw": "0.00%",
+          "region": [
+            417.45,
+            158.59,
+            467.6,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00019",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            467.6,
+            158.59,
+            530.85,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00020",
+          "page": 2,
+          "role": "BODY",
+          "text": "0.00%",
+          "text_raw": "0.00%",
+          "region": [
+            530.85,
+            158.59,
+            581.6,
+            199.09
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00021",
+          "page": 2,
+          "role": "BODY",
+          "text": "光线控股的还款资金来源包括业务经营收入、投资收益等，其资信状况良好，",
+          "text_raw": "光线控股的还款资金来源包括业务经营收入、投资收益等，其资信状况良好，",
+          "region": [
+            114,
+            205.18,
+            511.32,
+            217.18
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00022",
+          "page": 2,
+          "role": "BODY",
+          "text": "具备相应的资金偿还能力。光线控股所质押的公司股份目前不存在平仓风险或被强制过户风险，不会对公司生产经营和公司治理产生重大不利影响，不存在负担业绩补偿义务的情况。后续如出现上述风险，光线控股将采取提前还款、补充质押等措施进行应对。公司将持续关注光线控股股份质押及质押风险情况，并督促其及时履行信息披露义务。",
+          "text_raw": "具备相应的资金偿还能力。光线控股所质押的公司股份目前不存在平仓风险或被强制过户风险，不会对公司生产经营和公司治理产生重大不利影响，不存在负担业绩补偿义务的情况。后续如出现上述风险，光线控股将采取提前还款、补充质押等措施进行应对。公司将持续关注光线控股股份质押及质押风险情况，并督促其及时履行信息披露义务。",
+          "region": [
+            90,
+            228.58,
+            505.32,
+            334.18
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00023",
+          "page": 2,
+          "role": "SECTION",
+          "text": "二、备查文件",
+          "text_raw": "二、备查文件",
+          "region": [
+            114,
+            357.58,
+            186.24,
+            369.58
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00024",
+          "page": 2,
+          "role": "BODY",
+          "text": "1. 中国证券登记结算有限责任公司出具的《证券质押及司法冻结明细表》。",
+          "text_raw": "1.中国证券登记结算有限责任公司出具的《证券质押及司法冻结明细表》。",
+          "region": [
+            114,
+            392.98,
+            511.32,
+            406.8
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00025",
+          "page": 2,
+          "role": "BODY",
+          "text": "特此公告",
+          "text_raw": "特此公告",
+          "region": [
+            114,
+            428.38,
+            162,
+            440.38
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00026",
+          "page": 2,
+          "role": "BODY",
+          "text": "北京光线传媒股份有限公司",
+          "text_raw": "北京光线传媒股份有限公司",
+          "region": [
+            353.16,
+            487.18,
+            497.16,
+            499.18
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00027",
+          "page": 2,
+          "role": "BODY",
+          "text": "董事会",
+          "text_raw": "董事会",
+          "region": [
+            407.16,
+            510.58,
+            443.16,
+            522.58
+          ]
+        },
+        {
+          "block_id": "d5bf0524f_p002_b00028",
+          "page": 2,
+          "role": "BODY",
+          "text": "二〇二六年九月二十八日",
+          "text_raw": "二〇二六年九月二十八日",
+          "region": [
+            359.16,
+            533.98,
+            491.16,
+            545.98
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "质押",
+          "value": "pledge",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00009",
+              "page": 1,
+              "region": [
+                114,
+                357.94,
+                249,
+                371.88
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "本次股份质押基本情况"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "光线控股",
+          "value": "光线控股",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00021",
+              "page": 1,
+              "region": [
+                14.07,
+                476.34,
+                55.27,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c1",
+              "source_type": "cell",
+              "quote": "光线控股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "国泰海通证券股份有限公司",
+          "value": "国泰海通证券股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00030",
+              "page": 1,
+              "region": [
+                466.62,
+                476.34,
+                538.4,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c10",
+              "source_type": "cell",
+              "quote": "国泰海通证券股份有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "25,310,000",
+          "value": 25310000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00023",
+              "page": 1,
+              "region": [
+                111.3,
+                476.34,
+                175.05,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "25,310,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "122,950,000",
+          "value": 122950000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00014",
+              "page": 2,
+              "region": [
+                183.55,
+                158.59,
+                254.45,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c4",
+              "source_type": "cell",
+              "quote": "122,950,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "2.31%",
+          "value": 2.31,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00024",
+              "page": 1,
+              "region": [
+                175.05,
+                476.34,
+                217.6,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c4",
+              "source_type": "cell",
+              "quote": "2.31%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "0.86%",
+          "value": 0.86,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00025",
+              "page": 1,
+              "region": [
+                217.6,
+                476.34,
+                260.1,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c5",
+              "source_type": "cell",
+              "quote": "0.86%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "11.21%",
+          "value": 11.21,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00015",
+              "page": 2,
+              "region": [
+                254.45,
+                158.59,
+                304.05,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c5",
+              "source_type": "cell",
+              "quote": "11.21%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "4.19%",
+          "value": 4.19,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00016",
+              "page": 2,
+              "region": [
+                304.05,
+                158.59,
+                353.65,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c6",
+              "source_type": "cell",
+              "quote": "4.19%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026/9/23",
+          "value": "2026-09-23",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00028",
+              "page": 1,
+              "region": [
+                331,
+                476.34,
+                398.3,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c8",
+              "source_type": "cell",
+              "quote": "2026/9/23"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2027/9/23",
+          "value": "2027-09-23",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00029",
+              "page": 1,
+              "region": [
+                398.3,
+                476.34,
+                466.62,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c9",
+              "source_type": "cell",
+              "quote": "2027/9/23"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "偿还债务",
+          "value": "偿还债务",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00031",
+              "page": 1,
+              "region": [
+                538.4,
+                476.34,
+                581.22,
+                536.84
+              ],
+              "table_id": "d5bf0524f_p001_t001",
+              "cell_ref": "r2c11",
+              "source_type": "cell",
+              "quote": "偿还债务"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "二〇二六年九月二十八日",
+          "value": "2026-09-28",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00028",
+              "page": 2,
+              "region": [
+                359.16,
+                533.98,
+                491.16,
+                545.98
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "二〇二六年九月二十八日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    },
+    {
+      "event_id": "E02",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "解除质押",
+          "value": "release",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00032",
+              "page": 1,
+              "region": [
+                114,
+                542.86,
+                273,
+                556.8
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "本次股份解除质押基本情况"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "光线控股",
+          "value": "光线控股",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00041",
+              "page": 1,
+              "region": [
+                14.07,
+                641.24,
+                85.88,
+                681.74
+              ],
+              "table_id": "d5bf0524f_p001_t002",
+              "cell_ref": "r2c1",
+              "source_type": "cell",
+              "quote": "光线控股"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "国泰海通证券股份有限公司",
+          "value": "国泰海通证券股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00048",
+              "page": 1,
+              "region": [
+                501.1,
+                641.24,
+                581.22,
+                681.74
+              ],
+              "table_id": "d5bf0524f_p001_t002",
+              "cell_ref": "r2c8",
+              "source_type": "cell",
+              "quote": "国泰海通证券股份有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "24,000,000",
+          "value": 24000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00043",
+              "page": 1,
+              "region": [
+                154.45,
+                641.24,
+                223.8,
+                681.74
+              ],
+              "table_id": "d5bf0524f_p001_t002",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "24,000,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "122,950,000",
+          "value": 122950000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00014",
+              "page": 2,
+              "region": [
+                183.55,
+                158.59,
+                254.45,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c4",
+              "source_type": "cell",
+              "quote": "122,950,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "2.19%",
+          "value": 2.19,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00044",
+              "page": 1,
+              "region": [
+                223.8,
+                641.24,
+                294.33,
+                681.74
+              ],
+              "table_id": "d5bf0524f_p001_t002",
+              "cell_ref": "r2c4",
+              "source_type": "cell",
+              "quote": "2.19%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "0.82%",
+          "value": 0.82,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00045",
+              "page": 1,
+              "region": [
+                294.33,
+                641.24,
+                362.45,
+                681.74
+              ],
+              "table_id": "d5bf0524f_p001_t002",
+              "cell_ref": "r2c5",
+              "source_type": "cell",
+              "quote": "0.82%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "11.21%",
+          "value": 11.21,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00015",
+              "page": 2,
+              "region": [
+                254.45,
+                158.59,
+                304.05,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c5",
+              "source_type": "cell",
+              "quote": "11.21%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "4.19%",
+          "value": 4.19,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00016",
+              "page": 2,
+              "region": [
+                304.05,
+                158.59,
+                353.65,
+                199.09
+              ],
+              "table_id": "d5bf0524f_p002_t001",
+              "cell_ref": "r2c6",
+              "source_type": "cell",
+              "quote": "4.19%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2025/10/30",
+          "value": "2025-10-30",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00046",
+              "page": 1,
+              "region": [
+                362.45,
+                641.24,
+                431.75,
+                681.74
+              ],
+              "table_id": "d5bf0524f_p001_t002",
+              "cell_ref": "r2c6",
+              "source_type": "cell",
+              "quote": "2025/10/30"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2026/9/24",
+          "value": "2026-09-24",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p001_b00047",
+              "page": 1,
+              "region": [
+                431.75,
+                641.24,
+                501.1,
+                681.74
+              ],
+              "table_id": "d5bf0524f_p001_t002",
+              "cell_ref": "r2c7",
+              "source_type": "cell",
+              "quote": "2026/9/24"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "二〇二六年九月二十八日",
+          "value": "2026-09-28",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d5bf0524f_p002_b00028",
+              "page": 2,
+              "region": [
+                359.16,
+                533.98,
+                491.16,
+                545.98
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "二〇二六年九月二十八日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-04T09:20:53.696Z",
+    "duration_ms": 7739,
+    "code_version": "954381da",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

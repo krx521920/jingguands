@@ -678,25 +678,32 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
         cu.note = `${cu.note ?? ''}［口径修正：金额未披露，币种不得默认 CNY→not_mentioned］`
       }
     }
-    // W7. 外币折合人民币口径（AWD-007 待裁决项，方判定与魏证据页均建议口径 A）：
-    // raw_value 含"X 原币（折合人民币 Y 元）"→ value 取 Y、currency=CNY、note 记原币。
-    // 开关：JINGGUAN_CURRENCY_POLICY=A 启用（宗博文确认前默认关闭，批次对当前 gold 保持 437/437）
-    if (process.env.JINGGUAN_CURRENCY_POLICY === 'A') {
+    // W7. 外币折合人民币口径（D6-AWD-007，方 D6 判定书＋D8 群指示已落实为默认行为）：
+    // raw_value 含"X 原币（折合人民币 Y 元）"→ 标准值取 Y、raw_value 改写为人民币子串
+    // （完整双币种引文保留在 provenance.quote）、currency 配对 CNY、原币金额记 note。
+    // 逃生口：JINGGUAN_CURRENCY_POLICY=legacy 恢复旧口径（用于裁决前后差异对照）。
+    if (process.env.JINGGUAN_CURRENCY_POLICY !== 'legacy') {
       for (const ev of awEvents) {
         const ba = ev.fields?.bid_amount
         const cu = ev.fields?.currency
         if (ba?.status !== 'extracted' || typeof ba.raw_value !== 'string') continue
-        const m = ba.raw_value.match(/([\d,]+)\s*[^\d（）（]{0,8}（\s*[^）]*?折合人民币\s*([\d,，]+)\s*元\s*）/)
+        const m = ba.raw_value.match(/([\d,，]+)\s*[^\d（），,]{0,8}[（(]\s*[^）)]*?折合人民币\s*([\d,，]+)\s*元\s*[）)]/)
         if (m === null) continue
-        const orig = Number(m[1].replace(/,/g, ''))
-        const cny = Number(m[2].replace(/[,，]/g, ''))
-        if (!Number.isFinite(orig) || !Number.isFinite(cny) || cny <= 0) continue
-        ba.note = `${ba.note ?? ''}［口径A（待评测方确认）：原币 ${m[1]} → 折合人民币 ${cny}（文内明示折算）］`
-        ba.value = cny
+        const orig = m[1].replace(/[,，]/g, '')
+        const cny = m[2].replace(/[,，]/g, '')
+        if (!/^\d+$/.test(orig) || !/^\d+$/.test(cny) || cny === '0') continue
+        ba.raw_value = `人民币${m[2]}元`
+        ba.value = Number(cny)
+        ba.unit = 'cny'
         ba.standardized = true
+        // 适配器 fx 路径已加的短标注与 W7 判定标注语义重复——W7 是权威出处，先剥离再追加
+        ba.note = `${(ba.note ?? '').replace('［口径A（方 D6-AWD-007 判定）：文内明示人民币折合值，原币金额见完整引文］', '')}［方 D6-AWD-007 判定：采用公告明示的人民币折合金额；原始计价金额为 ${m[1]}（外币）。未执行汇率计算，未推断含税状态］`
         if (cu !== undefined && cu.status === 'extracted') {
+          cu.raw_value = '人民币'
           cu.value = 'CNY'
-          cu.note = `${cu.note ?? ''}［口径A：外币折合人民币披露，currency=CNY；原币金额见 bid_amount.raw_value/note］`
+          cu.unit = 'text'
+          cu.standardized = true
+          cu.note = `${cu.note ?? ''}［与选定的人民币金额配对；原始计价币种保留在 bid_amount 完整引文与判定记录（方 D6 判定书）］`
         }
       }
     }
