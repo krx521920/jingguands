@@ -1,0 +1,140 @@
+{
+  "documents": {
+    "D4-PLD-001": {
+      "envelope": "envelopes_D8/D4-PLD-001_D8.json",
+      "parse": null
+    },
+    "D4-PLD-002": {
+      "envelope": "envelopes_D8/D4-PLD-002_D8.json",
+      "parse": null
+    },
+    "D4-PLD-003": {
+      "envelope": "envelopes_D8/D4-PLD-003_D8.json",
+      "parse": null
+    },
+    "D4-PLD-004": {
+      "envelope": "envelopes_D8/D4-PLD-004_D8.json",
+      "parse": null
+    },
+    "D4-PLD-005": {
+      "envelope": "envelopes_D8/D4-PLD-005_D8.json",
+      "parse": null
+    },
+    "D4-PLD-006": {
+      "envelope": "envelopes_D8/D4-PLD-006_D8.json",
+      "parse": null
+    },
+    "D4-PLD-007": {
+      "envelope": "envelopes_D8/D4-PLD-007_D8.json",
+      "parse": null
+    },
+    "D4-PLD-008": {
+      "envelope": "envelopes_D8/D4-PLD-008_D8.json",
+      "parse": null
+    },
+    "D4-PLD-009": {
+      "envelope": "envelopes_D8/D4-PLD-009_D8.json",
+      "parse": null
+    },
+    "D4-PLD-010": {
+      "envelope": "envelopes_D8/D4-PLD-010_D8.json",
+      "parse": null
+    },
+    "D5-EQC-001": {
+      "envelope": "envelopes_D8/D5-EQC-001_D8.json",
+      "parse": null
+    },
+    "D5-EQC-002": {
+      "envelope": "envelopes_D8/D5-EQC-002_D8.json",
+      "parse": null
+    },
+    "D5-EQC-003": {
+      "envelope": "envelopes_D8/D5-EQC-003_D8.json",
+      "parse": null
+    },
+    "D5-EQC-004": {
+      "envelope": "envelopes_D8/D5-EQC-004_D8.json",
+      "parse": null
+    },
+    "D5-EQC-005": {
+      "envelope": "envelopes_D8/D5-EQC-005_D8.json",
+      "parse": null
+    },
+    "D5-EQC-006": {
+      "envelope": "envelopes_D8/D5-EQC-006_D8.json",
+      "parse": null
+    },
+    "D5-EQC-007": {
+      "envelope": "envelopes_D8/D5-EQC-007_D8.json",
+      "parse": null
+    },
+    "D5-EQC-008": {
+      "envelope": "envelopes_D8/D5-EQC-008_D8.json",
+      "parse": null
+    },
+    "D5-EQC-009": {
+      "envelope": "envelopes_D8/D5-EQC-009_D8.json",
+      "parse": null
+    },
+    "D5-EQC-010": {
+      "envelope": "envelopes_D8/D5-EQC-010_D8.json",
+      "parse": null
+    },
+    "D6-AWD-001": {
+      "envelope": "envelopes_D8/D6-AWD-001_D8.json",
+      "parse": null
+    },
+    "D6-AWD-002": {
+      "envelope": "envelopes_D8/D6-AWD-002_D8.json",
+      "parse": null
+    },
+    "D6-AWD-003": {
+      "envelope": "envelopes_D8/D6-AWD-003_D8.json",
+      "parse": null
+    },
+    "D6-AWD-004": {
+      "envelope": "envelopes_D8/D6-AWD-004_D8.json",
+      "parse": null
+    },
+    "D6-AWD-005": {
+      "envelope": "envelopes_D8/D6-AWD-005_D8.json",
+      "parse": null
+    },
+    "D6-AWD-006": {
+      "envelope": "envelopes_D8/D6-AWD-006_D8.json",
+      "parse": null
+    },
+    "D6-AWD-007": {
+      "envelope": "envelopes_D8/D6-AWD-007_D8.json",
+      "parse": null
+    },
+    "D6-AWD-008": {
+      "envelope": "envelopes_D8/D6-AWD-008_D8.json",
+      "parse": null
+    },
+    "D6-AWD-009": {
+      "envelope": "envelopes_D8/D6-AWD-009_D8.json",
+      "parse": null
+    },
+    "D6-AWD-010": {
+      "envelope": "envelopes_D8/D6-AWD-010_D8.json",
+      "parse": null
+    },
+    "pledge-scan-degrade": {
+      "envelope": "envelopes_D8/pledge-scan-degrade_D8.json",
+      "parse": null
+    },
+    "DEMO-EQC-HZ-RESULT": {
+      "envelope": "envelopes_D8/DEMO-EQC-HZ-RESULT_D8.json",
+      "parse": "parse_D8/DEMO-EQC-HZ-RESULT_D8.json"
+    },
+    "DEMO-EQC-HL-0930": {
+      "envelope": "envelopes_D8/DEMO-EQC-HL-0930_D8.json",
+      "parse": "parse_D8/DEMO-EQC-HL-0930_D8.json"
+    },
+    "DEMO-EQC-HL-SIMPLE": {
+      "envelope": "envelopes_D8/DEMO-EQC-HL-SIMPLE_D8.json",
+      "parse": "parse_D8/DEMO-EQC-HL-SIMPLE_D8.json"
+    }
+  }
+}

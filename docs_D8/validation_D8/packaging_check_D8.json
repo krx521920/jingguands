@@ -1,0 +1,14 @@
+{
+  "checked_on": "2026-10-04T13:30:14.337066+00:00",
+  "zip_extract_unit_tests": 89,
+  "unit_exit_code": 0,
+  "zip_extract_cli_exit_code": 0,
+  "expanded_pairs": 16,
+  "related": 6,
+  "unrelated": 9,
+  "unknown": 1,
+  "extracted_results_match": true,
+  "json_and_markdown_local_links": "PASS",
+  "filename_suffix": "PASS",
+  "zip_crc": "PASS"
+}

@@ -1,0 +1,36 @@
+{
+  "checked_on": "2026-10-04T13:28:16.678Z",
+  "node": "v24.21.0",
+  "pins": {
+    "wei": "91b490f55a892224e58c3aca71774815562e2687",
+    "zong": "ea5320108c44be7da2c69cb2e3ddd997f97a7f5e",
+    "zhang": "1d3efad6ec6f0fa6f24a622f0240140ad68980cb",
+    "chen": "7b53917f46fbb5c09d78ce95032b13fed5ca8457"
+  },
+  "a_schema_documents": 34,
+  "chen_bridge_unchanged": 34,
+  "zhang_index_joins": 30,
+  "full_public30_combinations": 435,
+  "full_public30_counts": {
+    "related": 4,
+    "unrelated": 407,
+    "unknown": 24
+  },
+  "public_development_score": "PASS",
+  "wei_plugin_public_score": "PASS",
+  "public_pairs": 13,
+  "supplement_strict_pairs": 3,
+  "granularity_challenges_unknown": 2,
+  "public_gold_expectations_used_by_rule": false,
+  "source_files_byte_hashes_verified": 46,
+  "legacy_matcher_drop_in": true,
+  "legacy_matcher_can_override_relation": false,
+  "legacy_unconditional_aggregate_checks_still_exist": true,
+  "full_tri_state_entry": "src_D8/run_public_D8.mjs",
+  "no_model_calls": true,
+  "no_sealed_corpus_access": true,
+  "no_shared_schema_changes": true,
+  "peer_semantic_review": "pending",
+  "ui_visual_acceptance": "not_claimed",
+  "scratch_directory": "C:\\Users\\fxc\\AppData\\Local\\Packages\\sandbox.{a54feac7-e529-4468-859b-fb52ddf10ec9}\\AC\\Temp\\fang-d8-peer-xGDZEO"
+}

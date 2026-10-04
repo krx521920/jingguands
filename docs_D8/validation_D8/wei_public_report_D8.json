@@ -1,0 +1,975 @@
+{
+  "checked_on": "2026-10-04",
+  "b_run": {
+    "b_run_id": "b-20261004132815",
+    "engine": "verify_crossdoc.mjs",
+    "matcher": {
+      "plugin": "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\src_D8\\matching_D8.mjs"
+    },
+    "envelopes_dir": "C:\\Users\\fxc\\AppData\\Local\\Packages\\sandbox.{a54feac7-e529-4468-859b-fb52ddf10ec9}\\AC\\Temp\\fang-d8-peer-xGDZEO"
+  },
+  "envelopes_dir": "C:\\Users\\fxc\\AppData\\Local\\Packages\\sandbox.{a54feac7-e529-4468-859b-fb52ddf10ec9}\\AC\\Temp\\fang-d8-peer-xGDZEO",
+  "manifest": "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\pairs.dev30_D8.json",
+  "expect_mode": true,
+  "groups_total": 13,
+  "groups_checked": 13,
+  "groups_missing_envelope": [],
+  "related_detected": 4,
+  "related_conflicts_total": 0,
+  "related_corroborations_total": 10,
+  "results": [
+    {
+      "group_id": "D8-PAIR-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-001",
+          "a_run_id": "20261004T093848-equity_change-eec5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "a_run_id": "20261004T093901-equity_change-8518",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-001",
+          "usable": 45,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "usable": 27,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "signals": {
+        "shared_entity_count": 3,
+        "shared_entities": [
+          "蔚文绪",
+          "蔚文举",
+          "于春生"
+        ],
+        "shared_entities_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-002"
+        ],
+        "anchor_count": 9,
+        "shared_anchor_numbers": [
+          14722917,
+          11042217,
+          3680700,
+          3190004,
+          1848404,
+          1341600,
+          4472000,
+          12899900,
+          8427900
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-002"
+        ],
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "entity": "蔚文绪",
+            "field": "shares_before",
+            "value": 14722917,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "14,722,917",
+              "14,722,917"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文绪",
+            "field": "shares_after",
+            "value": 11042217,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "11,042,217",
+              "11,042,217"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文绪",
+            "field": "change_shares",
+            "value": 3680700,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "-3,680,700",
+              "-3,680,700"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文举",
+            "field": "shares_before",
+            "value": 3190004,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "3,190,004",
+              "3,190,004"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文举",
+            "field": "shares_after",
+            "value": 1848404,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "1,848,404",
+              "1,848,404"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文举",
+            "field": "change_shares",
+            "value": 1341600,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "-1,341,600",
+              "-1,341,600"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "于春生",
+            "field": "shares_before",
+            "value": 4472000,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "4,472,000",
+              "4,472,000"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "于春生",
+            "field": "shares_after",
+            "value": 12899900,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "12,899,900",
+              "12,899,900"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "于春生",
+            "field": "change_shares",
+            "value": 8427900,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "8,427,900",
+              "8,427,900"
+            ],
+            "matcher": "plugin"
+          }
+        ],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "马军强",
+            "only_in": "D5-EQC-001"
+          },
+          {
+            "entity": "杨占坡",
+            "only_in": "D5-EQC-001"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-PAIR-002",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-001",
+          "a_run_id": "20261004T093848-equity_change-eec5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "a_run_id": "20261004T093920-equity_change-17aa",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-001",
+          "usable": 45,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "signals": {
+        "shared_entity_count": 4,
+        "shared_entities": [
+          "蔚文绪",
+          "马军强",
+          "杨占坡",
+          "蔚文举"
+        ],
+        "shared_entities_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-003"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          8427900
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-003"
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          8427900
+        ],
+        "reverse_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-003"
+        ]
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "kind": "group_total_matches_sum",
+            "entity": "蔚文绪、马军强、杨占坡和蔚文举",
+            "field": "change_shares",
+            "aggregate": {
+              "doc": "D5-EQC-003",
+              "value": 8427900
+            },
+            "parts": [
+              {
+                "doc": "D5-EQC-001",
+                "entity": "蔚文绪",
+                "value": 3680700
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "马军强",
+                "value": 2975600
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "杨占坡",
+                "value": 430000
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "蔚文举",
+                "value": 1341600
+              }
+            ]
+          }
+        ],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "于春生",
+            "only_in": "D5-EQC-001"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-PAIR-003",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-002",
+          "a_run_id": "20261004T093901-equity_change-8518",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "a_run_id": "20261004T093920-equity_change-17aa",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-002",
+          "usable": 27,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "signals": {
+        "shared_entity_count": 2,
+        "shared_entities": [
+          "蔚文绪",
+          "蔚文举"
+        ],
+        "shared_entities_from_pair": [
+          "D5-EQC-002",
+          "D5-EQC-003"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          8427900
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-002",
+          "D5-EQC-003"
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          8427900
+        ],
+        "reverse_from_pair": [
+          "D5-EQC-002",
+          "D5-EQC-003"
+        ]
+      },
+      "consistency": {
+        "corroborations": [],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "kind": "partial_aggregate_coverage",
+            "entity": "蔚文绪、马军强、杨占坡和蔚文举",
+            "field": "change_shares",
+            "covered": [
+              "蔚文绪",
+              "蔚文举"
+            ],
+            "aggregate_value": 8427900
+          },
+          {
+            "entity": "于春生",
+            "only_in": "D5-EQC-002"
+          },
+          {
+            "entity": "马军强",
+            "only_in": "D5-EQC-003"
+          },
+          {
+            "entity": "杨占坡",
+            "only_in": "D5-EQC-003"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-PAIR-004",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-004",
+          "a_run_id": "20261004T093923-equity_change-4807",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "a_run_id": "20261004T093927-equity_change-3261",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-004",
+          "usable": 8,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "usable": 8,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "REVERSE_MATCH"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          72673907
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-004",
+          "D5-EQC-005"
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          72673907
+        ],
+        "reverse_from_pair": [
+          "D5-EQC-004",
+          "D5-EQC-005"
+        ]
+      },
+      "consistency": {
+        "corroborations": [],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "only_in": "D5-EQC-004"
+          },
+          {
+            "entity": "浙江省国际贸易集团有限公司",
+            "only_in": "D5-EQC-005"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-PAIR-005",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-001",
+          "a_run_id": "20261004T093750-pledge-4ba4",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "a_run_id": "20261004T093800-pledge-751d",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-001",
+          "usable": 36,
+          "excluded": 0
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "usable": 13,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-006",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261004T093930-equity_change-28e5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "a_run_id": "20261004T093934-equity_change-99b5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-007",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D6-AWD-001",
+          "a_run_id": "20261004T093949-award_contract-23ab",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "a_run_id": "20261004T093952-award_contract-09f8",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D6-AWD-001",
+          "usable": 5,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "usable": 24,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-008",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-003",
+          "a_run_id": "20261004T093804-pledge-bbbf",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "a_run_id": "20261004T093809-pledge-96f1",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-003",
+          "usable": 12,
+          "excluded": 0
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "usable": 12,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-009",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D6-AWD-008",
+          "a_run_id": "20261004T094029-award_contract-80a9",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "a_run_id": "20261004T094034-award_contract-bb57",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D6-AWD-008",
+          "usable": 8,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "usable": 21,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-010",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-006",
+          "a_run_id": "20261004T093820-pledge-105e",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261004T093930-equity_change-28e5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-006",
+          "usable": 13,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-011",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-008",
+          "a_run_id": "20261004T093829-pledge-4373",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "a_run_id": "20261004T094026-award_contract-84f5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-008",
+          "usable": 11,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-012",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-009",
+          "a_run_id": "20261004T093940-equity_change-b8c8",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "a_run_id": "20261004T094018-award_contract-8958",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-009",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "usable": 11,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-013",
+      "members": [
+        "pledge-scan-degrade",
+        "D6-AWD-001"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "a_run_id": "20261004T094046-pledge-scan",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "a_run_id": "20261004T093949-award_contract-23ab",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "usable": 0,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unknown",
+      "reasons": [
+        "INSUFFICIENT_SIGNALS",
+        "MEMBER_NO_USABLE_FIELDS:pledge-scan-degrade"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      }
+    }
+  ],
+  "expected_match": 13,
+  "expected_miss": 0,
+  "related_hit": "4/4",
+  "unrelated_clean": "8/8",
+  "insufficient_signalled": "1/1"
+}

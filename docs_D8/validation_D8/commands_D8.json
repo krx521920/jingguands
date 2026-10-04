@@ -1,0 +1,82 @@
+[
+  {
+    "program": "node",
+    "arguments": [
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\peer_reference_D8\\score-pairs_D8.mjs",
+      "--pairs",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\pairs.dev30_D8.json",
+      "--self-check"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"mode\": \"self-check\",\n  \"result\": \"PASS\",\n  \"pairs_total\": 13,\n  \"related\": 4,\n  \"unrelated\": 8,\n  \"insufficient\": 1,\n  \"issues\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "program": "node",
+    "arguments": [
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\peer_reference_D8\\score-pairs_D8.mjs",
+      "--pairs",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\pairs.dev30_D8.json",
+      "--report",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\docs_D8\\validation_D8\\public_report_D8.json",
+      "--strict",
+      "--json",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\docs_D8\\validation_D8\\public_score_D8.json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"result\": \"PASS\",\n  \"pairs_total\": 13,\n  \"pass\": 13,\n  \"fail\": 0,\n  \"not_run\": 0,\n  \"same_event\": {\n    \"total\": 4,\n    \"hit\": 4\n  },\n  \"different_event\": {\n    \"total\": 8,\n    \"clean\": 8\n  },\n  \"insufficient\": {\n    \"total\": 1,\n    \"ok\": 1\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "program": "node",
+    "arguments": [
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\peer_reference_D8\\verify_crossdoc_D8.mjs",
+      "--envelopes-dir",
+      "C:\\Users\\fxc\\AppData\\Local\\Packages\\sandbox.{a54feac7-e529-4468-859b-fb52ddf10ec9}\\AC\\Temp\\fang-d8-peer-xGDZEO",
+      "--manifest",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\pairs.dev30_D8.json",
+      "--matcher",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\src_D8\\matching_D8.mjs",
+      "--expect",
+      "--out",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\docs_D8\\validation_D8\\wei_public_report_D8.json"
+    ],
+    "exit_code": 0,
+    "stdout": "[跨文档核验] 13/13 组｜判定相关 4｜互证 10｜矛盾 0\n[封存回放] 相关命中 4/4｜无关零误报 8/8｜判定一致 13/13\n[证据不足] 第三态命中 1/1\n",
+    "stderr": ""
+  },
+  {
+    "program": "node",
+    "arguments": [
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\peer_reference_D8\\verify_crossdoc_D8.mjs",
+      "--envelopes-dir",
+      "C:\\Users\\fxc\\AppData\\Local\\Packages\\sandbox.{a54feac7-e529-4468-859b-fb52ddf10ec9}\\AC\\Temp\\fang-d8-peer-xGDZEO",
+      "--manifest",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\demo_pairs_D8.json",
+      "--matcher",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\src_D8\\matching_D8.mjs",
+      "--expect",
+      "--out",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\docs_D8\\validation_D8\\wei_demo_report_D8.json"
+    ],
+    "exit_code": 0,
+    "stdout": "[跨文档核验] 3/3 组｜判定相关 2｜互证 6｜矛盾 0\n[封存回放] 相关命中 2/2｜无关零误报 1/1｜判定一致 3/3\n",
+    "stderr": ""
+  },
+  {
+    "program": "node",
+    "arguments": [
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\peer_reference_D8\\score-pairs_D8.mjs",
+      "--pairs",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\pairs.dev30_D8.json",
+      "--report",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\docs_D8\\validation_D8\\wei_public_report_D8.json",
+      "--strict",
+      "--json",
+      "C:\\Users\\fxc\\Documents\\Codex\\2026-10-02\\new-chat\\outputs\\方轩诚_对齐规则与关联解释_D8\\docs_D8\\validation_D8\\wei_public_score_D8.json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"result\": \"PASS\",\n  \"pairs_total\": 13,\n  \"pass\": 13,\n  \"fail\": 0,\n  \"not_run\": 0,\n  \"same_event\": {\n    \"total\": 4,\n    \"hit\": 4\n  },\n  \"different_event\": {\n    \"total\": 8,\n    \"clean\": 8\n  },\n  \"insufficient\": {\n    \"total\": 1,\n    \"ok\": 1\n  }\n}\n",
+    "stderr": ""
+  }
+]

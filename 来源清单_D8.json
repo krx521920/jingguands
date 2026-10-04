@@ -1,0 +1,334 @@
+{
+  "repository": "https://github.com/krx521920/jingguands",
+  "pins": {
+    "wei": "91b490f55a892224e58c3aca71774815562e2687",
+    "zong": "ea5320108c44be7da2c69cb2e3ddd997f97a7f5e",
+    "zhang": "1d3efad6ec6f0fa6f24a622f0240140ad68980cb",
+    "chen": "7b53917f46fbb5c09d78ce95032b13fed5ca8457"
+  },
+  "sources": [
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-001.json",
+      "sha256": "84b16a6ad81310abce0d86f8d78881cdbe6e98103e43b55399410593444a548c",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-001_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-002.json",
+      "sha256": "ee90d85a9c60d72ad401d9ecfabafa7753d58a33899acd60fcc06b5ef26dfb27",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-002_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-003.json",
+      "sha256": "8bedf7dc26495c6c9e01dd47c26b321b3954628625fa4f53445878a7df3202a0",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-003_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-004.json",
+      "sha256": "4eb3388a1cad9b721a77a4177a9496521604bb7906667925519b5467ac9d866c",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-004_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-005.json",
+      "sha256": "695ea0131e0cda96b7476f99ca95c56396ef409c55c8ec388f3c06dd562ee5cd",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-005_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-006.json",
+      "sha256": "0374eaaa0e09bc107e5fbb1f55d8112e7155667326898aa1507f9fcdc68f8739",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-006_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-007.json",
+      "sha256": "7cc1a2402b7f049b59202ca0fce12b1e5b746834966600e70c07cf772aad9a22",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-007_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-008.json",
+      "sha256": "4bb6b8037bed35604338fd92e6ff9b3537d80a783a876a664deca12d4ce756f1",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-008_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-009.json",
+      "sha256": "6d59e7fd68bb130ab86c9afbd3113fa116a9f75909dc5e635b3ccd510ceb71b4",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-009_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D4-PLD-010.json",
+      "sha256": "8fc48d683090a0e624d4edcf25c7993441355dd146316c87e6b9aa9655e8ea1d",
+      "local": "public_dev_D8/envelopes_D8/D4-PLD-010_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-001.json",
+      "sha256": "4c16eec50cb2d3486980353a7df96f2a29ec61e7bd01aa8e93996104d9373832",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-001_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-002.json",
+      "sha256": "518f1c36acb79a2c00a3948dd087120b005efcc0c65c62134c90db0ee5bac009",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-002_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-003.json",
+      "sha256": "387d84028abf413b8735ecb7bcad0b42fef84c1d3212c2cd09de7e9f94cd515e",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-003_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-004.json",
+      "sha256": "8cc0c2e801bf3bba4fd15e29572b5af573ff65d446e1bd37ebedb0437ad566a2",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-004_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-005.json",
+      "sha256": "0fe2893089fe1e5257a08b2a79eaa4e0c3c799127ef47b5186ea2659b3066dd3",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-005_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-006.json",
+      "sha256": "7008132f25ba8456e3fa50c12673b1db3b306d87388129f99afd602d0050d8a3",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-006_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-007.json",
+      "sha256": "e78ffc0fd6003ac667820f36efc3a245119ced07780baf9a6915bad69ca88f08",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-007_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-008.json",
+      "sha256": "a69698951feab2698b291378bcedfdbbf8febad97246ebf8cef44d8bd87b3e4f",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-008_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-009.json",
+      "sha256": "12d6019a930c00cae07bba6103c4ad1a1643040301bec97363757968eaab7b45",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-009_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D5-EQC-010.json",
+      "sha256": "7e1f3a212d31b91d3588ff8ec466eff324cbb5138e664b38399ed94692266a8e",
+      "local": "public_dev_D8/envelopes_D8/D5-EQC-010_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-001.json",
+      "sha256": "35f800fdfa692309419e3c71b6cb0b18f614b666c537e94e4314a965091cdf3f",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-001_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-002.json",
+      "sha256": "85a98d06321032d2d988f7bf2cdca07e9fb42637aa0ebf98799171760aa7b271",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-002_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-003.json",
+      "sha256": "86872e6e640f666598abf1d8a45540d31822192024ce80d5a43e5597b6c4c257",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-003_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-004.json",
+      "sha256": "61fc97c55ae7dbe6f2a3b45a94256650ad189f0d301f51479df26b2679b93737",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-004_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-005.json",
+      "sha256": "bd41817d5a0f745fe0d33b97b366f3bed82c6a76861db484136f4276a2f0b6f6",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-005_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-006.json",
+      "sha256": "702fc4b94056646b7294e8563ff7887697a5b83b3aae93b26f262b410fd5bfa4",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-006_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-007.json",
+      "sha256": "c8a58c0cdcff64548fe8da14bcc7e0185e58172b7e2c3bc7687a88c674d25697",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-007_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-008.json",
+      "sha256": "6003fcbc2dc36831f221225ec76a35f911a0ba0278806940fce1fb4e07116c43",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-008_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-009.json",
+      "sha256": "1e02a609633e59a85e6a422af5c3a8c95f183035be90263e740fd3da61aff0af",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-009_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/D6-AWD-010.json",
+      "sha256": "4c5521d6e040462ef7228271035f83eac4c61d4d0e0fab68329995e08372fc4f",
+      "local": "public_dev_D8/envelopes_D8/D6-AWD-010_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/batch-20261004T093750/envelopes/pledge-scan-degrade.json",
+      "sha256": "5dfb5f1ea6d334076b7b3e40f3fdd3d0cd5aed715ec43d9aba49c2543a71b05b",
+      "local": "public_dev_D8/envelopes_D8/pledge-scan-degrade_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/d8-demo-20261004/envelopes/DEMO-EQC-HZ-RESULT.json",
+      "sha256": "3a4fca1d4d8c7298bdf9defb4989a3a8f3b9914a53fa31c4ce4c3ce75fcb61d0",
+      "local": "public_dev_D8/envelopes_D8/DEMO-EQC-HZ-RESULT_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/d8-demo-20261004/raw/DEMO-EQC-HZ-RESULT.raw.json",
+      "sha256": "6b77be1ae3a3ea06bb5e87f6fc37465b3f82066f5f2c5dca688abd95edbe881b",
+      "local": "public_dev_D8/parse_D8/DEMO-EQC-HZ-RESULT_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/d8-demo-20261004/envelopes/DEMO-EQC-HL-0930.json",
+      "sha256": "0df396853dc3450b075339cb49f6862cfa1e9b4b6d8fa5fcc5ff4fd90287fca4",
+      "local": "public_dev_D8/envelopes_D8/DEMO-EQC-HL-0930_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/d8-demo-20261004/raw/DEMO-EQC-HL-0930.raw.json",
+      "sha256": "81d5bff8b55b0b5219ab1d6c9ecc658e59debd6dfce471ac7d408387791ae11e",
+      "local": "public_dev_D8/parse_D8/DEMO-EQC-HL-0930_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/d8-demo-20261004/envelopes/DEMO-EQC-HL-SIMPLE.json",
+      "sha256": "1931bc55dde369e9deaeb87c92b32ef7c12f76299415ad9b4ba6354d4509200e",
+      "local": "public_dev_D8/envelopes_D8/DEMO-EQC-HL-SIMPLE_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/d8-demo-20261004/raw/DEMO-EQC-HL-SIMPLE.raw.json",
+      "sha256": "ad0db6ddd1769c424087e6d561a70fbf7a1eb830fc10b6a218f50d4b8eacfb85",
+      "local": "public_dev_D8/parse_D8/DEMO-EQC-HL-SIMPLE_D8.json"
+    },
+    {
+      "owner": "zong",
+      "commit": "ea5320108c44be7da2c69cb2e3ddd997f97a7f5e",
+      "path": "evaluation/D8/pairs/pairs.dev30.json",
+      "sha256": "bae76788383e9bcf763ae968279f66c985876ebf00b45d9489c4ecb00c4a95cf",
+      "local": "public_dev_D8/pairs.dev30_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/d8-demo-20261004/demo-manifest-strict.json",
+      "sha256": "7a64ef4fc5465fc43ff9b702f2affc706a7b808a0f9836d5f6c0fb6474fa884b",
+      "local": "public_dev_D8/demo_pairs_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "runs/d8-demo-20261004/demo-manifest-5groups-record.json",
+      "sha256": "2c68b6b23df9d9718097def917a89c397a5b3a630513f228af68bc0b729abcde",
+      "local": "public_dev_D8/demo_challenges_D8.json"
+    },
+    {
+      "owner": "zong",
+      "commit": "ea5320108c44be7da2c69cb2e3ddd997f97a7f5e",
+      "path": "evaluation/D8/score-pairs.mjs",
+      "sha256": "5b22e12154e39f3a667eb9eca072e1c98d0426163d105f2ca951b1f98a025d07",
+      "local": "peer_reference_D8/score-pairs_D8.mjs"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "scripts/jingguan/verify_crossdoc.mjs",
+      "sha256": "678bcd792dc2f7c3a5330d3e3ee426d2eb8901ae8ee6803f3479a690b50a062f",
+      "local": "peer_reference_D8/verify_crossdoc_D8.mjs"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1d3efad6ec6f0fa6f24a622f0240140ad68980cb",
+      "path": "sample/D8/cross_index.json",
+      "sha256": "93b946625380820aaa5690824a4b99885661570d83a3283c2c19aa858aec586d",
+      "local": "public_dev_D8/cross_index_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "interface/event-envelope.schema.json",
+      "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96",
+      "local": "peer_reference_D8/event-envelope.schema_D8.json"
+    },
+    {
+      "owner": "wei",
+      "commit": "91b490f55a892224e58c3aca71774815562e2687",
+      "path": "scripts/jingguan/lib/schema_validator.mjs",
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315",
+      "local": "peer_reference_D8/schema_validator_D8.mjs"
+    },
+    {
+      "owner": "chen",
+      "commit": "7b53917f46fbb5c09d78ce95032b13fed5ca8457",
+      "path": "workspace/cjh/page_prototype/bridge/upstream_bridge.js",
+      "sha256": "894f40779582ec15a0caac7eb6d038a469006560ab09fcdc7690703cb0cfccf6",
+      "local": "peer_reference_D8/upstream_bridge_D8.cjs"
+    }
+  ],
+  "sealed_data_read": false
+}

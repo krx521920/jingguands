@@ -1,0 +1,420 @@
+{
+  "delivery": "方轩诚 D8.2 对齐规则与关联解释",
+  "created_on": "2026-10-04",
+  "files": [
+    {
+      "path": "docs_D8/validation_D8/challenge_report_D8.json",
+      "bytes": 92393,
+      "sha256": "3161291683acd3e3a6e60083816f9e2d89eb0def138eee419ef853ce3af4fe6f"
+    },
+    {
+      "path": "docs_D8/validation_D8/commands_D8.json",
+      "bytes": 5075,
+      "sha256": "a9a035fbbbf3c2fc94aaeeed0ad3b05674dacf0aab506f9fb6826bc4623b1918"
+    },
+    {
+      "path": "docs_D8/validation_D8/compatibility_summary_D8.json",
+      "bytes": 1303,
+      "sha256": "776091ac1ede364f87b1eee34fe008b73169e3a8eb626fb7984d301558396988"
+    },
+    {
+      "path": "docs_D8/validation_D8/demo_report_D8.json",
+      "bytes": 76075,
+      "sha256": "627489e3ed3dbaf63e727b08fd4fa34adbc3cacba3a294dd0b0f89fcaec2488b"
+    },
+    {
+      "path": "docs_D8/validation_D8/expanded_report_D8.json",
+      "bytes": 376525,
+      "sha256": "7c50132960e715fa44c5a8e9c4099abf0251108a3ad638d95e25efb0ffc935ad"
+    },
+    {
+      "path": "docs_D8/validation_D8/expanded_score_D8.json",
+      "bytes": 6417,
+      "sha256": "6a6b4929db941375f0bdd6ea5ed2d5a11b1046d29bcd4c7350aa033bf71378e9"
+    },
+    {
+      "path": "docs_D8/validation_D8/packaging_check_D8.json",
+      "bytes": 360,
+      "sha256": "f8a162116f2025595097cd04c4c7cc17f842c0f8deccad92447c3976f7cccb2f"
+    },
+    {
+      "path": "docs_D8/validation_D8/public_report_D8.json",
+      "bytes": 301292,
+      "sha256": "669e34e3a04b3c98b6a5863aabfed3296ff9df8d8ffcd5f5aa9589bdd0903e11"
+    },
+    {
+      "path": "docs_D8/validation_D8/public_score_D8.json",
+      "bytes": 5313,
+      "sha256": "918c946fc3a44f50573828ad01b00df91c74a16ab71020cd0752259788a36bc1"
+    },
+    {
+      "path": "docs_D8/validation_D8/unit_log_D8.txt",
+      "bytes": 5054,
+      "sha256": "af58172b1e9a60f74a263c592b69d12a75eab4e0c077b9ecb1e17b4979e6aecc"
+    },
+    {
+      "path": "docs_D8/validation_D8/wei_demo_report_D8.json",
+      "bytes": 9066,
+      "sha256": "1594baef51c8763d14c3d79222483444c455bb64d83090c60d88edc98a1697a5"
+    },
+    {
+      "path": "docs_D8/validation_D8/wei_public_report_D8.json",
+      "bytes": 24582,
+      "sha256": "ba820ac8fee6cd4cdf0b4365f1ac205c6616e0656b73b761d1dc25a87b6d3a46"
+    },
+    {
+      "path": "docs_D8/validation_D8/wei_public_score_D8.json",
+      "bytes": 5623,
+      "sha256": "31c7dabc986c1b65f9297638a1c0e73f8471d1fd8f2e9c783108fe136f8c758a"
+    },
+    {
+      "path": "docs_D8/公告编号核对_D8.md",
+      "bytes": 1583,
+      "sha256": "9038af69a6a41d0e30e7331b80a5dbdb5e76dab1dc1c856d86b90308700a57cc"
+    },
+    {
+      "path": "docs_D8/关联解释_D8.md",
+      "bytes": 24434,
+      "sha256": "e3cf4c5e6d4f17a0511fe95ae5f10aa26b4da6aa2152b9696fcd47ff1a48b49c"
+    },
+    {
+      "path": "docs_D8/关联解释样例_D8.json",
+      "bytes": 402400,
+      "sha256": "771cb07fd28d8c0705b0d85e4788d1a2eafe58f950b5133b2d1dd5e84a5087fb"
+    },
+    {
+      "path": "docs_D8/兼容性与交接_D8.md",
+      "bytes": 3211,
+      "sha256": "a3be1abddbe5507098c4f9be1b68c5ab16cc16d22922aeab7c92920b7fd8dc0c"
+    },
+    {
+      "path": "docs_D8/对齐规则与接口_D8.md",
+      "bytes": 7301,
+      "sha256": "29952aadb6060176ea8e39fb822163b06fd6f489465fccaa48a415c4495d106f"
+    },
+    {
+      "path": "document_alignment_schema_D8.json",
+      "bytes": 1103,
+      "sha256": "1c718eec4765cfbd68ca62b22e63f32adbec4e592734f185586e5c4c153f6656"
+    },
+    {
+      "path": "peer_reference_D8/event-envelope.schema_D8.json",
+      "bytes": 5350,
+      "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96"
+    },
+    {
+      "path": "peer_reference_D8/schema_validator_D8.mjs",
+      "bytes": 5057,
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+    },
+    {
+      "path": "peer_reference_D8/score-pairs_D8.mjs",
+      "bytes": 4841,
+      "sha256": "5b22e12154e39f3a667eb9eca072e1c98d0426163d105f2ca951b1f98a025d07"
+    },
+    {
+      "path": "peer_reference_D8/upstream_bridge_D8.cjs",
+      "bytes": 16807,
+      "sha256": "894f40779582ec15a0caac7eb6d038a469006560ab09fcdc7690703cb0cfccf6"
+    },
+    {
+      "path": "peer_reference_D8/verify_crossdoc_D8.mjs",
+      "bytes": 21239,
+      "sha256": "678bcd792dc2f7c3a5330d3e3ee426d2eb8901ae8ee6803f3479a690b50a062f"
+    },
+    {
+      "path": "public_dev_D8/cross_index_D8.json",
+      "bytes": 131579,
+      "sha256": "93b946625380820aaa5690824a4b99885661570d83a3283c2c19aa858aec586d"
+    },
+    {
+      "path": "public_dev_D8/demo_challenges_D8.json",
+      "bytes": 400,
+      "sha256": "2c68b6b23df9d9718097def917a89c397a5b3a630513f228af68bc0b729abcde"
+    },
+    {
+      "path": "public_dev_D8/demo_pairs_D8.json",
+      "bytes": 1117,
+      "sha256": "7a64ef4fc5465fc43ff9b702f2affc706a7b808a0f9836d5f6c0fb6474fa884b"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-001_D8.json",
+      "bytes": 72260,
+      "sha256": "84b16a6ad81310abce0d86f8d78881cdbe6e98103e43b55399410593444a548c"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-002_D8.json",
+      "bytes": 41284,
+      "sha256": "ee90d85a9c60d72ad401d9ecfabafa7753d58a33899acd60fcc06b5ef26dfb27"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-003_D8.json",
+      "bytes": 48553,
+      "sha256": "8bedf7dc26495c6c9e01dd47c26b321b3954628625fa4f53445878a7df3202a0"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-004_D8.json",
+      "bytes": 46311,
+      "sha256": "4eb3388a1cad9b721a77a4177a9496521604bb7906667925519b5467ac9d866c"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-005_D8.json",
+      "bytes": 46332,
+      "sha256": "695ea0131e0cda96b7476f99ca95c56396ef409c55c8ec388f3c06dd562ee5cd"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-006_D8.json",
+      "bytes": 42745,
+      "sha256": "0374eaaa0e09bc107e5fbb1f55d8112e7155667326898aa1507f9fcdc68f8739"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-007_D8.json",
+      "bytes": 68831,
+      "sha256": "7cc1a2402b7f049b59202ca0fce12b1e5b746834966600e70c07cf772aad9a22"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-008_D8.json",
+      "bytes": 42689,
+      "sha256": "4bb6b8037bed35604338fd92e6ff9b3537d80a783a876a664deca12d4ce756f1"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-009_D8.json",
+      "bytes": 62721,
+      "sha256": "6d59e7fd68bb130ab86c9afbd3113fa116a9f75909dc5e635b3ccd510ceb71b4"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D4-PLD-010_D8.json",
+      "bytes": 44612,
+      "sha256": "8fc48d683090a0e624d4edcf25c7993441355dd146316c87e6b9aa9655e8ea1d"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-001_D8.json",
+      "bytes": 391681,
+      "sha256": "4c16eec50cb2d3486980353a7df96f2a29ec61e7bd01aa8e93996104d9373832"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-002_D8.json",
+      "bytes": 639318,
+      "sha256": "518f1c36acb79a2c00a3948dd087120b005efcc0c65c62134c90db0ee5bac009"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-003_D8.json",
+      "bytes": 308639,
+      "sha256": "387d84028abf413b8735ecb7bcad0b42fef84c1d3212c2cd09de7e9f94cd515e"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-004_D8.json",
+      "bytes": 138387,
+      "sha256": "8cc0c2e801bf3bba4fd15e29572b5af573ff65d446e1bd37ebedb0437ad566a2"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-005_D8.json",
+      "bytes": 151172,
+      "sha256": "0fe2893089fe1e5257a08b2a79eaa4e0c3c799127ef47b5186ea2659b3066dd3"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-006_D8.json",
+      "bytes": 51206,
+      "sha256": "7008132f25ba8456e3fa50c12673b1db3b306d87388129f99afd602d0050d8a3"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-007_D8.json",
+      "bytes": 149737,
+      "sha256": "e78ffc0fd6003ac667820f36efc3a245119ced07780baf9a6915bad69ca88f08"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-008_D8.json",
+      "bytes": 100852,
+      "sha256": "a69698951feab2698b291378bcedfdbbf8febad97246ebf8cef44d8bd87b3e4f"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-009_D8.json",
+      "bytes": 87087,
+      "sha256": "12d6019a930c00cae07bba6103c4ad1a1643040301bec97363757968eaab7b45"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D5-EQC-010_D8.json",
+      "bytes": 182155,
+      "sha256": "7e1f3a212d31b91d3588ff8ec466eff324cbb5138e664b38399ed94692266a8e"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-001_D8.json",
+      "bytes": 18823,
+      "sha256": "35f800fdfa692309419e3c71b6cb0b18f614b666c537e94e4314a965091cdf3f"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-002_D8.json",
+      "bytes": 49297,
+      "sha256": "85a98d06321032d2d988f7bf2cdca07e9fb42637aa0ebf98799171760aa7b271"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-003_D8.json",
+      "bytes": 57658,
+      "sha256": "86872e6e640f666598abf1d8a45540d31822192024ce80d5a43e5597b6c4c257"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-004_D8.json",
+      "bytes": 42296,
+      "sha256": "61fc97c55ae7dbe6f2a3b45a94256650ad189f0d301f51479df26b2679b93737"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-005_D8.json",
+      "bytes": 47424,
+      "sha256": "bd41817d5a0f745fe0d33b97b366f3bed82c6a76861db484136f4276a2f0b6f6"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-006_D8.json",
+      "bytes": 15714,
+      "sha256": "702fc4b94056646b7294e8563ff7887697a5b83b3aae93b26f262b410fd5bfa4"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-007_D8.json",
+      "bytes": 12265,
+      "sha256": "c8a58c0cdcff64548fe8da14bcc7e0185e58172b7e2c3bc7687a88c674d25697"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-008_D8.json",
+      "bytes": 19507,
+      "sha256": "6003fcbc2dc36831f221225ec76a35f911a0ba0278806940fce1fb4e07116c43"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-009_D8.json",
+      "bytes": 39280,
+      "sha256": "1e02a609633e59a85e6a422af5c3a8c95f183035be90263e740fd3da61aff0af"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/D6-AWD-010_D8.json",
+      "bytes": 21238,
+      "sha256": "4c5521d6e040462ef7228271035f83eac4c61d4d0e0fab68329995e08372fc4f"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/DEMO-EQC-HL-0930_D8.json",
+      "bytes": 6848,
+      "sha256": "0df396853dc3450b075339cb49f6862cfa1e9b4b6d8fa5fcc5ff4fd90287fca4"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/DEMO-EQC-HL-SIMPLE_D8.json",
+      "bytes": 6642,
+      "sha256": "1931bc55dde369e9deaeb87c92b32ef7c12f76299415ad9b4ba6354d4509200e"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/DEMO-EQC-HZ-RESULT_D8.json",
+      "bytes": 11420,
+      "sha256": "3a4fca1d4d8c7298bdf9defb4989a3a8f3b9914a53fa31c4ce4c3ce75fcb61d0"
+    },
+    {
+      "path": "public_dev_D8/envelopes_D8/pledge-scan-degrade_D8.json",
+      "bytes": 4913,
+      "sha256": "5dfb5f1ea6d334076b7b3e40f3fdd3d0cd5aed715ec43d9aba49c2543a71b05b"
+    },
+    {
+      "path": "public_dev_D8/expanded_pairs_D8.json",
+      "bytes": 22669,
+      "sha256": "f40620854f813eea0c691c20be03161da1e8f2d38e3b17d7af39ec933e85717b"
+    },
+    {
+      "path": "public_dev_D8/identity_context_D8.json",
+      "bytes": 60191,
+      "sha256": "9fb05c3a4dd9eeb1c12f884ec755820b14e3f24e3d1947096cebeca1cc86742a"
+    },
+    {
+      "path": "public_dev_D8/input_manifest_D8.json",
+      "bytes": 3723,
+      "sha256": "4bb629dacff13afde191ebf733df00ec0979d105f296b67263e2a45f229ca211"
+    },
+    {
+      "path": "public_dev_D8/pairs.dev30_D8.json",
+      "bytes": 21356,
+      "sha256": "bae76788383e9bcf763ae968279f66c985876ebf00b45d9489c4ecb00c4a95cf"
+    },
+    {
+      "path": "public_dev_D8/parse_D8/DEMO-EQC-HL-0930_D8.json",
+      "bytes": 13190,
+      "sha256": "81d5bff8b55b0b5219ab1d6c9ecc658e59debd6dfce471ac7d408387791ae11e"
+    },
+    {
+      "path": "public_dev_D8/parse_D8/DEMO-EQC-HL-SIMPLE_D8.json",
+      "bytes": 48565,
+      "sha256": "ad0db6ddd1769c424087e6d561a70fbf7a1eb830fc10b6a218f50d4b8eacfb85"
+    },
+    {
+      "path": "public_dev_D8/parse_D8/DEMO-EQC-HZ-RESULT_D8.json",
+      "bytes": 46643,
+      "sha256": "6b77be1ae3a3ea06bb5e87f6fc37465b3f82066f5f2c5dca688abd95edbe881b"
+    },
+    {
+      "path": "public_dev_D8/公开开发集说明_D8.md",
+      "bytes": 2318,
+      "sha256": "9a7009bfc97d72c4071fb83d7c213b5db224d73cb9c760383836ca90ea638fb3"
+    },
+    {
+      "path": "README_D8.md",
+      "bytes": 2489,
+      "sha256": "048ad1839d457b8c6f249b629e278eddcd42c657a4bfb9aefa8b2a79fbde81c2"
+    },
+    {
+      "path": "schema_D8.json",
+      "bytes": 1590,
+      "sha256": "35b5b0eedb9083c15251875e881304660f94cb19f6082e7393c436752e03a6ff"
+    },
+    {
+      "path": "src_D8/adapters_D8.mjs",
+      "bytes": 3738,
+      "sha256": "0109c1715640235ea7884baad6111a7d8f79d0e93ae6f7ef1bd5dc5467b9a34a"
+    },
+    {
+      "path": "src_D8/alignment_D8.mjs",
+      "bytes": 14307,
+      "sha256": "7392f34fa7a0e8ad4fcb14deaebc214708c0f6bdc5f830794ea63a14037472a6"
+    },
+    {
+      "path": "src_D8/cli_D8.mjs",
+      "bytes": 762,
+      "sha256": "04109b705b61962dfcded045a9811de9b0554c9e153afb441bccd176b3073d7b"
+    },
+    {
+      "path": "src_D8/matching_D8.mjs",
+      "bytes": 17179,
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d"
+    },
+    {
+      "path": "src_D8/run_public_D8.mjs",
+      "bytes": 2127,
+      "sha256": "d6adac42b0470c02ecec694a13d641cddcafd4b42f87a53c1f8dfd4e7f39d690"
+    },
+    {
+      "path": "tests_D8/compatibility_history_D8.mjs",
+      "bytes": 7970,
+      "sha256": "7bf6ddaa6e8a5fe17b31d115003a32315834f2fad9f8f8fef1d95bbf5a94930e"
+    },
+    {
+      "path": "tests_D8/compatibility_latest_D8.mjs",
+      "bytes": 6382,
+      "sha256": "f841839d29d2a72b79a2f62f2e20c29a6bc126cdf92542d2192202bd845fd88a"
+    },
+    {
+      "path": "tests_D8/fixtures_D8.mjs",
+      "bytes": 3226,
+      "sha256": "12705e22ce59c4979386db403038a21bf5c01138d17b9a24623c8982a0f096fe"
+    },
+    {
+      "path": "tests_D8/latest.test_D8.mjs",
+      "bytes": 8026,
+      "sha256": "9845fc2bb4a18ddd39cf9676c6857ddbc2278d7cf388a37c32172c2d87c1b11c"
+    },
+    {
+      "path": "tests_D8/rules.test_D8.mjs",
+      "bytes": 9518,
+      "sha256": "33897a1e0f442c96c59bbc66bea529cf04dff3d2d8bac299bf5e397cccc5fcc4"
+    },
+    {
+      "path": "来源清单_D8.json",
+      "bytes": 14925,
+      "sha256": "712b0d3a6a8443375845eb5cd31d9506b2cab8ab693cdde0edc0ff9dc8170429"
+    }
+  ],
+  "notes": [
+    "清单不含自身；ZIP由相同文件生成。",
+    "上游参考文件字节另见来源清单_D8.json。"
+  ]
+}

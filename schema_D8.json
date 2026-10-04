@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D8 event alignment result, separate from A v0.3 and D7 draft",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "rule_version", "status", "reason_codes", "explanation", "left", "right", "evidence", "context_signals", "may_compare", "next_action", "audit"],
+  "properties": {
+    "pair_id": {"type": "string"},
+    "schema_version": {"const": "event-alignment/0.1"},
+    "rule_version": {"const": "D8.1"},
+    "status": {"enum": ["same", "different", "unknown"]},
+    "reason_codes": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "explanation": {"type": "string", "minLength": 1},
+    "left": {"type": "object"},
+    "right": {"type": "object"},
+    "evidence": {"type": "array", "items": {"type": "object"}},
+    "context_signals": {"type": "array", "items": {"type": "object"}},
+    "may_compare": {"const": false},
+    "next_action": {"type": "string", "minLength": 1},
+    "audit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["input_mutated", "numeric_comparison_executed", "exchange_rate_applied", "source_pdf_bytes_verified", "automatic_entity_aliases", "transitive_grouping"],
+      "properties": {
+        "input_mutated": {"const": false}, "numeric_comparison_executed": {"const": false},
+        "exchange_rate_applied": {"const": false}, "source_pdf_bytes_verified": {"const": false},
+        "automatic_entity_aliases": {"const": false}, "transitive_grouping": {"const": false}
+      }
+    }
+  }
+}
