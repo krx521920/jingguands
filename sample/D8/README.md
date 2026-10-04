@@ -69,9 +69,33 @@
 
 ---
 
-## 四、怎么复现
+## 四、跨文件双侧出处（`pair_evidence.json`）
+
+`tools/build_pair_evidence.py` 对宗博文封存的 20 组配对，输出**双方各自的块级锚点**：
+共同的发行主体键及其出处块、各自的公告编号与日期候选、双方共同提到的主体名。
+
+**它输出的是关联判断的输入，不是结论。** 本文件不判定是否同一事件。
+
+### 与宗博文封存期望的对照（一次外部校验）
+
+| 期望关系 | 组数 | 主体键一致 | 说明 |
+| --- | ---: | ---: | --- |
+| `related` | 4 | **2** | 另 2 组因 `D5-EQC-003` 无主体键而漏判（已显式报告，未猜） |
+| `unrelated` | 16 | **0** | **零误报** |
+
+**16 组对照零误报**说明「证券代码」这个键在关联信号上是干净的 ——
+它不会把不相关的公告凑到一起。而 2 组 related 的漏判是**已知的键缺失**，
+不是键本身错误。
+
+**注意**：键一致只是**可核验的关联信号之一**，不等于同一事件。
+同公司两份不同事项的公告，键同样会一致。
+
+## 五、怎么复现
 
 ```bat
-set PYTHONPATH=src
 python tools\build_cross_index.py sample\D4\parse sample\D5\parse sample\D6\parse -o sample\D8\cross_index.json
+python tools\build_pair_evidence.py --index sample\D8\cross_index.json --pairs evaluation\sealed\cross-doc\manifest.json -o sample\D8\pair_evidence.json
 ```
+
+（`--pairs` 指向宗博文封存清单；该文件在 `zongbowen` 分支的
+`evaluation/sealed/cross-doc/manifest.json`。）

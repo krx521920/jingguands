@@ -1,0 +1,3768 @@
+{
+  "built_by": "张智博",
+  "day": "D8",
+  "purpose": "为跨文档配对输出双侧出处锚点（关联判断的输入，不是结论）",
+  "disclaimer": "本文件不判定是否同一事件；issuer_key_same 只是可核验的关联信号之一。",
+  "groups": [
+    {
+      "group_id": "D7-XDOC-001",
+      "expected_relation": "related",
+      "test_purpose": "same issuer/transaction association",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": true,
+      "shared_entities": [
+        "中国证券登记结算有限责任公司",
+        "为保证洛阳科创新材料股份有限公司",
+        "乙方应共同向中国证券登记结算有限责任公司",
+        "取得中国证券登记结算有限责任公司",
+        "应共同向中国证券登记结算有限责任公司",
+        "洛阳科创新材料股份有限公司",
+        "鉴于甲方为洛阳科创新材料股份有限公司"
+      ],
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "doc_id": "d9d5be14f",
+          "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "issuer_key": "code:920580",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2015-05-08": [
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p004_b00016",
+                    "page": 4,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p007_b00019",
+                    "page": 7,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p025_b00006",
+                    "page": 25,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p005_b00018",
+                    "page": 5,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p033_b00018",
+                    "page": 33,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "doc_id": "d46bc2ef0",
+          "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "issuer_key": "code:920580",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2015-05-08": [
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p004_b00016",
+                    "page": 4,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p007_b00019",
+                    "page": 7,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p025_b00006",
+                    "page": 25,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p005_b00018",
+                    "page": 5,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p033_b00018",
+                    "page": 33,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-04": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p050_b00007",
+                    "page": 50,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p031_b00004",
+                    "page": 31,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-08": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p016_b00009",
+                    "page": 16,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p018_b00007",
+                    "page": 18,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              }
+            ],
+            "2026-06-30": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p037_b00002",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p037_b00006",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p020_b00006",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d173fee90_p020_b00010",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-002",
+      "expected_relation": "related",
+      "test_purpose": "same issuer/transaction association",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [
+        "中国证券登记结算有限责任公司",
+        "京广能源集团有限公司",
+        "原名京广能源有限公司",
+        "原名库珀（天津）科技有限公司",
+        "国海证券股份有限公司",
+        "天源资产评估有限公司",
+        "库珀(江苏)智能装备有限公司",
+        "库珀新能源股份有限公司",
+        "库珀（山东）科技有限公司",
+        "库珀（江苏）新能源有限公司",
+        "庫珀科技集團有限公司",
+        "根据天源资产评估有限公司"
+      ],
+      "sides": [
+        {
+          "case_id": "D5-EQC-002",
+          "doc_id": "d46bc2ef0",
+          "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "issuer_key": "code:920580",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2015-05-08": [
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p004_b00016",
+                    "page": 4,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p007_b00019",
+                    "page": 7,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p025_b00006",
+                    "page": 25,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p005_b00018",
+                    "page": 5,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p033_b00018",
+                    "page": 33,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-04": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p050_b00007",
+                    "page": 50,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p031_b00004",
+                    "page": 31,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-08": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p016_b00009",
+                    "page": 16,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p018_b00007",
+                    "page": 18,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              }
+            ],
+            "2026-06-30": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p037_b00002",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p037_b00006",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p020_b00006",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d173fee90_p020_b00010",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "doc_id": "d173fee90",
+          "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+          "issuer_key": null,
+          "issuer_basis": null,
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2015-05-08": [
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p004_b00016",
+                    "page": 4,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p007_b00019",
+                    "page": 7,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p025_b00006",
+                    "page": 25,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p005_b00018",
+                    "page": 5,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p033_b00018",
+                    "page": 33,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-04": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p050_b00007",
+                    "page": 50,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p031_b00004",
+                    "page": 31,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-08": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p016_b00009",
+                    "page": 16,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p018_b00007",
+                    "page": 18,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              }
+            ],
+            "2026-06-30": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p037_b00002",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p037_b00006",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p020_b00006",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d173fee90_p020_b00010",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-003",
+      "expected_relation": "related",
+      "test_purpose": "same issuer/transaction association",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [
+        "中国证券登记结算有限责任公司",
+        "洛阳科创新材料股份有限公司"
+      ],
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "doc_id": "d9d5be14f",
+          "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "issuer_key": "code:920580",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2015-05-08": [
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p004_b00016",
+                    "page": 4,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p007_b00019",
+                    "page": 7,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p025_b00006",
+                    "page": 25,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p005_b00018",
+                    "page": 5,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p033_b00018",
+                    "page": 33,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "doc_id": "d173fee90",
+          "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+          "issuer_key": null,
+          "issuer_basis": null,
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2015-05-08": [
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p004_b00016",
+                    "page": 4,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p007_b00019",
+                    "page": 7,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p025_b00006",
+                    "page": 25,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p005_b00018",
+                    "page": 5,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p033_b00018",
+                    "page": 33,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-04": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p050_b00007",
+                    "page": 50,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p031_b00004",
+                    "page": 31,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-08": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p016_b00009",
+                    "page": 16,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p018_b00007",
+                    "page": 18,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              }
+            ],
+            "2026-06-30": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p037_b00002",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p037_b00006",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p020_b00006",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d173fee90_p020_b00010",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-004",
+      "expected_relation": "related",
+      "test_purpose": "same issuer/transfer association",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": true,
+      "shared_entities": [
+        "丽水）合伙企业（有限合伙）关于浙江海正药业股份有限公司",
+        "并在中国证券登记结算有限责任公司",
+        "浙江海正药业股份有限公司",
+        "浙江省国际贸易集团有限公司"
+      ],
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "doc_id": "da00b31da",
+          "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+          "issuer_key": "code:600267",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-22": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00029",
+                    "page": 1,
+                    "quote": "2026-09-22"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p001_b00014",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00017",
+                    "page": 2,
+                    "quote": "2026/9/22"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00044",
+                    "page": 2,
+                    "quote": "2026年9月22日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-27": [
+              {
+                "case_id": "D5-EQC-004",
+                "hits": [
+                  {
+                    "block_id": "da00b31da_p001_b00006",
+                    "page": 1,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p009_b00024",
+                    "page": 9,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p017_b00005",
+                    "page": 17,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p021_b00005",
+                    "page": 21,
+                    "quote": "2026年9月27日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-005",
+                "hits": [
+                  {
+                    "block_id": "da8d294d2_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p008_b00022",
+                    "page": 8,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p015_b00006",
+                    "page": 15,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p016_b00004",
+                    "page": 16,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p018_b00004",
+                    "page": 18,
+                    "quote": "2026年9月27日"
+                  }
+                ]
+              }
+            ],
+            "2033-09-21": [
+              {
+                "case_id": "D5-EQC-004",
+                "hits": [
+                  {
+                    "block_id": "da00b31da_p005_b00021",
+                    "page": 5,
+                    "quote": "2033年09月21日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "doc_id": "da8d294d2",
+          "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+          "issuer_key": "code:600267",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2008-02-14": [
+              {
+                "case_id": "D5-EQC-005",
+                "hits": [
+                  {
+                    "block_id": "da8d294d2_p005_b00004",
+                    "page": 5,
+                    "quote": "2008-02-14"
+                  },
+                  {
+                    "block_id": "da8d294d2_p005_b00004",
+                    "page": 5,
+                    "quote": "2008-02-14"
+                  }
+                ]
+              }
+            ],
+            "2026-09-27": [
+              {
+                "case_id": "D5-EQC-004",
+                "hits": [
+                  {
+                    "block_id": "da00b31da_p001_b00006",
+                    "page": 1,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p009_b00024",
+                    "page": 9,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p017_b00005",
+                    "page": 17,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p021_b00005",
+                    "page": 21,
+                    "quote": "2026年9月27日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-005",
+                "hits": [
+                  {
+                    "block_id": "da8d294d2_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p008_b00022",
+                    "page": 8,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p015_b00006",
+                    "page": 15,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p016_b00004",
+                    "page": 16,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p018_b00004",
+                    "page": 18,
+                    "quote": "2026年9月27日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-005",
+      "expected_relation": "unrelated",
+      "test_purpose": "cross-type context control",
+      "members": [
+        "D4-PLD-001",
+        "D5-EQC-001",
+        "D6-AWD-001"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "doc_id": "d44e95085",
+          "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "issuer_key": "code:300552",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-25": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p002_b00027",
+                    "page": 2,
+                    "quote": "2026年09月25日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p003_b00002",
+                    "page": 3,
+                    "quote": "2026年9月25日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-001",
+          "doc_id": "d9d5be14f",
+          "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "issuer_key": "code:920580",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2015-05-08": [
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p004_b00016",
+                    "page": 4,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p007_b00019",
+                    "page": 7,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p025_b00006",
+                    "page": 25,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p005_b00018",
+                    "page": 5,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p033_b00018",
+                    "page": 33,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "doc_id": "dc1c912b9",
+          "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+          "issuer_key": "code:301601",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-08-21": [
+              {
+                "case_id": "D6-AWD-001",
+                "hits": [
+                  {
+                    "block_id": "dc1c912b9_p001_b00009",
+                    "page": 1,
+                    "quote": "2026年8月21日"
+                  }
+                ]
+              }
+            ],
+            "2026-08-24": [
+              {
+                "case_id": "D6-AWD-001",
+                "hits": [
+                  {
+                    "block_id": "dc1c912b9_p001_b00008",
+                    "page": 1,
+                    "quote": "2026年8月24日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-26": [
+              {
+                "case_id": "D6-AWD-001",
+                "hits": [
+                  {
+                    "block_id": "dc1c912b9_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月26日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-006",
+      "expected_relation": "unrelated",
+      "test_purpose": "cross-type context control",
+      "members": [
+        "D4-PLD-003",
+        "D5-EQC-004",
+        "D6-AWD-003"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-003",
+          "doc_id": "d36105cfd",
+          "file_id": "sha256:36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+          "issuer_key": "code:002036",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-004",
+          "doc_id": "da00b31da",
+          "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+          "issuer_key": "code:600267",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-22": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00029",
+                    "page": 1,
+                    "quote": "2026-09-22"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p001_b00014",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00017",
+                    "page": 2,
+                    "quote": "2026/9/22"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00044",
+                    "page": 2,
+                    "quote": "2026年9月22日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-27": [
+              {
+                "case_id": "D5-EQC-004",
+                "hits": [
+                  {
+                    "block_id": "da00b31da_p001_b00006",
+                    "page": 1,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p009_b00024",
+                    "page": 9,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p017_b00005",
+                    "page": 17,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p021_b00005",
+                    "page": 21,
+                    "quote": "2026年9月27日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-005",
+                "hits": [
+                  {
+                    "block_id": "da8d294d2_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p008_b00022",
+                    "page": 8,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p015_b00006",
+                    "page": 15,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p016_b00004",
+                    "page": 16,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p018_b00004",
+                    "page": 18,
+                    "quote": "2026年9月27日"
+                  }
+                ]
+              }
+            ],
+            "2033-09-21": [
+              {
+                "case_id": "D5-EQC-004",
+                "hits": [
+                  {
+                    "block_id": "da00b31da_p005_b00021",
+                    "page": 5,
+                    "quote": "2033年09月21日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-003",
+          "doc_id": "d0b56135e",
+          "file_id": "sha256:0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+          "issuer_key": "code:688009",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-25": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p002_b00027",
+                    "page": 2,
+                    "quote": "2026年09月25日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p003_b00002",
+                    "page": 3,
+                    "quote": "2026年9月25日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-007",
+      "expected_relation": "unrelated",
+      "test_purpose": "cross-type context control",
+      "members": [
+        "D4-PLD-005",
+        "D5-EQC-006",
+        "D6-AWD-006"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-005",
+          "doc_id": "d5bf0524f",
+          "file_id": "sha256:5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+          "issuer_key": "code:300251",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2025-10-30": [
+              {
+                "case_id": "D4-PLD-005",
+                "hits": [
+                  {
+                    "block_id": "d5bf0524f_p001_b00046",
+                    "page": 1,
+                    "quote": "2025/10/30"
+                  }
+                ]
+              }
+            ],
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ],
+            "2027-09-23": [
+              {
+                "case_id": "D4-PLD-005",
+                "hits": [
+                  {
+                    "block_id": "d5bf0524f_p001_b00029",
+                    "page": 1,
+                    "quote": "2027/9/23"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00013",
+                    "page": 1,
+                    "quote": "2027年9月23日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00029",
+                    "page": 2,
+                    "quote": "2027/9/23"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "doc_id": "d97e2cfab",
+          "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+          "issuer_key": "code:002541",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2020-11-02": [
+              {
+                "case_id": "D5-EQC-006",
+                "hits": [
+                  {
+                    "block_id": "d97e2cfab_p001_b00011",
+                    "page": 1,
+                    "quote": "2020年11月2日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-22": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00029",
+                    "page": 1,
+                    "quote": "2026-09-22"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p001_b00014",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00017",
+                    "page": 2,
+                    "quote": "2026/9/22"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00044",
+                    "page": 2,
+                    "quote": "2026年9月22日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-006",
+          "doc_id": "dfc6c3d84",
+          "file_id": "sha256:fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
+          "issuer_key": "code:600846",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {}
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-008",
+      "expected_relation": "unrelated",
+      "test_purpose": "cross-type context control",
+      "members": [
+        "D4-PLD-007",
+        "D5-EQC-008",
+        "D6-AWD-008"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-007",
+          "doc_id": "da204c717",
+          "file_id": "sha256:a204c717003092451d007754d55fcf05b9da0767d27b26f9d18545a714276a0c",
+          "issuer_key": "code:603826",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-008",
+          "doc_id": "daf34725a",
+          "file_id": "sha256:af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695",
+          "issuer_key": "code:603650",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-29": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p002_b00014",
+                    "page": 2,
+                    "quote": "2026年9月29日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p010_b00012",
+                    "page": 10,
+                    "quote": "2026年9月29日"
+                  },
+                  {
+                    "block_id": "d3d00372c_p016_b00030",
+                    "page": 16,
+                    "quote": "2026年9月29日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-008",
+          "doc_id": "daa9b83fa",
+          "file_id": "sha256:aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+          "issuer_key": "code:300355",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-15": [
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p001_b00010",
+                    "page": 1,
+                    "quote": "2026年9月15日"
+                  },
+                  {
+                    "block_id": "d74b527f3_p002_b00024",
+                    "page": 2,
+                    "quote": "2026年9月15日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p015_b00013",
+                    "page": 15,
+                    "quote": "2026年9月15日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-009",
+      "expected_relation": "unrelated",
+      "test_purpose": "cross-type context control",
+      "members": [
+        "D4-PLD-009",
+        "D5-EQC-010",
+        "D6-AWD-010"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-009",
+          "doc_id": "d1320340e",
+          "file_id": "sha256:1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+          "issuer_key": "code:600885",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2025-09-23": [
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00011",
+                    "page": 1,
+                    "quote": "2025年9月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-22": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00029",
+                    "page": 1,
+                    "quote": "2026-09-22"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p001_b00014",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00017",
+                    "page": 2,
+                    "quote": "2026/9/22"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00044",
+                    "page": 2,
+                    "quote": "2026年9月22日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-25": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p002_b00027",
+                    "page": 2,
+                    "quote": "2026年09月25日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p003_b00002",
+                    "page": 3,
+                    "quote": "2026年9月25日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-010",
+          "doc_id": "dd2c6e0d0",
+          "file_id": "sha256:d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
+          "issuer_key": "code:001206",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-29": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p002_b00014",
+                    "page": 2,
+                    "quote": "2026年9月29日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p010_b00012",
+                    "page": 10,
+                    "quote": "2026年9月29日"
+                  },
+                  {
+                    "block_id": "d3d00372c_p016_b00030",
+                    "page": 16,
+                    "quote": "2026年9月29日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-010",
+          "doc_id": "d74b68381",
+          "file_id": "sha256:74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702",
+          "issuer_key": "code:301500",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-010",
+      "expected_relation": "unrelated",
+      "test_purpose": "same-type batch control",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "doc_id": "d44e95085",
+          "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "issuer_key": "code:300552",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-25": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p002_b00027",
+                    "page": 2,
+                    "quote": "2026年09月25日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p003_b00002",
+                    "page": 3,
+                    "quote": "2026年9月25日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "doc_id": "d16c6a948",
+          "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+          "issuer_key": "code:603169",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-29": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p002_b00014",
+                    "page": 2,
+                    "quote": "2026年9月29日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p010_b00012",
+                    "page": 10,
+                    "quote": "2026年9月29日"
+                  },
+                  {
+                    "block_id": "d3d00372c_p016_b00030",
+                    "page": 16,
+                    "quote": "2026年9月29日"
+                  }
+                ]
+              }
+            ],
+            "2028-09-23": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00029",
+                    "page": 1,
+                    "quote": "2028年9月23日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-011",
+      "expected_relation": "unrelated",
+      "test_purpose": "same-type batch control",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-003",
+          "doc_id": "d36105cfd",
+          "file_id": "sha256:36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+          "issuer_key": "code:002036",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "doc_id": "d62f9a650",
+          "file_id": "sha256:62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
+          "issuer_key": "code:000035",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-012",
+      "expected_relation": "unrelated",
+      "test_purpose": "same-type batch control",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D5-EQC-006",
+          "doc_id": "d97e2cfab",
+          "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+          "issuer_key": "code:002541",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2020-11-02": [
+              {
+                "case_id": "D5-EQC-006",
+                "hits": [
+                  {
+                    "block_id": "d97e2cfab_p001_b00011",
+                    "page": 1,
+                    "quote": "2020年11月2日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-22": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00029",
+                    "page": 1,
+                    "quote": "2026-09-22"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p001_b00014",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00017",
+                    "page": 2,
+                    "quote": "2026/9/22"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00044",
+                    "page": 2,
+                    "quote": "2026年9月22日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "doc_id": "d3d00372c",
+          "file_id": "sha256:3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+          "issuer_key": "code:600400",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2001-02-12": [
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p007_b00001",
+                    "page": 7,
+                    "quote": "2001年2月12日"
+                  },
+                  {
+                    "block_id": "d3d00372c_p007_b00001",
+                    "page": 7,
+                    "quote": "2001年2月12日"
+                  }
+                ]
+              }
+            ],
+            "2021-11-11": [
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p006_b00005",
+                    "page": 6,
+                    "quote": "2021年11月11日"
+                  },
+                  {
+                    "block_id": "d3d00372c_p006_b00005",
+                    "page": 6,
+                    "quote": "2021年11月11日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-20": [
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p010_b00006",
+                    "page": 10,
+                    "quote": "2026年9月20日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-21": [
+              {
+                "case_id": "D4-PLD-010",
+                "hits": [
+                  {
+                    "block_id": "db2351d0b_p002_b00017",
+                    "page": 2,
+                    "quote": "2026年9月21日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p010_b00006",
+                    "page": 10,
+                    "quote": "2026年9月21日"
+                  },
+                  {
+                    "block_id": "d3d00372c_p010_b00008",
+                    "page": 10,
+                    "quote": "2026/09/21"
+                  },
+                  {
+                    "block_id": "d3d00372c_p010_b00010",
+                    "page": 10,
+                    "quote": "2026/09/21"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-013",
+      "expected_relation": "unrelated",
+      "test_purpose": "same-type batch control",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D6-AWD-001",
+          "doc_id": "dc1c912b9",
+          "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+          "issuer_key": "code:301601",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-08-21": [
+              {
+                "case_id": "D6-AWD-001",
+                "hits": [
+                  {
+                    "block_id": "dc1c912b9_p001_b00009",
+                    "page": 1,
+                    "quote": "2026年8月21日"
+                  }
+                ]
+              }
+            ],
+            "2026-08-24": [
+              {
+                "case_id": "D6-AWD-001",
+                "hits": [
+                  {
+                    "block_id": "dc1c912b9_p001_b00008",
+                    "page": 1,
+                    "quote": "2026年8月24日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-26": [
+              {
+                "case_id": "D6-AWD-001",
+                "hits": [
+                  {
+                    "block_id": "dc1c912b9_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月26日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "doc_id": "dc0a3d5fb",
+          "file_id": "sha256:c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+          "issuer_key": "code:300411",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {}
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-014",
+      "expected_relation": "unrelated",
+      "test_purpose": "same-type batch control",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D6-AWD-008",
+          "doc_id": "daa9b83fa",
+          "file_id": "sha256:aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+          "issuer_key": "code:300355",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-15": [
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p001_b00010",
+                    "page": 1,
+                    "quote": "2026年9月15日"
+                  },
+                  {
+                    "block_id": "d74b527f3_p002_b00024",
+                    "page": 2,
+                    "quote": "2026年9月15日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p015_b00013",
+                    "page": 15,
+                    "quote": "2026年9月15日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "doc_id": "d3aa23f9a",
+          "file_id": "sha256:3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+          "issuer_key": "code:603081",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-015",
+      "expected_relation": "unrelated",
+      "test_purpose": "negative control",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-006",
+          "doc_id": "d3fbd8497",
+          "file_id": "sha256:3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+          "issuer_key": "code:600381",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-22": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00029",
+                    "page": 1,
+                    "quote": "2026-09-22"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p001_b00014",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00017",
+                    "page": 2,
+                    "quote": "2026/9/22"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00044",
+                    "page": 2,
+                    "quote": "2026年9月22日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ],
+            "2027-03-17": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p002_b00031",
+                    "page": 2,
+                    "quote": "2027-03-17"
+                  }
+                ]
+              }
+            ],
+            "2029-09-18": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00030",
+                    "page": 1,
+                    "quote": "2029-09-18"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "doc_id": "d97e2cfab",
+          "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+          "issuer_key": "code:002541",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2020-11-02": [
+              {
+                "case_id": "D5-EQC-006",
+                "hits": [
+                  {
+                    "block_id": "d97e2cfab_p001_b00011",
+                    "page": 1,
+                    "quote": "2020年11月2日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-22": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00029",
+                    "page": 1,
+                    "quote": "2026-09-22"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p001_b00014",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00017",
+                    "page": 2,
+                    "quote": "2026/9/22"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00044",
+                    "page": 2,
+                    "quote": "2026年9月22日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-28": [
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p002_b00016",
+                    "page": 2,
+                    "quote": "2026年09月28日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p032_b00014",
+                    "page": 32,
+                    "quote": "2026 年 9 月 28 日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p035_b00015",
+                    "page": 35,
+                    "quote": "2026 年 9 月 28 日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-016",
+      "expected_relation": "unrelated",
+      "test_purpose": "negative control",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-008",
+          "doc_id": "d74b527f3",
+          "file_id": "sha256:74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+          "issuer_key": "code:603261",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-15": [
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p001_b00010",
+                    "page": 1,
+                    "quote": "2026年9月15日"
+                  },
+                  {
+                    "block_id": "d74b527f3_p002_b00024",
+                    "page": 2,
+                    "quote": "2026年9月15日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p015_b00013",
+                    "page": 15,
+                    "quote": "2026年9月15日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-25": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p002_b00027",
+                    "page": 2,
+                    "quote": "2026年09月25日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p003_b00002",
+                    "page": 3,
+                    "quote": "2026年9月25日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "doc_id": "d3a6938fe",
+          "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+          "issuer_key": "code:601886",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-017",
+      "expected_relation": "unrelated",
+      "test_purpose": "negative control",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D5-EQC-009",
+          "doc_id": "d31d2e428",
+          "file_id": "sha256:31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+          "issuer_key": "code:688221",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2020-10-28": [
+              {
+                "case_id": "D5-EQC-009",
+                "hits": [
+                  {
+                    "block_id": "d31d2e428_p007_b00003",
+                    "page": 7,
+                    "quote": "2020年10月28日"
+                  },
+                  {
+                    "block_id": "d31d2e428_p014_b00026",
+                    "page": 14,
+                    "quote": "2020年10月28日"
+                  }
+                ]
+              }
+            ],
+            "2022-09-20": [
+              {
+                "case_id": "D5-EQC-009",
+                "hits": [
+                  {
+                    "block_id": "d31d2e428_p007_b00005",
+                    "page": 7,
+                    "quote": "2022年9月20日"
+                  },
+                  {
+                    "block_id": "d31d2e428_p014_b00026",
+                    "page": 14,
+                    "quote": "2022年9月20日"
+                  }
+                ]
+              }
+            ],
+            "2026-07-11": [
+              {
+                "case_id": "D5-EQC-009",
+                "hits": [
+                  {
+                    "block_id": "d31d2e428_p006_b00007",
+                    "page": 6,
+                    "quote": "2026年7月11日"
+                  },
+                  {
+                    "block_id": "d31d2e428_p007_b00007",
+                    "page": 7,
+                    "quote": "2026年7月11日"
+                  }
+                ]
+              }
+            ],
+            "2026-08-03": [
+              {
+                "case_id": "D5-EQC-009",
+                "hits": [
+                  {
+                    "block_id": "d31d2e428_p006_b00008",
+                    "page": 6,
+                    "quote": "2026年8月3日"
+                  },
+                  {
+                    "block_id": "d31d2e428_p007_b00008",
+                    "page": 7,
+                    "quote": "2026年8月3日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "doc_id": "ddd80cf89",
+          "file_id": "sha256:dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+          "issuer_key": "code:300022",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2011-05-13": [
+              {
+                "case_id": "D6-AWD-005",
+                "hits": [
+                  {
+                    "block_id": "ddd80cf89_p001_b00016",
+                    "page": 1,
+                    "quote": "2011-05-13"
+                  }
+                ]
+              }
+            ],
+            "2026-08-28": [
+              {
+                "case_id": "D6-AWD-005",
+                "hits": [
+                  {
+                    "block_id": "ddd80cf89_p001_b00005",
+                    "page": 1,
+                    "quote": "2026年8月28日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-018",
+      "expected_relation": "unrelated",
+      "test_purpose": "negative control",
+      "members": [
+        "D4-PLD-010",
+        "D5-EQC-004"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-010",
+          "doc_id": "db2351d0b",
+          "file_id": "sha256:b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
+          "issuer_key": "code:605376",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-21": [
+              {
+                "case_id": "D4-PLD-010",
+                "hits": [
+                  {
+                    "block_id": "db2351d0b_p002_b00017",
+                    "page": 2,
+                    "quote": "2026年9月21日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p010_b00006",
+                    "page": 10,
+                    "quote": "2026年9月21日"
+                  },
+                  {
+                    "block_id": "d3d00372c_p010_b00008",
+                    "page": 10,
+                    "quote": "2026/09/21"
+                  },
+                  {
+                    "block_id": "d3d00372c_p010_b00010",
+                    "page": 10,
+                    "quote": "2026/09/21"
+                  }
+                ]
+              }
+            ],
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-25": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p002_b00027",
+                    "page": 2,
+                    "quote": "2026年09月25日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-008",
+                "hits": [
+                  {
+                    "block_id": "d74b527f3_p003_b00002",
+                    "page": 3,
+                    "quote": "2026年9月25日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D5-EQC-004",
+          "doc_id": "da00b31da",
+          "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+          "issuer_key": "code:600267",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-22": [
+              {
+                "case_id": "D4-PLD-006",
+                "hits": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00029",
+                    "page": 1,
+                    "quote": "2026-09-22"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-009",
+                "hits": [
+                  {
+                    "block_id": "d1320340e_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p001_b00014",
+                    "page": 1,
+                    "quote": "2026年9月22日"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00017",
+                    "page": 2,
+                    "quote": "2026/9/22"
+                  },
+                  {
+                    "block_id": "d1320340e_p002_b00044",
+                    "page": 2,
+                    "quote": "2026年9月22日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-27": [
+              {
+                "case_id": "D5-EQC-004",
+                "hits": [
+                  {
+                    "block_id": "da00b31da_p001_b00006",
+                    "page": 1,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p009_b00024",
+                    "page": 9,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p017_b00005",
+                    "page": 17,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da00b31da_p021_b00005",
+                    "page": 21,
+                    "quote": "2026年9月27日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-005",
+                "hits": [
+                  {
+                    "block_id": "da8d294d2_p001_b00012",
+                    "page": 1,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p008_b00022",
+                    "page": 8,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p015_b00006",
+                    "page": 15,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p016_b00004",
+                    "page": 16,
+                    "quote": "2026年9月27日"
+                  },
+                  {
+                    "block_id": "da8d294d2_p018_b00004",
+                    "page": 18,
+                    "quote": "2026年9月27日"
+                  }
+                ]
+              }
+            ],
+            "2033-09-21": [
+              {
+                "case_id": "D5-EQC-004",
+                "hits": [
+                  {
+                    "block_id": "da00b31da_p005_b00021",
+                    "page": 5,
+                    "quote": "2033年09月21日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-019",
+      "expected_relation": "unrelated",
+      "test_purpose": "negative control",
+      "members": [
+        "D5-EQC-003",
+        "D6-AWD-004"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D5-EQC-003",
+          "doc_id": "d173fee90",
+          "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+          "issuer_key": null,
+          "issuer_basis": null,
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2015-05-08": [
+              {
+                "case_id": "D5-EQC-001",
+                "hits": [
+                  {
+                    "block_id": "d9d5be14f_p004_b00016",
+                    "page": 4,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p007_b00019",
+                    "page": 7,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d9d5be14f_p025_b00006",
+                    "page": 25,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p005_b00018",
+                    "page": 5,
+                    "quote": "2015年5月8日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p033_b00018",
+                    "page": 33,
+                    "quote": "2015年5月8日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-04": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p050_b00007",
+                    "page": 50,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p031_b00004",
+                    "page": 31,
+                    "quote": "2025年9月4日"
+                  }
+                ]
+              }
+            ],
+            "2025-09-08": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p016_b00009",
+                    "page": 16,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p018_b00007",
+                    "page": 18,
+                    "quote": "2025年9月8日"
+                  }
+                ]
+              }
+            ],
+            "2026-06-30": [
+              {
+                "case_id": "D5-EQC-002",
+                "hits": [
+                  {
+                    "block_id": "d46bc2ef0_p037_b00002",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d46bc2ef0_p037_b00006",
+                    "page": 37,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-003",
+                "hits": [
+                  {
+                    "block_id": "d173fee90_p020_b00006",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  },
+                  {
+                    "block_id": "d173fee90_p020_b00010",
+                    "page": 20,
+                    "quote": "2026年6月30日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-004",
+          "doc_id": "d0be9f419",
+          "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+          "issuer_key": "code:301235",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "D7-XDOC-020",
+      "expected_relation": "unrelated",
+      "test_purpose": "negative control",
+      "members": [
+        "D4-PLD-002",
+        "D6-AWD-010"
+      ],
+      "missing_parse": [],
+      "issuer_key_same": false,
+      "shared_entities": [],
+      "sides": [
+        {
+          "case_id": "D4-PLD-002",
+          "doc_id": "d16c6a948",
+          "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+          "issuer_key": "code:603169",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-24": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00028",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-003",
+                "hits": [
+                  {
+                    "block_id": "d36105cfd_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年9月24日"
+                  }
+                ]
+              }
+            ],
+            "2026-09-29": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p002_b00014",
+                    "page": 2,
+                    "quote": "2026年9月29日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D5-EQC-007",
+                "hits": [
+                  {
+                    "block_id": "d3d00372c_p010_b00012",
+                    "page": 10,
+                    "quote": "2026年9月29日"
+                  },
+                  {
+                    "block_id": "d3d00372c_p016_b00030",
+                    "page": 16,
+                    "quote": "2026年9月29日"
+                  }
+                ]
+              }
+            ],
+            "2028-09-23": [
+              {
+                "case_id": "D4-PLD-002",
+                "hits": [
+                  {
+                    "block_id": "d16c6a948_p001_b00029",
+                    "page": 1,
+                    "quote": "2028年9月23日"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "D6-AWD-010",
+          "doc_id": "d74b68381",
+          "file_id": "sha256:74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702",
+          "issuer_key": "code:301500",
+          "issuer_basis": "证券代码",
+          "issuer_anchors": [],
+          "notice_numbers": {},
+          "date_candidates": {
+            "2026-09-23": [
+              {
+                "case_id": "D4-PLD-001",
+                "hits": [
+                  {
+                    "block_id": "d44e95085_p001_b00030",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00040",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  },
+                  {
+                    "block_id": "d44e95085_p001_b00050",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              },
+              {
+                "case_id": "D4-PLD-004",
+                "hits": [
+                  {
+                    "block_id": "d62f9a650_p001_b00026",
+                    "page": 1,
+                    "quote": "2026年09月23日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
