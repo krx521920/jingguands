@@ -27,8 +27,15 @@
       "open": "needs wei to add a group-level entry point (--matcher only swaps field alignment)"
     },
     "chenjiahui": {
-      "status": "not_delivered",
-      "expected": "多文件上传＋事件分组＋双栏原文页（须显示双侧版本）"
+      "status": "delivered",
+      "commit": "6bfb9625e4f5bde6f25188aa9fb01980b373746b",
+      "deliverable": "GET /api/pairs + render/pairs.js 配对视图（双栏双侧元数据、raw/gold 哈希前12位、本地锚点、三态徽章、诚实边界横幅）",
+      "verified_by_zong": {
+        "manifest_identity": "与 evaluation/D8/pairs/pairs.dev30.json v0.2 逐组一致（13/13 expected_relation 相同；PAIR-003 basis 已是更正版；EQC-002 notice_number=null + referenced=[2025-097]）",
+        "three_state_render": "unknown → 「证据不足 · 无法判定」，结构上禁止渲染为不同事件",
+        "null_notice_render": "null → 「—（首页无本文件编号）」+「正文引用编号 …（非本文件编号）」"
+      },
+      "finding": "页面横幅与卡片仅覆盖 13 组开发集（4 同事件）；未包含魏方演示补料的「同公司不同事件」组 D8-DEMO-003，而宗侧演示脚本第5步依赖该组"
     },
     "zongbowen": {
       "status": "delivered",
@@ -50,13 +57,14 @@
         "different_event": "8/8 clean",
         "insufficient": "1/1",
         "reference": "evaluation/D8/reference/score-result-20261004.json"
-      }
+      },
+      "demo_script_dependency": "D8-DEMO-003 (鸿路钢构 09-22/23 × 09-30, 同主体+同持股数仍判 unrelated)"
     }
   },
   "interface_chain": "zong pairs -> zhang index -> fang/wei align -> wei B output -> chen UI",
   "pending": [
     "wei: add group-level three-state entry (fang explainGroup/alignDocuments) before numeric branches",
-    "chen: multi-file grouping UI",
+    "chen: extend pairs view to include the 3 demo groups (esp. D8-DEMO-003 for the 同公司不同事件 path) or align demo script to the 13-group page",
     "wei: D7 gold snapshot re-sync"
   ],
   "demo_decision": {
