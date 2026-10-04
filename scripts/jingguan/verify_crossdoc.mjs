@@ -20,22 +20,37 @@
  *   node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir runs/batch-XXX/envelopes \
  *     --manifest corpus/zongbowen/sealed/cross-doc-manifest.json [--out report.json] [--expect]
  * --expect：按 manifest 的 expected_relation 判分（封存回放模式），全对 exit 0。
+ *
+ * D08-1 B 流程契约（验收三条）：
+ *   B1 B 仅使用带出处的结构化字段：进入核验的字段必须 status=extracted 且 provenance 含
+ *      block_id 或 quote——无出处的字段不参与 B（排除数记入 fields_excluded），B 从不
+ *      重新生成/推断字段值（复用 A 结果）。
+ *   B2 对齐失败返回原因：unrelated 判定携带 reasons[]（NO_SHARED_ENTITY/NO_SHARED_ANCHOR/
+ *      NO_REVERSE_MATCH/INSUFFICIENT_SIGNALS{E,A}）；部分覆盖带 PARTIAL_* 原因。
+ *   B3 A/B 运行记录可关联：report.b_run 为本次 B 运行标识；a_run_links[] 逐成员记录
+ *      A 侧 run_id/code_version/schema_version/is_mock。
+ *
+ * 可插拔对齐器（对接方轩诚 D08-4 matching v1）：--matcher <path.mjs> 加载导出
+ *   alignEvents(envA, envB) => [{entityA, entityB, field, valueA, valueB, quoteA, quoteB}]
+ * 的模块替代内置事件对齐（关联判定信号不变）；缺省用内置 nameEq 对齐。
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 
 function parseArgs(argv) {
-  const a = { envelopesDir: null, manifest: null, out: null, expect: false }
+  const a = { envelopesDir: null, manifest: null, out: null, expect: false, matcher: null }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--envelopes-dir') a.envelopesDir = argv[++i]
     else if (argv[i] === '--manifest') a.manifest = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
     else if (argv[i] === '--expect') a.expect = true
+    else if (argv[i] === '--matcher') a.matcher = argv[++i]
   }
   if (!a.envelopesDir || !a.manifest) {
-    console.log('用法：node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <dir> --manifest <跨文档manifest> [--out report.json] [--expect]')
+    console.log('用法：node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <dir> --manifest <跨文档manifest> [--out report.json] [--expect] [--matcher <module>]')
     process.exit(2)
   }
   return a
@@ -54,11 +69,32 @@ function nameEq(x, y) {
 const ENTITY_FIELDS = ['holder', 'pledgor', 'pledgee', 'bidder', 'tenderer']
 const NUMERIC_FIELDS = new Set(['shares_before', 'shares_after', 'change_shares', 'pledged_shares_this_time', 'pledged_shares_cumulative', 'bid_amount', 'pledge_amount', 'recognized_revenue'])
 
+/** B1：字段可用性——extracted 且出处含 block_id 或 quote（B 只消费带出处的 A 字段）。 */
+function usableField(f) {
+  if (f?.status !== 'extracted') return false
+  return (f.provenance ?? []).some((p) => (p.block_id !== null && p.block_id !== undefined) || (typeof p.quote === 'string' && p.quote.trim().length > 0))
+}
+
+/** 逐信封统计可用/排除字段数（进 report.fields_excluded）。 */
+function fieldUsability(env) {
+  let usable = 0, excluded = 0
+  for (const ev of env.events ?? []) {
+    for (const [, f] of Object.entries(ev.fields ?? {})) {
+      if (f?.status !== 'extracted') continue
+      if (usableField(f)) usable++
+      else excluded++
+    }
+  }
+  return { usable, excluded }
+}
+
 function entitiesOf(env) {
   const out = new Set()
   for (const ev of env.events ?? []) {
     for (const k of ENTITY_FIELDS) {
-      const v = ev.fields?.[k]?.value
+      const f = ev.fields?.[k]
+      if (!usableField(f)) continue // B1：无出处的字段不进 B
+      const v = f.value
       if (typeof v === 'string' && v.length >= 2) {
         for (const part of v.split(/[、和，,]/)) {
           const t = part.trim()
@@ -77,6 +113,7 @@ function anchorsOf(env, direction) {
     const d = ev.fields?.direction?.value
     if (direction !== null && d !== undefined && d !== direction) continue
     for (const [k, f] of Object.entries(ev.fields ?? {})) {
+      if (!usableField(f)) continue // B1：无出处的字段不进 B
       const v = f?.value
       if (typeof v === 'number' && v >= 100000 && NUMERIC_FIELDS.has(k) && v % 10000 !== 0) out.add(v)
     }
@@ -98,6 +135,7 @@ function entityFieldMap(env) {
     for (const t of entities) {
       for (const [k, f] of Object.entries(ev.fields ?? {})) {
         if (!NUMERIC_FIELDS.has(k)) continue
+        if (!usableField(f)) continue // B1：无出处的字段不进 B
         const v = f?.value
         if (typeof v !== 'number') continue
         const key = `${t}|${k}`
@@ -109,7 +147,16 @@ function entityFieldMap(env) {
 }
 
 // ---------- 单组核验 ----------
-function verifyGroup(group, envelopes) {
+function verifyGroup(group, envelopes, matcherFn = null) {
+  // B3：逐成员 A 侧运行标识（run_id/code_version/schema_version/is_mock）——A/B 记录可关联
+  const a_run_links = group.members.map((cs, ix) => ({
+    case_id: cs,
+    a_run_id: envelopes[ix]?.run_id ?? null,
+    code_version: envelopes[ix]?.run_meta?.code_version ?? null,
+    schema_version: envelopes[ix]?.schema_version ?? null,
+    is_mock: envelopes[ix]?.is_mock ?? null,
+  }))
+  const fields_excluded = group.members.map((cs, ix) => ({ case_id: cs, ...fieldUsability(envelopes[ix]) }))
   const signals = { shared_entities: [], shared_anchor_numbers: [], reverse_match_numbers: [] }
   let maxE = 0, maxA = 0, reverse = false
   for (let i = 0; i < envelopes.length; i++) {
@@ -129,10 +176,26 @@ function verifyGroup(group, envelopes) {
     }
   }
   const related = (maxE >= 2 && maxA >= 1) || (maxE >= 1 && maxA >= 2) || (maxA >= 1 && reverse)
+  // B2：判定原因（unrelated 必带失败原因码；related 带命中信号码）
+  const reasons = []
+  if (related) {
+    if (maxE >= 2 && maxA >= 1) reasons.push('SHARED_ENTITIES_AND_ANCHORS')
+    else if (maxE >= 1 && maxA >= 2) reasons.push('ENTITY_WITH_MULTIPLE_ANCHORS')
+    else reasons.push('REVERSE_MATCH')
+  } else {
+    if (maxE === 0) reasons.push('NO_SHARED_ENTITY')
+    if (maxA === 0) reasons.push('NO_SHARED_ANCHOR')
+    if (maxA > 0 && !reverse) reasons.push('NO_REVERSE_MATCH')
+    if (maxE > 0 && maxA === 0) reasons.push('INSUFFICIENT_SIGNALS')
+    if (reasons.length === 0) reasons.push('INSUFFICIENT_SIGNALS')
+  }
   const result = {
     group_id: group.group_id,
     members: group.members,
+    a_run_links,
+    fields_excluded,
     predicted_relation: related ? 'related' : 'unrelated',
+    reasons,
     signals: {
       shared_entity_count: maxE,
       shared_entities: signals.shared_entities,
@@ -147,6 +210,18 @@ function verifyGroup(group, envelopes) {
   result.consistency = { corroborations: [], conflicts: [], complementaries: [] }
   for (let i = 0; i < envelopes.length; i++) {
     for (let j = i + 1; j < envelopes.length; j++) {
+      // 可插拔对齐器（D08-4 matching v1 接入点）：返回标准化对齐对，替代内置对齐
+      if (matcherFn !== null) {
+        const pairs = matcherFn(envelopes[i], envelopes[j]) ?? []
+        for (const pr of pairs) {
+          if (Math.abs((pr.valueA ?? NaN) - (pr.valueB ?? NaN)) < 1e-9) {
+            result.consistency.corroborations.push({ entity: pr.entityA, field: pr.field, value: pr.valueA, docs: [group.members[i], group.members[j]], quotes: [pr.quoteA ?? null, pr.quoteB ?? null], matcher: 'plugin' })
+          } else {
+            result.consistency.conflicts.push({ entity: pr.entityA, field: pr.field, values: [{ doc: group.members[i], value: pr.valueA, quote: pr.quoteA ?? null }, { doc: group.members[j], value: pr.valueB, quote: pr.quoteB ?? null }], matcher: 'plugin' })
+          }
+        }
+        continue
+      }
       const mA = entityFieldMap(envelopes[i]), mB = entityFieldMap(envelopes[j])
       const seen = new Set()
       for (const a of mA) {
@@ -198,6 +273,15 @@ function verifyGroup(group, envelopes) {
 
 // ---------- 主流程 ----------
 const args = parseArgs(process.argv.slice(2))
+let matcherFn = null
+if (args.matcher !== null) {
+  const mod = await import(pathToFileURL(resolve(REPO_ROOT, args.matcher)).href)
+  if (typeof mod.alignEvents !== 'function') {
+    console.error(`--matcher 模块须导出 alignEvents(envA, envB)：${args.matcher}`)
+    process.exit(2)
+  }
+  matcherFn = mod.alignEvents
+}
 const manifest = JSON.parse(readFileSync(resolve(REPO_ROOT, args.manifest), 'utf8'))
 const envDir = resolve(REPO_ROOT, args.envelopesDir)
 const groups = manifest.groups ?? []
@@ -212,7 +296,7 @@ for (const g of groups) {
     return null
   })
   if (envelopes.some((e) => e === null)) { missing.push(g.group_id); continue }
-  const r = verifyGroup(g, envelopes)
+  const r = verifyGroup(g, envelopes, matcherFn)
   results.push(r)
   if (!args.expect || r.predicted_relation === g.expected_relation) matched++
   if (g.expected_relation === 'related' && r.predicted_relation === 'related') relatedHit++
@@ -220,6 +304,12 @@ for (const g of groups) {
 }
 const report = {
   checked_on: new Date().toISOString().slice(0, 10),
+  b_run: {
+    b_run_id: `b-${new Date().toISOString().replace(/[-:]/g, '').slice(0, 14)}`,
+    engine: 'verify_crossdoc.mjs',
+    matcher: args.matcher ? { plugin: args.matcher } : { builtin: 'nameEq+anchors' },
+    envelopes_dir: args.envelopesDir,
+  },
   envelopes_dir: args.envelopesDir,
   manifest: args.manifest,
   expect_mode: args.expect,

@@ -1,5 +1,13 @@
 {
   "checked_on": "2026-10-04",
+  "b_run": {
+    "b_run_id": "b-20261004T02351",
+    "engine": "verify_crossdoc.mjs",
+    "matcher": {
+      "builtin": "nameEq+anchors"
+    },
+    "envelopes_dir": "runs/batch-20261003T160213/envelopes"
+  },
   "envelopes_dir": "runs/batch-20261003T160213/envelopes",
   "manifest": "corpus/zongbowen/sealed/cross-doc-manifest.json",
   "expect_mode": true,
@@ -16,7 +24,38 @@
         "D5-EQC-001",
         "D5-EQC-002"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-001",
+          "a_run_id": "20261003T160318-equity_change-4d60",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "a_run_id": "20261003T160331-equity_change-2b59",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-001",
+          "usable": 45,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "usable": 27,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
       "signals": {
         "shared_entity_count": 3,
         "shared_entities": [
@@ -178,7 +217,38 @@
         "D5-EQC-002",
         "D5-EQC-003"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-002",
+          "a_run_id": "20261003T160331-equity_change-2b59",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "a_run_id": "20261003T160350-equity_change-7ce5",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-002",
+          "usable": 27,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
       "signals": {
         "shared_entity_count": 2,
         "shared_entities": [
@@ -229,7 +299,38 @@
         "D5-EQC-001",
         "D5-EQC-003"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-001",
+          "a_run_id": "20261003T160318-equity_change-4d60",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "a_run_id": "20261003T160350-equity_change-7ce5",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-001",
+          "usable": 45,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
       "signals": {
         "shared_entity_count": 4,
         "shared_entities": [
@@ -296,7 +397,38 @@
         "D5-EQC-004",
         "D5-EQC-005"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-004",
+          "a_run_id": "20261003T160354-equity_change-caaa",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "a_run_id": "20261003T160357-equity_change-7836",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-004",
+          "usable": 8,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "usable": 8,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "related",
+      "reasons": [
+        "REVERSE_MATCH"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -331,7 +463,51 @@
         "D5-EQC-001",
         "D6-AWD-001"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-001",
+          "a_run_id": "20261003T160213-pledge-f715",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-001",
+          "a_run_id": "20261003T160318-equity_change-4d60",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "a_run_id": "20261003T160422-award_contract-30d6",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-001",
+          "usable": 36,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-001",
+          "usable": 45,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -348,7 +524,51 @@
         "D5-EQC-004",
         "D6-AWD-003"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-003",
+          "a_run_id": "20261003T160229-pledge-6317",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-004",
+          "a_run_id": "20261003T160354-equity_change-caaa",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-003",
+          "a_run_id": "20261003T160437-award_contract-d295",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-003",
+          "usable": 12,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-004",
+          "usable": 8,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-003",
+          "usable": 21,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -365,7 +585,51 @@
         "D5-EQC-006",
         "D6-AWD-006"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-005",
+          "a_run_id": "20261003T160238-pledge-b56c",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261003T160402-equity_change-e637",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-006",
+          "a_run_id": "20261003T160456-award_contract-e4c6",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-005",
+          "usable": 25,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-006",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -382,7 +646,51 @@
         "D5-EQC-008",
         "D6-AWD-008"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-007",
+          "a_run_id": "20261003T160251-pledge-8a61",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-008",
+          "a_run_id": "20261003T160409-equity_change-f43a",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-008",
+          "a_run_id": "20261003T160504-award_contract-9c73",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-007",
+          "usable": 12,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-008",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-008",
+          "usable": 8,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -399,7 +707,51 @@
         "D5-EQC-010",
         "D6-AWD-010"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-009",
+          "a_run_id": "20261003T160300-pledge-0637",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-010",
+          "a_run_id": "20261003T160416-equity_change-6b42",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-010",
+          "a_run_id": "20261003T160517-award_contract-8eae",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-009",
+          "usable": 36,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-010",
+          "usable": 8,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-010",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -415,7 +767,39 @@
         "D4-PLD-001",
         "D4-PLD-002"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-001",
+          "a_run_id": "20261003T160213-pledge-f715",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "a_run_id": "20261003T160224-pledge-94cf",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-001",
+          "usable": 36,
+          "excluded": 0
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "usable": 13,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -431,7 +815,39 @@
         "D4-PLD-003",
         "D4-PLD-004"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-003",
+          "a_run_id": "20261003T160229-pledge-6317",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "a_run_id": "20261003T160234-pledge-b2d9",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-003",
+          "usable": 12,
+          "excluded": 0
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "usable": 12,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -447,7 +863,39 @@
         "D5-EQC-006",
         "D5-EQC-007"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261003T160402-equity_change-e637",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "a_run_id": "20261003T160405-equity_change-878d",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -463,7 +911,39 @@
         "D6-AWD-001",
         "D6-AWD-002"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D6-AWD-001",
+          "a_run_id": "20261003T160422-award_contract-30d6",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "a_run_id": "20261003T160425-award_contract-9d79",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D6-AWD-001",
+          "usable": 5,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "usable": 24,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -479,7 +959,39 @@
         "D6-AWD-008",
         "D6-AWD-009"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D6-AWD-008",
+          "a_run_id": "20261003T160504-award_contract-9c73",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "a_run_id": "20261003T160508-award_contract-e2f8",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D6-AWD-008",
+          "usable": 8,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "usable": 21,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -495,7 +1007,39 @@
         "D4-PLD-006",
         "D5-EQC-006"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-006",
+          "a_run_id": "20261003T160246-pledge-568f",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261003T160402-equity_change-e637",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-006",
+          "usable": 13,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -511,7 +1055,39 @@
         "D4-PLD-008",
         "D6-AWD-007"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-008",
+          "a_run_id": "20261003T160255-pledge-33a6",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "a_run_id": "20261003T160501-award_contract-028a",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-008",
+          "usable": 11,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -527,7 +1103,39 @@
         "D5-EQC-009",
         "D6-AWD-005"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-009",
+          "a_run_id": "20261003T160412-equity_change-1b2b",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "a_run_id": "20261003T160452-award_contract-acc3",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-009",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "usable": 11,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -543,7 +1151,39 @@
         "D4-PLD-010",
         "D5-EQC-004"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-010",
+          "a_run_id": "20261003T160314-pledge-0e2a",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-004",
+          "a_run_id": "20261003T160354-equity_change-caaa",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-010",
+          "usable": 12,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-004",
+          "usable": 8,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -559,7 +1199,39 @@
         "D5-EQC-003",
         "D6-AWD-004"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-003",
+          "a_run_id": "20261003T160350-equity_change-7ce5",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-004",
+          "a_run_id": "20261003T160447-award_contract-b099",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-003",
+          "usable": 5,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-004",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],
@@ -575,7 +1247,39 @@
         "D4-PLD-002",
         "D6-AWD-010"
       ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-002",
+          "a_run_id": "20261003T160224-pledge-94cf",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-010",
+          "a_run_id": "20261003T160517-award_contract-8eae",
+          "code_version": "00e75b6c",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-002",
+          "usable": 13,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-010",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
       "predicted_relation": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
       "signals": {
         "shared_entity_count": 0,
         "shared_entities": [],

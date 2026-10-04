@@ -51,3 +51,19 @@ node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir runs/batch-20261003T16
 - 门禁 12/12 通过（跨文档回放为第 12 道，任何改动后自动重证 20/20）
 - 证据：`runs/crossdoc-report-20261003.json`（逐组信号/互证/矛盾明细）
 - 信封输入：`runs/batch-20261003T160213/envelopes`（D7 统一轮，437/437、强块级 437/437）
+
+## 五、D08-1 正式任务对齐（B 流程编排，验收人：方轩诚）
+
+按任务表 D08-1 三条验收标准逐项落实与实证（2026-10-04）：
+
+| 验收标准 | 实现 | 实证 |
+|---|---|---|
+| B 仅使用带出处的结构化字段 | `usableField`：进入 B 的字段必须 extracted 且 provenance 含 block_id 或 quote；排除数记 `fields_excluded` | 封存回放全量 usable=677／excluded=0（A 侧强块级 437/437 的直接收益） |
+| 对齐失败返回原因 | unrelated 判定带 `reasons[]`：NO_SHARED_ENTITY／NO_SHARED_ANCHOR／NO_REVERSE_MATCH／INSUFFICIENT_SIGNALS；related 带命中信号码 | XDOC-001 → ["SHARED_ENTITIES_AND_ANCHORS"]；XDOC-005 → ["NO_SHARED_ENTITY","NO_SHARED_ANCHOR"] |
+| A/B 运行记录可以关联 | `report.b_run`（B 运行标识＋引擎＋匹配器来源）＋逐成员 `a_run_links[]`（a_run_id/code_version/schema_version/is_mock） | a_run_links[0] = {case_id:D5-EQC-001, a_run_id:20261003T160318-equity_change-4d60, code_version:00e75b6c, schema:0.3} |
+
+**复用 A 而非重新生成**：B 的全部输入是 A 信封的既有字段值＋出处，引擎不做任何字段抽取/推断/换算。
+
+**方轩诚 matching v1 接入点**：`--matcher <module>` 加载导出 `alignEvents(envA, envB)` 的模块替代内置对齐（关联判定信号不变）。已用接口桩实测：插件对齐对带 `matcher:"plugin"` 标记进入互证/矛盾流，`b_run.matcher` 记录插件路径——他的 D08-4 交付后零改动接入。
+
+**D7-1 漏项补齐**：可用基线已打标签 `v0.5-d7-baseline`（e7ee9dfe）并推送远端。
