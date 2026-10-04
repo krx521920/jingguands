@@ -1,0 +1,52 @@
+{
+  "tool": "attribute_b.mjs",
+  "code_version": "39e4cd5e",
+  "input_report": "runs/D8-b-report-20261004.json",
+  "rules": {
+    "plugin": null,
+    "builtin_chain": [
+      "INSUFFICIENT_EVIDENCE",
+      "UNIT_SCALE_MISMATCH",
+      "CUMULATIVE_VS_INCREMENTAL",
+      "CURRENCY_EQUIV",
+      "SAME_QUOTE_DIFFERENT_NUMBER",
+      "TEMPORAL_PROGRESSION",
+      "ROUNDING_TOLERANCE",
+      "UNEXPLAINED_DISCREPANCY"
+    ]
+  },
+  "groups_scanned": 13,
+  "conflicts_and_insufficient": 1,
+  "by_attribution": {
+    "insufficient_evidence": 1
+  },
+  "attributions": [
+    {
+      "group_id": "D8-PAIR-013",
+      "kind": "insufficient",
+      "entity": null,
+      "field": null,
+      "values": [],
+      "attribution": "insufficient_evidence",
+      "label": "证据不足（不强行归因）",
+      "confidence": "high",
+      "evidence": "B 判定 unknown/INSUFFICIENT_SIGNALS——证据不足时不下矛盾结论，也不猜测归因",
+      "decided_by": "builtin:INSUFFICIENT_EVIDENCE",
+      "model_explanation": null
+    }
+  ],
+  "trace": [
+    {
+      "group_id": "D8-PAIR-013",
+      "kind": "insufficient",
+      "entity": null,
+      "field": null,
+      "decided_by": "builtin:INSUFFICIENT_EVIDENCE",
+      "attribution": "insufficient_evidence",
+      "inputs": {
+        "values": [],
+        "quotes": []
+      }
+    }
+  ]
+}
