@@ -37,6 +37,7 @@ const results = [
   runGate('Gold 一致性机检', ['scripts/jingguan/check_gold.mjs']),
   runGate('抽取行为回归', ['scripts/jingguan/test_regression.mjs']),
   runGate('批量分母回归', ['scripts/jingguan/test_batch_denominator.mjs']),
+  runGate('跨文档核验回放', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', 'runs/batch-20261003T160213/envelopes', '--manifest', 'corpus/zongbowen/sealed/cross-doc-manifest.json', '--expect']),
 ]
 
 // ---- 6 git 状态守卫 ----

@@ -1,0 +1,593 @@
+{
+  "checked_on": "2026-10-04",
+  "envelopes_dir": "runs/batch-20261003T160213/envelopes",
+  "manifest": "corpus/zongbowen/sealed/cross-doc-manifest.json",
+  "expect_mode": true,
+  "groups_total": 20,
+  "groups_checked": 20,
+  "groups_missing_envelope": [],
+  "related_detected": 4,
+  "related_conflicts_total": 0,
+  "related_corroborations_total": 10,
+  "results": [
+    {
+      "group_id": "D7-XDOC-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "predicted_relation": "related",
+      "signals": {
+        "shared_entity_count": 3,
+        "shared_entities": [
+          "蔚文绪",
+          "蔚文举",
+          "于春生"
+        ],
+        "anchor_count": 9,
+        "shared_anchor_numbers": [
+          14722917,
+          11042217,
+          3680700,
+          3190004,
+          1848404,
+          1341600,
+          4472000,
+          12899900,
+          8427900
+        ],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "entity": "蔚文绪",
+            "field": "shares_before",
+            "value": 14722917,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "14,722,917",
+              "14,722,917"
+            ]
+          },
+          {
+            "entity": "蔚文绪",
+            "field": "shares_after",
+            "value": 11042217,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "11,042,217",
+              "11,042,217"
+            ]
+          },
+          {
+            "entity": "蔚文绪",
+            "field": "change_shares",
+            "value": 3680700,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "-3,680,700",
+              "-3,680,700"
+            ]
+          },
+          {
+            "entity": "蔚文举",
+            "field": "shares_before",
+            "value": 3190004,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "3,190,004",
+              "3,190,004"
+            ]
+          },
+          {
+            "entity": "蔚文举",
+            "field": "shares_after",
+            "value": 1848404,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "1,848,404",
+              "1,848,404"
+            ]
+          },
+          {
+            "entity": "蔚文举",
+            "field": "change_shares",
+            "value": 1341600,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "-1,341,600",
+              "-1,341,600"
+            ]
+          },
+          {
+            "entity": "于春生",
+            "field": "shares_before",
+            "value": 4472000,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "4,472,000",
+              "4,472,000"
+            ]
+          },
+          {
+            "entity": "于春生",
+            "field": "shares_after",
+            "value": 12899900,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "12,899,900",
+              "12,899,900"
+            ]
+          },
+          {
+            "entity": "于春生",
+            "field": "change_shares",
+            "value": 8427900,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "8,427,900",
+              "8,427,900"
+            ]
+          }
+        ],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "马军强",
+            "only_in": "D5-EQC-001"
+          },
+          {
+            "entity": "杨占坡",
+            "only_in": "D5-EQC-001"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D7-XDOC-002",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "predicted_relation": "related",
+      "signals": {
+        "shared_entity_count": 2,
+        "shared_entities": [
+          "蔚文绪",
+          "蔚文举"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          8427900
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          8427900
+        ]
+      },
+      "consistency": {
+        "corroborations": [],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "kind": "partial_aggregate_coverage",
+            "entity": "蔚文绪、马军强、杨占坡和蔚文举",
+            "field": "change_shares",
+            "covered": [
+              "蔚文绪",
+              "蔚文举"
+            ],
+            "aggregate_value": 8427900
+          },
+          {
+            "entity": "于春生",
+            "only_in": "D5-EQC-002"
+          },
+          {
+            "entity": "马军强",
+            "only_in": "D5-EQC-003"
+          },
+          {
+            "entity": "杨占坡",
+            "only_in": "D5-EQC-003"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D7-XDOC-003",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "predicted_relation": "related",
+      "signals": {
+        "shared_entity_count": 4,
+        "shared_entities": [
+          "蔚文绪",
+          "马军强",
+          "杨占坡",
+          "蔚文举"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          8427900
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          8427900
+        ]
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "kind": "group_total_matches_sum",
+            "entity": "蔚文绪、马军强、杨占坡和蔚文举",
+            "field": "change_shares",
+            "aggregate": {
+              "doc": "D5-EQC-003",
+              "value": 8427900
+            },
+            "parts": [
+              {
+                "doc": "D5-EQC-001",
+                "entity": "蔚文绪",
+                "value": 3680700
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "马军强",
+                "value": 2975600
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "杨占坡",
+                "value": 430000
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "蔚文举",
+                "value": 1341600
+              }
+            ]
+          }
+        ],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "于春生",
+            "only_in": "D5-EQC-001"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D7-XDOC-004",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "predicted_relation": "related",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          72673907
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          72673907
+        ]
+      },
+      "consistency": {
+        "corroborations": [],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "only_in": "D5-EQC-004"
+          },
+          {
+            "entity": "浙江省国际贸易集团有限公司",
+            "only_in": "D5-EQC-005"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D7-XDOC-005",
+      "members": [
+        "D4-PLD-001",
+        "D5-EQC-001",
+        "D6-AWD-001"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-006",
+      "members": [
+        "D4-PLD-003",
+        "D5-EQC-004",
+        "D6-AWD-003"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-007",
+      "members": [
+        "D4-PLD-005",
+        "D5-EQC-006",
+        "D6-AWD-006"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-008",
+      "members": [
+        "D4-PLD-007",
+        "D5-EQC-008",
+        "D6-AWD-008"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-009",
+      "members": [
+        "D4-PLD-009",
+        "D5-EQC-010",
+        "D6-AWD-010"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-010",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-011",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-012",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-013",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-014",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-015",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-016",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-017",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-018",
+      "members": [
+        "D4-PLD-010",
+        "D5-EQC-004"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-019",
+      "members": [
+        "D5-EQC-003",
+        "D6-AWD-004"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    },
+    {
+      "group_id": "D7-XDOC-020",
+      "members": [
+        "D4-PLD-002",
+        "D6-AWD-010"
+      ],
+      "predicted_relation": "unrelated",
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "reverse_match": false,
+        "reverse_match_numbers": []
+      }
+    }
+  ],
+  "expected_match": 20,
+  "expected_miss": 0,
+  "related_hit": "4/4",
+  "unrelated_clean": "16/16"
+}

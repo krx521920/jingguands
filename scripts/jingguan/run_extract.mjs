@@ -678,6 +678,28 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
         cu.note = `${cu.note ?? ''}［口径修正：金额未披露，币种不得默认 CNY→not_mentioned］`
       }
     }
+    // W7. 外币折合人民币口径（AWD-007 待裁决项，方判定与魏证据页均建议口径 A）：
+    // raw_value 含"X 原币（折合人民币 Y 元）"→ value 取 Y、currency=CNY、note 记原币。
+    // 开关：JINGGUAN_CURRENCY_POLICY=A 启用（宗博文确认前默认关闭，批次对当前 gold 保持 437/437）
+    if (process.env.JINGGUAN_CURRENCY_POLICY === 'A') {
+      for (const ev of awEvents) {
+        const ba = ev.fields?.bid_amount
+        const cu = ev.fields?.currency
+        if (ba?.status !== 'extracted' || typeof ba.raw_value !== 'string') continue
+        const m = ba.raw_value.match(/([\d,]+)\s*[^\d（）（]{0,8}（\s*[^）]*?折合人民币\s*([\d,，]+)\s*元\s*）/)
+        if (m === null) continue
+        const orig = Number(m[1].replace(/,/g, ''))
+        const cny = Number(m[2].replace(/[,，]/g, ''))
+        if (!Number.isFinite(orig) || !Number.isFinite(cny) || cny <= 0) continue
+        ba.note = `${ba.note ?? ''}［口径A（待评测方确认）：原币 ${m[1]} → 折合人民币 ${cny}（文内明示折算）］`
+        ba.value = cny
+        ba.standardized = true
+        if (cu !== undefined && cu.status === 'extracted') {
+          cu.value = 'CNY'
+          cu.note = `${cu.note ?? ''}［口径A：外币折合人民币披露，currency=CNY；原币金额见 bid_amount.raw_value/note］`
+        }
+      }
+    }
     // W5. price_adjustment_status 证据锚定：quote 讲"份额/股权"调整而非"价格"调整 → not_mentioned
     for (const ev of awEvents) {
       const pa = ev.fields?.price_adjustment_status
