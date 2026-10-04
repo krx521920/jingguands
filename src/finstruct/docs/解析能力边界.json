@@ -42,6 +42,11 @@
       "id": "scan_page",
       "desc": "扫描页产出带坐标 scan_region",
       "evidence": "D4-SCAN-001 期望值五项全中"
+    },
+    {
+      "id": "key_value_table",
+      "desc": "n_cols<3 的竖排键值表：按行读 col=0 字段名 / col=1 值，header_path 必然为空",
+      "evidence": "D6-AWD-005 p1（7×2）；规则见 table_detect.detect_header_rows"
     }
   ],
   "unsupported": [
@@ -120,5 +125,10 @@
       "对抗输入",
       "文本模式输入（出处无块级锚点）"
     ]
+  },
+  "consumer_rules": {
+    "header_path_empty": "不等于表头判定失败，也可能是本表无表头行",
+    "n_cols_lt_3": "键值表：按行读 键=col0、值=col1",
+    "n_cols_ge_3": "网格表：按 header_path 定位列"
   }
 }

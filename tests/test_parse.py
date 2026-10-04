@@ -1280,3 +1280,51 @@ def test_无框表格的内容不丢():
     norm = unicodedata.normalize("NFKC", txt)
     for k in ("股东名称", "12,000,000", "8.50", "示例股东乙"):
         assert k in norm, f"无框表格的 {k!r} 丢了"
+
+
+# ------------------------------------------------------------ 窄表（键值表）边界
+def test_窄表不判表头_按行读键值对():
+    """锁定 `n_cols < 3` 的表不判表头这条规则。
+
+    D6-AWD-005 p1 是 7 行×2 列的竖排键值表（公司名称 / 统一社会信用代码 / 成立时间 / …），
+    它的 `header_path` 为空**是设计如此，不是漏检** —— 按网格表头处理会把每一行都误当表头。
+
+    消费方据此判别：`n_cols < 3` → 按行读 `col=0` 字段名、`col=1` 值；
+    `n_cols >= 3` → 按 `header_path`。两列表按键值对读是安全的。
+    """
+    raw = os.path.join(ROOT, "sample", "D6", "raw", "D6-AWD-005.pdf")
+    if not os.path.exists(raw):
+        pytest.skip("缺 D6-AWD-005.pdf")
+    d = pp.parse_pdf(raw)
+    kv = None
+    for pg in d["pages"]:
+        for t in pg["tables"]:
+            if t["n_cols"] < 3:
+                kv = (pg, t)
+    assert kv, "D6-AWD-005 应有一张窄表"
+    pg, t = kv
+    assert t["n_cols"] == 2 and t["n_rows"] == 7
+
+    cells = {}
+    for b in pg["blocks"]:
+        tr = b.get("table_ref") or {}
+        if b["source_type"] == "cell" and tr.get("table_id") == t["table_id"]:
+            cells[(tr["row"], tr["col"])] = b["text"]
+
+    # 窄表里不应有任何 header_path
+    for b in pg["blocks"]:
+        tr = b.get("table_ref") or {}
+        if b["source_type"] == "cell" and tr.get("table_id") == t["table_id"]:
+            assert tr.get("header_path") is None, f"{tr['cell_ref']} 不该有 header_path"
+
+    # 按行读键值对：col0 是字段名、col1 是值
+    assert cells[(0, 0)] == "公司名称"
+    assert cells[(0, 1)].startswith("江苏众安建设投资")
+    assert cells[(1, 0)] == "统一社会信用代码"
+    assert cells[(1, 1)] == "91321300575350597U"
+    assert cells[(4, 0)] == "法定代表人"
+    assert cells[(4, 1)] == "曹军"
+    # 键就在表里，不需要外部列序映射
+    keys = [v for (r, c), v in cells.items() if c == 0]
+    for k in ("公司名称", "统一社会信用代码", "成立时间", "住所", "法定代表人", "注册资本", "经营范围"):
+        assert k in keys, f"字段名 {k!r} 不在 col0 里"
