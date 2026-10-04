@@ -157,21 +157,23 @@ function verifyGroup(group, envelopes, matcherFn = null) {
     is_mock: envelopes[ix]?.is_mock ?? null,
   }))
   const fields_excluded = group.members.map((cs, ix) => ({ case_id: cs, ...fieldUsability(envelopes[ix]) }))
+  const g_members = group.members
   const signals = { shared_entities: [], shared_anchor_numbers: [], reverse_match_numbers: [] }
   let maxE = 0, maxA = 0, reverse = false
   for (let i = 0; i < envelopes.length; i++) {
     for (let j = i + 1; j < envelopes.length; j++) {
       const eA = entitiesOf(envelopes[i]), eB = entitiesOf(envelopes[j])
       const sharedE = eA.filter((x) => eB.some((y) => nameEq(x, y)))
-      if (sharedE.length > maxE) { maxE = sharedE.length; signals.shared_entities = sharedE }
+      if (sharedE.length > maxE) { maxE = sharedE.length; signals.shared_entities = sharedE; signals.shared_entities_from_pair = [g_members[i], g_members[j]] }
       const aAll = anchorsOf(envelopes[i], null), bAll = anchorsOf(envelopes[j], null)
       const sharedA = aAll.filter((x) => bAll.includes(x))
-      if (sharedA.length > maxA) { maxA = sharedA.length; signals.shared_anchor_numbers = sharedA }
+      if (sharedA.length > maxA) { maxA = sharedA.length; signals.shared_anchor_numbers = sharedA; signals.shared_anchors_from_pair = [g_members[i], g_members[j]] }
       const upDown = anchorsOf(envelopes[i], 'increase').filter((x) => anchorsOf(envelopes[j], 'decrease').includes(x))
       const downUp = anchorsOf(envelopes[i], 'decrease').filter((x) => anchorsOf(envelopes[j], 'increase').includes(x))
       if (sharedA.length >= 1 && (upDown.length || downUp.length)) {
         reverse = true
         signals.reverse_match_numbers = [...upDown, ...downUp]
+        signals.reverse_from_pair = [g_members[i], g_members[j]]
       }
     }
   }
@@ -197,12 +199,16 @@ function verifyGroup(group, envelopes, matcherFn = null) {
     predicted_relation: related ? 'related' : 'unrelated',
     reasons,
     signals: {
+      // 注意：组级信号＝逐对最大值，各信号可能来自不同文档对（见 *_from_pair）——防误读为组内一致来源
       shared_entity_count: maxE,
       shared_entities: signals.shared_entities,
+      shared_entities_from_pair: signals.shared_entities_from_pair ?? null,
       anchor_count: maxA,
       shared_anchor_numbers: signals.shared_anchor_numbers,
+      shared_anchors_from_pair: signals.shared_anchors_from_pair ?? null,
       reverse_match: reverse,
       reverse_match_numbers: signals.reverse_match_numbers,
+      reverse_from_pair: signals.reverse_from_pair ?? null,
     },
   }
   if (!related) return result
@@ -210,31 +216,38 @@ function verifyGroup(group, envelopes, matcherFn = null) {
   result.consistency = { corroborations: [], conflicts: [], complementaries: [] }
   for (let i = 0; i < envelopes.length; i++) {
     for (let j = i + 1; j < envelopes.length; j++) {
-      // 可插拔对齐器（D08-4 matching v1 接入点）：返回标准化对齐对，替代内置对齐
-      if (matcherFn !== null) {
-        const pairs = matcherFn(envelopes[i], envelopes[j]) ?? []
-        for (const pr of pairs) {
-          if (Math.abs((pr.valueA ?? NaN) - (pr.valueB ?? NaN)) < 1e-9) {
-            result.consistency.corroborations.push({ entity: pr.entityA, field: pr.field, value: pr.valueA, docs: [group.members[i], group.members[j]], quotes: [pr.quoteA ?? null, pr.quoteB ?? null], matcher: 'plugin' })
-          } else {
-            result.consistency.conflicts.push({ entity: pr.entityA, field: pr.field, values: [{ doc: group.members[i], value: pr.valueA, quote: pr.quoteA ?? null }, { doc: group.members[j], value: pr.valueB, quote: pr.quoteB ?? null }], matcher: 'plugin' })
-          }
-        }
-        continue
-      }
+      // 可插拔对齐器（D08-4 matching v1 接入点）：只替代"直接事件对齐"；
+      // 合计勾稽与互补是独立核验语义，插件模式下照常执行（不得因插件短路而丢失）。
+      // 插件异常按对记录并继续（B2 精神：失败返回原因，不炸整个 B 运行）。
       const mA = entityFieldMap(envelopes[i]), mB = entityFieldMap(envelopes[j])
-      const seen = new Set()
-      for (const a of mA) {
-        const b = mB.find((x) => nameEq(x.entity, a.entity) && x.field === a.field)
-        if (b === undefined) continue
-        if (a.aggregate !== b.aggregate) continue // 个人↔合计混合对不直接比数值——交给合计勾稽分支
-        const key = `${a.entity}|${a.field}|${b.entity}`
-        if (seen.has(key)) continue
-        seen.add(key)
-        if (Math.abs(a.value - b.value) < 1e-9) {
-          result.consistency.corroborations.push({ entity: a.entity, field: a.field, value: a.value, docs: [group.members[i], group.members[j]], quotes: [a.quote, b.quote] })
-        } else {
-          result.consistency.conflicts.push({ entity: a.entity, field: a.field, values: [{ doc: group.members[i], value: a.value, quote: a.quote }, { doc: group.members[j], value: b.value, quote: b.quote }] })
+      if (matcherFn !== null) {
+        try {
+          const pairs = matcherFn(envelopes[i], envelopes[j]) ?? []
+          for (const pr of pairs) {
+            if (Math.abs((pr.valueA ?? NaN) - (pr.valueB ?? NaN)) < 1e-9) {
+              result.consistency.corroborations.push({ entity: pr.entityA, field: pr.field, value: pr.valueA, docs: [group.members[i], group.members[j]], quotes: [pr.quoteA ?? null, pr.quoteB ?? null], matcher: 'plugin' })
+            } else {
+              result.consistency.conflicts.push({ entity: pr.entityA, field: pr.field, values: [{ doc: group.members[i], value: pr.valueA, quote: pr.quoteA ?? null }, { doc: group.members[j], value: pr.valueB, quote: pr.quoteB ?? null }], matcher: 'plugin' })
+            }
+          }
+        } catch (err) {
+          result.consistency.aligner_errors = result.consistency.aligner_errors ?? []
+          result.consistency.aligner_errors.push({ pair: [group.members[i], group.members[j]], error: String(err?.message ?? err).slice(0, 200) })
+        }
+      } else {
+        const seen = new Set()
+        for (const a of mA) {
+          const b = mB.find((x) => nameEq(x.entity, a.entity) && x.field === a.field)
+          if (b === undefined) continue
+          if (a.aggregate !== b.aggregate) continue // 个人↔合计混合对不直接比数值——交给合计勾稽分支
+          const key = `${a.entity}|${a.field}|${b.entity}`
+          if (seen.has(key)) continue
+          seen.add(key)
+          if (Math.abs(a.value - b.value) < 1e-9) {
+            result.consistency.corroborations.push({ entity: a.entity, field: a.field, value: a.value, docs: [group.members[i], group.members[j]], quotes: [a.quote, b.quote] })
+          } else {
+            result.consistency.conflicts.push({ entity: a.entity, field: a.field, values: [{ doc: group.members[i], value: a.value, quote: a.quote }, { doc: group.members[j], value: b.value, quote: b.quote }] })
+          }
         }
       }
       // 群体合计 ↔ 分人值之和 勾稽（合计事件不与单人直接比对，跨档核验总量）
@@ -264,8 +277,9 @@ function verifyGroup(group, envelopes, matcherFn = null) {
         }
       }
       const eA = entitiesOf(envelopes[i]), eB = entitiesOf(envelopes[j])
-      for (const e of eA) if (!eB.some((y) => nameEq(e, y))) result.consistency.complementaries.push({ entity: e, only_in: group.members[i] })
-      for (const e of eB) if (!eA.some((y) => nameEq(e, y))) result.consistency.complementaries.push({ entity: e, only_in: group.members[j] })
+      const compSeen = new Set(result.consistency.complementaries.map((c) => `${c.entity}|${c.only_in}`))
+      for (const e of eA) if (!eB.some((y) => nameEq(e, y)) && !compSeen.has(`${e}|${group.members[i]}`)) { compSeen.add(`${e}|${group.members[i]}`); result.consistency.complementaries.push({ entity: e, only_in: group.members[i] }) }
+      for (const e of eB) if (!eA.some((y) => nameEq(e, y)) && !compSeen.has(`${e}|${group.members[j]}`)) { compSeen.add(`${e}|${group.members[j]}`); result.consistency.complementaries.push({ entity: e, only_in: group.members[j] }) }
     }
   }
   return result
@@ -305,7 +319,7 @@ for (const g of groups) {
 const report = {
   checked_on: new Date().toISOString().slice(0, 10),
   b_run: {
-    b_run_id: `b-${new Date().toISOString().replace(/[-:]/g, '').slice(0, 14)}`,
+    b_run_id: `b-${new Date().toISOString().replace(/[-:]/g, '').replace('T', '').slice(0, 14)}`,
     engine: 'verify_crossdoc.mjs',
     matcher: args.matcher ? { plugin: args.matcher } : { builtin: 'nameEq+anchors' },
     envelopes_dir: args.envelopesDir,
