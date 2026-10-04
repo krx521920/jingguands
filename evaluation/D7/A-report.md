@@ -53,3 +53,11 @@
 - 45条quote在缺少 `block_id` 时存在多块歧义，证据页必须使用 `block_id` 定位。
 - 提取语义复核由Wei完成记录前，第二人复核状态仍为 partial。
 - 跨组对接明细见 `evaluation/D7/handoffs/D7-cross-team-handoff.md`。
+
+## D7 阻塞收口（2026-10-04）
+
+- 魏 `00e75b6c` 完成 D4 强块级重跑（`corpus/zhangzhibo/d4/parse-official`，`file_sha256` 与宗 gold 一致），统一轮 437/437，F1 消除。
+- 提取语义第二人复核由魏补录（`docs/reviews/D7-提取语义第二人复核.md`）。
+- `D6-AWD-007` 币种冲突：宗裁决采用选项 A（`bid_amount=317,915,000`、`currency=CNY`），已修 Gold；待魏对齐重跑后重新确认 437/437。
+- `D6-AWD-005` 无 `header_path` 维持已记录边界（张/方/魏三处互证）。
+- 明细见 `evaluation/D7/handoffs/D7-blocker-closure.md`。

@@ -1,20 +1,21 @@
 {
-  "checked_on": "2026-10-03",
+  "checked_on": "2026-10-04",
   "evaluation_status": "complete",
-  "integration_status": "conditional",
+  "integration_status": "d7_closed_pending_reconfirm",
   "members": {
-    "weiwenyu": {"status": "accepted", "commit": "34f938a636807ecb4ca4974152f880bc02ed2177", "batch": "runs/batch-20261002T120859", "core_30": "437/437", "adversarial_denominator_preserved": true, "independent_browser_acceptance": "Chen UI accepted", "blocking": false},
-    "zhangzhibo": {"status": "conditional_pass", "commit": "d5ffa1eb9b1b7c3cd569f92ff542914e9c7936b2", "review_commit": "58a562f6", "deliverable": "D7 parser-side reply and capability boundaries; parser/evidence second review", "findings": ["F1 evidence strength differs by input mode (D4 text-only vs D5/D6 block-level)", "F3 quote-only lookup is ambiguous without block_id", "F4 cross-block quote newline/whitespace representation difference"], "blocking": true},
-    "fangxuancheng": {"status": "accepted", "commit": "4e886d33fb902cd18d4742780a8eaa6fa33a1232", "deliverable": "D6 award currency/tax/consortium checker", "delivery_hashes": "15/15", "unit_tests": "89/89", "regression": "185/185", "known_boundaries": ["D6-AWD-007 AED/RMB conversion conflict pending business adjudication", "D6-AWD-005 lacks header_path, column-order fallback documented"], "blocking": false},
-    "chenjiahui": {"status": "accepted", "commit": "7b53917f46fbb5c09d78ce95032b13fed5ca8457", "deliverable": "D6 batch upload loop, failure list, log download, progress, 14-field award registry, D7 anchor/quote handling, D7 capability-boundary snapshot", "independent_browser_acceptance": "performed by weiwenyu", "blocking": false}
+    "weiwenyu": {"status": "accepted", "commit": "954381da031debcbde5cf9c1fe2def3f65adb2f0", "d7_closure_commit": "00e75b6c", "batch": "runs/batch-20261003T155712", "core_30": "437/437 (pre-Gold-fix)", "strong_block_evidence": "437/437", "adversarial_denominator_preserved": true, "independent_browser_acceptance": "Chen UI accepted", "blocking": false},
+    "zhangzhibo": {"status": "accepted", "commit": "1d3efad6ec6f0fa6f24a622f0240140ad68980cb", "review_commit": "58a562f6", "deliverable": "D8 cross-doc index + dual-side anchors; D6-AWD-005 column semantics confirmation", "blocking": false},
+    "fangxuancheng": {"status": "accepted", "commit": "4e886d33fb902cd18d4742780a8eaa6fa33a1232", "deliverable": "D6 award currency/tax/consortium checker", "delivery_hashes": "15/15", "unit_tests": "89/89", "regression": "185/185", "note": "branch head re-uploaded D6 workspace then reverted; no new D8 alignment rule yet", "blocking": false},
+    "chenjiahui": {"status": "accepted", "commit": "7b53917f46fbb5c09d78ce95032b13fed5ca8457", "deliverable": "D6 batch upload loop, D7 anchor/quote handling, capability-boundary snapshot", "independent_browser_acceptance": "performed by weiwenyu", "blocking": false}
   },
-  "sealed": {"single_documents": 30, "cross_document_groups": 20, "related_groups": 4, "control_groups": 16, "verification": "PASS"},
-  "second_review": {"parser_evidence": "conditional_pass", "extraction_semantics": "pending"},
-  "pending": [
-    "separate weak text-mode evidence from strong block-level evidence, or rerun D4 in parse-block mode",
-    "record extraction-semantics second review by Wei",
-    "decide D6-AWD-007 currency/FX issue",
-    "keep D6-AWD-005 no-header fallback as documented boundary"
+  "sealed": {"single_documents": 30, "cross_document_groups": 20, "related_groups": 4, "control_groups": 16, "verification": "PASS", "consumed_by": "weiwenyu verify_crossdoc.mjs", "replay_result": "20/20 (related 4/4, unrelated 0 false positives)"},
+  "second_review": {"parser_evidence": "conditional_pass", "extraction_semantics": "passed_with_conditions"},
+  "blockers_closed": [
+    {"id": 1, "item": "weak text vs strong block evidence denominator", "closed_by": "weiwenyu 00e75b6c", "evidence": "corpus/zhangzhibo/d4/parse-official + runs/batch-20261003T155712 (437/437)"},
+    {"id": 2, "item": "extraction-semantics second review", "closed_by": "weiwenyu docs/reviews/D7-提取语义第二人复核.md"},
+    {"id": 3, "item": "D6-AWD-007 currency/FX conflict", "closed_by": "zong adjudication A", "gold_change": "evaluation/D6/dev/gold/D6-AWD-007.envelope.json bid_amount 173800000 -> 317915000"},
+    {"id": 4, "item": "D6-AWD-005 no-header fallback boundary", "closed_by": "weiwenyu + zhangzhibo c568addd", "evidence": "documented boundary, 100% on AWD-005"}
   ],
-  "evidence_denominators": {"d4_pledge_text_mode_weak": 182, "d5_d6_block_mode_strong": 257}
+  "pending": ["weiwenyu aligned re-run for D6-AWD-007 option A to re-confirm 437/437"],
+  "note": "Post-Gold-fix, do not claim 437/437 until the aligned batch lands; report 437 denominator with 1 pending alignment."
 }

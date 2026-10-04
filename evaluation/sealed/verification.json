@@ -1,12 +1,12 @@
 {
   "result": "PASS",
-  "checked_on": "2026-10-02",
+  "checked_on": "2026-10-04",
   "single_cases": 30,
   "cross_doc_groups": 20,
   "related_groups": 4,
   "unrelated_control_groups": 16,
-  "single_manifest_sha256": "037f3d41320bd2542f71afc3c533c8ee10788086dc537a550a4cd68e14359a78",
-  "cross_doc_manifest_sha256": "cd921c1c4d22e7d9d526570beac9bcf0996c868535cdc0e14b5ec1b7dd4be070",
-  "hash_lock_manifest_sha256": "7dce47720763fd3f15b7e98272dc05109ed781dfe98dac6db0894fd7c75eed7e",
+  "single_manifest_sha256": "112ead2ceaeb3ca0fed451cb48a3aa3d61bf565becc2065cea303c16659cf313",
+  "cross_doc_manifest_sha256": "acb086f5c4a308b125dd66d1bcc584f659fdcc999abe4162b60cf481037d0882",
+  "hash_lock_manifest_sha256": "80ba1b89ef672581c6c6b01c7b6c21bccc9f03b67a75dee6b65f7a6b1496b0f1",
   "issues": []
 }

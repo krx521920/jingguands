@@ -1,0 +1,33 @@
+{
+  "checked_on": "2026-10-04",
+  "day": "D8",
+  "goal": "判断多份公告是否为同一事件（工作流B：跨文档关联）",
+  "members": {
+    "weiwenyu": {
+      "status": "delivered",
+      "commit": "954381da031debcbde5cf9c1fe2def3f65adb2f0",
+      "deliverable": "scripts/jingguan/verify_crossdoc.mjs (B入口/关联判定/一致性核验) + runs/crossdoc-report-20261003.json + docs/d8-crossdoc-verification.md",
+      "evidence": "sealed cross-doc replay 20/20 (related 4/4, unrelated 0 false positives); B1 usable-field rule (677 usable / 0 excluded); B2 reasons[]; A-B run linking",
+      "consumes": ["evaluation/sealed/cross-doc/manifest.json (zong D7)"],
+      "open_questions": ["--matcher plugin interface exposed for fang D08-4"]
+    },
+    "zhangzhibo": {
+      "status": "delivered",
+      "commit": "1d3efad6ec6f0fa6f24a622f0240140ad68980cb",
+      "deliverable": "sample/D8/cross_index.json + sample/D8/pair_evidence.json + reviews/D8-跨文档索引交接给B流程.md",
+      "evidence": "block-level keys (block_id+page+quote); unrelated 16/16 zero false positive on issuer key; D5-EQC-003 listed in issuer_key_missing (no subject guessed)",
+      "hands_off_to": ["fangxuancheng (alignment rules)", "weiwenyu (B entry)"],
+      "open_questions": ["how to derive subject for code-less docs like D5-EQC-003", "is issuer_key_same sufficient granularity for B"]
+    },
+    "fangxuancheng": {"status": "not_delivered", "expected": "同事件对齐规则（同公司≠同事件，证据不足输出未知）"},
+    "chenjiahui": {"status": "not_delivered", "expected": "多文件上传＋事件分组＋双栏原文页"},
+    "zongbowen": {"status": "not_delivered", "expected": "12组公开开发配对（6同事件/6不同事件）＋预期＋评分脚本"}
+  },
+  "interface_chain": "zong pairs -> zhang index -> fang/wei align -> wei B output -> chen UI",
+  "pending": [
+    "zong: 12 public dev pairs + scoring script",
+    "fang: same-event alignment rules",
+    "chen: multi-file grouping UI",
+    "wei: aligned re-run for D6-AWD-007 (D7 carry-over)"
+  ]
+}

@@ -93,7 +93,7 @@
         },
         "bid_amount": {
           "raw_value": "173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
-          "value": 173800000,
+          "value": 317915000,
           "unit": "cny",
           "standardized": true,
           "status": "extracted",
@@ -114,7 +114,7 @@
             }
           ],
           "denominator": null,
-          "note": "原文同时给出阿联酋迪拉姆金额及折合人民币金额，取折合人民币金额"
+          "note": "原文同时给出阿联酋迪拉姆金额（AED 173,800,000）及折合人民币金额（317,915,000元），按登记口径 unit=cny 取折合人民币金额；原币信息保留于 raw_value。"
         },
         "currency": {
           "raw_value": "人民币",
