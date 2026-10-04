@@ -191,12 +191,13 @@ function runChain(group, entry) {
   const ctx = { group, kind: entry.kind, entry, values: entry.values, quotes: entry.quotes }
   let decision = null
   let decidedBy = null
+  let decidedLabel = null
   // 插件（方 D9 规则库）先于内置链——规则库同为确定性规则，可优先归因
   for (const r of pluginRules) {
     try {
       if (typeof r.applies === 'function' && !r.applies(ctx)) continue
       decision = typeof r.decide === 'function' ? r.decide(ctx) : null
-      if (decision) { decidedBy = `plugin:${r.id}`; break }
+      if (decision) { decidedBy = `plugin:${r.id}`; decidedLabel = r.label ?? decision.label ?? null; break }
     } catch (err) {
       trace.push({ group_id: group.group_id, rule_id: r.id, decided_by: 'plugin', error: String(err?.message ?? err).slice(0, 120) })
     }
@@ -205,7 +206,7 @@ function runChain(group, entry) {
     for (const r of BUILTIN_RULES) {
       if (!r.applies(ctx)) continue
       decision = r.decide(ctx)
-      if (decision) { decidedBy = `builtin:${r.id}`; break }
+      if (decision) { decidedBy = `builtin:${r.id}`; decidedLabel = r.label; break }
     }
   }
   const record = {
@@ -215,7 +216,7 @@ function runChain(group, entry) {
     field: entry.field,
     values: entry.values,
     attribution: decision?.attribution ?? 'unexplained_needs_review',
-    label: BUILTIN_RULES.find((r) => r.id === decidedBy?.replace(/^builtin:/, ''))?.label ?? decision?.label ?? '无法解释·保留疑点（待人工/更正线索）',
+    label: decidedLabel ?? decision?.label ?? '无法解释·保留疑点（待人工/更正线索）',
     confidence: decision?.confidence ?? 'low',
     evidence: decision?.evidence ?? '',
     decided_by: decidedBy ?? 'builtin:UNEXPLAINED_DISCREPANCY',

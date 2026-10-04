@@ -80,6 +80,7 @@ assert.equal(at(out).attribution, 'insufficient_evidence')
   const parsed = JSON.parse(r.stdout.slice(r.stdout.indexOf('{')))
   assert.equal(parsed.attributions[0].attribution, 'caliber_tax')
   assert.equal(parsed.attributions[0].decided_by, 'plugin:FANG_TAX_CALIBER')
+  assert.equal(parsed.attributions[0].label, '口径差异·含税/未税', '插件 label 须取规则库标签（不得落兜底文案）')
   assert.equal(parsed.trace[0].decided_by, 'plugin:FANG_TAX_CALIBER')
   rmSync(dir, { recursive: true, force: true })
 }
