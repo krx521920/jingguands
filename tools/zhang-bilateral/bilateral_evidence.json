@@ -1,0 +1,1232 @@
+{
+  "built_by": "张智博",
+  "day": "D9",
+  "schema": "evidence/0.9",
+  "purpose": "双侧出处包（原文片段/页码/区域）＋ 缺证据标识",
+  "note": "本文件只报「证据在不在、在哪、完不完整」，不判定 verdict —— 归因裁决归 B 流程。",
+  "status_legend": {
+    "present": "出处完整",
+    "block_missing": "block_id 在解析输出里不存在",
+    "quote_whitespace_variance": "quote 与该块只差空白，去空白后单块可锚定（消费方做空白归一即可）",
+    "quote_not_in_block": "quote 不是该块 text_raw 的子串，去空白后仍不在该块（可能跨块）",
+    "no_anchor": "用例未给 block_id",
+    "scan_region_degraded": "指向不可读区域，不能作引文来源",
+    "column_semantics_missing": "n_cols<3 的竖排键值表：按行读 col0=名/col1=值，不缺信息",
+    "borderless_no_column_semantics": "无框表格：列语义真的丢了"
+  },
+  "cases": [
+    {
+      "case_id": "D9-RULE-001",
+      "category": "corroboration",
+      "expected_verdict": "corroborated",
+      "attribution_basis": "同一主体同一字段两文档数值逐位一致，属互证不是矛盾。",
+      "must_not_conclude": null,
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "shares_after",
+          "block_id": "d9d5be14f_p010_b00006",
+          "quote": "11,042,217",
+          "value": 11042217,
+          "raw_value": "11,042,217",
+          "unit": "shares",
+          "page": 10,
+          "region": [
+            383.07,
+            72.77,
+            449.07,
+            93.6
+          ],
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r1c6",
+          "header_path": null,
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d9d5be14f_p006_t001",
+            "d9d5be14f_p006_t002",
+            "d9d5be14f_p006_t003",
+            "d9d5be14f_p007_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "shares_after",
+          "block_id": "d46bc2ef0_p017_b00008",
+          "quote": "11,042,217",
+          "value": 11042217,
+          "raw_value": "11,042,217股",
+          "unit": "shares",
+          "page": 17,
+          "region": [
+            90.02,
+            285.18,
+            517.68,
+            344.76
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d46bc2ef0_p007_t001",
+            "d46bc2ef0_p007_t002",
+            "d46bc2ef0_p007_t003",
+            "d46bc2ef0_p061_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "category": "corroboration",
+      "expected_verdict": "corroborated",
+      "attribution_basis": "简式与详式对同一股东期初持股一致。",
+      "must_not_conclude": null,
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "shares_before",
+          "block_id": "d9d5be14f_p010_b00030",
+          "quote": "3,190,004",
+          "value": 3190004,
+          "raw_value": "3,190,004",
+          "unit": "shares",
+          "page": 10,
+          "region": [
+            147.79,
+            154.7,
+            208.3,
+            174.98
+          ],
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r5c2",
+          "header_path": null,
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d9d5be14f_p006_t001",
+            "d9d5be14f_p006_t002",
+            "d9d5be14f_p006_t003",
+            "d9d5be14f_p007_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "shares_before",
+          "block_id": "d46bc2ef0_p060_b00039",
+          "quote": "蔚文举 持股种类：A股普通股 持股数量：3,190,004股",
+          "value": 3190004,
+          "raw_value": "3,190,004股",
+          "unit": "shares",
+          "page": 60,
+          "region": [
+            170.28,
+            489.55,
+            523.88,
+            678.92
+          ],
+          "table_id": "d46bc2ef0_p060_t001",
+          "cell_ref": "r11c2",
+          "header_path": "基本情况/洛阳科创新材料股份有限公司/科创新材",
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d46bc2ef0_p007_t001",
+            "d46bc2ef0_p007_t002",
+            "d46bc2ef0_p007_t003",
+            "d46bc2ef0_p061_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "category": "corroboration",
+      "expected_verdict": "corroborated",
+      "attribution_basis": "受让方增持数量两文档一致。",
+      "must_not_conclude": null,
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "change_shares",
+          "block_id": "d9d5be14f_p010_b00018",
+          "quote": "8,427,900",
+          "value": 8427900,
+          "raw_value": "8,427,900",
+          "unit": "shares",
+          "page": 10,
+          "region": [
+            268.78,
+            114.02,
+            325.92,
+            134.3
+          ],
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r3c4",
+          "header_path": null,
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d9d5be14f_p006_t001",
+            "d9d5be14f_p006_t002",
+            "d9d5be14f_p006_t003",
+            "d9d5be14f_p007_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "change_shares",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "value": 8427900,
+          "raw_value": "8,427,900股",
+          "unit": "shares",
+          "page": 17,
+          "region": [
+            90.02,
+            411.78,
+            517.46,
+            704.81
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d46bc2ef0_p007_t001",
+            "d46bc2ef0_p007_t002",
+            "d46bc2ef0_p007_t003",
+            "d46bc2ef0_p061_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "category": "aggregate_detail",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "核查意见给出的是四人群体合计，与受让方单人明细相等；合计不得拆记到个人，亦非矛盾。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D5-EQC-003",
+          "field": "change_shares",
+          "block_id": "d173fee90_p018_b00014",
+          "quote": "8,427,900股",
+          "value": 8427900,
+          "raw_value": "8,427,900股",
+          "unit": "shares",
+          "page": 18,
+          "region": [
+            90.0,
+            561.29,
+            511.08,
+            760.49
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d173fee90_p007_t001",
+            "d173fee90_p007_t002",
+            "d173fee90_p008_t001",
+            "d173fee90_p008_t002"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "change_shares",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "value": 8427900,
+          "raw_value": "8,427,900股",
+          "unit": "shares",
+          "page": 17,
+          "region": [
+            90.02,
+            411.78,
+            517.46,
+            704.81
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d46bc2ef0_p007_t001",
+            "d46bc2ef0_p007_t002",
+            "d46bc2ef0_p007_t003",
+            "d46bc2ef0_p061_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "category": "aggregate_detail",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "出让方分人减持之和 = 受让方增持额；跨文档合计勾稽成立。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "change_shares",
+          "block_id": "d9d5be14f_p010_b00004",
+          "quote": "-3,680,700",
+          "value": 3680700,
+          "raw_value": "-3,680,700",
+          "unit": "shares",
+          "page": 10,
+          "region": [
+            268.78,
+            72.77,
+            325.92,
+            93.6
+          ],
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r1c4",
+          "header_path": null,
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d9d5be14f_p006_t001",
+            "d9d5be14f_p006_t002",
+            "d9d5be14f_p006_t003",
+            "d9d5be14f_p007_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "change_shares",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "value": 8427900,
+          "raw_value": "8,427,900股",
+          "unit": "shares",
+          "page": 17,
+          "region": [
+            90.02,
+            411.78,
+            517.46,
+            704.81
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d46bc2ef0_p007_t001",
+            "d46bc2ef0_p007_t002",
+            "d46bc2ef0_p007_t003",
+            "d46bc2ef0_p061_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "category": "partial_coverage",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "该股东仅出现在简式报告，另一端未披露属覆盖范围差异，不构成矛盾。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "change_shares",
+          "block_id": "d9d5be14f_p010_b00011",
+          "quote": "-2,975,600",
+          "value": 2975600,
+          "raw_value": "-2,975,600",
+          "unit": "shares",
+          "page": 10,
+          "region": [
+            268.78,
+            93.6,
+            325.92,
+            114.02
+          ],
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r2c4",
+          "header_path": null,
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d9d5be14f_p006_t001",
+            "d9d5be14f_p006_t002",
+            "d9d5be14f_p006_t003",
+            "d9d5be14f_p007_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "category": "partial_coverage",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "同上：单侧披露 ≠ 冲突。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "change_shares",
+          "block_id": "d9d5be14f_p010_b00025",
+          "quote": "-430,000",
+          "value": 430000,
+          "raw_value": "-430,000",
+          "unit": "shares",
+          "page": 10,
+          "region": [
+            268.78,
+            134.3,
+            325.92,
+            154.7
+          ],
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r4c4",
+          "header_path": null,
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d9d5be14f_p006_t001",
+            "d9d5be14f_p006_t002",
+            "d9d5be14f_p006_t003",
+            "d9d5be14f_p007_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "category": "reverse_match",
+      "expected_verdict": "corroborated",
+      "attribution_basis": "受让方期末 = 出让方期初，同一笔协议转让的反向咬合。",
+      "must_not_conclude": null,
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "field": "shares_after",
+          "block_id": "da00b31da_p009_b00004",
+          "quote": "本次权益变动后，信息披露义务人持有上市公司72,673,907股股份",
+          "value": 72673907,
+          "raw_value": "72,673,907股",
+          "unit": "shares",
+          "page": 9,
+          "region": [
+            84.84,
+            165.17,
+            513.12,
+            177.17
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "da00b31da_p005_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "field": "shares_before",
+          "block_id": "da8d294d2_p008_b00002",
+          "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份",
+          "value": 72673907,
+          "raw_value": "72,673,907股",
+          "unit": "shares",
+          "page": 8,
+          "region": [
+            114.24,
+            83.09,
+            500.16,
+            157.56
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "category": "reverse_match",
+      "expected_verdict": "corroborated",
+      "attribution_basis": "双方变动股数一致、方向相反。",
+      "must_not_conclude": null,
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "field": "change_shares",
+          "block_id": "da00b31da_p019_b00006",
+          "quote": "变动数量：72,673,907股股份",
+          "value": 72673907,
+          "raw_value": "72,673,907股",
+          "unit": "shares",
+          "page": 19,
+          "region": [
+            198.72,
+            282.54,
+            484.69,
+            296.59
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "quote_not_in_block",
+          "evidence_note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 da00b31da_p019_b00015 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定",
+          "doc_narrow_tables": [
+            "da00b31da_p005_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**",
+          "quote_found_in": [
+            "da00b31da_p019_b00015"
+          ]
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "field": "change_shares",
+          "block_id": "da8d294d2_p017_b00029",
+          "quote": "变动数量：减少72,673,907股",
+          "value": 72673907,
+          "raw_value": "72,673,907股",
+          "unit": "shares",
+          "page": 17,
+          "region": [
+            214.65,
+            526.02,
+            558.25,
+            584.47
+          ],
+          "table_id": "da8d294d2_p017_t001",
+          "cell_ref": "r9c2",
+          "header_path": "基本情况/浙江海正药业股份有限公司/海正药业",
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "category": "scope_cumulative",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "“本次质押”与“累计质押”口径不同，数值必然不同；把二者当同一口径比较即为误报。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "field": "pledged_shares_this_time",
+          "block_id": "d44e95085_p001_b00024",
+          "quote": "2,100,000",
+          "value": 2100000,
+          "raw_value": "2,100,000股",
+          "unit": "shares",
+          "page": 1,
+          "region": [
+            74.5,
+            469.52,
+            124.5,
+            504.82
+          ],
+          "table_id": "d44e95085_p001_t001",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东或第一大股东及其一致行动人",
+          "source_type": "cell",
+          "table_kind": null,
+          "evidence_status": "quote_not_in_block",
+          "evidence_note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 d44e95085_p001_b00025 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定",
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null,
+          "quote_found_in": [
+            "d44e95085_p001_b00025"
+          ]
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "field": "pledged_shares_cumulative",
+          "block_id": "d44e95085_p001_b00083",
+          "quote": "50,350,000",
+          "value": 50350000,
+          "raw_value": "50,350,000股",
+          "unit": "shares",
+          "page": 1,
+          "region": [
+            169.6,
+            709.82,
+            222.1,
+            730.07
+          ],
+          "table_id": "d44e95085_p001_t002",
+          "cell_ref": "r3c4",
+          "header_path": "本次质押前质押股份数量（股）",
+          "source_type": "cell",
+          "table_kind": null,
+          "evidence_status": "quote_not_in_block",
+          "evidence_note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 d44e95085_p001_b00084、d44e95085_p001_b00087 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定",
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null,
+          "quote_found_in": [
+            "d44e95085_p001_b00084",
+            "d44e95085_p001_b00087",
+            "d44e95085_p002_b00006",
+            "d44e95085_p002_b00009"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "category": "scope_cumulative",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "质押及解押混列时本次/累计口径仍不可混比。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D4-PLD-009",
+          "field": "pledged_shares_this_time",
+          "block_id": "d1320340e_p002_b00014",
+          "quote": "11,750,000",
+          "value": 11750000,
+          "raw_value": "11,750,000股",
+          "unit": "shares",
+          "page": 2,
+          "region": [
+            107.3,
+            184.74,
+            164.0,
+            241.24
+          ],
+          "table_id": "d1320340e_p002_t001",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押/展期股数（股）",
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d1320340e_p002_t002"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        },
+        {
+          "case_id": "D4-PLD-009",
+          "field": "pledged_shares_cumulative",
+          "block_id": "d1320340e_p003_b00019",
+          "quote": "33,344,000",
+          "value": 33344000,
+          "raw_value": "33,344,000股",
+          "unit": "shares",
+          "page": 3,
+          "region": [
+            209.55,
+            270.24,
+            274.35,
+            326.74
+          ],
+          "table_id": "d1320340e_p003_t002",
+          "cell_ref": "r3c5",
+          "header_path": "本次质押及解质押后累计质押数量",
+          "source_type": "cell",
+          "table_kind": "grid_table",
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "d1320340e_p002_t002"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "category": "ratio_denominator",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "分母不同（占其所持 vs 占公司总股本），比率不可直接相比。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "field": "pledged_ratio_this_time_of_held",
+          "block_id": "d44e95085_p001_b00025",
+          "quote": "2.40%",
+          "value": 2.4,
+          "raw_value": "2.40%",
+          "unit": "percent",
+          "page": 1,
+          "region": [
+            124.5,
+            469.52,
+            180.3,
+            504.82
+          ],
+          "table_id": "d44e95085_p001_t001",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押数量（股）",
+          "source_type": "cell",
+          "table_kind": null,
+          "evidence_status": "quote_not_in_block",
+          "evidence_note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 d44e95085_p001_b00026 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定",
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null,
+          "quote_found_in": [
+            "d44e95085_p001_b00026"
+          ]
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "field": "pledged_ratio_this_time_of_total",
+          "block_id": "d44e95085_p001_b00026",
+          "quote": "0.99%",
+          "value": 0.99,
+          "raw_value": "0.99%",
+          "unit": "percent",
+          "page": 1,
+          "region": [
+            180.3,
+            469.52,
+            230.3,
+            504.82
+          ],
+          "table_id": "d44e95085_p001_t001",
+          "cell_ref": "r2c4",
+          "header_path": "占其所持股份比例（%）",
+          "source_type": "cell",
+          "table_kind": null,
+          "evidence_status": "quote_not_in_block",
+          "evidence_note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 d44e95085_p001_b00027 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定",
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null,
+          "quote_found_in": [
+            "d44e95085_p001_b00027"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "category": "tax_scope",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "含税状态决定金额可比性；未取得同口径依据时不得跨含税口径直接比数。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D6-AWD-004",
+          "field": "tax_included",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元",
+          "value": "true",
+          "raw_value": "含税",
+          "unit": "text",
+          "page": 1,
+          "region": [
+            89.88,
+            418.66,
+            505.44,
+            500.86
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null
+        },
+        {
+          "case_id": "D6-AWD-004",
+          "field": "bid_amount",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元",
+          "value": 54000000,
+          "raw_value": "5,400万元",
+          "unit": "cny",
+          "page": 1,
+          "region": [
+            89.88,
+            418.66,
+            505.44,
+            500.86
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "category": "tax_scope",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "同上：含税/不含税口径需先归因。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "field": "tax_included",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "value": "true",
+          "raw_value": "含税",
+          "unit": "text",
+          "page": 1,
+          "region": [
+            90.0,
+            438.05,
+            505.32,
+            496.85
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "ddd80cf89_p001_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "field": "bid_amount",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "value": 148882000,
+          "raw_value": "人民币14,888.20万元",
+          "unit": "cny",
+          "page": 1,
+          "region": [
+            90.0,
+            438.05,
+            505.32,
+            496.85
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "ddd80cf89_p001_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "category": "currency_scope",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "原币 AED 173,800,000 与公告明示折合 CNY 317,915,000 属同一金额的两种口径；取明示折合值、不得自行套汇率。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "field": "bid_amount",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "value": 317915000,
+          "raw_value": "人民币317,915,000元",
+          "unit": "cny",
+          "page": 1,
+          "region": [
+            90.0,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "field": "currency",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "value": "CNY",
+          "raw_value": "人民币",
+          "unit": "text",
+          "page": 1,
+          "region": [
+            90.0,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "category": "currency_scope",
+      "expected_verdict": "explainable_difference",
+      "attribution_basis": "缺汇率/时点时不得换算，须保留原币与折合双记录。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "field": "bid_amount",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "value": 317915000,
+          "raw_value": "人民币317,915,000元",
+          "unit": "cny",
+          "page": 1,
+          "region": [
+            90.0,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [],
+          "doc_narrow_table_note": null
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "category": "insufficient",
+      "expected_verdict": "insufficient",
+      "attribution_basis": "全页扫描降级，14字段全 unreadable、0 可用字段——不得据空缺下任何结论。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "field": "*",
+          "block_id": null,
+          "quote": null,
+          "value": null,
+          "raw_value": null,
+          "unit": null,
+          "page": null,
+          "region": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": null,
+          "table_kind": null,
+          "evidence_status": "block_missing",
+          "evidence_note": "本地没有 pledge-scan-degrade 的解析包"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "category": "insufficient",
+      "expected_verdict": "insufficient",
+      "attribution_basis": "无框表格导致列语义丢失、无 header_path；单位依赖表头时不得推断，保留疑点。",
+      "must_not_conclude": "conflict",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "field": "bid_amount",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "value": 148882000,
+          "raw_value": "人民币14,888.20万元",
+          "unit": "cny",
+          "page": 1,
+          "region": [
+            90.0,
+            438.05,
+            505.32,
+            496.85
+          ],
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": "paragraph",
+          "table_kind": null,
+          "evidence_status": "present",
+          "evidence_note": null,
+          "doc_narrow_tables": [
+            "ddd80cf89_p001_t001"
+          ],
+          "doc_narrow_table_note": "本文档含 n_cols<3 的竖排键值表；这类表的 header_path 必然为空（设计行为），按行读 col0=字段名/col1=值即可，**不等于无框表格导致的列语义丢失**"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-019",
+      "category": "restatement",
+      "expected_verdict": "restated",
+      "attribution_basis": "后发公告显式声明更正前次数值 → 归因为更正，不是矛盾；以后发值为准并保留前次记录。",
+      "must_not_conclude": null,
+      "sides": [
+        {
+          "case_id": "SYNTH-CTRL-01-A",
+          "field": "shares_after",
+          "block_id": "synth-a",
+          "quote": "（受控构造）首次披露 11,042,217 股",
+          "value": 11042217,
+          "raw_value": "11,042,217股",
+          "unit": "shares",
+          "page": null,
+          "region": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": null,
+          "table_kind": null,
+          "evidence_status": "block_missing",
+          "evidence_note": "本地没有 SYNTH-CTRL-01-A 的解析包"
+        },
+        {
+          "case_id": "SYNTH-CTRL-01-B",
+          "field": "shares_after",
+          "block_id": "synth-b",
+          "quote": "（受控构造）更正公告：更正为 11,042,218 股",
+          "value": 11042218,
+          "raw_value": "11,042,218股",
+          "unit": "shares",
+          "page": null,
+          "region": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": null,
+          "table_kind": null,
+          "evidence_status": "block_missing",
+          "evidence_note": "本地没有 SYNTH-CTRL-01-B 的解析包"
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-020",
+      "category": "conflict",
+      "expected_verdict": "conflict",
+      "attribution_basis": "同一主体同一字段同一时点、无更正声明、无口径差异解释 → 判真矛盾，必须带双侧原文。",
+      "must_not_conclude": null,
+      "sides": [
+        {
+          "case_id": "SYNTH-CTRL-02-A",
+          "field": "shares_after",
+          "block_id": "synth-c",
+          "quote": "（受控构造）5,000,000 股",
+          "value": 5000000,
+          "raw_value": "5,000,000股",
+          "unit": "shares",
+          "page": null,
+          "region": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": null,
+          "table_kind": null,
+          "evidence_status": "block_missing",
+          "evidence_note": "本地没有 SYNTH-CTRL-02-A 的解析包"
+        },
+        {
+          "case_id": "SYNTH-CTRL-02-B",
+          "field": "shares_after",
+          "block_id": "synth-d",
+          "quote": "（受控构造）5,200,000 股",
+          "value": 5200000,
+          "raw_value": "5,200,000股",
+          "unit": "shares",
+          "page": null,
+          "region": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "source_type": null,
+          "table_kind": null,
+          "evidence_status": "block_missing",
+          "evidence_note": "本地没有 SYNTH-CTRL-02-B 的解析包"
+        }
+      ]
+    }
+  ],
+  "missing_evidence": [
+    {
+      "case_id": "D9-RULE-009",
+      "side_case": "D5-EQC-004",
+      "status": "quote_not_in_block",
+      "note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 da00b31da_p019_b00015 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定"
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "side_case": "D4-PLD-001",
+      "status": "quote_not_in_block",
+      "note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 d44e95085_p001_b00025 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定"
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "side_case": "D4-PLD-001",
+      "status": "quote_not_in_block",
+      "note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 d44e95085_p001_b00084、d44e95085_p001_b00087 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "side_case": "D4-PLD-001",
+      "status": "quote_not_in_block",
+      "note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 d44e95085_p001_b00026 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "side_case": "D4-PLD-001",
+      "status": "quote_not_in_block",
+      "note": "quote 不在用例指定的块里（去空白后也不在）；该 quote 实际出现在 d44e95085_p001_b00027 —— 多为**跨版本的块号漂移**，请按当前版本重新锚定"
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "side_case": "pledge-scan-degrade",
+      "status": "block_missing",
+      "note": "本地没有 pledge-scan-degrade 的解析包"
+    },
+    {
+      "case_id": "D9-RULE-019",
+      "side_case": "SYNTH-CTRL-01-A",
+      "status": "block_missing",
+      "note": "本地没有 SYNTH-CTRL-01-A 的解析包"
+    },
+    {
+      "case_id": "D9-RULE-019",
+      "side_case": "SYNTH-CTRL-01-B",
+      "status": "block_missing",
+      "note": "本地没有 SYNTH-CTRL-01-B 的解析包"
+    },
+    {
+      "case_id": "D9-RULE-020",
+      "side_case": "SYNTH-CTRL-02-A",
+      "status": "block_missing",
+      "note": "本地没有 SYNTH-CTRL-02-A 的解析包"
+    },
+    {
+      "case_id": "D9-RULE-020",
+      "side_case": "SYNTH-CTRL-02-B",
+      "status": "block_missing",
+      "note": "本地没有 SYNTH-CTRL-02-B 的解析包"
+    }
+  ],
+  "reanchor_suggestions": [
+    {
+      "case_id": "D9-RULE-009",
+      "side_case": "D5-EQC-004",
+      "field": "change_shares",
+      "quote": "变动数量：72,673,907股股份",
+      "wrong_block_id": "da00b31da_p019_b00006",
+      "correct_block_id": "da00b31da_p019_b00015",
+      "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id"
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "side_case": "D4-PLD-001",
+      "field": "pledged_shares_this_time",
+      "quote": "2,100,000",
+      "wrong_block_id": "d44e95085_p001_b00024",
+      "correct_block_id": "d44e95085_p001_b00025",
+      "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "side_case": "D4-PLD-001",
+      "field": "pledged_ratio_this_time_of_held",
+      "quote": "2.40%",
+      "wrong_block_id": "d44e95085_p001_b00025",
+      "correct_block_id": "d44e95085_p001_b00026",
+      "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "side_case": "D4-PLD-001",
+      "field": "pledged_ratio_this_time_of_total",
+      "quote": "0.99%",
+      "wrong_block_id": "d44e95085_p001_b00026",
+      "correct_block_id": "d44e95085_p001_b00027",
+      "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id"
+    }
+  ],
+  "reanchor_policy": "只在 quote 于本文档中**唯一**命中某块时给出修正；多候选视为有歧义，不自动改，交回人工。"
+}

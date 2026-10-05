@@ -3,8 +3,10 @@
  * 原则随 runner：期望标签不进入判定；矛盾须双侧证据；不得无源换算。
  */
 import { spawnSync } from 'node:child_process'
-import { rmSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { rmSync, mkdtempSync, writeFileSync, readFileSync } from 'node:fs'
+import { resolve, join, dirname } from 'node:path'
+import { tmpdir } from 'node:os'
+import assert from 'node:assert/strict'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const node = process.execPath
@@ -30,8 +32,40 @@ try {
   const fn = /"false_negative_conflict":\s*(\d+)/.exec(step2.out)?.[1]
   console.log(`[D9严格评分] result=${verdict}｜pass ${pass}｜fail ${fail}｜矛盾误报 ${fp}｜矛盾漏报 ${fn}`)
   if (step2.status !== 0 || verdict !== 'PASS') { console.error('[D9规则门禁] --strict 评分未过'); process.exit(1) }
-  console.log(`✓ 宗D9归因用例：${pass}/20 全过（期望标签未进入判定；更正/真矛盾受控项含双侧证据）`)
+
+  // 双侧出处包模式（张 D9 包）：标注不改变判定，20/20 须保持
+  const BIL = 'tools/zhang-bilateral/bilateral_evidence.json'
+  const step3 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES, '--bilateral', BIL, '--out', 'runs/.tmp-d9-bil-report.json'])
+  const step4 = run(['evaluation/D9/score-rules.mjs', '--report', resolve(REPO_ROOT, 'runs/.tmp-d9-bil-report.json'), '--json', TMP_SCORE, '--strict'])
+  const verdict4 = /"result":\s*"(\w+)"/.exec(step4.out)?.[1]
+  console.log(`[D9双侧模式] result=${verdict4}（标注 evidence_status＋重锚建议透传，判定不变）`)
+  if (step3.status !== 0 || step4.status !== 0 || verdict4 !== 'PASS') { console.error('[D9规则门禁] 双侧模式未过'); process.exit(1) }
+
+  // 不可锚真冲突路径：真实语料 conflict 若双侧不可锚 → evidence_verified=false（宗规则2块级强化）
+  {
+    const dir = mkdtempSync(join(tmpdir(), 'd9-bil-flag-'))
+    const casesPath = join(dir, 'c.json').replace(/\\/g, '/')
+    writeFileSync(casesPath, JSON.stringify({ cases: [{ case_id: 'X1', sides: [
+      { case_id: 'D5-EQC-001', entity: '某主体', field: 'shares_after', value: 100, quote: '甲', block_id: 'b1' },
+      { case_id: 'D5-EQC-002', entity: '某主体', field: 'shares_after', value: 200, quote: '乙', block_id: 'b2' },
+    ] }] }))
+    const bilPath = join(dir, 'bil.json').replace(/\\/g, '/')
+    writeFileSync(bilPath, JSON.stringify({ cases: [{ case_id: 'X1', sides: [
+      { case_id: 'D5-EQC-001', field: 'shares_after', evidence_status: 'quote_not_in_block' },
+      { case_id: 'D5-EQC-002', field: 'shares_after', evidence_status: 'present' },
+    ] }] }))
+    const r = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', casesPath, '--bilateral', bilPath, '--out', join(dir, 'o.json').replace(/\\/g, '/')])
+    if (r.status !== 0) { console.error('[D9规则门禁] 不可锚路径 runner 失败: ' + r.stderr); process.exit(1) }
+    const rep = JSON.parse(readFileSync(join(dir, 'o.json'), 'utf8'))
+    const x1 = rep.cases.find((c) => c.case_id === 'X1')
+    assert.equal(x1.verdict, 'conflict', '值不可归因＋双侧齐全 → conflict')
+    assert.equal(x1.evidence_verified, false, '真实语料 conflict 含不可锚侧 → evidence_verified=false')
+    rmSync(dir, { recursive: true, force: true })
+  }
+
+  console.log(`✓ 宗D9归因用例：${pass}/20 全过（期望标签未进入判定；更正/真矛盾受控项含双侧证据；--bilateral 标注＋不可锚标记路径验证）`)
 } finally {
   rmSync(TMP_REPORT, { force: true })
   rmSync(TMP_SCORE, { force: true })
+  rmSync(resolve(REPO_ROOT, 'runs/.tmp-d9-bil-report.json'), { force: true })
 }

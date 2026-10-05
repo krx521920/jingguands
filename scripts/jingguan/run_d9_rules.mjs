@@ -4,7 +4,11 @@
  *
  * 判定原则：只读 sides 数据（值/字段/主体/引文/块），**不读 expected_verdict/category/
  * attribution_basis**（期望标签不进入判定）；每案走确定性链，先归因后矛盾。
- * 用法：node scripts/jingguan/run_d9_rules.mjs --cases <rules-cases.dev.json> [--out <report.json>]
+ * 用法：node scripts/jingguan/run_d9_rules.mjs --cases <rules-cases.dev.json>
+ *            [--bilateral <张双侧出处包.json>] [--out <report.json>]
+ * --bilateral：逐侧附 evidence_status（张智博 D9 双侧出处包）；真实语料 conflict 判定
+ * 须双侧 present/空白变体可锚——不可锚则 verdict 不变但标 evidence_verified=false
+ * （宗规则 2"疑似矛盾必须带双侧证据"的块内容级强化）；受控构造（SYNTH-*）豁免。
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
@@ -14,10 +18,11 @@ import { spawnSync } from 'node:child_process'
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 
 function parseArgs(argv) {
-  const a = { cases: 'evaluation/D9/cases/rules-cases.dev.json', out: null }
+  const a = { cases: 'evaluation/D9/cases/rules-cases.dev.json', out: null, bilateral: null }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--cases') a.cases = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
+    else if (argv[i] === '--bilateral') a.bilateral = argv[++i]
     else { console.error(`未知参数：${argv[i]}`); process.exit(2) }
   }
   return a
@@ -151,18 +156,48 @@ function decide(sides) {
 const args = parseArgs(process.argv.slice(2))
 const ds = JSON.parse(readFileSync(resolve(REPO_ROOT, args.cases), 'utf8'))
 const cases = ds.cases ?? ds
+// 张双侧出处包（可选）：按 case_id 匹配，逐侧取 evidence_status/evidence_note
+let bilateral = null
+if (args.bilateral !== null) {
+  bilateral = JSON.parse(readFileSync(resolve(REPO_ROOT, args.bilateral), 'utf8'))
+}
+const bilByCase = new Map((bilateral?.cases ?? []).map((c) => [c.case_id, c]))
+const anchorable = (st) => st === 'present' || st === 'quote_whitespace_variance'
+
 const outCases = []
 const byVerdict = {}
+const bilSummary = {}
 for (const c of cases) {
   const d = decide(c.sides ?? [])
   byVerdict[d.verdict] = (byVerdict[d.verdict] ?? 0) + 1
+  const bilCase = bilByCase.get(c.case_id) ?? null
+  const bilSides = bilCase?.sides ?? null
+  const outSides = (c.sides ?? []).map((s, ix) => {
+    const bs = bilSides?.[ix] ?? bilSides?.find((x) => x.case_id === s.case_id && x.field === s.field) ?? null
+    if (bs !== null) bilSummary[bs.evidence_status] = (bilSummary[bs.evidence_status] ?? 0) + 1
+    return {
+      case_id: s.case_id, block_id: s.block_id ?? null, quote: s.quote ?? null,
+      evidence_status: bs?.evidence_status ?? null, evidence_note: bs?.evidence_note ?? null,
+    }
+  })
+  // 块内容级 conflict 证据强化（真实语料；受控构造 SYNTH-* 豁免——无解析块为设计使然）
+  let evidenceVerified = null
+  if (d.verdict === 'conflict' && args.bilateral !== null) {
+    const realSides = outSides.filter((s) => !String(s.case_id).startsWith('SYNTH-'))
+    if (realSides.length > 0) {
+      evidenceVerified = realSides.length >= 2 && realSides.every((s) => anchorable(s.evidence_status))
+    } else {
+      evidenceVerified = true // 纯受控构造：双侧证据在报告层齐全即可（宗评分器口径）
+    }
+  }
   outCases.push({
     case_id: c.case_id,
     verdict: d.verdict,
     attribution: d.attribution,
     attribution_code: d.code,
-    sides: (c.sides ?? []).map((s) => ({ case_id: s.case_id, block_id: s.block_id ?? null, quote: s.quote ?? null })),
+    sides: outSides,
     computed: d.computed,
+    ...(evidenceVerified === false ? { evidence_verified: false, evidence_note: '真实语料 conflict 存在不可锚侧（quote_not_in_block/block_missing）——按宗规则2须双侧块级证据，此判定保留待证据重锚复核' } : {}),
   })
 }
 const codeVersion = (() => {
@@ -173,6 +208,7 @@ const report = {
   tool: 'run_d9_rules.mjs',
   code_version: codeVersion,
   input: args.cases,
+  bilateral: args.bilateral !== null ? { source: args.bilateral, side_status_summary: bilSummary, reanchor_suggestions: bilateral?.reanchor_suggestions ?? [], reanchor_policy: bilateral?.reanchor_policy ?? null } : null,
   policy: '期望标签不进入判定（只读 sides 值/字段/主体/引文/块）',
   cases_total: outCases.length,
   by_verdict: byVerdict,
@@ -180,5 +216,5 @@ const report = {
 }
 const outStr = JSON.stringify(report, null, 2)
 if (args.out) writeFileSync(resolve(REPO_ROOT, args.out), outStr, 'utf8')
-console.log(`[D9归因runner] ${outCases.length} 案｜${Object.entries(byVerdict).map(([k, v]) => `${k}=${v}`).join('｜')}${args.out ? `｜报告 ${args.out}` : ''}`)
+console.log(`[D9归因runner] ${outCases.length} 案｜${Object.entries(byVerdict).map(([k, v]) => `${k}=${v}`).join('｜')}${args.bilateral !== null ? `｜双侧证据 ${JSON.stringify(bilSummary)}` : ''}${args.out ? `｜报告 ${args.out}` : ''}`)
 if (args.out === null) console.log(outStr)
