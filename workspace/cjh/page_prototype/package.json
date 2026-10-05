@@ -1,0 +1,13 @@
+{
+  "name": "cjh-page-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "公告事件提取与核验 · 展示层可拓展骨架（陈家浩 / cjh-workspace）",
+  "scripts": {
+    "start": "node server.js",
+    "demo": "node server.js --open-demo"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

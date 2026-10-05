@@ -1,0 +1,30 @@
+{
+  "run_id": "mock-run-0003",
+  "schema_version": "0.1",
+  "data_mode": "simulated",
+  "source_file": {
+    "file_id": "mock-file-003",
+    "filename": "演示3_新数据集_担保公告.txt",
+    "parse_status": "success"
+  },
+  "events": [
+    {
+      "event_id": "evt-0101",
+      "event_type": "guarantee",
+      "status": "success",
+      "fields": {
+        "guarantor":        { "value": "演示银行（模拟）", "evidence_id": "ev-0101" },
+        "amount":           { "value": 50000000, "unit": "元", "normalized": "50000000", "evidence_id": "ev-0102" },
+        "beneficiary":      { "value": "模拟商业银行", "evidence_id": "ev-0102" },
+        "guarantee_method": { "value": "连带责任保证担保", "evidence_id": "ev-0101" },
+        "guarantee_period": { "value": "主合同项下债务履行期届满之日起三年", "evidence_id": "ev-0101" },
+        "announce_date":    { "value": "2026-09-25", "normalized": "2026-09-25", "evidence_id": "ev-0103" }
+      }
+    }
+  ],
+  "evidences": [
+    { "evidence_id": "ev-0101", "block_id": "blk-0101", "page": 1, "bbox": null, "quote": "（模拟原文）为全资子公司演示科技（模拟）提供银行担保……担保方式为连带责任保证担保……保证期间为主合同项下债务履行期届满之日起三年。" },
+    { "evidence_id": "ev-0102", "block_id": "blk-0102", "page": 1, "bbox": null, "quote": "（模拟原文）担保金额为人民币 50,000,000 元（大写：伍仟万元整），担保受益人为模拟商业银行。" },
+    { "evidence_id": "ev-0103", "block_id": "blk-0103", "page": 1, "bbox": null, "quote": "（模拟原文）本公司于 2026 年 9 月 25 日召开第八届董事会第十二次会议……" }
+  ]
+}

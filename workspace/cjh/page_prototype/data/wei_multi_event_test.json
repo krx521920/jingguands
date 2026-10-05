@@ -1,0 +1,141 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20260929T000000-pledge-multi-test",
+  "is_mock": true,
+  "source": {
+    "file_id": "sha256:00000000multi0000test0000000000000000000000000000000000000000000000",
+    "file_name": "multi_pledge_合成三事件.txt",
+    "file_sha256": "00000000multi0000test0000000000000000000000000000000000000000000000",
+    "parse_meta": { "parser_version": null, "page_count": 1, "blocks": null }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "extraction_method": "synthetic",
+      "notes": "合成数据——验证多事件渲染与列头单位继承场景；不得计入真实成绩",
+      "fields": {
+        "pledgor": {
+          "raw_value": "模拟股东A", "value": "模拟股东A", "unit": "text", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00001", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r2c1", "quote": "模拟股东A" } ],
+          "denominator": null, "note": null
+        },
+        "pledgee": {
+          "raw_value": "模拟银行股份有限公司", "value": "模拟银行股份有限公司", "unit": "text", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00002", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r2c10", "quote": "模拟银行股份有限公司" } ],
+          "denominator": null, "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "364.00万股", "value": 3640000, "unit": "shares", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00003", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r2c3", "quote": "364.00" } ],
+          "denominator": null,
+          "note": "列头单位继承场景：单元格文本只有 364.00，万股来自列头，正确换算应=3,640,000 股"
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "2.40%", "value": 2.4, "unit": "percent", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00004", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r2c4", "quote": "2.40%" } ],
+          "denominator": "holder_shares", "note": null
+        },
+        "start_date": {
+          "raw_value": "2026年09月23日", "value": "2026-09-23", "unit": "date", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00005", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r2c8", "quote": "2026年09月23日" } ],
+          "denominator": null, "note": null
+        },
+        "purpose": {
+          "raw_value": "融资", "value": "融资", "unit": "text", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00006", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r2c11", "quote": "融资" } ],
+          "denominator": null, "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null, "value": null, "unit": "cny", "standardized": false,
+          "status": "not_mentioned", "provenance": [], "denominator": null, "note": null
+        }
+      }
+    },
+    {
+      "event_id": "E02",
+      "event_type": "pledge",
+      "extraction_method": "synthetic",
+      "notes": "合成数据——第二大笔：小数万股换算（27,495.8065 万股 = 274,958,065 股，整数股成立）",
+      "fields": {
+        "pledgor": {
+          "raw_value": "模拟股东B", "value": "模拟股东B", "unit": "text", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00011", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r3c1", "quote": "模拟股东B" } ],
+          "denominator": null, "note": null
+        },
+        "pledgee": {
+          "raw_value": "模拟银行股份有限公司", "value": "模拟银行股份有限公司", "unit": "text", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00012", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r3c10", "quote": "模拟银行股份有限公司" } ],
+          "denominator": null, "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "27,495.8065万股", "value": 274958065, "unit": "shares", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00013", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r3c3", "quote": "27,495.8065" } ],
+          "denominator": null,
+          "note": "小数万股：274958065 股为整数，乘 10^4 后无小数股，校验应通过"
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "50,350.0000万股", "value": 503500000, "unit": "shares", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00014", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t002", "cell_ref": "r3c5", "quote": "50,350.0000" } ],
+          "denominator": null, "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "23.62%", "value": 23.62, "unit": "percent", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00015", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t002", "cell_ref": "r3c7", "quote": "23.62%" } ],
+          "denominator": "total_share_capital", "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年09月25日", "value": "2026-09-25", "unit": "date", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00016", "source_type": "paragraph", "page": 1, "region": null, "table_id": null, "cell_ref": null, "quote": "2026年09月25日" } ],
+          "denominator": null, "note": null
+        }
+      }
+    },
+    {
+      "event_id": "E03",
+      "event_type": "pledge",
+      "extraction_method": "synthetic",
+      "notes": "合成数据——第三大笔：故意保留一个换算错误字段（value=1200 未按万股×10^4），演示页面'原文/标准化'并列时的错值放大镜效果；修复验证时此字段应显示 原文1,200.00万股 / 标准化1200 股（肉眼即见不符）",
+      "fields": {
+        "pledgor": {
+          "raw_value": "模拟股东C", "value": "模拟股东C", "unit": "text", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00021", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r4c1", "quote": "模拟股东C" } ],
+          "denominator": null, "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "1,200.00万股", "value": 1200, "unit": "shares", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00022", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r4c3", "quote": "1,200.00" } ],
+          "denominator": null,
+          "note": "【故意错值】正确应为 12,000,000 股；此处保留 1200 用于验证页面能否让错值一眼可见（页面只透传不复算）"
+        },
+        "start_date": {
+          "raw_value": "2026年09月24日", "value": "2026-09-24", "unit": "date", "standardized": true,
+          "status": "extracted",
+          "provenance": [ { "block_id": "d00000001_p001_b00023", "source_type": "cell", "page": 1, "region": null, "table_id": "d00000001_p001_t001", "cell_ref": "r4c8", "quote": "2026年09月24日" } ],
+          "denominator": null, "note": null
+        }
+      }
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "synthetic",
+    "started_at": "2026-09-29T00:00:00.000Z",
+    "duration_ms": 0,
+    "errors": []
+  }
+}
