@@ -95,8 +95,8 @@ const group = (id, members) => ({ groups: [{ group_id: id, members }] })
 // ④ 第三态守卫否决权：0 可用字段组（scan-degrade）即使插件误判 related 也必须 unknown
 {
   const { dir, envDir } = tempEnvDir()
-  cpSync(resolve(REPO_ROOT, 'runs/batch-20261004T093750/envelopes/pledge-scan-degrade.json'), join(envDir, 'pledge-scan-degrade.json'))
-  cpSync(resolve(REPO_ROOT, 'runs/batch-20261004T093750/envelopes/D6-AWD-001.json'), join(envDir, 'D6-AWD-001.json'))
+  cpSync(resolve(REPO_ROOT, 'runs/batch-20261005T063943/envelopes/pledge-scan-degrade.json'), join(envDir, 'pledge-scan-degrade.json'))
+  cpSync(resolve(REPO_ROOT, 'runs/batch-20261005T063943/envelopes/D6-AWD-001.json'), join(envDir, 'D6-AWD-001.json'))
   const stub = writeStub(dir, `export function explainGroup() { return { predicted_relation: 'related', reasons: ['STUB_WRONG'] } }`)
   const { report } = run(envDir, group('T4', ['pledge-scan-degrade', 'D6-AWD-001']), stub)
   const g4 = report.results[0]
@@ -137,7 +137,7 @@ export function alignEvents(a, b) { return [{ entityA: '某主体', entityB: '�
 // ⑦ document_pairs 逐对门控：组 related 但某对 non-same → 该对跳过数值核验
 {
   const { dir, envDir } = tempEnvDir()
-  const batchEnv = resolve(REPO_ROOT, 'runs/batch-20261004T093750/envelopes')
+  const batchEnv = resolve(REPO_ROOT, 'runs/batch-20261005T063943/envelopes')
   for (const c of ['D5-EQC-001', 'D5-EQC-002', 'D5-EQC-003']) cpSync(join(batchEnv, c + '.json'), join(envDir, c + '.json'))
   const stub = writeStub(dir, `
 export function explainGroup(g) {

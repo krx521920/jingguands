@@ -15,7 +15,7 @@ import { resolve } from 'node:path'
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const node = process.execPath
 // 信封目录＝统一批次（35 输入：30 语料＋5 对抗，含 scan-degrade 信封）
-const ENVELOPES = 'runs/batch-20261004T093750/envelopes'
+const ENVELOPES = 'runs/batch-20261005T063943/envelopes'
 const MANIFEST = 'evaluation/D8/pairs/pairs.dev30.json'
 const TMP_REPORT = resolve(REPO_ROOT, 'runs', '.tmp-d8-b-report.json')
 
