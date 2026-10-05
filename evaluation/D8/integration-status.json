@@ -8,7 +8,8 @@
       "commit": "954381da031debcbde5cf9c1fe2def3f65adb2f0",
       "deliverable": "scripts/jingguan/verify_crossdoc.mjs + runs/crossdoc-report-20261003.json + docs/d8-crossdoc-verification.md",
       "evidence": "sealed cross-doc replay 20/20; D8 pair manifest run runs/D8-b-report-20261004.json 13/13 (PAIR-013 unknown via INSUFFICIENT_SIGNALS + MEMBER_NO_USABLE_FIELDS)",
-      "open": "defensive numeric coercion (latent); D7 gold snapshot re-sync"
+      "open": "D7 gold snapshot re-sync; defensive numeric coercion 已由魏修复（2026-10-05 魏答复确认），从 open 项移除",
+      "notes": "defensive numeric coercion: fixed by wei (removed from open 2026-10-05)"
     },
     "zhangzhibo": {
       "status": "delivered",
@@ -86,5 +87,9 @@
       "item": "--matcher can only replace field alignment, not group-level relation or aggregate reconciliation",
       "action": "wei must add new entry point calling explainGroup/alignDocuments before numeric branches"
     }
+  ],
+  "refresh_20261005": [
+    "移除过时项：defensive numeric coercion (latent) —— 魏已修复",
+    "D8 演示脚本第 5 步已于 84f28745 改为鸿路实证（同公司不同事件）"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "dataset_id": "financial-events-d9-rules-dev-v0.1",
+  "dataset_id": "financial-events-d9-rules-dev-v0.2",
   "created_on": "2026-10-05",
   "goal": "先归因，再判矛盾",
   "total": 20,
@@ -266,7 +266,8 @@
           "raw_value": "72,673,907股",
           "unit": "shares",
           "quote": "变动数量：72,673,907股股份",
-          "block_id": "da00b31da_p019_b00006"
+          "block_id": "da00b31da_p019_b00015",
+          "anchor_note": "重锚：原 b00006 非逐字命中块；本块块文本含该子串（张解析版本 tmp/zhang-d5-parse/D5-EQC-004.parse.json）。"
         },
         {
           "case_id": "D5-EQC-005",
@@ -295,7 +296,7 @@
           "raw_value": "2,100,000股",
           "unit": "shares",
           "quote": "2,100,000",
-          "block_id": "d44e95085_p001_b00024"
+          "block_id": "d44e95085_p001_b00025"
         },
         {
           "case_id": "D4-PLD-001",
@@ -305,7 +306,8 @@
           "raw_value": "50,350,000股",
           "unit": "shares",
           "quote": "50,350,000",
-          "block_id": "d44e95085_p001_b00083"
+          "block_id": "d44e95085_p001_b00084",
+          "anchor_note": "人工定夺：同一数值 50,350,000 亦出现在 b00087（该列为「已质押股份限售和冻结数量」）与 p002 两列。经查表头，b00084 对应「本次质押后质押股份数量」，故取 b00084；b00087 为不同语义列，不得混用。"
         }
       ],
       "attribution_basis": "“本次质押”与“累计质押”口径不同，数值必然不同；把二者当同一口径比较即为误报。",
@@ -357,7 +359,7 @@
           "raw_value": "2.40%",
           "unit": "percent",
           "quote": "2.40%",
-          "block_id": "d44e95085_p001_b00025"
+          "block_id": "d44e95085_p001_b00026"
         },
         {
           "case_id": "D4-PLD-001",
@@ -367,7 +369,7 @@
           "raw_value": "0.99%",
           "unit": "percent",
           "quote": "0.99%",
-          "block_id": "d44e95085_p001_b00026"
+          "block_id": "d44e95085_p001_b00027"
         }
       ],
       "attribution_basis": "分母不同（占其所持 vs 占公司总股本），比率不可直接相比。",
@@ -533,9 +535,10 @@
           "block_id": "ddd80cf89_p001_b00008"
         }
       ],
-      "attribution_basis": "无框表格导致列语义丢失、无 header_path；单位依赖表头时不得推断，保留疑点。",
+      "attribution_basis": "D6-AWD-005 为**竖排键值表**（n_cols<3，不判表头属设计行为），并非\"无框表格\"；本侧证据块是**正文段落**，\"列语义丢失\"对该块不成立。判定为 insufficient 的真实依据：单侧 + 主体不可锚。下游应采用张的文档级 doc_narrow_tables 标记，且**不得**对键值表做列序回退。",
       "synthetic_controlled": false,
-      "must_not_conclude": "conflict"
+      "must_not_conclude": "conflict",
+      "boundary_correction": "采纳张/魏更正：竖排键值表 ≠ 无框表格；不做列序回退。"
     },
     {
       "case_id": "D9-RULE-019",
@@ -596,5 +599,7 @@
       "synthetic_controlled": true,
       "requires_dual_evidence": true
     }
-  ]
+  ],
+  "revised_on": "2026-10-05",
+  "revision_note": "v0.2: 按张/魏重锚清单修正 5 处 block_id（RULE-009/010×2/012×2），RULE-010 cumulative 由宗人工定为 b00084，并更正 RULE-018 的表格形态依据。expected_verdict 与成员未变。"
 }
