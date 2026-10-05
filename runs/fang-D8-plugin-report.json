@@ -1,0 +1,2529 @@
+{
+  "checked_on": "2026-10-05",
+  "b_run": {
+    "b_run_id": "b-20261005035621",
+    "engine": "verify_crossdoc.mjs",
+    "matcher": {
+      "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+      "capabilities": [
+        "alignEvents",
+        "explainGroup"
+      ]
+    },
+    "envelopes_dir": "runs/batch-20261004T093750/envelopes"
+  },
+  "envelopes_dir": "runs/batch-20261004T093750/envelopes",
+  "manifest": "evaluation/D8/pairs/pairs.dev30.json",
+  "expect_mode": true,
+  "groups_total": 13,
+  "groups_checked": 13,
+  "groups_missing_envelope": [],
+  "related_detected": 4,
+  "related_conflicts_total": 0,
+  "related_corroborations_total": 10,
+  "results": [
+    {
+      "group_id": "D8-PAIR-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-001",
+          "a_run_id": "20261004T093848-equity_change-eec5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "a_run_id": "20261004T093901-equity_change-8518",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-001",
+          "usable": 45,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "usable": 27,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "signals": {
+        "shared_entity_count": 3,
+        "shared_entities": [
+          "蔚文绪",
+          "蔚文举",
+          "于春生"
+        ],
+        "shared_entities_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-002"
+        ],
+        "anchor_count": 9,
+        "shared_anchor_numbers": [
+          14722917,
+          11042217,
+          3680700,
+          3190004,
+          1848404,
+          1341600,
+          4472000,
+          12899900,
+          8427900
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-002"
+        ],
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "related",
+        "builtin_relation": "related",
+        "plugin_reasons": [
+          "SIGNED_TRANSFER_BUNDLE_MATCH"
+        ],
+        "relation_label": "同一交易关联",
+        "association_explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D5-EQC-001",
+            "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+            "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+            "file_name": "D5-EQC-001.pdf",
+            "run_id": "20261004T093848-equity_change-eec5",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "920580",
+            "issuer_name": "洛阳科创新材料股份有限公司",
+            "notice_number": "2026-075",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "920580",
+                "provenance": [
+                  {
+                    "block_id": "d9d5be14f_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90.02,
+                      73.81,
+                      508.68,
+                      86.71
+                    ],
+                    "quote": "证券代码：920580"
+                  }
+                ]
+              },
+              "issuer_name": {
+                "value": "洛阳科创新材料股份有限公司",
+                "provenance": [
+                  {
+                    "block_id": "d9d5be14f_p001_b00010",
+                    "page": 1,
+                    "region": [
+                      114.14,
+                      286.62,
+                      360.55,
+                      298.62
+                    ],
+                    "quote": "上市公司名称：洛阳科创新材料股份有限公司 "
+                  }
+                ]
+              },
+              "notice_number": {
+                "value": "2026-075",
+                "provenance": [
+                  {
+                    "block_id": "d9d5be14f_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90.02,
+                      73.81,
+                      508.68,
+                      86.71
+                    ],
+                    "quote": "公告编号：2026-075"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 45
+          },
+          {
+            "case_id": "D5-EQC-002",
+            "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+            "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+            "file_name": "D5-EQC-002.pdf",
+            "run_id": "20261004T093901-equity_change-8518",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "920580",
+            "issuer_name": "洛阳科创新材料股份有限公司",
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "920580",
+                "provenance": [
+                  {
+                    "block_id": "d46bc2ef0_p001_b00002",
+                    "page": 1,
+                    "region": [
+                      90.02,
+                      118.2,
+                      519.48,
+                      727.21
+                    ],
+                    "quote": "股票代码：920580"
+                  }
+                ]
+              },
+              "issuer_name": {
+                "value": "洛阳科创新材料股份有限公司",
+                "provenance": [
+                  {
+                    "block_id": "d46bc2ef0_p001_b00002",
+                    "page": 1,
+                    "region": [
+                      90.02,
+                      118.2,
+                      519.48,
+                      727.21
+                    ],
+                    "quote": "详式权益变动报告书  上市公司名称：洛阳科创新材料股份有限公司 股票上市地点：北京证券交易所 股票简称：科创新材 股票代码：920580  信息披露义务人：于春生 住所：天津市武清区****** 通讯地址：天津市武清区******  一致行动人：蔚文绪 住所： 河南省洛阳市涧西区****** 通讯地址：河南省洛阳市涧西区******  一致行动人：蔚文举 住所：内蒙古乌兰察布市****** 通讯地址：内蒙古乌兰察布市******  股份变动性质：由增持股份（协议转让）及签订《一致行动协议》所引起   "
+                  }
+                ]
+              },
+              "notice_number": null
+            },
+            "usable_fields": 27
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "predicted_relation": "related",
+            "status": "same",
+            "reasons": [
+              "SIGNED_TRANSFER_BUNDLE_MATCH"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "entity": "蔚文绪",
+            "field": "shares_before",
+            "value": 14722917,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "14,722,917",
+              "14,722,917"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文绪",
+            "field": "shares_after",
+            "value": 11042217,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "11,042,217",
+              "11,042,217"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文绪",
+            "field": "change_shares",
+            "value": 3680700,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "-3,680,700",
+              "-3,680,700"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文举",
+            "field": "shares_before",
+            "value": 3190004,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "3,190,004",
+              "3,190,004"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文举",
+            "field": "shares_after",
+            "value": 1848404,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "1,848,404",
+              "1,848,404"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "蔚文举",
+            "field": "change_shares",
+            "value": 1341600,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "-1,341,600",
+              "-1,341,600"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "于春生",
+            "field": "shares_before",
+            "value": 4472000,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "4,472,000",
+              "4,472,000"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "于春生",
+            "field": "shares_after",
+            "value": 12899900,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "12,899,900",
+              "12,899,900"
+            ],
+            "matcher": "plugin"
+          },
+          {
+            "entity": "于春生",
+            "field": "change_shares",
+            "value": 8427900,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "8,427,900",
+              "8,427,900"
+            ],
+            "matcher": "plugin"
+          }
+        ],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "马军强",
+            "only_in": "D5-EQC-001"
+          },
+          {
+            "entity": "杨占坡",
+            "only_in": "D5-EQC-001"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-PAIR-002",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-001",
+          "a_run_id": "20261004T093848-equity_change-eec5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "a_run_id": "20261004T093920-equity_change-17aa",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-001",
+          "usable": 45,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "signals": {
+        "shared_entity_count": 4,
+        "shared_entities": [
+          "蔚文绪",
+          "马军强",
+          "杨占坡",
+          "蔚文举"
+        ],
+        "shared_entities_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-003"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          8427900
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-003"
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          8427900
+        ],
+        "reverse_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-003"
+        ]
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "related",
+        "builtin_relation": "related",
+        "plugin_reasons": [
+          "SIGNED_TRANSFER_BUNDLE_MATCH"
+        ],
+        "relation_label": "同一交易关联",
+        "association_explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D5-EQC-001",
+            "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+            "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+            "file_name": "D5-EQC-001.pdf",
+            "run_id": "20261004T093848-equity_change-eec5",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "920580",
+            "issuer_name": "洛阳科创新材料股份有限公司",
+            "notice_number": "2026-075",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "920580",
+                "provenance": [
+                  {
+                    "block_id": "d9d5be14f_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90.02,
+                      73.81,
+                      508.68,
+                      86.71
+                    ],
+                    "quote": "证券代码：920580"
+                  }
+                ]
+              },
+              "issuer_name": {
+                "value": "洛阳科创新材料股份有限公司",
+                "provenance": [
+                  {
+                    "block_id": "d9d5be14f_p001_b00010",
+                    "page": 1,
+                    "region": [
+                      114.14,
+                      286.62,
+                      360.55,
+                      298.62
+                    ],
+                    "quote": "上市公司名称：洛阳科创新材料股份有限公司 "
+                  }
+                ]
+              },
+              "notice_number": {
+                "value": "2026-075",
+                "provenance": [
+                  {
+                    "block_id": "d9d5be14f_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90.02,
+                      73.81,
+                      508.68,
+                      86.71
+                    ],
+                    "quote": "公告编号：2026-075"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 45
+          },
+          {
+            "case_id": "D5-EQC-003",
+            "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+            "file_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+            "file_name": "D5-EQC-003.pdf",
+            "run_id": "20261004T093920-equity_change-17aa",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": null,
+            "issuer_name": "洛阳科创新材料股份有限公司",
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": null,
+              "issuer_name": {
+                "value": "洛阳科创新材料股份有限公司",
+                "provenance": [
+                  {
+                    "block_id": "d173fee90_p001_b00002",
+                    "page": 1,
+                    "region": [
+                      167.04,
+                      229.97,
+                      428.05,
+                      250.02
+                    ],
+                    "quote": "洛阳科创新材料股份有限公司"
+                  }
+                ]
+              },
+              "notice_number": null
+            },
+            "usable_fields": 5
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D5-EQC-001",
+              "D5-EQC-003"
+            ],
+            "predicted_relation": "related",
+            "status": "same",
+            "reasons": [
+              "SIGNED_TRANSFER_BUNDLE_MATCH"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "kind": "group_total_matches_sum",
+            "entity": "蔚文绪、马军强、杨占坡和蔚文举",
+            "field": "change_shares",
+            "aggregate": {
+              "doc": "D5-EQC-003",
+              "value": 8427900
+            },
+            "parts": [
+              {
+                "doc": "D5-EQC-001",
+                "entity": "蔚文绪",
+                "value": 3680700
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "马军强",
+                "value": 2975600
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "杨占坡",
+                "value": 430000
+              },
+              {
+                "doc": "D5-EQC-001",
+                "entity": "蔚文举",
+                "value": 1341600
+              }
+            ]
+          }
+        ],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "于春生",
+            "only_in": "D5-EQC-001"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-PAIR-003",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-002",
+          "a_run_id": "20261004T093901-equity_change-8518",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "a_run_id": "20261004T093920-equity_change-17aa",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-002",
+          "usable": 27,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "signals": {
+        "shared_entity_count": 2,
+        "shared_entities": [
+          "蔚文绪",
+          "蔚文举"
+        ],
+        "shared_entities_from_pair": [
+          "D5-EQC-002",
+          "D5-EQC-003"
+        ],
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          8427900
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-002",
+          "D5-EQC-003"
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          8427900
+        ],
+        "reverse_from_pair": [
+          "D5-EQC-002",
+          "D5-EQC-003"
+        ]
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "related",
+        "builtin_relation": "related",
+        "plugin_reasons": [
+          "SIGNED_TRANSFER_BUNDLE_MATCH"
+        ],
+        "relation_label": "同一交易关联",
+        "association_explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D5-EQC-002",
+            "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+            "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+            "file_name": "D5-EQC-002.pdf",
+            "run_id": "20261004T093901-equity_change-8518",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "920580",
+            "issuer_name": "洛阳科创新材料股份有限公司",
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "920580",
+                "provenance": [
+                  {
+                    "block_id": "d46bc2ef0_p001_b00002",
+                    "page": 1,
+                    "region": [
+                      90.02,
+                      118.2,
+                      519.48,
+                      727.21
+                    ],
+                    "quote": "股票代码：920580"
+                  }
+                ]
+              },
+              "issuer_name": {
+                "value": "洛阳科创新材料股份有限公司",
+                "provenance": [
+                  {
+                    "block_id": "d46bc2ef0_p001_b00002",
+                    "page": 1,
+                    "region": [
+                      90.02,
+                      118.2,
+                      519.48,
+                      727.21
+                    ],
+                    "quote": "详式权益变动报告书  上市公司名称：洛阳科创新材料股份有限公司 股票上市地点：北京证券交易所 股票简称：科创新材 股票代码：920580  信息披露义务人：于春生 住所：天津市武清区****** 通讯地址：天津市武清区******  一致行动人：蔚文绪 住所： 河南省洛阳市涧西区****** 通讯地址：河南省洛阳市涧西区******  一致行动人：蔚文举 住所：内蒙古乌兰察布市****** 通讯地址：内蒙古乌兰察布市******  股份变动性质：由增持股份（协议转让）及签订《一致行动协议》所引起   "
+                  }
+                ]
+              },
+              "notice_number": null
+            },
+            "usable_fields": 27
+          },
+          {
+            "case_id": "D5-EQC-003",
+            "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+            "file_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+            "file_name": "D5-EQC-003.pdf",
+            "run_id": "20261004T093920-equity_change-17aa",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": null,
+            "issuer_name": "洛阳科创新材料股份有限公司",
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": null,
+              "issuer_name": {
+                "value": "洛阳科创新材料股份有限公司",
+                "provenance": [
+                  {
+                    "block_id": "d173fee90_p001_b00002",
+                    "page": 1,
+                    "region": [
+                      167.04,
+                      229.97,
+                      428.05,
+                      250.02
+                    ],
+                    "quote": "洛阳科创新材料股份有限公司"
+                  }
+                ]
+              },
+              "notice_number": null
+            },
+            "usable_fields": 5
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D5-EQC-002",
+              "D5-EQC-003"
+            ],
+            "predicted_relation": "related",
+            "status": "same",
+            "reasons": [
+              "SIGNED_TRANSFER_BUNDLE_MATCH"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      },
+      "consistency": {
+        "corroborations": [],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "kind": "partial_aggregate_coverage",
+            "entity": "蔚文绪、马军强、杨占坡和蔚文举",
+            "field": "change_shares",
+            "covered": [
+              "蔚文绪",
+              "蔚文举"
+            ],
+            "aggregate_value": 8427900
+          },
+          {
+            "entity": "于春生",
+            "only_in": "D5-EQC-002"
+          },
+          {
+            "entity": "马军强",
+            "only_in": "D5-EQC-003"
+          },
+          {
+            "entity": "杨占坡",
+            "only_in": "D5-EQC-003"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-PAIR-004",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-004",
+          "a_run_id": "20261004T093923-equity_change-4807",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "a_run_id": "20261004T093927-equity_change-3261",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-004",
+          "usable": 8,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "usable": 8,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 1,
+        "shared_anchor_numbers": [
+          72673907
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-004",
+          "D5-EQC-005"
+        ],
+        "reverse_match": true,
+        "reverse_match_numbers": [
+          72673907
+        ],
+        "reverse_from_pair": [
+          "D5-EQC-004",
+          "D5-EQC-005"
+        ]
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "related",
+        "builtin_relation": "related",
+        "plugin_reasons": [
+          "SIGNED_TRANSFER_BUNDLE_MATCH"
+        ],
+        "relation_label": "同一交易关联",
+        "association_explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D5-EQC-004",
+            "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+            "file_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+            "file_name": "D5-EQC-004.pdf",
+            "run_id": "20261004T093923-equity_change-4807",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "600267",
+            "issuer_name": "浙江海正药业股份有限公司",
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "600267",
+                "provenance": [
+                  {
+                    "block_id": "da00b31da_p001_b00003",
+                    "page": 1,
+                    "region": [
+                      86.04,
+                      176.45,
+                      266.04,
+                      284.45
+                    ],
+                    "quote": "股票代码：600267"
+                  }
+                ]
+              },
+              "issuer_name": {
+                "value": "浙江海正药业股份有限公司",
+                "provenance": [
+                  {
+                    "block_id": "da00b31da_p001_b00003",
+                    "page": 1,
+                    "region": [
+                      86.04,
+                      176.45,
+                      266.04,
+                      284.45
+                    ],
+                    "quote": "上市公司名称：浙江海正药业股份有限公司股票简称：海正药业股票代码：600267上市地点：上海证券交易所"
+                  }
+                ]
+              },
+              "notice_number": null
+            },
+            "usable_fields": 8
+          },
+          {
+            "case_id": "D5-EQC-005",
+            "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+            "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+            "file_name": "D5-EQC-005.pdf",
+            "run_id": "20261004T093927-equity_change-3261",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "600267",
+            "issuer_name": "浙江海正药业股份有限公司",
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "600267",
+                "provenance": [
+                  {
+                    "block_id": "da8d294d2_p001_b00007",
+                    "page": 1,
+                    "region": [
+                      114.24,
+                      282.53,
+                      209.16,
+                      296.52
+                    ],
+                    "quote": "股票代码：600267"
+                  }
+                ]
+              },
+              "issuer_name": {
+                "value": "浙江海正药业股份有限公司",
+                "provenance": [
+                  {
+                    "block_id": "da8d294d2_p001_b00004",
+                    "page": 1,
+                    "region": [
+                      114.36,
+                      194.57,
+                      341.4,
+                      206.57
+                    ],
+                    "quote": "上市公司名称：浙江海正药业股份有限公司"
+                  }
+                ]
+              },
+              "notice_number": null
+            },
+            "usable_fields": 8
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D5-EQC-004",
+              "D5-EQC-005"
+            ],
+            "predicted_relation": "related",
+            "status": "same",
+            "reasons": [
+              "SIGNED_TRANSFER_BUNDLE_MATCH"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      },
+      "consistency": {
+        "corroborations": [],
+        "conflicts": [],
+        "complementaries": [
+          {
+            "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+            "only_in": "D5-EQC-004"
+          },
+          {
+            "entity": "浙江省国际贸易集团有限公司",
+            "only_in": "D5-EQC-005"
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "D8-PAIR-005",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-001",
+          "a_run_id": "20261004T093750-pledge-4ba4",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "a_run_id": "20261004T093800-pledge-751d",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-001",
+          "usable": 36,
+          "excluded": 0
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "usable": 13,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unrelated",
+        "builtin_relation": "unrelated",
+        "plugin_reasons": [
+          "DISTINCT_LISTED_INSTRUMENTS"
+        ],
+        "relation_label": "不同事件",
+        "association_explanation": "股票代码明确不同，按标的证券上的股权或质押事件分别保留。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D4-PLD-001",
+            "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+            "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+            "file_name": "D4-PLD-001.pdf",
+            "run_id": "20261004T093750-pledge-4ba4",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "300552",
+            "issuer_name": null,
+            "notice_number": "2026-046",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "300552",
+                "provenance": [
+                  {
+                    "block_id": "d44e95085_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      56.64,
+                      73.78,
+                      538.44,
+                      87.72
+                    ],
+                    "quote": "证券代码：300552"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-046",
+                "provenance": [
+                  {
+                    "block_id": "d44e95085_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      56.64,
+                      73.78,
+                      538.44,
+                      87.72
+                    ],
+                    "quote": "公告编号：2026-046"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 36
+          },
+          {
+            "case_id": "D4-PLD-002",
+            "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+            "file_sha256": "16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+            "file_name": "D4-PLD-002.pdf",
+            "run_id": "20261004T093800-pledge-751d",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "603169",
+            "issuer_name": null,
+            "notice_number": "临2026-057",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "603169",
+                "provenance": [
+                  {
+                    "block_id": "d16c6a948_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      74.01,
+                      505.26,
+                      90.39
+                    ],
+                    "quote": "证券代码：603169"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "临2026-057",
+                "provenance": [
+                  {
+                    "block_id": "d16c6a948_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      74.01,
+                      505.26,
+                      90.39
+                    ],
+                    "quote": "公告编号：临2026-057"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 13
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D4-PLD-001",
+              "D4-PLD-002"
+            ],
+            "predicted_relation": "unrelated",
+            "status": "different",
+            "reasons": [
+              "DISTINCT_LISTED_INSTRUMENTS"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-006",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261004T093930-equity_change-28e5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "a_run_id": "20261004T093934-equity_change-99b5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unrelated",
+        "builtin_relation": "unrelated",
+        "plugin_reasons": [
+          "DISTINCT_LISTED_INSTRUMENTS"
+        ],
+        "relation_label": "不同事件",
+        "association_explanation": "股票代码明确不同，按标的证券上的股权或质押事件分别保留。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D5-EQC-006",
+            "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+            "file_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+            "file_name": "D5-EQC-006.pdf",
+            "run_id": "20261004T093930-equity_change-28e5",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "002541",
+            "issuer_name": null,
+            "notice_number": "2026-084",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "002541",
+                "provenance": [
+                  {
+                    "block_id": "d97e2cfab_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      67.2,
+                      75.1,
+                      529.14,
+                      105.47
+                    ],
+                    "quote": "证券代码：002541"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-084",
+                "provenance": [
+                  {
+                    "block_id": "d97e2cfab_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      67.2,
+                      75.1,
+                      529.14,
+                      105.47
+                    ],
+                    "quote": "公告编号：2026-084"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 9
+          },
+          {
+            "case_id": "D5-EQC-007",
+            "file_id": "sha256:3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+            "file_sha256": "3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+            "file_name": "D5-EQC-007.pdf",
+            "run_id": "20261004T093934-equity_change-99b5",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "600400",
+            "issuer_name": null,
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "600400",
+                "provenance": [
+                  {
+                    "block_id": "d3d00372c_p001_b00002",
+                    "page": 1,
+                    "region": [
+                      90,
+                      178.85,
+                      505.32,
+                      216.24
+                    ],
+                    "quote": "股票代码：600400"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": null
+            },
+            "usable_fields": 9
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D5-EQC-006",
+              "D5-EQC-007"
+            ],
+            "predicted_relation": "unrelated",
+            "status": "different",
+            "reasons": [
+              "DISTINCT_LISTED_INSTRUMENTS"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-007",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D6-AWD-001",
+          "a_run_id": "20261004T093949-award_contract-23ab",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "a_run_id": "20261004T093952-award_contract-09f8",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D6-AWD-001",
+          "usable": 5,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "usable": 24,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "DISTINCT_PROCUREMENT_IDENTITIES"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unrelated",
+        "builtin_relation": "unrelated",
+        "plugin_reasons": [
+          "DISTINCT_PROCUREMENT_IDENTITIES"
+        ],
+        "relation_label": "不同事件",
+        "association_explanation": "每个候选对的采购主体与具体项目均不同，按中标合同粒度分别保留；公司代码本身不是项目编号。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D6-AWD-001",
+            "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+            "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+            "file_name": "bid-001.pdf",
+            "run_id": "20261004T093949-award_contract-23ab",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "301601",
+            "issuer_name": null,
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "301601",
+                "provenance": [
+                  {
+                    "block_id": "dc1c912b9_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      73.85,
+                      505.32,
+                      87.72
+                    ],
+                    "quote": "证券代码：301601"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": null
+            },
+            "usable_fields": 5
+          },
+          {
+            "case_id": "D6-AWD-002",
+            "file_id": "sha256:c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+            "file_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+            "file_name": "bid-002.pdf",
+            "run_id": "20261004T093952-award_contract-09f8",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "300411",
+            "issuer_name": null,
+            "notice_number": "2026-032",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "300411",
+                "provenance": [
+                  {
+                    "block_id": "dc0a3d5fb_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      80.66,
+                      505.26,
+                      96.87
+                    ],
+                    "quote": "证券代码：300411"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-032",
+                "provenance": [
+                  {
+                    "block_id": "dc0a3d5fb_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      80.66,
+                      505.26,
+                      96.87
+                    ],
+                    "quote": "公告编号：2026-032"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 24
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D6-AWD-001",
+              "D6-AWD-002"
+            ],
+            "predicted_relation": "unrelated",
+            "status": "different",
+            "reasons": [
+              "DISTINCT_PROCUREMENT_IDENTITIES"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-008",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-003",
+          "a_run_id": "20261004T093804-pledge-bbbf",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "a_run_id": "20261004T093809-pledge-96f1",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-003",
+          "usable": 12,
+          "excluded": 0
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "usable": 12,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unrelated",
+        "builtin_relation": "unrelated",
+        "plugin_reasons": [
+          "DISTINCT_LISTED_INSTRUMENTS"
+        ],
+        "relation_label": "不同事件",
+        "association_explanation": "股票代码明确不同，按标的证券上的股权或质押事件分别保留。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D4-PLD-003",
+            "file_id": "sha256:36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+            "file_sha256": "36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+            "file_name": "D4-PLD-003.pdf",
+            "run_id": "20261004T093804-pledge-bbbf",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "002036",
+            "issuer_name": null,
+            "notice_number": "2026-068",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "002036",
+                "provenance": [
+                  {
+                    "block_id": "d36105cfd_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      78.46,
+                      499.38,
+                      88.91
+                    ],
+                    "quote": "证券代码：002036"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-068",
+                "provenance": [
+                  {
+                    "block_id": "d36105cfd_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      78.46,
+                      499.38,
+                      88.91
+                    ],
+                    "quote": "公告编号：2026-068"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 12
+          },
+          {
+            "case_id": "D4-PLD-004",
+            "file_id": "sha256:62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
+            "file_sha256": "62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
+            "file_name": "D4-PLD-004.pdf",
+            "run_id": "20261004T093809-pledge-96f1",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "000035",
+            "issuer_name": null,
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "000035",
+                "provenance": [
+                  {
+                    "block_id": "d62f9a650_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      56.64,
+                      73.78,
+                      537.12,
+                      87.72
+                    ],
+                    "quote": "证券代码：000035"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": null
+            },
+            "usable_fields": 12
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D4-PLD-003",
+              "D4-PLD-004"
+            ],
+            "predicted_relation": "unrelated",
+            "status": "different",
+            "reasons": [
+              "DISTINCT_LISTED_INSTRUMENTS"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-009",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D6-AWD-008",
+          "a_run_id": "20261004T094029-award_contract-80a9",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "a_run_id": "20261004T094034-award_contract-bb57",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D6-AWD-008",
+          "usable": 8,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "usable": 21,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "DISTINCT_PROCUREMENT_IDENTITIES"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unrelated",
+        "builtin_relation": "unrelated",
+        "plugin_reasons": [
+          "DISTINCT_PROCUREMENT_IDENTITIES"
+        ],
+        "relation_label": "不同事件",
+        "association_explanation": "每个候选对的采购主体与具体项目均不同，按中标合同粒度分别保留；公司代码本身不是项目编号。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D6-AWD-008",
+            "file_id": "sha256:aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+            "file_sha256": "aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+            "file_name": "bid-008.pdf",
+            "run_id": "20261004T094029-award_contract-80a9",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "300355",
+            "issuer_name": null,
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "300355",
+                "provenance": [
+                  {
+                    "block_id": "daa9b83fa_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      80.98,
+                      505.2,
+                      92.98
+                    ],
+                    "quote": "证券代码：300355"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": null
+            },
+            "usable_fields": 8
+          },
+          {
+            "case_id": "D6-AWD-009",
+            "file_id": "sha256:3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+            "file_sha256": "3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+            "file_name": "bid-009.pdf",
+            "run_id": "20261004T094034-award_contract-bb57",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "603081",
+            "issuer_name": null,
+            "notice_number": "2026-037",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "603081",
+                "provenance": [
+                  {
+                    "block_id": "d3aa23f9a_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      73.73,
+                      505.2,
+                      85.73
+                    ],
+                    "quote": "证券代码：603081"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-037",
+                "provenance": [
+                  {
+                    "block_id": "d3aa23f9a_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      73.73,
+                      505.2,
+                      85.73
+                    ],
+                    "quote": "公告编号：2026-037"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 18
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D6-AWD-008",
+              "D6-AWD-009"
+            ],
+            "predicted_relation": "unrelated",
+            "status": "different",
+            "reasons": [
+              "DISTINCT_PROCUREMENT_IDENTITIES"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-010",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-006",
+          "a_run_id": "20261004T093820-pledge-105e",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "a_run_id": "20261004T093930-equity_change-28e5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-006",
+          "usable": 13,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "usable": 9,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unrelated",
+        "builtin_relation": "unrelated",
+        "plugin_reasons": [
+          "DISJOINT_EVENT_TYPES"
+        ],
+        "relation_label": "不同事件",
+        "association_explanation": "双方披露的质押、股权变动或中标原子类型互不重合；更高层关联未推断。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D4-PLD-006",
+            "file_id": "sha256:3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+            "file_sha256": "3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+            "file_name": "D4-PLD-006.pdf",
+            "run_id": "20261004T093820-pledge-105e",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "600381",
+            "issuer_name": null,
+            "notice_number": "2026-068",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "600381",
+                "provenance": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      73.68,
+                      43.91,
+                      521.82,
+                      54.4
+                    ],
+                    "quote": "股票代码：600381"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-068",
+                "provenance": [
+                  {
+                    "block_id": "d3fbd8497_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      73.68,
+                      43.91,
+                      521.82,
+                      54.4
+                    ],
+                    "quote": "公告编号：2026-068"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 13
+          },
+          {
+            "case_id": "D5-EQC-006",
+            "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+            "file_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+            "file_name": "D5-EQC-006.pdf",
+            "run_id": "20261004T093930-equity_change-28e5",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "002541",
+            "issuer_name": null,
+            "notice_number": "2026-084",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "002541",
+                "provenance": [
+                  {
+                    "block_id": "d97e2cfab_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      67.2,
+                      75.1,
+                      529.14,
+                      105.47
+                    ],
+                    "quote": "证券代码：002541"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-084",
+                "provenance": [
+                  {
+                    "block_id": "d97e2cfab_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      67.2,
+                      75.1,
+                      529.14,
+                      105.47
+                    ],
+                    "quote": "公告编号：2026-084"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 9
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D4-PLD-006",
+              "D5-EQC-006"
+            ],
+            "predicted_relation": "unrelated",
+            "status": "different",
+            "reasons": [
+              "DISJOINT_EVENT_TYPES"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-011",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D4-PLD-008",
+          "a_run_id": "20261004T093829-pledge-4373",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "a_run_id": "20261004T094026-award_contract-84f5",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D4-PLD-008",
+          "usable": 11,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unrelated",
+        "builtin_relation": "unrelated",
+        "plugin_reasons": [
+          "DISJOINT_EVENT_TYPES"
+        ],
+        "relation_label": "不同事件",
+        "association_explanation": "双方披露的质押、股权变动或中标原子类型互不重合；更高层关联未推断。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D4-PLD-008",
+            "file_id": "sha256:74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+            "file_sha256": "74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+            "file_name": "D4-PLD-008.pdf",
+            "run_id": "20261004T093829-pledge-4373",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "603261",
+            "issuer_name": null,
+            "notice_number": "2026-054",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "603261",
+                "provenance": [
+                  {
+                    "block_id": "d74b527f3_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      89.88,
+                      65.81,
+                      505.32,
+                      80.05
+                    ],
+                    "quote": "证券代码：603261"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-054",
+                "provenance": [
+                  {
+                    "block_id": "d74b527f3_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      89.88,
+                      65.81,
+                      505.32,
+                      80.05
+                    ],
+                    "quote": "公告编号：2026-054"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 11
+          },
+          {
+            "case_id": "D6-AWD-007",
+            "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+            "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+            "file_name": "bid-007.pdf",
+            "run_id": "20261004T094026-award_contract-84f5",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "601886",
+            "issuer_name": null,
+            "notice_number": "临2026-048",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "601886",
+                "provenance": [
+                  {
+                    "block_id": "d3a6938fe_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      73.85,
+                      503.88,
+                      85.85
+                    ],
+                    "quote": "股票代码：601886"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "临2026-048",
+                "provenance": [
+                  {
+                    "block_id": "d3a6938fe_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      73.85,
+                      503.88,
+                      85.85
+                    ],
+                    "quote": "公告编号：临2026-048"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 5
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D4-PLD-008",
+              "D6-AWD-007"
+            ],
+            "predicted_relation": "unrelated",
+            "status": "different",
+            "reasons": [
+              "DISJOINT_EVENT_TYPES"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-012",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-009",
+          "a_run_id": "20261004T093940-equity_change-b8c8",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "a_run_id": "20261004T094018-award_contract-8958",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-009",
+          "usable": 9,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "usable": 11,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unrelated",
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unrelated",
+        "builtin_relation": "unrelated",
+        "plugin_reasons": [
+          "DISJOINT_EVENT_TYPES"
+        ],
+        "relation_label": "不同事件",
+        "association_explanation": "双方披露的质押、股权变动或中标原子类型互不重合；更高层关联未推断。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "D5-EQC-009",
+            "file_id": "sha256:31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+            "file_sha256": "31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+            "file_name": "D5-EQC-009.pdf",
+            "run_id": "20261004T093940-equity_change-b8c8",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "688221",
+            "issuer_name": null,
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "688221",
+                "provenance": [
+                  {
+                    "block_id": "d31d2e428_p001_b00003",
+                    "page": 1,
+                    "region": [
+                      114.12,
+                      163.49,
+                      390.36,
+                      247.68
+                    ],
+                    "quote": "股票代码：688221"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": null
+            },
+            "usable_fields": 9
+          },
+          {
+            "case_id": "D6-AWD-005",
+            "file_id": "sha256:dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+            "file_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+            "file_name": "bid-005.pdf",
+            "run_id": "20261004T094018-award_contract-8958",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "300022",
+            "issuer_name": null,
+            "notice_number": "2026-076",
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "300022",
+                "provenance": [
+                  {
+                    "block_id": "ddd80cf89_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      87.17,
+                      495.96,
+                      101.04
+                    ],
+                    "quote": "证券代码：300022"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": {
+                "value": "2026-076",
+                "provenance": [
+                  {
+                    "block_id": "ddd80cf89_p001_b00006",
+                    "page": 1,
+                    "region": [
+                      90,
+                      313.25,
+                      511.32,
+                      395.45
+                    ],
+                    "quote": "公告编号：2026-076"
+                  }
+                ]
+              }
+            },
+            "usable_fields": 11
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "D5-EQC-009",
+              "D6-AWD-005"
+            ],
+            "predicted_relation": "unrelated",
+            "status": "different",
+            "reasons": [
+              "DISJOINT_EVENT_TYPES"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    },
+    {
+      "group_id": "D8-PAIR-013",
+      "members": [
+        "pledge-scan-degrade",
+        "D6-AWD-001"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "a_run_id": "20261004T094046-pledge-scan",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "a_run_id": "20261004T093949-award_contract-23ab",
+          "code_version": "9ee9d0a9",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "usable": 0,
+          "excluded": 0
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "usable": 5,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "unknown",
+      "reasons": [
+        "INSUFFICIENT_SIGNALS",
+        "SOURCE_OR_EVIDENCE_UNAVAILABLE",
+        "MEMBER_NO_USABLE_FIELDS:pledge-scan-degrade"
+      ],
+      "signals": {
+        "shared_entity_count": 0,
+        "shared_entities": [],
+        "shared_entities_from_pair": null,
+        "anchor_count": 0,
+        "shared_anchor_numbers": [],
+        "shared_anchors_from_pair": null,
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "alignment": {
+        "plugin": "tools/fang-matching/src_D8/matching_D8.mjs",
+        "plugin_relation": "unknown",
+        "builtin_relation": "unknown",
+        "plugin_reasons": [
+          "INSUFFICIENT_SIGNALS",
+          "SOURCE_OR_EVIDENCE_UNAVAILABLE"
+        ],
+        "relation_label": "证据不足／无法判定",
+        "association_explanation": "至少一侧输入或解析证据不可用；不得把缺失判成不同事件。",
+        "ui_hint": {
+          "show_both_issuer_codes": true,
+          "show_both_notice_numbers": true,
+          "null_display": "未取得",
+          "unknown_is_unrelated": false
+        },
+        "member_meta": [
+          {
+            "case_id": "pledge-scan-degrade",
+            "error": "INVALID_A_ENVELOPE",
+            "file_id": "sha256:e3b0c44298fc1c14",
+            "file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file_name": "pledge-scan-degrade.pdf",
+            "run_id": "20261004T094046-pledge-scan",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": null,
+            "issuer_name": null,
+            "notice_number": null,
+            "metadata_evidence": null,
+            "evidence_status": "unavailable",
+            "source_metadata_verification": "input_only"
+          },
+          {
+            "case_id": "D6-AWD-001",
+            "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+            "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+            "file_name": "bid-001.pdf",
+            "run_id": "20261004T093949-award_contract-23ab",
+            "code_version": "9ee9d0a9",
+            "is_mock": false,
+            "issuer_code": "301601",
+            "issuer_name": null,
+            "notice_number": null,
+            "metadata_evidence": {
+              "issuer_code": {
+                "value": "301601",
+                "provenance": [
+                  {
+                    "block_id": "dc1c912b9_p001_b00001",
+                    "page": 1,
+                    "region": [
+                      90,
+                      73.85,
+                      505.32,
+                      87.72
+                    ],
+                    "quote": "证券代码：301601"
+                  }
+                ]
+              },
+              "issuer_name": null,
+              "notice_number": null
+            },
+            "usable_fields": 5
+          }
+        ],
+        "document_pair_relations": [
+          {
+            "members": [
+              "pledge-scan-degrade",
+              "D6-AWD-001"
+            ],
+            "predicted_relation": "unknown",
+            "status": "unknown",
+            "reasons": [
+              "INSUFFICIENT_SIGNALS",
+              "SOURCE_OR_EVIDENCE_UNAVAILABLE"
+            ]
+          }
+        ],
+        "plugin_error": null,
+        "discrepancy": null
+      }
+    }
+  ],
+  "expected_match": 13,
+  "expected_miss": 0,
+  "related_hit": "4/4",
+  "unrelated_clean": "8/8",
+  "insufficient_signalled": "1/1"
+}

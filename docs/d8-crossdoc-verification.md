@@ -117,3 +117,27 @@ node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir runs/batch-20261003T16
 
 对陈家浩的接口意义：B 报告 `predicted_relation` 现有三态 related/unrelated/unknown，
 PAIR-013 类证据不足可直接渲染"证据不足"，不再与"不同事件"混淆。
+
+## 九、方 D8.2 完整入口接入：explainGroup 接管组级判定（2026-10-05）
+
+方接口书指出旧缺口："--matcher 只能替换字段对齐，matcher 即使返回空数组，旧的合计/互补分支
+仍执行，不能声称执行了方的三态规则。"本次按其推荐入口改造完毕：
+
+1. **新入口**：`--matcher` 模块导出 `explainGroup(group, envelopes)` 即接管组级三态判定，
+   **先于任何数值/合计分支**执行；同时保留 `alignEvents`（字段对，双方共用同一模块）。
+   `b_run.matcher.capabilities` 记录模块能力。
+2. **数值核验门控**：只有 related（same）执行数值/合计核验；unknown/different 不进入。
+   组内逐对按插件 `document_pairs[].predicted_relation` 门控（non-same 对跳过勾稽/互补）。
+3. **守卫与审计并存**：引擎第三态守卫保留否决权（0 可用字段成员存在时插件非 unknown
+   判定被否决并记 `alignment.discrepancy`）；插件异常整组回退内置链不炸（`plugin_error`）；
+   内置判定留档 `alignment.builtin_relation` 对照；`association_explanation/relation_label/
+   ui_hint/member_meta` 原样透传（陈的关联解释数据源）。
+4. **验收**（tools/fang-matching/＝方包字节一致引入 645ab53c，.gitattributes -text 防换行分叉）：
+   - 无插件回归零变化：封存 20/20、宗 --strict 13/13、演示 3/3。
+   - 接方插件：宗 13 组 **--strict PASS 13/13**，判定全部由插件规则码产出
+     （SIGNED_TRANSFER_BUNDLE_MATCH×4、DISTINCT_LISTED_INSTRUMENTS×3、
+     DISTINCT_PROCUREMENT_IDENTITIES×2、DISJOINT_EVENT_TYPES×3、
+     SOURCE_OR_EVIDENCE_UNAVAILABLE×1）——runs/fang-D8-plugin-report.json。
+   - 演示三组：DEMO-003 鸿路命中其规则 7 DISJOINT_DILUTION_INTERVALS（同公司被动稀释
+     区间不相交——留给他的挑战案例被其规则精确解决）；海正双组 SIGNED_TRANSFER_BUNDLE_MATCH。
+   - 单测 7 组入第 15 道门禁（接管/拒数值/异常回退/守卫否决/无插件一致/双入口/逐对门控）。

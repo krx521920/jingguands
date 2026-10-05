@@ -1,0 +1,540 @@
+{
+  "sealed_set_id": "financial-events-d8-pair-dev-v0.1",
+  "created_on": "2026-10-04",
+  "mode": "public_dev_pairing_with_negative_controls",
+  "corpus": "evaluation/dev-30（30份公开开发集）+ 1份对抗扫描降级样本",
+  "total": 13,
+  "expectation_values": [
+    "related",
+    "unrelated",
+    "insufficient"
+  ],
+  "consumption": "兼容 B 流程清单格式：groups[].members / groups[].expected_relation；可直接作为 scripts/jingguan/verify_crossdoc.mjs --manifest 的输入",
+  "corpus_ceiling": {
+    "same_event_pairs_available": 4,
+    "plan_target": 6,
+    "note": "公开30份开发集仅含两个可核验同事件簇（科创新材3份、海正药业2份），同事件配对上界为 C(3,2)+C(2,2)=4；本清单据实交付 4 组同事件 + 8 组不同事件 + 1 组证据不足，不以虚构配对凑数。"
+  },
+  "groups": [
+    {
+      "group_id": "D8-PAIR-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "expected_relation": "related",
+      "test_purpose": "same event, two disclosure layers",
+      "relation_basis": "科创新材 2026-09-23 协议转让：简式（出让方）与详式（受让方）报告书",
+      "member_hashes": [
+        {
+          "case_id": "D5-EQC-001",
+          "raw_sha256": "c92457dd11497c42bea8e004aa1a1c7956d1a9544b96b15bd79ffc22a8dc0bc0",
+          "gold_sha256": "f9486a67a81bacccb63f6b52884436310aa2e9984ad88f9d02090a2ee3a7e003"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "raw_sha256": "5612c4a978ba3b43aa4b8f12256253f1b76dc785366247ca0d886c74596f2273",
+          "gold_sha256": "12af950ae631741d98dd436413a5c4f1f1052ca9405cc21e78f5e6e8dc19faf0"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D5-EQC-001",
+          "raw_sha256": "c92457dd11497c42bea8e004aa1a1c7956d1a9544b96b15bd79ffc22a8dc0bc0",
+          "gold_sha256": "f9486a67a81bacccb63f6b52884436310aa2e9984ad88f9d02090a2ee3a7e003",
+          "issuer_code": "920580",
+          "notice_number": "2026-075",
+          "issuer_name": "洛阳科创新材料股份有限公司"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "raw_sha256": "5612c4a978ba3b43aa4b8f12256253f1b76dc785366247ca0d886c74596f2273",
+          "gold_sha256": "12af950ae631741d98dd436413a5c4f1f1052ca9405cc21e78f5e6e8dc19faf0",
+          "issuer_code": "920580",
+          "notice_number": "2025-097",
+          "issuer_name": "洛阳科创新材料股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-002",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "expected_relation": "related",
+      "test_purpose": "same event, issuer report vs advisor review",
+      "relation_basis": "科创新材 2026-09-23 协议转让：简式报告书与财务顾问核查意见",
+      "member_hashes": [
+        {
+          "case_id": "D5-EQC-001",
+          "raw_sha256": "c92457dd11497c42bea8e004aa1a1c7956d1a9544b96b15bd79ffc22a8dc0bc0",
+          "gold_sha256": "f9486a67a81bacccb63f6b52884436310aa2e9984ad88f9d02090a2ee3a7e003"
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "raw_sha256": "6462494277adbaaeac9a54852bdd497b81edddb5e6de4511608aeec2b1829297",
+          "gold_sha256": "65ac1a2faf97cc799c2f86ff0a34f12bb94a3cb8be995804bd16e80fc92ea536"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D5-EQC-001",
+          "raw_sha256": "c92457dd11497c42bea8e004aa1a1c7956d1a9544b96b15bd79ffc22a8dc0bc0",
+          "gold_sha256": "f9486a67a81bacccb63f6b52884436310aa2e9984ad88f9d02090a2ee3a7e003",
+          "issuer_code": "920580",
+          "notice_number": "2026-075",
+          "issuer_name": "洛阳科创新材料股份有限公司"
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "raw_sha256": "6462494277adbaaeac9a54852bdd497b81edddb5e6de4511608aeec2b1829297",
+          "gold_sha256": "65ac1a2faf97cc799c2f86ff0a34f12bb94a3cb8be995804bd16e80fc92ea536",
+          "issuer_code": null,
+          "notice_number": "2025-097",
+          "issuer_name": "洛阳科创新材料股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-003",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "expected_relation": "related",
+      "test_purpose": "same event, same notice number",
+      "relation_basis": "科创新材详式报告书与财务顾问核查意见（同为2025-097）",
+      "member_hashes": [
+        {
+          "case_id": "D5-EQC-002",
+          "raw_sha256": "5612c4a978ba3b43aa4b8f12256253f1b76dc785366247ca0d886c74596f2273",
+          "gold_sha256": "12af950ae631741d98dd436413a5c4f1f1052ca9405cc21e78f5e6e8dc19faf0"
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "raw_sha256": "6462494277adbaaeac9a54852bdd497b81edddb5e6de4511608aeec2b1829297",
+          "gold_sha256": "65ac1a2faf97cc799c2f86ff0a34f12bb94a3cb8be995804bd16e80fc92ea536"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D5-EQC-002",
+          "raw_sha256": "5612c4a978ba3b43aa4b8f12256253f1b76dc785366247ca0d886c74596f2273",
+          "gold_sha256": "12af950ae631741d98dd436413a5c4f1f1052ca9405cc21e78f5e6e8dc19faf0",
+          "issuer_code": "920580",
+          "notice_number": "2025-097",
+          "issuer_name": "洛阳科创新材料股份有限公司"
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "raw_sha256": "6462494277adbaaeac9a54852bdd497b81edddb5e6de4511608aeec2b1829297",
+          "gold_sha256": "65ac1a2faf97cc799c2f86ff0a34f12bb94a3cb8be995804bd16e80fc92ea536",
+          "issuer_code": null,
+          "notice_number": "2025-097",
+          "issuer_name": "洛阳科创新材料股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-004",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "expected_relation": "related",
+      "test_purpose": "same event, transfer counterparties",
+      "relation_basis": "海正药业协议转让：受让方与出让方双方报告书（72,673,907股）",
+      "member_hashes": [
+        {
+          "case_id": "D5-EQC-004",
+          "raw_sha256": "1b405d83fb0da1020e55aa72ab811914e84fc6b22a688f9563e58e9740f426bd",
+          "gold_sha256": "ebb287f39ed1c34929b033429b05f04fc263c167971690c929ee85d03a01efa5"
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "raw_sha256": "5753a9002aa39fe01d75d24f84b914e8700706c8b5e62db1fabfc07782c75f26",
+          "gold_sha256": "32baf1a1b90878c179fff402a9715e395bd66f973620681972049281112f8d1b"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D5-EQC-004",
+          "raw_sha256": "1b405d83fb0da1020e55aa72ab811914e84fc6b22a688f9563e58e9740f426bd",
+          "gold_sha256": "ebb287f39ed1c34929b033429b05f04fc263c167971690c929ee85d03a01efa5",
+          "issuer_code": "600267",
+          "notice_number": null,
+          "issuer_name": "浙江海正药业股份有限公司"
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "raw_sha256": "5753a9002aa39fe01d75d24f84b914e8700706c8b5e62db1fabfc07782c75f26",
+          "gold_sha256": "32baf1a1b90878c179fff402a9715e395bd66f973620681972049281112f8d1b",
+          "issuer_code": "600267",
+          "notice_number": null,
+          "issuer_name": "浙江海正药业股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-005",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "expected_relation": "unrelated",
+      "test_purpose": "same type different issuer",
+      "relation_basis": "万集科技 vs 兰石重装，不同主体",
+      "member_hashes": [
+        {
+          "case_id": "D4-PLD-001",
+          "raw_sha256": "33704718a19181c4ce83389548b1bba0e70e9cb5a1d19da822b8fe53d2ec2222",
+          "gold_sha256": "44a2d8fa093c108f5131768cb4d178eb79658eb08168ac55b3921ebf70d3ce4b"
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "raw_sha256": "d1b875d750834d240b13eac54a8c9281289ed9a6e6a9ba0d6c620002439f0936",
+          "gold_sha256": "a59ff6ddb5434c60e87c6af06d6ac5470bfd90f8b2ee846e0f44a21dc8de5caf"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D4-PLD-001",
+          "raw_sha256": "33704718a19181c4ce83389548b1bba0e70e9cb5a1d19da822b8fe53d2ec2222",
+          "gold_sha256": "44a2d8fa093c108f5131768cb4d178eb79658eb08168ac55b3921ebf70d3ce4b",
+          "issuer_code": "300552",
+          "notice_number": "2026-046",
+          "issuer_name": "北京万集科技股份有限公司"
+        },
+        {
+          "case_id": "D4-PLD-002",
+          "raw_sha256": "d1b875d750834d240b13eac54a8c9281289ed9a6e6a9ba0d6c620002439f0936",
+          "gold_sha256": "a59ff6ddb5434c60e87c6af06d6ac5470bfd90f8b2ee846e0f44a21dc8de5caf",
+          "issuer_code": "603169",
+          "notice_number": null,
+          "issuer_name": "兰州兰石重型装备股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-006",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "expected_relation": "unrelated",
+      "test_purpose": "same type different issuer",
+      "relation_basis": "鸿路钢构 vs 红豆集团，不同主体",
+      "member_hashes": [
+        {
+          "case_id": "D5-EQC-006",
+          "raw_sha256": "469271dd24c3817d59dd1f22872e543a4b0a6bca2d787a3227dd972036535210",
+          "gold_sha256": "19c7099962e168b3dd2c314a9c48096a30d26500ef32f0dd8fa63d40fa80c259"
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "raw_sha256": "00f1d750855ce4ce537246d68ea049f35df6a94da9d7683de84cfab0afc683c7",
+          "gold_sha256": "d53e92fb2a287f6c742881cf9f2217bfd697918d90292b69a04e03e2ba45d162"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D5-EQC-006",
+          "raw_sha256": "469271dd24c3817d59dd1f22872e543a4b0a6bca2d787a3227dd972036535210",
+          "gold_sha256": "19c7099962e168b3dd2c314a9c48096a30d26500ef32f0dd8fa63d40fa80c259",
+          "issuer_code": "002541",
+          "notice_number": "2026-084",
+          "issuer_name": "安徽鸿路钢结构(集团)股份有限公司"
+        },
+        {
+          "case_id": "D5-EQC-007",
+          "raw_sha256": "00f1d750855ce4ce537246d68ea049f35df6a94da9d7683de84cfab0afc683c7",
+          "gold_sha256": "d53e92fb2a287f6c742881cf9f2217bfd697918d90292b69a04e03e2ba45d162",
+          "issuer_code": "600400",
+          "notice_number": null,
+          "issuer_name": "江苏红豆实业股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-007",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "expected_relation": "unrelated",
+      "test_purpose": "same type different issuer",
+      "relation_basis": "惠通科技 vs 金盾股份，不同主体",
+      "member_hashes": [
+        {
+          "case_id": "D6-AWD-001",
+          "raw_sha256": "77500ac606ff217ceb89cae843a71ab4c08deb2ca09a6f29c674dad0afdb0a24",
+          "gold_sha256": "f67d4d014fd895443d73dfd72d2c1bfaaec3f56987be2db852e5cdfe7f6d9fdd"
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "raw_sha256": "77964f2402f01a0e43f3766bf3d83fab52e962cdb5e0a177e94ddad18d37805e",
+          "gold_sha256": "e1efd39b441f7bb62997c7c5ef8e607c8b8f65d238c7f46ff2c0c8243122d1d9"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D6-AWD-001",
+          "raw_sha256": "77500ac606ff217ceb89cae843a71ab4c08deb2ca09a6f29c674dad0afdb0a24",
+          "gold_sha256": "f67d4d014fd895443d73dfd72d2c1bfaaec3f56987be2db852e5cdfe7f6d9fdd",
+          "issuer_code": "301601",
+          "notice_number": "2026-052",
+          "issuer_name": null
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "raw_sha256": "77964f2402f01a0e43f3766bf3d83fab52e962cdb5e0a177e94ddad18d37805e",
+          "gold_sha256": "e1efd39b441f7bb62997c7c5ef8e607c8b8f65d238c7f46ff2c0c8243122d1d9",
+          "issuer_code": "300411",
+          "notice_number": "2026-032",
+          "issuer_name": "浙江金盾风机股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-008",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "expected_relation": "unrelated",
+      "test_purpose": "same type different issuer",
+      "relation_basis": "联创电子 vs 中国天楹，不同主体",
+      "member_hashes": [
+        {
+          "case_id": "D4-PLD-003",
+          "raw_sha256": "b5dcef8ba6dff1e68b2c6d558da6917948fc1c1f2ec1897e5193718d46a3b6a5",
+          "gold_sha256": "47c7a449d2dc0679af4573db4cd8ecad9641c949576a219920d96e90236b36d7"
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "raw_sha256": "897b745b5f417545f24fa3cae8a7c09c253f930e679a18ef458d01fee316c037",
+          "gold_sha256": "33ecc0645b51494bd7934b1370db6f69e27e5db9d7ddf2a8aa7598fbd0db3b6d"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D4-PLD-003",
+          "raw_sha256": "b5dcef8ba6dff1e68b2c6d558da6917948fc1c1f2ec1897e5193718d46a3b6a5",
+          "gold_sha256": "47c7a449d2dc0679af4573db4cd8ecad9641c949576a219920d96e90236b36d7",
+          "issuer_code": "002036",
+          "notice_number": "2026-068",
+          "issuer_name": null
+        },
+        {
+          "case_id": "D4-PLD-004",
+          "raw_sha256": "897b745b5f417545f24fa3cae8a7c09c253f930e679a18ef458d01fee316c037",
+          "gold_sha256": "33ecc0645b51494bd7934b1370db6f69e27e5db9d7ddf2a8aa7598fbd0db3b6d",
+          "issuer_code": "000035",
+          "notice_number": null,
+          "issuer_name": null
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-009",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "expected_relation": "unrelated",
+      "test_purpose": "same type different issuer",
+      "relation_basis": "蒙草生态 vs 大丰实业，不同主体",
+      "member_hashes": [
+        {
+          "case_id": "D6-AWD-008",
+          "raw_sha256": "59d517a223aa3840f873e8087753d8a03bc194ee6d8e631193ae8cef87035c04",
+          "gold_sha256": "36610f68f842352601685839288b4d86d51d7eab830652537ddcdf968a738373"
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "raw_sha256": "65657f5186e971519082c0fc8a6dce9466bdd619185cdf8f3ad14aa6fc09509b",
+          "gold_sha256": "cdc42b645f9a80c2349ee9a8fc7cf696059d6d0780a037221d1e6d5119c62e91"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D6-AWD-008",
+          "raw_sha256": "59d517a223aa3840f873e8087753d8a03bc194ee6d8e631193ae8cef87035c04",
+          "gold_sha256": "36610f68f842352601685839288b4d86d51d7eab830652537ddcdf968a738373",
+          "issuer_code": "300355",
+          "notice_number": "2026-056",
+          "issuer_name": "内蒙古）科技有限公司"
+        },
+        {
+          "case_id": "D6-AWD-009",
+          "raw_sha256": "65657f5186e971519082c0fc8a6dce9466bdd619185cdf8f3ad14aa6fc09509b",
+          "gold_sha256": "cdc42b645f9a80c2349ee9a8fc7cf696059d6d0780a037221d1e6d5119c62e91",
+          "issuer_code": "603081",
+          "notice_number": "2026-037",
+          "issuer_name": "浙江大丰实业股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-010",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "expected_relation": "unrelated",
+      "test_purpose": "cross type different issuer",
+      "relation_basis": "质押 vs 权益变动，不同主体",
+      "member_hashes": [
+        {
+          "case_id": "D4-PLD-006",
+          "raw_sha256": "1677e4713c5c3296ce113151da11abd938767e3c4ad5cfb1689703e845b83aa9",
+          "gold_sha256": "7463e3f13568ac8203bd60b4fc8d1f06d895c4b6a3d98d75764329a145fd243e"
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "raw_sha256": "469271dd24c3817d59dd1f22872e543a4b0a6bca2d787a3227dd972036535210",
+          "gold_sha256": "19c7099962e168b3dd2c314a9c48096a30d26500ef32f0dd8fa63d40fa80c259"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D4-PLD-006",
+          "raw_sha256": "1677e4713c5c3296ce113151da11abd938767e3c4ad5cfb1689703e845b83aa9",
+          "gold_sha256": "7463e3f13568ac8203bd60b4fc8d1f06d895c4b6a3d98d75764329a145fd243e",
+          "issuer_code": "600381",
+          "notice_number": "2026-068",
+          "issuer_name": "青海春天药用资源科技股份有限公司"
+        },
+        {
+          "case_id": "D5-EQC-006",
+          "raw_sha256": "469271dd24c3817d59dd1f22872e543a4b0a6bca2d787a3227dd972036535210",
+          "gold_sha256": "19c7099962e168b3dd2c314a9c48096a30d26500ef32f0dd8fa63d40fa80c259",
+          "issuer_code": "002541",
+          "notice_number": "2026-084",
+          "issuer_name": "安徽鸿路钢结构(集团)股份有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-011",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "expected_relation": "unrelated",
+      "test_purpose": "cross type different issuer",
+      "relation_basis": "质押 vs 中标，不同主体",
+      "member_hashes": [
+        {
+          "case_id": "D4-PLD-008",
+          "raw_sha256": "91f94ce84092e5b3ee287f310977f0f118c5f0d4b8b943575b01fb7f26c5254a",
+          "gold_sha256": "c2dd8346749ea666d5fd24a6de6ee3c7d52e4ab12c66249bd6fa71a015ee6791"
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "raw_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
+          "gold_sha256": "1524d651763cccce55b459dca1d192c41ab9d53c154f457b7d6fd121d0b1b736"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D4-PLD-008",
+          "raw_sha256": "91f94ce84092e5b3ee287f310977f0f118c5f0d4b8b943575b01fb7f26c5254a",
+          "gold_sha256": "c2dd8346749ea666d5fd24a6de6ee3c7d52e4ab12c66249bd6fa71a015ee6791",
+          "issuer_code": "603261",
+          "notice_number": "2026-054",
+          "issuer_name": "成都立航科技股份有限公司"
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "raw_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
+          "gold_sha256": "1524d651763cccce55b459dca1d192c41ab9d53c154f457b7d6fd121d0b1b736",
+          "issuer_code": "601886",
+          "notice_number": null,
+          "issuer_name": null
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-012",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "expected_relation": "unrelated",
+      "test_purpose": "cross type different issuer",
+      "relation_basis": "权益变动 vs 中标联合体，不同主体",
+      "member_hashes": [
+        {
+          "case_id": "D5-EQC-009",
+          "raw_sha256": "361d25fd1b58c01e3724148d5c5b8d2b91779db877fc7b6b0581ebcf0bfd872e",
+          "gold_sha256": "e0bae7486761b7087110a1e541d9dde7fa2622c9bf8c53cb8e48c54b0677bb10"
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "raw_sha256": "accd10e426142690efa72999094269d7a6072aed1d608a66dfca789a87ad91d0",
+          "gold_sha256": "9fba965ba6ef4c9fa228a7734042ffe92b7d5bb620e3abece3768a7523039a7b"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "D5-EQC-009",
+          "raw_sha256": "361d25fd1b58c01e3724148d5c5b8d2b91779db877fc7b6b0581ebcf0bfd872e",
+          "gold_sha256": "e0bae7486761b7087110a1e541d9dde7fa2622c9bf8c53cb8e48c54b0677bb10",
+          "issuer_code": "688221",
+          "notice_number": "2026-026",
+          "issuer_name": null
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "raw_sha256": "accd10e426142690efa72999094269d7a6072aed1d608a66dfca789a87ad91d0",
+          "gold_sha256": "9fba965ba6ef4c9fa228a7734042ffe92b7d5bb620e3abece3768a7523039a7b",
+          "issuer_code": "300022",
+          "notice_number": "2026-078",
+          "issuer_name": "江苏众安建设投资（集团）有限公司"
+        }
+      ]
+    },
+    {
+      "group_id": "D8-PAIR-013",
+      "members": [
+        "pledge-scan-degrade",
+        "D6-AWD-001"
+      ],
+      "expected_relation": "insufficient",
+      "test_purpose": "degraded scan -> must not assert a conclusion",
+      "relation_basis": "一侧为全页扫描降级（14字段全 unreadable、0可用字段），证据不足须输出信息不足",
+      "member_hashes": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "gold_sha256": null
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "raw_sha256": "77500ac606ff217ceb89cae843a71ab4c08deb2ca09a6f29c674dad0afdb0a24",
+          "gold_sha256": "f67d4d014fd895443d73dfd72d2c1bfaaec3f56987be2db852e5cdfe7f6d9fdd"
+        }
+      ],
+      "member_meta": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "gold_sha256": null,
+          "issuer_code": null,
+          "notice_number": null,
+          "issuer_name": null
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "raw_sha256": "77500ac606ff217ceb89cae843a71ab4c08deb2ca09a6f29c674dad0afdb0a24",
+          "gold_sha256": "f67d4d014fd895443d73dfd72d2c1bfaaec3f56987be2db852e5cdfe7f6d9fdd",
+          "issuer_code": "301601",
+          "notice_number": "2026-052",
+          "issuer_name": null
+        }
+      ]
+    }
+  ]
+}

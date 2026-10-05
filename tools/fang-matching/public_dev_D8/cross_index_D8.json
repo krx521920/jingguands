@@ -1,0 +1,5068 @@
+{
+  "built_by": "张智博",
+  "day": "D8",
+  "purpose": "跨文档索引 ＋ 版本引用（每个索引键带块级出处）",
+  "entity_index_semantics": "按正文中出现的公司名建索引，含质权人/登记机构等非发行主体；仅表示「该名出现在此文件的此块」",
+  "version_index_semantics": "只按**发行主体键**（证券/股票代码，回退标题公司名）建版本链；同一主体不等于同一事件（语义裁决归 B 流程）",
+  "version_order_basis": "公告编号（按主体单调）；不使用正文日期 —— 判公告日期属抽取语义",
+  "date_index_semantics": "正文中出现的所有日期候选，**未筛**公告日期，仅供检索",
+  "scope_note": "本索引只做可定位性，不判定「是否同一事件」——那是 B 流程的语义裁决。",
+  "documents": 30,
+  "files": [
+    {
+      "case_id": "D4-PLD-001",
+      "doc_id": "d44e95085",
+      "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "file_name": "D4-PLD-001.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 128
+    },
+    {
+      "case_id": "D4-PLD-002",
+      "doc_id": "d16c6a948",
+      "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+      "file_name": "D4-PLD-002.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 88
+    },
+    {
+      "case_id": "D4-PLD-003",
+      "doc_id": "d36105cfd",
+      "file_id": "sha256:36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+      "file_name": "D4-PLD-003.pdf",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 111
+    },
+    {
+      "case_id": "D4-PLD-004",
+      "doc_id": "d62f9a650",
+      "file_id": "sha256:62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
+      "file_name": "D4-PLD-004.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 105
+    },
+    {
+      "case_id": "D4-PLD-005",
+      "doc_id": "d5bf0524f",
+      "file_id": "sha256:5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+      "file_name": "D4-PLD-005.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 79
+    },
+    {
+      "case_id": "D4-PLD-006",
+      "doc_id": "d3fbd8497",
+      "file_id": "sha256:3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+      "file_name": "D4-PLD-006.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 95
+    },
+    {
+      "case_id": "D4-PLD-007",
+      "doc_id": "da204c717",
+      "file_id": "sha256:a204c717003092451d007754d55fcf05b9da0767d27b26f9d18545a714276a0c",
+      "file_name": "D4-PLD-007.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 187
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "doc_id": "d74b527f3",
+      "file_id": "sha256:74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+      "file_name": "D4-PLD-008.pdf",
+      "page_count": 3,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 93
+    },
+    {
+      "case_id": "D4-PLD-009",
+      "doc_id": "d1320340e",
+      "file_id": "sha256:1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+      "file_name": "D4-PLD-009.pdf",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 96
+    },
+    {
+      "case_id": "D4-PLD-010",
+      "doc_id": "db2351d0b",
+      "file_id": "sha256:b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
+      "file_name": "D4-PLD-010.pdf",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 104
+    },
+    {
+      "case_id": "D5-EQC-001",
+      "doc_id": "d9d5be14f",
+      "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+      "file_name": "D5-EQC-001.pdf",
+      "page_count": 35,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 861
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "doc_id": "d46bc2ef0",
+      "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+      "file_name": "D5-EQC-002.pdf",
+      "page_count": 64,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 1395
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "doc_id": "d173fee90",
+      "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+      "file_name": "D5-EQC-003.pdf",
+      "page_count": 34,
+      "page_forms": [
+        "MIXED",
+        "SCANNED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 621
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "doc_id": "da00b31da",
+      "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+      "file_name": "D5-EQC-004.pdf",
+      "page_count": 21,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 333
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "doc_id": "da8d294d2",
+      "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+      "file_name": "D5-EQC-005.pdf",
+      "page_count": 18,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 375
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "doc_id": "d97e2cfab",
+      "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+      "file_name": "D5-EQC-006.pdf",
+      "page_count": 3,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 126
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "doc_id": "d3d00372c",
+      "file_id": "sha256:3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+      "file_name": "D5-EQC-007.pdf",
+      "page_count": 18,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 364
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "doc_id": "daf34725a",
+      "file_id": "sha256:af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695",
+      "file_name": "D5-EQC-008.pdf",
+      "page_count": 19,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 249
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "doc_id": "d31d2e428",
+      "file_id": "sha256:31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+      "file_name": "D5-EQC-009.pdf",
+      "page_count": 16,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 194
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "doc_id": "dd2c6e0d0",
+      "file_id": "sha256:d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
+      "file_name": "D5-EQC-010.pdf",
+      "page_count": 24,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 438
+    },
+    {
+      "case_id": "D6-AWD-001",
+      "doc_id": "dc1c912b9",
+      "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+      "file_name": "D6-AWD-001.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 27
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "doc_id": "dc0a3d5fb",
+      "file_id": "sha256:c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+      "file_name": "D6-AWD-002.pdf",
+      "page_count": 3,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 47
+    },
+    {
+      "case_id": "D6-AWD-003",
+      "doc_id": "d0b56135e",
+      "file_id": "sha256:0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+      "file_name": "D6-AWD-003.pdf",
+      "page_count": 4,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 85
+    },
+    {
+      "case_id": "D6-AWD-004",
+      "doc_id": "d0be9f419",
+      "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+      "file_name": "D6-AWD-004.pdf",
+      "page_count": 4,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 78
+    },
+    {
+      "case_id": "D6-AWD-005",
+      "doc_id": "ddd80cf89",
+      "file_id": "sha256:dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+      "file_name": "D6-AWD-005.pdf",
+      "page_count": 4,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 80
+    },
+    {
+      "case_id": "D6-AWD-006",
+      "doc_id": "dfc6c3d84",
+      "file_id": "sha256:fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
+      "file_name": "D6-AWD-006.pdf",
+      "page_count": 1,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 13
+    },
+    {
+      "case_id": "D6-AWD-007",
+      "doc_id": "d3a6938fe",
+      "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+      "file_name": "D6-AWD-007.pdf",
+      "page_count": 1,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 10
+    },
+    {
+      "case_id": "D6-AWD-008",
+      "doc_id": "daa9b83fa",
+      "file_id": "sha256:aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+      "file_name": "D6-AWD-008.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "MIXED",
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 24
+    },
+    {
+      "case_id": "D6-AWD-009",
+      "doc_id": "d3aa23f9a",
+      "file_id": "sha256:3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+      "file_name": "D6-AWD-009.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 40
+    },
+    {
+      "case_id": "D6-AWD-010",
+      "doc_id": "d74b68381",
+      "file_id": "sha256:74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702",
+      "file_name": "D6-AWD-010.pdf",
+      "page_count": 2,
+      "page_forms": [
+        "TEXT"
+      ],
+      "schema_version": "evidence/0.9",
+      "block_count": 31
+    }
+  ],
+  "entity_index": {
+    "北京万集科技股份有限公司": [
+      {
+        "case_id": "D4-PLD-001",
+        "hits": [
+          {
+            "block_id": "d44e95085_p001_b00002",
+            "page": 1,
+            "quote": "北京万集科技股份有限公司"
+          },
+          {
+            "block_id": "d44e95085_p001_b00008",
+            "page": 1,
+            "quote": "北京万集科技股份有限公司"
+          },
+          {
+            "block_id": "d44e95085_p002_b00026",
+            "page": 2,
+            "quote": "北京万集科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "建德市新安小额贷款股份有限公司": [
+      {
+        "case_id": "D4-PLD-001",
+        "hits": [
+          {
+            "block_id": "d44e95085_p001_b00032",
+            "page": 1,
+            "quote": "建德市新安小额贷款股份有限公司"
+          }
+        ]
+      }
+    ],
+    "海宁鸿丰小额贷款股份有限公司": [
+      {
+        "case_id": "D4-PLD-001",
+        "hits": [
+          {
+            "block_id": "d44e95085_p001_b00042",
+            "page": 1,
+            "quote": "海宁鸿丰小额贷款股份有限公司"
+          }
+        ]
+      }
+    ],
+    "苏州市吴中典当有限责任公司": [
+      {
+        "case_id": "D4-PLD-001",
+        "hits": [
+          {
+            "block_id": "d44e95085_p001_b00052",
+            "page": 1,
+            "quote": "苏州市吴中典当有限责任公司"
+          }
+        ]
+      }
+    ],
+    "中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D4-PLD-001",
+        "hits": [
+          {
+            "block_id": "d44e95085_p002_b00023",
+            "page": 2,
+            "quote": "中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-003",
+        "hits": [
+          {
+            "block_id": "d36105cfd_p003_b00001",
+            "page": 3,
+            "quote": "中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-005",
+        "hits": [
+          {
+            "block_id": "d5bf0524f_p002_b00024",
+            "page": 2,
+            "quote": "中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-008",
+        "hits": [
+          {
+            "block_id": "d74b527f3_p003_b00003",
+            "page": 3,
+            "quote": "中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p004_b00034",
+            "page": 4,
+            "quote": "中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p006_b00010",
+            "page": 6,
+            "quote": "中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p006_b00012",
+            "page": 6,
+            "quote": "中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-010",
+        "hits": [
+          {
+            "block_id": "dd2c6e0d0_p022_b00004",
+            "page": 22,
+            "quote": "中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "兰州兰石重型装备股份有限公司": [
+      {
+        "case_id": "D4-PLD-002",
+        "hits": [
+          {
+            "block_id": "d16c6a948_p001_b00002",
+            "page": 1,
+            "quote": "兰州兰石重型装备股份有限公司"
+          },
+          {
+            "block_id": "d16c6a948_p001_b00006",
+            "page": 1,
+            "quote": "兰州兰石重型装备股份有限公司"
+          },
+          {
+            "block_id": "d16c6a948_p002_b00013",
+            "page": 2,
+            "quote": "兰州兰石重型装备股份有限公司"
+          }
+        ]
+      }
+    ],
+    "控股股东兰州兰石集团有限公司": [
+      {
+        "case_id": "D4-PLD-002",
+        "hits": [
+          {
+            "block_id": "d16c6a948_p001_b00007",
+            "page": 1,
+            "quote": "控股股东兰州兰石集团有限公司"
+          }
+        ]
+      }
+    ],
+    "联创电子科技股份有限公司": [
+      {
+        "case_id": "D4-PLD-003",
+        "hits": [
+          {
+            "block_id": "d36105cfd_p001_b00002",
+            "page": 1,
+            "quote": "联创电子科技股份有限公司"
+          },
+          {
+            "block_id": "d36105cfd_p001_b00006",
+            "page": 1,
+            "quote": "联创电子科技股份有限公司"
+          },
+          {
+            "block_id": "d36105cfd_p003_b00002",
+            "page": 3,
+            "quote": "联创电子科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "公司收到控股股东江西鑫盛投资有限公司": [
+      {
+        "case_id": "D4-PLD-003",
+        "hits": [
+          {
+            "block_id": "d36105cfd_p001_b00009",
+            "page": 1,
+            "quote": "公司收到控股股东江西鑫盛投资有限公司"
+          }
+        ]
+      }
+    ],
+    "泰州国锐融资租赁有限公司": [
+      {
+        "case_id": "D4-PLD-003",
+        "hits": [
+          {
+            "block_id": "d36105cfd_p001_b00032",
+            "page": 1,
+            "quote": "泰州国锐融资租赁有限公司"
+          }
+        ]
+      }
+    ],
+    "中国天楹股份有限公司": [
+      {
+        "case_id": "D4-PLD-004",
+        "hits": [
+          {
+            "block_id": "d62f9a650_p001_b00002",
+            "page": 1,
+            "quote": "中国天楹股份有限公司"
+          },
+          {
+            "block_id": "d62f9a650_p001_b00004",
+            "page": 1,
+            "quote": "中国天楹股份有限公司"
+          },
+          {
+            "block_id": "d62f9a650_p002_b00015",
+            "page": 2,
+            "quote": "中国天楹股份有限公司"
+          }
+        ]
+      }
+    ],
+    "平安银行股份有限公司": [
+      {
+        "case_id": "D4-PLD-004",
+        "hits": [
+          {
+            "block_id": "d62f9a650_p001_b00028",
+            "page": 1,
+            "quote": "平安银行股份有限公司"
+          }
+        ]
+      }
+    ],
+    "公司控股股东南通乾创及其一致行动人南通坤德投资有限公司": [
+      {
+        "case_id": "D4-PLD-004",
+        "hits": [
+          {
+            "block_id": "d62f9a650_p001_b00042",
+            "page": 1,
+            "quote": "公司控股股东南通乾创及其一致行动人南通坤德投资有限公司"
+          }
+        ]
+      }
+    ],
+    "南通乾创本次股份质押主要为前期向平安银行股份有限公司": [
+      {
+        "case_id": "D4-PLD-004",
+        "hits": [
+          {
+            "block_id": "d62f9a650_p002_b00003",
+            "page": 2,
+            "quote": "南通乾创本次股份质押主要为前期向平安银行股份有限公司"
+          }
+        ]
+      }
+    ],
+    "北京光线传媒股份有限公司": [
+      {
+        "case_id": "D4-PLD-005",
+        "hits": [
+          {
+            "block_id": "d5bf0524f_p001_b00001",
+            "page": 1,
+            "quote": "北京光线传媒股份有限公司"
+          },
+          {
+            "block_id": "d5bf0524f_p001_b00006",
+            "page": 1,
+            "quote": "北京光线传媒股份有限公司"
+          },
+          {
+            "block_id": "d5bf0524f_p002_b00001",
+            "page": 2,
+            "quote": "北京光线传媒股份有限公司"
+          },
+          {
+            "block_id": "d5bf0524f_p002_b00026",
+            "page": 2,
+            "quote": "北京光线传媒股份有限公司"
+          }
+        ]
+      }
+    ],
+    "国泰海通证券股份有限公司": [
+      {
+        "case_id": "D4-PLD-005",
+        "hits": [
+          {
+            "block_id": "d5bf0524f_p001_b00030",
+            "page": 1,
+            "quote": "国泰海通证券股份有限公司"
+          },
+          {
+            "block_id": "d5bf0524f_p001_b00048",
+            "page": 1,
+            "quote": "国泰海通证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "青海春天药用资源科技股份有限公司": [
+      {
+        "case_id": "D4-PLD-006",
+        "hits": [
+          {
+            "block_id": "d3fbd8497_p001_b00002",
+            "page": 1,
+            "quote": "青海春天药用资源科技股份有限公司"
+          },
+          {
+            "block_id": "d3fbd8497_p001_b00005",
+            "page": 1,
+            "quote": "青海春天药用资源科技股份有限公司"
+          },
+          {
+            "block_id": "d3fbd8497_p002_b00039",
+            "page": 2,
+            "quote": "青海春天药用资源科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "上海浦东发展银行股份有限公司": [
+      {
+        "case_id": "D4-PLD-006",
+        "hits": [
+          {
+            "block_id": "d3fbd8497_p001_b00031",
+            "page": 1,
+            "quote": "上海浦东发展银行股份有限公司"
+          }
+        ]
+      }
+    ],
+    "福建坤彩材料科技股份有限公司": [
+      {
+        "case_id": "D4-PLD-007",
+        "hits": [
+          {
+            "block_id": "da204c717_p001_b00002",
+            "page": 1,
+            "quote": "福建坤彩材料科技股份有限公司"
+          },
+          {
+            "block_id": "da204c717_p001_b00006",
+            "page": 1,
+            "quote": "福建坤彩材料科技股份有限公司"
+          },
+          {
+            "block_id": "da204c717_p002_b00132",
+            "page": 2,
+            "quote": "福建坤彩材料科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "资（福建）有限公司": [
+      {
+        "case_id": "D4-PLD-007",
+        "hits": [
+          {
+            "block_id": "da204c717_p001_b00011",
+            "page": 1,
+            "quote": "资（福建）有限公司"
+          }
+        ]
+      }
+    ],
+    "国开新型政策性金融工具有限公司": [
+      {
+        "case_id": "D4-PLD-007",
+        "hits": [
+          {
+            "block_id": "da204c717_p001_b00037",
+            "page": 1,
+            "quote": "国开新型政策性金融工具有限公司"
+          }
+        ]
+      }
+    ],
+    "成都立航科技股份有限公司": [
+      {
+        "case_id": "D4-PLD-008",
+        "hits": [
+          {
+            "block_id": "d74b527f3_p001_b00002",
+            "page": 1,
+            "quote": "成都立航科技股份有限公司"
+          },
+          {
+            "block_id": "d74b527f3_p001_b00005",
+            "page": 1,
+            "quote": "成都立航科技股份有限公司"
+          },
+          {
+            "block_id": "d74b527f3_p003_b00001",
+            "page": 3,
+            "quote": "成都立航科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "宏发科技股份有限公司": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p001_b00002",
+            "page": 1,
+            "quote": "宏发科技股份有限公司"
+          },
+          {
+            "block_id": "d1320340e_p001_b00008",
+            "page": 1,
+            "quote": "宏发科技股份有限公司"
+          },
+          {
+            "block_id": "d1320340e_p003_b00028",
+            "page": 3,
+            "quote": "宏发科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "公司控股股东有格创业投资有限公司": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p001_b00005",
+            "page": 1,
+            "quote": "公司控股股东有格创业投资有限公司"
+          }
+        ]
+      }
+    ],
+    "股份有限公司": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p001_b00015",
+            "page": 1,
+            "quote": "股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00008",
+            "page": 1,
+            "quote": "股份有限公司"
+          }
+        ]
+      }
+    ],
+    "中国银河证券股份有限公司": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p002_b00019",
+            "page": 2,
+            "quote": "中国银河证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "光大证券股份有限公司": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p002_b00030",
+            "page": 2,
+            "quote": "光大证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "股份解除质押情况本次原质押给中国银河证券股份有限公司": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p002_b00034",
+            "page": 2,
+            "quote": "股份解除质押情况本次原质押给中国银河证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "有格创业投资有限公司": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p002_b00036",
+            "page": 2,
+            "quote": "有格创业投资有限公司"
+          }
+        ]
+      }
+    ],
+    "江苏博迁新材料股份有限公司": [
+      {
+        "case_id": "D4-PLD-010",
+        "hits": [
+          {
+            "block_id": "db2351d0b_p001_b00002",
+            "page": 1,
+            "quote": "江苏博迁新材料股份有限公司"
+          },
+          {
+            "block_id": "db2351d0b_p001_b00005",
+            "page": 1,
+            "quote": "江苏博迁新材料股份有限公司"
+          },
+          {
+            "block_id": "db2351d0b_p003_b00004",
+            "page": 3,
+            "quote": "江苏博迁新材料股份有限公司"
+          }
+        ]
+      }
+    ],
+    "并已在中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D4-PLD-010",
+        "hits": [
+          {
+            "block_id": "db2351d0b_p001_b00013",
+            "page": 1,
+            "quote": "并已在中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "洛阳科创新材料股份有限公司": [
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p001_b00003",
+            "page": 1,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d9d5be14f_p001_b00010",
+            "page": 1,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d9d5be14f_p004_b00004",
+            "page": 4,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d9d5be14f_p004_b00022",
+            "page": 4,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d9d5be14f_p026_b00016",
+            "page": 26,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d9d5be14f_p033_b00004",
+            "page": 33,
+            "quote": "洛阳科创新材料股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p001_b00001",
+            "page": 1,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p001_b00002",
+            "page": 1,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p002_b00001",
+            "page": 2,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p003_b00001",
+            "page": 3,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p004_b00001",
+            "page": 4,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p005_b00001",
+            "page": 5,
+            "quote": "洛阳科创新材料股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p001_b00002",
+            "page": 1,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p002_b00005",
+            "page": 2,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p005_b00004",
+            "page": 5,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p005_b00031",
+            "page": 5,
+            "quote": "洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p020_b00005",
+            "page": 20,
+            "quote": "洛阳科创新材料股份有限公司"
+          }
+        ]
+      }
+    ],
+    "认并在中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p002_b00012",
+            "page": 2,
+            "quote": "认并在中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "鉴于甲方为洛阳科创新材料股份有限公司": [
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p010_b00056",
+            "page": 10,
+            "quote": "鉴于甲方为洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d9d5be14f_p015_b00020",
+            "page": 15,
+            "quote": "鉴于甲方为洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d9d5be14f_p019_b00005",
+            "page": 19,
+            "quote": "鉴于甲方为洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d9d5be14f_p022_b00016",
+            "page": 22,
+            "quote": "鉴于甲方为洛阳科创新材料股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p018_b00072",
+            "page": 18,
+            "quote": "鉴于甲方为洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p024_b00005",
+            "page": 24,
+            "quote": "鉴于甲方为洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p027_b00016",
+            "page": 27,
+            "quote": "鉴于甲方为洛阳科创新材料股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p031_b00003",
+            "page": 31,
+            "quote": "鉴于甲方为洛阳科创新材料股份有限公司"
+          }
+        ]
+      }
+    ],
+    "取得中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p011_b00012",
+            "page": 11,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d9d5be14f_p011_b00015",
+            "page": 11,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d9d5be14f_p011_b00024",
+            "page": 11,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d9d5be14f_p012_b00003",
+            "page": 12,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d9d5be14f_p016_b00017",
+            "page": 16,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d9d5be14f_p016_b00020",
+            "page": 16,
+            "quote": "取得中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p019_b00022",
+            "page": 19,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p020_b00004",
+            "page": 20,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p020_b00013",
+            "page": 20,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p020_b00016",
+            "page": 20,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p025_b00008",
+            "page": 25,
+            "quote": "取得中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p025_b00011",
+            "page": 25,
+            "quote": "取得中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "乙方应共同向中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p012_b00011",
+            "page": 12,
+            "quote": "乙方应共同向中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p020_b00024",
+            "page": 20,
+            "quote": "乙方应共同向中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "应共同向中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p017_b00018",
+            "page": 17,
+            "quote": "应共同向中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d9d5be14f_p021_b00003",
+            "page": 21,
+            "quote": "应共同向中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d9d5be14f_p023_b00020",
+            "page": 23,
+            "quote": "应共同向中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p026_b00003",
+            "page": 26,
+            "quote": "应共同向中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p029_b00016",
+            "page": 29,
+            "quote": "应共同向中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p032_b00005",
+            "page": 32,
+            "quote": "应共同向中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "为保证洛阳科创新材料股份有限公司": [
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p026_b00015",
+            "page": 26,
+            "quote": "为保证洛阳科创新材料股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p034_b00026",
+            "page": 34,
+            "quote": "为保证洛阳科创新材料股份有限公司"
+          }
+        ]
+      }
+    ],
+    "国海证券股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p005_b00036",
+            "page": 5,
+            "quote": "国海证券股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p005_b00039",
+            "page": 5,
+            "quote": "国海证券股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p053_b00010",
+            "page": 53,
+            "quote": "国海证券股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p056_b00020",
+            "page": 56,
+            "quote": "国海证券股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p001_b00001",
+            "page": 1,
+            "quote": "国海证券股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p005_b00034",
+            "page": 5,
+            "quote": "国海证券股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p006_b00003",
+            "page": 6,
+            "quote": "国海证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "库珀新能源股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p006_b00022",
+            "page": 6,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p008_b00014",
+            "page": 8,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p008_b00025",
+            "page": 8,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p008_b00032",
+            "page": 8,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p009_b00009",
+            "page": 9,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p009_b00016",
+            "page": 9,
+            "quote": "库珀新能源股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p006_b00027",
+            "page": 6,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p009_b00004",
+            "page": 9,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p009_b00015",
+            "page": 9,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p009_b00022",
+            "page": 9,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p010_b00009",
+            "page": 10,
+            "quote": "库珀新能源股份有限公司"
+          },
+          {
+            "block_id": "d173fee90_p010_b00016",
+            "page": 10,
+            "quote": "库珀新能源股份有限公司"
+          }
+        ]
+      }
+    ],
+    "原名库珀（天津）科技有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p006_b00022",
+            "page": 6,
+            "quote": "原名库珀（天津）科技有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p006_b00027",
+            "page": 6,
+            "quote": "原名库珀（天津）科技有限公司"
+          }
+        ]
+      }
+    ],
+    "京广能源集团有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p006_b00025",
+            "page": 6,
+            "quote": "京广能源集团有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p006_b00030",
+            "page": 6,
+            "quote": "京广能源集团有限公司"
+          }
+        ]
+      }
+    ],
+    "原名京广能源有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p006_b00025",
+            "page": 6,
+            "quote": "原名京广能源有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p006_b00030",
+            "page": 6,
+            "quote": "原名京广能源有限公司"
+          }
+        ]
+      }
+    ],
+    "河北埃克森电气有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p008_b00021",
+            "page": 8,
+            "quote": "河北埃克森电气有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p009_b00011",
+            "page": 9,
+            "quote": "河北埃克森电气有限公司"
+          }
+        ]
+      }
+    ],
+    "库珀（江苏）新能源有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p008_b00028",
+            "page": 8,
+            "quote": "库珀（江苏）新能源有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p009_b00018",
+            "page": 9,
+            "quote": "库珀（江苏）新能源有限公司"
+          }
+        ]
+      }
+    ],
+    "英联（天津）实业有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p009_b00005",
+            "page": 9,
+            "quote": "英联（天津）实业有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p010_b00005",
+            "page": 10,
+            "quote": "英联（天津）实业有限公司"
+          }
+        ]
+      }
+    ],
+    "甘肃库珀智能装备有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p009_b00012",
+            "page": 9,
+            "quote": "甘肃库珀智能装备有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p010_b00012",
+            "page": 10,
+            "quote": "甘肃库珀智能装备有限公司"
+          }
+        ]
+      }
+    ],
+    "库珀(江苏)智能装备有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p009_b00019",
+            "page": 9,
+            "quote": "库珀(江苏)智能装备有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p010_b00019",
+            "page": 10,
+            "quote": "库珀(江苏)智能装备有限公司"
+          }
+        ]
+      }
+    ],
+    "库珀（山东）科技有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p010_b00004",
+            "page": 10,
+            "quote": "库珀（山东）科技有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p011_b00005",
+            "page": 11,
+            "quote": "库珀（山东）科技有限公司"
+          }
+        ]
+      }
+    ],
+    "庫珀科技集團有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p010_b00011",
+            "page": 10,
+            "quote": "庫珀科技集團有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p011_b00012",
+            "page": 11,
+            "quote": "庫珀科技集團有限公司"
+          }
+        ]
+      }
+    ],
+    "独立董事已聘请东北证券股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p015_b00015",
+            "page": 15,
+            "quote": "独立董事已聘请东北证券股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p017_b00015",
+            "page": 17,
+            "quote": "独立董事已聘请东北证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "规定的天源资产评估有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p015_b00015",
+            "page": 15,
+            "quote": "规定的天源资产评估有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p017_b00015",
+            "page": 17,
+            "quote": "规定的天源资产评估有限公司"
+          }
+        ]
+      }
+    ],
+    "北京证券交易所合规性确认并在中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p016_b00003",
+            "page": 16,
+            "quote": "北京证券交易所合规性确认并在中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p062_b00003",
+            "page": 62,
+            "quote": "北京证券交易所合规性确认并在中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "该次股份转让已在中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p016_b00010",
+            "page": 16,
+            "quote": "该次股份转让已在中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p018_b00008",
+            "page": 18,
+            "quote": "该次股份转让已在中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "根据天源资产评估有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p036_b00028",
+            "page": 36,
+            "quote": "根据天源资产评估有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p020_b00005",
+            "page": 20,
+            "quote": "根据天源资产评估有限公司"
+          }
+        ]
+      }
+    ],
+    "收购涉及的洛阳科创新材料股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p037_b00002",
+            "page": 37,
+            "quote": "收购涉及的洛阳科创新材料股份有限公司"
+          }
+        ]
+      }
+    ],
+    "天源资产评估有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p037_b00005",
+            "page": 37,
+            "quote": "天源资产评估有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p053_b00008",
+            "page": 53,
+            "quote": "天源资产评估有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p057_b00016",
+            "page": 57,
+            "quote": "天源资产评估有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p020_b00009",
+            "page": 20,
+            "quote": "天源资产评估有限公司"
+          }
+        ]
+      }
+    ],
+    "参与本次收购的各专业机构名称分别为国海证券股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p053_b00007",
+            "page": 53,
+            "quote": "参与本次收购的各专业机构名称分别为国海证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "信息披露义务人聘请的财务顾问国海证券股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p053_b00009",
+            "page": 53,
+            "quote": "信息披露义务人聘请的财务顾问国海证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "国海证券关于洛阳科创新材料股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p057_b00012",
+            "page": 57,
+            "quote": "国海证券关于洛阳科创新材料股份有限公司"
+          }
+        ]
+      }
+    ],
+    "东北证券股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p057_b00014",
+            "page": 57,
+            "quote": "东北证券股份有限公司"
+          },
+          {
+            "block_id": "d46bc2ef0_p057_b00014",
+            "page": 57,
+            "quote": "东北证券股份有限公司"
+          }
+        ]
+      }
+    ],
+    "材料股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p057_b00015",
+            "page": 57,
+            "quote": "材料股份有限公司"
+          }
+        ]
+      }
+    ],
+    "购涉及的洛阳科创新材料股份有限公司": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p057_b00017",
+            "page": 57,
+            "quote": "购涉及的洛阳科创新材料股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p020_b00006",
+            "page": 20,
+            "quote": "购涉及的洛阳科创新材料股份有限公司"
+          }
+        ]
+      }
+    ],
+    "以及北京证券交易所合规性确认并在中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p003_b00008",
+            "page": 3,
+            "quote": "以及北京证券交易所合规性确认并在中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "北交所合规性确认并在中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p018_b00001",
+            "page": 18,
+            "quote": "北交所合规性确认并在中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "浙江海正药业股份有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p001_b00001",
+            "page": 1,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da00b31da_p001_b00003",
+            "page": 1,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da00b31da_p004_b00005",
+            "page": 4,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da00b31da_p004_b00011",
+            "page": 4,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da00b31da_p018_b00004",
+            "page": 18,
+            "quote": "浙江海正药业股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p001_b00001",
+            "page": 1,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p001_b00002",
+            "page": 1,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p001_b00004",
+            "page": 1,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p003_b00001",
+            "page": 3,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p004_b00005",
+            "page": 4,
+            "quote": "浙江海正药业股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p005_b00001",
+            "page": 5,
+            "quote": "浙江海正药业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "披露信息披露义务人在浙江海正药业股份有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p002_b00007",
+            "page": 2,
+            "quote": "披露信息披露义务人在浙江海正药业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "通过任何其他方式增加或减少其在浙江海正药业股份有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p002_b00009",
+            "page": 2,
+            "quote": "通过任何其他方式增加或减少其在浙江海正药业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "并在中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p002_b00015",
+            "page": 2,
+            "quote": "并在中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "da00b31da_p013_b00002",
+            "page": 13,
+            "quote": "并在中国证券登记结算有限责任公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p002_b00009",
+            "page": 2,
+            "quote": "并在中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "da8d294d2_p011_b00011",
+            "page": 11,
+            "quote": "并在中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "上海金浦健服私募基金管理有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p005_b00025",
+            "page": 5,
+            "quote": "上海金浦健服私募基金管理有限公司"
+          },
+          {
+            "block_id": "da00b31da_p006_b00063",
+            "page": 6,
+            "quote": "上海金浦健服私募基金管理有限公司"
+          }
+        ]
+      }
+    ],
+    "九州通医药投资（湖北）有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p006_b00003",
+            "page": 6,
+            "quote": "九州通医药投资（湖北）有限公司"
+          }
+        ]
+      }
+    ],
+    "横琴深合产业投资有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p006_b00018",
+            "page": 6,
+            "quote": "横琴深合产业投资有限公司"
+          }
+        ]
+      }
+    ],
+    "台州市海盛产业投资有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p006_b00028",
+            "page": 6,
+            "quote": "台州市海盛产业投资有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江出版集团投资有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p006_b00033",
+            "page": 6,
+            "quote": "浙江出版集团投资有限公司"
+          }
+        ]
+      }
+    ],
+    "湖北省铁路发展基金有限责任公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p006_b00038",
+            "page": 6,
+            "quote": "湖北省铁路发展基金有限责任公司"
+          }
+        ]
+      }
+    ],
+    "湖北省中小企业金融服务中心有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p006_b00043",
+            "page": 6,
+            "quote": "湖北省中小企业金融服务中心有限公司"
+          }
+        ]
+      }
+    ],
+    "金浦浙展拟以公开征集协议转让方式受让浙江省国际贸易集团有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p009_b00022",
+            "page": 9,
+            "quote": "金浦浙展拟以公开征集协议转让方式受让浙江省国际贸易集团有限公司"
+          }
+        ]
+      }
+    ],
+    "信息披露义务人与浙江省国际贸易集团有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p009_b00024",
+            "page": 9,
+            "quote": "信息披露义务人与浙江省国际贸易集团有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江省国际贸易集团有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p009_b00027",
+            "page": 9,
+            "quote": "浙江省国际贸易集团有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p001_b00008",
+            "page": 1,
+            "quote": "浙江省国际贸易集团有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p004_b00005",
+            "page": 4,
+            "quote": "浙江省国际贸易集团有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00066",
+            "page": 6,
+            "quote": "浙江省国际贸易集团有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00070",
+            "page": 6,
+            "quote": "浙江省国际贸易集团有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00108",
+            "page": 6,
+            "quote": "浙江省国际贸易集团有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p008_b00025",
+            "page": 8,
+            "quote": "浙江省国际贸易集团有限公司"
+          }
+        ]
+      }
+    ],
+    "丽水）合伙企业（有限合伙）关于浙江海正药业股份有限公司": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p010_b00012",
+            "page": 10,
+            "quote": "丽水）合伙企业（有限合伙）关于浙江海正药业股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p009_b00007",
+            "page": 9,
+            "quote": "丽水）合伙企业（有限合伙）关于浙江海正药业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "本报告书已全面披露信息披露义务人在浙江海正药业股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p002_b00007",
+            "page": 2,
+            "quote": "本报告书已全面披露信息披露义务人在浙江海正药业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "信息披露义务人没有通过任何其他方式增加或减少其在浙江海正药业股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p002_b00007",
+            "page": 2,
+            "quote": "信息披露义务人没有通过任何其他方式增加或减少其在浙江海正药业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "丽水）合伙企业（有限合伙）浙江海正药业股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p004_b00005",
+            "page": 4,
+            "quote": "丽水）合伙企业（有限合伙）浙江海正药业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "公司名称浙江省国际贸易集团有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p005_b00004",
+            "page": 5,
+            "quote": "公司名称浙江省国际贸易集团有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江省浙财社保股权管理有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p005_b00016",
+            "page": 5,
+            "quote": "浙江省浙财社保股权管理有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江东方控股集团股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00065",
+            "page": 6,
+            "quote": "浙江东方控股集团股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00082",
+            "page": 6,
+            "quote": "浙江东方控股集团股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00092",
+            "page": 6,
+            "quote": "浙江东方控股集团股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00096",
+            "page": 6,
+            "quote": "浙江东方控股集团股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00100",
+            "page": 6,
+            "quote": "浙江东方控股集团股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00104",
+            "page": 6,
+            "quote": "浙江东方控股集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江英特集团股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00069",
+            "page": 6,
+            "quote": "浙江英特集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江省医药健康产业集团有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00072",
+            "page": 6,
+            "quote": "浙江省医药健康产业集团有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00078",
+            "page": 6,
+            "quote": "浙江省医药健康产业集团有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江康恩贝制药股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00074",
+            "page": 6,
+            "quote": "浙江康恩贝制药股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00077",
+            "page": 6,
+            "quote": "浙江康恩贝制药股份有限公司"
+          }
+        ]
+      }
+    ],
+    "永安期货股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00081",
+            "page": 6,
+            "quote": "永安期货股份有限公司"
+          },
+          {
+            "block_id": "da8d294d2_p006_b00103",
+            "page": 6,
+            "quote": "永安期货股份有限公司"
+          }
+        ]
+      }
+    ],
+    "浙商金汇信托股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00091",
+            "page": 6,
+            "quote": "浙商金汇信托股份有限公司"
+          }
+        ]
+      }
+    ],
+    "东方嘉富人寿保险有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00095",
+            "page": 6,
+            "quote": "东方嘉富人寿保险有限公司"
+          }
+        ]
+      }
+    ],
+    "大地期货有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00099",
+            "page": 6,
+            "quote": "大地期货有限公司"
+          }
+        ]
+      }
+    ],
+    "杭州联合农村商业银行股份有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00107",
+            "page": 6,
+            "quote": "杭州联合农村商业银行股份有限公司"
+          }
+        ]
+      }
+    ],
+    "德邦基金管理有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00113",
+            "page": 6,
+            "quote": "德邦基金管理有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江省土产畜产进出口集团有限公司": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p006_b00114",
+            "page": 6,
+            "quote": "浙江省土产畜产进出口集团有限公司"
+          }
+        ]
+      }
+    ],
+    "安徽鸿路钢结构(集团)股份有限公司": [
+      {
+        "case_id": "D5-EQC-006",
+        "hits": [
+          {
+            "block_id": "d97e2cfab_p001_b00002",
+            "page": 1,
+            "quote": "安徽鸿路钢结构(集团)股份有限公司"
+          }
+        ]
+      }
+    ],
+    "本次权益变动属于安徽鸿路钢结构（集团）股份有限公司": [
+      {
+        "case_id": "D5-EQC-006",
+        "hits": [
+          {
+            "block_id": "d97e2cfab_p001_b00008",
+            "page": 1,
+            "quote": "本次权益变动属于安徽鸿路钢结构（集团）股份有限公司"
+          }
+        ]
+      }
+    ],
+    "安徽鸿路钢结构（集团）股份有限公司": [
+      {
+        "case_id": "D5-EQC-006",
+        "hits": [
+          {
+            "block_id": "d97e2cfab_p003_b00027",
+            "page": 3,
+            "quote": "安徽鸿路钢结构（集团）股份有限公司"
+          }
+        ]
+      }
+    ],
+    "江苏红豆实业股份有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p001_b00001",
+            "page": 1,
+            "quote": "江苏红豆实业股份有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p001_b00002",
+            "page": 1,
+            "quote": "江苏红豆实业股份有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p016_b00004",
+            "page": 16,
+            "quote": "江苏红豆实业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "红豆集团有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p001_b00009",
+            "page": 1,
+            "quote": "红豆集团有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p004_b00005",
+            "page": 4,
+            "quote": "红豆集团有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p010_b00009",
+            "page": 10,
+            "quote": "红豆集团有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p010_b00011",
+            "page": 10,
+            "quote": "红豆集团有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p010_b00024",
+            "page": 10,
+            "quote": "红豆集团有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p015_b00004",
+            "page": 15,
+            "quote": "红豆集团有限公司"
+          }
+        ]
+      }
+    ],
+    "江苏省无锡市锡山区东港镇红豆集团有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p001_b00012",
+            "page": 1,
+            "quote": "江苏省无锡市锡山区东港镇红豆集团有限公司"
+          }
+        ]
+      }
+    ],
+    "无锡红闳服饰有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p001_b00024",
+            "page": 1,
+            "quote": "无锡红闳服饰有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p002_b00005",
+            "page": 2,
+            "quote": "无锡红闳服饰有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p004_b00005",
+            "page": 4,
+            "quote": "无锡红闳服饰有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p011_b00013",
+            "page": 11,
+            "quote": "无锡红闳服饰有限公司"
+          }
+        ]
+      }
+    ],
+    "无锡天人国际投资有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p001_b00029",
+            "page": 1,
+            "quote": "无锡天人国际投资有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p002_b00005",
+            "page": 2,
+            "quote": "无锡天人国际投资有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p004_b00005",
+            "page": 4,
+            "quote": "无锡天人国际投资有限公司"
+          },
+          {
+            "block_id": "d3d00372c_p011_b00019",
+            "page": 11,
+            "quote": "无锡天人国际投资有限公司"
+          }
+        ]
+      }
+    ],
+    "本次信息披露义务人为红豆集团有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p002_b00004",
+            "page": 2,
+            "quote": "本次信息披露义务人为红豆集团有限公司"
+          }
+        ]
+      }
+    ],
+    "露信息披露义务人在江苏红豆实业股份有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p002_b00007",
+            "page": 2,
+            "quote": "露信息披露义务人在江苏红豆实业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "公司名称红豆集团有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p005_b00004",
+            "page": 5,
+            "quote": "公司名称红豆集团有限公司"
+          }
+        ]
+      }
+    ],
+    "公司名称无锡红闳服饰有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p006_b00005",
+            "page": 6,
+            "quote": "公司名称无锡红闳服饰有限公司"
+          }
+        ]
+      }
+    ],
+    "红闳服饰的股东为无锡轩帝尼服饰有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p006_b00016",
+            "page": 6,
+            "quote": "红闳服饰的股东为无锡轩帝尼服饰有限公司"
+          }
+        ]
+      }
+    ],
+    "伊藤忠纤维贸易股权结构（中国）有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p006_b00016",
+            "page": 6,
+            "quote": "伊藤忠纤维贸易股权结构（中国）有限公司"
+          }
+        ]
+      }
+    ],
+    "轩帝尼服饰有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p006_b00017",
+            "page": 6,
+            "quote": "轩帝尼服饰有限公司"
+          }
+        ]
+      }
+    ],
+    "公司名称无锡天人国际投资有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p006_b00019",
+            "page": 6,
+            "quote": "公司名称无锡天人国际投资有限公司"
+          }
+        ]
+      }
+    ],
+    "天人国际投资的股东为江苏红豆国际发展有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p007_b00004",
+            "page": 7,
+            "quote": "天人国际投资的股东为江苏红豆国际发展有限公司"
+          }
+        ]
+      }
+    ],
+    "其中江苏红豆国际发展有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p007_b00004",
+            "page": 7,
+            "quote": "其中江苏红豆国际发展有限公司"
+          }
+        ]
+      }
+    ],
+    "有江苏通用科技股份有限公司": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p008_b00003",
+            "page": 8,
+            "quote": "有江苏通用科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "彤程新材料集团股份有限公司": [
+      {
+        "case_id": "D5-EQC-008",
+        "hits": [
+          {
+            "block_id": "daf34725a_p001_b00001",
+            "page": 1,
+            "quote": "彤程新材料集团股份有限公司"
+          },
+          {
+            "block_id": "daf34725a_p001_b00003",
+            "page": 1,
+            "quote": "彤程新材料集团股份有限公司"
+          },
+          {
+            "block_id": "daf34725a_p015_b00004",
+            "page": 15,
+            "quote": "彤程新材料集团股份有限公司"
+          },
+          {
+            "block_id": "daf34725a_p017_b00001",
+            "page": 17,
+            "quote": "彤程新材料集团股份有限公司"
+          },
+          {
+            "block_id": "daf34725a_p018_b00001",
+            "page": 18,
+            "quote": "彤程新材料集团股份有限公司"
+          },
+          {
+            "block_id": "daf34725a_p019_b00001",
+            "page": 19,
+            "quote": "彤程新材料集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "香港联合交易所有限公司": [
+      {
+        "case_id": "D5-EQC-008",
+        "hits": [
+          {
+            "block_id": "daf34725a_p001_b00003",
+            "page": 1,
+            "quote": "香港联合交易所有限公司"
+          }
+        ]
+      }
+    ],
+    "本报告书已全面披露信息披露义务人在彤程新材料集团股份有限公司": [
+      {
+        "case_id": "D5-EQC-008",
+        "hits": [
+          {
+            "block_id": "daf34725a_p002_b00007",
+            "page": 2,
+            "quote": "本报告书已全面披露信息披露义务人在彤程新材料集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "没有通过任何其他方式增加或减少其在彤程新材料集团股份有限公司": [
+      {
+        "case_id": "D5-EQC-008",
+        "hits": [
+          {
+            "block_id": "daf34725a_p002_b00009",
+            "page": 2,
+            "quote": "没有通过任何其他方式增加或减少其在彤程新材料集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "指彤程新材料集团股份有限公司": [
+      {
+        "case_id": "D5-EQC-008",
+        "hits": [
+          {
+            "block_id": "daf34725a_p004_b00003",
+            "page": 4,
+            "quote": "指彤程新材料集团股份有限公司"
+          },
+          {
+            "block_id": "daf34725a_p004_b00011",
+            "page": 4,
+            "quote": "指彤程新材料集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "前沿生物药业（南京）股份有限公司": [
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p001_b00001",
+            "page": 1,
+            "quote": "前沿生物药业（南京）股份有限公司"
+          },
+          {
+            "block_id": "d31d2e428_p001_b00003",
+            "page": 1,
+            "quote": "前沿生物药业（南京）股份有限公司"
+          },
+          {
+            "block_id": "d31d2e428_p004_b00004",
+            "page": 4,
+            "quote": "前沿生物药业（南京）股份有限公司"
+          },
+          {
+            "block_id": "d31d2e428_p004_b00010",
+            "page": 4,
+            "quote": "前沿生物药业（南京）股份有限公司"
+          },
+          {
+            "block_id": "d31d2e428_p006_b00008",
+            "page": 6,
+            "quote": "前沿生物药业（南京）股份有限公司"
+          },
+          {
+            "block_id": "d31d2e428_p007_b00007",
+            "page": 7,
+            "quote": "前沿生物药业（南京）股份有限公司"
+          }
+        ]
+      }
+    ],
+    "天津市依依卫生用品股份有限公司": [
+      {
+        "case_id": "D5-EQC-010",
+        "hits": [
+          {
+            "block_id": "dd2c6e0d0_p001_b00001",
+            "page": 1,
+            "quote": "天津市依依卫生用品股份有限公司"
+          },
+          {
+            "block_id": "dd2c6e0d0_p001_b00002",
+            "page": 1,
+            "quote": "天津市依依卫生用品股份有限公司"
+          },
+          {
+            "block_id": "dd2c6e0d0_p001_b00003",
+            "page": 1,
+            "quote": "天津市依依卫生用品股份有限公司"
+          },
+          {
+            "block_id": "dd2c6e0d0_p002_b00001",
+            "page": 2,
+            "quote": "天津市依依卫生用品股份有限公司"
+          },
+          {
+            "block_id": "dd2c6e0d0_p003_b00001",
+            "page": 3,
+            "quote": "天津市依依卫生用品股份有限公司"
+          },
+          {
+            "block_id": "dd2c6e0d0_p004_b00001",
+            "page": 4,
+            "quote": "天津市依依卫生用品股份有限公司"
+          }
+        ]
+      }
+    ],
+    "报告书已全面披露了信息披露义务人在天津市依依卫生用品股份有限公司": [
+      {
+        "case_id": "D5-EQC-010",
+        "hits": [
+          {
+            "block_id": "dd2c6e0d0_p002_b00008",
+            "page": 2,
+            "quote": "报告书已全面披露了信息披露义务人在天津市依依卫生用品股份有限公司"
+          }
+        ]
+      }
+    ],
+    "方能在中国证券登记结算有限责任公司": [
+      {
+        "case_id": "D5-EQC-010",
+        "hits": [
+          {
+            "block_id": "dd2c6e0d0_p002_b00016",
+            "page": 2,
+            "quote": "方能在中国证券登记结算有限责任公司"
+          },
+          {
+            "block_id": "dd2c6e0d0_p014_b00013",
+            "page": 14,
+            "quote": "方能在中国证券登记结算有限责任公司"
+          }
+        ]
+      }
+    ],
+    "海南开元金鼎投资有限公司": [
+      {
+        "case_id": "D5-EQC-010",
+        "hits": [
+          {
+            "block_id": "dd2c6e0d0_p009_b00010",
+            "page": 9,
+            "quote": "海南开元金鼎投资有限公司"
+          }
+        ]
+      }
+    ],
+    "扬州惠通科技股份有限公司": [
+      {
+        "case_id": "D6-AWD-001",
+        "hits": [
+          {
+            "block_id": "dc1c912b9_p001_b00002",
+            "page": 1,
+            "quote": "扬州惠通科技股份有限公司"
+          },
+          {
+            "block_id": "dc1c912b9_p001_b00005",
+            "page": 1,
+            "quote": "扬州惠通科技股份有限公司"
+          },
+          {
+            "block_id": "dc1c912b9_p002_b00006",
+            "page": 2,
+            "quote": "扬州惠通科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "招标单位为图木舒克新纶化纤有限责任公司": [
+      {
+        "case_id": "D6-AWD-001",
+        "hits": [
+          {
+            "block_id": "dc1c912b9_p001_b00009",
+            "page": 1,
+            "quote": "招标单位为图木舒克新纶化纤有限责任公司"
+          }
+        ]
+      }
+    ],
+    "浙江金盾风机股份有限公司": [
+      {
+        "case_id": "D6-AWD-002",
+        "hits": [
+          {
+            "block_id": "dc0a3d5fb_p001_b00002",
+            "page": 1,
+            "quote": "浙江金盾风机股份有限公司"
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00004",
+            "page": 1,
+            "quote": "浙江金盾风机股份有限公司"
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00012",
+            "page": 1,
+            "quote": "浙江金盾风机股份有限公司"
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00019",
+            "page": 1,
+            "quote": "浙江金盾风机股份有限公司"
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00006",
+            "page": 2,
+            "quote": "浙江金盾风机股份有限公司"
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00013",
+            "page": 2,
+            "quote": "浙江金盾风机股份有限公司"
+          }
+        ]
+      }
+    ],
+    "深圳市地铁集团科技产业有限公司": [
+      {
+        "case_id": "D6-AWD-002",
+        "hits": [
+          {
+            "block_id": "dc0a3d5fb_p001_b00009",
+            "page": 1,
+            "quote": "深圳市地铁集团科技产业有限公司"
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00016",
+            "page": 1,
+            "quote": "深圳市地铁集团科技产业有限公司"
+          }
+        ]
+      }
+    ],
+    "沈阳地铁集团有限公司": [
+      {
+        "case_id": "D6-AWD-002",
+        "hits": [
+          {
+            "block_id": "dc0a3d5fb_p002_b00003",
+            "page": 2,
+            "quote": "沈阳地铁集团有限公司"
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00010",
+            "page": 2,
+            "quote": "沈阳地铁集团有限公司"
+          }
+        ]
+      }
+    ],
+    "中国铁路通信信号股份有限公司": [
+      {
+        "case_id": "D6-AWD-003",
+        "hits": [
+          {
+            "block_id": "d0b56135e_p001_b00002",
+            "page": 1,
+            "quote": "中国铁路通信信号股份有限公司"
+          },
+          {
+            "block_id": "d0b56135e_p001_b00014",
+            "page": 1,
+            "quote": "中国铁路通信信号股份有限公司"
+          },
+          {
+            "block_id": "d0b56135e_p004_b00007",
+            "page": 4,
+            "quote": "中国铁路通信信号股份有限公司"
+          }
+        ]
+      }
+    ],
+    "中铁武汉电气化局集团有限公司": [
+      {
+        "case_id": "D6-AWD-003",
+        "hits": [
+          {
+            "block_id": "d0b56135e_p001_b00006",
+            "page": 1,
+            "quote": "中铁武汉电气化局集团有限公司"
+          },
+          {
+            "block_id": "d0b56135e_p003_b00004",
+            "page": 3,
+            "quote": "中铁武汉电气化局集团有限公司"
+          }
+        ]
+      }
+    ],
+    "阿拉善高新技术产业开发区实业投资运营集团有限公司": [
+      {
+        "case_id": "D6-AWD-003",
+        "hits": [
+          {
+            "block_id": "d0b56135e_p002_b00005",
+            "page": 2,
+            "quote": "阿拉善高新技术产业开发区实业投资运营集团有限公司"
+          }
+        ]
+      }
+    ],
+    "中国铁塔股份有限公司": [
+      {
+        "case_id": "D6-AWD-003",
+        "hits": [
+          {
+            "block_id": "d0b56135e_p002_b00006",
+            "page": 2,
+            "quote": "中国铁塔股份有限公司"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00006",
+            "page": 1,
+            "quote": "中国铁塔股份有限公司"
+          },
+          {
+            "block_id": "ddd80cf89_p002_b00013",
+            "page": 2,
+            "quote": "中国铁塔股份有限公司"
+          }
+        ]
+      }
+    ],
+    "中铁武汉电气化局集团物资贸易有限公司": [
+      {
+        "case_id": "D6-AWD-003",
+        "hits": [
+          {
+            "block_id": "d0b56135e_p003_b00006",
+            "page": 3,
+            "quote": "中铁武汉电气化局集团物资贸易有限公司"
+          }
+        ]
+      }
+    ],
+    "武汉华康世纪洁净科技股份有限公司": [
+      {
+        "case_id": "D6-AWD-004",
+        "hits": [
+          {
+            "block_id": "d0be9f419_p001_b00002",
+            "page": 1,
+            "quote": "武汉华康世纪洁净科技股份有限公司"
+          },
+          {
+            "block_id": "d0be9f419_p001_b00008",
+            "page": 1,
+            "quote": "武汉华康世纪洁净科技股份有限公司"
+          },
+          {
+            "block_id": "d0be9f419_p002_b00026",
+            "page": 2,
+            "quote": "武汉华康世纪洁净科技股份有限公司"
+          },
+          {
+            "block_id": "d0be9f419_p004_b00001",
+            "page": 4,
+            "quote": "武汉华康世纪洁净科技股份有限公司"
+          }
+        ]
+      }
+    ],
+    "并与承包人武汉建工集团股份有限公司": [
+      {
+        "case_id": "D6-AWD-004",
+        "hits": [
+          {
+            "block_id": "d0be9f419_p001_b00009",
+            "page": 1,
+            "quote": "并与承包人武汉建工集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "武汉建工集团股份有限公司": [
+      {
+        "case_id": "D6-AWD-004",
+        "hits": [
+          {
+            "block_id": "d0be9f419_p001_b00012",
+            "page": 1,
+            "quote": "武汉建工集团股份有限公司"
+          },
+          {
+            "block_id": "d0be9f419_p002_b00002",
+            "page": 2,
+            "quote": "武汉建工集团股份有限公司"
+          },
+          {
+            "block_id": "d0be9f419_p002_b00017",
+            "page": 2,
+            "quote": "武汉建工集团股份有限公司"
+          },
+          {
+            "block_id": "d0be9f419_p002_b00021",
+            "page": 2,
+            "quote": "武汉建工集团股份有限公司"
+          },
+          {
+            "block_id": "d0be9f419_p002_b00025",
+            "page": 2,
+            "quote": "武汉建工集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "控股股东及实际控制人与武汉建工集团股份有限公司": [
+      {
+        "case_id": "D6-AWD-004",
+        "hits": [
+          {
+            "block_id": "d0be9f419_p001_b00018",
+            "page": 1,
+            "quote": "控股股东及实际控制人与武汉建工集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "最近三年公司与武汉建工集团股份有限公司": [
+      {
+        "case_id": "D6-AWD-004",
+        "hits": [
+          {
+            "block_id": "d0be9f419_p002_b00005",
+            "page": 2,
+            "quote": "最近三年公司与武汉建工集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "武汉建工新城建设有限公司": [
+      {
+        "case_id": "D6-AWD-004",
+        "hits": [
+          {
+            "block_id": "d0be9f419_p002_b00013",
+            "page": 2,
+            "quote": "武汉建工新城建设有限公司"
+          }
+        ]
+      }
+    ],
+    "吉峰三农科技服务股份有限公司": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00002",
+            "page": 1,
+            "quote": "吉峰三农科技服务股份有限公司"
+          },
+          {
+            "block_id": "ddd80cf89_p001_b00005",
+            "page": 1,
+            "quote": "吉峰三农科技服务股份有限公司"
+          },
+          {
+            "block_id": "ddd80cf89_p002_b00012",
+            "page": 2,
+            "quote": "吉峰三农科技服务股份有限公司"
+          },
+          {
+            "block_id": "ddd80cf89_p004_b00016",
+            "page": 4,
+            "quote": "吉峰三农科技服务股份有限公司"
+          }
+        ]
+      }
+    ],
+    "与南京莱斯信息技术股份有限公司": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00006",
+            "page": 1,
+            "quote": "与南京莱斯信息技术股份有限公司"
+          }
+        ]
+      }
+    ],
+    "公司（联合体牵头人）与南京莱斯信息技术股份有限公司": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00007",
+            "page": 1,
+            "quote": "公司（联合体牵头人）与南京莱斯信息技术股份有限公司"
+          }
+        ]
+      }
+    ],
+    "集团）有限公司": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00008",
+            "page": 1,
+            "quote": "集团）有限公司"
+          },
+          {
+            "block_id": "ddd80cf89_p002_b00005",
+            "page": 2,
+            "quote": "集团）有限公司"
+          }
+        ]
+      }
+    ],
+    "江苏众安建设投资（集团）有限公司": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00012",
+            "page": 1,
+            "quote": "江苏众安建设投资（集团）有限公司"
+          },
+          {
+            "block_id": "ddd80cf89_p002_b00007",
+            "page": 2,
+            "quote": "江苏众安建设投资（集团）有限公司"
+          },
+          {
+            "block_id": "ddd80cf89_p002_b00011",
+            "page": 2,
+            "quote": "江苏众安建设投资（集团）有限公司"
+          }
+        ]
+      }
+    ],
+    "宿迁宿城国有资本控股（集团）有限公司": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p002_b00003",
+            "page": 2,
+            "quote": "宿迁宿城国有资本控股（集团）有限公司"
+          }
+        ]
+      }
+    ],
+    "江苏宿城国有资产经营管理有限公司": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p002_b00005",
+            "page": 2,
+            "quote": "江苏宿城国有资产经营管理有限公司"
+          }
+        ]
+      }
+    ],
+    "上海同济科技实业股份有限公司": [
+      {
+        "case_id": "D6-AWD-006",
+        "hits": [
+          {
+            "block_id": "dfc6c3d84_p001_b00002",
+            "page": 1,
+            "quote": "上海同济科技实业股份有限公司"
+          },
+          {
+            "block_id": "dfc6c3d84_p001_b00012",
+            "page": 1,
+            "quote": "上海同济科技实业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "公司全资子公司上海同济建设有限公司": [
+      {
+        "case_id": "D6-AWD-006",
+        "hits": [
+          {
+            "block_id": "dfc6c3d84_p001_b00004",
+            "page": 1,
+            "quote": "公司全资子公司上海同济建设有限公司"
+          }
+        ]
+      }
+    ],
+    "上海同济建设有限公司": [
+      {
+        "case_id": "D6-AWD-006",
+        "hits": [
+          {
+            "block_id": "dfc6c3d84_p001_b00005",
+            "page": 1,
+            "quote": "上海同济建设有限公司"
+          },
+          {
+            "block_id": "dfc6c3d84_p001_b00009",
+            "page": 1,
+            "quote": "上海同济建设有限公司"
+          }
+        ]
+      }
+    ],
+    "江河创建集团股份有限公司": [
+      {
+        "case_id": "D6-AWD-007",
+        "hits": [
+          {
+            "block_id": "d3a6938fe_p001_b00002",
+            "page": 1,
+            "quote": "江河创建集团股份有限公司"
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00004",
+            "page": 1,
+            "quote": "江河创建集团股份有限公司"
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00009",
+            "page": 1,
+            "quote": "江河创建集团股份有限公司"
+          }
+        ]
+      }
+    ],
+    "蒙草生态环境（集团）股份有限公司": [
+      {
+        "case_id": "D6-AWD-008",
+        "hits": [
+          {
+            "block_id": "daa9b83fa_p001_b00002",
+            "page": 1,
+            "quote": "蒙草生态环境（集团）股份有限公司"
+          },
+          {
+            "block_id": "daa9b83fa_p001_b00004",
+            "page": 1,
+            "quote": "蒙草生态环境（集团）股份有限公司"
+          },
+          {
+            "block_id": "daa9b83fa_p002_b00002",
+            "page": 2,
+            "quote": "蒙草生态环境（集团）股份有限公司"
+          }
+        ]
+      }
+    ],
+    "草运动草（内蒙古）科技有限公司": [
+      {
+        "case_id": "D6-AWD-008",
+        "hits": [
+          {
+            "block_id": "daa9b83fa_p001_b00005",
+            "page": 1,
+            "quote": "草运动草（内蒙古）科技有限公司"
+          }
+        ]
+      }
+    ],
+    "浙江大丰实业股份有限公司": [
+      {
+        "case_id": "D6-AWD-009",
+        "hits": [
+          {
+            "block_id": "d3aa23f9a_p001_b00002",
+            "page": 1,
+            "quote": "浙江大丰实业股份有限公司"
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00005",
+            "page": 1,
+            "quote": "浙江大丰实业股份有限公司"
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00011",
+            "page": 1,
+            "quote": "浙江大丰实业股份有限公司"
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00019",
+            "page": 1,
+            "quote": "浙江大丰实业股份有限公司"
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00008",
+            "page": 2,
+            "quote": "浙江大丰实业股份有限公司"
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00014",
+            "page": 2,
+            "quote": "浙江大丰实业股份有限公司"
+          }
+        ]
+      }
+    ],
+    "绍兴市上虞舜韵产业运营管理有限公司": [
+      {
+        "case_id": "D6-AWD-009",
+        "hits": [
+          {
+            "block_id": "d3aa23f9a_p001_b00018",
+            "page": 1,
+            "quote": "绍兴市上虞舜韵产业运营管理有限公司"
+          }
+        ]
+      }
+    ],
+    "惠州大亚湾润华旅游开发有限公司": [
+      {
+        "case_id": "D6-AWD-009",
+        "hits": [
+          {
+            "block_id": "d3aa23f9a_p002_b00005",
+            "page": 2,
+            "quote": "惠州大亚湾润华旅游开发有限公司"
+          }
+        ]
+      }
+    ],
+    "广东飞南资源利用股份有限公司": [
+      {
+        "case_id": "D6-AWD-010",
+        "hits": [
+          {
+            "block_id": "d74b68381_p001_b00002",
+            "page": 1,
+            "quote": "广东飞南资源利用股份有限公司"
+          },
+          {
+            "block_id": "d74b68381_p001_b00005",
+            "page": 1,
+            "quote": "广东飞南资源利用股份有限公司"
+          },
+          {
+            "block_id": "d74b68381_p001_b00010",
+            "page": 1,
+            "quote": "广东飞南资源利用股份有限公司"
+          },
+          {
+            "block_id": "d74b68381_p002_b00012",
+            "page": 2,
+            "quote": "广东飞南资源利用股份有限公司"
+          }
+        ]
+      }
+    ]
+  },
+  "issuer_index": {
+    "code:300552": [
+      "D4-PLD-001"
+    ],
+    "code:603169": [
+      "D4-PLD-002"
+    ],
+    "code:002036": [
+      "D4-PLD-003"
+    ],
+    "code:000035": [
+      "D4-PLD-004"
+    ],
+    "code:300251": [
+      "D4-PLD-005"
+    ],
+    "code:600381": [
+      "D4-PLD-006"
+    ],
+    "code:603826": [
+      "D4-PLD-007"
+    ],
+    "code:603261": [
+      "D4-PLD-008"
+    ],
+    "code:600885": [
+      "D4-PLD-009"
+    ],
+    "code:605376": [
+      "D4-PLD-010"
+    ],
+    "code:920580": [
+      "D5-EQC-001",
+      "D5-EQC-002"
+    ],
+    "code:600267": [
+      "D5-EQC-004",
+      "D5-EQC-005"
+    ],
+    "code:002541": [
+      "D5-EQC-006"
+    ],
+    "code:600400": [
+      "D5-EQC-007"
+    ],
+    "code:603650": [
+      "D5-EQC-008"
+    ],
+    "code:688221": [
+      "D5-EQC-009"
+    ],
+    "code:001206": [
+      "D5-EQC-010"
+    ],
+    "code:301601": [
+      "D6-AWD-001"
+    ],
+    "code:300411": [
+      "D6-AWD-002"
+    ],
+    "code:688009": [
+      "D6-AWD-003"
+    ],
+    "code:301235": [
+      "D6-AWD-004"
+    ],
+    "code:300022": [
+      "D6-AWD-005"
+    ],
+    "code:600846": [
+      "D6-AWD-006"
+    ],
+    "code:601886": [
+      "D6-AWD-007"
+    ],
+    "code:300355": [
+      "D6-AWD-008"
+    ],
+    "code:603081": [
+      "D6-AWD-009"
+    ],
+    "code:301500": [
+      "D6-AWD-010"
+    ]
+  },
+  "issuer_key_missing": [
+    "D5-EQC-003"
+  ],
+  "date_index": {
+    "2026-09-23": [
+      {
+        "case_id": "D4-PLD-001",
+        "hits": [
+          {
+            "block_id": "d44e95085_p001_b00030",
+            "page": 1,
+            "quote": "2026年09月23日"
+          },
+          {
+            "block_id": "d44e95085_p001_b00040",
+            "page": 1,
+            "quote": "2026年09月23日"
+          },
+          {
+            "block_id": "d44e95085_p001_b00050",
+            "page": 1,
+            "quote": "2026年09月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-004",
+        "hits": [
+          {
+            "block_id": "d62f9a650_p001_b00026",
+            "page": 1,
+            "quote": "2026年09月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-005",
+        "hits": [
+          {
+            "block_id": "d5bf0524f_p001_b00028",
+            "page": 1,
+            "quote": "2026/9/23"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p001_b00012",
+            "page": 1,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d1320340e_p001_b00012",
+            "page": 1,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d1320340e_p002_b00028",
+            "page": 2,
+            "quote": "2026/9/23"
+          },
+          {
+            "block_id": "d1320340e_p002_b00034",
+            "page": 2,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d1320340e_p002_b00044",
+            "page": 2,
+            "quote": "2026年9月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p004_b00013",
+            "page": 4,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d9d5be14f_p004_b00019",
+            "page": 4,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d9d5be14f_p004_b00025",
+            "page": 4,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d9d5be14f_p007_b00020",
+            "page": 7,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d9d5be14f_p010_b00052",
+            "page": 10,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d9d5be14f_p015_b00016",
+            "page": 15,
+            "quote": "2026年9月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p005_b00021",
+            "page": 5,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d46bc2ef0_p005_b00024",
+            "page": 5,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d46bc2ef0_p005_b00027",
+            "page": 5,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d46bc2ef0_p005_b00030",
+            "page": 5,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d46bc2ef0_p013_b00004",
+            "page": 13,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d46bc2ef0_p013_b00021",
+            "page": 13,
+            "quote": "2026年9月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p005_b00019",
+            "page": 5,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d173fee90_p005_b00022",
+            "page": 5,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d173fee90_p005_b00025",
+            "page": 5,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d173fee90_p005_b00028",
+            "page": 5,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d173fee90_p015_b00008",
+            "page": 15,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d173fee90_p016_b00006",
+            "page": 16,
+            "quote": "2026年9月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-006",
+        "hits": [
+          {
+            "block_id": "d97e2cfab_p001_b00012",
+            "page": 1,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d97e2cfab_p001_b00021",
+            "page": 1,
+            "quote": "2026年9月23日"
+          },
+          {
+            "block_id": "d97e2cfab_p001_b00023",
+            "page": 1,
+            "quote": "2026年9月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-007",
+        "hits": [
+          {
+            "block_id": "d3a6938fe_p001_b00010",
+            "page": 1,
+            "quote": "2026年9月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-009",
+        "hits": [
+          {
+            "block_id": "d3aa23f9a_p002_b00017",
+            "page": 2,
+            "quote": "2026年9月23日"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-010",
+        "hits": [
+          {
+            "block_id": "d74b68381_p002_b00013",
+            "page": 2,
+            "quote": "2026年9月23日"
+          }
+        ]
+      }
+    ],
+    "2026-09-25": [
+      {
+        "case_id": "D4-PLD-001",
+        "hits": [
+          {
+            "block_id": "d44e95085_p002_b00027",
+            "page": 2,
+            "quote": "2026年09月25日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-008",
+        "hits": [
+          {
+            "block_id": "d74b527f3_p003_b00002",
+            "page": 3,
+            "quote": "2026年9月25日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p003_b00029",
+            "page": 3,
+            "quote": "2026年9月25日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-010",
+        "hits": [
+          {
+            "block_id": "db2351d0b_p003_b00007",
+            "page": 3,
+            "quote": "2026年9月25日"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-003",
+        "hits": [
+          {
+            "block_id": "d0b56135e_p004_b00009",
+            "page": 4,
+            "quote": "2026年9月25日"
+          }
+        ]
+      }
+    ],
+    "2026-09-24": [
+      {
+        "case_id": "D4-PLD-002",
+        "hits": [
+          {
+            "block_id": "d16c6a948_p001_b00028",
+            "page": 1,
+            "quote": "2026年9月24日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-003",
+        "hits": [
+          {
+            "block_id": "d36105cfd_p001_b00030",
+            "page": 1,
+            "quote": "2026年9月24日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-005",
+        "hits": [
+          {
+            "block_id": "d5bf0524f_p001_b00047",
+            "page": 1,
+            "quote": "2026/9/24"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-006",
+        "hits": [
+          {
+            "block_id": "d3fbd8497_p002_b00041",
+            "page": 2,
+            "quote": "2026年9月24日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-007",
+        "hits": [
+          {
+            "block_id": "da204c717_p001_b00010",
+            "page": 1,
+            "quote": "2026年9月24日"
+          },
+          {
+            "block_id": "da204c717_p001_b00035",
+            "page": 1,
+            "quote": "2026-9-24"
+          },
+          {
+            "block_id": "da204c717_p002_b00003",
+            "page": 2,
+            "quote": "2026年9月24日"
+          },
+          {
+            "block_id": "da204c717_p002_b00134",
+            "page": 2,
+            "quote": "2026年9月24日"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-010",
+        "hits": [
+          {
+            "block_id": "db2351d0b_p001_b00009",
+            "page": 1,
+            "quote": "2026年9月24日"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-004",
+        "hits": [
+          {
+            "block_id": "d0be9f419_p004_b00002",
+            "page": 4,
+            "quote": "2026年9月24日"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p004_b00018",
+            "page": 4,
+            "quote": "2026年9月24日"
+          }
+        ]
+      }
+    ],
+    "2028-09-23": [
+      {
+        "case_id": "D4-PLD-002",
+        "hits": [
+          {
+            "block_id": "d16c6a948_p001_b00029",
+            "page": 1,
+            "quote": "2028年9月23日"
+          }
+        ]
+      }
+    ],
+    "2026-09-29": [
+      {
+        "case_id": "D4-PLD-002",
+        "hits": [
+          {
+            "block_id": "d16c6a948_p002_b00014",
+            "page": 2,
+            "quote": "2026年9月29日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p010_b00012",
+            "page": 10,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "d3d00372c_p016_b00030",
+            "page": 16,
+            "quote": "2026年9月29日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-008",
+        "hits": [
+          {
+            "block_id": "daf34725a_p009_b00003",
+            "page": 9,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "daf34725a_p011_b00003",
+            "page": 11,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "daf34725a_p011_b00008",
+            "page": 11,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "daf34725a_p015_b00030",
+            "page": 15,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "daf34725a_p017_b00005",
+            "page": 17,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "daf34725a_p018_b00005",
+            "page": 18,
+            "quote": "2026年9月29日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p012_b00003",
+            "page": 12,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "d31d2e428_p013_b00003",
+            "page": 13,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "d31d2e428_p016_b00003",
+            "page": 16,
+            "quote": "2026年9月29日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-010",
+        "hits": [
+          {
+            "block_id": "dd2c6e0d0_p001_b00006",
+            "page": 1,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "dd2c6e0d0_p019_b00008",
+            "page": 19,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "dd2c6e0d0_p020_b00008",
+            "page": 20,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "dd2c6e0d0_p023_b00004",
+            "page": 23,
+            "quote": "2026年9月29日"
+          },
+          {
+            "block_id": "dd2c6e0d0_p024_b00004",
+            "page": 24,
+            "quote": "2026年9月29日"
+          }
+        ]
+      }
+    ],
+    "2026-09-28": [
+      {
+        "case_id": "D4-PLD-004",
+        "hits": [
+          {
+            "block_id": "d62f9a650_p002_b00016",
+            "page": 2,
+            "quote": "2026年09月28日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p032_b00014",
+            "page": 32,
+            "quote": "2026 年 9 月 28 日"
+          },
+          {
+            "block_id": "d9d5be14f_p035_b00015",
+            "page": 35,
+            "quote": "2026 年 9 月 28 日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p015_b00014",
+            "page": 15,
+            "quote": "2026年9月28日"
+          },
+          {
+            "block_id": "d46bc2ef0_p054_b00008",
+            "page": 54,
+            "quote": "2026 年 9 月 28 日"
+          },
+          {
+            "block_id": "d46bc2ef0_p055_b00014",
+            "page": 55,
+            "quote": "2026年 9 月 28 日"
+          },
+          {
+            "block_id": "d46bc2ef0_p056_b00022",
+            "page": 56,
+            "quote": "2026 年 9 月 28 日"
+          },
+          {
+            "block_id": "d46bc2ef0_p058_b00005",
+            "page": 58,
+            "quote": "2026 年 9 月 28 日"
+          },
+          {
+            "block_id": "d46bc2ef0_p059_b00005",
+            "page": 59,
+            "quote": "2026 年 9 月 28 日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p017_b00014",
+            "page": 17,
+            "quote": "2026年9月28日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-006",
+        "hits": [
+          {
+            "block_id": "d97e2cfab_p003_b00028",
+            "page": 3,
+            "quote": "2026年09月28日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p007_b00009",
+            "page": 7,
+            "quote": "2026年9月28日"
+          },
+          {
+            "block_id": "d31d2e428_p014_b00028",
+            "page": 14,
+            "quote": "2026年9月28日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-010",
+        "hits": [
+          {
+            "block_id": "dd2c6e0d0_p009_b00029",
+            "page": 9,
+            "quote": "2026年9月28日"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-001",
+        "hits": [
+          {
+            "block_id": "dc1c912b9_p002_b00007",
+            "page": 2,
+            "quote": "2026年9月28日"
+          }
+        ]
+      }
+    ],
+    "2027-09-23": [
+      {
+        "case_id": "D4-PLD-005",
+        "hits": [
+          {
+            "block_id": "d5bf0524f_p001_b00029",
+            "page": 1,
+            "quote": "2027/9/23"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p001_b00013",
+            "page": 1,
+            "quote": "2027年9月23日"
+          },
+          {
+            "block_id": "d1320340e_p002_b00029",
+            "page": 2,
+            "quote": "2027/9/23"
+          }
+        ]
+      }
+    ],
+    "2025-10-30": [
+      {
+        "case_id": "D4-PLD-005",
+        "hits": [
+          {
+            "block_id": "d5bf0524f_p001_b00046",
+            "page": 1,
+            "quote": "2025/10/30"
+          }
+        ]
+      }
+    ],
+    "2026-09-22": [
+      {
+        "case_id": "D4-PLD-006",
+        "hits": [
+          {
+            "block_id": "d3fbd8497_p001_b00029",
+            "page": 1,
+            "quote": "2026-09-22"
+          }
+        ]
+      },
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p001_b00012",
+            "page": 1,
+            "quote": "2026年9月22日"
+          },
+          {
+            "block_id": "d1320340e_p001_b00014",
+            "page": 1,
+            "quote": "2026年9月22日"
+          },
+          {
+            "block_id": "d1320340e_p002_b00017",
+            "page": 2,
+            "quote": "2026/9/22"
+          },
+          {
+            "block_id": "d1320340e_p002_b00044",
+            "page": 2,
+            "quote": "2026年9月22日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p005_b00019",
+            "page": 5,
+            "quote": "2026年09月22日"
+          },
+          {
+            "block_id": "da00b31da_p005_b00021",
+            "page": 5,
+            "quote": "2026年09月22日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-006",
+        "hits": [
+          {
+            "block_id": "d97e2cfab_p001_b00012",
+            "page": 1,
+            "quote": "2026年9月22日"
+          },
+          {
+            "block_id": "d97e2cfab_p001_b00021",
+            "page": 1,
+            "quote": "2026年9月22日"
+          },
+          {
+            "block_id": "d97e2cfab_p001_b00023",
+            "page": 1,
+            "quote": "2026年9月22日"
+          },
+          {
+            "block_id": "d97e2cfab_p003_b00026",
+            "page": 3,
+            "quote": "2026年9月22日"
+          }
+        ]
+      }
+    ],
+    "2029-09-18": [
+      {
+        "case_id": "D4-PLD-006",
+        "hits": [
+          {
+            "block_id": "d3fbd8497_p001_b00030",
+            "page": 1,
+            "quote": "2029-09-18"
+          }
+        ]
+      }
+    ],
+    "2027-03-17": [
+      {
+        "case_id": "D4-PLD-006",
+        "hits": [
+          {
+            "block_id": "d3fbd8497_p002_b00031",
+            "page": 2,
+            "quote": "2027-03-17"
+          }
+        ]
+      }
+    ],
+    "2026-09-15": [
+      {
+        "case_id": "D4-PLD-008",
+        "hits": [
+          {
+            "block_id": "d74b527f3_p001_b00010",
+            "page": 1,
+            "quote": "2026年9月15日"
+          },
+          {
+            "block_id": "d74b527f3_p002_b00024",
+            "page": 2,
+            "quote": "2026年9月15日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p015_b00013",
+            "page": 15,
+            "quote": "2026年9月15日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p017_b00013",
+            "page": 17,
+            "quote": "2026年9月15日"
+          }
+        ]
+      },
+      {
+        "case_id": "D6-AWD-008",
+        "hits": [
+          {
+            "block_id": "daa9b83fa_p001_b00005",
+            "page": 1,
+            "quote": "2026年9月15日"
+          }
+        ]
+      }
+    ],
+    "2025-09-23": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p001_b00011",
+            "page": 1,
+            "quote": "2025年9月23日"
+          }
+        ]
+      }
+    ],
+    "2028-09-21": [
+      {
+        "case_id": "D4-PLD-009",
+        "hits": [
+          {
+            "block_id": "d1320340e_p001_b00015",
+            "page": 1,
+            "quote": "2028年9月21日"
+          },
+          {
+            "block_id": "d1320340e_p002_b00018",
+            "page": 2,
+            "quote": "2028/9/21"
+          }
+        ]
+      }
+    ],
+    "2026-09-21": [
+      {
+        "case_id": "D4-PLD-010",
+        "hits": [
+          {
+            "block_id": "db2351d0b_p002_b00017",
+            "page": 2,
+            "quote": "2026年9月21日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p010_b00006",
+            "page": 10,
+            "quote": "2026年9月21日"
+          },
+          {
+            "block_id": "d3d00372c_p010_b00008",
+            "page": 10,
+            "quote": "2026/09/21"
+          },
+          {
+            "block_id": "d3d00372c_p010_b00010",
+            "page": 10,
+            "quote": "2026/09/21"
+          }
+        ]
+      }
+    ],
+    "2015-05-08": [
+      {
+        "case_id": "D5-EQC-001",
+        "hits": [
+          {
+            "block_id": "d9d5be14f_p004_b00016",
+            "page": 4,
+            "quote": "2015年5月8日"
+          },
+          {
+            "block_id": "d9d5be14f_p007_b00019",
+            "page": 7,
+            "quote": "2015年5月8日"
+          },
+          {
+            "block_id": "d9d5be14f_p025_b00006",
+            "page": 25,
+            "quote": "2015年5月8日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p005_b00018",
+            "page": 5,
+            "quote": "2015年5月8日"
+          },
+          {
+            "block_id": "d46bc2ef0_p033_b00018",
+            "page": 33,
+            "quote": "2015年5月8日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p005_b00016",
+            "page": 5,
+            "quote": "2015年5月8日"
+          }
+        ]
+      }
+    ],
+    "2026-08-31": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p015_b00012",
+            "page": 15,
+            "quote": "2026年8月31日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p017_b00012",
+            "page": 17,
+            "quote": "2026年8月31日"
+          }
+        ]
+      }
+    ],
+    "2025-09-08": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p016_b00009",
+            "page": 16,
+            "quote": "2025年9月8日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p018_b00007",
+            "page": 18,
+            "quote": "2025年9月8日"
+          }
+        ]
+      }
+    ],
+    "2026-06-30": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p037_b00002",
+            "page": 37,
+            "quote": "2026年6月30日"
+          },
+          {
+            "block_id": "d46bc2ef0_p037_b00006",
+            "page": 37,
+            "quote": "2026年6月30日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p020_b00006",
+            "page": 20,
+            "quote": "2026年6月30日"
+          },
+          {
+            "block_id": "d173fee90_p020_b00010",
+            "page": 20,
+            "quote": "2026年6月30日"
+          }
+        ]
+      }
+    ],
+    "2025-09-04": [
+      {
+        "case_id": "D5-EQC-002",
+        "hits": [
+          {
+            "block_id": "d46bc2ef0_p050_b00007",
+            "page": 50,
+            "quote": "2025年9月4日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-003",
+        "hits": [
+          {
+            "block_id": "d173fee90_p031_b00004",
+            "page": 31,
+            "quote": "2025年9月4日"
+          }
+        ]
+      }
+    ],
+    "2026-09-27": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p001_b00006",
+            "page": 1,
+            "quote": "2026年9月27日"
+          },
+          {
+            "block_id": "da00b31da_p009_b00024",
+            "page": 9,
+            "quote": "2026年9月27日"
+          },
+          {
+            "block_id": "da00b31da_p017_b00005",
+            "page": 17,
+            "quote": "2026年9月27日"
+          },
+          {
+            "block_id": "da00b31da_p021_b00005",
+            "page": 21,
+            "quote": "2026年9月27日"
+          }
+        ]
+      },
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p001_b00012",
+            "page": 1,
+            "quote": "2026年9月27日"
+          },
+          {
+            "block_id": "da8d294d2_p008_b00022",
+            "page": 8,
+            "quote": "2026年9月27日"
+          },
+          {
+            "block_id": "da8d294d2_p015_b00006",
+            "page": 15,
+            "quote": "2026年9月27日"
+          },
+          {
+            "block_id": "da8d294d2_p016_b00004",
+            "page": 16,
+            "quote": "2026年9月27日"
+          },
+          {
+            "block_id": "da8d294d2_p018_b00004",
+            "page": 18,
+            "quote": "2026年9月27日"
+          }
+        ]
+      }
+    ],
+    "2033-09-21": [
+      {
+        "case_id": "D5-EQC-004",
+        "hits": [
+          {
+            "block_id": "da00b31da_p005_b00021",
+            "page": 5,
+            "quote": "2033年09月21日"
+          }
+        ]
+      }
+    ],
+    "2008-02-14": [
+      {
+        "case_id": "D5-EQC-005",
+        "hits": [
+          {
+            "block_id": "da8d294d2_p005_b00004",
+            "page": 5,
+            "quote": "2008-02-14"
+          },
+          {
+            "block_id": "da8d294d2_p005_b00004",
+            "page": 5,
+            "quote": "2008-02-14"
+          }
+        ]
+      }
+    ],
+    "2020-11-02": [
+      {
+        "case_id": "D5-EQC-006",
+        "hits": [
+          {
+            "block_id": "d97e2cfab_p001_b00011",
+            "page": 1,
+            "quote": "2020年11月2日"
+          }
+        ]
+      }
+    ],
+    "2021-11-11": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p006_b00005",
+            "page": 6,
+            "quote": "2021年11月11日"
+          },
+          {
+            "block_id": "d3d00372c_p006_b00005",
+            "page": 6,
+            "quote": "2021年11月11日"
+          }
+        ]
+      }
+    ],
+    "2001-02-12": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p007_b00001",
+            "page": 7,
+            "quote": "2001年2月12日"
+          },
+          {
+            "block_id": "d3d00372c_p007_b00001",
+            "page": 7,
+            "quote": "2001年2月12日"
+          }
+        ]
+      }
+    ],
+    "2026-09-20": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p010_b00006",
+            "page": 10,
+            "quote": "2026年9月20日"
+          }
+        ]
+      }
+    ],
+    "2026-09-30": [
+      {
+        "case_id": "D5-EQC-007",
+        "hits": [
+          {
+            "block_id": "d3d00372c_p015_b00005",
+            "page": 15,
+            "quote": "2026年9月30日"
+          },
+          {
+            "block_id": "d3d00372c_p018_b00001",
+            "page": 18,
+            "quote": "2026年9月30日"
+          }
+        ]
+      }
+    ],
+    "2026-07-11": [
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p006_b00007",
+            "page": 6,
+            "quote": "2026年7月11日"
+          },
+          {
+            "block_id": "d31d2e428_p007_b00007",
+            "page": 7,
+            "quote": "2026年7月11日"
+          }
+        ]
+      }
+    ],
+    "2026-08-03": [
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p006_b00008",
+            "page": 6,
+            "quote": "2026年8月3日"
+          },
+          {
+            "block_id": "d31d2e428_p007_b00008",
+            "page": 7,
+            "quote": "2026年8月3日"
+          }
+        ]
+      }
+    ],
+    "2026-11-02": [
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p006_b00008",
+            "page": 6,
+            "quote": "2026年11月2日"
+          },
+          {
+            "block_id": "d31d2e428_p007_b00008",
+            "page": 7,
+            "quote": "2026年11月2日"
+          }
+        ]
+      }
+    ],
+    "2020-10-28": [
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p007_b00003",
+            "page": 7,
+            "quote": "2020年10月28日"
+          },
+          {
+            "block_id": "d31d2e428_p014_b00026",
+            "page": 14,
+            "quote": "2020年10月28日"
+          }
+        ]
+      }
+    ],
+    "2022-09-20": [
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p007_b00005",
+            "page": 7,
+            "quote": "2022年9月20日"
+          },
+          {
+            "block_id": "d31d2e428_p014_b00026",
+            "page": 14,
+            "quote": "2022年9月20日"
+          }
+        ]
+      }
+    ],
+    "2026-08-07": [
+      {
+        "case_id": "D5-EQC-009",
+        "hits": [
+          {
+            "block_id": "d31d2e428_p007_b00009",
+            "page": 7,
+            "quote": "2026年8月7日"
+          },
+          {
+            "block_id": "d31d2e428_p014_b00028",
+            "page": 14,
+            "quote": "2026年8月7日"
+          }
+        ]
+      }
+    ],
+    "2026-08-24": [
+      {
+        "case_id": "D6-AWD-001",
+        "hits": [
+          {
+            "block_id": "dc1c912b9_p001_b00008",
+            "page": 1,
+            "quote": "2026年8月24日"
+          }
+        ]
+      }
+    ],
+    "2026-08-21": [
+      {
+        "case_id": "D6-AWD-001",
+        "hits": [
+          {
+            "block_id": "dc1c912b9_p001_b00009",
+            "page": 1,
+            "quote": "2026年8月21日"
+          }
+        ]
+      }
+    ],
+    "2026-09-26": [
+      {
+        "case_id": "D6-AWD-001",
+        "hits": [
+          {
+            "block_id": "dc1c912b9_p001_b00012",
+            "page": 1,
+            "quote": "2026年9月26日"
+          }
+        ]
+      }
+    ],
+    "2026-08-28": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00005",
+            "page": 1,
+            "quote": "2026年8月28日"
+          }
+        ]
+      }
+    ],
+    "2011-05-13": [
+      {
+        "case_id": "D6-AWD-005",
+        "hits": [
+          {
+            "block_id": "ddd80cf89_p001_b00016",
+            "page": 1,
+            "quote": "2011-05-13"
+          }
+        ]
+      }
+    ]
+  },
+  "version_index": [
+    {
+      "issuer_key": "code:600267",
+      "count": 2,
+      "chain": [
+        {
+          "case_id": "D5-EQC-004",
+          "notice_number": null,
+          "date_candidates": [
+            "2026-09-22",
+            "2026-09-27",
+            "2033-09-21"
+          ],
+          "issuer_key": "code:600267",
+          "issuer_basis": "证券代码",
+          "issuer_evidence": [
+            {
+              "block_id": "da00b31da_p001_b00003",
+              "page": 1,
+              "quote": "股票代码：600267"
+            }
+          ],
+          "version": 1
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "notice_number": null,
+          "date_candidates": [
+            "2008-02-14",
+            "2026-09-27"
+          ],
+          "issuer_key": "code:600267",
+          "issuer_basis": "证券代码",
+          "issuer_evidence": [
+            {
+              "block_id": "da8d294d2_p001_b00007",
+              "page": 1,
+              "quote": "股票代码：600267"
+            }
+          ],
+          "version": 2
+        }
+      ]
+    },
+    {
+      "issuer_key": "code:920580",
+      "count": 2,
+      "chain": [
+        {
+          "case_id": "D5-EQC-002",
+          "notice_number": "2025-097",
+          "date_candidates": [
+            "2015-05-08",
+            "2025-09-04",
+            "2025-09-08"
+          ],
+          "issuer_key": "code:920580",
+          "issuer_basis": "证券代码",
+          "issuer_evidence": [
+            {
+              "block_id": "d46bc2ef0_p001_b00002",
+              "page": 1,
+              "quote": "股票代码：920580"
+            },
+            {
+              "block_id": "d46bc2ef0_p018_b00072",
+              "page": 18,
+              "quote": "股票代码：920580"
+            },
+            {
+              "block_id": "d46bc2ef0_p024_b00005",
+              "page": 24,
+              "quote": "股票代码：920580"
+            },
+            {
+              "block_id": "d46bc2ef0_p027_b00016",
+              "page": 27,
+              "quote": "股票代码：920580"
+            },
+            {
+              "block_id": "d46bc2ef0_p031_b00003",
+              "page": 31,
+              "quote": "股票代码：920580"
+            }
+          ],
+          "version": 1
+        },
+        {
+          "case_id": "D5-EQC-001",
+          "notice_number": "2026-075",
+          "date_candidates": [
+            "2015-05-08",
+            "2026-09-23",
+            "2026-09-28"
+          ],
+          "issuer_key": "code:920580",
+          "issuer_basis": "证券代码",
+          "issuer_evidence": [
+            {
+              "block_id": "d9d5be14f_p001_b00001",
+              "page": 1,
+              "quote": "证券代码：920580"
+            },
+            {
+              "block_id": "d9d5be14f_p001_b00013",
+              "page": 1,
+              "quote": "股票代码：920580"
+            },
+            {
+              "block_id": "d9d5be14f_p010_b00056",
+              "page": 10,
+              "quote": "股票代码：920580"
+            },
+            {
+              "block_id": "d9d5be14f_p015_b00020",
+              "page": 15,
+              "quote": "股票代码：920580"
+            },
+            {
+              "block_id": "d9d5be14f_p019_b00005",
+              "page": 19,
+              "quote": "股票代码：920580"
+            },
+            {
+              "block_id": "d9d5be14f_p022_b00016",
+              "page": 22,
+              "quote": "股票代码：920580"
+            }
+          ],
+          "version": 2
+        }
+      ]
+    }
+  ]
+}

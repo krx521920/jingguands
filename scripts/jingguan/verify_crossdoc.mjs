@@ -159,7 +159,7 @@ function entityFieldMap(env) {
 }
 
 // ---------- 单组核验 ----------
-function verifyGroup(group, envelopes, matcherFn = null) {
+function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, pluginName = null) {
   // B3：逐成员 A 侧运行标识（run_id/code_version/schema_version/is_mock）——A/B 记录可关联
   const a_run_links = group.members.map((cs, ix) => ({
     case_id: cs,
@@ -169,6 +169,20 @@ function verifyGroup(group, envelopes, matcherFn = null) {
     is_mock: envelopes[ix]?.is_mock ?? null,
   }))
   const fields_excluded = group.members.map((cs, ix) => ({ case_id: cs, ...fieldUsability(envelopes[ix]) }))
+  // 方 D8.2 完整入口（explainGroup）：插件组级三态判定先于任何数值/合计分支——
+  // 只有 same(related) 的文档对才进入可比性检查（unknown/different 不执行数值核验）。
+  // 插件异常按组记录并整体回退内置链（B2 精神：失败返回原因，不炸 B 运行）。
+  let pluginAlignment = null
+  if (groupMatcherFn !== null) {
+    try {
+      const pr = groupMatcherFn(group, envelopes)
+      if (pr && typeof pr.predicted_relation === 'string') {
+        pluginAlignment = { ...pr, plugin_relation: ({ same: 'related', different: 'unrelated', unknown: 'unknown' }[pr.predicted_relation] ?? pr.predicted_relation) }
+      }
+    } catch (err) {
+      pluginAlignment = { plugin_relation: null, plugin_error: String(err?.message ?? err).slice(0, 200) }
+    }
+  }
   const g_members = group.members
   const signals = { shared_entities: [], shared_anchor_numbers: [], reverse_match_numbers: [] }
   let maxE = 0, maxA = 0, reverse = false
@@ -194,6 +208,19 @@ function verifyGroup(group, envelopes, matcherFn = null) {
   // 扫描降级 14 字段全 unreadable）→ 证据不足，不得强行判 unrelated。输出 unknown＋
   // INSUFFICIENT_SIGNALS；两侧都有可用证据而不重合才是真 unrelated。
   const insufficient = fields_excluded.some((x) => x.usable === 0)
+  const builtinRelation = insufficient ? 'unknown' : (related ? 'related' : 'unrelated')
+  // 终审判定：插件组级判定接管（方 D8.2 explainGroup）；无插件/插件异常 → 内置链。
+  // 引擎第三态守卫保留否决权：0 可用字段的成员存在时，任何非 unknown 的插件判定被否决
+  // （纵深防御——与方规则 1 同向，冲突时以更保守者为准并记 discrepancy）。
+  let predicted = builtinRelation
+  let discrepancy = null
+  if (pluginAlignment !== null && pluginAlignment.plugin_relation !== null) {
+    predicted = pluginAlignment.plugin_relation
+    if (insufficient && predicted !== 'unknown') {
+      discrepancy = `插件判 ${predicted}，但存在 0 可用字段成员——引擎第三态守卫否决为 unknown`
+      predicted = 'unknown'
+    }
+  }
   // B2：判定原因（unrelated 必带失败原因码；related 带命中信号码）
   const reasons = []
   if (insufficient) {
@@ -210,12 +237,20 @@ function verifyGroup(group, envelopes, matcherFn = null) {
     if (maxE > 0 && maxA === 0) reasons.push('INSUFFICIENT_SIGNALS')
     if (reasons.length === 0) reasons.push('INSUFFICIENT_SIGNALS')
   }
+  // 插件接管时原因换用规则库输出（保留引擎守卫信息），内置原因留在 alignment 审计段
+  if (pluginAlignment !== null && pluginAlignment.plugin_relation !== null) {
+    reasons.length = 0
+    const prReasons = Array.isArray(pluginAlignment.reasons) ? pluginAlignment.reasons.filter((x) => typeof x === 'string') : []
+    reasons.push(...prReasons)
+    if (predicted === 'unknown' && !reasons.includes('INSUFFICIENT_SIGNALS')) reasons.unshift('INSUFFICIENT_SIGNALS')
+    if (insufficient) for (const fe of fields_excluded) if (fe.usable === 0) reasons.push(`MEMBER_NO_USABLE_FIELDS:${fe.case_id}`)
+  }
   const result = {
     group_id: group.group_id,
     members: group.members,
     a_run_links,
     fields_excluded,
-    predicted_relation: insufficient ? 'unknown' : (related ? 'related' : 'unrelated'),
+    predicted_relation: predicted,
     reasons,
     signals: {
       // 注意：组级信号＝逐对最大值，各信号可能来自不同文档对（见 *_from_pair）——防误读为组内一致来源
@@ -230,11 +265,38 @@ function verifyGroup(group, envelopes, matcherFn = null) {
       reverse_from_pair: signals.reverse_from_pair ?? null,
     },
   }
-  if (!related) return result
+  // 方 D8.2 插件审计段：关联解释/双侧元数据/UI 提示原样透传（陈消费），内置判定留档对照
+  if (pluginAlignment !== null) {
+    result.alignment = {
+      plugin: pluginName,
+      plugin_relation: pluginAlignment.plugin_relation,
+      builtin_relation: builtinRelation,
+      plugin_reasons: pluginAlignment.reasons ?? null,
+      relation_label: pluginAlignment.relation_label ?? null,
+      association_explanation: pluginAlignment.association_explanation ?? null,
+      ui_hint: pluginAlignment.ui_hint ?? null,
+      member_meta: pluginAlignment.member_meta ?? null,
+      document_pair_relations: Array.isArray(pluginAlignment.document_pairs)
+        ? pluginAlignment.document_pairs.map((p) => ({ members: p.members ?? null, predicted_relation: p.predicted_relation ?? null, status: p.status ?? null, reasons: p.reasons ?? null }))
+        : null,
+      plugin_error: pluginAlignment.plugin_error ?? null,
+      discrepancy,
+    }
+  }
+  // 一致性核验门（方 D8.2）：只有 related（same）才执行数值/合计核验——
+  // unknown/different 不得进入数值比较
+  if (predicted !== 'related') return result
   // 一致性核验：两两文档按 实体×字段 对齐
   result.consistency = { corroborations: [], conflicts: [], complementaries: [] }
   for (let i = 0; i < envelopes.length; i++) {
     for (let j = i + 1; j < envelopes.length; j++) {
+      // 方 D8.2 逐对门控：插件模式下只有判 same(related) 的文档对进入可比性检查
+      if (pluginAlignment !== null && pluginAlignment.plugin_relation !== null && Array.isArray(pluginAlignment.document_pairs)) {
+        const mi = group.members[i], mj = group.members[j]
+        const dp = pluginAlignment.document_pairs.find((p) => Array.isArray(p.members) && p.members.length === 2
+          && ((p.members[0] === mi && p.members[1] === mj) || (p.members[0] === mj && p.members[1] === mi)))
+        if (dp !== undefined && dp.predicted_relation !== 'related') continue
+      }
       // 可插拔对齐器（D08-4 matching v1 接入点）：只替代"直接事件对齐"；
       // 合计勾稽与互补是独立核验语义，插件模式下照常执行（不得因插件短路而丢失）。
       // 插件异常按对记录并继续（B2 精神：失败返回原因，不炸整个 B 运行）。
@@ -307,13 +369,16 @@ function verifyGroup(group, envelopes, matcherFn = null) {
 // ---------- 主流程 ----------
 const args = parseArgs(process.argv.slice(2))
 let matcherFn = null
+let groupMatcherFn = null
 if (args.matcher !== null) {
   const mod = await import(pathToFileURL(resolve(REPO_ROOT, args.matcher)).href)
-  if (typeof mod.alignEvents !== 'function') {
-    console.error(`--matcher 模块须导出 alignEvents(envA, envB)：${args.matcher}`)
+  if (typeof mod.alignEvents !== 'function' && typeof mod.explainGroup !== 'function') {
+    console.error(`--matcher 模块须导出 alignEvents(envA, envB) 和/或 explainGroup(group, envelopes)：${args.matcher}`)
     process.exit(2)
   }
-  matcherFn = mod.alignEvents
+  matcherFn = typeof mod.alignEvents === 'function' ? mod.alignEvents : null
+  // 方 D8.2 完整入口：explainGroup（组级三态＋关联解释）——提供即接管组级判定
+  groupMatcherFn = typeof mod.explainGroup === 'function' ? mod.explainGroup : null
 }
 const manifest = JSON.parse(readFileSync(resolve(REPO_ROOT, args.manifest), 'utf8'))
 const envDir = resolve(REPO_ROOT, args.envelopesDir)
@@ -329,7 +394,7 @@ for (const g of groups) {
     return null
   })
   if (envelopes.some((e) => e === null)) { missing.push(g.group_id); continue }
-  const r = verifyGroup(g, envelopes, matcherFn)
+  const r = verifyGroup(g, envelopes, matcherFn, groupMatcherFn, args.matcher)
   results.push(r)
   // 期望匹配三态（与宗 score-pairs.mjs 判定一致）：related→判 related；unrelated→判
   // unrelated 且 0 矛盾；insufficient→判 unknown 或 reasons 含 INSUFFICIENT_SIGNALS
@@ -346,7 +411,7 @@ const report = {
   b_run: {
     b_run_id: `b-${new Date().toISOString().replace(/[-:]/g, '').replace('T', '').slice(0, 14)}`,
     engine: 'verify_crossdoc.mjs',
-    matcher: args.matcher ? { plugin: args.matcher } : { builtin: 'nameEq+anchors' },
+    matcher: args.matcher ? { plugin: args.matcher, capabilities: [matcherFn !== null ? 'alignEvents' : null, groupMatcherFn !== null ? 'explainGroup' : null].filter(Boolean) } : { builtin: 'nameEq+anchors' },
     envelopes_dir: args.envelopesDir,
   },
   envelopes_dir: args.envelopesDir,

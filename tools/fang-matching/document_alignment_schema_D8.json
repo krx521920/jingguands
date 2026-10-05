@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D8 document transaction alignment (separate from A 0.3)",
+  "type": "object",
+  "required": ["schema_version", "rule_version", "relation_scope", "status", "predicted_relation", "reasons", "explanation", "left", "right", "evidence", "event_pairs", "numeric_comparison_executed", "may_compare", "expected_relation_used"],
+  "properties": {
+    "schema_version": {"const": "document-alignment/0.2"},
+    "rule_version": {"const": "D8.2"},
+    "relation_scope": {"const": "transaction_bundle"},
+    "status": {"enum": ["same", "different", "unknown"]},
+    "predicted_relation": {"enum": ["related", "unrelated", "unknown"]},
+    "reasons": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "explanation": {"type": "string", "minLength": 1},
+    "left": {"type": "object"}, "right": {"type": "object"},
+    "evidence": {"type": "array"}, "event_pairs": {"type": "array"},
+    "numeric_comparison_executed": {"const": false},
+    "may_compare": {"const": false},
+    "expected_relation_used": {"const": false}
+  }
+}

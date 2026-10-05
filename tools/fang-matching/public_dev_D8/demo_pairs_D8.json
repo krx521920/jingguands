@@ -1,0 +1,10 @@
+{
+  "groups": [
+    {"group_id": "D8-DEMO-001", "members": ["DEMO-EQC-HZ-RESULT", "D5-EQC-004"], "expected_relation": "related",
+     "test_purpose": "同事件跨披露角色互证：公司侧转让结果公告 × 受让方简式（金浦浙展）", "basis": "海正药业公开征集协议转让 2026-09-28 文件组"},
+    {"group_id": "D8-DEMO-002", "members": ["DEMO-EQC-HZ-RESULT", "D5-EQC-005"], "expected_relation": "related",
+     "test_purpose": "同事件跨披露角色互证：公司侧转让结果公告 × 出让方简式（国贸集团）", "basis": "海正药业公开征集协议转让 2026-09-28 文件组"},
+    {"group_id": "D8-DEMO-003", "members": ["D5-EQC-006", "DEMO-EQC-HL-0930"], "expected_relation": "unrelated",
+     "test_purpose": "同公司不同事件：鸿路钢构两次可转债转股稀释触及不同 1% 整数倍区间（09-22/23 公告 vs 09-30 公告）——同主体、同持股数 249,519,764 共享，仍须分清两事件", "basis": "同公司 ≠ 同事件：共享主体与持股数不构成事件级证据咬合（无反向增减匹配、触及区间不同）"}
+  ]
+}

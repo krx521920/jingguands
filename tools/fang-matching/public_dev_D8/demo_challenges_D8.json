@@ -1,0 +1,7 @@
+{ "groups": [
+  {"group_id":"D8-DEMO-001","members":["DEMO-EQC-HZ-RESULT","D5-EQC-004"]},
+  {"group_id":"D8-DEMO-002","members":["DEMO-EQC-HZ-RESULT","D5-EQC-005"]},
+  {"group_id":"D8-DEMO-003","members":["D5-EQC-006","DEMO-EQC-HL-0930"]},
+  {"group_id":"D8-DEMO-004","members":["DEMO-EQC-HL-SIMPLE","DEMO-EQC-HL-0930"]},
+  {"group_id":"D8-DEMO-005","members":["DEMO-EQC-HL-SIMPLE","D5-EQC-006"]}
+]}

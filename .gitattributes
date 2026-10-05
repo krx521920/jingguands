@@ -13,3 +13,7 @@ docs/persistence-schema.json linguist-generated=true
 docs/persistence-changes/*.schema.json linguist-generated=true
 docs/persistence-changes/releases/*.schema.json linguist-generated=true
 docs/persistence-changes/historical-formats/*.schema.json linguist-generated=true
+
+# 方 D8 matching 包 vendor（字节一致引入自 feature/fang-rules@645ab53c）——
+# 该包 JSON 内含 CRLF，关闭文本规整避免与原分支 blob 分叉。
+tools/fang-matching/** -text
