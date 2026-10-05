@@ -1,0 +1,3097 @@
+{
+  "audited_on": "2026-10-05",
+  "tool": "audit_fang_d7.mjs",
+  "source_package": "master@e6334aa2（方 D7，fxc178 2026-10-03 上传至 master 而非 feature/fang-rules）",
+  "envelopes": "runs/batch-20261005T063943/envelopes",
+  "summary": {
+    "changes_total": 181,
+    "by_code": {
+      "UNIT_MISSING": 76,
+      "NORMALIZED": 103,
+      "UNIT_CONFLICT": 2
+    },
+    "type_only": 103,
+    "status_downgrades": 78,
+    "value_semantic_changes": 0
+  },
+  "note": "独立审计层：不回写信封。status_downgrade＝方D7严格性（无单元格级表头锚不认单位）与现行gold extracted语义的冲突——待宗裁决（docs/adjudication/D7-标准化严格性差异-证据页.md）",
+  "changes": [
+    {
+      "case": "D4-PLD-001",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 2100000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 2100000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 50350000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 50350000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 2.4,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "2.4",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 0.99,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "0.99",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 57.58,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "57.58",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 23.62,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "23.62",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E02",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 2650000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 2650000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E02",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 50350000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 50350000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E02",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3.03,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3.03",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E02",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 1.24,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "1.24",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E02",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 57.58,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "57.58",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E02",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 23.62,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "23.62",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E03",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3050000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3050000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E03",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 50350000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 50350000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E03",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3.49,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3.49",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E03",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 1.43,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "1.43",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E03",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 57.58,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "57.58",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E03",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 23.62,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "23.62",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-002",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 40000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 40000000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-002",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 215000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 215000000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-002",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 6.64,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 6.64,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-002",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3.06,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3.06,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-002",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 35.71,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 35.71,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-002",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 16.46,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 16.46,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-003",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 2000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 2000000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-003",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 80000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 80000000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-003",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 2.18,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 2.18,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-003",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0.19,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0.19,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-003",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 87.35,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 87.35,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-003",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 7.56,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 7.56,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-004",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3640000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3640000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-004",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 274958065,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "274958065",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-004",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 0.84,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "0.84",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-004",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 0.15,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "0.15",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-004",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 63.67,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "63.67",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-004",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 11.51,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "11.51",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 25310000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 25310000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 122950000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 122950000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 2.31,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "2.31",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 0.86,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "0.86",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 11.21,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "11.21",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 4.19,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "4.19",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E02",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 24000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 24000000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E02",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 122950000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 122950000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E02",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 2.19,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "2.19",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E02",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 0.82,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "0.82",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E02",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 11.21,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "11.21",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E02",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 4.19,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "4.19",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-006",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3750000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3750000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-006",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 117810000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "117810000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-006",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 1.99,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "1.99",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-006",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 0.64,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "0.64",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-006",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 62.46,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "62.46",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-006",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 20.07,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "20.07",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-007",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 15050000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 15050000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-007",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 165640550,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 165640550,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-007",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3.6097,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3.6097",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-007",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 1.7669,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "1.7669",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-007",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 39.7285,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "39.7285",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-007",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 19.4469,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "19.4469",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-008",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3875260,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3875260,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-008",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 19534520,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 19534520,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-008",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 7.85,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "7.85",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-008",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 5,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "5",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-008",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 39.58,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 39.58,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-008",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 25.2,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 25.2,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 11750000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 11750000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 33344000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "33344000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3.65,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3.65,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0.76,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0.76,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 10.36,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "10.36",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 2.15,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "2.15",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E02",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 1460000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 1460000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E02",
+      "field": "pledged_shares_cumulative",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 33344000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "33344000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E02",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0.45,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0.45,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E02",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0.09,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0.09,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E02",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 10.36,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "10.36",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E02",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 2.15,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "2.15",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E03",
+      "field": "pledged_shares_this_time",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 19254000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "19254000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E03",
+      "field": "pledged_shares_cumulative",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 33344000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "33344000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E03",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "UNIT_CONFLICT",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 5.98,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 5.98,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E03",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "UNIT_CONFLICT",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 1.24,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 1.24,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E03",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 10.36,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "10.36",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E03",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 2.15,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "2.15",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-010",
+      "event": "E01",
+      "field": "pledged_shares_this_time",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 5200000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 5200000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-010",
+      "event": "E01",
+      "field": "pledged_shares_cumulative",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 15200000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 15200000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D4-PLD-010",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 10.09,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "10.09",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-010",
+      "event": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 1.99,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "1.99",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-010",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 29.48,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "29.48",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D4-PLD-010",
+      "event": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 5.81,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "5.81",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 14722917,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 14722917,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 11042217,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 11042217,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 17.12,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "17.12",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 12.84,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "12.84",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3680700,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3680700,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E02",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 14410068,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 14410068,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E02",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 11434468,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 11434468,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E02",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 16.76,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "16.76",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E02",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 13.3,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "13.3",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E02",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 2975600,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 2975600,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E03",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3684053,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3684053,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E03",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3254053,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3254053,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E03",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 4.28,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "4.28",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E03",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3.78,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3.78",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E03",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 430000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 430000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E04",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3190004,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3190004,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E04",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 1848404,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 1848404,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E04",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3.71,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3.71",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E04",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 2.15,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "2.15",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E04",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 1341600,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 1341600,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E05",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 4472000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 4472000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E05",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 12899900,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 12899900,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E05",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 5.2,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "5.2",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E05",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 15,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "15",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-001",
+      "event": "E05",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 8427900,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 8427900,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 14722917,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 14722917,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 11042217,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 11042217,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 17.12,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "17.12",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 12.84,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "12.84",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3680700,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3680700,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E03",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 4472000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 4472000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E03",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 12899900,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 12899900,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E03",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 5.2,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "5.2",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E03",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 15,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "15",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E03",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 8427900,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 8427900,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E05",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 3190004,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 3190004,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E05",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 1848404,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 1848404,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E05",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3.71,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3.71",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E05",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 2.15,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "2.15",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-002",
+      "event": "E05",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 1341600,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 1341600,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-003",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 8427900,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 8427900,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-004",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-004",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 72673907,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 72673907,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-004",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-004",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 6.16,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "6.16",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-004",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 72673907,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "72673907",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-005",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 72673907,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "72673907",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-005",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-005",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 6.16,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "6.16",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-005",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-005",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 72673907,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "72673907",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-006",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 249519764,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 249519764,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-006",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 249519764,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 249519764,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-006",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 45.62,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "45.62",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-006",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 44.89,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "44.89",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-006",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 0,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 0,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-007",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 1325635213,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "1325635213",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-007",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 1159135213,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "1159135213",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-007",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 57.85,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "57.85",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-007",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 50.59,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "50.59",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-007",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 166500000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "166500000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-008",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 837500,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 837500,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-008",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 1570900,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 1570900,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-008",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 0.12,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "0.12",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-008",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 0.23,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "0.23",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-008",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 733400,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "733400",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-009",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 21743750,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "21743750",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-009",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 18728733,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "18728733",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-009",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 6.044,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "6.044",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-009",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 4.9999,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "4.9999",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-009",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 3015017,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "3015017",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D5-EQC-010",
+      "event": "E01",
+      "field": "shares_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 69251290,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 69251290,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-010",
+      "event": "E01",
+      "field": "shares_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 60001290,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 60001290,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-010",
+      "event": "E01",
+      "field": "ratio_before",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 37.45,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 37.45,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-010",
+      "event": "E01",
+      "field": "ratio_after",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 32.45,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 32.45,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D5-EQC-010",
+      "event": "E01",
+      "field": "change_shares",
+      "code": "UNIT_MISSING",
+      "kind": "status_downgrade",
+      "before": {
+        "value": 9250000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": 9250000,
+        "status": "needs_review",
+        "standardized": false
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E01",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 31624628.62,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "31624628.62",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E02",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 29598219.34,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "29598219.34",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E03",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 4560926.3,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "4560926.3",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E04",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 14850116.4,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "14850116.4",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E01",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 529000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "529000000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E02",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 290000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "290000000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E03",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 157000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "157000000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-004",
+      "event": "E01",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 54000000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "54000000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-005",
+      "event": "E01",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 148882000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "148882000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-006",
+      "event": "E01",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 809714662,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "809714662",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-007",
+      "event": "E01",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 317915000,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "317915000",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-008",
+      "event": "E01",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 141640735,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "141640735",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E01",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 196565875,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "196565875",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E02",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 107586198,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "107586198",
+        "status": "extracted",
+        "standardized": true
+      }
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E03",
+      "field": "bid_amount",
+      "code": "NORMALIZED",
+      "kind": "type_only_number_to_decimal_string",
+      "before": {
+        "value": 65772673,
+        "status": "extracted",
+        "standardized": true
+      },
+      "after": {
+        "value": "65772673",
+        "status": "extracted",
+        "standardized": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D7 B alignment interface proposal, not shared A schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "interface_status",
+    "pair_id",
+    "left",
+    "right",
+    "alignment",
+    "audit"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "b-alignment-draft/0.1"
+    },
+    "interface_status": {
+      "const": "proposal_D7"
+    },
+    "pair_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "left": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "event_id",
+        "event_type",
+        "locator",
+        "identity_fields",
+        "basis_fields",
+        "observations"
+      ],
+      "properties": {
+        "source": {
+          "type": "object",
+          "required": [
+            "file_id",
+            "file_name",
+            "file_sha256",
+            "source_schema_version",
+            "run_id",
+            "is_mock",
+            "code_version"
+          ],
+          "properties": {
+            "file_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "file_name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "file_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{64}$"
+            },
+            "source_schema_version": {
+              "const": "0.3"
+            },
+            "run_id": {
+              "type": "string"
+            },
+            "is_mock": {
+              "type": "boolean"
+            },
+            "code_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "event_id": {
+          "type": "string",
+          "pattern": "^E[0-9]+$"
+        },
+        "event_type": {
+          "enum": [
+            "pledge",
+            "equity_change",
+            "award_contract"
+          ]
+        },
+        "locator": {
+          "type": "string"
+        },
+        "identity_fields": {
+          "type": "object"
+        },
+        "basis_fields": {
+          "type": "object"
+        },
+        "observations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "original",
+              "normalized_value",
+              "normalization_status",
+              "normalization_reason",
+              "scope",
+              "denominator",
+              "qualifier"
+            ],
+            "properties": {
+              "original": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "raw_value",
+                  "value",
+                  "unit",
+                  "status",
+                  "provenance"
+                ],
+                "properties": {
+                  "raw_value": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "number",
+                      "string",
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "unit": {
+                    "enum": [
+                      "shares",
+                      "cny",
+                      "percent",
+                      "date",
+                      "date_range",
+                      "text",
+                      "count"
+                    ]
+                  },
+                  "status": {
+                    "enum": [
+                      "extracted",
+                      "needs_review",
+                      "not_mentioned",
+                      "not_disclosed",
+                      "not_applicable",
+                      "unreadable"
+                    ]
+                  },
+                  "standardized": {
+                    "type": "boolean"
+                  },
+                  "provenance": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "page",
+                        "quote"
+                      ],
+                      "properties": {
+                        "page": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "quote": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  },
+                  "denominator": {
+                    "enum": [
+                      null,
+                      "holder_shares",
+                      "total_share_capital",
+                      "net_assets",
+                      "other"
+                    ]
+                  },
+                  "note": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "normalized_value": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "normalization_status": {
+                "enum": [
+                  "normalized",
+                  "blocked",
+                  "not_applicable"
+                ]
+              },
+              "normalization_reason": {
+                "type": "string"
+              },
+              "scope": {
+                "enum": [
+                  "single",
+                  "cumulative",
+                  "before",
+                  "after",
+                  "unknown"
+                ]
+              },
+              "denominator": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "qualifier": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "right": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "event_id",
+        "event_type",
+        "locator",
+        "identity_fields",
+        "basis_fields",
+        "observations"
+      ],
+      "properties": {
+        "source": {
+          "type": "object",
+          "required": [
+            "file_id",
+            "file_name",
+            "file_sha256",
+            "source_schema_version",
+            "run_id",
+            "is_mock",
+            "code_version"
+          ],
+          "properties": {
+            "file_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "file_name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "file_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{64}$"
+            },
+            "source_schema_version": {
+              "const": "0.3"
+            },
+            "run_id": {
+              "type": "string"
+            },
+            "is_mock": {
+              "type": "boolean"
+            },
+            "code_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "event_id": {
+          "type": "string",
+          "pattern": "^E[0-9]+$"
+        },
+        "event_type": {
+          "enum": [
+            "pledge",
+            "equity_change",
+            "award_contract"
+          ]
+        },
+        "locator": {
+          "type": "string"
+        },
+        "identity_fields": {
+          "type": "object"
+        },
+        "basis_fields": {
+          "type": "object"
+        },
+        "observations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "original",
+              "normalized_value",
+              "normalization_status",
+              "normalization_reason",
+              "scope",
+              "denominator",
+              "qualifier"
+            ],
+            "properties": {
+              "original": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "raw_value",
+                  "value",
+                  "unit",
+                  "status",
+                  "provenance"
+                ],
+                "properties": {
+                  "raw_value": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "number",
+                      "string",
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "unit": {
+                    "enum": [
+                      "shares",
+                      "cny",
+                      "percent",
+                      "date",
+                      "date_range",
+                      "text",
+                      "count"
+                    ]
+                  },
+                  "status": {
+                    "enum": [
+                      "extracted",
+                      "needs_review",
+                      "not_mentioned",
+                      "not_disclosed",
+                      "not_applicable",
+                      "unreadable"
+                    ]
+                  },
+                  "standardized": {
+                    "type": "boolean"
+                  },
+                  "provenance": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "page",
+                        "quote"
+                      ],
+                      "properties": {
+                        "page": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "quote": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  },
+                  "denominator": {
+                    "enum": [
+                      null,
+                      "holder_shares",
+                      "total_share_capital",
+                      "net_assets",
+                      "other"
+                    ]
+                  },
+                  "note": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "normalized_value": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "normalization_status": {
+                "enum": [
+                  "normalized",
+                  "blocked",
+                  "not_applicable"
+                ]
+              },
+              "normalization_reason": {
+                "type": "string"
+              },
+              "scope": {
+                "enum": [
+                  "single",
+                  "cumulative",
+                  "before",
+                  "after",
+                  "unknown"
+                ]
+              },
+              "denominator": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "qualifier": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "alignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "reason_codes",
+        "may_compare",
+        "conflict"
+      ],
+      "properties": {
+        "status": {
+          "const": "unknown"
+        },
+        "reason_codes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "const": "ALIGNMENT_NOT_RUN_D7"
+          }
+        },
+        "may_compare": {
+          "const": false
+        },
+        "conflict": {
+          "type": "null"
+        }
+      }
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_mutated",
+        "source_contents_verified",
+        "full_a_schema_validated",
+        "cross_document_matching_executed"
+      ],
+      "properties": {
+        "input_mutated": {
+          "const": false
+        },
+        "source_contents_verified": {
+          "const": false
+        },
+        "full_a_schema_validated": {
+          "const": false
+        },
+        "cross_document_matching_executed": {
+          "const": false
+        }
+      }
+    }
+  }
+}

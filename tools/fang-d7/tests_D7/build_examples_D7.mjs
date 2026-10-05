@@ -1,0 +1,22 @@
+/** 可复现合成B接口样例；不读封存配对或Gold答案。 */
+import { writeFileSync } from 'node:fs';
+import { envelope,field,missing,sample } from './fixtures_D7.mjs';
+import { buildAlignmentPair } from '../src_D7/alignment_D7.mts';
+const save=(name,value)=>writeFileSync(new URL(`../examples_D7/${name}`,import.meta.url),JSON.stringify(value,null,2)+'\n');
+const cases=[];
+function add(id,description,type,change){const l=envelope(type,'a'),r=envelope(type,'b');change?.(l,r);cases.push({case_id:id,description,synthetic:true,expected_current_alignment:'unknown',pair:buildAlignmentPair(id,{envelope:l,event_id:'E01'},{envelope:r,event_id:'E01'})});}
+add('B01','中标同项目候选，元/万元等值，仅提供字段待D8确认','award_contract',(_,r)=>{r.events[0].fields.bid_amount=field('人民币1000000元','1000000','cny');});
+add('B02','同公司不同项目，不可仅凭公司名合并','award_contract',(_,r)=>{r.events[0].fields.project_name=field('二号项目','二号项目');});
+add('B03','项目字段缺失，必须保留未知','award_contract',(_,r)=>{r.events[0].fields.project_name=missing();});
+add('B04','相同金额但含税口径不同，不可直接比较','award_contract',(_,r)=>{r.events[0].fields.tax_included=field('不含税','false');});
+add('B05','联合体总额与份额缺失不拆分','award_contract',(l,r)=>{for(const e of [l,r]){e.events[0].fields.consortium_members=field('甲公司、乙公司','甲公司、乙公司');e.events[0].fields.consortium_shares=missing();}});
+add('B06','质押本次/累计及占总股本/占持股分开保留','pledge',(l,r)=>{l.events[0].fields.pledged_shares_cumulative=field('200万股','2000000','shares');r.events[0].fields.pledged_ratio_this_time_of_held=field('10%','10','percent',{denominator:'holder_shares'});});
+add('B07','股权变动保留前后值及期间，不只比较公司名','equity_change',(_,r)=>{r.events[0].fields.change_date=field('2026年10月1日至3日','2026-10-01/2026-10-03','date_range');});
+add('B08','公告版本不同，双侧file SHA与run版本分开保存','award_contract',(_,r)=>{r.source.file_name='synthetic-correction_D7.txt';r.run_meta.code_version='synthetic-corrected-D7';r.events[0].fields.bid_amount=field('人民币110万元','1100000','cny');});
+save('B_pairs_D7.json',cases);save('A_input_D7.json',envelope());save('metrics_input_D7.json',[sample(),sample(envelope(),null,{case_id:'failed-example'})]);
+const obj=(properties,required=Object.keys(properties))=>({type:'object',additionalProperties:false,required,properties});
+const fv=obj({raw_value:{type:['string','null']},value:{type:['number','string','boolean','null']},unit:{enum:['shares','cny','percent','date','date_range','text','count']},status:{enum:['extracted','needs_review','not_mentioned','not_disclosed','not_applicable','unreadable']},standardized:{type:'boolean'},provenance:{type:'array',items:{type:'object',required:['page','quote'],properties:{page:{type:'integer',minimum:1},quote:{type:'string',minLength:1}}}},denominator:{enum:[null,'holder_shares','total_share_capital','net_assets','other']},note:{type:['string','null']}},['raw_value','value','unit','status','provenance']);
+const observation=obj({original:fv,normalized_value:{type:['string','null']},normalization_status:{enum:['normalized','blocked','not_applicable']},normalization_reason:{type:'string'},scope:{enum:['single','cumulative','before','after','unknown']},denominator:{type:['string','null']},qualifier:{type:['string','null']}});
+const side=obj({source:{type:'object',required:['file_id','file_name','file_sha256','source_schema_version','run_id','is_mock','code_version'],properties:{file_id:{type:'string',minLength:1},file_name:{type:'string',minLength:1},file_sha256:{type:'string',pattern:'^[0-9a-fA-F]{64}$'},source_schema_version:{const:'0.3'},run_id:{type:'string'},is_mock:{type:'boolean'},code_version:{type:['string','null']}}},event_id:{type:'string',pattern:'^E[0-9]+$'},event_type:{enum:['pledge','equity_change','award_contract']},locator:{type:'string'},identity_fields:{type:'object'},basis_fields:{type:'object'},observations:{type:'object',additionalProperties:observation}});
+save('B_schema_D7.json',{$schema:'https://json-schema.org/draft/2020-12/schema',title:'D7 B alignment interface proposal, not shared A schema',...obj({schema_version:{const:'b-alignment-draft/0.1'},interface_status:{const:'proposal_D7'},pair_id:{type:'string',minLength:1},left:side,right:side,alignment:obj({status:{const:'unknown'},reason_codes:{type:'array',minItems:1,items:{const:'ALIGNMENT_NOT_RUN_D7'}},may_compare:{const:false},conflict:{type:'null'}}),audit:obj({input_mutated:{const:false},source_contents_verified:{const:false},full_a_schema_validated:{const:false},cross_document_matching_executed:{const:false}})})});
+console.log(`Generated ${cases.length} synthetic pairs`);
