@@ -1,7 +1,9 @@
 {
-  "sealed_set_id": "financial-events-d8-pair-dev-v0.1",
+  "sealed_set_id": "financial-events-d8-pair-dev-v0.2",
   "created_on": "2026-10-04",
   "mode": "public_dev_pairing_with_negative_controls",
+  "revised_on": "2026-10-04",
+  "revision_note": "v0.2: 公告编号仅取文件首页（本文件编号）；正文引用的前次报告编号改记 referenced_notice_numbers；D8-PAIR-003 说明文本更正。expected_relation 与成员未变。",
   "corpus": "evaluation/dev-30（30份公开开发集）+ 1份对抗扫描降级样本",
   "total": 13,
   "expectation_values": [
@@ -44,6 +46,8 @@
           "gold_sha256": "f9486a67a81bacccb63f6b52884436310aa2e9984ad88f9d02090a2ee3a7e003",
           "issuer_code": "920580",
           "notice_number": "2026-075",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "洛阳科创新材料股份有限公司"
         },
         {
@@ -51,7 +55,11 @@
           "raw_sha256": "5612c4a978ba3b43aa4b8f12256253f1b76dc785366247ca0d886c74596f2273",
           "gold_sha256": "12af950ae631741d98dd436413a5c4f1f1052ca9405cc21e78f5e6e8dc19faf0",
           "issuer_code": "920580",
-          "notice_number": "2025-097",
+          "notice_number": null,
+          "referenced_notice_numbers": [
+            "2025-097"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": "洛阳科创新材料股份有限公司"
         }
       ]
@@ -84,6 +92,8 @@
           "gold_sha256": "f9486a67a81bacccb63f6b52884436310aa2e9984ad88f9d02090a2ee3a7e003",
           "issuer_code": "920580",
           "notice_number": "2026-075",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "洛阳科创新材料股份有限公司"
         },
         {
@@ -91,7 +101,11 @@
           "raw_sha256": "6462494277adbaaeac9a54852bdd497b81edddb5e6de4511608aeec2b1829297",
           "gold_sha256": "65ac1a2faf97cc799c2f86ff0a34f12bb94a3cb8be995804bd16e80fc92ea536",
           "issuer_code": null,
-          "notice_number": "2025-097",
+          "notice_number": null,
+          "referenced_notice_numbers": [
+            "2025-097"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": "洛阳科创新材料股份有限公司"
         }
       ]
@@ -104,7 +118,7 @@
       ],
       "expected_relation": "related",
       "test_purpose": "same event, same notice number",
-      "relation_basis": "科创新材详式报告书与财务顾问核查意见（同为2025-097）",
+      "relation_basis": "科创新材详式报告书与财务顾问核查意见（同一次2026-09-23协议转让；2025-097为正文对前次报告的引用，非本文件编号）",
       "member_hashes": [
         {
           "case_id": "D5-EQC-002",
@@ -123,7 +137,11 @@
           "raw_sha256": "5612c4a978ba3b43aa4b8f12256253f1b76dc785366247ca0d886c74596f2273",
           "gold_sha256": "12af950ae631741d98dd436413a5c4f1f1052ca9405cc21e78f5e6e8dc19faf0",
           "issuer_code": "920580",
-          "notice_number": "2025-097",
+          "notice_number": null,
+          "referenced_notice_numbers": [
+            "2025-097"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": "洛阳科创新材料股份有限公司"
         },
         {
@@ -131,7 +149,11 @@
           "raw_sha256": "6462494277adbaaeac9a54852bdd497b81edddb5e6de4511608aeec2b1829297",
           "gold_sha256": "65ac1a2faf97cc799c2f86ff0a34f12bb94a3cb8be995804bd16e80fc92ea536",
           "issuer_code": null,
-          "notice_number": "2025-097",
+          "notice_number": null,
+          "referenced_notice_numbers": [
+            "2025-097"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": "洛阳科创新材料股份有限公司"
         }
       ]
@@ -164,6 +186,8 @@
           "gold_sha256": "ebb287f39ed1c34929b033429b05f04fc263c167971690c929ee85d03a01efa5",
           "issuer_code": "600267",
           "notice_number": null,
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "浙江海正药业股份有限公司"
         },
         {
@@ -172,6 +196,8 @@
           "gold_sha256": "32baf1a1b90878c179fff402a9715e395bd66f973620681972049281112f8d1b",
           "issuer_code": "600267",
           "notice_number": null,
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "浙江海正药业股份有限公司"
         }
       ]
@@ -204,6 +230,8 @@
           "gold_sha256": "44a2d8fa093c108f5131768cb4d178eb79658eb08168ac55b3921ebf70d3ce4b",
           "issuer_code": "300552",
           "notice_number": "2026-046",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "北京万集科技股份有限公司"
         },
         {
@@ -212,6 +240,8 @@
           "gold_sha256": "a59ff6ddb5434c60e87c6af06d6ac5470bfd90f8b2ee846e0f44a21dc8de5caf",
           "issuer_code": "603169",
           "notice_number": null,
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "兰州兰石重型装备股份有限公司"
         }
       ]
@@ -244,6 +274,8 @@
           "gold_sha256": "19c7099962e168b3dd2c314a9c48096a30d26500ef32f0dd8fa63d40fa80c259",
           "issuer_code": "002541",
           "notice_number": "2026-084",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "安徽鸿路钢结构(集团)股份有限公司"
         },
         {
@@ -252,6 +284,8 @@
           "gold_sha256": "d53e92fb2a287f6c742881cf9f2217bfd697918d90292b69a04e03e2ba45d162",
           "issuer_code": "600400",
           "notice_number": null,
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "江苏红豆实业股份有限公司"
         }
       ]
@@ -284,6 +318,10 @@
           "gold_sha256": "f67d4d014fd895443d73dfd72d2c1bfaaec3f56987be2db852e5cdfe7f6d9fdd",
           "issuer_code": "301601",
           "notice_number": "2026-052",
+          "referenced_notice_numbers": [
+            "2026-043"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": null
         },
         {
@@ -292,6 +330,8 @@
           "gold_sha256": "e1efd39b441f7bb62997c7c5ef8e607c8b8f65d238c7f46ff2c0c8243122d1d9",
           "issuer_code": "300411",
           "notice_number": "2026-032",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "浙江金盾风机股份有限公司"
         }
       ]
@@ -324,6 +364,8 @@
           "gold_sha256": "47c7a449d2dc0679af4573db4cd8ecad9641c949576a219920d96e90236b36d7",
           "issuer_code": "002036",
           "notice_number": "2026-068",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": null
         },
         {
@@ -332,6 +374,8 @@
           "gold_sha256": "33ecc0645b51494bd7934b1370db6f69e27e5db9d7ddf2a8aa7598fbd0db3b6d",
           "issuer_code": "000035",
           "notice_number": null,
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": null
         }
       ]
@@ -364,6 +408,10 @@
           "gold_sha256": "36610f68f842352601685839288b4d86d51d7eab830652537ddcdf968a738373",
           "issuer_code": "300355",
           "notice_number": "2026-056",
+          "referenced_notice_numbers": [
+            "2026-055"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": "内蒙古）科技有限公司"
         },
         {
@@ -372,6 +420,8 @@
           "gold_sha256": "cdc42b645f9a80c2349ee9a8fc7cf696059d6d0780a037221d1e6d5119c62e91",
           "issuer_code": "603081",
           "notice_number": "2026-037",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "浙江大丰实业股份有限公司"
         }
       ]
@@ -404,6 +454,8 @@
           "gold_sha256": "7463e3f13568ac8203bd60b4fc8d1f06d895c4b6a3d98d75764329a145fd243e",
           "issuer_code": "600381",
           "notice_number": "2026-068",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "青海春天药用资源科技股份有限公司"
         },
         {
@@ -412,6 +464,8 @@
           "gold_sha256": "19c7099962e168b3dd2c314a9c48096a30d26500ef32f0dd8fa63d40fa80c259",
           "issuer_code": "002541",
           "notice_number": "2026-084",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "安徽鸿路钢结构(集团)股份有限公司"
         }
       ]
@@ -434,7 +488,7 @@
         {
           "case_id": "D6-AWD-007",
           "raw_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
-          "gold_sha256": "1524d651763cccce55b459dca1d192c41ab9d53c154f457b7d6fd121d0b1b736"
+          "gold_sha256": "9e5434d6fe91fd46635e2ad9e05a90d5bd1f3f5c87cad22074014db840dc1622"
         }
       ],
       "member_meta": [
@@ -444,14 +498,18 @@
           "gold_sha256": "c2dd8346749ea666d5fd24a6de6ee3c7d52e4ab12c66249bd6fa71a015ee6791",
           "issuer_code": "603261",
           "notice_number": "2026-054",
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": "成都立航科技股份有限公司"
         },
         {
           "case_id": "D6-AWD-007",
           "raw_sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
-          "gold_sha256": "1524d651763cccce55b459dca1d192c41ab9d53c154f457b7d6fd121d0b1b736",
+          "gold_sha256": "9e5434d6fe91fd46635e2ad9e05a90d5bd1f3f5c87cad22074014db840dc1622",
           "issuer_code": "601886",
           "notice_number": null,
+          "referenced_notice_numbers": [],
+          "notice_note": null,
           "issuer_name": null
         }
       ]
@@ -483,7 +541,11 @@
           "raw_sha256": "361d25fd1b58c01e3724148d5c5b8d2b91779db877fc7b6b0581ebcf0bfd872e",
           "gold_sha256": "e0bae7486761b7087110a1e541d9dde7fa2622c9bf8c53cb8e48c54b0677bb10",
           "issuer_code": "688221",
-          "notice_number": "2026-026",
+          "notice_number": null,
+          "referenced_notice_numbers": [
+            "2026-026"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": null
         },
         {
@@ -492,6 +554,10 @@
           "gold_sha256": "9fba965ba6ef4c9fa228a7734042ffe92b7d5bb620e3abece3768a7523039a7b",
           "issuer_code": "300022",
           "notice_number": "2026-078",
+          "referenced_notice_numbers": [
+            "2026-076"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": "江苏众安建设投资（集团）有限公司"
         }
       ]
@@ -532,6 +598,10 @@
           "gold_sha256": "f67d4d014fd895443d73dfd72d2c1bfaaec3f56987be2db852e5cdfe7f6d9fdd",
           "issuer_code": "301601",
           "notice_number": "2026-052",
+          "referenced_notice_numbers": [
+            "2026-043"
+          ],
+          "notice_note": "正文引用了前次/其他报告的公告编号，未作为本文件编号",
           "issuer_name": null
         }
       ]
