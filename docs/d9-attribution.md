@@ -62,3 +62,20 @@ export const attributeRules = [{
 3. **陈**：trace/attribution 字段进核验清单页（双侧证据视图的"差异归因"列）。
 4. 更正（correction）类归因当前落在 UNEXPLAINED（保留疑点）——待宗用例给出更正的
    判别特征（公告编号继任/更正公告标题）后升级为独立规则。
+
+## 六、宗 D9 20 条归因用例接入（2026-10-05，当日完成）
+
+宗交付（88d8e545，已按 git hash --no-filters 字节一致引入 evaluation/D9/）当日接入：
+
+- **runner**（`scripts/jingguan/run_d9_rules.mjs`）：消费 rules-cases.dev.json，产出宗 §五约定的
+  B 侧归因报告（corroborated/explainable_difference/restated/conflict/insufficient）。
+  判定链只读 sides 数据（值/字段/主体/引文/块）——**期望标签（expected_verdict/category/
+  attribution_basis）不进入判定**；顺序：空值→币种折合→单侧（主体可锚=部分覆盖/不可锚=证据不足）
+  →字段口径（本次vs累计/分母/含税）→显式更正→合计形态→同主体等值互证→合计语境→反向咬合→
+  量级/舍入/时点→矛盾候选（须双侧证据，缺则 insufficient）。
+- **成绩**：`score-rules.mjs --strict` **PASS 20/20（0 fail 0 not_run，矛盾误报 0 漏报 0）**；
+  判定分布与期望全等（互证 5/可解释 11/证据不足 2/更正 1/真矛盾 1）。
+  证据：runs/D9-rules-report-20261005.json＋runs/D9-rules-score-20261005.json。
+- **门禁第 16 道**：`test_d9_rules.mjs`（runner＋严格评分，临时报告用后即删）。
+- 修正记录：首跑 19/20——D9-RULE-003（于春生增持股数两文档一致）被"合计语境"分支误截；
+  链序修正为"同主体等值互证先于合计语境"（合计字样是语境描述，不改变该主体数值一致性）。
