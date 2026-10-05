@@ -1189,5 +1189,44 @@
       "status": "block_missing",
       "note": "本地没有 SYNTH-CTRL-02-B 的解析包"
     }
-  ]
+  ],
+  "reanchor_suggestions": [
+    {
+      "case_id": "D9-RULE-009",
+      "side_case": "D5-EQC-004",
+      "field": "change_shares",
+      "quote": "变动数量：72,673,907股股份",
+      "wrong_block_id": "da00b31da_p019_b00006",
+      "correct_block_id": "da00b31da_p019_b00015",
+      "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id"
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "side_case": "D4-PLD-001",
+      "field": "pledged_shares_this_time",
+      "quote": "2,100,000",
+      "wrong_block_id": "d44e95085_p001_b00024",
+      "correct_block_id": "d44e95085_p001_b00025",
+      "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "side_case": "D4-PLD-001",
+      "field": "pledged_ratio_this_time_of_held",
+      "quote": "2.40%",
+      "wrong_block_id": "d44e95085_p001_b00025",
+      "correct_block_id": "d44e95085_p001_b00026",
+      "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "side_case": "D4-PLD-001",
+      "field": "pledged_ratio_this_time_of_total",
+      "quote": "0.99%",
+      "wrong_block_id": "d44e95085_p001_b00026",
+      "correct_block_id": "d44e95085_p001_b00027",
+      "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id"
+    }
+  ],
+  "reanchor_policy": "只在 quote 于本文档中**唯一**命中某块时给出修正；多候选视为有歧义，不自动改，交回人工。"
 }

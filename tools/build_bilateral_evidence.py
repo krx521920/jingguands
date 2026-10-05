@@ -171,13 +171,23 @@ def main() -> int:
     data = json.load(open(a.cases, encoding="utf-8"))
     cases = data.get("cases") or data
 
-    out_cases, missing = [], []
+    out_cases, missing, reanchored = [], [], []
     for c in cases:
         sides = [judge(s, parses) for s in (c.get("sides") or [])]
         for s in sides:
             if s["evidence_status"] != "present":
                 missing.append({"case_id": c["case_id"], "side_case": s["case_id"],
                                 "status": s["evidence_status"], "note": s["evidence_note"]})
+            # **修复缺证据路径**：块号漂移时给出可直接采用的修正值。
+            # 只在「唯一候选」时给修正 —— 多候选说明有歧义，交回人工，不自动改。
+            cands = s.get("quote_found_in") or []
+            if s["evidence_status"] == "quote_not_in_block" and len(cands) == 1:
+                reanchored.append({
+                    "case_id": c["case_id"], "side_case": s["case_id"],
+                    "field": s["field"], "quote": s["quote"],
+                    "wrong_block_id": s["block_id"], "correct_block_id": cands[0],
+                    "basis": "该 quote 在本文档的解析输出中唯一出现在 correct_block_id",
+                })
         out_cases.append({
             "case_id": c["case_id"],
             "category": c.get("category"),
@@ -203,6 +213,9 @@ def main() -> int:
         },
         "cases": out_cases,
         "missing_evidence": missing,
+        "reanchor_suggestions": reanchored,
+        "reanchor_policy": ("只在 quote 于本文档中**唯一**命中某块时给出修正；"
+                            "多候选视为有歧义，不自动改，交回人工。"),
     }, open(a.out, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
     import collections
