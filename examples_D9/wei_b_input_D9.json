@@ -1,0 +1,1355 @@
+{
+  "is_mock": true,
+  "results": [
+    {
+      "group_id": "explicit_fx",
+      "predicted_relation": "same",
+      "consistency": {
+        "conflicts": [
+          {
+            "entity": "甲主体",
+            "field": "shares_after",
+            "values": [
+              {
+                "doc": "CONTROL-0",
+                "value": "100",
+                "quote": "甲主体 shares_after 100元 AED 含税"
+              },
+              {
+                "doc": "CONTROL-1",
+                "value": "200",
+                "quote": "甲主体 shares_after 200元 CNY 含税"
+              }
+            ],
+            "d9_input": {
+              "case_id": "FANG-D9-CONTROL-explicit_fx",
+              "sides": [
+                {
+                  "case_id": "CONTROL-0",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "100",
+                  "raw_value": "100元",
+                  "unit": "amount",
+                  "block_id": "control-0",
+                  "quote": "甲主体 shares_after 100元 AED 含税",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "time": {
+                      "value": "2026-10-05",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ],
+                      "role": "as_of"
+                    },
+                    "notice_number": {
+                      "value": "N0",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "currency": {
+                      "value": "AED",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "甲主体 shares_after 100元 AED 含税",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "fx": {
+                      "value": "2",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ],
+                      "from": "AED",
+                      "to": "CNY",
+                      "date": "2026-10-05"
+                    }
+                  }
+                },
+                {
+                  "case_id": "CONTROL-1",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "200",
+                  "raw_value": "200元",
+                  "unit": "amount",
+                  "block_id": "control-1",
+                  "quote": "甲主体 shares_after 200元 CNY 含税",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "time": {
+                      "value": "2026-10-05",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ],
+                      "role": "as_of"
+                    },
+                    "notice_number": {
+                      "value": "N1",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "currency": {
+                      "value": "CNY",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "甲主体 shares_after 200元 CNY 含税",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "d9_context": {
+        "documents": {
+          "CONTROL-0": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 100元 AED 含税\n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-0",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 100元 AED 含税",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "100",
+                    "unit": "amount",
+                    "raw_value": "100元",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 100元 AED 含税",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "CONTROL-1": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 200元 CNY 含税\n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-1",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 200元 CNY 含税",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "200",
+                    "unit": "amount",
+                    "raw_value": "200元",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 200元 CNY 含税",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "parses": {}
+      }
+    },
+    {
+      "group_id": "explicit_tax",
+      "predicted_relation": "same",
+      "consistency": {
+        "conflicts": [
+          {
+            "entity": "甲主体",
+            "field": "shares_after",
+            "values": [
+              {
+                "doc": "CONTROL-0",
+                "value": "100",
+                "quote": "甲主体 shares_after 100元 CNY 不含税"
+              },
+              {
+                "doc": "CONTROL-1",
+                "value": "106",
+                "quote": "甲主体 shares_after 106元 CNY 含税"
+              }
+            ],
+            "d9_input": {
+              "case_id": "FANG-D9-CONTROL-explicit_tax",
+              "sides": [
+                {
+                  "case_id": "CONTROL-0",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "100",
+                  "raw_value": "100元",
+                  "unit": "amount",
+                  "block_id": "control-0",
+                  "quote": "甲主体 shares_after 100元 CNY 不含税",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率6%",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率6%",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "time": {
+                      "value": "2026-10-05",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率6%",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ],
+                      "role": "as_of"
+                    },
+                    "notice_number": {
+                      "value": "N0",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率6%",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "currency": {
+                      "value": "CNY",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "甲主体 shares_after 100元 CNY 不含税",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "tax_rate": {
+                      "value": "6",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率6%",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "case_id": "CONTROL-1",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "106",
+                  "raw_value": "106元",
+                  "unit": "amount",
+                  "block_id": "control-1",
+                  "quote": "甲主体 shares_after 106元 CNY 含税",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "time": {
+                      "value": "2026-10-05",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ],
+                      "role": "as_of"
+                    },
+                    "notice_number": {
+                      "value": "N1",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "currency": {
+                      "value": "CNY",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "甲主体 shares_after 106元 CNY 含税",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "d9_context": {
+        "documents": {
+          "CONTROL-0": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 100元 CNY 不含税\n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率6%"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-0",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 100元 CNY 不含税",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "100",
+                    "unit": "amount",
+                    "raw_value": "100元",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 100元 CNY 不含税",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "CONTROL-1": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 106元 CNY 含税\n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-1",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 106元 CNY 含税",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "106",
+                    "unit": "amount",
+                    "raw_value": "106元",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 106元 CNY 含税",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "parses": {}
+      }
+    },
+    {
+      "group_id": "same_point_conflict",
+      "predicted_relation": "same",
+      "consistency": {
+        "conflicts": [
+          {
+            "entity": "甲主体",
+            "field": "shares_after",
+            "values": [
+              {
+                "doc": "CONTROL-0",
+                "value": "5000000",
+                "quote": "甲主体 shares_after 5000000股  "
+              },
+              {
+                "doc": "CONTROL-1",
+                "value": "5200000",
+                "quote": "甲主体 shares_after 5200000股  "
+              }
+            ],
+            "d9_input": {
+              "case_id": "FANG-D9-CONTROL-same_point_conflict",
+              "sides": [
+                {
+                  "case_id": "CONTROL-0",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "5000000",
+                  "raw_value": "5000000股",
+                  "unit": "shares",
+                  "block_id": "control-0",
+                  "quote": "甲主体 shares_after 5000000股  ",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "time": {
+                      "value": "2026-10-05",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ],
+                      "role": "as_of"
+                    },
+                    "notice_number": {
+                      "value": "N0",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "case_id": "CONTROL-1",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "5200000",
+                  "raw_value": "5200000股",
+                  "unit": "shares",
+                  "block_id": "control-1",
+                  "quote": "甲主体 shares_after 5200000股  ",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "time": {
+                      "value": "2026-10-05",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ],
+                      "role": "as_of"
+                    },
+                    "notice_number": {
+                      "value": "N1",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "d9_context": {
+        "documents": {
+          "CONTROL-0": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 5000000股  \n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-0",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 5000000股  ",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "5000000",
+                    "unit": "shares",
+                    "raw_value": "5000000股",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 5000000股  ",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "CONTROL-1": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 5200000股  \n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-1",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 5200000股  ",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "5200000",
+                    "unit": "shares",
+                    "raw_value": "5200000股",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 5200000股  ",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "parses": {}
+      }
+    },
+    {
+      "group_id": "linked_correction",
+      "predicted_relation": "same",
+      "consistency": {
+        "conflicts": [
+          {
+            "entity": "甲主体",
+            "field": "shares_after",
+            "values": [
+              {
+                "doc": "CONTROL-0",
+                "value": "100",
+                "quote": "甲主体 shares_after 100股  "
+              },
+              {
+                "doc": "CONTROL-1",
+                "value": "101",
+                "quote": "更正为101股"
+              }
+            ],
+            "d9_input": {
+              "case_id": "FANG-D9-CONTROL-linked_correction",
+              "sides": [
+                {
+                  "case_id": "CONTROL-0",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "100",
+                  "raw_value": "100股",
+                  "unit": "shares",
+                  "block_id": "control-0",
+                  "quote": "甲主体 shares_after 100股  ",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-04；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-04；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "time": {
+                      "value": "2026-10-04",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-04；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ],
+                      "role": "publication_date"
+                    },
+                    "notice_number": {
+                      "value": "N0",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-04；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "case_id": "CONTROL-1",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "101",
+                  "raw_value": "101股",
+                  "unit": "shares",
+                  "block_id": "control-1",
+                  "quote": "更正为101股",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；将公告编号N0持股100股更正为101股",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；将公告编号N0持股100股更正为101股",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "time": {
+                      "value": "2026-10-05",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；将公告编号N0持股100股更正为101股",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ],
+                      "role": "publication_date"
+                    },
+                    "notice_number": {
+                      "value": "N1",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；将公告编号N0持股100股更正为101股",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "correction": {
+                      "value": "N0",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；将公告编号N0持股100股更正为101股",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ],
+                      "replaces_notice_number": "N0",
+                      "replaces_field": "shares_after",
+                      "replaces_file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "d9_context": {
+        "documents": {
+          "CONTROL-0": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 100股  \n证券代码：600001；事件编号：TX-01；观察日：2026-10-04；公告编号：N0；"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-0",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 100股  ",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "100",
+                    "unit": "shares",
+                    "raw_value": "100股",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 100股  ",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "CONTROL-1": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "text_raw": "更正为101股\n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；将公告编号N0持股100股更正为101股"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-1",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "更正为101股",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "101",
+                    "unit": "shares",
+                    "raw_value": "101股",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "更正为101股",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "parses": {}
+      }
+    },
+    {
+      "group_id": "missing_time",
+      "predicted_relation": "same",
+      "consistency": {
+        "conflicts": [
+          {
+            "entity": "甲主体",
+            "field": "shares_after",
+            "values": [
+              {
+                "doc": "CONTROL-0",
+                "value": "100",
+                "quote": "甲主体 shares_after 100股  "
+              },
+              {
+                "doc": "CONTROL-1",
+                "value": "101",
+                "quote": "甲主体 shares_after 101股  "
+              }
+            ],
+            "d9_input": {
+              "case_id": "FANG-D9-CONTROL-missing_time",
+              "sides": [
+                {
+                  "case_id": "CONTROL-0",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "100",
+                  "raw_value": "100股",
+                  "unit": "shares",
+                  "block_id": "control-0",
+                  "quote": "甲主体 shares_after 100股  ",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    },
+                    "notice_number": {
+                      "value": "N0",
+                      "provenance": [
+                        {
+                          "block_id": "control-0",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                          "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "case_id": "CONTROL-1",
+                  "entity": "甲主体",
+                  "field": "shares_after",
+                  "value": "101",
+                  "raw_value": "101股",
+                  "unit": "shares",
+                  "block_id": "control-1",
+                  "quote": "甲主体 shares_after 101股  ",
+                  "caliber": {
+                    "event_key": {
+                      "value": "TX-01",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "issuer_code": {
+                      "value": "600001",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    },
+                    "notice_number": {
+                      "value": "N1",
+                      "provenance": [
+                        {
+                          "block_id": "control-1",
+                          "page": 1,
+                          "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                          "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "d9_context": {
+        "documents": {
+          "CONTROL-0": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 100股  \n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-0",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 100股  ",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "100",
+                    "unit": "shares",
+                    "raw_value": "100股",
+                    "provenance": [
+                      {
+                        "block_id": "control-0",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 100股  ",
+                        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "CONTROL-1": {
+            "schema_version": "0.3",
+            "run_id": "CONTROL-D9",
+            "is_mock": true,
+            "source": {
+              "file_id": "sha256:1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+              "parse_meta": {
+                "blocks": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "text_raw": "甲主体 shares_after 101股  \n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；"
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "event_id": "event-1",
+                "fields": {
+                  "holder": {
+                    "status": "extracted",
+                    "value": "甲主体",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 101股  ",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  },
+                  "shares_after": {
+                    "status": "extracted",
+                    "standardized": true,
+                    "value": "101",
+                    "unit": "shares",
+                    "raw_value": "101股",
+                    "provenance": [
+                      {
+                        "block_id": "control-1",
+                        "page": 1,
+                        "quote": "甲主体 shares_after 101股  ",
+                        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "parses": {}
+      }
+    },
+    {
+      "group_id": "legacy_missing_metadata",
+      "predicted_relation": "same",
+      "consistency": {
+        "conflicts": [
+          {
+            "field": "shares_after",
+            "entity": "甲主体",
+            "values": [
+              {
+                "doc": "A",
+                "value": 1,
+                "quote": "1"
+              },
+              {
+                "doc": "B",
+                "value": 10000,
+                "quote": "10000"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "group_id": "unknown_group",
+      "predicted_relation": "unknown",
+      "reasons": [
+        "INSUFFICIENT_SIGNALS"
+      ]
+    }
+  ]
+}

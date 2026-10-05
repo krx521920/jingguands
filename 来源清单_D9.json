@@ -1,0 +1,411 @@
+{
+  "repository": "https://github.com/krx521920/jingguands",
+  "pins": {
+    "wei": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+    "zong": "5d1b06f0f5b4708e27d311669f5f0fcc95eace08",
+    "zhang": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+    "chen": "6bfb9625e4f5bde6f25188aa9fb01980b373746b"
+  },
+  "files": [
+    {
+      "owner": "zong",
+      "commit": "5d1b06f0f5b4708e27d311669f5f0fcc95eace08",
+      "path": "evaluation/D9/cases/rules-cases.dev.json",
+      "local": "public_dev_D9/rules-cases.dev_D9.json",
+      "sha256": "d7bba2774262a1bec2a31fbc494fa50c2ffd57c918deb534e3f1c6a38f05a27b"
+    },
+    {
+      "owner": "zong",
+      "commit": "5d1b06f0f5b4708e27d311669f5f0fcc95eace08",
+      "path": "evaluation/D9/score-rules.mjs",
+      "local": "peer_reference_D9/score-rules_D9.mjs",
+      "sha256": "ddecad8271f9b040b974d1ec44911356d38a91c0ad8629b566242fd8f9c65c8f"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "scripts/jingguan/attribute_b.mjs",
+      "local": "peer_reference_D9/attribute_b_D9.mjs",
+      "sha256": "4cd2250f3b889796002b5c3c1ba04746d728abccd1b27ce17e2cbba4516750ec"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "scripts/jingguan/run_d9_rules.mjs",
+      "local": "peer_reference_D9/run_d9_rules_D9.mjs",
+      "sha256": "be04b24ab381d0cfc44ae7660746261caec36a0fdb9e7712ea613489fcb8c07e"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "interface/event-envelope.schema.json",
+      "local": "peer_reference_D9/event-envelope.schema_D9.json",
+      "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "scripts/jingguan/lib/schema_validator.mjs",
+      "local": "peer_reference_D9/schema_validator_D9.mjs",
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D9/bilateral_evidence.json",
+      "local": "peer_reference_D9/bilateral_evidence_D9.json",
+      "sha256": "30447fcdd454421a83c9f2c837ea3f1c415985e4b1630fc983f8f2b220f1bcc4"
+    },
+    {
+      "owner": "chen",
+      "commit": "6bfb9625e4f5bde6f25188aa9fb01980b373746b",
+      "path": "workspace/cjh/page_prototype/bridge/upstream_bridge.js",
+      "local": "peer_reference_D9/upstream_bridge_D9.cjs",
+      "sha256": "894f40779582ec15a0caac7eb6d038a469006560ab09fcdc7690703cb0cfccf6"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "docs/adjudication/D7-标准化严格性差异-证据页.md",
+      "local": "peer_reference_D9/D7严格性差异_上游待裁决_D9.md",
+      "sha256": "5dfe79d0e9feb11071c3e6f05d38b2e0d30557544e4dc87a84e6bfaa42e1fb52"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-001.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-001_D9.json",
+      "sha256": "1ad7173bfe4789af5ce6a19e91dc7cf80d4316c7332196622cb27ba425e047b8"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-002.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-002_D9.json",
+      "sha256": "73826dda080537cd91114c78f6e94547a7af0fc2f1a5e1200d176b63e00c6558"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-003.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-003_D9.json",
+      "sha256": "82874564d82b3214803f0189456a1d889e29b83e4e49682fa1269b3c5c5f8b53"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-004.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-004_D9.json",
+      "sha256": "56bf614223248bf0ee41ea4da7c8fd17a2bf8cc66a163a0f618ec64721709d2a"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-005.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-005_D9.json",
+      "sha256": "a3a394d977031c40dd490ab944c4f0148328f6f84476290c76781eb6db816f12"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-006.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-006_D9.json",
+      "sha256": "d7f9c062bb21f8cf051f93ab5e3ec7cf80a6d9adc86b8e6a2b15cdbcfdcd0c45"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-007.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-007_D9.json",
+      "sha256": "22ada079a618333952aa7316ceee805b2e7026f59e569cf8007b60938754cd5d"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-008.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-008_D9.json",
+      "sha256": "94757e092ceb164e965d2ae960278449c2b987b8fe1cc681d530ce82994842d5"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-009.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-009_D9.json",
+      "sha256": "19128b9009dc8e48389986575d3b8934e2c65168645479fb9fdd1f7b58183346"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D4-PLD-010.json",
+      "local": "public_dev_D9/envelopes_D9/D4-PLD-010_D9.json",
+      "sha256": "7a908102577ee4a3f002f17a64122385b57b76e7a9acd3b9cd6a206017c21cd5"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-001.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-001_D9.json",
+      "sha256": "8efe93eb9836fbe0e334c5cb3ed49b282e550ef41bea18a3690561d4e65876fc"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-002.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-002_D9.json",
+      "sha256": "b5b20d8a4bdb22a3c2844348687e08dd87ccd22bf704fb0ded6338b480908c5f"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-003.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-003_D9.json",
+      "sha256": "649681a39ee34fa3b4f2fa3ec75239fb940a5e1e573954a8eff9cf78428a1b13"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-004.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-004_D9.json",
+      "sha256": "4fabfc3dd9a380051d88d99535e17da7331ca06827ef3997c2461774563348f6"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-005.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-005_D9.json",
+      "sha256": "40ea3b063d4f86d87bbec886950cf208ca0f5567080e56ceedeb1f1aad4ce911"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-006.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-006_D9.json",
+      "sha256": "fb112bb4e3adbf5951ba725df87cd1e21b6f10d9613922410a1b22f9bd653a4c"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-007.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-007_D9.json",
+      "sha256": "9101b3b38c05314fabd9122c308510ff06f4887891068db5cfab00fad29e323e"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-008.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-008_D9.json",
+      "sha256": "0f218c5bb3022396498b3e9e5f8d11db9ce12546c25eca4ff57f7535fe5f498d"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-009.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-009_D9.json",
+      "sha256": "fcb22fc8b23992896ec33ef5e3f7b371fde7b9863480505285f3c965ee233dd8"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D5-EQC-010.json",
+      "local": "public_dev_D9/envelopes_D9/D5-EQC-010_D9.json",
+      "sha256": "10d9eb9a9cf89633b272c5943812dbe74c28fd1a99f3183ed7c021c65249da18"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-001.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-001_D9.json",
+      "sha256": "b369d0790f392dea396f90055fb4aeb71f42e5b5bd3a54e673416e9ae09b21db"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-002.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-002_D9.json",
+      "sha256": "f93774f64d39a231b97e3accf6eb76b25d0fb88217d6cbdf0cfb3c3620f6b15f"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-003.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-003_D9.json",
+      "sha256": "96faa50a250257186804fbf0cc5ae48ee57005d47f35ad646871d12f7cedf70b"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-004.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-004_D9.json",
+      "sha256": "fea5455d6f81776c89c2c5e9aa239530906696226e884db1d3c5687a6e8f744b"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-005.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-005_D9.json",
+      "sha256": "a394ad95b1d0aaed960b09a99c0194e8121edda868b6199a5d73a1fa02475f7d"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-006.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-006_D9.json",
+      "sha256": "5b79e1807475b49e88f5fee0a99126047726a650f1e0a96c44347924e27a20b7"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-007.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-007_D9.json",
+      "sha256": "d79e0b6b0dc105daf2ad8d941a0a43829e8229d22304f51fac374cd2da32b193"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-008.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-008_D9.json",
+      "sha256": "8b5e5d6d2a72099abbe97d9846e4efa244021a814ed2cb82b8cbb04d8a4a9b15"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-009.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-009_D9.json",
+      "sha256": "b996b124d013af541983d428429bd300c6ab4da1ce44faefe5c2afa0481a406d"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/D6-AWD-010.json",
+      "local": "public_dev_D9/envelopes_D9/D6-AWD-010_D9.json",
+      "sha256": "7ebcf9d8af107989eada37b677a330181484f4a90c66cd52daa5fca688db78af"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "runs/batch-20261005T063943/envelopes/pledge-scan-degrade.json",
+      "local": "public_dev_D9/envelopes_D9/pledge-scan-degrade_D9.json",
+      "sha256": "ddb515be76d78e287574c68dadb6df04c64baf175fc31598957fa17c709675d4"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D4/parse/D4-PLD-001.parse.json",
+      "local": "public_dev_D9/parse_D9/D4-PLD-001_D9.json",
+      "sha256": "8d7ba5f04cf6e3f26498da6b5cd643feaa37b99910579dcfecf1ae3029a348c3"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D4/parse/D4-PLD-009.parse.json",
+      "local": "public_dev_D9/parse_D9/D4-PLD-009_D9.json",
+      "sha256": "e7b60326b0ccddc441e532596f836fb3499c9a2f3f55f730bb153f94a4758ac6"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D5/parse/D5-EQC-001.parse.json",
+      "local": "public_dev_D9/parse_D9/D5-EQC-001_D9.json",
+      "sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D5/parse/D5-EQC-002.parse.json",
+      "local": "public_dev_D9/parse_D9/D5-EQC-002_D9.json",
+      "sha256": "3060a015349ff01ba2840c4049b96bb8aaed36cd41d7dfde0d3905f49c928dc6"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D5/parse/D5-EQC-003.parse.json",
+      "local": "public_dev_D9/parse_D9/D5-EQC-003_D9.json",
+      "sha256": "214bee892670158a6916dab6df63fdacae2a2ecf79415df609646bb1e09a60a2"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D5/parse/D5-EQC-004.parse.json",
+      "local": "public_dev_D9/parse_D9/D5-EQC-004_D9.json",
+      "sha256": "ad1242db5df6076f8524408b4cd554d6e46933823e144a9e4ba9b4e5f4c6c019"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D5/parse/D5-EQC-005.parse.json",
+      "local": "public_dev_D9/parse_D9/D5-EQC-005_D9.json",
+      "sha256": "fa2cff4fc4de28f8511af98d580cb59f3d2487f0b8e397c75f71251aff577ce1"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D6/parse/D6-AWD-004.parse.json",
+      "local": "public_dev_D9/parse_D9/D6-AWD-004_D9.json",
+      "sha256": "799806ba054b7e12b92ad532c130a5392041323550fa930614fe7b869e26f772"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D6/parse/D6-AWD-005.parse.json",
+      "local": "public_dev_D9/parse_D9/D6-AWD-005_D9.json",
+      "sha256": "00d031c9a9f95bf21ebc307ee4a5dd00aa359ffdbc5523b0415d5eb44f5c6a74"
+    },
+    {
+      "owner": "zhang",
+      "commit": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+      "path": "sample/D6/parse/D6-AWD-007.parse.json",
+      "local": "public_dev_D9/parse_D9/D6-AWD-007_D9.json",
+      "sha256": "fb9a11aa02cf3ac005ba0077afbfd520e1f87c566d28432e7558f6a7a76e95ce"
+    },
+    {
+      "owner": "wei",
+      "commit": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+      "path": "tools/fang-d7/src_D7/decimal_D7.mts",
+      "local": "src_D9/vendor_D9/decimal_D9.mts",
+      "sha256": "e20400dd6d17d93c5fc2382a7468b726fac3fd2f3fea19ef2905a4ee77c6e8c5"
+    },
+    {
+      "owner": "fang_D8_local",
+      "path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D8\\方轩诚_对齐规则与关联解释_D8\\src_D8\\matching_D8.mjs",
+      "local": "vendor_D8/src_D8/matching_D8.mjs",
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d",
+      "note": "D8 runtime dependency; original _D8 names retained"
+    },
+    {
+      "owner": "fang_D8_local",
+      "path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D8\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\identity_context_D8.json",
+      "local": "vendor_D8/public_dev_D8/identity_context_D8.json",
+      "sha256": "9fb05c3a4dd9eeb1c12f884ec755820b14e3f24e3d1947096cebeca1cc86742a",
+      "note": "D8 runtime dependency; original _D8 names retained"
+    },
+    {
+      "owner": "fang_D8_local",
+      "path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D8\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\input_manifest_D8.json",
+      "local": "vendor_D8/public_dev_D8/input_manifest_D8.json",
+      "sha256": "4bb629dacff13afde191ebf733df00ec0979d105f296b67263e2a45f229ca211",
+      "note": "D8 runtime dependency; original _D8 names retained"
+    },
+    {
+      "owner": "fang_D8_local",
+      "path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D8\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\parse_D8\\DEMO-EQC-HL-0930_D8.json",
+      "local": "vendor_D8/public_dev_D8/parse_D8/DEMO-EQC-HL-0930_D8.json",
+      "sha256": "81d5bff8b55b0b5219ab1d6c9ecc658e59debd6dfce471ac7d408387791ae11e",
+      "note": "D8 runtime dependency; original _D8 names retained"
+    },
+    {
+      "owner": "fang_D8_local",
+      "path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D8\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\parse_D8\\DEMO-EQC-HL-SIMPLE_D8.json",
+      "local": "vendor_D8/public_dev_D8/parse_D8/DEMO-EQC-HL-SIMPLE_D8.json",
+      "sha256": "ad0db6ddd1769c424087e6d561a70fbf7a1eb830fc10b6a218f50d4b8eacfb85",
+      "note": "D8 runtime dependency; original _D8 names retained"
+    },
+    {
+      "owner": "fang_D8_local",
+      "path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D8\\方轩诚_对齐规则与关联解释_D8\\public_dev_D8\\parse_D8\\DEMO-EQC-HZ-RESULT_D8.json",
+      "local": "vendor_D8/public_dev_D8/parse_D8/DEMO-EQC-HZ-RESULT_D8.json",
+      "sha256": "6b77be1ae3a3ea06bb5e87f6fc37465b3f82066f5f2c5dca688abd95edbe881b",
+      "note": "D8 runtime dependency; original _D8 names retained"
+    }
+  ],
+  "gold_or_sealed_answers_read": false
+}

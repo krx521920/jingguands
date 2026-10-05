@@ -1,0 +1,352 @@
+TAP version 13
+# Subtest: 精确小数和大整数、负数及零
+ok 1 - 精确小数和大整数、负数及零
+  ---
+  duration_ms: 1.4329
+  type: 'test'
+  ...
+# Subtest: 同一观察的相等值互证
+ok 2 - 同一观察的相等值互证
+  ---
+  duration_ms: 3.5306
+  type: 'test'
+  ...
+# Subtest: 同公司缺事件锚点不能互证
+ok 3 - 同公司缺事件锚点不能互证
+  ---
+  duration_ms: 0.747
+  type: 'test'
+  ...
+# Subtest: 同一交易缺观察日不能直接比较
+ok 4 - 同一交易缺观察日不能直接比较
+  ---
+  duration_ms: 0.2865
+  type: 'test'
+  ...
+# Subtest: 不同事件编号不能比
+ok 5 - 不同事件编号不能比
+  ---
+  duration_ms: 0.2431
+  type: 'test'
+  ...
+# Subtest: 已证明同口径仍不同是矛盾候选
+ok 6 - 已证明同口径仍不同是矛盾候选
+  ---
+  duration_ms: 0.3372
+  type: 'test'
+  ...
+# Subtest: 小于0.5%差异不自动舍入
+ok 7 - 小于0.5%差异不自动舍入
+  ---
+  duration_ms: 0.2638
+  type: 'test'
+  ...
+# Subtest: 零不是缺失
+ok 8 - 零不是缺失
+  ---
+  duration_ms: 0.2425
+  type: 'test'
+  ...
+# Subtest: 明确万元与元精确归一
+ok 9 - 明确万元与元精确归一
+  ---
+  duration_ms: 0.6408
+  type: 'test'
+  ...
+# Subtest: 万元单位没有原文尺度不猜
+ok 10 - 万元单位没有原文尺度不猜
+  ---
+  duration_ms: 0.2882
+  type: 'test'
+  ...
+# Subtest: 一万倍数字关系不能自行改已知单位
+ok 11 - 一万倍数字关系不能自行改已知单位
+  ---
+  duration_ms: 0.2168
+  type: 'test'
+  ...
+# Subtest: 不同物理单位不可比
+ok 12 - 不同物理单位不可比
+  ---
+  duration_ms: 0.1743
+  type: 'test'
+  ...
+# Subtest: 原文值与输入值冲突保留抽取疑点
+ok 13 - 原文值与输入值冲突保留抽取疑点
+  ---
+  duration_ms: 0.1123
+  type: 'test'
+  ...
+# Subtest: 无币种的元不能默认人民币
+ok 14 - 无币种的元不能默认人民币
+  ---
+  duration_ms: 0.1559
+  type: 'test'
+  ...
+# Subtest: 税口径未披露不能默认含税
+ok 15 - 税口径未披露不能默认含税
+  ---
+  duration_ms: 0.1644
+  type: 'test'
+  ...
+# Subtest: 是否含税未知不能按含税处理
+ok 16 - 是否含税未知不能按含税处理
+  ---
+  duration_ms: 0.1801
+  type: 'test'
+  ...
+# Subtest: 同段同时说含税与未税不能猜绑定
+ok 17 - 同段同时说含税与未税不能猜绑定
+  ---
+  duration_ms: 0.1501
+  type: 'test'
+  ...
+# Subtest: 原文未披露万倍不能从raw伪造尺度
+ok 18 - 原文未披露万倍不能从raw伪造尺度
+  ---
+  duration_ms: 0.0943
+  type: 'test'
+  ...
+# Subtest: 外币出现不等于汇率明确
+ok 19 - 外币出现不等于汇率明确
+  ---
+  duration_ms: 0.1312
+  type: 'test'
+  ...
+# Subtest: 汇率方向日期来源齐全才换算
+ok 20 - 汇率方向日期来源齐全才换算
+  ---
+  duration_ms: 0.2142
+  type: 'test'
+  ...
+# Subtest: 交换左右输入仍按声明汇率方向计算
+ok 21 - 交换左右输入仍按声明汇率方向计算
+  ---
+  duration_ms: 0.3039
+  type: 'test'
+  ...
+# Subtest: 汇率与观察日不匹配不能使用
+ok 22 - 汇率与观察日不匹配不能使用
+  ---
+  duration_ms: 0.2241
+  type: 'test'
+  ...
+# Subtest: 只填汇率字段没有方向原文不够
+ok 23 - 只填汇率字段没有方向原文不够
+  ---
+  duration_ms: 0.1896
+  type: 'test'
+  ...
+# Subtest: 汇率也不能补足不同税口径
+ok 24 - 汇率也不能补足不同税口径
+  ---
+  duration_ms: 0.1613
+  type: 'test'
+  ...
+# Subtest: 不倒算税率
+ok 25 - 不倒算税率
+  ---
+  duration_ms: 0.1349
+  type: 'test'
+  ...
+# Subtest: 明确同事件税率复算
+ok 26 - 明确同事件税率复算
+  ---
+  duration_ms: 0.2116
+  type: 'test'
+  ...
+# Subtest: 有税率也不强凑差额
+ok 27 - 有税率也不强凑差额
+  ---
+  duration_ms: 0.1727
+  type: 'test'
+  ...
+# Subtest: 百分比分母未知不能比
+ok 28 - 百分比分母未知不能比
+  ---
+  duration_ms: 0.1231
+  type: 'test'
+  ...
+# Subtest: 分数单位不冒充百分点
+ok 29 - 分数单位不冒充百分点
+  ---
+  duration_ms: 0.1012
+  type: 'test'
+  ...
+# Subtest: 明确不同分母只说明不可比
+ok 30 - 明确不同分母只说明不可比
+  ---
+  duration_ms: 0.1777
+  type: 'test'
+  ...
+# Subtest: 本次与累计相等仍不互证
+ok 31 - 本次与累计相等仍不互证
+  ---
+  duration_ms: 0.1954
+  type: 'test'
+  ...
+# Subtest: 观察日不同只识别时间差异不猜变化原因
+ok 32 - 观察日不同只识别时间差异不猜变化原因
+  ---
+  duration_ms: 0.1709
+  type: 'test'
+  ...
+# Subtest: 发布日期不能冒充持股观察日
+ok 33 - 发布日期不能冒充持股观察日
+  ---
+  duration_ms: 0.1635
+  type: 'test'
+  ...
+# Subtest: 时间角色不同即使同日也不足以互证
+ok 34 - 时间角色不同即使同日也不足以互证
+  ---
+  duration_ms: 0.1093
+  type: 'test'
+  ...
+# Subtest: 原文数字巧合不是时间依据
+ok 35 - 原文数字巧合不是时间依据
+  ---
+  duration_ms: 0.1065
+  type: 'test'
+  ...
+# Subtest: 近似值不能视为精确矛盾
+ok 36 - 近似值不能视为精确矛盾
+  ---
+  duration_ms: 0.0939
+  type: 'test'
+  ...
+# Subtest: 明确舍入规则才接受舍入
+ok 37 - 明确舍入规则才接受舍入
+  ---
+  duration_ms: 0.1643
+  type: 'test'
+  ...
+# Subtest: 仅说更正但无替代关联不覆盖
+ok 38 - 仅说更正但无替代关联不覆盖
+  ---
+  duration_ms: 0.099
+  type: 'test'
+  ...
+# Subtest: 明确公告目标与先后才更正
+ok 39 - 明确公告目标与先后才更正
+  ---
+  duration_ms: 0.1534
+  type: 'test'
+  ...
+# Subtest: 更正指针错误不覆盖
+ok 40 - 更正指针错误不覆盖
+  ---
+  duration_ms: 0.1745
+  type: 'test'
+  ...
+# Subtest: 坏页块不自动移动到邻块
+ok 41 - 坏页块不自动移动到邻块
+  ---
+  duration_ms: 0.1659
+  type: 'test'
+  ...
+# Subtest: 引文伪造不通过
+ok 42 - 引文伪造不通过
+  ---
+  duration_ms: 0.1203
+  type: 'test'
+  ...
+# Subtest: 混合受控和真实证据拒绝互证
+ok 43 - 混合受控和真实证据拒绝互证
+  ---
+  duration_ms: 0.1045
+  type: 'test'
+  ...
+# Subtest: 规则不修改输入A
+ok 44 - 规则不修改输入A
+  ---
+  duration_ms: 0.2466
+  type: 'test'
+  ...
+# Subtest: A待复核状态不能因数字相同升级
+ok 45 - A待复核状态不能因数字相同升级
+  ---
+  duration_ms: 0.1799
+  type: 'test'
+  ...
+# Subtest: A未标准化字段不能直接比较
+ok 46 - A未标准化字段不能直接比较
+  ---
+  duration_ms: 0.1347
+  type: 'test'
+  ...
+# Subtest: 真实公开18例按预期；原受控2例缺据保留疑点
+ok 47 - 真实公开18例按预期；原受控2例缺据保留疑点
+  ---
+  duration_ms: 37.2
+  type: 'test'
+  ...
+# Subtest: 修改公开集标签不改变判定
+ok 48 - 修改公开集标签不改变判定
+  ---
+  duration_ms: 33.7293
+  type: 'test'
+  ...
+# Subtest: 合计4人与总額精确勾稽且不按个人分摊
+ok 49 - 合计4人与总額精确勾稽且不按个人分摊
+  ---
+  duration_ms: 10.8172
+  type: 'test'
+  ...
+# Subtest: 明示AED/RMB折合不反推汇率
+ok 50 - 明示AED/RMB折合不反推汇率
+  ---
+  duration_ms: 0.2622
+  type: 'test'
+  ...
+# Subtest: 018是单侧无主体，不伪称header缺失
+ok 51 - 018是单侧无主体，不伪称header缺失
+  ---
+  duration_ms: 0.1145
+  type: 'test'
+  ...
+# Subtest: 魏接口增强事实可接通
+ok 52 - 魏接口增强事实可接通
+  ---
+  duration_ms: 0.5771
+  type: 'test'
+  ...
+# Subtest: 魏接口缺少元数据不落回倍率猜测
+ok 53 - 魏接口缺少元数据不落回倍率猜测
+  ---
+  duration_ms: 0.1053
+  type: 'test'
+  ...
+# Subtest: 魏接口补充事实篡改不能套用
+ok 54 - 魏接口补充事实篡改不能套用
+  ---
+  duration_ms: 0.0988
+  type: 'test'
+  ...
+# Subtest: 魏接口多个同形冲突不能按序号套用
+ok 55 - 魏接口多个同形冲突不能按序号套用
+  ---
+  duration_ms: 0.1128
+  type: 'test'
+  ...
+# Subtest: 魏unknown不得因归因升级
+ok 56 - 魏unknown不得因归因升级
+  ---
+  duration_ms: 0.0903
+  type: 'test'
+  ...
+# Subtest: 畸形接口输入被收敛为疑点而不是抛错
+ok 57 - 畸形接口输入被收敛为疑点而不是抛错
+  ---
+  duration_ms: 0.1228
+  type: 'test'
+  ...
+1..57
+# tests 57
+# suites 0
+# pass 57
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 292.4492

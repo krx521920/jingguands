@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-05",
+  "node": "v24.21.0",
+  "pins": {
+    "wei": "a9478a1e6ee1637b9eff53591c0a6722186c7f99",
+    "zong": "5d1b06f0f5b4708e27d311669f5f0fcc95eace08",
+    "zhang": "1a1e2d7d62070f80be3445a3295193985ec9e7ae",
+    "chen": "6bfb9625e4f5bde6f25188aa9fb01980b373746b"
+  },
+  "unchanged_source_files": 57,
+  "schema": {
+    "total": 31,
+    "passed": 31
+  },
+  "chen_bridge": {
+    "total": 31,
+    "passed": 31,
+    "extracted_values": 437
+  },
+  "public": {
+    "total": 20,
+    "real_public_expected_match": 18,
+    "real_public_total": 18,
+    "original_controlled_kept_insufficient": 2,
+    "zong_strict_status": "FAIL",
+    "zong_strict_exit": 1,
+    "zong_pass": 18,
+    "zong_fail": 2,
+    "false_positive": 0,
+    "false_negative_under_original_labels": 1
+  },
+  "verified_real_side_count": 30,
+  "stale_bilateral_anchors": [
+    {
+      "case_id": "D9-RULE-009",
+      "document": "D5-EQC-004",
+      "field": "change_shares",
+      "old_block": "da00b31da_p019_b00006",
+      "current_block": "da00b31da_p019_b00015"
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "document": "D4-PLD-001",
+      "field": "pledged_shares_this_time",
+      "old_block": "d44e95085_p001_b00024",
+      "current_block": "d44e95085_p001_b00025"
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "document": "D4-PLD-001",
+      "field": "pledged_shares_cumulative",
+      "old_block": "d44e95085_p001_b00083",
+      "current_block": "d44e95085_p001_b00084"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "document": "D4-PLD-001",
+      "field": "pledged_ratio_this_time_of_held",
+      "old_block": "d44e95085_p001_b00025",
+      "current_block": "d44e95085_p001_b00026"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "document": "D4-PLD-001",
+      "field": "pledged_ratio_this_time_of_total",
+      "old_block": "d44e95085_p001_b00026",
+      "current_block": "d44e95085_p001_b00027"
+    }
+  ],
+  "wei_plugin": {
+    "cli_exit": 0,
+    "entries": 7,
+    "plugin_handled": 7,
+    "builtin_fallbacks": 0
+  },
+  "wei_original_runner": {
+    "cli_exit": 0,
+    "block_verify": {
+      "envelopes_dir": "C:\\Users\\fxc\\AppData\\Local\\Packages\\sandbox.{23d0b14a-bd56-4f74-9cca-d504346cd137}\\AC\\Temp\\fang-d9-peer-L2HMhf",
+      "side_summary": {
+        "true": 30,
+        "null": 5
+      },
+      "policy": "主源＝批次信封 parse_meta.blocks；NFKC＋去空白归一后 quote∈block；受控构造与无块设计侧豁免（null）"
+    },
+    "differences": [
+      {
+        "case_id": "D9-RULE-019",
+        "fang_verdict": "insufficient",
+        "wei_verdict": "restated"
+      },
+      {
+        "case_id": "D9-RULE-020",
+        "fang_verdict": "insufficient",
+        "wei_verdict": "conflict"
+      }
+    ]
+  },
+  "controlled_fixture_count": 5,
+  "limits": [
+    "未调用DeepSeek在线模型；确定性层离线验证",
+    "未做陈的D9浏览器页面验收；检查既有bridge消费A兼容性",
+    "未读取封存Gold；未修改A状态/值或公开集标签",
+    "公开019/020缺事实，严格评分18/20，不能宣称20/20通过"
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "version": "D9.1",
+  "implementation": "src_D9/attribution_D9.mjs",
+  "rules": [
+    {
+      "rule_id": "INVALID_SIDE_COUNT",
+      "verdict": "insufficient",
+      "explanation": "缺少比较侧或超出100侧上限；保留疑点。"
+    },
+    {
+      "rule_id": "MISSING_VALUE",
+      "verdict": "insufficient",
+      "explanation": "字段缺失或扫描降级；缺失不等于零。"
+    },
+    {
+      "rule_id": "EVIDENCE_NOT_VERIFIED",
+      "verdict": "insufficient",
+      "explanation": "至少一侧缺少可核验的源文档、页块或引文；不能以期望说明补足事实。"
+    },
+    {
+      "rule_id": "MIXED_REAL_MOCK",
+      "verdict": "insufficient",
+      "explanation": "真实与受控构造输入不能混合互证。"
+    },
+    {
+      "rule_id": "VALUE_EVIDENCE_MISMATCH",
+      "verdict": "insufficient",
+      "explanation": "输入值、单位或出处不一致，先复核抽取/标准化，不能归为业务矛盾。"
+    },
+    {
+      "rule_id": "CURRENCY_RECORD_CONFLICT",
+      "verdict": "insufficient",
+      "explanation": "币种字段与明示人民币折合值不一致。"
+    },
+    {
+      "rule_id": "ISSUER_DISCLOSED_EQUIVALENT",
+      "verdict": "explainable_difference",
+      "explanation": "公告已明示原币金额与人民币折合金额，保留双记录；不计算或推广隐含汇率。"
+    },
+    {
+      "rule_id": "SINGLE_SIDE_DISCLOSURE",
+      "verdict": "explainable_difference",
+      "explanation": "本输入仅有该主体一侧披露，不构成矛盾；不据此断言对方整份文件未披露，也不填零。"
+    },
+    {
+      "rule_id": "NO_COMPARISON_CONTEXT",
+      "verdict": "insufficient",
+      "explanation": "单侧输入且主体/比较对象未建立；即使正文金额可读，也不能判断跨文档关系。"
+    },
+    {
+      "rule_id": "MULTI_SIDE_ROLE_UNSPECIFIED",
+      "verdict": "insufficient",
+      "explanation": "多侧输入必须先明确合计、分项和身份，不能仅凭一个数等于其余之和归因。"
+    },
+    {
+      "rule_id": "CUMULATIVE_VS_SINGLE",
+      "verdict": "explainable_difference",
+      "explanation": "本次与累计口径明确不同，不能直接相减解释为单次增量；两值也可能相等，不能说必然不同。"
+    },
+    {
+      "rule_id": "DENOMINATOR_DIFFERENT",
+      "verdict": "explainable_difference",
+      "explanation": "比例分母范围不同，不能比较百分数大小或推算分母。"
+    },
+    {
+      "rule_id": "TAX_METADATA_BINDING",
+      "verdict": "explainable_difference",
+      "explanation": "该记录确认金额的含税属性；不是两个金额相等的证明。未披露税率，不倒算税额。"
+    },
+    {
+      "rule_id": "TAX_METADATA_CONFLICT",
+      "verdict": "insufficient",
+      "explanation": "含税字段与原文不一致或未披露，保留疑点。"
+    },
+    {
+      "rule_id": "EXPLICIT_LINKED_CORRECTION",
+      "verdict": "restated",
+      "explanation": "明确更正目标与发布先后均有出处，保留旧记录并标记被更正，不回写A。"
+    },
+    {
+      "rule_id": "CORRECTION_LINK_OR_ORDER_MISSING",
+      "verdict": "insufficient",
+      "explanation": "检测到更正语句，但缺明确替代对象或先后依据；不能自动用后一个输入覆盖前值。"
+    },
+    {
+      "rule_id": "EVENT_IDENTITY_UNPROVEN",
+      "verdict": "insufficient",
+      "explanation": "尚未证明同一交易/标的观察；同公司、同主体、同数字都不能替代事件对齐。"
+    },
+    {
+      "rule_id": "AGGREGATE_SUM_NOT_RECONCILED",
+      "verdict": "insufficient",
+      "explanation": "明确合计与分项关系，但程序求和不一致，保留疑点；不向个人分摊差额。"
+    },
+    {
+      "rule_id": "AGGREGATE_DETAIL_RECONCILED",
+      "verdict": "explainable_difference",
+      "explanation": "完整且不重复的转让方分项经精确求和与总额一致；合计不拆记个人。"
+    },
+    {
+      "rule_id": "AGGREGATE_PARTIAL_COVERAGE",
+      "verdict": "explainable_difference",
+      "explanation": "已识别合计与明细口径，完整分项不足，尚未完成数值勾稽；保留未解释部分。"
+    },
+    {
+      "rule_id": "VERIFIED_TRANSFER_COUNTERPARTIES",
+      "verdict": "corroborated",
+      "explanation": "同笔转让的明确买卖双方及相反方向已核验，转让量一致；期末/期初匹配还核验买方原持股与卖方余股为零。"
+    },
+    {
+      "rule_id": "COUNTERPARTY_LINK_NOT_RECONCILED",
+      "verdict": "insufficient",
+      "explanation": "同交易不同主体尚未证明完整转移或对应份额；不能仅凭非圆整数相等判互证。"
+    },
+    {
+      "rule_id": "SUBJECT_SCOPE_UNPROVEN",
+      "verdict": "insufficient",
+      "explanation": "主体范围不足或不同，不直接对比。"
+    },
+    {
+      "rule_id": "TIME_BASIS_DIFFERENT",
+      "verdict": "explainable_difference",
+      "explanation": "同指标的实际观察时点不同，不能直接判矛盾；不以发布日期代替观察日，也不猜测变化原因。"
+    },
+    {
+      "rule_id": "FIELD_SEMANTICS_NOT_ALIGNED",
+      "verdict": "insufficient",
+      "explanation": "字段含义不同且未建立可验证映射，保留疑点。"
+    },
+    {
+      "rule_id": "A_FIELD_BINDING_UNCONFIRMED",
+      "verdict": "insufficient",
+      "explanation": "未能绑定唯一且可核验的已抽取A字段；待复核或未标准化字段不升级为互证/矛盾。"
+    },
+    {
+      "rule_id": "NUMERIC_VALUE_UNAVAILABLE",
+      "verdict": "insufficient",
+      "explanation": "缺少可精确处理的十进制值；不将空值或超精度浮点当数字。"
+    },
+    {
+      "rule_id": "UNIT_DIMENSION_MISMATCH",
+      "verdict": "insufficient",
+      "explanation": "物理/业务单位不一致，不能跨维度比较。"
+    },
+    {
+      "rule_id": "DENOMINATOR_UNPROVEN",
+      "verdict": "insufficient",
+      "explanation": "比例分母未明，不能据百分数差异判断矛盾。"
+    },
+    {
+      "rule_id": "CUMULATIVE_BASIS_UNKNOWN",
+      "verdict": "insufficient",
+      "explanation": "一侧累计/本次范围未明，不能默认同口径。"
+    },
+    {
+      "rule_id": "OBSERVATION_TIME_UNPROVEN",
+      "verdict": "insufficient",
+      "explanation": "交易关联不足以证明同一原子观察或同一时点，保留疑点。"
+    },
+    {
+      "rule_id": "CURRENCY_UNKNOWN",
+      "verdict": "insufficient",
+      "explanation": "币种缺少依据；元、$或地区本身不足以定币种。"
+    },
+    {
+      "rule_id": "FX_TAX_BASIS_UNALIGNED",
+      "verdict": "insufficient",
+      "explanation": "跨币种金额的税口径也未对齐；单个汇率不能解释全部差额。"
+    },
+    {
+      "rule_id": "EXPLICIT_FX_RECONCILED",
+      "verdict": "explainable_difference",
+      "explanation": "明确方向、日期与适用记录的汇率经精确计算可解释差异；不推广到其他日期。"
+    },
+    {
+      "rule_id": "FX_NOT_RECONCILED",
+      "verdict": "insufficient",
+      "explanation": "有据汇率计算仍不一致，保留疑点。"
+    },
+    {
+      "rule_id": "FX_BASIS_MISSING",
+      "verdict": "insufficient",
+      "explanation": "币种不同，但缺适用日期/方向/汇率或明示折合依据；不自行换算。"
+    },
+    {
+      "rule_id": "TAX_BASIS_UNKNOWN",
+      "verdict": "insufficient",
+      "explanation": "至少一侧税口径未披露，不默认含税或未税。"
+    },
+    {
+      "rule_id": "EXPLICIT_TAX_RECONCILED",
+      "verdict": "explainable_difference",
+      "explanation": "同事件明示税率解释含税/未税差异；原金额保留。"
+    },
+    {
+      "rule_id": "TAX_NOT_RECONCILED",
+      "verdict": "insufficient",
+      "explanation": "已知税率计算仍不一致，保留疑点；不调税率凑数。"
+    },
+    {
+      "rule_id": "TAX_RATE_MISSING",
+      "verdict": "insufficient",
+      "explanation": "已识别含税与未税口径不同，但没有可适用税率，差额仍待解释。"
+    },
+    {
+      "rule_id": "QUALIFIED_AMOUNT_NOT_EXACT",
+      "verdict": "insufficient",
+      "explanation": "近似、暂定或上下界不按精确值判断；需要明确精度/范围依据。"
+    },
+    {
+      "rule_id": "EXPLICIT_UNIT_RECONCILED",
+      "verdict": "explainable_difference",
+      "explanation": "原文单位明确且精确归一后相等；不是仅凭一万倍关系猜单位。"
+    },
+    {
+      "rule_id": "SAME_OBSERVATION_EQUAL",
+      "verdict": "corroborated",
+      "explanation": "事件、主体、字段和适用口径一致，精确十进制数值相同。"
+    },
+    {
+      "rule_id": "EXPLICIT_ROUNDING",
+      "verdict": "explainable_difference",
+      "explanation": "有明确舍入规则并通过精确复算；不使用通用0.5%容差。"
+    },
+    {
+      "rule_id": "SAME_BASIS_CONFLICT",
+      "verdict": "conflict",
+      "explanation": "双侧原文、同一原子事件/观察时点和全部适用口径均成立，精确值仍不一致；作为有证据的矛盾提交人工终审。"
+    }
+  ]
+}

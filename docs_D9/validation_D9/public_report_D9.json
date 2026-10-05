@@ -1,0 +1,2797 @@
+{
+  "checked_on": "2026-10-05",
+  "tool": "attribution_D9",
+  "rule_version": "D9.1",
+  "cases_total": 20,
+  "by_verdict": {
+    "corroborated": 5,
+    "explainable_difference": 11,
+    "insufficient": 4
+  },
+  "cases": [
+    {
+      "case_id": "D9-RULE-001",
+      "rule_version": "D9.1",
+      "verdict": "corroborated",
+      "attribution_code": "SAME_OBSERVATION_EQUAL",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "shares_after",
+          "entity": "蔚文绪",
+          "original_value": 11042217,
+          "raw_value": "11,042,217",
+          "normalized_value": "11042217",
+          "unit": "shares",
+          "block_id": "d9d5be14f_p010_b00006",
+          "quote": "11,042,217",
+          "block_verified": true,
+          "page": 10,
+          "region": [
+            383.07,
+            72.77,
+            449.07,
+            93.6
+          ],
+          "source_type": "cell",
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r1c6",
+          "header_path": null,
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "a_run_id": "20261005T064044-equity_change-0236",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d9d5be14f_p010_b00006",
+              "page": 10,
+              "region": [
+                383.07,
+                72.77,
+                449.07,
+                93.6
+              ],
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r1c6",
+              "source_type": "cell",
+              "quote": "11,042,217"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "shares_after",
+          "entity": "蔚文绪",
+          "original_value": 11042217,
+          "raw_value": "11,042,217股",
+          "normalized_value": "11042217",
+          "unit": "shares",
+          "block_id": "d46bc2ef0_p017_b00008",
+          "quote": "11,042,217",
+          "block_verified": true,
+          "page": 17,
+          "region": [
+            90.02,
+            285.18,
+            517.68,
+            344.76
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "a_run_id": "20261005T064056-equity_change-18f6",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d46bc2ef0_p018_b00022",
+              "page": 18,
+              "region": [
+                390.61,
+                337.73,
+                453.68,
+                358.01
+              ],
+              "table_id": "d46bc2ef0_p018_t001",
+              "cell_ref": "r3c6",
+              "source_type": "cell",
+              "quote": "11,042,217"
+            }
+          ],
+          "binding_method": "independently_verified_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "SAME_OBSERVATION_EQUAL",
+          "matched": true,
+          "verdict": "corroborated"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": true,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": true,
+        "method": "D8.2"
+      },
+      "resolution": "numerically_checked"
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "rule_version": "D9.1",
+      "verdict": "corroborated",
+      "attribution_code": "SAME_OBSERVATION_EQUAL",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "shares_before",
+          "entity": "蔚文举",
+          "original_value": 3190004,
+          "raw_value": "3,190,004",
+          "normalized_value": "3190004",
+          "unit": "shares",
+          "block_id": "d9d5be14f_p010_b00030",
+          "quote": "3,190,004",
+          "block_verified": true,
+          "page": 10,
+          "region": [
+            147.79,
+            154.7,
+            208.3,
+            174.98
+          ],
+          "source_type": "cell",
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r5c2",
+          "header_path": null,
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "a_run_id": "20261005T064044-equity_change-0236",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E04"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d9d5be14f_p010_b00030",
+              "page": 10,
+              "region": [
+                147.79,
+                154.7,
+                208.3,
+                174.98
+              ],
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r5c2",
+              "source_type": "cell",
+              "quote": "3,190,004"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "shares_before",
+          "entity": "蔚文举",
+          "original_value": 3190004,
+          "raw_value": "3,190,004股",
+          "normalized_value": "3190004",
+          "unit": "shares",
+          "block_id": "d46bc2ef0_p060_b00039",
+          "quote": "蔚文举 持股种类：A股普通股 持股数量：3,190,004股",
+          "block_verified": true,
+          "page": 60,
+          "region": [
+            170.28,
+            489.55,
+            523.88,
+            678.92
+          ],
+          "source_type": "cell",
+          "table_id": "d46bc2ef0_p060_t001",
+          "cell_ref": "r11c2",
+          "header_path": "基本情况/洛阳科创新材料股份有限公司/科创新材",
+          "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "a_run_id": "20261005T064056-equity_change-18f6",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E05"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d46bc2ef0_p018_b00046",
+              "page": 18,
+              "region": [
+                142.37,
+                419.09,
+                209.19,
+                439.49
+              ],
+              "table_id": "d46bc2ef0_p018_t001",
+              "cell_ref": "r7c2",
+              "source_type": "cell",
+              "quote": "3,190,004"
+            }
+          ],
+          "binding_method": "independently_verified_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "SAME_OBSERVATION_EQUAL",
+          "matched": true,
+          "verdict": "corroborated"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": true,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": true,
+        "method": "D8.2"
+      },
+      "resolution": "numerically_checked"
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "rule_version": "D9.1",
+      "verdict": "corroborated",
+      "attribution_code": "SAME_OBSERVATION_EQUAL",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "change_shares",
+          "entity": "于春生",
+          "original_value": 8427900,
+          "raw_value": "8,427,900",
+          "normalized_value": "8427900",
+          "unit": "shares",
+          "block_id": "d9d5be14f_p010_b00018",
+          "quote": "8,427,900",
+          "block_verified": true,
+          "page": 10,
+          "region": [
+            268.78,
+            114.02,
+            325.92,
+            134.3
+          ],
+          "source_type": "cell",
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r3c4",
+          "header_path": null,
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "a_run_id": "20261005T064044-equity_change-0236",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E05"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d9d5be14f_p010_b00018",
+              "page": 10,
+              "region": [
+                268.78,
+                114.02,
+                325.92,
+                134.3
+              ],
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r3c4",
+              "source_type": "cell",
+              "quote": "8,427,900"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "change_shares",
+          "entity": "于春生",
+          "original_value": 8427900,
+          "raw_value": "8,427,900股",
+          "normalized_value": "8427900",
+          "unit": "shares",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "block_verified": true,
+          "page": 17,
+          "region": [
+            90.02,
+            411.78,
+            517.46,
+            704.81
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "a_run_id": "20261005T064056-equity_change-18f6",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E03"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d46bc2ef0_p018_b00034",
+              "page": 18,
+              "region": [
+                267.44,
+                378.41,
+                332.21,
+                398.81
+              ],
+              "table_id": "d46bc2ef0_p018_t001",
+              "cell_ref": "r5c4",
+              "source_type": "cell",
+              "quote": "8,427,900"
+            }
+          ],
+          "binding_method": "independently_verified_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "SAME_OBSERVATION_EQUAL",
+          "matched": true,
+          "verdict": "corroborated"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": true,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": true,
+        "method": "D8.2"
+      },
+      "resolution": "numerically_checked"
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "AGGREGATE_DETAIL_RECONCILED",
+      "attribution": "完整且不重复的转让方分项经精确求和与总额一致；合计不拆记个人。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-003",
+          "field": "change_shares",
+          "entity": "蔚文绪、马军强、杨占坡和蔚文举",
+          "original_value": 8427900,
+          "raw_value": "8,427,900股",
+          "normalized_value": "8427900",
+          "unit": "shares",
+          "block_id": "d173fee90_p018_b00014",
+          "quote": "8,427,900股",
+          "block_verified": true,
+          "page": 18,
+          "region": [
+            90,
+            561.29,
+            511.08,
+            760.49
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+          "a_run_id": "20261005T064114-equity_change-64fd",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d173fee90_p005_b00028",
+              "source_type": "cell",
+              "page": 5,
+              "region": [
+                189.2,
+                428.89,
+                504.25,
+                679.59
+              ],
+              "table_id": "d173fee90_p005_t001",
+              "cell_ref": "r9c3",
+              "quote": "2026年9月23日，于春生与蔚文绪、马军强、杨占坡和蔚文举分别签署了《股份转让协议》约定，蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%）转让给于春生。同日，蔚文绪、马军强、蔚文举和杨占坡签署《一致行动协议之解除协议》；于春生和蔚文绪、蔚文举签署《一致行动协议》，尤其事关上市公司重大资产重组、再发行、配股送股、重大资产处置、重大金额贷款、债券发行等事项时，事先充分协商，努力达成一致意见，如各方无法达成一致意见，蔚文绪和蔚文举需按照于春生的意见行使表决权。蔚文绪、马军强、杨占坡和蔚文举出具《不谋求上市公司实际控制人地位的承诺函》。本次权益变动后，于春生通过与蔚文绪、蔚文举签署《一致行动协议》，合计控制科创新材29.99%股份的表决权。同时，根据各方签署的《股份转让协议》，于春生享有向科创新材董事会推荐或提名8席董事中5席董事的权利，能够对科创新材董事会产生重大影响力，并能够实际支配科创新材的经营决策。因此，本次权益变动完成后，信息披露义务人于春生将成为科创新材的实际控制人。"
+            }
+          ],
+          "binding_method": "independently_verified_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "change_shares",
+          "entity": "于春生",
+          "original_value": 8427900,
+          "raw_value": "8,427,900股",
+          "normalized_value": "8427900",
+          "unit": "shares",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "block_verified": true,
+          "page": 17,
+          "region": [
+            90.02,
+            411.78,
+            517.46,
+            704.81
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "a_run_id": "20261005T064056-equity_change-18f6",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E03"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d46bc2ef0_p018_b00034",
+              "page": 18,
+              "region": [
+                267.44,
+                378.41,
+                332.21,
+                398.81
+              ],
+              "table_id": "d46bc2ef0_p018_t001",
+              "cell_ref": "r5c4",
+              "source_type": "cell",
+              "quote": "8,427,900"
+            }
+          ],
+          "binding_method": "independently_verified_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [
+        {
+          "name": "share_sum",
+          "used_source": "D8_verified_transaction_seller_fields",
+          "operands": [
+            {
+              "entity": "蔚文绪",
+              "value": "3680700"
+            },
+            {
+              "entity": "马军强",
+              "value": "2975600"
+            },
+            {
+              "entity": "杨占坡",
+              "value": "430000"
+            },
+            {
+              "entity": "蔚文举",
+              "value": "1341600"
+            }
+          ],
+          "result": "8427900",
+          "evidence": [
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "蔚文绪",
+              "original_value": 3680700,
+              "raw_value": "-3,680,700",
+              "normalized_value": "3680700",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00004",
+              "quote": "-3,680,700",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                72.77,
+                325.92,
+                93.6
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r1c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261005T064044-equity_change-0236",
+              "code_version": "468b5041",
+              "is_mock": false,
+              "a_event_ids": [
+                "E01"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00004",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    72.77,
+                    325.92,
+                    93.6
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r1c4",
+                  "source_type": "cell",
+                  "quote": "-3,680,700"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "马军强",
+              "original_value": 2975600,
+              "raw_value": "-2,975,600",
+              "normalized_value": "2975600",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00011",
+              "quote": "-2,975,600",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                93.6,
+                325.92,
+                114.02
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r2c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261005T064044-equity_change-0236",
+              "code_version": "468b5041",
+              "is_mock": false,
+              "a_event_ids": [
+                "E02"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00011",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    93.6,
+                    325.92,
+                    114.02
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r2c4",
+                  "source_type": "cell",
+                  "quote": "-2,975,600"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "杨占坡",
+              "original_value": 430000,
+              "raw_value": "-430,000",
+              "normalized_value": "430000",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00025",
+              "quote": "-430,000",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                134.3,
+                325.92,
+                154.7
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r4c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261005T064044-equity_change-0236",
+              "code_version": "468b5041",
+              "is_mock": false,
+              "a_event_ids": [
+                "E03"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00025",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    134.3,
+                    325.92,
+                    154.7
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r4c4",
+                  "source_type": "cell",
+                  "quote": "-430,000"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "蔚文举",
+              "original_value": 1341600,
+              "raw_value": "-1,341,600",
+              "normalized_value": "1341600",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00032",
+              "quote": "-1,341,600",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                154.7,
+                325.92,
+                174.98
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r5c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261005T064044-equity_change-0236",
+              "code_version": "468b5041",
+              "is_mock": false,
+              "a_event_ids": [
+                "E04"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00032",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    154.7,
+                    325.92,
+                    174.98
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r5c4",
+                  "source_type": "cell",
+                  "quote": "-1,341,600"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            }
+          ],
+          "allocation_performed": false
+        }
+      ],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "AGGREGATE_DETAIL_RECONCILED",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": true,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": false,
+        "method": "D8.2"
+      },
+      "resolution": "numerically_checked"
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "AGGREGATE_DETAIL_RECONCILED",
+      "attribution": "完整且不重复的转让方分项经精确求和与总额一致；合计不拆记个人。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "change_shares",
+          "entity": "蔚文绪",
+          "original_value": 3680700,
+          "raw_value": "-3,680,700",
+          "normalized_value": "3680700",
+          "unit": "shares",
+          "block_id": "d9d5be14f_p010_b00004",
+          "quote": "-3,680,700",
+          "block_verified": true,
+          "page": 10,
+          "region": [
+            268.78,
+            72.77,
+            325.92,
+            93.6
+          ],
+          "source_type": "cell",
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r1c4",
+          "header_path": null,
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "a_run_id": "20261005T064044-equity_change-0236",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d9d5be14f_p010_b00004",
+              "page": 10,
+              "region": [
+                268.78,
+                72.77,
+                325.92,
+                93.6
+              ],
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r1c4",
+              "source_type": "cell",
+              "quote": "-3,680,700"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "field": "change_shares",
+          "entity": "于春生",
+          "original_value": 8427900,
+          "raw_value": "8,427,900股",
+          "normalized_value": "8427900",
+          "unit": "shares",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "block_verified": true,
+          "page": 17,
+          "region": [
+            90.02,
+            411.78,
+            517.46,
+            704.81
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "a_run_id": "20261005T064056-equity_change-18f6",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E03"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d46bc2ef0_p018_b00034",
+              "page": 18,
+              "region": [
+                267.44,
+                378.41,
+                332.21,
+                398.81
+              ],
+              "table_id": "d46bc2ef0_p018_t001",
+              "cell_ref": "r5c4",
+              "source_type": "cell",
+              "quote": "8,427,900"
+            }
+          ],
+          "binding_method": "independently_verified_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [
+        {
+          "name": "share_sum",
+          "used_source": "D8_verified_transaction_seller_fields",
+          "operands": [
+            {
+              "entity": "蔚文绪",
+              "value": "3680700"
+            },
+            {
+              "entity": "马军强",
+              "value": "2975600"
+            },
+            {
+              "entity": "杨占坡",
+              "value": "430000"
+            },
+            {
+              "entity": "蔚文举",
+              "value": "1341600"
+            }
+          ],
+          "result": "8427900",
+          "evidence": [
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "蔚文绪",
+              "original_value": 3680700,
+              "raw_value": "-3,680,700",
+              "normalized_value": "3680700",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00004",
+              "quote": "-3,680,700",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                72.77,
+                325.92,
+                93.6
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r1c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261005T064044-equity_change-0236",
+              "code_version": "468b5041",
+              "is_mock": false,
+              "a_event_ids": [
+                "E01"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00004",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    72.77,
+                    325.92,
+                    93.6
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r1c4",
+                  "source_type": "cell",
+                  "quote": "-3,680,700"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "马军强",
+              "original_value": 2975600,
+              "raw_value": "-2,975,600",
+              "normalized_value": "2975600",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00011",
+              "quote": "-2,975,600",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                93.6,
+                325.92,
+                114.02
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r2c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261005T064044-equity_change-0236",
+              "code_version": "468b5041",
+              "is_mock": false,
+              "a_event_ids": [
+                "E02"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00011",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    93.6,
+                    325.92,
+                    114.02
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r2c4",
+                  "source_type": "cell",
+                  "quote": "-2,975,600"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "杨占坡",
+              "original_value": 430000,
+              "raw_value": "-430,000",
+              "normalized_value": "430000",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00025",
+              "quote": "-430,000",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                134.3,
+                325.92,
+                154.7
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r4c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261005T064044-equity_change-0236",
+              "code_version": "468b5041",
+              "is_mock": false,
+              "a_event_ids": [
+                "E03"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00025",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    134.3,
+                    325.92,
+                    154.7
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r4c4",
+                  "source_type": "cell",
+                  "quote": "-430,000"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "蔚文举",
+              "original_value": 1341600,
+              "raw_value": "-1,341,600",
+              "normalized_value": "1341600",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00032",
+              "quote": "-1,341,600",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                154.7,
+                325.92,
+                174.98
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r5c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261005T064044-equity_change-0236",
+              "code_version": "468b5041",
+              "is_mock": false,
+              "a_event_ids": [
+                "E04"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00032",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    154.7,
+                    325.92,
+                    174.98
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r5c4",
+                  "source_type": "cell",
+                  "quote": "-1,341,600"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            }
+          ],
+          "allocation_performed": false
+        }
+      ],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "AGGREGATE_DETAIL_RECONCILED",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": true,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": false,
+        "method": "D8.2"
+      },
+      "resolution": "numerically_checked"
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "SINGLE_SIDE_DISCLOSURE",
+      "attribution": "本输入仅有该主体一侧披露，不构成矛盾；不据此断言对方整份文件未披露，也不填零。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "change_shares",
+          "entity": "马军强",
+          "original_value": 2975600,
+          "raw_value": "-2,975,600",
+          "normalized_value": "2975600",
+          "unit": "shares",
+          "block_id": "d9d5be14f_p010_b00011",
+          "quote": "-2,975,600",
+          "block_verified": true,
+          "page": 10,
+          "region": [
+            268.78,
+            93.6,
+            325.92,
+            114.02
+          ],
+          "source_type": "cell",
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r2c4",
+          "header_path": null,
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "a_run_id": "20261005T064044-equity_change-0236",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E02"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d9d5be14f_p010_b00011",
+              "page": 10,
+              "region": [
+                268.78,
+                93.6,
+                325.92,
+                114.02
+              ],
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r2c4",
+              "source_type": "cell",
+              "quote": "-2,975,600"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 1
+        },
+        {
+          "rule_id": "SINGLE_SIDE_DISCLOSURE",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "SINGLE_SIDE_DISCLOSURE",
+      "attribution": "本输入仅有该主体一侧披露，不构成矛盾；不据此断言对方整份文件未披露，也不填零。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "field": "change_shares",
+          "entity": "杨占坡",
+          "original_value": 430000,
+          "raw_value": "-430,000",
+          "normalized_value": "430000",
+          "unit": "shares",
+          "block_id": "d9d5be14f_p010_b00025",
+          "quote": "-430,000",
+          "block_verified": true,
+          "page": 10,
+          "region": [
+            268.78,
+            134.3,
+            325.92,
+            154.7
+          ],
+          "source_type": "cell",
+          "table_id": "d9d5be14f_p010_t001",
+          "cell_ref": "r4c4",
+          "header_path": null,
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "a_run_id": "20261005T064044-equity_change-0236",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E03"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d9d5be14f_p010_b00025",
+              "page": 10,
+              "region": [
+                268.78,
+                134.3,
+                325.92,
+                154.7
+              ],
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r4c4",
+              "source_type": "cell",
+              "quote": "-430,000"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 1
+        },
+        {
+          "rule_id": "SINGLE_SIDE_DISCLOSURE",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "rule_version": "D9.1",
+      "verdict": "corroborated",
+      "attribution_code": "VERIFIED_TRANSFER_COUNTERPARTIES",
+      "attribution": "同笔转让的明确买卖双方及相反方向已核验，转让量一致；期末/期初匹配还核验买方原持股与卖方余股为零。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "field": "shares_after",
+          "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "original_value": 72673907,
+          "raw_value": "72,673,907股",
+          "normalized_value": "72673907",
+          "unit": "shares",
+          "block_id": "da00b31da_p009_b00004",
+          "quote": "本次权益变动后，信息披露义务人持有上市公司72,673,907股股份",
+          "block_verified": true,
+          "page": 9,
+          "region": [
+            84.84,
+            165.17,
+            513.12,
+            177.17
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+          "a_run_id": "20261005T064118-equity_change-6960",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "da00b31da_p009_b00017",
+              "page": 9,
+              "region": [
+                309.6,
+                351.87,
+                394.65,
+                442.54
+              ],
+              "table_id": "da00b31da_p009_t001",
+              "cell_ref": "r3c4",
+              "source_type": "cell",
+              "quote": "72,673,907"
+            }
+          ],
+          "binding_method": "independently_verified_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "field": "shares_before",
+          "entity": "浙江省国际贸易集团有限公司",
+          "original_value": 72673907,
+          "raw_value": "72,673,907股",
+          "normalized_value": "72673907",
+          "unit": "shares",
+          "block_id": "da8d294d2_p008_b00002",
+          "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份",
+          "block_verified": true,
+          "page": 8,
+          "region": [
+            114.24,
+            83.09,
+            500.16,
+            157.56
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+          "a_run_id": "20261005T064122-equity_change-7058",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "da8d294d2_p008_b00002",
+              "page": 8,
+              "region": [
+                114.24,
+                83.09,
+                500.16,
+                157.56
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "VERIFIED_TRANSFER_COUNTERPARTIES",
+          "matched": true,
+          "verdict": "corroborated"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": true,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": false,
+        "method": "D8.2"
+      },
+      "resolution": "numerically_checked"
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "rule_version": "D9.1",
+      "verdict": "corroborated",
+      "attribution_code": "VERIFIED_TRANSFER_COUNTERPARTIES",
+      "attribution": "同笔转让的明确买卖双方及相反方向已核验，转让量一致；期末/期初匹配还核验买方原持股与卖方余股为零。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "field": "change_shares",
+          "entity": "金浦浙展股权投资（丽水）合伙企业（有限合伙）",
+          "original_value": 72673907,
+          "raw_value": "72,673,907股",
+          "normalized_value": "72673907",
+          "unit": "shares",
+          "block_id": "da00b31da_p019_b00015",
+          "quote": "变动数量：72,673,907股股份",
+          "block_verified": true,
+          "page": 19,
+          "region": [
+            78.6,
+            635.58,
+            377.41,
+            652.99
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+          "a_run_id": "20261005T064118-equity_change-6960",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "da00b31da_p019_b00015",
+              "page": 19,
+              "region": [
+                78.6,
+                635.58,
+                377.41,
+                652.99
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "变动数量：72,673,907股股份"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "field": "change_shares",
+          "entity": "浙江省国际贸易集团有限公司",
+          "original_value": 72673907,
+          "raw_value": "72,673,907股",
+          "normalized_value": "72673907",
+          "unit": "shares",
+          "block_id": "da8d294d2_p017_b00029",
+          "quote": "变动数量：减少72,673,907股",
+          "block_verified": true,
+          "page": 17,
+          "region": [
+            214.65,
+            526.02,
+            558.25,
+            584.47
+          ],
+          "source_type": "cell",
+          "table_id": "da8d294d2_p017_t001",
+          "cell_ref": "r9c2",
+          "header_path": "基本情况/浙江海正药业股份有限公司/海正药业",
+          "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+          "a_run_id": "20261005T064122-equity_change-7058",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "da8d294d2_p017_b00029",
+              "page": 17,
+              "region": [
+                214.65,
+                526.02,
+                558.25,
+                584.47
+              ],
+              "table_id": "da8d294d2_p017_t001",
+              "cell_ref": "r9c2",
+              "source_type": "cell",
+              "quote": "变动数量：减少72,673,907股"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "VERIFIED_TRANSFER_COUNTERPARTIES",
+          "matched": true,
+          "verdict": "corroborated"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": true,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": false,
+        "method": "D8.2"
+      },
+      "resolution": "numerically_checked"
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "CUMULATIVE_VS_SINGLE",
+      "attribution": "本次与累计口径明确不同，不能直接相减解释为单次增量；两值也可能相等，不能说必然不同。",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "field": "pledged_shares_this_time",
+          "entity": null,
+          "original_value": 2100000,
+          "raw_value": "2,100,000股",
+          "normalized_value": "2100000",
+          "unit": "shares",
+          "block_id": "d44e95085_p001_b00025",
+          "quote": "2,100,000",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            124.5,
+            469.52,
+            180.3,
+            504.82
+          ],
+          "source_type": "cell",
+          "table_id": "d44e95085_p001_t001",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押数量（股）",
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "a_run_id": "20261005T063943-pledge-3118",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d44e95085_p001_b00025",
+              "page": 1,
+              "region": [
+                124.5,
+                469.52,
+                180.3,
+                504.82
+              ],
+              "table_id": "d44e95085_p001_t001",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "2,100,000"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "field": "pledged_shares_cumulative",
+          "entity": null,
+          "original_value": 50350000,
+          "raw_value": "50,350,000股",
+          "normalized_value": "50350000",
+          "unit": "shares",
+          "block_id": "d44e95085_p001_b00084",
+          "quote": "50,350,000",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            222.1,
+            709.82,
+            276.1,
+            730.07
+          ],
+          "source_type": "cell",
+          "table_id": "d44e95085_p001_t002",
+          "cell_ref": "r3c5",
+          "header_path": "本次质押后质押股份数量（股）",
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "a_run_id": "20261005T063943-pledge-3118",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01",
+            "E02",
+            "E03"
+          ],
+          "a_field_provenance": [],
+          "binding_method": null,
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "CUMULATIVE_VS_SINGLE",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": false,
+        "atomic": false,
+        "method": null
+      },
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "CUMULATIVE_VS_SINGLE",
+      "attribution": "本次与累计口径明确不同，不能直接相减解释为单次增量；两值也可能相等，不能说必然不同。",
+      "sides": [
+        {
+          "case_id": "D4-PLD-009",
+          "field": "pledged_shares_this_time",
+          "entity": null,
+          "original_value": 11750000,
+          "raw_value": "11,750,000股",
+          "normalized_value": "11750000",
+          "unit": "shares",
+          "block_id": "d1320340e_p002_b00014",
+          "quote": "11,750,000",
+          "block_verified": true,
+          "page": 2,
+          "region": [
+            107.3,
+            184.74,
+            164,
+            241.24
+          ],
+          "source_type": "cell",
+          "table_id": "d1320340e_p002_t001",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押/展期股数（股）",
+          "file_sha256": "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+          "a_run_id": "20261005T064026-pledge-17cf",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d1320340e_p002_b00014",
+              "page": 2,
+              "region": [
+                107.3,
+                184.74,
+                164,
+                241.24
+              ],
+              "table_id": "d1320340e_p002_t001",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "11,750,000"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D4-PLD-009",
+          "field": "pledged_shares_cumulative",
+          "entity": null,
+          "original_value": 33344000,
+          "raw_value": "33,344,000股",
+          "normalized_value": "33344000",
+          "unit": "shares",
+          "block_id": "d1320340e_p003_b00019",
+          "quote": "33,344,000",
+          "block_verified": true,
+          "page": 3,
+          "region": [
+            209.55,
+            270.24,
+            274.35,
+            326.74
+          ],
+          "source_type": "cell",
+          "table_id": "d1320340e_p003_t002",
+          "cell_ref": "r3c5",
+          "header_path": "本次质押及解质押后累计质押数量",
+          "file_sha256": "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+          "a_run_id": "20261005T064026-pledge-17cf",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01",
+            "E02",
+            "E03"
+          ],
+          "a_field_provenance": [],
+          "binding_method": null,
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "CUMULATIVE_VS_SINGLE",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": false,
+        "atomic": false,
+        "method": null
+      },
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "DENOMINATOR_DIFFERENT",
+      "attribution": "比例分母范围不同，不能比较百分数大小或推算分母。",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "field": "pledged_ratio_this_time_of_held",
+          "entity": null,
+          "original_value": 2.4,
+          "raw_value": "2.40%",
+          "normalized_value": "2.4",
+          "unit": "percent",
+          "block_id": "d44e95085_p001_b00026",
+          "quote": "2.40%",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            180.3,
+            469.52,
+            230.3,
+            504.82
+          ],
+          "source_type": "cell",
+          "table_id": "d44e95085_p001_t001",
+          "cell_ref": "r2c4",
+          "header_path": "占其所持股份比例（%）",
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "a_run_id": "20261005T063943-pledge-3118",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d44e95085_p001_b00026",
+              "page": 1,
+              "region": [
+                180.3,
+                469.52,
+                230.3,
+                504.82
+              ],
+              "table_id": "d44e95085_p001_t001",
+              "cell_ref": "r2c4",
+              "source_type": "cell",
+              "quote": "2.40%"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "field": "pledged_ratio_this_time_of_total",
+          "entity": null,
+          "original_value": 0.99,
+          "raw_value": "0.99%",
+          "normalized_value": "0.99",
+          "unit": "percent",
+          "block_id": "d44e95085_p001_b00027",
+          "quote": "0.99%",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            230.3,
+            469.52,
+            280.75,
+            504.82
+          ],
+          "source_type": "cell",
+          "table_id": "d44e95085_p001_t001",
+          "cell_ref": "r2c5",
+          "header_path": "占公司总股本比例（%）",
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "a_run_id": "20261005T063943-pledge-3118",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d44e95085_p001_b00027",
+              "page": 1,
+              "region": [
+                230.3,
+                469.52,
+                280.75,
+                504.82
+              ],
+              "table_id": "d44e95085_p001_t001",
+              "cell_ref": "r2c5",
+              "source_type": "cell",
+              "quote": "0.99%"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "DENOMINATOR_DIFFERENT",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": true,
+        "method": "same_document_event"
+      },
+      "denominators": {
+        "left": {
+          "kind": "holder_shares",
+          "definition": null,
+          "refs": [
+            {
+              "block_id": "d44e95085_p001_b00026",
+              "page": 1,
+              "region": [
+                180.3,
+                469.52,
+                230.3,
+                504.82
+              ],
+              "table_id": "d44e95085_p001_t001",
+              "cell_ref": "r2c4",
+              "source_type": "cell",
+              "quote": "2.40%"
+            }
+          ]
+        },
+        "right": {
+          "kind": "total_share_capital",
+          "definition": null,
+          "refs": [
+            {
+              "block_id": "d44e95085_p001_b00027",
+              "page": 1,
+              "region": [
+                230.3,
+                469.52,
+                280.75,
+                504.82
+              ],
+              "table_id": "d44e95085_p001_t001",
+              "cell_ref": "r2c5",
+              "source_type": "cell",
+              "quote": "0.99%"
+            }
+          ]
+        }
+      },
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "TAX_METADATA_BINDING",
+      "attribution": "该记录确认金额的含税属性；不是两个金额相等的证明。未披露税率，不倒算税额。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-004",
+          "field": "tax_included",
+          "entity": null,
+          "original_value": "true",
+          "raw_value": "含税",
+          "normalized_value": null,
+          "unit": "text",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            89.88,
+            418.66,
+            505.44,
+            500.86
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+          "a_run_id": "20261005T064209-award_contract-b64a",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d0be9f419_p001_b00009",
+              "page": 1,
+              "region": [
+                89.88,
+                418.66,
+                505.44,
+                500.86
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合同价（暂定含税总价款）为5,400万元"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D6-AWD-004",
+          "field": "bid_amount",
+          "entity": null,
+          "original_value": 54000000,
+          "raw_value": "5,400万元",
+          "normalized_value": "54000000",
+          "unit": "cny",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            89.88,
+            418.66,
+            505.44,
+            500.86
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+          "a_run_id": "20261005T064209-award_contract-b64a",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d0be9f419_p001_b00009",
+              "page": 1,
+              "region": [
+                89.88,
+                418.66,
+                505.44,
+                500.86
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合同价（暂定含税总价款）为5,400万元"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "TAX_METADATA_BINDING",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": true,
+        "method": "same_document_event"
+      },
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "TAX_METADATA_BINDING",
+      "attribution": "该记录确认金额的含税属性；不是两个金额相等的证明。未披露税率，不倒算税额。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "field": "tax_included",
+          "entity": null,
+          "original_value": "true",
+          "raw_value": "含税",
+          "normalized_value": null,
+          "unit": "text",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            90,
+            438.05,
+            505.32,
+            496.85
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+          "a_run_id": "20261005T064213-award_contract-94e2",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "ddd80cf89_p001_b00008",
+              "page": 1,
+              "region": [
+                90,
+                438.05,
+                505.32,
+                496.85
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "field": "bid_amount",
+          "entity": null,
+          "original_value": 148882000,
+          "raw_value": "人民币14,888.20万元",
+          "normalized_value": "148882000",
+          "unit": "cny",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            90,
+            438.05,
+            505.32,
+            496.85
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+          "a_run_id": "20261005T064213-award_contract-94e2",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "ddd80cf89_p001_b00008",
+              "page": 1,
+              "region": [
+                90,
+                438.05,
+                505.32,
+                496.85
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "TAX_METADATA_BINDING",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "alignment": {
+        "same_transaction": true,
+        "atomic": true,
+        "method": "same_document_event"
+      },
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "ISSUER_DISCLOSED_EQUIVALENT",
+      "attribution": "公告已明示原币金额与人民币折合金额，保留双记录；不计算或推广隐含汇率。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "field": "bid_amount",
+          "entity": null,
+          "original_value": 317915000,
+          "raw_value": "人民币317,915,000元",
+          "normalized_value": "317915000",
+          "unit": "cny",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            90,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+          "a_run_id": "20261005T064223-award_contract-3237",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "field": "currency",
+          "entity": null,
+          "original_value": "CNY",
+          "raw_value": "人民币",
+          "normalized_value": null,
+          "unit": "text",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            90,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+          "a_run_id": "20261005T064223-award_contract-3237",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [
+        "NO_GENERAL_EXCHANGE_RATE_AUTHORIZED"
+      ],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 2
+        },
+        {
+          "rule_id": "ISSUER_DISCLOSED_EQUIVALENT",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "disclosed_amounts": [
+        {
+          "currency": "AED",
+          "value": "173800000"
+        },
+        {
+          "currency": "CNY",
+          "value": "317915000"
+        }
+      ],
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "rule_version": "D9.1",
+      "verdict": "explainable_difference",
+      "attribution_code": "ISSUER_DISCLOSED_EQUIVALENT",
+      "attribution": "公告已明示原币金额与人民币折合金额，保留双记录；不计算或推广隐含汇率。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "field": "bid_amount",
+          "entity": null,
+          "original_value": 317915000,
+          "raw_value": "人民币317,915,000元",
+          "normalized_value": "317915000",
+          "unit": "cny",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            90,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+          "a_run_id": "20261005T064223-award_contract-3237",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [
+        "NO_GENERAL_EXCHANGE_RATE_AUTHORIZED"
+      ],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 1
+        },
+        {
+          "rule_id": "ISSUER_DISCLOSED_EQUIVALENT",
+          "matched": true,
+          "verdict": "explainable_difference"
+        }
+      ],
+      "requires_review": false,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "disclosed_amounts": [
+        {
+          "currency": "AED",
+          "value": "173800000"
+        },
+        {
+          "currency": "CNY",
+          "value": "317915000"
+        }
+      ],
+      "resolution": "caliber_identified_only"
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "rule_version": "D9.1",
+      "verdict": "insufficient",
+      "attribution_code": "MISSING_VALUE",
+      "attribution": "字段缺失或扫描降级；缺失不等于零。",
+      "sides": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "field": "*",
+          "entity": null,
+          "original_value": null,
+          "raw_value": null,
+          "normalized_value": null,
+          "unit": null,
+          "block_id": null,
+          "quote": null,
+          "block_verified": false,
+          "page": null,
+          "region": null,
+          "source_type": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "a_run_id": "20261005T064242-pledge-scan",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [],
+          "a_field_provenance": [],
+          "binding_method": null,
+          "issues": [
+            "INVALID_SIDE_FIELDS"
+          ]
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "MISSING_VALUE",
+          "matched": true,
+          "verdict": "insufficient"
+        }
+      ],
+      "requires_review": true,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "resolution": "unresolved"
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "rule_version": "D9.1",
+      "verdict": "insufficient",
+      "attribution_code": "NO_COMPARISON_CONTEXT",
+      "attribution": "单侧输入且主体/比较对象未建立；即使正文金额可读，也不能判断跨文档关系。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "field": "bid_amount",
+          "entity": null,
+          "original_value": 148882000,
+          "raw_value": "人民币14,888.20万元",
+          "normalized_value": "148882000",
+          "unit": "cny",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "block_verified": true,
+          "page": 1,
+          "region": [
+            90,
+            438.05,
+            505.32,
+            496.85
+          ],
+          "source_type": "paragraph",
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+          "a_run_id": "20261005T064213-award_contract-94e2",
+          "code_version": "468b5041",
+          "is_mock": false,
+          "a_event_ids": [
+            "E01"
+          ],
+          "a_field_provenance": [
+            {
+              "block_id": "ddd80cf89_p001_b00008",
+              "page": 1,
+              "region": [
+                90,
+                438.05,
+                505.32,
+                496.85
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+            }
+          ],
+          "binding_method": "same_block_A_field",
+          "issues": []
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_GATE",
+          "matched": true,
+          "verified_sides": 1
+        },
+        {
+          "rule_id": "NO_COMPARISON_CONTEXT",
+          "matched": true,
+          "verdict": "insufficient"
+        }
+      ],
+      "requires_review": true,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "resolution": "unresolved"
+    },
+    {
+      "case_id": "D9-RULE-019",
+      "rule_version": "D9.1",
+      "verdict": "insufficient",
+      "attribution_code": "EVIDENCE_NOT_VERIFIED",
+      "attribution": "至少一侧缺少可核验的源文档、页块或引文；不能以期望说明补足事实。",
+      "sides": [
+        {
+          "case_id": "SYNTH-CTRL-01-A",
+          "field": "shares_after",
+          "entity": "X股东",
+          "original_value": 11042217,
+          "raw_value": "11,042,217股",
+          "normalized_value": null,
+          "unit": "shares",
+          "block_id": "synth-a",
+          "quote": "（受控构造）首次披露 11,042,217 股",
+          "block_verified": false,
+          "page": null,
+          "region": null,
+          "source_type": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": null,
+          "a_run_id": null,
+          "code_version": null,
+          "is_mock": null,
+          "a_event_ids": [],
+          "a_field_provenance": [],
+          "binding_method": null,
+          "issues": [
+            "SOURCE_DOCUMENT_MISSING_OR_INVALID"
+          ]
+        },
+        {
+          "case_id": "SYNTH-CTRL-01-B",
+          "field": "shares_after",
+          "entity": "X股东",
+          "original_value": 11042218,
+          "raw_value": "11,042,218股",
+          "normalized_value": null,
+          "unit": "shares",
+          "block_id": "synth-b",
+          "quote": "（受控构造）更正公告：更正为 11,042,218 股",
+          "block_verified": false,
+          "page": null,
+          "region": null,
+          "source_type": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": null,
+          "a_run_id": null,
+          "code_version": null,
+          "is_mock": null,
+          "a_event_ids": [],
+          "a_field_provenance": [],
+          "binding_method": null,
+          "issues": [
+            "SOURCE_DOCUMENT_MISSING_OR_INVALID"
+          ]
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_NOT_VERIFIED",
+          "matched": true,
+          "verdict": "insufficient"
+        }
+      ],
+      "requires_review": true,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "resolution": "unresolved"
+    },
+    {
+      "case_id": "D9-RULE-020",
+      "rule_version": "D9.1",
+      "verdict": "insufficient",
+      "attribution_code": "EVIDENCE_NOT_VERIFIED",
+      "attribution": "至少一侧缺少可核验的源文档、页块或引文；不能以期望说明补足事实。",
+      "sides": [
+        {
+          "case_id": "SYNTH-CTRL-02-A",
+          "field": "shares_after",
+          "entity": "Y股东",
+          "original_value": 5000000,
+          "raw_value": "5,000,000股",
+          "normalized_value": null,
+          "unit": "shares",
+          "block_id": "synth-c",
+          "quote": "（受控构造）5,000,000 股",
+          "block_verified": false,
+          "page": null,
+          "region": null,
+          "source_type": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": null,
+          "a_run_id": null,
+          "code_version": null,
+          "is_mock": null,
+          "a_event_ids": [],
+          "a_field_provenance": [],
+          "binding_method": null,
+          "issues": [
+            "SOURCE_DOCUMENT_MISSING_OR_INVALID"
+          ]
+        },
+        {
+          "case_id": "SYNTH-CTRL-02-B",
+          "field": "shares_after",
+          "entity": "Y股东",
+          "original_value": 5200000,
+          "raw_value": "5,200,000股",
+          "normalized_value": null,
+          "unit": "shares",
+          "block_id": "synth-d",
+          "quote": "（受控构造）5,200,000 股",
+          "block_verified": false,
+          "page": null,
+          "region": null,
+          "source_type": null,
+          "table_id": null,
+          "cell_ref": null,
+          "header_path": null,
+          "file_sha256": null,
+          "a_run_id": null,
+          "code_version": null,
+          "is_mock": null,
+          "a_event_ids": [],
+          "a_field_provenance": [],
+          "binding_method": null,
+          "issues": [
+            "SOURCE_DOCUMENT_MISSING_OR_INVALID"
+          ]
+        }
+      ],
+      "computed": [],
+      "findings": [],
+      "trace": [
+        {
+          "rule_id": "EVIDENCE_NOT_VERIFIED",
+          "matched": true,
+          "verdict": "insufficient"
+        }
+      ],
+      "requires_review": true,
+      "comparison_performed": false,
+      "model_explanation": null,
+      "audit": {
+        "input_mutated": false,
+        "expected_labels_used": false,
+        "exchange_rate_inferred": false,
+        "tax_rate_inferred": false,
+        "amount_allocation_performed": false
+      },
+      "resolution": "unresolved"
+    }
+  ],
+  "policy": "只接收case_id/sides和源文件；预期、类别、归因说明不进入规则；不能解释则保留疑点。"
+}

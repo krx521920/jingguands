@@ -1,0 +1,378 @@
+{
+  "schemaResults": [
+    {
+      "case_id": "D4-PLD-001",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-002",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-003",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-004",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-005",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-006",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-007",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-009",
+      "issues": []
+    },
+    {
+      "case_id": "D4-PLD-010",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-001",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "issues": []
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-001",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-003",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-004",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-005",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-006",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-007",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-008",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-009",
+      "issues": []
+    },
+    {
+      "case_id": "D6-AWD-010",
+      "issues": []
+    },
+    {
+      "case_id": "pledge-scan-degrade",
+      "issues": []
+    }
+  ],
+  "bridgeResults": [
+    {
+      "case_id": "D4-PLD-001",
+      "preserved_extracted_values": 36,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-002",
+      "preserved_extracted_values": 13,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-003",
+      "preserved_extracted_values": 12,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-004",
+      "preserved_extracted_values": 12,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-005",
+      "preserved_extracted_values": 25,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-006",
+      "preserved_extracted_values": 13,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-007",
+      "preserved_extracted_values": 12,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "preserved_extracted_values": 11,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-009",
+      "preserved_extracted_values": 36,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D4-PLD-010",
+      "preserved_extracted_values": 12,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-001",
+      "preserved_extracted_values": 45,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "preserved_extracted_values": 27,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "preserved_extracted_values": 5,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "preserved_extracted_values": 8,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "preserved_extracted_values": 8,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "preserved_extracted_values": 9,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "preserved_extracted_values": 9,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "preserved_extracted_values": 9,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "preserved_extracted_values": 9,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "preserved_extracted_values": 8,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-001",
+      "preserved_extracted_values": 5,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "preserved_extracted_values": 24,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-003",
+      "preserved_extracted_values": 21,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-004",
+      "preserved_extracted_values": 9,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-005",
+      "preserved_extracted_values": 11,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-006",
+      "preserved_extracted_values": 9,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-007",
+      "preserved_extracted_values": 5,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-008",
+      "preserved_extracted_values": 8,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-009",
+      "preserved_extracted_values": 21,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "D6-AWD-010",
+      "preserved_extracted_values": 5,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    },
+    {
+      "case_id": "pledge-scan-degrade",
+      "preserved_extracted_values": 0,
+      "integrity": {
+        "ok": true,
+        "issues": []
+      }
+    }
+  ]
+}
