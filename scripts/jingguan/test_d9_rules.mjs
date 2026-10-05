@@ -33,7 +33,18 @@ try {
   console.log(`[D9严格评分] result=${verdict}｜pass ${pass}｜fail ${fail}｜矛盾误报 ${fp}｜矛盾漏报 ${fn}`)
   if (step2.status !== 0 || verdict !== 'PASS') { console.error('[D9规则门禁] --strict 评分未过'); process.exit(1) }
 
-  // 双侧出处包模式（张 D9 包）：标注不改变判定，20/20 须保持
+  // 块内容级硬校验（宗 v0.2 重锚后主源验证）：20/20 保持＋30 真实侧全 verified
+  const VB = 'runs/batch-20261005T063943/envelopes'
+  const step5 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES, '--verify-blocks', VB, '--out', 'runs/.tmp-d9-vb-report.json'])
+  const step6 = run(['evaluation/D9/score-rules.mjs', '--report', resolve(REPO_ROOT, 'runs/.tmp-d9-vb-report.json'), '--json', TMP_SCORE, '--strict'])
+  const verdict6 = /"result":\s*"(\w+)"/.exec(step6.out)?.[1]
+  const vbRep = JSON.parse(readFileSync(resolve(REPO_ROOT, 'runs/.tmp-d9-vb-report.json'), 'utf8'))
+  const vbTrue = vbRep.block_verify?.side_summary?.true ?? 0
+  const vbFalse = vbRep.block_verify?.side_summary?.false ?? 0
+  console.log(`[D9块级校验] result=${verdict6}｜真实侧块验证 true=${vbTrue} false=${vbFalse}（宗v0.2重锚后主源验证）`)
+  if (step5.status !== 0 || step6.status !== 0 || verdict6 !== 'PASS' || vbFalse !== 0) { console.error('[D9规则门禁] 块级校验未过'); process.exit(1) }
+
+  // 双侧出处包模式（张 D9 包）：标注不改变判定，20/20 须保持（包待张按 v0.2 再生成，仅标注层）
   const BIL = 'tools/zhang-bilateral/bilateral_evidence.json'
   const step3 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES, '--bilateral', BIL, '--out', 'runs/.tmp-d9-bil-report.json'])
   const step4 = run(['evaluation/D9/score-rules.mjs', '--report', resolve(REPO_ROOT, 'runs/.tmp-d9-bil-report.json'), '--json', TMP_SCORE, '--strict'])
@@ -68,4 +79,5 @@ try {
   rmSync(TMP_REPORT, { force: true })
   rmSync(TMP_SCORE, { force: true })
   rmSync(resolve(REPO_ROOT, 'runs/.tmp-d9-bil-report.json'), { force: true })
+  rmSync(resolve(REPO_ROOT, 'runs/.tmp-d9-vb-report.json'), { force: true })
 }

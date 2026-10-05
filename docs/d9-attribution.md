@@ -79,3 +79,17 @@ export const attributeRules = [{
 - **门禁第 16 道**：`test_d9_rules.mjs`（runner＋严格评分，临时报告用后即删）。
 - 修正记录：首跑 19/20——D9-RULE-003（于春生增持股数两文档一致）被"合计语境"分支误截；
   链序修正为"同主体等值互证先于合计语境"（合计字样是语境描述，不改变该主体数值一致性）。
+
+## 七、宗 v0.2 重锚版消费＋块内容级硬校验（2026-10-05）
+
+宗 5d1b06f0 按张/魏重锚清单修正 5 处 block_id（RULE-009→b00015、RULE-010×2→b00025/b00084、
+RULE-012×2→b00026/b00027；歧义处 50,350,000 由宗人工定为 b00084）——当日消费：
+
+- re-vendor 字节一致（git hash --no-filters 校验）。
+- **`--verify-blocks` 块内容级硬校验上线**（主源＝批次信封 parse_meta.blocks，不依赖张包
+  再生成）：NFKC＋去空白归一后 quote∈block 逐真实侧验证——**30 个真实侧全部 true、0 false**
+  （含宗新锚的 5 处；RULE-017 扫描降级侧与 SYNTH-* 受控项按设计豁免记 null）。
+- 真实语料 conflict 的双侧证据从"报告层存在性"升为"块内容级"：任一侧不可验证 →
+  evidence_verified=false。--bilateral 标注层保留（张包待按 v0.2 再生成）。
+- v0.2 + --verify-blocks：宗评分 --strict **PASS 20/20**；门禁 16 升级（块级 true=30/false=0
+  入断言）。证据：runs/D9-rules-report-v02-20261005.json。

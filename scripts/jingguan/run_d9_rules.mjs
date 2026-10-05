@@ -5,10 +5,12 @@
  * 判定原则：只读 sides 数据（值/字段/主体/引文/块），**不读 expected_verdict/category/
  * attribution_basis**（期望标签不进入判定）；每案走确定性链，先归因后矛盾。
  * 用法：node scripts/jingguan/run_d9_rules.mjs --cases <rules-cases.dev.json>
- *            [--bilateral <张双侧出处包.json>] [--out <report.json>]
- * --bilateral：逐侧附 evidence_status（张智博 D9 双侧出处包）；真实语料 conflict 判定
- * 须双侧 present/空白变体可锚——不可锚则 verdict 不变但标 evidence_verified=false
- * （宗规则 2"疑似矛盾必须带双侧证据"的块内容级强化）；受控构造（SYNTH-*）豁免。
+ *            [--verify-blocks <信封目录>] [--bilateral <张双侧出处包.json>] [--out <report.json>]
+ * --verify-blocks（宗 v0.2 重锚后的块内容级硬校验，主源＝批次信封 parse_meta.blocks）：
+ *   逐真实侧验证 quote∈block（NFKC＋去空白归一）；受控构造（SYNTH-*）与无块设计侧
+ *   （扫描降级）豁免。真实语料 conflict 判定须双侧块级验证通过，否则标
+ *   evidence_verified=false（宗规则 2 的块内容级强化）。
+ * --bilateral：张双侧出处包逐侧 evidence_status 标注（包随宗重锚需张再生成，仅标注）。
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
@@ -18,14 +20,38 @@ import { spawnSync } from 'node:child_process'
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 
 function parseArgs(argv) {
-  const a = { cases: 'evaluation/D9/cases/rules-cases.dev.json', out: null, bilateral: null }
+  const a = { cases: 'evaluation/D9/cases/rules-cases.dev.json', out: null, bilateral: null, verifyBlocks: null }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--cases') a.cases = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
     else if (argv[i] === '--bilateral') a.bilateral = argv[++i]
+    else if (argv[i] === '--verify-blocks') a.verifyBlocks = argv[++i]
     else { console.error(`未知参数：${argv[i]}`); process.exit(2) }
   }
   return a
+}
+
+const normText = (s) => String(s ?? '').normalize('NFKC').replace(/\s+/gu, '')
+/** 信封缓存：--verify-blocks 主源（批次信封 parse_meta.blocks）。 */
+const envCache = new Map()
+function envelopeOf(caseId) {
+  if (envCache.has(caseId)) return envCache.get(caseId)
+  let env = null
+  try { env = JSON.parse(readFileSync(resolve(REPO_ROOT, args.verifyBlocks, `${caseId}.json`), 'utf8')) } catch { env = null }
+  envCache.set(caseId, env)
+  return env
+}
+/** 块内容级验证：quote ∈ 指定块（NFKC＋去空白）。返回 true/false/null(豁免/无信封)。 */
+function verifySideBlock(s) {
+  if (String(s.case_id).startsWith('SYNTH-')) return null // 受控构造：无解析块为设计使然
+  const quote = String(s.quote ?? '')
+  if (!s.block_id && quote.trim().length === 0) return null // 无块设计侧（扫描降级/星号占位）
+  const env = envelopeOf(s.case_id)
+  if (env === null) return null
+  const blocks = env.source?.parse_meta?.blocks ?? []
+  const b = blocks.find((x) => x.block_id === s.block_id)
+  if (!b) return false
+  return normText(b.text_raw ?? b.text).includes(normText(quote))
 }
 
 const num = (v) => {
@@ -167,6 +193,7 @@ const anchorable = (st) => st === 'present' || st === 'quote_whitespace_variance
 const outCases = []
 const byVerdict = {}
 const bilSummary = {}
+const blockSummary = {}
 for (const c of cases) {
   const d = decide(c.sides ?? [])
   byVerdict[d.verdict] = (byVerdict[d.verdict] ?? 0) + 1
@@ -175,19 +202,27 @@ for (const c of cases) {
   const outSides = (c.sides ?? []).map((s, ix) => {
     const bs = bilSides?.[ix] ?? bilSides?.find((x) => x.case_id === s.case_id && x.field === s.field) ?? null
     if (bs !== null) bilSummary[bs.evidence_status] = (bilSummary[bs.evidence_status] ?? 0) + 1
+    let blockVerified = null
+    if (args.verifyBlocks !== null) {
+      blockVerified = verifySideBlock(s)
+      blockSummary[String(blockVerified)] = (blockSummary[String(blockVerified)] ?? 0) + 1
+    }
     return {
       case_id: s.case_id, block_id: s.block_id ?? null, quote: s.quote ?? null,
       evidence_status: bs?.evidence_status ?? null, evidence_note: bs?.evidence_note ?? null,
+      ...(args.verifyBlocks !== null ? { block_verified: blockVerified } : {}),
     }
   })
-  // 块内容级 conflict 证据强化（真实语料；受控构造 SYNTH-* 豁免——无解析块为设计使然）
+  // conflict 证据硬校验（优先块内容级；无 --verify-blocks 时退回双侧出处包可锚性）
   let evidenceVerified = null
-  if (d.verdict === 'conflict' && args.bilateral !== null) {
+  if (d.verdict === 'conflict') {
     const realSides = outSides.filter((s) => !String(s.case_id).startsWith('SYNTH-'))
-    if (realSides.length > 0) {
-      evidenceVerified = realSides.length >= 2 && realSides.every((s) => anchorable(s.evidence_status))
-    } else {
+    if (realSides.length === 0) {
       evidenceVerified = true // 纯受控构造：双侧证据在报告层齐全即可（宗评分器口径）
+    } else if (args.verifyBlocks !== null) {
+      evidenceVerified = realSides.length >= 2 && realSides.every((s) => s.block_verified === true)
+    } else if (args.bilateral !== null) {
+      evidenceVerified = realSides.length >= 2 && realSides.every((s) => anchorable(s.evidence_status))
     }
   }
   outCases.push({
@@ -209,6 +244,7 @@ const report = {
   code_version: codeVersion,
   input: args.cases,
   bilateral: args.bilateral !== null ? { source: args.bilateral, side_status_summary: bilSummary, reanchor_suggestions: bilateral?.reanchor_suggestions ?? [], reanchor_policy: bilateral?.reanchor_policy ?? null } : null,
+  block_verify: args.verifyBlocks !== null ? { envelopes_dir: args.verifyBlocks, side_summary: blockSummary, policy: '主源＝批次信封 parse_meta.blocks；NFKC＋去空白归一后 quote∈block；受控构造与无块设计侧豁免（null）' } : null,
   policy: '期望标签不进入判定（只读 sides 值/字段/主体/引文/块）',
   cases_total: outCases.length,
   by_verdict: byVerdict,
