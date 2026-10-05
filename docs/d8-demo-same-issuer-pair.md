@@ -42,3 +42,11 @@ node scripts/jingguan/run_batch.mjs runs/d8-demo-20261004/raw/DEMO-*.raw.json
 node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir runs/d8-demo-20261004/envelopes \
   --manifest runs/d8-demo-20261004/demo-manifest-strict.json --expect
 ```
+
+## 附：原始 PDF 来源（可重建，PDF 不入库——团队不二次分发规则）
+
+- DEMO-EQC-HZ-RESULT：http://static.cninfo.com.cn/finalpage/2026-09-28/1225583768.PDF
+- DEMO-EQC-HL-0930：http://static.cninfo.com.cn/finalpage/2026-09-30/1225589044.PDF
+- DEMO-EQC-HL-SIMPLE：http://static.cninfo.com.cn/finalpage/2026-09-29/1225585760.pdf
+
+sha256 见 raw/*.json 的 doc.file_sha256（pypdf-demo-0.1 文本层提取；正式语料请张 finstruct 重解析后对哈希）。
