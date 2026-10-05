@@ -4,6 +4,7 @@ import { initUpload, uploadBatch, renderBatchReport, renderPendingFiles, renderP
 import { renderResults, clearResults } from "./render/results.js";
 import { renderEvidences, focusEvidence, clearEvidences } from "./render/evidences.js";
 import { renderPairs, clearPairs } from "./render/pairs.js";
+import { renderVerify, clearVerify } from "./render/verify.js";
 
 const $ = id => document.getElementById(id);
 
@@ -62,26 +63,39 @@ async function boot() {
     console.error("boot failed:", e);
   }
 
-  // D8：跨文档配对视图切换（与三栏单文档视图互斥；首次进入才拉 /api/pairs）
-  let pairsLoaded = false;
-  $("pairsBtn").addEventListener("click", async () => {
-    const view = $("pairsView");
-    const showPairs = view.hidden;
-    view.hidden = !showPairs;
-    document.querySelector("main").style.display = showPairs ? "none" : "";
-    $("pairsBtn").textContent = showPairs ? "返回单文档视图" : "跨文档配对 D8";
-    if (showPairs && !pairsLoaded) {
-      try {
-        const data = await (await fetch("/api/pairs")).json();
-        if (data.error) throw new Error(data.error);
-        renderPairs($("pairsList"), data);
-        pairsLoaded = true;
-      } catch (e) {
-        clearPairs($("pairsList"));
-        $("pairsList").innerHTML = "<div class='empty'>⚠ 配对数据加载失败：" + e.message + "</div>";
-      }
+  // D8/D9：三个视图互斥切换（单文档 / 配对 / 核验），首进才拉对应接口，内容缓存
+  let pairsLoaded = false, verifyLoaded = false;
+  const showView = name => {
+    $("pairsView").hidden = name !== "pairs";
+    $("verifyView").hidden = name !== "verify";
+    document.querySelector("main").style.display = name === "main" ? "" : "none";
+    $("pairsBtn").textContent = name === "pairs" ? "« 返回单文档" : "跨文档配对 D8";
+    $("verifyBtn").textContent = name === "verify" ? "« 返回单文档" : "核验清单 D9";
+  };
+  const loadInto = async (btn, listId, url, renderFn, clearFn, loadedFlag) => {
+    if (loadedFlag.v) return true;
+    try {
+      const data = await (await fetch(url)).json();
+      if (data.error) throw new Error(data.error);
+      renderFn($(listId), data);
+      loadedFlag.v = true;
+      return true;
+    } catch (e) {
+      clearFn($(listId));
+      $(listId).innerHTML = "<div class='empty'>⚠ 加载失败：" + e.message + "</div>";
+      return false;
     }
-    // 退出时保留已渲染内容（pairsLoaded 缓存），切回即现
+  };
+  const pairsFlag = { v: false }, verifyFlag = { v: false };
+  $("pairsBtn").addEventListener("click", async () => {
+    const target = $("pairsView").hidden ? "pairs" : "main";
+    showView(target);
+    if (target === "pairs") await loadInto("pairsBtn", "pairsList", "/api/pairs", renderPairs, clearPairs, pairsFlag);
+  });
+  $("verifyBtn").addEventListener("click", async () => {
+    const target = $("verifyView").hidden ? "verify" : "main";
+    showView(target);
+    if (target === "verify") await loadInto("verifyBtn", "verifyList", "/api/verify", renderVerify, clearVerify, verifyFlag);
   });
 
   $("loadBtn").addEventListener("click", () => loadDataset($("datasetSel").value));

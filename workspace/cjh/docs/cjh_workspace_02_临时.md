@@ -122,6 +122,17 @@
 
 **快照**：宗交接单 + 评测 README → `docs/_ref_zong_D8_配对清单交接单.md` / `_ref_zong_D8_评测README.md`。
 
+## 1j. D9（10-05 凌晨）：核验清单页 + 双侧证据视图——"先归因再判矛盾"落地
+
+**交付（page_prototype）**
+- **`GET /api/verify`**：① 扫全部 `data/*.check.json`（方 equity_check_D5 sidecar）→ 发现聚合（code/severity/归因文案/字段），每条从对应数据集信封富化 provenance（quote+页码+block_id，张的出处）；② `data/pairs/b_report.json` → 互证点装配（整条透传 + 本地页码）。
+- **核验清单视图**（`render/verify.js`，头部「核验清单 D9」按钮，与单文档/配对三视图互斥）：每条发现**先归因后判定**——方的 message 加粗在前、判定码殿后，出处条挂底；按严重级排序。
+- **双侧证据视图**：互证点 A|B 两栏 quote 并排（带本地页码）；**合计勾稽形态**（group_total_matches_sum）单独渲染——合计侧 + 分项 chips（D8-PAIR-002：四人之变动股数之和 = EQC-003 合计 8,427,900）。
+- 诚实纪律：缺文案/缺出处显式标注不虚构——EQC-003 两条 MISSING_* 发现无出处（值缺失即发现本身）；sidecar 坏文件计数进汇总条不静默丢弃。
+- 三视图切换重构：showView('main'|'pairs'|'verify') 统一管理，内容缓存首进才拉接口。
+
+**验证**：/api/verify 断言 3/3 PASS——归因文案 10/10 齐全；出处富化 8/10（缺的 2 条如实标注）；互证点分形态成对（simple 9 双侧 + 合计勾稽 1 带分项）。汇总：10 数据集 · 11 verified / 5 review 事件 · 10 发现全 review 级 · 互证 10 · 组级矛盾 0。坑：server 装配初版只挑 simple 字段把 kind/aggregate/parts 丢了 → 改整条透传。
+
 ## 2. 待确认区（阻塞于交流数据 / 待拍板文件，等总体完成后统一请领导确认）
 
 

@@ -344,6 +344,124 @@ function handlePairs(res) {
   }
 }
 
+// ---- D9：核验清单（先归因再判矛盾）+ 双侧证据视图 ----
+// 归因文案来源：方 equity_check_D5 sidecar 的 findings[].message（与方核对的文案，原样上屏不改写）。
+// 出处来源：对应数据集信封的字段级 provenance（与张核对的出处：quote+页码+block_id）。
+const SEVERITY_ORDER = { conflict: 0, error: 1, review: 2, info: 3 };
+
+/** 信封 + 事件号 + 字段名 → 代表出处（第一条带 quote 的 provenance）。 */
+function provenanceOf(env, eventId, fieldName) {
+  for (const ev of env.events || []) {
+    if (eventId && ev.event_id !== eventId) continue;
+    const f = (ev.fields || {})[fieldName];
+    if (!f) continue;
+    const p = (f.provenance || []).find(x => x.quote);
+    if (p) return { field: fieldName, quote: p.quote, page: p.page ?? null, block_id: p.block_id ?? null, source_type: p.source_type ?? null };
+  }
+  return null;
+}
+
+/** 单个 sidecar → 核验清单条目（出处富化）。 */
+function verifyFindingsOf(dataset, check) {
+  const file = path.join(DATA_DIR, dataset + ".json");
+  const out = [];
+  let env = null;
+  try { if (fs.existsSync(file)) env = JSON.parse(fs.readFileSync(file, "utf8")); } catch { env = null; }
+  const push = (ev, f) => {
+    const item = {
+      dataset,
+      event_id: (ev && ev.event_id) || null,
+      holder: (ev && ev.holder) || null,
+      code: f.code,
+      severity: f.severity || "review",
+      message: f.message || "",                    // 先归因：方的解释文案
+      fields: f.fields || [],
+      provenance: null                             // 后出处：张的 provenance
+    };
+    if (env) {
+      for (const fn of item.fields) {
+        const p = provenanceOf(env, item.event_id, fn);
+        if (p) { item.provenance = p; break; }
+      }
+    }
+    out.push(item);
+  };
+  for (const f of check.findings || []) push(null, f);               // 数据集级发现
+  for (const ev of check.events || []) for (const f of ev.findings || []) push(ev, f);
+  return out;
+}
+
+function handleVerify(res) {
+  try {
+    // ① 核验清单：扫全部 sidecar（坏 sidecar 计数不阻塞）
+    const findings = [];
+    const stats = { datasets_checked: 0, sidecar_errors: 0, by_severity: { conflict: 0, error: 0, review: 0, info: 0 }, verified_events: 0, review_events: 0 };
+    for (const f of fs.readdirSync(DATA_DIR)) {
+      if (!f.endsWith(".check.json")) continue;
+      const dataset = path.basename(f, ".check.json");
+      try {
+        const check = JSON.parse(fs.readFileSync(path.join(DATA_DIR, f), "utf8"));
+        stats.datasets_checked++;
+        const items = verifyFindingsOf(dataset, check);
+        for (const it of items) stats.by_severity[it.severity] = (stats.by_severity[it.severity] || 0) + 1;
+        for (const ev of check.events || []) (ev.status === "verified" ? stats.verified_events++ : stats.review_events++);
+        findings.push(...items);
+      } catch { stats.sidecar_errors++; }
+    }
+    findings.sort((a, b) =>
+      ((SEVERITY_ORDER[a.severity] ?? 9) - (SEVERITY_ORDER[b.severity] ?? 9)) ||
+      a.dataset.localeCompare(b.dataset) || String(a.event_id).localeCompare(String(b.event_id)));
+
+    // ② 双侧证据：B 报告互证点（docs/quotes 双侧并排 + 本地页码富化）
+    const pairs = [];
+    const rptFile = path.join(PAIRS_DIR, "b_report.json");
+    if (fs.existsSync(rptFile)) {
+      const rpt = JSON.parse(fs.readFileSync(rptFile, "utf8"));
+      for (const r of rpt.results || []) {
+        const cons = r.consistency || {};
+        const localOf = cid => {
+          const ds = localEnvelopeFor(cid);
+          return ds || null;
+        };
+        pairs.push({
+          group_id: r.group_id,
+          predicted_relation: r.predicted_relation,
+          corroborations: (cons.corroborations || []).map(c => ({
+            ...c,                                        // 整条透传：simple（docs/quotes）与 group_total_matches_sum（aggregate/parts）两种形态都保留
+            pages: (c.docs || []).map(d => {
+              const ds = localOf(d);
+              if (!ds) return null;
+              const file2 = path.join(DATA_DIR, ds + ".json");
+              if (!fs.existsSync(file2)) return null;
+              try {
+                const env = JSON.parse(fs.readFileSync(file2, "utf8"));
+                // 找该实体该字段：holder=entity 且字段名匹配
+                for (const ev of env.events || []) {
+                  const holder = (ev.fields || {}).holder;
+                  if (holder && String(holder.value ?? holder.raw_value ?? "") !== String(c.entity)) continue;
+                  const p = provenanceOf(env, ev.event_id, c.field);
+                  if (p) return { dataset: ds, page: p.page, block_id: p.block_id };
+                }
+                return null;
+              } catch { return null; }
+            })
+          })),
+          conflicts: cons.conflicts || []
+        });
+      }
+    }
+    const corroborationTotal = pairs.reduce((n, p) => n + p.corroborations.length, 0);
+    const conflictTotal = pairs.reduce((n, p) => n + (Array.isArray(p.conflicts) ? p.conflicts.length : 0), 0);
+    sendJSON(res, 200, {
+      summary: { ...stats, corroboration_total: corroborationTotal, pair_conflict_total: conflictTotal },
+      findings,
+      pairs
+    });
+  } catch (e) {
+    sendJSON(res, 500, { error: "核验清单装配失败: " + e.message });
+  }
+}
+
 function handleApi(req, res, urlObj) {
   if (urlObj.pathname === "/api/datasets") {
     return sendJSON(res, 200, { source: DATA_SOURCE, datasets: listDatasets() });
@@ -372,6 +490,9 @@ function handleApi(req, res, urlObj) {
   }
   if (urlObj.pathname === "/api/pairs") {
     return handlePairs(res);                         // D8：跨文档配对（三态渲染 + 双侧 issuer/notice）
+  }
+  if (urlObj.pathname === "/api/verify") {
+    return handleVerify(res);                        // D9：核验清单（先归因）+ 双侧证据视图
   }
   sendJSON(res, 404, { error: "unknown api" });
 }

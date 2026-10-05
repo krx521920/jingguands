@@ -119,6 +119,44 @@ main { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 14px; padding: 
 .pairs-guarantee { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px; line-height: 1.7; }
 @media (max-width: 900px) { .pair-cols { grid-template-columns: 1fr; } .member-col:first-child { border-right: none; border-bottom: 1px dashed var(--border); } }
 
+/* ---- D9：核验清单（先归因再判矛盾）+ 双侧证据视图 ---- */
+.verify-top { background: #f4f7f4; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 13.5px; margin-bottom: 14px; line-height: 1.7; }
+.verify-warn { color: #a05a00; background: #fff6df; border: 1px solid #e6c96a; border-radius: 6px; padding: 5px 10px; font-size: 12.5px; margin-bottom: 12px; }
+.verify-section { margin-bottom: 20px; }
+.verify-section h3 { font-size: 14.5px; margin: 4px 0 10px; }
+.sev-conflict-text { color: #b02a0c; }
+.vf-item { border: 1px solid var(--border); border-radius: 7px; padding: 8px 12px; margin-bottom: 8px; background: #fff; }
+.vf-item-bad { border-color: #eeb4b4; background: #fffafa; }
+.vf-main { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.vf-message { font-size: 13.5px; font-weight: 600; }   /* 归因文案在先、加粗 */
+.vf-badge { font-size: 12px; border-radius: 4px; padding: 1px 8px; font-weight: 700; border: 1px solid transparent; }
+.sev-conflict { background: #fdecec; color: #b02a0c; border-color: #eeb4b4; }
+.sev-error { background: #fdeee3; color: #b34700; border-color: #eebd9a; }
+.sev-review { background: #fff6df; color: #8a6d1a; border-color: #e6c96a; }
+.sev-info { background: #eef4ee; color: #2f6b34; border-color: #bcd4bd; }
+.vf-code { font-size: 11.5px; color: var(--muted); font-family: Consolas, monospace; margin-left: auto; }   /* 判定码殿后 */
+.vf-sub { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 3px; }
+.vf-prov { font-size: 12.5px; color: #444; background: #f7f8f7; border-left: 3px solid #bcd4bd; border-radius: 0 4px 4px 0; padding: 4px 8px; margin-top: 5px; line-height: 1.55; }
+.corr-group { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; background: #fff; overflow: hidden; }
+.corr-group-title { font-size: 12.5px; font-weight: 700; color: var(--muted); background: #fafbfa; border-bottom: 1px solid var(--border); padding: 6px 12px; }
+.corr-row { padding: 8px 12px; border-bottom: 1px dashed var(--border); }
+.corr-row:last-child { border-bottom: none; }
+.corr-row-bad { background: #fffafa; }
+.corr-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.corr-title { font-size: 13px; font-weight: 700; }
+.corr-verdict { font-size: 12px; color: #2f6b34; background: #eef4ee; border: 1px solid #bcd4bd; border-radius: 4px; padding: 1px 8px; font-weight: 700; }
+.corr-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+.corr-col { background: #f9faf9; border: 1px solid var(--border); border-radius: 6px; padding: 7px 10px; }
+.corr-doc { font-size: 11.5px; font-weight: 700; color: #3d5a3f; font-family: Consolas, monospace; }
+.corr-quote { font-size: 14px; font-weight: 700; margin-top: 3px; font-family: Consolas, monospace; }
+.corr-page { font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+.verify-note { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px; line-height: 1.7; }
+@media (max-width: 900px) { .corr-cols { grid-template-columns: 1fr; } }
+.corr-agg { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-top: 6px; background: #f9faf9; border: 1px solid var(--border); border-radius: 6px; padding: 7px 10px; }
+.corr-ent { font-size: 12px; color: var(--muted); margin-left: auto; }
+.corr-parts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.corr-part { font-size: 12px; background: #f0f3f0; border: 1px solid #d3ded3; border-radius: 10px; padding: 2px 9px; font-family: Consolas, monospace; }
+
 /* ---- D6 批量上传：进度条 / 批次摘要 / 失败列表 / 日志入口 ---- */
 .up-progress { height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; margin: 10px 0 2px; }
 .up-progress-inner { height: 100%; width: 0; background: var(--accent); border-radius: 3px; transition: width .15s; }
