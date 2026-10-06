@@ -39,6 +39,7 @@ function parseArgs(argv) {
     else if (a === '--mock') args.mock = true
     else if (a === '--out-dir') args.outDir = argv[++i]
     else if (a === '--parse') args.parse = argv[++i]
+    else if (a === '--cache-dir' || a === '--no-cache') { i += a === '--cache-dir' ? 1 : 0 } // D10 缓存参数：值由 cacheSetupFromCli 直接读 argv
     else if (a === '--help' || a === '-h') { args.help = true; break }
     else { console.error(`未知参数：${a}`); process.exit(2) }
   }
@@ -123,7 +124,47 @@ function buildSystemPrompt(eventType, parseMode) {
 
 // ---------- 模型调用 ----------
 
+// 模型调用缓存（D10）：temperature=0 下同 model+system+user 的调用可确定性重放。
+// --cache-dir <dir>｜env JINGGUAN_CACHE_DIR 开启；--no-cache｜env JINGGUAN_NO_CACHE 强制旁路（清缓存重跑用）。
+// 命中：不调 API，call_log 记 cache_hit=true；未命中：调 API 后写缓存。缓存文件含 model 校验防错配。
+const CACHE = { dir: null, enabled: false, hits: 0, misses: 0, writes: 0 }
+function cacheKeyOf(model, system, user) {
+  return createHash('sha256').update(`${model}\u0000${system}\u0000${user}`).digest('hex')
+}
+function cacheSetupFromCli(argv) {
+  const dirIx = argv.indexOf('--cache-dir')
+  const dir = dirIx > 0 ? argv[dirIx + 1] : process.env.JINGGUAN_CACHE_DIR
+  const noCache = argv.includes('--no-cache') || process.env.JINGGUAN_NO_CACHE === '1'
+  if (dir && !noCache) {
+    CACHE.dir = resolve(REPO_ROOT, dir)
+    CACHE.enabled = true
+    mkdirSync(CACHE.dir, { recursive: true })
+  }
+}
+function cacheRead(key, model) {
+  if (!CACHE.enabled) return null
+  const p = resolve(CACHE.dir, `${key}.json`)
+  try {
+    const j = JSON.parse(readFileSync(p, 'utf8'))
+    if (j.model !== model) return null // 防错配：模型不同视为未命中
+    CACHE.hits++
+    return { content: j.content, usage: j.usage, durationMs: 0, realDurationMs: j.durationMs, httpStatus: j.httpStatus, retriesWithoutResponseFormat: false, cache_hit: true, cache_key: key }
+  } catch { return null }
+}
+function cacheWrite(key, model, result) {
+  if (!CACHE.enabled) return
+  CACHE.writes++
+  const p = resolve(CACHE.dir, `${key}.json`)
+  writeFileSync(p, JSON.stringify({ model, content: result.content, usage: result.usage, durationMs: result.durationMs, httpStatus: result.httpStatus, cached_at: new Date().toISOString() }, null, 1), 'utf8')
+}
+
 async function callModel({ baseURL, model, apiKey, system, user, signal }) {
+  const key = cacheKeyOf(model, system, user)
+  if (CACHE.enabled) {
+    const hit = cacheRead(key, model)
+    if (hit !== null) return hit
+    CACHE.misses++
+  }
   const url = `${baseURL.replace(/\/$/, '')}/chat/completions`
   const body = {
     model,
@@ -160,13 +201,17 @@ async function callModel({ baseURL, model, apiKey, system, user, signal }) {
     throw Object.assign(new Error(`模型调用失败 HTTP ${res.status}：${text.slice(0, 500)}`), { httpStatus: res.status, body: text })
   }
   const json = await res.json()
-  return {
+  const out = {
     content: json.choices?.[0]?.message?.content ?? null,
     usage: json.usage ?? null,
     durationMs,
     httpStatus: res.status,
     retriesWithoutResponseFormat,
+    cache_hit: false,
+    cache_key: key,
   }
+  cacheWrite(key, model, out)
+  return out
 }
 
 // ---------- 模拟响应（与三份冻结样例对应，v0.3 字段） ----------
@@ -1224,8 +1269,9 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
 
 async function main() {
   const args = parseArgs(process.argv.slice(2))
+  cacheSetupFromCli(process.argv.slice(2)) // D10 模型调用缓存（--cache-dir / JINGGUAN_CACHE_DIR；--no-cache 旁路）
   if (args.help || (!args.input && !args.parse)) {
-    console.log('用法：node scripts/jingguan/run_extract.mjs --input <公告文本文件> [--parse <evidence/0.2 解析JSON>] [--event-type pledge|equity_change|award_contract] [--mock] [--out-dir runs]')
+    console.log('用法：node scripts/jingguan/run_extract.mjs --input <公告文本文件> [--parse <evidence/0.2 解析JSON>] [--event-type pledge|equity_change|award_contract] [--mock] [--out-dir runs] [--cache-dir <目录>] [--no-cache]')
     process.exit(args.input || args.parse ? 0 : 2)
   }
 
@@ -1251,7 +1297,12 @@ async function main() {
   if (parseDoc !== null && parseDoc.joinedRaw.trim().length < READABLE_MIN) {
     const stamp0 = new Date().toISOString().replace(/[-:]/g, '').replace(/\..+/, '')
     const runId0 = `${stamp0}-${eventType}-scan`
-    const sha0 = createHash('sha256').update(parseDoc.joinedRaw, 'utf8').digest('hex')
+    // 降级件哈希：无可读文本时对 joinedRaw 取哈希会得到"空串的 sha256"（语义错误）。
+    // 正确口径＝输入解析文件字节哈希（真实产物、张的链检可复核）；解析声明有合法 64 位 sha 时优先。
+    const declaredSha = parseDoc.doc.handoff?.source?.file_sha256
+    const sha0 = /^[0-9a-f]{64}$/i.test(declaredSha ?? '')
+      ? declaredSha
+      : createHash('sha256').update(readFileSync(resolve(REPO_ROOT, args.parse)), 'utf8').digest('hex')
     const degradeReasons = parseDoc.doc.quality?.degrade_reasons ?? []
     const degradedBlock = parseDoc.blocks.find((b) => b.source_type === 'scan_region') ?? parseDoc.blocks[0] ?? null
     const skeleton = {}
@@ -1582,7 +1633,10 @@ async function main() {
     response: call ? { content: call.content, usage: call.usage, http_status: call.httpStatus, dropped_response_format: call.retriesWithoutResponseFormat } : null,
     error: callError ? String(callError.message) : null,
     repairs, // 自动修复项与设计内提示（口径过滤、MIXED 通告等）——不计入 run_meta.errors
-    timing: { total_ms: durationMs, call_ms: call?.durationMs ?? null },
+    cache: CACHE.enabled
+      ? { enabled: true, dir: CACHE.dir, hit: call?.cache_hit ?? null, key: call?.cache_key ?? null, hits: CACHE.hits, misses: CACHE.misses, writes: CACHE.writes }
+      : { enabled: false, hit: null, key: null, hits: 0, misses: 0, writes: 0 },
+    timing: { total_ms: durationMs, call_ms: call?.durationMs ?? null, real_call_ms: call?.realDurationMs ?? call?.durationMs ?? null },
     created_at: startedAt,
   }
   writeFileSync(resolve(outDir, 'call_log.json'), JSON.stringify(callLog, null, 2), 'utf8')

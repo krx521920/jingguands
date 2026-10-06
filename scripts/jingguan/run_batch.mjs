@@ -32,12 +32,14 @@ const GOLD_MANIFEST = join(REPO_ROOT, 'corpus/zongbowen/dev/manifest.json')
 // ---------- 参数与文件收集 ----------
 
 function parseArgs(argv) {
-  const args = { files: [], mock: false, gold: false, goldManifest: null }
+  const args = { files: [], mock: false, gold: false, goldManifest: null, cacheDir: null, noCache: false }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--mock') args.mock = true
     else if (a === '--gold') args.gold = true
     else if (a === '--gold-manifest') args.goldManifest = argv[++i]
+    else if (a === '--cache-dir') args.cacheDir = argv[++i] // D10 模型调用缓存（透传子进程）
+    else if (a === '--no-cache') args.noCache = true // 清缓存重跑（旁路缓存，强制真实调用）
     else args.files.push(a)
   }
   return args
@@ -275,6 +277,8 @@ for (const file of files) {
     caseId = name.replace(/\.txt$/, '')
   }
   if (args.mock) runArgs.push('--mock')
+  if (args.cacheDir !== null) runArgs.push('--cache-dir', args.cacheDir)
+  if (args.noCache) runArgs.push('--no-cache')
 
   console.log(`\n===== ${caseId}（${eventType}）=====`)
   const proc = spawnSync(process.execPath, [RUNNER, ...runArgs], { encoding: 'utf8' })

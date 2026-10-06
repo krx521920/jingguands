@@ -1,0 +1,29 @@
+{
+  "checked_on": "2026-10-06",
+  "source": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)",
+  "states": {
+    "cold1": {
+      "batch": "runs/batch-20261006T083905",
+      "gold": "437/437",
+      "cache_hits": 0,
+      "cache_misses": 31
+    },
+    "replay": {
+      "batch": "runs/batch-20261006T085807",
+      "gold": "437/437",
+      "cache_hits": 31,
+      "cache_misses": 0
+    },
+    "cold2": {
+      "batch": "runs/batch-20261006T084717",
+      "gold": "437/437",
+      "cache_hits": 0,
+      "cache_misses": 31
+    }
+  },
+  "replay_business_fields_identical": true,
+  "cold_cache_new_call_log": true,
+  "web_cli_same_result": true,
+  "web_cli_definition": "同一次运行的信封 JSON 为唯一事实源：Web（陈页面）与 CLI 消费同一文件；缓存重放逐字节一致 31/31。",
+  "known_boundary": "两次独立冷跑间存在 note/引文装饰层抖动（8/31，字段值全部一致，两批均 437/437）——temperature=0 运行间抖动的既有已知项；缓存重放完全消除（31/31 逐字节一致）。"
+}

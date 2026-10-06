@@ -1,0 +1,394 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261006T084956-award_contract-0459",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+    "file_name": "bid-007.pdf",
+    "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 1,
+      "blocks": [
+        {
+          "block_id": "d3a6938fe_p001_b00001",
+          "page": 1,
+          "role": "BODY",
+          "text": "股票代码：601886 股票简称：江河集团 公告编号：临2026-048",
+          "text_raw": "股票代码：601886股票简称：江河集团公告编号：临2026-048",
+          "region": [
+            90,
+            73.85,
+            503.88,
+            85.85
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "江河创建集团股份有限公司关于全资子公司签署重大工程合同的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "text_raw": "江河创建集团股份有限公司关于全资子公司签署重大工程合同的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "region": [
+            114.12,
+            126.75,
+            498.12,
+            210.53
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "text_raw": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "region": [
+            90,
+            221.93,
+            474,
+            233.93
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "江河创建集团股份有限公司(下称“公司”)全资子公司江河幕墙中东工程",
+          "text_raw": "江河创建集团股份有限公司(下称“公司”)全资子公司江河幕墙中东工程",
+          "region": [
+            114,
+            264.77,
+            505.32,
+            276.77
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "有限公司近日在中东迪拜中标W Residences幕墙工程，中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元），约占公司2025年度营业收入的1.46%，该项目位于迪拜，建成后将成为当地的高端公寓项目。",
+          "text_raw": "有限公司近日在中东迪拜中标WResidences幕墙工程，中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元），约占公司2025年度营业收入的1.46%，该项目位于迪拜，建成后将成为当地的高端公寓项目。",
+          "region": [
+            90,
+            288.17,
+            517.32,
+            346.97
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "风险提示：截至本公告披露日，公司尚未完成与相关方签订正式合同，合同",
+          "text_raw": "风险提示：截至本公告披露日，公司尚未完成与相关方签订正式合同，合同",
+          "region": [
+            114.12,
+            362.21,
+            505.32,
+            374.21
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": "的签订与履行均存在不确定性，敬请广大投资者注意投资风险。",
+          "text_raw": "的签订与履行均存在不确定性，敬请广大投资者注意投资风险。",
+          "region": [
+            90,
+            385.61,
+            426,
+            397.61
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114,
+            420.65,
+            174,
+            432.65
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "江河创建集团股份有限公司董事会",
+          "text_raw": "江河创建集团股份有限公司董事会",
+          "region": [
+            315.6,
+            463.49,
+            495.6,
+            475.49
+          ]
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00010",
+          "page": 1,
+          "role": "BODY",
+          "text": "2026年9月23日",
+          "text_raw": "2026年9月23日",
+          "region": [
+            359.16,
+            486.77,
+            452.16,
+            498.77
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "江河幕墙中东工程有限公司",
+          "value": "江河幕墙中东工程有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00004",
+              "page": 1,
+              "region": [
+                114,
+                264.77,
+                505.32,
+                276.77
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "全资子公司江河幕墙中东工程"
+            },
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "有限公司近日在中东迪拜中标WResidences幕墙工程"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "WResidences幕墙工程",
+          "value": "WResidences幕墙工程",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标WResidences幕墙工程"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "人民币317,915,000元",
+          "value": 317915000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+            }
+          ],
+          "denominator": null,
+          "note": "原文以阿联酋迪拉姆计价，折合人民币317,915,000元［方 D6-AWD-007 判定：采用公告明示的人民币折合金额；原始计价金额为 173,800,000（外币）。未执行汇率计算，未推断含税状态］"
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+            }
+          ],
+          "denominator": null,
+          "note": "原文币种为阿联酋迪拉姆，折合人民币［与选定的人民币金额配对；原始计价币种保留在 bid_amount 完整引文与判定记录（方 D6 判定书）］"
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": "公告未提及联合体"
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": "公告未提及联合体"
+        },
+        "bid_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "尚未完成与相关方签订正式合同",
+          "value": "false",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00006",
+              "page": 1,
+              "region": [
+                114.12,
+                362.21,
+                505.32,
+                374.21
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "公司尚未完成与相关方签订正式合同"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-06T08:49:56.506Z",
+    "duration_ms": 3682,
+    "code_version": "4e0b910c",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}
