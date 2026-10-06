@@ -37,3 +37,15 @@ diff_list（B 冲突）·report{events,diffs,attribution,boundaries}·cache 三�
 - `pledge-scan-degrade`：合成对抗件无源 PDF，file_sha256＝解析文件字节哈希
   `2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26`
 - `DEMO-EQC-HL-0930`：`3b1abc7f47dbb6062f40f7631b263356bfacd930f23672ebd7a1e96603671a02`（演示 PDF 不入库）
+
+## 六、消费方 D10 报告生成器（ef8738e3，当日）
+
+- vendor tools/fang-report/（12 文件字节一致）；其自检 **17/17**（结构/语义/CSV 投影/陈投影/防暗依赖）。
+- 全链路重跑：我先出**插件模式富化 B 报告**（`verify_crossdoc --d9-enrich --matcher 方matching`
+  → runs/d10-b-enriched.json，10 组）→ 他的 `build_D10.mjs`（--d9-root tools/fang-attribution
+  ＋sample 布局 parse-root 15 份）→ **十组核验报告与他的推送版判定 10/10 全对齐**
+  （runs/fang-report-D10/）。
+- 对齐过程修一处口径：首跑用内置模式 B 报告致 INT-008＝unrelated，与他参考版（插件模式
+  unknown——缺汇率不强行换算）不一致——**按 D8.2 契约以插件模式为正典 B**，重出后 10/10。
+- 结论：方的"报告数据结构＋10 组核验结果"D10 交付消费完毕，全链可复现（无模型调用，
+  model_called=false）。

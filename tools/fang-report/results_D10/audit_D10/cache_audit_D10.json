@@ -1,0 +1,874 @@
+{
+  "checked_on": "2026-10-06",
+  "comparison": "schema_version + is_mock + source.file_sha256 + complete events; sorted object keys, array order preserved",
+  "rows": [
+    {
+      "member_id": "D4-PLD-001",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083905-pledge-c4ed",
+        "replay": "20261006T085807-pledge-aa0e",
+        "rerun": "20261006T084717-pledge-8240"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "9f6249bbad6d41ef83be4c38727ad5302b59a70f17bad74cb2f94335a012010b",
+        "replay": "9f6249bbad6d41ef83be4c38727ad5302b59a70f17bad74cb2f94335a012010b",
+        "rerun": "9f6249bbad6d41ef83be4c38727ad5302b59a70f17bad74cb2f94335a012010b"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-001_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-001_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-001_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-002",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083916-pledge-d43d",
+        "replay": "20261006T085807-pledge-1381",
+        "rerun": "20261006T084727-pledge-95f3"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "330910f8ad080a2bfa3f595f62a8d21c1b95ad2ffcc832d1fc9b56ae65656e3a",
+        "replay": "330910f8ad080a2bfa3f595f62a8d21c1b95ad2ffcc832d1fc9b56ae65656e3a",
+        "rerun": "330910f8ad080a2bfa3f595f62a8d21c1b95ad2ffcc832d1fc9b56ae65656e3a"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-002_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-002_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-002_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-003",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083920-pledge-7471",
+        "replay": "20261006T085808-pledge-e078",
+        "rerun": "20261006T084732-pledge-d101"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "b7560fa1217311954213959c394d50035a58807eae9ed20a462a720dfd966e5c",
+        "replay": "b7560fa1217311954213959c394d50035a58807eae9ed20a462a720dfd966e5c",
+        "rerun": "b7560fa1217311954213959c394d50035a58807eae9ed20a462a720dfd966e5c"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-003_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-003_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-003_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-004",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083924-pledge-c99d",
+        "replay": "20261006T085808-pledge-99b9",
+        "rerun": "20261006T084736-pledge-6d06"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "1f715a5c639441b407915d8bad2398c7dc26ab5d4c33f6fc0f234674e9b43811",
+        "replay": "1f715a5c639441b407915d8bad2398c7dc26ab5d4c33f6fc0f234674e9b43811",
+        "rerun": "1f715a5c639441b407915d8bad2398c7dc26ab5d4c33f6fc0f234674e9b43811"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-004_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-004_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-004_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-005",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083928-pledge-42fb",
+        "replay": "20261006T085808-pledge-4da9",
+        "rerun": "20261006T084741-pledge-ec2f"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "6af3f74b6ed7d378d5d15eb2cdb4734ca49c4a8aad7eebe5530f08d7e29dfb9b",
+        "replay": "6af3f74b6ed7d378d5d15eb2cdb4734ca49c4a8aad7eebe5530f08d7e29dfb9b",
+        "rerun": "6af3f74b6ed7d378d5d15eb2cdb4734ca49c4a8aad7eebe5530f08d7e29dfb9b"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-005_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-005_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-005_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-006",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "events"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": false,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083936-pledge-13b7",
+        "replay": "20261006T085808-pledge-3a36",
+        "rerun": "20261006T084748-pledge-1ce6"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "7698e3cd51252a8fb7d4ca895064605a33ddbf308f5278b0e8a52bef05ea1f95",
+        "replay": "b139e5676f5d458aa7c558cc835a53de8eeef5e170fdd9ce81c860c2430c32d0",
+        "rerun": "b139e5676f5d458aa7c558cc835a53de8eeef5e170fdd9ce81c860c2430c32d0"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-006_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-006_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-006_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-007",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083940-pledge-686f",
+        "replay": "20261006T085808-pledge-9916",
+        "rerun": "20261006T084752-pledge-79af"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "1e574a33ddc968154fca30c829bdb9934ee2ecedf04b201c34865b76e65b1f99",
+        "replay": "1e574a33ddc968154fca30c829bdb9934ee2ecedf04b201c34865b76e65b1f99",
+        "rerun": "1e574a33ddc968154fca30c829bdb9934ee2ecedf04b201c34865b76e65b1f99"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-007_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-007_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-007_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-008",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083944-pledge-65c0",
+        "replay": "20261006T085808-pledge-893e",
+        "rerun": "20261006T084757-pledge-9bb1"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "e999a4193be5f94ddfab26d8993aeb35da2a95eae35d42521d5ce6c4d8fbbc17",
+        "replay": "e999a4193be5f94ddfab26d8993aeb35da2a95eae35d42521d5ce6c4d8fbbc17",
+        "rerun": "e999a4193be5f94ddfab26d8993aeb35da2a95eae35d42521d5ce6c4d8fbbc17"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-008_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-008_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-008_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-009",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "events"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": false,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T083949-pledge-85cc",
+        "replay": "20261006T085808-pledge-f3b5",
+        "rerun": "20261006T084801-pledge-0da3"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "1ef7e5c26057f93a6f542ce02e3058e2d80549d37baf2b9910f918de936f1898",
+        "replay": "396f11b0f950f0e8effcb97d7f2137327ebbc841fb3f3a4cc131f904eaaf152e",
+        "rerun": "396f11b0f950f0e8effcb97d7f2137327ebbc841fb3f3a4cc131f904eaaf152e"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-009_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-009_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-009_D10.json"
+      }
+    },
+    {
+      "member_id": "D4-PLD-010",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084000-pledge-5990",
+        "replay": "20261006T085808-pledge-8c35",
+        "rerun": "20261006T084812-pledge-fc7a"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "7bbf2fcebe8275fe5ded3ad15c98d4527ab0f49806ab454e6ee1c20e520f6d1d",
+        "replay": "7bbf2fcebe8275fe5ded3ad15c98d4527ab0f49806ab454e6ee1c20e520f6d1d",
+        "rerun": "7bbf2fcebe8275fe5ded3ad15c98d4527ab0f49806ab454e6ee1c20e520f6d1d"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D4-PLD-010_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D4-PLD-010_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D4-PLD-010_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-001",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084004-equity_change-48f1",
+        "replay": "20261006T085808-equity_change-5778",
+        "rerun": "20261006T084816-equity_change-cfcb"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "56f6ad84f636089984a0add4515bccc036e54441b3a543ff3d9bca68fe03cd0b",
+        "replay": "56f6ad84f636089984a0add4515bccc036e54441b3a543ff3d9bca68fe03cd0b",
+        "rerun": "56f6ad84f636089984a0add4515bccc036e54441b3a543ff3d9bca68fe03cd0b"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-001_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-001_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-001_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-002",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084017-equity_change-2467",
+        "replay": "20261006T085808-equity_change-ae68",
+        "rerun": "20261006T084829-equity_change-9d86"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "8dbe41e9dd4b3df92e9fa02515e009c209c7e82ad5919dbd92550958e01fa65b",
+        "replay": "8dbe41e9dd4b3df92e9fa02515e009c209c7e82ad5919dbd92550958e01fa65b",
+        "rerun": "8dbe41e9dd4b3df92e9fa02515e009c209c7e82ad5919dbd92550958e01fa65b"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-002_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-002_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-002_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-003",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084036-equity_change-6a70",
+        "replay": "20261006T085809-equity_change-14e4",
+        "rerun": "20261006T084848-equity_change-6ca0"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "0a3f7888519df82701ef09d4f4eec8b151466f044c1f30f0a417026f604039dc",
+        "replay": "0a3f7888519df82701ef09d4f4eec8b151466f044c1f30f0a417026f604039dc",
+        "rerun": "0a3f7888519df82701ef09d4f4eec8b151466f044c1f30f0a417026f604039dc"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-003_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-003_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-003_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-004",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084039-equity_change-abce",
+        "replay": "20261006T085809-equity_change-e235",
+        "rerun": "20261006T084851-equity_change-edb1"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "d99af2c84cf6d6d423a49fb5d59f377ad9c8d399663a48f523d71673006053a6",
+        "replay": "d99af2c84cf6d6d423a49fb5d59f377ad9c8d399663a48f523d71673006053a6",
+        "rerun": "d99af2c84cf6d6d423a49fb5d59f377ad9c8d399663a48f523d71673006053a6"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-004_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-004_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-004_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-005",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084043-equity_change-930f",
+        "replay": "20261006T085809-equity_change-b223",
+        "rerun": "20261006T084855-equity_change-118d"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "f5b85cc53d66a5905aa1e5860eeaaf2da44de4bd612bdf8ee081e9ba26c6b997",
+        "replay": "f5b85cc53d66a5905aa1e5860eeaaf2da44de4bd612bdf8ee081e9ba26c6b997",
+        "rerun": "f5b85cc53d66a5905aa1e5860eeaaf2da44de4bd612bdf8ee081e9ba26c6b997"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-005_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-005_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-005_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-006",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "events"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": false,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084047-equity_change-fbee",
+        "replay": "20261006T085809-equity_change-02d1",
+        "rerun": "20261006T084858-equity_change-2c59"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "c7a0f25cd223dd10fc22924caea80853e194b80a4884815b51ea8d49e185ea26",
+        "replay": "b9d51131936b782f6cab20574b7f762604eb0b0e4694fe4eb4678dbaceb4b2b4",
+        "rerun": "b9d51131936b782f6cab20574b7f762604eb0b0e4694fe4eb4678dbaceb4b2b4"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-006_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-006_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-006_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-007",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084050-equity_change-4872",
+        "replay": "20261006T085809-equity_change-fa88",
+        "rerun": "20261006T084902-equity_change-cdd2"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "ee20240e28635055d49da151340bf6b578ece770cd7cffe0b93b59bb22060315",
+        "replay": "ee20240e28635055d49da151340bf6b578ece770cd7cffe0b93b59bb22060315",
+        "rerun": "ee20240e28635055d49da151340bf6b578ece770cd7cffe0b93b59bb22060315"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-007_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-007_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-007_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-008",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084054-equity_change-de78",
+        "replay": "20261006T085809-equity_change-03b9",
+        "rerun": "20261006T084905-equity_change-3b25"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "bbb9f1042830d918ac5e8e52566fd2d0503bcdae1d031d01b114ab5e233dac01",
+        "replay": "bbb9f1042830d918ac5e8e52566fd2d0503bcdae1d031d01b114ab5e233dac01",
+        "rerun": "bbb9f1042830d918ac5e8e52566fd2d0503bcdae1d031d01b114ab5e233dac01"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-008_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-008_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-008_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-009",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "events"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": false,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084057-equity_change-d9ce",
+        "replay": "20261006T085809-equity_change-7d4e",
+        "rerun": "20261006T084908-equity_change-cd42"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "eee7eaf463c370fa52ead78b77d02c7bdcd99f64e76767b46aac9c3179d70d88",
+        "replay": "5d0ee7051b8781ba0096f638872487ddf4ac580a2eaf10899e4dad722dc553c0",
+        "rerun": "5d0ee7051b8781ba0096f638872487ddf4ac580a2eaf10899e4dad722dc553c0"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-009_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-009_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-009_D10.json"
+      }
+    },
+    {
+      "member_id": "D5-EQC-010",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084100-equity_change-7374",
+        "replay": "20261006T085809-equity_change-efc7",
+        "rerun": "20261006T084912-equity_change-3a6b"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "3c83c173976ea3b88c026025849977ce711c6005cf99ccdb7b9faded58f92cb0",
+        "replay": "3c83c173976ea3b88c026025849977ce711c6005cf99ccdb7b9faded58f92cb0",
+        "rerun": "3c83c173976ea3b88c026025849977ce711c6005cf99ccdb7b9faded58f92cb0"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D5-EQC-010_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D5-EQC-010_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D5-EQC-010_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-001",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084106-award_contract-05b9",
+        "replay": "20261006T085809-award_contract-2da6",
+        "rerun": "20261006T084917-award_contract-e4c8"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "428f1390665cf53b0c6da697a0a6564fa6f8583ea26a66df5a2597b30424ec97",
+        "replay": "428f1390665cf53b0c6da697a0a6564fa6f8583ea26a66df5a2597b30424ec97",
+        "rerun": "428f1390665cf53b0c6da697a0a6564fa6f8583ea26a66df5a2597b30424ec97"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-001_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-001_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-001_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-002",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084109-award_contract-67cf",
+        "replay": "20261006T085810-award_contract-3d86",
+        "rerun": "20261006T084921-award_contract-9e92"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "8c153aa6dbdefa95e3806fd641ce96d648d58bf54d76fda9312b489f96e1d29d",
+        "replay": "8c153aa6dbdefa95e3806fd641ce96d648d58bf54d76fda9312b489f96e1d29d",
+        "rerun": "8c153aa6dbdefa95e3806fd641ce96d648d58bf54d76fda9312b489f96e1d29d"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-002_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-002_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-002_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-003",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084121-award_contract-705d",
+        "replay": "20261006T085810-award_contract-9fb2",
+        "rerun": "20261006T084933-award_contract-9cd3"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "30ecad7a020065e662b2cfb1dae61302d98d6223cbcb0deb9479e2a27373b1b5",
+        "replay": "30ecad7a020065e662b2cfb1dae61302d98d6223cbcb0deb9479e2a27373b1b5",
+        "rerun": "30ecad7a020065e662b2cfb1dae61302d98d6223cbcb0deb9479e2a27373b1b5"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-003_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-003_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-003_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-004",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "events"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": false,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084131-award_contract-1636",
+        "replay": "20261006T085810-award_contract-e1de",
+        "rerun": "20261006T084943-award_contract-007e"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "80e017f14ce590df551698ae45b5549a83f622f32b2b0292a2ade2fb4f978faf",
+        "replay": "df433daf39ffee86e5f6f08e1e2925367087e0fc93883a3d21b46080960f20aa",
+        "rerun": "df433daf39ffee86e5f6f08e1e2925367087e0fc93883a3d21b46080960f20aa"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-004_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-004_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-004_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-005",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "events"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": false,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084136-award_contract-f4dc",
+        "replay": "20261006T085810-award_contract-61fc",
+        "rerun": "20261006T084947-award_contract-7e8d"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "79ab744b6daf78cdd164b79c7825e3f17385a2c7c7e745830d2b6d5eff6f490b",
+        "replay": "496d4b18291f6ad446e20f48bdb9127278efe0316cb9d6dcaf008758e91e0630",
+        "rerun": "496d4b18291f6ad446e20f48bdb9127278efe0316cb9d6dcaf008758e91e0630"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-005_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-005_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-005_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-006",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084141-award_contract-5bb7",
+        "replay": "20261006T085810-award_contract-3cfe",
+        "rerun": "20261006T084952-award_contract-880c"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "0b98951acd287bfb2333adc8143865d3f95238b0189949ddd98cf2ee6321a29d",
+        "replay": "0b98951acd287bfb2333adc8143865d3f95238b0189949ddd98cf2ee6321a29d",
+        "rerun": "0b98951acd287bfb2333adc8143865d3f95238b0189949ddd98cf2ee6321a29d"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-006_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-006_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-006_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-007",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084144-award_contract-cd70",
+        "replay": "20261006T085810-award_contract-af7b",
+        "rerun": "20261006T084956-award_contract-0459"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "c11e695831c4f2af9aef812ab0df3983a9e29fc34d4386528a96b13e8f6eb253",
+        "replay": "c11e695831c4f2af9aef812ab0df3983a9e29fc34d4386528a96b13e8f6eb253",
+        "rerun": "c11e695831c4f2af9aef812ab0df3983a9e29fc34d4386528a96b13e8f6eb253"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-007_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-007_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-007_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-008",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "events"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": false,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084148-award_contract-a824",
+        "replay": "20261006T085810-award_contract-4a53",
+        "rerun": "20261006T085000-award_contract-9aa6"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "13f1d9b03d8b7179ed1e14f6213e2b3218a18a655d1ff7cf00517c11327c1d28",
+        "replay": "6dd4f96792ccfac0a2dd4c7c6ef61974123dcf6b02cd3dc74f52500614a50954",
+        "rerun": "6dd4f96792ccfac0a2dd4c7c6ef61974123dcf6b02cd3dc74f52500614a50954"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-008_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-008_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-008_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-009",
+      "replay_business_fields_identical": true,
+      "changed_business_fields": [],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084153-award_contract-cd3a",
+        "replay": "20261006T085810-award_contract-07ad",
+        "rerun": "20261006T085004-award_contract-8819"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "528bd4b8d7471b1e858cb00e38ffa280a9f3505d6b70a58db2109fb4348f372c",
+        "replay": "528bd4b8d7471b1e858cb00e38ffa280a9f3505d6b70a58db2109fb4348f372c",
+        "rerun": "528bd4b8d7471b1e858cb00e38ffa280a9f3505d6b70a58db2109fb4348f372c"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-009_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-009_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-009_D10.json"
+      }
+    },
+    {
+      "member_id": "D6-AWD-010",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "events"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": false,
+      "rerun_to_replay_business_identical": true,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084202-award_contract-7481",
+        "replay": "20261006T085810-award_contract-e3d9",
+        "rerun": "20261006T085013-award_contract-5c94"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "2a27efda7d135f4dccabc2f54be6ead0d60f9322ba8d0365ac3fd7231a4829a4",
+        "replay": "8085fc57061b1cdb821aa0ed172127e798ddc445dd61f540607a69f771e1f731",
+        "rerun": "8085fc57061b1cdb821aa0ed172127e798ddc445dd61f540607a69f771e1f731"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/D6-AWD-010_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/D6-AWD-010_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/D6-AWD-010_D10.json"
+      }
+    },
+    {
+      "member_id": "pledge-scan-degrade",
+      "replay_business_fields_identical": false,
+      "changed_business_fields": [
+        "file_sha256"
+      ],
+      "replay_values_identical": true,
+      "cold_rerun_business_identical": true,
+      "rerun_to_replay_business_identical": false,
+      "cold_rerun_values_identical": true,
+      "run_ids": {
+        "cold": "20261006T084206-pledge-scan",
+        "replay": "20261006T085811-pledge-scan",
+        "rerun": "20261006T085016-pledge-scan"
+      },
+      "new_rerun_run_id": true,
+      "business_sha256": {
+        "cold": "98f51650009db4ce95bb24147ae8a222dae35c8d60501f49aa14817d1be174e0",
+        "replay": "bdb1a824c11c7705f57b196af1f0cb8bf2e2f1bde799c7db91c966c1697dae8c",
+        "rerun": "98f51650009db4ce95bb24147ae8a222dae35c8d60501f49aa14817d1be174e0"
+      },
+      "cache_hit_log_verified": false,
+      "source_files": {
+        "cold": "inputs_D10/cache_samples_D10/cold/pledge-scan-degrade_D10.json",
+        "replay": "inputs_D10/cache_samples_D10/replay/pledge-scan-degrade_D10.json",
+        "rerun": "inputs_D10/cache_samples_D10/rerun/pledge-scan-degrade_D10.json"
+      }
+    }
+  ],
+  "summary": {
+    "total": 31,
+    "replay_identical": 22,
+    "replay_values_identical": 31,
+    "cold_rerun_identical": 23,
+    "cold_rerun_values_identical": 31,
+    "rerun_to_replay_identical": 30
+  },
+  "call_logs": {
+    "status": "not_available_in_pinned_repository",
+    "new_run_ids_are_not_call_logs": true
+  },
+  "web_cli": {
+    "status": "not_exercised_against_chen_server"
+  },
+  "upstream_claim": {
+    "checked_on": "2026-10-06",
+    "source": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)",
+    "states": {
+      "cold1": {
+        "batch": "runs/batch-20261006T083905",
+        "gold": "437/437",
+        "cache_hits": 0,
+        "cache_misses": 31
+      },
+      "replay": {
+        "batch": "runs/batch-20261006T085807",
+        "gold": "437/437",
+        "cache_hits": 31,
+        "cache_misses": 0
+      },
+      "cold2": {
+        "batch": "runs/batch-20261006T084717",
+        "gold": "437/437",
+        "cache_hits": 0,
+        "cache_misses": 31
+      }
+    },
+    "replay_business_fields_identical": true,
+    "cold_cache_new_call_log": true,
+    "web_cli_same_result": true,
+    "web_cli_definition": "同一次运行的信封 JSON 为唯一事实源：Web（陈页面）与 CLI 消费同一文件；缓存重放逐字节一致 31/31。",
+    "known_boundary": "两次独立冷跑间存在 note/引文装饰层抖动（8/31，字段值全部一致，两批均 437/437）——temperature=0 运行间抖动的既有已知项；缓存重放完全消除（31/31 逐字节一致）。"
+  }
+}
