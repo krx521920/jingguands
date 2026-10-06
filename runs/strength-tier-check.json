@@ -1,0 +1,639 @@
+{
+  "result": "FAIL",
+  "audit": "runs/D7-normalization-audit-20261005.json",
+  "total_changes": 181,
+  "type_only": 103,
+  "status_downgrades": 78,
+  "value_changes": 0,
+  "illegal_downgrades": 71,
+  "strength_distribution": {
+    "strong": 174,
+    "medium": 0,
+    "weak": 0,
+    "none": 5,
+    "conflict": 2,
+    "unknown": 0
+  },
+  "note": "",
+  "downgraded_list": [
+    {
+      "case": "D4-PLD-001",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-001",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-001",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-001",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-001",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-001",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-002",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-002",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-002",
+      "field": "pledged_ratio_this_time_of_held",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-002",
+      "field": "pledged_ratio_this_time_of_total",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-002",
+      "field": "pledged_ratio_cumulative_of_held",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-002",
+      "field": "pledged_ratio_cumulative_of_total",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-003",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-003",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-003",
+      "field": "pledged_ratio_this_time_of_held",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-003",
+      "field": "pledged_ratio_this_time_of_total",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-003",
+      "field": "pledged_ratio_cumulative_of_held",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-003",
+      "field": "pledged_ratio_cumulative_of_total",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-005",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-005",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-005",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-005",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-007",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-007",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-008",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-008",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-008",
+      "field": "pledged_ratio_cumulative_of_held",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-008",
+      "field": "pledged_ratio_cumulative_of_total",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-009",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-009",
+      "field": "pledged_ratio_this_time_of_held",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-009",
+      "field": "pledged_ratio_this_time_of_total",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-009",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-009",
+      "field": "pledged_ratio_this_time_of_held",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-009",
+      "field": "pledged_ratio_this_time_of_total",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-009",
+      "field": "pledged_ratio_this_time_of_held",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_CONFLICT"
+    },
+    {
+      "case": "D4-PLD-009",
+      "field": "pledged_ratio_this_time_of_total",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_CONFLICT"
+    },
+    {
+      "case": "D4-PLD-010",
+      "field": "pledged_shares_this_time",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D4-PLD-010",
+      "field": "pledged_shares_cumulative",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-001",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-002",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-003",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-004",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-004",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-004",
+      "field": "ratio_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-005",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-005",
+      "field": "ratio_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-006",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-006",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-006",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-008",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-008",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-010",
+      "field": "shares_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-010",
+      "field": "shares_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-010",
+      "field": "ratio_before",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-010",
+      "field": "ratio_after",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    },
+    {
+      "case": "D5-EQC-010",
+      "field": "change_shares",
+      "from": "extracted",
+      "to": "needs_review",
+      "code": "UNIT_MISSING"
+    }
+  ],
+  "issues": [
+    "D4-PLD-001.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-001.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-001.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-001.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-001.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-001.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-002.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-002.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-002.pledged_ratio_this_time_of_held ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-002.pledged_ratio_this_time_of_total ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-002.pledged_ratio_cumulative_of_held ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-002.pledged_ratio_cumulative_of_total ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-003.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-003.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-003.pledged_ratio_this_time_of_held ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-003.pledged_ratio_this_time_of_total ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-003.pledged_ratio_cumulative_of_held ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-003.pledged_ratio_cumulative_of_total ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-005.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-005.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-005.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-005.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-007.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-007.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-008.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-008.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-008.pledged_ratio_cumulative_of_held ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-008.pledged_ratio_cumulative_of_total ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-009.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-009.pledged_ratio_this_time_of_held ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-009.pledged_ratio_this_time_of_total ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-009.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-009.pledged_ratio_this_time_of_held ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-009.pledged_ratio_this_time_of_total ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-010.pledged_shares_this_time ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D4-PLD-010.pledged_shares_cumulative ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-001.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-002.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-003.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-004.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-004.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-004.ratio_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-005.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-005.ratio_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-006.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-006.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-006.change_shares ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-008.shares_before ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)",
+    "D5-EQC-008.shares_after ILLEGAL_DOWNGRADE strength=strong (extracted->needs_review)"
+  ]
+}

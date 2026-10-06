@@ -1,5 +1,5 @@
 {
-  "audited_on": "2026-10-05",
+  "audited_on": "2026-10-06",
   "tool": "audit_fang_d7.mjs",
   "source_package": "master@e6334aa2（方 D7，fxc178 2026-10-03 上传至 master 而非 feature/fang-rules）",
   "envelopes": "runs/batch-20261005T063943/envelopes",
@@ -22,6 +22,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 2100000,
         "status": "extracted",
@@ -39,6 +41,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 50350000,
         "status": "extracted",
@@ -56,6 +60,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 2.4,
         "status": "extracted",
@@ -73,6 +79,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 0.99,
         "status": "extracted",
@@ -90,6 +98,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 57.58,
         "status": "extracted",
@@ -107,6 +117,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 23.62,
         "status": "extracted",
@@ -124,6 +136,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 2650000,
         "status": "extracted",
@@ -141,6 +155,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 50350000,
         "status": "extracted",
@@ -158,6 +174,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3.03,
         "status": "extracted",
@@ -175,6 +193,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 1.24,
         "status": "extracted",
@@ -192,6 +212,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 57.58,
         "status": "extracted",
@@ -209,6 +231,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 23.62,
         "status": "extracted",
@@ -226,6 +250,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3050000,
         "status": "extracted",
@@ -243,6 +269,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 50350000,
         "status": "extracted",
@@ -260,6 +288,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3.49,
         "status": "extracted",
@@ -277,6 +307,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 1.43,
         "status": "extracted",
@@ -294,6 +326,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 57.58,
         "status": "extracted",
@@ -311,6 +345,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 23.62,
         "status": "extracted",
@@ -328,6 +364,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 40000000,
         "status": "extracted",
@@ -345,6 +383,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 215000000,
         "status": "extracted",
@@ -362,6 +402,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 6.64,
         "status": "extracted",
@@ -379,6 +421,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3.06,
         "status": "extracted",
@@ -396,6 +440,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 35.71,
         "status": "extracted",
@@ -413,6 +459,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 16.46,
         "status": "extracted",
@@ -430,6 +478,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 2000000,
         "status": "extracted",
@@ -447,6 +497,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 80000000,
         "status": "extracted",
@@ -464,6 +516,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 2.18,
         "status": "extracted",
@@ -481,6 +535,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0.19,
         "status": "extracted",
@@ -498,6 +554,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 87.35,
         "status": "extracted",
@@ -515,6 +573,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 7.56,
         "status": "extracted",
@@ -532,6 +592,8 @@
       "field": "pledged_shares_this_time",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3640000,
         "status": "extracted",
@@ -549,6 +611,8 @@
       "field": "pledged_shares_cumulative",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 274958065,
         "status": "extracted",
@@ -566,6 +630,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 0.84,
         "status": "extracted",
@@ -583,6 +649,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 0.15,
         "status": "extracted",
@@ -600,6 +668,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 63.67,
         "status": "extracted",
@@ -617,6 +687,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 11.51,
         "status": "extracted",
@@ -634,6 +706,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 25310000,
         "status": "extracted",
@@ -651,6 +725,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 122950000,
         "status": "extracted",
@@ -668,6 +744,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 2.31,
         "status": "extracted",
@@ -685,6 +763,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 0.86,
         "status": "extracted",
@@ -702,6 +782,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 11.21,
         "status": "extracted",
@@ -719,6 +801,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 4.19,
         "status": "extracted",
@@ -736,6 +820,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 24000000,
         "status": "extracted",
@@ -753,6 +839,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 122950000,
         "status": "extracted",
@@ -770,6 +858,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 2.19,
         "status": "extracted",
@@ -787,6 +877,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 0.82,
         "status": "extracted",
@@ -804,6 +896,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 11.21,
         "status": "extracted",
@@ -821,6 +915,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 4.19,
         "status": "extracted",
@@ -838,6 +934,8 @@
       "field": "pledged_shares_this_time",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3750000,
         "status": "extracted",
@@ -855,6 +953,8 @@
       "field": "pledged_shares_cumulative",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 117810000,
         "status": "extracted",
@@ -872,6 +972,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 1.99,
         "status": "extracted",
@@ -889,6 +991,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 0.64,
         "status": "extracted",
@@ -906,6 +1010,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 62.46,
         "status": "extracted",
@@ -923,6 +1029,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 20.07,
         "status": "extracted",
@@ -940,6 +1048,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 15050000,
         "status": "extracted",
@@ -957,6 +1067,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 165640550,
         "status": "extracted",
@@ -974,6 +1086,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3.6097,
         "status": "extracted",
@@ -991,6 +1105,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 1.7669,
         "status": "extracted",
@@ -1008,6 +1124,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 39.7285,
         "status": "extracted",
@@ -1025,6 +1143,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 19.4469,
         "status": "extracted",
@@ -1042,6 +1162,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3875260,
         "status": "extracted",
@@ -1059,6 +1181,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 19534520,
         "status": "extracted",
@@ -1076,6 +1200,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 7.85,
         "status": "extracted",
@@ -1093,6 +1219,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 5,
         "status": "extracted",
@@ -1110,6 +1238,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 39.58,
         "status": "extracted",
@@ -1127,6 +1257,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 25.2,
         "status": "extracted",
@@ -1144,6 +1276,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 11750000,
         "status": "extracted",
@@ -1161,6 +1295,8 @@
       "field": "pledged_shares_cumulative",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 33344000,
         "status": "extracted",
@@ -1178,6 +1314,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3.65,
         "status": "extracted",
@@ -1195,6 +1333,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0.76,
         "status": "extracted",
@@ -1212,6 +1352,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 10.36,
         "status": "extracted",
@@ -1229,6 +1371,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 2.15,
         "status": "extracted",
@@ -1246,6 +1390,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 1460000,
         "status": "extracted",
@@ -1263,6 +1409,8 @@
       "field": "pledged_shares_cumulative",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 33344000,
         "status": "extracted",
@@ -1280,6 +1428,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0.45,
         "status": "extracted",
@@ -1297,6 +1447,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0.09,
         "status": "extracted",
@@ -1314,6 +1466,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 10.36,
         "status": "extracted",
@@ -1331,6 +1485,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 2.15,
         "status": "extracted",
@@ -1348,6 +1504,8 @@
       "field": "pledged_shares_this_time",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 19254000,
         "status": "extracted",
@@ -1365,6 +1523,8 @@
       "field": "pledged_shares_cumulative",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 33344000,
         "status": "extracted",
@@ -1382,6 +1542,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "UNIT_CONFLICT",
       "kind": "status_downgrade",
+      "evidence_strength": "conflict",
+      "unit_basis": "conflict",
       "before": {
         "value": 5.98,
         "status": "extracted",
@@ -1399,6 +1561,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "UNIT_CONFLICT",
       "kind": "status_downgrade",
+      "evidence_strength": "conflict",
+      "unit_basis": "conflict",
       "before": {
         "value": 1.24,
         "status": "extracted",
@@ -1416,6 +1580,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 10.36,
         "status": "extracted",
@@ -1433,6 +1599,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 2.15,
         "status": "extracted",
@@ -1450,6 +1618,8 @@
       "field": "pledged_shares_this_time",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 5200000,
         "status": "extracted",
@@ -1467,6 +1637,8 @@
       "field": "pledged_shares_cumulative",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 15200000,
         "status": "extracted",
@@ -1484,6 +1656,8 @@
       "field": "pledged_ratio_this_time_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 10.09,
         "status": "extracted",
@@ -1501,6 +1675,8 @@
       "field": "pledged_ratio_this_time_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 1.99,
         "status": "extracted",
@@ -1518,6 +1694,8 @@
       "field": "pledged_ratio_cumulative_of_held",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 29.48,
         "status": "extracted",
@@ -1535,6 +1713,8 @@
       "field": "pledged_ratio_cumulative_of_total",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 5.81,
         "status": "extracted",
@@ -1552,6 +1732,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 14722917,
         "status": "extracted",
@@ -1569,6 +1751,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 11042217,
         "status": "extracted",
@@ -1586,6 +1770,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 17.12,
         "status": "extracted",
@@ -1603,6 +1789,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 12.84,
         "status": "extracted",
@@ -1620,6 +1808,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3680700,
         "status": "extracted",
@@ -1637,6 +1827,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 14410068,
         "status": "extracted",
@@ -1654,6 +1846,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 11434468,
         "status": "extracted",
@@ -1671,6 +1865,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 16.76,
         "status": "extracted",
@@ -1688,6 +1884,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 13.3,
         "status": "extracted",
@@ -1705,6 +1903,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 2975600,
         "status": "extracted",
@@ -1722,6 +1922,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3684053,
         "status": "extracted",
@@ -1739,6 +1941,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3254053,
         "status": "extracted",
@@ -1756,6 +1960,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 4.28,
         "status": "extracted",
@@ -1773,6 +1979,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3.78,
         "status": "extracted",
@@ -1790,6 +1998,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 430000,
         "status": "extracted",
@@ -1807,6 +2017,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3190004,
         "status": "extracted",
@@ -1824,6 +2036,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 1848404,
         "status": "extracted",
@@ -1841,6 +2055,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3.71,
         "status": "extracted",
@@ -1858,6 +2074,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 2.15,
         "status": "extracted",
@@ -1875,6 +2093,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 1341600,
         "status": "extracted",
@@ -1892,6 +2112,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 4472000,
         "status": "extracted",
@@ -1909,6 +2131,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 12899900,
         "status": "extracted",
@@ -1926,6 +2150,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 5.2,
         "status": "extracted",
@@ -1943,6 +2169,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 15,
         "status": "extracted",
@@ -1960,6 +2188,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 8427900,
         "status": "extracted",
@@ -1977,6 +2207,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 14722917,
         "status": "extracted",
@@ -1994,6 +2226,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 11042217,
         "status": "extracted",
@@ -2011,6 +2245,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 17.12,
         "status": "extracted",
@@ -2028,6 +2264,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 12.84,
         "status": "extracted",
@@ -2045,6 +2283,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3680700,
         "status": "extracted",
@@ -2062,6 +2302,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 4472000,
         "status": "extracted",
@@ -2079,6 +2321,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 12899900,
         "status": "extracted",
@@ -2096,6 +2340,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 5.2,
         "status": "extracted",
@@ -2113,6 +2359,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 15,
         "status": "extracted",
@@ -2130,6 +2378,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 8427900,
         "status": "extracted",
@@ -2147,6 +2397,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 3190004,
         "status": "extracted",
@@ -2164,6 +2416,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 1848404,
         "status": "extracted",
@@ -2181,6 +2435,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3.71,
         "status": "extracted",
@@ -2198,6 +2454,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 2.15,
         "status": "extracted",
@@ -2215,6 +2473,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 1341600,
         "status": "extracted",
@@ -2232,6 +2492,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 8427900,
         "status": "extracted",
@@ -2249,6 +2511,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0,
         "status": "extracted",
@@ -2266,6 +2530,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 72673907,
         "status": "extracted",
@@ -2283,6 +2549,8 @@
       "field": "ratio_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0,
         "status": "extracted",
@@ -2300,6 +2568,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 6.16,
         "status": "extracted",
@@ -2317,6 +2587,8 @@
       "field": "change_shares",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 72673907,
         "status": "extracted",
@@ -2334,6 +2606,8 @@
       "field": "shares_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 72673907,
         "status": "extracted",
@@ -2351,6 +2625,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0,
         "status": "extracted",
@@ -2368,6 +2644,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 6.16,
         "status": "extracted",
@@ -2385,6 +2663,8 @@
       "field": "ratio_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0,
         "status": "extracted",
@@ -2402,6 +2682,8 @@
       "field": "change_shares",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 72673907,
         "status": "extracted",
@@ -2419,6 +2701,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 249519764,
         "status": "extracted",
@@ -2436,6 +2720,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 249519764,
         "status": "extracted",
@@ -2453,6 +2739,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 45.62,
         "status": "extracted",
@@ -2470,6 +2758,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 44.89,
         "status": "extracted",
@@ -2487,6 +2777,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 0,
         "status": "extracted",
@@ -2504,6 +2796,8 @@
       "field": "shares_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 1325635213,
         "status": "extracted",
@@ -2521,6 +2815,8 @@
       "field": "shares_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 1159135213,
         "status": "extracted",
@@ -2538,6 +2834,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 57.85,
         "status": "extracted",
@@ -2555,6 +2853,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 50.59,
         "status": "extracted",
@@ -2572,6 +2872,8 @@
       "field": "change_shares",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 166500000,
         "status": "extracted",
@@ -2589,6 +2891,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 837500,
         "status": "extracted",
@@ -2606,6 +2910,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "strong",
+      "unit_basis": "cell_header",
       "before": {
         "value": 1570900,
         "status": "extracted",
@@ -2623,6 +2929,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 0.12,
         "status": "extracted",
@@ -2640,6 +2948,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 0.23,
         "status": "extracted",
@@ -2657,6 +2967,8 @@
       "field": "change_shares",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 733400,
         "status": "extracted",
@@ -2674,6 +2986,8 @@
       "field": "shares_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 21743750,
         "status": "extracted",
@@ -2691,6 +3005,8 @@
       "field": "shares_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 18728733,
         "status": "extracted",
@@ -2708,6 +3024,8 @@
       "field": "ratio_before",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 6.044,
         "status": "extracted",
@@ -2725,6 +3043,8 @@
       "field": "ratio_after",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 4.9999,
         "status": "extracted",
@@ -2742,6 +3062,8 @@
       "field": "change_shares",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 3015017,
         "status": "extracted",
@@ -2759,6 +3081,8 @@
       "field": "shares_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "none",
+      "unit_basis": "none",
       "before": {
         "value": 69251290,
         "status": "extracted",
@@ -2776,6 +3100,8 @@
       "field": "shares_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "none",
+      "unit_basis": "none",
       "before": {
         "value": 60001290,
         "status": "extracted",
@@ -2793,6 +3119,8 @@
       "field": "ratio_before",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "none",
+      "unit_basis": "none",
       "before": {
         "value": 37.45,
         "status": "extracted",
@@ -2810,6 +3138,8 @@
       "field": "ratio_after",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "none",
+      "unit_basis": "none",
       "before": {
         "value": 32.45,
         "status": "extracted",
@@ -2827,6 +3157,8 @@
       "field": "change_shares",
       "code": "UNIT_MISSING",
       "kind": "status_downgrade",
+      "evidence_strength": "none",
+      "unit_basis": "none",
       "before": {
         "value": 9250000,
         "status": "extracted",
@@ -2844,6 +3176,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 31624628.62,
         "status": "extracted",
@@ -2861,6 +3195,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 29598219.34,
         "status": "extracted",
@@ -2878,6 +3214,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 4560926.3,
         "status": "extracted",
@@ -2895,6 +3233,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 14850116.4,
         "status": "extracted",
@@ -2912,6 +3252,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 529000000,
         "status": "extracted",
@@ -2929,6 +3271,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 290000000,
         "status": "extracted",
@@ -2946,6 +3290,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 157000000,
         "status": "extracted",
@@ -2963,6 +3309,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 54000000,
         "status": "extracted",
@@ -2980,6 +3328,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 148882000,
         "status": "extracted",
@@ -2997,6 +3347,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 809714662,
         "status": "extracted",
@@ -3014,6 +3366,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 317915000,
         "status": "extracted",
@@ -3031,6 +3385,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 141640735,
         "status": "extracted",
@@ -3048,6 +3404,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 196565875,
         "status": "extracted",
@@ -3065,6 +3423,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 107586198,
         "status": "extracted",
@@ -3082,6 +3442,8 @@
       "field": "bid_amount",
       "code": "NORMALIZED",
       "kind": "type_only_number_to_decimal_string",
+      "evidence_strength": "strong",
+      "unit_basis": "quote_internal",
       "before": {
         "value": 65772673,
         "status": "extracted",

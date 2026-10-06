@@ -6,7 +6,9 @@
  * 币种上下文）作为**独立审计层**跑在最终信封上——只产差异报告，不回写信封（gold 语义
  * 不动；78 处降级冲突待宗裁决，见 docs/adjudication/D7-标准化严格性差异-证据页.md）。
  *
- * 用法：node scripts/jingguan/audit_fang_d7.mjs --src <方D7包目录> --envelopes <信封目录> [--out <报告.json>]
+ * 用法：node scripts/jingguan/audit_fang_d7.mjs --src <方D7包目录> --envelopes <信封目录> [--parses-map <map.json>] [--out <报告.json>]
+ * --parses-map：{case_id: 原始解析文件路径}——信封内嵌块是精简版（无 header_path/
+ * source_type/table_ref），强度分类必须用全保真原始解析。
  * 依赖：方D7包目录须含 src_D7/normalization_D7.mts（master@e6334aa2，Node 24 直跑 .mts）。
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs'
@@ -16,11 +18,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 
 function parseArgs(argv) {
-  const a = { src: 'tools/fang-d7', envelopes: 'runs/batch-20261005T063943/envelopes', out: null }
+  const a = { src: 'tools/fang-d7', envelopes: 'runs/batch-20261005T063943/envelopes', out: null, parsesMap: 'runs/full-parses-map.json' }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--src') a.src = argv[++i]
     else if (argv[i] === '--envelopes') a.envelopes = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
+    else if (argv[i] === '--parses-map') a.parsesMap = argv[++i]
     else { console.error(`未知参数：${argv[i]}`); process.exit(2) }
   }
   return a
@@ -47,12 +50,60 @@ function parsedFromEnvelope(env) {
 const results = []
 const byCode = {}
 let typeOnly = 0, downgrades = 0, valueSemantic = 0
+// 方案 C 强度分类（宗 D7-分层字段规范）：cell 三重→strong；块级 header_path→medium；
+// 表级 table_ref 无 header→weak；引文自带单位（raw_value 含明确单位词）→strong（引文即证据，
+// 强于表头推断——映射口径见 docs/d10-cache-integration.md，宗可改枚举归属）；
+// UNIT_CONFLICT→conflict；其余→none。
+const UNIT_TOKEN = /\d\s*(亿股|万股|股|亿元|万元|元|%)/
+// 原始解析块索引（全保真：header_path/source_type/table_ref 都在）——按 case 建懒缓存
+const parsesMap = args.parsesMap !== null ? JSON.parse(readFileSync(resolve(REPO_ROOT, args.parsesMap), 'utf8')) : {}
+const origBlockCache = new Map()
+function origBlocksOf(caseId) {
+  if (origBlockCache.has(caseId)) return origBlockCache.get(caseId)
+  let blocks = []
+  const p = parsesMap[caseId]
+  if (p !== undefined) {
+    try {
+      const doc = JSON.parse(readFileSync(resolve(REPO_ROOT, p), 'utf8'))
+      blocks = doc.pages?.flatMap((pg) => pg.blocks ?? []) ?? []
+    } catch { blocks = [] }
+  }
+  origBlockCache.set(caseId, blocks)
+  return blocks
+}
+function classifyStrength(caseId, ch, code) {
+  if (code === 'UNIT_CONFLICT') return { evidence_strength: 'conflict', unit_basis: 'conflict' }
+  const field = fieldOf(caseId, ch)
+  if (field == null) return { evidence_strength: 'unknown', unit_basis: null }
+  if (UNIT_TOKEN.test(String(field.raw_value ?? ''))) return { evidence_strength: 'strong', unit_basis: 'quote_internal' }
+  const p = field.provenance?.[0]
+  const blk = p?.block_id ? origBlocksOf(caseId).find((b) => b.block_id === p.block_id) : null
+  if (blk == null) return { evidence_strength: 'unknown', unit_basis: null } // 块定位失败（映射缺/块号漂移）
+  if (blk.source_type === 'cell' && blk.table_ref != null && p.source_type === 'cell'
+    && p.table_id === blk.table_ref.table_id && p.cell_ref === blk.table_ref.cell_ref) {
+    return { evidence_strength: 'strong', unit_basis: 'cell_header' }
+  }
+  if (typeof blk.header_path === 'string' && blk.header_path.trim().length > 0) {
+    return { evidence_strength: 'medium', unit_basis: 'block_header' }
+  }
+  if (blk.table_ref != null) return { evidence_strength: 'weak', unit_basis: 'table_hint' }
+  // 块定位成功但无任何锚（段落裸数字、无单位词、无表头表格）→ 按框架为 none（唯一合法降级档之一）
+  return { evidence_strength: 'none', unit_basis: 'none' }
+}
+const envCache = new Map()
+function fieldOf(caseId, ch) {
+  if (!envCache.has(caseId)) {
+    try { envCache.set(caseId, JSON.parse(readFileSync(resolve(REPO_ROOT, args.envelopes, `${caseId}.json`), 'utf8'))) } catch { envCache.set(caseId, null) }
+  }
+  return envCache.get(caseId)?.events?.find((e) => e.event_id === ch.event_id)?.fields?.[ch.field] ?? null
+}
 for (const f of readdirSync(resolve(REPO_ROOT, args.envelopes))) {
   if (!f.endsWith('.json')) continue
   const caseId = f.replace(/\.json$/, '')
   let env
   try { env = JSON.parse(readFileSync(resolve(REPO_ROOT, args.envelopes, f), 'utf8')) } catch { continue }
   if (String(caseId).includes('scan-degrade')) continue // 无块设计：方规则1同向，单独通道
+  const blockIndex = new Map((env.source?.parse_meta?.blocks ?? []).map((b) => [b.block_id, b]))
   let hints = {}
   const parsed = parsedFromEnvelope(env)
   if (parsed !== null) {
@@ -77,7 +128,13 @@ for (const f of readdirSync(resolve(REPO_ROOT, args.envelopes))) {
     else if (kind === 'status_downgrade') downgrades++
     else if (kind === 'value_semantic_change') valueSemantic++
     byCode[ch.code] = (byCode[ch.code] ?? 0) + 1
-    results.push({ case: caseId, event: ch.event_id, field: ch.field, code: ch.code, kind, before: { value: b.value, status: b.status, standardized: b.standardized }, after: { value: a.value, status: a.status, standardized: a.standardized } })
+    const tier = classifyStrength(caseId, ch, ch.code)
+    results.push({
+      case: caseId, event: ch.event_id, field: ch.field, code: ch.code, kind,
+      evidence_strength: tier.evidence_strength, unit_basis: tier.unit_basis,
+      before: { value: b.value, status: b.status, standardized: b.standardized },
+      after: { value: a.value, status: a.status, standardized: a.standardized },
+    })
   }
 }
 const report = {
