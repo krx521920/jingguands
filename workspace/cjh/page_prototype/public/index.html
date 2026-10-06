@@ -14,6 +14,7 @@
   <span class="meta" id="runMeta">D1 骨架 · 独立本地原型</span>
   <button class="btn ghost" id="verifyBtn" style="margin-left:auto">核验清单 D9</button>
   <button class="btn ghost" id="pairsBtn">跨文档配对 D8</button>
+  <button class="btn ghost" id="integrationBtn">多公告集成 D10</button>
 </header>
 <div id="simBanner" class="sim-banner">⚠ 模拟数据 —— 当前展示内容全部为模拟接口返回，不得计入真实成绩</div>
 
@@ -64,10 +65,17 @@
   </div>
 </section>
 
-<!-- D9：核验清单视图（先归因再判矛盾 + 双侧证据视图；三视图互斥） -->
+<!-- D9：核验清单视图（先归因再判矛盾 + 双侧证据视图；四视图互斥） -->
 <section id="verifyView" class="pairs-view" hidden>
   <div class="pairs-wrap" id="verifyList">
     <div class="empty">核验视图未加载</div>
+  </div>
+</section>
+
+<!-- D10：多公告集成视图（10 组案例 + 缓存三态 + 出处链；四视图互斥） -->
+<section id="integrationView" class="pairs-view" hidden>
+  <div class="pairs-wrap" id="integrationList">
+    <div class="empty">集成视图未加载</div>
   </div>
 </section>
 

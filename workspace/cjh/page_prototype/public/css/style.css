@@ -205,3 +205,40 @@ table.fields td.v .ev-link.none { color: var(--muted); text-decoration: none; cu
 .ev-item .quote::after { content: "」"; color: var(--muted); }
 
 footer { color: var(--muted); font-size: 12px; padding: 4px 20px 10px; }
+
+/* ---- D10：多公告集成视图 ---- */
+.int-top { margin-bottom: 10px; }
+.int-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.int-cache, .int-members { margin-top: 6px; }
+.int-states { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0; }
+.int-state { flex: 1 1 180px; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: var(--panel); }
+.int-state-name { font-weight: 600; font-size: 13px; }
+.int-state-val { font-family: Consolas, monospace; font-size: 15px; color: var(--accent); margin: 4px 0 2px; }
+.int-state-sub { color: var(--muted); font-size: 11px; }
+.int-asserts { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.int-assert { display: flex; align-items: center; gap: 5px; border-radius: 8px; padding: 4px 10px; font-size: 12px; border: 1px solid var(--border); background: var(--panel); }
+.int-assert.ok { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
+.int-assert.bad { background: var(--bad-bg); color: var(--bad); border-color: var(--bad); }
+.int-assert-mark { font-weight: 700; }
+.int-missing { border: 1px dashed var(--warn); background: var(--warn-bg); border-radius: 8px; padding: 6px 10px; margin-top: 6px; }
+.int-missing-head { color: var(--warn); font-weight: 600; font-size: 12px; }
+.int-missing-row { font-size: 12px; color: var(--text); font-family: Consolas, monospace; }
+.int-member { border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; margin: 6px 0; background: #fafbfc; }
+.int-member-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.int-chain { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 4px; }
+.int-chk { font-size: 11px; padding: 1px 7px; border-radius: 9px; background: var(--gray-bg); color: var(--gray); white-space: nowrap; }
+.int-chk.ok { background: var(--ok-bg); color: var(--ok); }
+.int-chk.bad { background: var(--bad-bg); color: var(--bad); }
+.int-chk.info { background: var(--warn-bg); color: var(--warn); }
+.int-dup { font-size: 11px; color: var(--muted); font-family: Consolas, monospace; margin-top: 2px; }
+.int-attr, .int-bound, .int-req, .int-diff { margin-top: 6px; font-size: 12px; }
+.int-attr-row, .int-bound-row { color: var(--muted); font-size: 12px; margin-left: 84px; }
+.int-bound-row { color: var(--warn); }
+.int-req { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+.int-diff { color: var(--muted); }
+.int-fang-items { margin: 6px 0; }
+.int-fang-item { border-left: 3px solid var(--border); padding: 4px 0 6px 8px; margin: 6px 0; }
+.int-fang-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.int-obs { font-size: 11px; color: var(--text); font-family: Consolas, monospace; margin-left: 10px; }
+.int-calc { border: 1px solid var(--ok); background: var(--ok-bg); border-radius: 6px; padding: 5px 9px; margin: 6px 0; }
+.int-calc-title { font-family: Consolas, monospace; font-size: 12px; color: var(--ok); font-weight: 600; }

@@ -5,6 +5,7 @@ import { renderResults, clearResults } from "./render/results.js";
 import { renderEvidences, focusEvidence, clearEvidences } from "./render/evidences.js";
 import { renderPairs, clearPairs } from "./render/pairs.js";
 import { renderVerify, clearVerify } from "./render/verify.js";
+import { renderIntegration, clearIntegration } from "./render/integration.js";
 
 const $ = id => document.getElementById(id);
 
@@ -63,14 +64,17 @@ async function boot() {
     console.error("boot failed:", e);
   }
 
-  // D8/D9：三个视图互斥切换（单文档 / 配对 / 核验），首进才拉对应接口，内容缓存
+  // D8/D9/D10：四个视图互斥切换（单文档 / 配对 / 核验 / 集成），首进才拉对应接口，内容缓存
   let pairsLoaded = false, verifyLoaded = false;
+  const VIEW_LABEL = { main: "« 返回单文档", pairs: "跨文档配对 D8", verify: "核验清单 D9", integration: "多公告集成 D10" };
   const showView = name => {
     $("pairsView").hidden = name !== "pairs";
     $("verifyView").hidden = name !== "verify";
+    $("integrationView").hidden = name !== "integration";
     document.querySelector("main").style.display = name === "main" ? "" : "none";
-    $("pairsBtn").textContent = name === "pairs" ? "« 返回单文档" : "跨文档配对 D8";
-    $("verifyBtn").textContent = name === "verify" ? "« 返回单文档" : "核验清单 D9";
+    for (const [btn, view] of [["pairsBtn", "pairs"], ["verifyBtn", "verify"], ["integrationBtn", "integration"]]) {
+      $(btn).textContent = name === view ? VIEW_LABEL.main : VIEW_LABEL[view];
+    }
   };
   const loadInto = async (btn, listId, url, renderFn, clearFn, loadedFlag) => {
     if (loadedFlag.v) return true;
@@ -86,7 +90,7 @@ async function boot() {
       return false;
     }
   };
-  const pairsFlag = { v: false }, verifyFlag = { v: false };
+  const pairsFlag = { v: false }, verifyFlag = { v: false }, integrationFlag = { v: false };
   $("pairsBtn").addEventListener("click", async () => {
     const target = $("pairsView").hidden ? "pairs" : "main";
     showView(target);
@@ -96,6 +100,11 @@ async function boot() {
     const target = $("verifyView").hidden ? "verify" : "main";
     showView(target);
     if (target === "verify") await loadInto("verifyBtn", "verifyList", "/api/verify", renderVerify, clearVerify, verifyFlag);
+  });
+  $("integrationBtn").addEventListener("click", async () => {
+    const target = $("integrationView").hidden ? "integration" : "main";
+    showView(target);
+    if (target === "integration") await loadInto("integrationBtn", "integrationList", "/api/integration", renderIntegration, clearIntegration, integrationFlag);
   });
 
   $("loadBtn").addEventListener("click", () => loadDataset($("datasetSel").value));

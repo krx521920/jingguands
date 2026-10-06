@@ -26,6 +26,9 @@ node server.js          # 或 pnpm start / npm start
 | `GET /api/datasets` | `{ "source": "mock", "datasets": ["pledge", "share_change"] }` | 上传栏数据集下拉（自动列举 `data/*.json`） |
 | `GET /api/result?dataset=pledge` | 数据契约对象（见 §3，读数自动过转接口） | 结果+证据一次性拉取 |
 | `GET /api/export?dataset=x&format=json\|csv` | 附件下载（D3 新增） | 导出当前数据集：JSON=契约对象原样；CSV=每字段一行（18 列，含出处/table_id/cell_ref/source_type/quote，RFC 4180 转义 + BOM）。**与 /api/result 同一读取+过桥路径，页面所见即导出所得** |
+| `GET /api/pairs`（D8） | `{ meta, summary, pairs[] }` | 跨文档配对三态视图：宗 13 组封存清单 × 魏 B 全量报告 + 本地原文锚点 |
+| `GET /api/verify`（D9） | `{ summary, findings[], pairs[] }` | 核验清单：方 sidecar 发现聚合（先归因）+ 张 provenance 出处 + 魏 B 互证点双侧证据 |
+| `GET /api/integration`（D10） | `{ meta, summary, cases[] }` | 多公告集成：**五份队友产物在服务端合并**——宗 `integration_cases`（预期）× 魏 `integration_bundle`（实判 records/diff_list/report/cache）× 魏 `cache_evidence`（缓存三态）× 张 `chain_check`（出处链四段 + 重复文字组）× 方 `fang_report_bundle`（报告五段：事件/差异/归因/计算/边界 + 逐成员缓存核对）。派生 `expected_relation`（宗自然语言 expected → 三态词映射）、`relation_match`（抽不出时为 `null`，不计不一致）、`required_check[]`（宗必填七项自检）、成员级 `chain`（五段布尔 + `duplicate_top`）。缺数据返回 503 并指明缺哪份 |
 
 `remote` 模式下 `/api/result` 会转发到 `REMOTE_API_URL?dataset=<name>`，上游直接返回契约对象即可。
 
