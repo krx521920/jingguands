@@ -1,0 +1,248 @@
+{
+ "frozen_for": "D11 首测（宗独立执行）",
+ "tag": "v0.6-d11-firsttest",
+ "commit": "4a8d0c33",
+ "generated": "2026-10-06T15:54:30.621Z",
+ "files": [
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-001.parse.json",
+   "sha256": "8d7ba5f04cf6e3f26498da6b5cd643feaa37b99910579dcfecf1ae3029a348c3",
+   "bytes": 168175
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-002.parse.json",
+   "sha256": "7266ecc7134fabd6855ecbd9522df400969e9b4527e5860252697c1539e7403a",
+   "bytes": 116441
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-003.parse.json",
+   "sha256": "6911936039b9c2aab6a00cd6de32d7247b6d50484795845c4e82f22512a8b879",
+   "bytes": 146502
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-004.parse.json",
+   "sha256": "867c11c415155f763e0d248b8aef4f58fddad853fb8a7731b3f245c93fb7136c",
+   "bytes": 139112
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-005.parse.json",
+   "sha256": "bfa690c4fb325a1b087993d884512f28c7059f0bae63a35f33c92e417e4ad077",
+   "bytes": 103529
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-006.parse.json",
+   "sha256": "1c1f84d281734fc1fec345b2dd8aca78bdfe9f7b96cd75d6d924551c7a6d155e",
+   "bytes": 122804
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-007.parse.json",
+   "sha256": "0ff093af599f8a37777dc57a0d1bbabe02140b7ce092f637c1fab29d4dadbf89",
+   "bytes": 236742
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-008.parse.json",
+   "sha256": "77e5859a45ab6f43225912d5619bb0fcc8c4c0bd0f7140f9d12bea125f88ee75",
+   "bytes": 125390
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-009.parse.json",
+   "sha256": "e7b60326b0ccddc441e532596f836fb3499c9a2f3f55f730bb153f94a4758ac6",
+   "bytes": 129975
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-010.parse.json",
+   "sha256": "2316e73d0f32d691a624a7e3e21e86cf1a374f6cbe1c9cb470991130026fc3ff",
+   "bytes": 135797
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-001.parse.json",
+   "sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597",
+   "bytes": 1105909
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-002.parse.json",
+   "sha256": "3060a015349ff01ba2840c4049b96bb8aaed36cd41d7dfde0d3905f49c928dc6",
+   "bytes": 1885514
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-003.parse.json",
+   "sha256": "214bee892670158a6916dab6df63fdacae2a2ecf79415df609646bb1e09a60a2",
+   "bytes": 930730
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-004.parse.json",
+   "sha256": "ad1242db5df6076f8524408b4cd554d6e46933823e144a9e4ba9b4e5f4c6c019",
+   "bytes": 444719
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-005.parse.json",
+   "sha256": "fa2cff4fc4de28f8511af98d580cb59f3d2487f0b8e397c75f71251aff577ce1",
+   "bytes": 496584
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-006.parse.json",
+   "sha256": "4fa4f57f09efe3c692dd48fa36271252e125dbb85fdfbbd248ae3f7a33c179dd",
+   "bytes": 189768
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-007.parse.json",
+   "sha256": "777ab8b74b19ac69748fa6ddfd92b52f873e13872e6c4c0a57b7f5e17a1f2354",
+   "bytes": 495255
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-008.parse.json",
+   "sha256": "c629723002ee1c301dd411ffb0ded6e8b3dac7f4c218cdce6b07f9659318f490",
+   "bytes": 334068
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-009.parse.json",
+   "sha256": "0fc4c2d36123ab32c59e9cac9f740be0709ca873f9acbf65a058436eaadad38e",
+   "bytes": 277256
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-010.parse.json",
+   "sha256": "0ab53d2aae90e21b98f9a50b4c62364aff31426b03b57460887f83b6ac0144e4",
+   "bytes": 582755
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-001.raw.json",
+   "sha256": "77500ac606ff217ceb89cae843a71ab4c08deb2ca09a6f29c674dad0afdb0a24",
+   "bytes": 36784
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-002.raw.json",
+   "sha256": "77964f2402f01a0e43f3766bf3d83fab52e962cdb5e0a177e94ddad18d37805e",
+   "bytes": 62163
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-003.raw.json",
+   "sha256": "83d54fc4178f460b2c6d2aea5c661df7a76095d8048e3f22efa6f1993f722bf1",
+   "bytes": 122003
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-004.raw.json",
+   "sha256": "16a0c3a3d83b652a10c00d980a5e7c5dbcbb630e3a2d1afaf201a198fa68a7bd",
+   "bytes": 104420
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-005.raw.json",
+   "sha256": "accd10e426142690efa72999094269d7a6072aed1d608a66dfca789a87ad91d0",
+   "bytes": 108657
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-006.raw.json",
+   "sha256": "29c23f9d37cf30bedd11fa49e469e7e8dc3b2a063970f8662635d0e1eae1a846",
+   "bytes": 21152
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-007.raw.json",
+   "sha256": "3a89a125070986b2929f778b89219ba26ec3aac08a154d88f886a7ab617dbbce",
+   "bytes": 16252
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-008.raw.json",
+   "sha256": "59d517a223aa3840f873e8087753d8a03bc194ee6d8e631193ae8cef87035c04",
+   "bytes": 33647
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-009.raw.json",
+   "sha256": "65657f5186e971519082c0fc8a6dce9466bdd619185cdf8f3ad14aa6fc09509b",
+   "bytes": 50657
+  },
+  {
+   "label": "语料",
+   "path": "corpus/zongbowen/d6/raw/D6-AWD-010.raw.json",
+   "sha256": "a1e7b9f6b39d2efee44dd87603b54a167a9ac8c795eda6785fad49a2e37e2106",
+   "bytes": 42318
+  },
+  {
+   "label": "对抗",
+   "path": "corpus/adversarial/award-empty-text.txt",
+   "sha256": "2c63aeaeccd163fab90d6194dfedc94d8416a7fac4dd55de5c344df8deedf595",
+   "bytes": 7
+  },
+  {
+   "label": "对抗",
+   "path": "corpus/adversarial/note-unknown.json",
+   "sha256": "bc12d7bc5b9f0ba2fae230e59afe586f42dae7319af131c55f5953b707c04807",
+   "bytes": 82
+  },
+  {
+   "label": "对抗",
+   "path": "corpus/adversarial/pledge-corrupt.json",
+   "sha256": "31e801680b23511d2c6337e8014b0b3c8c315c719cca1e0d50629d4935a0079e",
+   "bytes": 64
+  },
+  {
+   "label": "对抗",
+   "path": "corpus/adversarial/pledge-empty.txt",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "bytes": 0
+  },
+  {
+   "label": "对抗",
+   "path": "corpus/adversarial/pledge-scan-degrade.parse.json",
+   "sha256": "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
+   "bytes": 924
+  },
+  {
+   "label": "gold合并清单",
+   "path": "corpus/combined-manifest.json",
+   "sha256": "4fc4a7ba275c3d6511d73008361c0e9f8d4c1fbc0d8e77e0494c3c0eca1e9d4a",
+   "bytes": 17539
+  },
+  {
+   "label": "封存20组清单",
+   "path": "corpus/zongbowen/sealed/cross-doc-manifest.json",
+   "sha256": "cd921c1c4d22e7d9d526570beac9bcf0996c868535cdc0e14b5ec1b7dd4be070",
+   "bytes": 17031
+  },
+  {
+   "label": "D8配对清单v0.2",
+   "path": "evaluation/D8/pairs/pairs.dev30.json",
+   "sha256": "661b26623069e9f7bfe7815f27915147aefcb6bc43716ff9c9ad406b657dedf6",
+   "bytes": 24480
+  },
+  {
+   "label": "D9归因用例v0.2",
+   "path": "evaluation/D9/cases/rules-cases.dev.json",
+   "sha256": "d7bba2774262a1bec2a31fbc494fa50c2ffd57c918deb534e3f1c6a38f05a27b",
+   "bytes": 21468
+  },
+  {
+   "label": "D10集成案例",
+   "path": "evaluation/D10/cases/integration-cases.json",
+   "sha256": "306e57f436f62a90135376569d312934761e78737780c74d9ed60573e7d2bfe0",
+   "bytes": 3303
+  }
+ ]
+}
