@@ -1,0 +1,955 @@
+{
+  "repository": "https://github.com/krx521920/jingguands",
+  "pins": {
+    "weiwenyu": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+    "zongbowen": "5073ffc7284563e43ed4bba35e33b751b8302336",
+    "zhangzhibo": "ada614cc636fa30f5463e4c951746228e656c37d",
+    "cjh-workspace": "57de299bcb8b86e10e7174f2f0bb9ac92354c6b9"
+  },
+  "mode": "push_only_external_sources",
+  "note": "历史报告的source path为生成时引用；以下来源在既有仓库/旧D9交付，不要求本目录有副本。",
+  "external_sources": [
+    {
+      "owner": "zongbowen",
+      "commit": "5073ffc7284563e43ed4bba35e33b751b8302336",
+      "source_path": "evaluation/D10/cases/integration-cases.json",
+      "sha256": "306e57f436f62a90135376569d312934761e78737780c74d9ed60573e7d2bfe0",
+      "original_artifact_alias": "inputs_D10/integration_cases_D10.json"
+    },
+    {
+      "owner": "zongbowen",
+      "commit": "5073ffc7284563e43ed4bba35e33b751b8302336",
+      "source_path": "evaluation/D10/check-integration.mjs",
+      "sha256": "63e191c28c903ccee0e4b0d7adbdc5efa1405eb100f5b9f020c5ce12e9d02106",
+      "original_artifact_alias": "peer_reference_D10/check_integration_D10.mjs"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "scripts/jingguan/verify_crossdoc.mjs",
+      "sha256": "266343d0fd518e6957147cfb98bbb5397f032d49555a2bf8cea2074cf273eb67",
+      "original_artifact_alias": "peer_reference_D10/verify_crossdoc_D10.mjs"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "scripts/jingguan/attribute_b.mjs",
+      "sha256": "4cd2250f3b889796002b5c3c1ba04746d728abccd1b27ce17e2cbba4516750ec",
+      "original_artifact_alias": "peer_reference_D10/attribute_b_D10.mjs"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "scripts/jingguan/lib/schema_validator.mjs",
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315",
+      "original_artifact_alias": "peer_reference_D10/schema_validator_D10.mjs"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "interface/event-envelope.schema.json",
+      "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96",
+      "original_artifact_alias": "peer_reference_D10/event_envelope_schema_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/D10-cache-evidence.json",
+      "sha256": "69ce04c0ae95c4593476dd730b6d93cd12133ca74131e2b40d6ae10765b88173",
+      "original_artifact_alias": "inputs_D10/cache_claim_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/D10-integration-bundle.json",
+      "sha256": "94f585d1365c723f76667fd0f4cacafe3ce3df040cd7b4b1f333e6c8c3644083",
+      "original_artifact_alias": "inputs_D10/wei_bundle_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D10/chain_check.json",
+      "sha256": "7baa1fc68d5e6545161ff4b80afd616be52b3cf6d17ba33a76e4b292a3c4f0be",
+      "original_artifact_alias": "inputs_D10/zhang_chain_check_D10.json"
+    },
+    {
+      "owner": "cjh-workspace",
+      "commit": "57de299bcb8b86e10e7174f2f0bb9ac92354c6b9",
+      "source_path": "workspace/cjh/page_prototype/public/js/render/verify.js",
+      "sha256": "93ac33e9432490c65b3c7b9b6ddc69b9d8131bd6b5ba6ad3f5fee49d95d20bda",
+      "original_artifact_alias": "peer_reference_D10/chen_verify_D10.mjs"
+    },
+    {
+      "owner": "cjh-workspace",
+      "commit": "57de299bcb8b86e10e7174f2f0bb9ac92354c6b9",
+      "source_path": "workspace/cjh/page_prototype/bridge/upstream_bridge.js",
+      "sha256": "894f40779582ec15a0caac7eb6d038a469006560ab09fcdc7690703cb0cfccf6",
+      "original_artifact_alias": "peer_reference_D10/chen_bridge_D10.cjs"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "corpus/adversarial/pledge-scan-degrade.parse.json",
+      "sha256": "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
+      "original_artifact_alias": "inputs_D10/scan_parse_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-001.json",
+      "sha256": "6ad0d3e0a995171be30ab5887922d857c85835b6121a02fa3d9e378d1c2a0c19",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-002.json",
+      "sha256": "6dfc0fe71f8284aa67f5c69411bf2403e3c2327cc72aee545a2ee88fdc77d12f",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-003.json",
+      "sha256": "d662bc0d8734f62e9e32e8b3f8162882ae384669ab93f464ebccde6760326f48",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-004.json",
+      "sha256": "7d0024ce876b13d10f4cf3b3411c5dc13075e7a8cb99dbd6370ac7ff1751370e",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-005.json",
+      "sha256": "b3e564d8a0123a38de88eca1bed03d11452ec53a08324dcdbb367a993204d9d9",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-006.json",
+      "sha256": "625b4ef5d4e403b013df36419ba57e13c84777cc85d9f668ea4ab2cea0a5d2eb",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-007.json",
+      "sha256": "cad4381013de852251f40fdfcc325433b4c9e058c915ff49aa1dec037b8ca123",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-008.json",
+      "sha256": "3204c5e90a2451209f6324ee59ef6c104c10d3c23624a1abbf27210e46effe20",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-009.json",
+      "sha256": "4a0a2d4abc7751cff5284a15e259b3f6f4f24e0d35a6041820c0d8045a54f5e5",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D4-PLD-010.json",
+      "sha256": "3847e95526346ff04fb3887859a95821a17cd4ce5226dbf7c989dd00dde49119",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D4-PLD-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-001.json",
+      "sha256": "09c9df15a38a16bf15f3f66557d361d6c90a6f14b063a46198bfd09cebd5c0ca",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-002.json",
+      "sha256": "a075c9995aa703a35b47e433dcc5a59274ec193b0963569f7dc99c7774fb49c3",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-003.json",
+      "sha256": "ca8cb7a88afd479ed04cbb452389f1f952e61f090781569ea5e98b5473b069d9",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-004.json",
+      "sha256": "c5ce270c044dfca421256ba24e56576571d6e6a6d6caea0e1cdac47ca7e934fd",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-005.json",
+      "sha256": "3811ad4f7829fb1d94a1fd181a5e272c4f5136848977016fcd42028401cfb589",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-006.json",
+      "sha256": "1475da1d182eb0feceff2e053f766d3f78aebf34465543e602c456e9545da783",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-007.json",
+      "sha256": "19488514553d89192bb0bfb7cadb5ed677e0df3770c416453cad727e5291b4ac",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-008.json",
+      "sha256": "f22b9375e97ba817728930e6d91e701eedbccfeee7ea79d42394640160a51b6e",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-009.json",
+      "sha256": "0cdcd1aae40f73e6dd3851a61e0e78c84ef8779446b3ba61193bb8698f77fb7a",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D5-EQC-010.json",
+      "sha256": "8723aee1f5798977388aa5a550c760811ceb9dcbc207318bc6526c64e2a83743",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D5-EQC-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-001.json",
+      "sha256": "0825d30faf4b425ea476605e8db0bae5479c2fa5cd0e723bb9042477c033b3aa",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-002.json",
+      "sha256": "3e340d721709a674cd420aeaa99590857135248389599ff8004a125d08d5c165",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-003.json",
+      "sha256": "ddcff5f543c6cba40bdd0b4338096376e687ac9df6bedf1b142d35e24499b0c1",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-004.json",
+      "sha256": "ce925e0325be666f63a9c1febef2330fe352815a3413d5772f2f57d651a7355d",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-005.json",
+      "sha256": "e897239bc72c1c85df4fb829f1aafd361a2b886f71496da6b7ea33af0df36080",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-006.json",
+      "sha256": "54e6df26136c12b98b33e14a5f6a6d0bdd0d4a59e5be33b2fc2eccb5fdae1e0f",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-007.json",
+      "sha256": "d75eddcca343b7e33f893fbf0d6aff9e672898aacdca60d65aa871109e945849",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-008.json",
+      "sha256": "13908b2626c59070b3ff6dfd38f32279db8724e5735e5873c23dcbbb1774e401",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-009.json",
+      "sha256": "c2805db000f30a4e8cb11041a4e1220447fb05c8b6289eb3341aa6c629714886",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/D6-AWD-010.json",
+      "sha256": "bf7f7eb985cf24948c025e4af8c618c1a299707004a4bacacf106f8c9dbb3d2b",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/D6-AWD-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/envelopes/pledge-scan-degrade.json",
+      "sha256": "d7d8e3a709b2b361996d5d3c2e853ff97a23f9fbaba36880f0af40ac20abda90",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/pledge-scan-degrade_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T083905/batch_report.json",
+      "sha256": "f2e0220fc17a342a24af68bf7b5caf1ce800e59f05fbc13f628dc88ef1b91ac7",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/cold/batch_report_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-001.json",
+      "sha256": "a5751eb99b3312b1da2469dcdb7300a9c703c961e3d54004e04680a0d1405c60",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-002.json",
+      "sha256": "935778fd90d187f45e948ebc0df81ce2dd1602b5fed426ae2cc17fc4abde98ca",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-003.json",
+      "sha256": "c72e5c50bda429d906d6335f16ffb984efa52fe0cfaaa7f7a423eed7556c6b26",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-004.json",
+      "sha256": "2ec24b049ee5cdd9775835947b9383c4fad329e7cf8cc293e418da3489ccc616",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-005.json",
+      "sha256": "2e1ca4a73f828bf32d6fde51c0dbe688d6582c16b7b71c39b94bff31c4b11ed9",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-006.json",
+      "sha256": "b4ecbd81437b24412dd663b40b207473f57220ce29563d167768b74ba8aa13c5",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-007.json",
+      "sha256": "1f7fbd06ff3b149c12064615dc785c80efdb18dc161b27c422e126d8d2a163fc",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-008.json",
+      "sha256": "243717a5fb6250de0e1b05f9240dbb64d80b930d636d98e5a5dded685ac815ad",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-009.json",
+      "sha256": "032f1bd1fcde411677d4dbff3c95e818c1ee3c8a8d97b2ad71c75dfd2066e03f",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D4-PLD-010.json",
+      "sha256": "a7c91d6f27ab1fad0f829410a59101697da1a9dc95cea33ae7a37d5d6a391148",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D4-PLD-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-001.json",
+      "sha256": "2a3f57eeb0e9f2f024e5e6492d399d57034e95f109704bd5b107e7a0e90727c4",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-002.json",
+      "sha256": "d7b8be9b37b50edf0fa758c847e5b4369a531dc2ce46031af7c84998689ed88c",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-003.json",
+      "sha256": "845eb4474e0b4a0f124930f4602ba0fb20b373c0f93ccb069d94b169562bb8e8",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-004.json",
+      "sha256": "d55bf897ca19ae51d2561c639ef2cd7126a35aa92a1f1cc5be2ca2f20039b704",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-005.json",
+      "sha256": "31e2342de546e3cedc01026a248af575d2d3b31f6e3b3545509530d3745c2f89",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-006.json",
+      "sha256": "bb54cc1add919ad67ddba552310cfb1a9d35e619fcef9729404ba841b9c16121",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-007.json",
+      "sha256": "be55f20c8a34445d24945903173b7fb009d577bd9e1c832bb5508df8675ca788",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-008.json",
+      "sha256": "6d99db9befadeb3fc33bb45d12f08038d2367664ab292da975018a232f0c5863",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-009.json",
+      "sha256": "a8a9e8c8abe7b2d069b850085846782b305317e97b27ec6af7af97fa8bd84c6a",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D5-EQC-010.json",
+      "sha256": "4792c8039ed282f34e1c66416f75b6581ecd991f4565630ccb72a2203f8dc3b3",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D5-EQC-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-001.json",
+      "sha256": "f08eb1e3863fbb621d5877e544b6c5f5901a0edca92401a763aea9046e694091",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-002.json",
+      "sha256": "06cfec834973874de62135b1257cae46ae1d23d65d396226a1bb9c2f32bed012",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-003.json",
+      "sha256": "5a29ca99c0e0ff029cddd6b907121a9bb68ca123a24b992b0e5621cbf077fbf4",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-004.json",
+      "sha256": "8600488dadaa39ed6fdf442692b5c55aa7ecd71824375b3ac08ad970a6b0938b",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-005.json",
+      "sha256": "5ae9eb14c9a25a3c06ac65a27bc0c2f16044bfbe5dc80c9af028064d50374fde",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-006.json",
+      "sha256": "94bc65ef51f561ea2b060ca73e1f6a1f397f43de7d1a81f480b87f684385810b",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-007.json",
+      "sha256": "732b0e7ac1bfd892792616b84586e666686371159643d90ab77dea174b48d1d9",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-008.json",
+      "sha256": "d387eaab95650007bdc7082c1f5d79756bf434710ea4a55ebce8ff5fa5d6d2bf",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-009.json",
+      "sha256": "7f0fac580191f759f571da9f38cc1389001333a99dbe079c0ad0593a941e9bcc",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/D6-AWD-010.json",
+      "sha256": "f168fab5ad10b095f3311809b3d7a52305aeef57cc6d7debdd17ac54c021d183",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/D6-AWD-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/envelopes/pledge-scan-degrade.json",
+      "sha256": "7a6a8ddf2db0a5db5d3c4a1e2c2885118c6563d77fdad46b297ed851c3abf7a8",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/pledge-scan-degrade_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/batch-20261006T085807/batch_report.json",
+      "sha256": "4fadd24af0b62f33a60bd8c87980b9c26e0070c1bae0c86ffd0b6f2a9255a1e0",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/replay/batch_report_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-001.json",
+      "sha256": "1eec0fa736e94c3b4dea373fc1c69c58b8e67d883ddfcebd81faea0cf2ce6f14",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-002.json",
+      "sha256": "f3b5fb8399d215ce18eca4500c6569829b59d3b4e8a673f934f4dc623ce1d924",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-003.json",
+      "sha256": "d0039e023aa0949a54b9a64e568ca655eff7672e699bfccd62ba30253f4af088",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-004.json",
+      "sha256": "a5d2a53de08fddc8518968f68265eb642492a885c82f9d6d6285c37dcab41870",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-005.json",
+      "sha256": "666aea1b4af38184883cd4587f9eb72e2ebb67402ce8d4cab7ecb626bcea750c",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-006.json",
+      "sha256": "c864780e8dc69eef3f4c6bf05fb49e1c9e86c7d9e63f62467d1b71f407c89b30",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-007.json",
+      "sha256": "a9e98138e3ed5f74e89b5028c7d8d55b3fff2f108c1758ab838b978d8ce08f33",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-008.json",
+      "sha256": "bf359d7d32bd167f280309616e22e1690ba26879ec9ad2b58625ee10d75031be",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-009.json",
+      "sha256": "c5ce34f77c29e9c29763d7c9be7df6fb314b55ff43491c17497fd1b6e3d5d4b0",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D4-PLD-010.json",
+      "sha256": "cc1c5553ed944d75466d14d69d647de37590f417fb14afff78067bc492217f84",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D4-PLD-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-001.json",
+      "sha256": "a4d8e2bb4d93599505ed8f42f8d8feb3a110e6329baa2dacf2d54674958a1e8d",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-002.json",
+      "sha256": "dfc02e1c8846e6e1fb2e241885df34d335c0b17f9e72540d813689db36f4e0ad",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-003.json",
+      "sha256": "a00b899984a57738a195e7d1380194b82ff66f0300cdba7f730445377a7436b5",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-004.json",
+      "sha256": "55c2568a3a98d0a120c921a2f4fc9f7bd0cea3db21dc152ed6ab42adec1a452b",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-005.json",
+      "sha256": "55363ce110f015a353effa876a31ed6d36cb373acb250aafad4e3e639b57ac95",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-006.json",
+      "sha256": "5b063a7bfb47b591cb6089ebda287949b3b290bc6458b87385b0395e0fa6881c",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-007.json",
+      "sha256": "3ad168fe30284d9b2962c9ec6af6a831f8bdef396d4a6626823f7f0c960c5eea",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-008.json",
+      "sha256": "e62cedf16e560040d5490dace3be31c133a2741874b9e77a10c1afd08d7d518f",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-009.json",
+      "sha256": "b83fa1678b3d3804f8df8c01c7e6e8c8054ea9a7ba5c775a82d1b271478df6d0",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D5-EQC-010.json",
+      "sha256": "57c61d02dd293513acae6f51b061dc17390435b2b1ea9cdfed73f6593357c145",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D5-EQC-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-001.json",
+      "sha256": "2d2033acba5d2a5c0f81cdcd1763c3e3f40b0cfc06461a44ba8bb9bc7d08fef0",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-001_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-002.json",
+      "sha256": "75130dc15f5c0bc199580e6eb868feca0c950fc399aa8cfd0d8489e1c4c9d580",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-002_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-003.json",
+      "sha256": "13e79503bc59757a8667ea3531e9583e16719fa640410e9fc8fa6bb453e0aa31",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-003_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-004.json",
+      "sha256": "6336513ad4dabe362ceda24a50b1c0d4686d531ba51b3eaee99340071974e454",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-004_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-005.json",
+      "sha256": "dc22ba82ace4df7fc493cf736dd92bcb7c1aa72de734cf578a784ac8e3ddeaa8",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-005_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-006.json",
+      "sha256": "5fecf045c6845f2108312fbe3051ecbae75de9f7ff9286d4b1b253766bf66938",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-006_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-007.json",
+      "sha256": "26ac2ed0355cece94bcd3e1bba5037df6e0982da3996b9507d3b388ce52208c7",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-007_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-008.json",
+      "sha256": "7b11952b02fd6b17a40571718ce01b65fdf30a49651417fde96f7a892200d4a1",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-008_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-009.json",
+      "sha256": "7c19205c53bfeb6b9a66e80927ddfb806b54806995dd2a64c1f0109628a8011f",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-009_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/D6-AWD-010.json",
+      "sha256": "1d66f26eebcc90478eb25bf2531424eb2bc5269a451337299c7506af9fbc17c4",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/D6-AWD-010_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/envelopes/pledge-scan-degrade.json",
+      "sha256": "c4aed448adace9f8bd97f2a421a551509108f123bb3ba7b263636a1f5a0a8a6a",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/pledge-scan-degrade_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/_archive/batch-20261006T084717/batch_report.json",
+      "sha256": "f71b07fd825186291aa89bc3aa869d057d5366961ea45d71de9cfa880a930416",
+      "original_artifact_alias": "inputs_D10/cache_samples_D10/rerun/batch_report_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "runs/d8-demo-20261004/envelopes/DEMO-EQC-HL-0930.json",
+      "sha256": "0df396853dc3450b075339cb49f6862cfa1e9b4b6d8fa5fcc5ff4fd90287fca4",
+      "original_artifact_alias": "inputs_D10/demo_D10/DEMO-EQC-HL-0930_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D4/parse/D4-PLD-001.parse.json",
+      "sha256": "8d7ba5f04cf6e3f26498da6b5cd643feaa37b99910579dcfecf1ae3029a348c3",
+      "original_artifact_alias": "inputs_D10/parse_D10/D4-PLD-001_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D4/parse/D4-PLD-009.parse.json",
+      "sha256": "e7b60326b0ccddc441e532596f836fb3499c9a2f3f55f730bb153f94a4758ac6",
+      "original_artifact_alias": "inputs_D10/parse_D10/D4-PLD-009_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D5/parse/D5-EQC-001.parse.json",
+      "sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597",
+      "original_artifact_alias": "inputs_D10/parse_D10/D5-EQC-001_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D5/parse/D5-EQC-002.parse.json",
+      "sha256": "3060a015349ff01ba2840c4049b96bb8aaed36cd41d7dfde0d3905f49c928dc6",
+      "original_artifact_alias": "inputs_D10/parse_D10/D5-EQC-002_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D5/parse/D5-EQC-003.parse.json",
+      "sha256": "214bee892670158a6916dab6df63fdacae2a2ecf79415df609646bb1e09a60a2",
+      "original_artifact_alias": "inputs_D10/parse_D10/D5-EQC-003_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D5/parse/D5-EQC-004.parse.json",
+      "sha256": "ad1242db5df6076f8524408b4cd554d6e46933823e144a9e4ba9b4e5f4c6c019",
+      "original_artifact_alias": "inputs_D10/parse_D10/D5-EQC-004_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D5/parse/D5-EQC-005.parse.json",
+      "sha256": "fa2cff4fc4de28f8511af98d580cb59f3d2487f0b8e397c75f71251aff577ce1",
+      "original_artifact_alias": "inputs_D10/parse_D10/D5-EQC-005_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D5/parse/D5-EQC-006.parse.json",
+      "sha256": "4fa4f57f09efe3c692dd48fa36271252e125dbb85fdfbbd248ae3f7a33c179dd",
+      "original_artifact_alias": "inputs_D10/parse_D10/D5-EQC-006_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D6/parse/D6-AWD-001.parse.json",
+      "sha256": "75cfa4ae01d799a4ddafd247b97c91f0bc3051f000a4c773ebfa25800b6653f8",
+      "original_artifact_alias": "inputs_D10/parse_D10/D6-AWD-001_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D6/parse/D6-AWD-002.parse.json",
+      "sha256": "03bd7de56ac30643526fa8d019e1ef2f3e4b95ab2be9154b1196e58ea7cbb127",
+      "original_artifact_alias": "inputs_D10/parse_D10/D6-AWD-002_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D6/parse/D6-AWD-003.parse.json",
+      "sha256": "e06a7564ee84c32eccbefebbca23111fa2813135f0d32b51bbf9c7e3bb75fb34",
+      "original_artifact_alias": "inputs_D10/parse_D10/D6-AWD-003_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D6/parse/D6-AWD-004.parse.json",
+      "sha256": "799806ba054b7e12b92ad532c130a5392041323550fa930614fe7b869e26f772",
+      "original_artifact_alias": "inputs_D10/parse_D10/D6-AWD-004_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D6/parse/D6-AWD-005.parse.json",
+      "sha256": "00d031c9a9f95bf21ebc307ee4a5dd00aa359ffdbc5523b0415d5eb44f5c6a74",
+      "original_artifact_alias": "inputs_D10/parse_D10/D6-AWD-005_D10.json"
+    },
+    {
+      "owner": "zhangzhibo",
+      "commit": "ada614cc636fa30f5463e4c951746228e656c37d",
+      "source_path": "sample/D6/parse/D6-AWD-007.parse.json",
+      "sha256": "fb9a11aa02cf3ac005ba0077afbfd520e1f87c566d28432e7558f6a7a76e95ce",
+      "original_artifact_alias": "inputs_D10/parse_D10/D6-AWD-007_D10.json"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\src_D9\\attribution_D9.mjs",
+      "sha256": "4150576fa7911a297803bcdd80eef7fbbb0e5df551a5358c4f805f6a518bcd4f",
+      "original_artifact_alias": "vendor_D9/src_D9/attribution_D9.mjs"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\src_D9\\exact_D9.mjs",
+      "sha256": "64cdb9ad2026e6ae3e9ffb36745a4a0617651024892f71957238b5e0bd6cfbe5",
+      "original_artifact_alias": "vendor_D9/src_D9/exact_D9.mjs"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\src_D9\\run_D9.mjs",
+      "sha256": "44e87f9da83d504ec979e9cccb9475e447ecde18844f92c3aecfbf4c7ed85ab1",
+      "original_artifact_alias": "vendor_D9/src_D9/run_D9.mjs"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\src_D9\\wei_adapter_D9.mjs",
+      "sha256": "60cff95937fa3cc04198bf6d01435db7473fddd964237151eeabb9ad113942b8",
+      "original_artifact_alias": "vendor_D9/src_D9/wei_adapter_D9.mjs"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\src_D9\\vendor_D9\\decimal_D9.mts",
+      "sha256": "e20400dd6d17d93c5fc2382a7468b726fac3fd2f3fea19ef2905a4ee77c6e8c5",
+      "original_artifact_alias": "vendor_D9/src_D9/vendor_D9/decimal_D9.mts"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\vendor_D8\\public_dev_D8\\identity_context_D8.json",
+      "sha256": "9fb05c3a4dd9eeb1c12f884ec755820b14e3f24e3d1947096cebeca1cc86742a",
+      "original_artifact_alias": "vendor_D9/vendor_D8/public_dev_D8/identity_context_D8.json"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\vendor_D8\\public_dev_D8\\input_manifest_D8.json",
+      "sha256": "4bb629dacff13afde191ebf733df00ec0979d105f296b67263e2a45f229ca211",
+      "original_artifact_alias": "vendor_D9/vendor_D8/public_dev_D8/input_manifest_D8.json"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\vendor_D8\\src_D8\\matching_D8.mjs",
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d",
+      "original_artifact_alias": "vendor_D9/vendor_D8/src_D8/matching_D8.mjs"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\vendor_D8\\public_dev_D8\\parse_D8\\DEMO-EQC-HL-0930_D8.json",
+      "sha256": "81d5bff8b55b0b5219ab1d6c9ecc658e59debd6dfce471ac7d408387791ae11e",
+      "original_artifact_alias": "vendor_D9/vendor_D8/public_dev_D8/parse_D8/DEMO-EQC-HL-0930_D8.json"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\vendor_D8\\public_dev_D8\\parse_D8\\DEMO-EQC-HL-SIMPLE_D8.json",
+      "sha256": "ad0db6ddd1769c424087e6d561a70fbf7a1eb830fc10b6a218f50d4b8eacfb85",
+      "original_artifact_alias": "vendor_D9/vendor_D8/public_dev_D8/parse_D8/DEMO-EQC-HL-SIMPLE_D8.json"
+    },
+    {
+      "owner": "fang_D9_local",
+      "source_path": "C:\\Users\\fxc\\Desktop\\人工智能金融大赛\\D9\\方轩诚_归因规则库与判定说明_D9\\vendor_D8\\public_dev_D8\\parse_D8\\DEMO-EQC-HZ-RESULT_D8.json",
+      "sha256": "6b77be1ae3a3ea06bb5e87f6fc37465b3f82066f5f2c5dca688abd95edbe881b",
+      "original_artifact_alias": "vendor_D9/vendor_D8/public_dev_D8/parse_D8/DEMO-EQC-HZ-RESULT_D8.json"
+    },
+    {
+      "owner": "zongbowen",
+      "commit": "5073ffc7284563e43ed4bba35e33b751b8302336",
+      "source_path": "evaluation/D9/cases/rules-cases.dev.json",
+      "sha256": "d7bba2774262a1bec2a31fbc494fa50c2ffd57c918deb534e3f1c6a38f05a27b",
+      "original_artifact_alias": "inputs_D10/attribution_cases_D10.json"
+    },
+    {
+      "owner": "weiwenyu",
+      "commit": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+      "source_path": "LICENSE",
+      "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+      "original_artifact_alias": "peer_reference_D10/LICENSE_D10.txt"
+    }
+  ],
+  "report_sha256": "aaba0c475569b5ab7c8901ccd0aab0f61998b7b2516ebab81b92a1f8044f8383"
+}

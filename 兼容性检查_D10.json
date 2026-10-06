@@ -1,0 +1,74 @@
+{
+  "operation": "D10推送版精简",
+  "source_file_count": 169,
+  "push_file_count": 12,
+  "checks": {
+    "standalone": {
+      "passed": 17,
+      "total": 17
+    },
+    "report_schema_groups": 10,
+    "original_report_bytes_unchanged": true,
+    "full_context_regenerated_business_sections_identical": 10,
+    "native_wei_B_plus_zhang_parse_outcomes_identical": 10
+  },
+  "compatibility": {
+    "schema_version": "verification-report/1.0",
+    "buildGroup_change": "调用方显式传attributeCase；其余字段保留",
+    "D9_required_for_generation_only": true,
+    "zong_full_chain_original_status": "FAIL 0/10; 未修改缓存未知状态",
+    "web_cli_live_verified": false
+  },
+  "source_versions": {
+    "weiwenyu": "7bb13c89a3bd0156a0763b983c78494473347e4c",
+    "zongbowen": "5073ffc7284563e43ed4bba35e33b751b8302336",
+    "zhangzhibo": "ada614cc636fa30f5463e4c951746228e656c37d",
+    "cjh-workspace": "57de299bcb8b86e10e7174f2f0bb9ac92354c6b9"
+  },
+  "files": [
+    {
+      "path": "LICENSE_D10.txt",
+      "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be"
+    },
+    {
+      "path": "README_D10.md",
+      "sha256": "9fa9e6a2ad413bb0941cd770d1bd150ab379d93b596b0a9079597dbdc09f3d01"
+    },
+    {
+      "path": "results_D10/audit_D10/cache_audit_D10.json",
+      "sha256": "64a97d0164fe2efbbdc6259d88c827eb2945690b440e695429166c221b58fbde"
+    },
+    {
+      "path": "results_D10/核验报告合集_D10.json",
+      "sha256": "aaba0c475569b5ab7c8901ccd0aab0f61998b7b2516ebab81b92a1f8044f8383"
+    },
+    {
+      "path": "schema_D10/核验报告_schema_D10.json",
+      "sha256": "40e4b7560ce0312d138f97bb518636e4319a1f34ab94a179e88589b37a0dce95"
+    },
+    {
+      "path": "src_D10/build_D10.mjs",
+      "sha256": "936dfe5ad30494272bbd3b07805c981d5d8a2f361ec832698228b872fb6c3cc3"
+    },
+    {
+      "path": "src_D10/report_D10.mjs",
+      "sha256": "fd3367f05900f442a7bd2fc9a1942258cfefa760d3a7f32faae5473948552bea"
+    },
+    {
+      "path": "src_D10/schema_validator_D10.mjs",
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+    },
+    {
+      "path": "src_D10/validate_D10.mjs",
+      "sha256": "8e8511350b55d791d5f642f8ae3b615436cdb8fdbd6d5b84f2e457f7d5b39a6b"
+    },
+    {
+      "path": "tests_D10/verify_D10.mjs",
+      "sha256": "99cc5b3ecdfcf315048253276dbc6ecaf366b6038c46d7c950eeaf9e1df08032"
+    },
+    {
+      "path": "依赖与来源_D10.json",
+      "sha256": "1ff4d4ba567134789cb176bc4d8a2258a4793e067310f018dbc771af0da379fa"
+    }
+  ]
+}
