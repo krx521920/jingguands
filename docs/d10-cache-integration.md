@@ -49,3 +49,12 @@ diff_list（B 冲突）·report{events,diffs,attribution,boundaries}·cache 三�
   unknown——缺汇率不强行换算）不一致——**按 D8.2 契约以插件模式为正典 B**，重出后 10/10。
 - 结论：方的"报告数据结构＋10 组核验结果"D10 交付消费完毕，全链可复现（无模型调用，
   model_called=false）。
+
+## 七、补深验证（回应消费速度的质疑）
+
+- **他的校验器验我的重生成报告**：`validateBundle`（schema＋跨引用完整性＋FALSE_VERIFIED_EVIDENCE/
+  CROSS_EVENT_COMPARISON 等语义检查）对我重生成版 **0 错误**（其推送版同 0）。
+- **五段深度对齐**（不止 relation）：events/evidence/diff_list/attributions 四计数＋relation
+  逐组比对 **10/10 全对齐**。INT-001 实测深度：9 事件／65 证据／2 计算／7 归因／4 边界。
+- 消费快的正当原因：--d9-enrich（D9 为其适配器而建）＋--matcher（D8 建）＋vendor 惯例
+  均为既有管线；其 build_D10 按我文档接口编写，无需新件。
