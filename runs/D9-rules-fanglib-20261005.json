@@ -1,0 +1,442 @@
+{
+  "checked_on": "2026-10-06",
+  "tool": "run_d9_rules.mjs",
+  "code_version": "a9478a1e",
+  "input": "evaluation/D9/cases/rules-cases.dev.json",
+  "bilateral": null,
+  "block_verify": null,
+  "policy": "期望标签不进入判定（只读 sides 值/字段/主体/引文/块）",
+  "cases_total": 20,
+  "by_verdict": {
+    "corroborated": 5,
+    "explainable_difference": 11,
+    "insufficient": 4
+  },
+  "cases": [
+    {
+      "case_id": "D9-RULE-001",
+      "verdict": "corroborated",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "attribution_code": "plugin:SAME_OBSERVATION_EQUAL",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00006",
+          "quote": "11,042,217",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00008",
+          "quote": "11,042,217",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "verdict": "corroborated",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "attribution_code": "plugin:SAME_OBSERVATION_EQUAL",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00030",
+          "quote": "3,190,004",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p060_b00039",
+          "quote": "蔚文举 持股种类：A股普通股 持股数量：3,190,004股",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "verdict": "corroborated",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "attribution_code": "plugin:SAME_OBSERVATION_EQUAL",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00018",
+          "quote": "8,427,900",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "verdict": "explainable_difference",
+      "attribution": "已识别合计与明细口径，完整分项不足，尚未完成数值勾稽；保留未解释部分。",
+      "attribution_code": "plugin:AGGREGATE_PARTIAL_COVERAGE",
+      "sides": [
+        {
+          "case_id": "D5-EQC-003",
+          "block_id": "d173fee90_p018_b00014",
+          "quote": "8,427,900股",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "verdict": "explainable_difference",
+      "attribution": "完整且不重复的转让方分项经精确求和与总额一致；合计不拆记个人。",
+      "attribution_code": "plugin:AGGREGATE_DETAIL_RECONCILED",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00004",
+          "quote": "-3,680,700",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "verdict": "explainable_difference",
+      "attribution": "本输入仅有该主体一侧披露，不构成矛盾；不据此断言对方整份文件未披露，也不填零。",
+      "attribution_code": "plugin:SINGLE_SIDE_DISCLOSURE",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00011",
+          "quote": "-2,975,600",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "verdict": "explainable_difference",
+      "attribution": "本输入仅有该主体一侧披露，不构成矛盾；不据此断言对方整份文件未披露，也不填零。",
+      "attribution_code": "plugin:SINGLE_SIDE_DISCLOSURE",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00025",
+          "quote": "-430,000",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "verdict": "corroborated",
+      "attribution": "同笔转让的明确买卖双方及相反方向已核验，转让量一致；期末/期初匹配还核验买方原持股与卖方余股为零。",
+      "attribution_code": "plugin:VERIFIED_TRANSFER_COUNTERPARTIES",
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "block_id": "da00b31da_p009_b00004",
+          "quote": "本次权益变动后，信息披露义务人持有上市公司72,673,907股股份",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "block_id": "da8d294d2_p008_b00002",
+          "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "verdict": "corroborated",
+      "attribution": "同笔转让的明确买卖双方及相反方向已核验，转让量一致；期末/期初匹配还核验买方原持股与卖方余股为零。",
+      "attribution_code": "plugin:VERIFIED_TRANSFER_COUNTERPARTIES",
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "block_id": "da00b31da_p019_b00015",
+          "quote": "变动数量：72,673,907股股份",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "block_id": "da8d294d2_p017_b00029",
+          "quote": "变动数量：减少72,673,907股",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "verdict": "explainable_difference",
+      "attribution": "本次与累计口径明确不同，不能直接相减解释为单次增量；两值也可能相等，不能说必然不同。",
+      "attribution_code": "plugin:CUMULATIVE_VS_SINGLE",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00025",
+          "quote": "2,100,000",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00084",
+          "quote": "50,350,000",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "verdict": "explainable_difference",
+      "attribution": "本次与累计口径明确不同，不能直接相减解释为单次增量；两值也可能相等，不能说必然不同。",
+      "attribution_code": "plugin:CUMULATIVE_VS_SINGLE",
+      "sides": [
+        {
+          "case_id": "D4-PLD-009",
+          "block_id": "d1320340e_p002_b00014",
+          "quote": "11,750,000",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D4-PLD-009",
+          "block_id": "d1320340e_p003_b00019",
+          "quote": "33,344,000",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "verdict": "explainable_difference",
+      "attribution": "比例分母范围不同，不能比较百分数大小或推算分母。",
+      "attribution_code": "plugin:DENOMINATOR_DIFFERENT",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00026",
+          "quote": "2.40%",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00027",
+          "quote": "0.99%",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "verdict": "explainable_difference",
+      "attribution": "该记录确认金额的含税属性；不是两个金额相等的证明。未披露税率，不倒算税额。",
+      "attribution_code": "plugin:TAX_METADATA_BINDING",
+      "sides": [
+        {
+          "case_id": "D6-AWD-004",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D6-AWD-004",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "verdict": "explainable_difference",
+      "attribution": "该记录确认金额的含税属性；不是两个金额相等的证明。未披露税率，不倒算税额。",
+      "attribution_code": "plugin:TAX_METADATA_BINDING",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "verdict": "explainable_difference",
+      "attribution": "公告已明示原币金额与人民币折合金额，保留双记录；不计算或推广隐含汇率。",
+      "attribution_code": "plugin:ISSUER_DISCLOSED_EQUIVALENT",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "verdict": "explainable_difference",
+      "attribution": "公告已明示原币金额与人民币折合金额，保留双记录；不计算或推广隐含汇率。",
+      "attribution_code": "plugin:ISSUER_DISCLOSED_EQUIVALENT",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "verdict": "insufficient",
+      "attribution": "字段缺失或扫描降级；缺失不等于零。",
+      "attribution_code": "plugin:MISSING_VALUE",
+      "sides": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "block_id": null,
+          "quote": null,
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "verdict": "insufficient",
+      "attribution": "单侧输入且主体/比较对象未建立；即使正文金额可读，也不能判断跨文档关系。",
+      "attribution_code": "plugin:NO_COMPARISON_CONTEXT",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-019",
+      "verdict": "insufficient",
+      "attribution": "至少一侧缺少可核验的源文档、页块或引文；不能以期望说明补足事实。",
+      "attribution_code": "plugin:EVIDENCE_NOT_VERIFIED",
+      "sides": [
+        {
+          "case_id": "SYNTH-CTRL-01-A",
+          "block_id": "synth-a",
+          "quote": "（受控构造）首次披露 11,042,217 股",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-CTRL-01-B",
+          "block_id": "synth-b",
+          "quote": "（受控构造）更正公告：更正为 11,042,218 股",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-020",
+      "verdict": "insufficient",
+      "attribution": "至少一侧缺少可核验的源文档、页块或引文；不能以期望说明补足事实。",
+      "attribution_code": "plugin:EVIDENCE_NOT_VERIFIED",
+      "sides": [
+        {
+          "case_id": "SYNTH-CTRL-02-A",
+          "block_id": "synth-c",
+          "quote": "（受控构造）5,000,000 股",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-CTRL-02-B",
+          "block_id": "synth-d",
+          "quote": "（受控构造）5,200,000 股",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    }
+  ]
+}

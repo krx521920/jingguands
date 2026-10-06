@@ -74,10 +74,27 @@ try {
     rmSync(dir, { recursive: true, force: true })
   }
 
-  console.log(`✓ 宗D9归因用例：${pass}/20 全过（期望标签未进入判定；更正/真矛盾受控项含双侧证据；--bilateral 标注＋不可锚标记路径验证）`)
+  // 方 D9 主库直通（--rules + --parses-map 全保真解析）：接口验收断言——
+  // 结果须与方自跑一致（18/20：019/020 受控缺事实判 insufficient，非接口缺陷）
+  const step7 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES,
+    '--rules', 'tools/fang-attribution/src_D9/attribution_D9.mjs',
+    '--envelopes', 'runs/batch-20261005T063943/envelopes',
+    '--parses-map', 'runs/D9-parses-map.json', '--out', 'runs/.tmp-d9-fanglib.json'])
+  if (step7.status !== 0) { console.error('[D9规则门禁] 方库直通 runner 失败: ' + step7.stderr); process.exit(1) }
+  const fl = JSON.parse(readFileSync(resolve(REPO_ROOT, 'runs/.tmp-d9-fanglib.json'), 'utf8'))
+  const flDist = fl.by_verdict ?? {}
+  const c19 = fl.cases.find((c) => c.case_id === 'D9-RULE-019'), c20 = fl.cases.find((c) => c.case_id === 'D9-RULE-020')
+  console.log(`[方库直通] 分布 ${JSON.stringify(flDist)}｜019=${c19.verdict} 020=${c20.verdict}（对齐方自跑 18/20，受控缺事实为 insufficient）`)
+  assert.equal(flDist.corroborated, 5, '方库互证数对齐其自跑')
+  assert.equal(flDist.explainable_difference, 11, '方库可解释差异数对齐其自跑')
+  assert.equal(c19.verdict, 'insufficient', '019 受控缺事实 → 方库诚实 insufficient')
+  assert.equal(c20.verdict, 'insufficient', '020 受控缺事实 → 方库诚实 insufficient')
+
+  console.log(`✓ 宗D9归因用例：${pass}/20 全过（期望标签未进入判定；更正/真矛盾受控项含双侧证据；--bilateral 标注＋不可锚标记＋--verify-blocks 块级＋方库直通 18/20 对齐）`)
 } finally {
   rmSync(TMP_REPORT, { force: true })
   rmSync(TMP_SCORE, { force: true })
   rmSync(resolve(REPO_ROOT, 'runs/.tmp-d9-bil-report.json'), { force: true })
   rmSync(resolve(REPO_ROOT, 'runs/.tmp-d9-vb-report.json'), { force: true })
+  rmSync(resolve(REPO_ROOT, 'runs/.tmp-d9-fanglib.json'), { force: true })
 }

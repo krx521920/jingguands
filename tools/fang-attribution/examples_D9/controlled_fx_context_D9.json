@@ -1,0 +1,109 @@
+{
+  "documents": {
+    "CONTROL-0": {
+      "schema_version": "0.3",
+      "run_id": "CONTROL-D9",
+      "is_mock": true,
+      "source": {
+        "file_id": "sha256:33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+        "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+        "parse_meta": {
+          "blocks": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "text_raw": "甲主体 shares_after 100元 AED 含税\n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "event_id": "event-0",
+          "fields": {
+            "holder": {
+              "status": "extracted",
+              "value": "甲主体",
+              "provenance": [
+                {
+                  "block_id": "control-0",
+                  "page": 1,
+                  "quote": "甲主体 shares_after 100元 AED 含税",
+                  "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                }
+              ]
+            },
+            "shares_after": {
+              "status": "extracted",
+              "standardized": true,
+              "value": "100",
+              "unit": "amount",
+              "raw_value": "100元",
+              "provenance": [
+                {
+                  "block_id": "control-0",
+                  "page": 1,
+                  "quote": "甲主体 shares_after 100元 AED 含税",
+                  "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "CONTROL-1": {
+      "schema_version": "0.3",
+      "run_id": "CONTROL-D9",
+      "is_mock": true,
+      "source": {
+        "file_id": "sha256:1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+        "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+        "parse_meta": {
+          "blocks": [
+            {
+              "block_id": "control-1",
+              "page": 1,
+              "text_raw": "甲主体 shares_after 200元 CNY 含税\n证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "event_id": "event-1",
+          "fields": {
+            "holder": {
+              "status": "extracted",
+              "value": "甲主体",
+              "provenance": [
+                {
+                  "block_id": "control-1",
+                  "page": 1,
+                  "quote": "甲主体 shares_after 200元 CNY 含税",
+                  "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                }
+              ]
+            },
+            "shares_after": {
+              "status": "extracted",
+              "standardized": true,
+              "value": "200",
+              "unit": "amount",
+              "raw_value": "200元",
+              "provenance": [
+                {
+                  "block_id": "control-1",
+                  "page": 1,
+                  "quote": "甲主体 shares_after 200元 CNY 含税",
+                  "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "parses": {}
+}

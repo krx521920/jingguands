@@ -93,3 +93,26 @@ RULE-012×2→b00026/b00027；歧义处 50,350,000 由宗人工定为 b00084）�
   evidence_verified=false。--bilateral 标注层保留（张包待按 v0.2 再生成）。
 - v0.2 + --verify-blocks：宗评分 --strict **PASS 20/20**；门禁 16 升级（块级 true=30/false=0
   入断言）。证据：runs/D9-rules-report-v02-20261005.json。
+
+## 八、方 D9 归因规则库全接入（2026-10-05 当日）
+
+方 a7b60a2d（vendor tools/fang-attribution/ 58 文件字节一致，含其 vendor_D8 依赖；其 57/57 自测过），
+其"待协同事项"给魏的两项接口当日落地：
+
+1. **B 报告路径**：verify_crossdoc 新增 `--d9-enrich`——冲突附 `d9_input`（两侧
+   unit/raw_value/block_id/page/quote，与 values 逐项对齐）＋组级 `d9_context={documents,parses}`。
+   端到端实证：注入真冲突（EQC-002 蔚文绪 shares_after 改 1 位）→ 富化 B 报告 →
+   `attribute_b --rules 方wei_adapter_D9.mjs` → **plugin:FANG_D9_EVIDENCE_FIRST 判 true_conflict**
+   （其 SAME_BASIS_CONFLICT 规则）。判定零变化（回归：13/13＋3/3 保持）。
+2. **用例直通路径**：run_d9_rules 新增 `--rules <attributeCase 模块>`＋`--envelopes`＋
+   `--parses-map`（全保真原始解析文件映射 runs/D9-parses-map.json，10/11 案例覆盖——
+   信封内嵌块是精简版无 source_type/table_ref，方库 cell 级核验必须用原始解析）。
+   **结果 18/20 与方自跑逐字一致**（5 互证/11 可解释/4 不足；019/020 受控缺事实判
+   insufficient＝其自报边界，非接口缺陷）。证据 runs/D9-rules-fanglib-20261005.json。
+3. **门禁**：test_d9_rules 增方库直通断言（分布对齐其自跑＋019/020 诚实 insufficient）。
+
+**宗 D7 裁决已落签（发现于 5073ffc7 内 evaluation/integration/D7-normalization-adjudication.md）：
+方案 C 分层**——强锚(cell 三重)＝extracted/strong、中锚(header_path，现行)＝**extracted 不降级**
+/medium、弱锚＝extracted/weak、无锚/冲突＝needs_review，新增 `unit_basis`＋`evidence_strength`
+两字段（契约变更）。宗已复核我证据页 181/103/78/0 全部一致。实施（抽取期分层打标＋gold 契约
+扩展＋check-strength-tier.mjs 对接）列 D10。

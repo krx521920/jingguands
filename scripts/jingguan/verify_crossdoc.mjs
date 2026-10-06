@@ -41,16 +41,17 @@ import { pathToFileURL } from 'node:url'
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 
 function parseArgs(argv) {
-  const a = { envelopesDir: null, manifest: null, out: null, expect: false, matcher: null }
+  const a = { envelopesDir: null, manifest: null, out: null, expect: false, matcher: null, d9Enrich: false }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--envelopes-dir') a.envelopesDir = argv[++i]
     else if (argv[i] === '--manifest') a.manifest = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
     else if (argv[i] === '--expect') a.expect = true
     else if (argv[i] === '--matcher') a.matcher = argv[++i]
+    else if (argv[i] === '--d9-enrich') a.d9Enrich = true
   }
   if (!a.envelopesDir || !a.manifest) {
-    console.log('用法：node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <dir> --manifest <跨文档manifest> [--out report.json] [--expect] [--matcher <module>]')
+    console.log('用法：node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <dir> --manifest <跨文档manifest> [--out report.json] [--expect] [--matcher <module>] [--d9-enrich]')
     process.exit(2)
   }
   return a
@@ -151,7 +152,11 @@ function entityFieldMap(env) {
         const v = asNumber(f?.value)
         if (v === null) continue
         const key = `${t}|${k}`
-        if (!map.has(key)) map.set(key, { entity: t, field: k, value: v, quote: f.provenance?.[0]?.quote ?? null, event_id: ev.event_id, aggregate: isAggregate, members: isAggregate ? members : null })
+        if (!map.has(key)) map.set(key, {
+          entity: t, field: k, value: v, quote: f.provenance?.[0]?.quote ?? null, event_id: ev.event_id, aggregate: isAggregate, members: isAggregate ? members : null,
+          // 方 D9 归因所需的字段级元数据（d9_input 组装用；不影响判定）
+          unit: f.unit ?? null, raw_value: f.raw_value ?? null, block_id: f.provenance?.[0]?.block_id ?? null, page: f.provenance?.[0]?.page ?? null,
+        })
       }
     }
   }
@@ -159,7 +164,7 @@ function entityFieldMap(env) {
 }
 
 // ---------- 单组核验 ----------
-function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, pluginName = null) {
+function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, pluginName = null, d9Enrich = false) {
   // B3：逐成员 A 侧运行标识（run_id/code_version/schema_version/is_mock）——A/B 记录可关联
   const a_run_links = group.members.map((cs, ix) => ({
     case_id: cs,
@@ -283,6 +288,26 @@ function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, 
       discrepancy,
     }
   }
+  // 方 D9 归因上下文（--d9-enrich，按其接口规格 §2）：documents＝按成员全信封，
+  // parses＝从信封内嵌 parse_meta.blocks 重构的 evidence/0.9 布局（块级核验源）
+  if (d9Enrich) {
+    const parses = {}
+    for (let ix = 0; ix < group.members.length; ix++) {
+      const blocks = envelopes[ix]?.source?.parse_meta?.blocks
+      if (Array.isArray(blocks) && blocks.length > 0) {
+        const pages = new Map()
+        for (const b of blocks) {
+          const p = b.page ?? 1
+          if (!pages.has(p)) pages.set(p, { page: p, blocks: [] })
+          pages.get(p).blocks.push(b)
+        }
+        parses[group.members[ix]] = { doc: { file_sha256: envelopes[ix].source.file_sha256 }, pages: [...pages.values()], quality: { degraded: false, degrade_reasons: [], warnings: [] } }
+      }
+    }
+    result.d9_context = { documents: Object.fromEntries(group.members.map((m, ix) => [m, envelopes[ix]])), parses }
+  }
+  // d9_input 组装：sides 顺序必须与冲突 values/aggregate+parts 逐项对齐（方适配器按值逐项核对）
+  const d9Input = (sides) => ({ case_id: `${group.group_id}:${sides.map((s) => `${s.case_id}.${s.entity}.${s.field}`).join('|')}`, sides })
   // 一致性核验门（方 D8.2）：只有 related（same）才执行数值/合计核验——
   // unknown/different 不得进入数值比较
   if (predicted !== 'related') return result
@@ -308,7 +333,12 @@ function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, 
             if (Math.abs((pr.valueA ?? NaN) - (pr.valueB ?? NaN)) < 1e-9) {
               result.consistency.corroborations.push({ entity: pr.entityA, field: pr.field, value: pr.valueA, docs: [group.members[i], group.members[j]], quotes: [pr.quoteA ?? null, pr.quoteB ?? null], matcher: 'plugin' })
             } else {
-              result.consistency.conflicts.push({ entity: pr.entityA, field: pr.field, values: [{ doc: group.members[i], value: pr.valueA, quote: pr.quoteA ?? null }, { doc: group.members[j], value: pr.valueB, quote: pr.quoteB ?? null }], matcher: 'plugin' })
+              const conflict = { entity: pr.entityA, field: pr.field, values: [{ doc: group.members[i], value: pr.valueA, quote: pr.quoteA ?? null }, { doc: group.members[j], value: pr.valueB, quote: pr.quoteB ?? null }], matcher: 'plugin' }
+              if (d9Enrich) conflict.d9_input = d9Input([
+                { case_id: group.members[i], entity: pr.entityA, field: pr.field, value: pr.valueA, quote: pr.quoteA ?? null, block_id: (pr.evidenceA ?? [])[0]?.block_id ?? null },
+                { case_id: group.members[j], entity: pr.entityB ?? pr.entityA, field: pr.field, value: pr.valueB, quote: pr.quoteB ?? null, block_id: (pr.evidenceB ?? [])[0]?.block_id ?? null },
+              ])
+              result.consistency.conflicts.push(conflict)
             }
           }
         } catch (err) {
@@ -327,7 +357,12 @@ function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, 
           if (Math.abs(a.value - b.value) < 1e-9) {
             result.consistency.corroborations.push({ entity: a.entity, field: a.field, value: a.value, docs: [group.members[i], group.members[j]], quotes: [a.quote, b.quote] })
           } else {
-            result.consistency.conflicts.push({ entity: a.entity, field: a.field, values: [{ doc: group.members[i], value: a.value, quote: a.quote }, { doc: group.members[j], value: b.value, quote: b.quote }] })
+            const conflict = { entity: a.entity, field: a.field, values: [{ doc: group.members[i], value: a.value, quote: a.quote }, { doc: group.members[j], value: b.value, quote: b.quote }] }
+            if (d9Enrich) conflict.d9_input = d9Input([
+              { case_id: group.members[i], entity: a.entity, field: a.field, value: a.value, raw_value: a.raw_value, unit: a.unit, block_id: a.block_id, page: a.page, quote: a.quote },
+              { case_id: group.members[j], entity: b.entity, field: b.field, value: b.value, raw_value: b.raw_value, unit: b.unit, block_id: b.block_id, page: b.page, quote: b.quote },
+            ])
+            result.consistency.conflicts.push(conflict)
           }
         }
       }
@@ -349,12 +384,17 @@ function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, 
             parts: indivs.map((x) => ({ doc: mA.includes(agg) ? group.members[j] : group.members[i], entity: x.entity, value: x.value })),
           })
         } else {
-          result.consistency.conflicts.push({
+          const conflict = {
             kind: 'group_total_mismatch', entity: agg.entity, field: agg.field,
             aggregate: { doc: mA.includes(agg) ? group.members[i] : group.members[j], value: agg.value },
             parts_sum: sum,
             parts: indivs.map((x) => ({ doc: mA.includes(agg) ? group.members[j] : group.members[i], entity: x.entity, value: x.value })),
-          })
+          }
+          if (d9Enrich) conflict.d9_input = d9Input([
+            { case_id: conflict.aggregate.doc, entity: agg.entity, field: agg.field, value: agg.value, raw_value: agg.raw_value, unit: agg.unit, block_id: agg.block_id, page: agg.page, quote: agg.quote },
+            ...indivs.map((x) => ({ case_id: mA.includes(agg) ? group.members[j] : group.members[i], entity: x.entity, field: x.field, value: x.value, raw_value: x.raw_value, unit: x.unit, block_id: x.block_id, page: x.page, quote: x.quote })),
+          ])
+          result.consistency.conflicts.push(conflict)
         }
       }
       const eA = entitiesOf(envelopes[i]), eB = entitiesOf(envelopes[j])
@@ -394,7 +434,7 @@ for (const g of groups) {
     return null
   })
   if (envelopes.some((e) => e === null)) { missing.push(g.group_id); continue }
-  const r = verifyGroup(g, envelopes, matcherFn, groupMatcherFn, args.matcher)
+  const r = verifyGroup(g, envelopes, matcherFn, groupMatcherFn, args.matcher, args.d9Enrich)
   results.push(r)
   // 期望匹配三态（与宗 score-pairs.mjs 判定一致）：related→判 related；unrelated→判
   // unrelated 且 0 矛盾；insufficient→判 unknown 或 reasons 含 INSUFFICIENT_SIGNALS

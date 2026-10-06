@@ -11,23 +11,32 @@
  *   （扫描降级）豁免。真实语料 conflict 判定须双侧块级验证通过，否则标
  *   evidence_verified=false（宗规则 2 的块内容级强化）。
  * --bilateral：张双侧出处包逐侧 evidence_status 标注（包随宗重锚需张再生成，仅标注）。
+ * --rules <module>（方 D9 主库直通）：模块导出 attributeCase(input, context)——
+ *   input={case_id, sides}（宗用例 sides 原样，已含 entity/field/value/raw_value/unit/quote/block_id），
+ *   context={documents:{<case_id>:信封}}（由 --envelopes 目录按侧 case_id 装配）。
+ *   插件优先：返回 verdict 即接管该案（attribution_code='plugin'）；异常/缺信封回退内置链并记录。
+ * --envelopes <dir>：--rules 装配 context 用的信封目录。
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 
 function parseArgs(argv) {
-  const a = { cases: 'evaluation/D9/cases/rules-cases.dev.json', out: null, bilateral: null, verifyBlocks: null }
+  const a = { cases: 'evaluation/D9/cases/rules-cases.dev.json', out: null, bilateral: null, verifyBlocks: null, rules: null, envelopes: null, parsesMap: null }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--cases') a.cases = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
     else if (argv[i] === '--bilateral') a.bilateral = argv[++i]
     else if (argv[i] === '--verify-blocks') a.verifyBlocks = argv[++i]
+    else if (argv[i] === '--rules') a.rules = argv[++i]
+    else if (argv[i] === '--envelopes') a.envelopes = argv[++i]
+    else if (argv[i] === '--parses-map') a.parsesMap = argv[++i]
     else { console.error(`未知参数：${argv[i]}`); process.exit(2) }
   }
+  if (a.rules !== null && a.envelopes === null) { console.error('--rules 需同时提供 --envelopes <信封目录>（装配 d9_context.documents）'); process.exit(2) }
   return a
 }
 
@@ -194,8 +203,56 @@ const outCases = []
 const byVerdict = {}
 const bilSummary = {}
 const blockSummary = {}
+// --rules（方 D9 主库直通）：按侧 case_id 装配 context.documents，插件 verdict 接管
+let rulesLib = null
+if (args.rules !== null) {
+  const mod = await import(pathToFileURL(resolve(REPO_ROOT, args.rules)).href)
+  if (typeof mod.attributeCase !== 'function') { console.error(`--rules 模块须导出 attributeCase(input, context)：${args.rules}`); process.exit(2) }
+  rulesLib = mod.attributeCase
+}
+// --parses-map：{case_id: 解析文件路径}——方库需要全保真 parses（cell/table_ref 级），
+// 信封内嵌块是精简版（无 source_type/table_ref），优先用原始解析文件
+let parsesMap = {}
+if (args.parsesMap !== null) parsesMap = JSON.parse(readFileSync(resolve(REPO_ROOT, args.parsesMap), 'utf8'))
+const pluginFallbacks = []
 for (const c of cases) {
-  const d = decide(c.sides ?? [])
+  let d = decide(c.sides ?? [])
+  if (rulesLib !== null) {
+    try {
+      const documents = {}
+      const parses = {}
+      for (const s of c.sides ?? []) {
+        if (documents[s.case_id] !== undefined) continue
+        try {
+          const env = JSON.parse(readFileSync(resolve(REPO_ROOT, args.envelopes, `${s.case_id}.json`), 'utf8'))
+          documents[s.case_id] = env
+          if (parsesMap[s.case_id] !== undefined) {
+            // 优先：--parses-map 指向的原始解析文件（全保真 cell/table_ref）
+            try { parses[s.case_id] = JSON.parse(readFileSync(resolve(REPO_ROOT, parsesMap[s.case_id]), 'utf8')) } catch { /* 留空 */ }
+          }
+          if (parses[s.case_id] === undefined) {
+            // 回退：从信封内嵌 parse_meta.blocks 重构（精简块，可能缺 cell 级信息）
+            const blocks = env.source?.parse_meta?.blocks
+            if (Array.isArray(blocks) && blocks.length > 0) {
+              const pages = new Map()
+              for (const b of blocks) {
+                const p = b.page ?? 1
+                if (!pages.has(p)) pages.set(p, { page: p, blocks: [] })
+                pages.get(p).blocks.push(b)
+              }
+              parses[s.case_id] = { doc: { file_sha256: env.source.file_sha256 }, pages: [...pages.values()], quality: { degraded: false, degrade_reasons: [], warnings: [] } }
+            }
+          }
+        } catch { documents[s.case_id] = null }
+      }
+      const r = rulesLib({ case_id: c.case_id, sides: c.sides ?? [] }, { documents, parses })
+      if (r && typeof r.verdict === 'string' && ['corroborated', 'explainable_difference', 'restated', 'conflict', 'insufficient'].includes(r.verdict)) {
+        d = { verdict: r.verdict, code: `plugin:${r.attribution_code ?? 'FANG_D9'}`, attribution: r.attribution ?? r.reason ?? `方 D9 规则库判定 ${r.verdict}`, computed: [] }
+      }
+    } catch (err) {
+      pluginFallbacks.push({ case_id: c.case_id, error: String(err?.message ?? err).slice(0, 120) })
+    }
+  }
   byVerdict[d.verdict] = (byVerdict[d.verdict] ?? 0) + 1
   const bilCase = bilByCase.get(c.case_id) ?? null
   const bilSides = bilCase?.sides ?? null
