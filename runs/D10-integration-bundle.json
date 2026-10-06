@@ -1,7 +1,7 @@
 {
-  "built_at": "2026-10-06T08:58:13.468Z",
+  "built_at": "2026-10-06T13:00:29.793Z",
   "built_by": "build_d10_bundle.mjs",
-  "code_version": "4e0b910c",
+  "code_version": "bcc0cc6e",
   "cache_definitions": {
     "replay_business_fields_identical": "冷批 vs 重放批 31 信封业务字段（schema/is_mock/sha/events 全量）逐字节一致",
     "cold_cache_new_call_log": "清缓存后重跑产生全新调用日志（cache.hit=false），见证据文件",
@@ -16,8 +16,8 @@
         "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
         "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e"
       ],
-      "run_id": "b-20261006085811",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130027",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -28,9 +28,9 @@
           "is_mock": false,
           "events": 5,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -42,8 +42,8 @@
           "events": 3,
           "cache": {
             "hit": null,
-            "hits": 2,
-            "misses": 0
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -54,9 +54,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         }
       ],
@@ -93,7 +93,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -103,8 +103,8 @@
         "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
         "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33"
       ],
-      "run_id": "b-20261006085811",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130027",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -115,9 +115,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -128,9 +128,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         }
       ],
@@ -163,7 +163,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -173,8 +173,8 @@
         "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
         "3b1abc7f47dbb6062f40f7631b263356bfacd930f23672ebd7a1e96603671a02"
       ],
-      "run_id": "b-20261006085811",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130027",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -185,9 +185,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -233,7 +233,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -243,8 +243,8 @@
         "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
         "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51"
       ],
-      "run_id": "b-20261006085812",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130028",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -255,9 +255,9 @@
           "is_mock": false,
           "events": 3,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -268,9 +268,9 @@
           "is_mock": false,
           "events": 5,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         }
       ],
@@ -303,7 +303,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -314,8 +314,8 @@
         "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
         "0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa"
       ],
-      "run_id": "b-20261006085812",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130028",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -326,9 +326,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -339,9 +339,9 @@
           "is_mock": false,
           "events": 4,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -352,9 +352,9 @@
           "is_mock": false,
           "events": 3,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         }
       ],
@@ -391,7 +391,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -401,8 +401,8 @@
         "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
         "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63"
       ],
-      "run_id": "b-20261006085812",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130028",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -426,9 +426,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         }
       ],
@@ -464,7 +464,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -474,8 +474,8 @@
         "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
         "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee"
       ],
-      "run_id": "b-20261006085812",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130028",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -486,9 +486,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -499,9 +499,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         }
       ],
@@ -534,7 +534,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -544,8 +544,8 @@
         "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
         "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa"
       ],
-      "run_id": "b-20261006085812",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130029",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -556,9 +556,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -569,9 +569,9 @@
           "is_mock": false,
           "events": 4,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         }
       ],
@@ -591,20 +591,22 @@
           "conflicts": 0,
           "corroborations": 0,
           "complementaries": 0,
-          "relation": "unrelated"
+          "relation": "unknown"
         },
         "attribution": {
           "conflict_count": 0,
           "attributions": [],
           "note": "零冲突（引擎零误报）——无需归因"
         },
-        "boundaries": []
+        "boundaries": [
+          "证据不足：INSUFFICIENT_SIGNALS"
+        ]
       },
       "cache": {
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -614,8 +616,8 @@
         "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
         "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1"
       ],
-      "run_id": "b-20261006085813",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130029",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -626,9 +628,9 @@
           "is_mock": false,
           "events": 3,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -639,9 +641,9 @@
           "is_mock": false,
           "events": 3,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         }
       ],
@@ -674,7 +676,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     },
     {
@@ -686,8 +688,8 @@
         "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
         "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26"
       ],
-      "run_id": "b-20261006085813",
-      "code_version": "4e0b910c",
+      "run_id": "b-20261006130029",
+      "code_version": "bcc0cc6e",
       "schema_version": "0.3",
       "records": [
         {
@@ -698,9 +700,9 @@
           "is_mock": false,
           "events": 3,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -711,9 +713,9 @@
           "is_mock": false,
           "events": 5,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -724,9 +726,9 @@
           "is_mock": false,
           "events": 1,
           "cache": {
-            "hit": true,
-            "hits": 1,
-            "misses": 0
+            "hit": null,
+            "hits": null,
+            "misses": null
           }
         },
         {
@@ -783,7 +785,7 @@
         "replay_business_fields_identical": true,
         "cold_cache_new_call_log": true,
         "web_cli_same_result": true,
-        "evidence": "runs/batch-20261006T083905(冷) → batch-20261006T084638(重放,同缓存) → batch-20261006T084717(清缓存重跑)"
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
       }
     }
   ]

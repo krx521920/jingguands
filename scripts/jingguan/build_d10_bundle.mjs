@@ -92,7 +92,7 @@ try {
     }
     writeFileSync(mPath, JSON.stringify({ groups: [{ group_id: c.case_id, members: c.members }] }))
     const outPath = join(tmp, 'b.json').replace(/\\/g, '/')
-    const r = spawnSync(node, ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', envDir, '--manifest', mPath, '--d9-enrich', '--out', outPath], { cwd: REPO_ROOT, encoding: 'utf8' })
+    const r = spawnSync(node, ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', envDir, '--manifest', mPath, '--d9-enrich', '--matcher', 'tools/fang-matching/src_D8/matching_D8.mjs', '--out', outPath], { cwd: REPO_ROOT, encoding: 'utf8' })
     let relation = null, reasons = [], conflicts = [], corroborations = [], complementaries = [], bRunId = null
     try {
       const rep = JSON.parse(readFileSync(outPath, 'utf8'))
