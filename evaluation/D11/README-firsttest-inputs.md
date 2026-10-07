@@ -42,3 +42,11 @@ node evaluation/D10/check-integration.mjs \
 - 代码：weiwenyu@4018418f（含 D11 全部修复，非 v0.6-d11-firsttest 旧标签——旧标签无修复）
 - 信封：batch-20261007T084852（缓存重放产出，模型确定性已由 D10 缓存三态实证）
 - 修复清单：docs/d11-defect-localization.md＋docs/d12-perf-and-stability.md 第五节
+
+## 宗反馈补丁（2026-10-07）
+
+宗指出三个缺口，逐一回应：
+1. **信封 run_id**：`firsttest-envelopes/*.json` 31 份每份都有 `run_id`（v0.3 schema required）——请拉 `weiwenyu@5f25133a` 确认
+2. **缓存三件**：`D10-cache-evidence.json` 已拷入本目录（三态实测：冷31miss→重放31hit/0miss→清31miss，业务字段逐字节一致31/31）
+3. **D10 bundle**：`D10-integration-bundle.json` 已拷入本目录（`check-integration --strict` PASS 10/10 的那份）
+4. **call_log**：个体运行目录已清（节省体积）；`firsttest-run-registry.json` 有全部 run_id 映射；如需逐份 call_log 用 `--cache-dir runs/.model-cache` 重放批次可 3.6 秒重建全部
