@@ -1,77 +1,46 @@
-# DeepSeek Harness
+# 信证公告审阅台（产品名待拍板——三候选见 docs/product-naming-proposal.md）
 
-English | [中文](README.zh.md)
+> 可信公告事件提取与跨文档核验智能体 · 金融 AI 竞赛 14 天冲刺（2026-09-27 ~ 10-10）
 
-DeepSeek Harness (`dsh`) is an open-source agent harness developed by [DeepSeek AI](https://deepseek.com).
+把公告里的每个数、每个主体，钉回它所在的原文块；两份公告说的是不是同一件事，证据说了算。
 
-It is built on an **everything-is-a-plugin** architecture and powered by [Cordis](https://github.com/cordiverse/cordis), whose design is described in [_A Programming Paradigm for Spatiotemporal Composability_](https://arxiv.org/abs/2608.25512).
+## 一句话
 
-Documentation: [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
+- **工作流 A（单文档抽取）**：公告 PDF/解析包 → 结构化事件（质押/股权变动/中标三类，37 字段 v0.3 契约）——每个字段带块级出处（block_id/页码/区域/表格 cell/引文），无依据不填值。
+- **工作流 B（跨文档核验）**：多份公告 → 同事件判定三态（related / unrelated / unknown，证据不足绝不硬判）＋数值互证/矛盾（先归因后矛盾：口径差异、累计口径、币种折算、合计勾稽、时点衔接、显式更正……不能解释则保留疑点）。
 
-## Developer preview
+## 实测成绩（全部可复跑：`npm run jingguan:gates`，16 道门禁）
 
-DeepSeek Harness is in _developer preview_ and iterating rapidly. **THERE WILL BE COMPATIBILITY-BREAKING CHANGES.**
+| 项 | 成绩 |
+|---|---|
+| 30 份公开开发集字段抽取 | **437/437 = 100%**（三类同代码态；含外币折合判定 317,915,000/CNY） |
+| 宗 13 组跨文档配对 --strict | **PASS 13/13**（内置引擎与方 matching 插件双模式） |
+| 封存 20 组回放 | 20/20（相关 4/4 命中、无关 16 零误报） |
+| 宗 20 条归因用例 --strict | **PASS 20/20**（矛盾误报 0 漏报 0） |
+| 对抗输入（损坏/空文件/扫描降级） | 全部留在分母，诚实降级零编造 |
 
-Review the [safety notice](SAFETY.md) before running the project.
+## 快速开始
 
-## Run
+```bash
+# 单文档抽取（真实模型，需 JINGGUAN_LLM_API_KEY）
+node scripts/jingguan/run_extract.mjs --input 公告.txt --event-type pledge
 
-### Run from `npm`
+# 批量＋Gold 对照
+node scripts/jingguan/run_batch.mjs <目录...> --gold --gold-manifest corpus/combined-manifest.json
 
-Install `Node.js`, then run:
+# 跨文档核验（三态判定＋一致性核验）
+node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <信封目录> --manifest evaluation/D8/pairs/pairs.dev30.json --expect
 
-```sh
-npx @deepseek-ai/dsh web
+# 差异归因（先归因后矛盾）
+node scripts/jingguan/attribute_b.mjs --report <B报告.json>
+
+# 首测冻结（D11：一次命令出全套报告包）
+node scripts/jingguan/freeze_first_test.mjs
 ```
 
-The command starts the Web UI at `http://127.0.0.1:3080` by default and opens it in the default browser for a local launch. An SSH launch only prints the host URL because the SSH client or editor owns the local forwarded address. Pass `--no-open` to run the server without opening a browser. See [Web UI guide](docs/user/guide/index.md).
+## 文档地图
 
-### Run from source
+接口契约 v0.3（interface/）｜D6 验收（docs/d6-acceptance-round.md）｜B 引擎设计（docs/d8-crossdoc-verification.md）｜归因引擎（docs/d9-attribution.md）｜同公司不同事件实证（docs/d8-demo-same-issuer-pair.md）
 
-To run from a repository checkout:
-
-```sh
-git clone https://github.com/deepseek-ai/deepseek-harness.git
-cd deepseek-harness
-pnpm install
-pnpm run build
-pnpm dsh web
-```
-
-`pnpm run build` prepares the repository artifacts. `pnpm dsh web` uses those built artifacts without rebuilding.
-
-## Community and support
-
-- Submit feedback or bug reports through [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions).
-- Add the [`dsh-plugin`](https://github.com/topics/dsh-plugin) topic to your plugin repository for discoverability.
-- Join <a href="https://discord.gg/Ycq5dCaS4">DeepSeek Harness Discord community</a>.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Development
-
-Start with the [development guide](docs/development.md) and [architecture documentation](docs/architecture.md).
-
-`pnpm run dev:web` builds, serves, and rebuilds client bundles on source edits in one terminal, and `make help` lists the matching Make targets for Web and Desktop; the guide's application commands section owns the full table.
-
-For agents, follow [AGENTS.md](AGENTS.md).
-
-## Citation
-
-```bibtex
-@misc{deepseek-harness2026,
-  title={DeepSeek Harness: Everything is a Plugin},
-  author={DeepSeek-AI},
-  year={2026},
-  publisher={GitHub},
-  howpublished={\url{https://github.com/deepseek-ai/deepseek-harness}},
-}
-```
-
-## License
-
-[MIT](LICENSE)
-
-Third-party dependencies and their licenses are disclosed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+---
+*本仓库 fork 自 DeepSeek Harness（上游见 LICENSE 与 THIRD_PARTY_NOTICES）；业务代码在 scripts/jingguan/、packages/jingguan/、interface/、corpus/、docs/。*
