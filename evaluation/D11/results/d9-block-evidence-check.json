@@ -1,0 +1,27 @@
+{
+  "checked_on": "2026-10-07",
+  "source": "runs/D9-rules-report-bilateral-20261005.json + runs/D9-parses-map.json",
+  "sides_total": 35,
+  "quote_in_block_ok": 17,
+  "quote_not_in_block": 5,
+  "block_missing_or_noparse": 12,
+  "no_block_or_quote": 1,
+  "no_parse_ids": [
+    "D6-AWD-004(fetch)",
+    "D6-AWD-005(fetch)",
+    "D6-AWD-007(fetch)",
+    "pledge-scan-degrade",
+    "SYNTH-CTRL-01-A",
+    "SYNTH-CTRL-01-B",
+    "SYNTH-CTRL-02-A",
+    "SYNTH-CTRL-02-B"
+  ],
+  "verdict": "FAIL",
+  "counterexamples": [
+    "D9-RULE-009|da00b31da_p019_b00006|变动数量：72,673,907股股份",
+    "D9-RULE-010|d44e95085_p001_b00024|2,100,000",
+    "D9-RULE-010|d44e95085_p001_b00083|50,350,000",
+    "D9-RULE-012|d44e95085_p001_b00025|2.40%",
+    "D9-RULE-012|d44e95085_p001_b00026|0.99%"
+  ]
+}
