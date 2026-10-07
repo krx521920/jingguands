@@ -1,0 +1,601 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261007T120449-award_contract-68b3",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+    "file_name": "bid-001.pdf",
+    "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 2,
+      "blocks": [
+        {
+          "block_id": "dc1c912b9_p001_b00001",
+          "page": 1,
+          "role": "BODY",
+          "text": "证券代码：301601 证券简称：惠通科技 公告编号：2026-052",
+          "text_raw": "证券代码：301601证券简称：惠通科技公告编号：2026-052",
+          "region": [
+            90,
+            73.85,
+            505.32,
+            87.72
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "扬州惠通科技股份有限公司关于项目中标的进展公告",
+          "text_raw": "扬州惠通科技股份有限公司关于项目中标的进展公告",
+          "region": [
+            207.24,
+            126.95,
+            387.84,
+            173.15
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+          "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+          "region": [
+            125.4,
+            212.33,
+            504.96,
+            224.33
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "假记载、误导性陈述或重大遗漏。",
+          "text_raw": "假记载、误导性陈述或重大遗漏。",
+          "region": [
+            101.4,
+            234.29,
+            281.4,
+            246.29
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "特别提示：截至本公告披露之日，扬州惠通科技股份有限公司（以下简称“公",
+          "text_raw": "特别提示：截至本公告披露之日，扬州惠通科技股份有限公司（以下简称“公",
+          "region": [
+            114,
+            292.01,
+            505.32,
+            306
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "司”）尚未取得中标通知书，签约等后续工作尚具有一定不确定性，敬请广大投资者注意投资风险。公司将根据相关事项后续进展情况履行相应的信息披露义务。",
+          "text_raw": "司”）尚未取得中标通知书，签约等后续工作尚具有一定不确定性，敬请广大投资者注意投资风险。公司将根据相关事项后续进展情况履行相应的信息披露义务。",
+          "region": [
+            90,
+            315.41,
+            517.32,
+            350.81
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00007",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、项目概况",
+          "text_raw": "一、项目概况",
+          "region": [
+            114,
+            385.61,
+            186.24,
+            397.61
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "公司于2026年8月24日在巨潮资讯网（http://www.cninfo.com.cn）披露了",
+          "text_raw": "公司于2026年8月24日在巨潮资讯网（http://www.cninfo.com.cn）披露了",
+          "region": [
+            114,
+            409.01,
+            505.2,
+            423
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "《关于项目中标的提示性公告》（公告编号：2026-043），公司参与了“新纶化纤年产30万吨涤纶化纤项目”的投标，招标单位为图木舒克新纶化纤有限责任公司。2026 年 8 月 21 日，全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）发布了相关中标结果公告。",
+          "text_raw": "《关于项目中标的提示性公告》（公告编号：2026-043），公司参与了“新纶化纤年产30万吨涤纶化纤项目”的投标，招标单位为图木舒克新纶化纤有限责任公司。2026年8月21日，全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）发布了相关中标结果公告。",
+          "region": [
+            90,
+            432.41,
+            517.32,
+            516.6
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00010",
+          "page": 1,
+          "role": "SECTION",
+          "text": "二、项目进展情况",
+          "text_raw": "二、项目进展情况",
+          "region": [
+            114,
+            526.01,
+            210.36,
+            538.01
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00011",
+          "page": 1,
+          "role": "BODY",
+          "text": "依据招标单位文件相关要求，招标单位对本项目重新开展评标工作，并于",
+          "text_raw": "依据招标单位文件相关要求，招标单位对本项目重新开展评标工作，并于",
+          "region": [
+            114,
+            549.41,
+            505.2,
+            561.41
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "2026年9月26日，在全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）重新发布了相关中标结果公告。",
+          "text_raw": "2026年9月26日，在全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）重新发布了相关中标结果公告。",
+          "region": [
+            90,
+            572.81,
+            505.31,
+            610.2
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次重新评标后，中标单位仍为本公司，招标单位名称、招标代理机构名称、",
+          "text_raw": "本次重新评标后，中标单位仍为本公司，招标单位名称、招标代理机构名称、",
+          "region": [
+            114,
+            619.61,
+            511.32,
+            631.61
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00014",
+          "page": 1,
+          "role": "BODY",
+          "text": "项目名称、标段名称、中标价等未发生变化。",
+          "text_raw": "项目名称、标段名称、中标价等未发生变化。",
+          "region": [
+            90,
+            643.01,
+            330,
+            655.01
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00015",
+          "page": 1,
+          "role": "SECTION",
+          "text": "三、中标事项对公司业绩的影响",
+          "text_raw": "三、中标事项对公司业绩的影响",
+          "region": [
+            114,
+            666.41,
+            282.6,
+            678.41
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00016",
+          "page": 1,
+          "role": "BODY",
+          "text": "该项目中标后的实施，预计对公司未来经营业绩产生积极影响，其合同的履",
+          "text_raw": "该项目中标后的实施，预计对公司未来经营业绩产生积极影响，其合同的履",
+          "region": [
+            114,
+            689.81,
+            505.32,
+            701.81
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00017",
+          "page": 1,
+          "role": "BODY",
+          "text": "行不影响公司经营的独立性。",
+          "text_raw": "行不影响公司经营的独立性。",
+          "region": [
+            90,
+            713.21,
+            246,
+            725.21
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00018",
+          "page": 1,
+          "role": "SECTION",
+          "text": "四、风险提示",
+          "text_raw": "四、风险提示",
+          "region": [
+            114,
+            736.61,
+            186.24,
+            748.61
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p001_b00019",
+          "page": 1,
+          "role": "FOOTER",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            295.32,
+            783.94,
+            299.87,
+            792.94
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p002_b00001",
+          "page": 2,
+          "role": "TITLE",
+          "text": "1.截至本公告披露之日，公司尚未取得该项目的中标通知书，公司能否收到",
+          "text_raw": "1.截至本公告披露之日，公司尚未取得该项目的中标通知书，公司能否收到",
+          "region": [
+            114,
+            77.69,
+            505.32,
+            91.56
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p002_b00002",
+          "page": 2,
+          "role": "BODY",
+          "text": "该项目的中标通知书仍存在一定的不确定性。",
+          "text_raw": "该项目的中标通知书仍存在一定的不确定性。",
+          "region": [
+            90,
+            101.09,
+            330,
+            113.09
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "2.项目总金额、具体实施内容等均以正式合同为准。最终形成实际订单并完",
+          "text_raw": "2.项目总金额、具体实施内容等均以正式合同为准。最终形成实际订单并完",
+          "region": [
+            114,
+            124.49,
+            505.32,
+            138.36
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p002_b00004",
+          "page": 2,
+          "role": "BODY",
+          "text": "成交货仍然存在一定的不确定性和风险。敬请广大投资者谨慎决策，注意防范投资风险。",
+          "text_raw": "成交货仍然存在一定的不确定性和风险。敬请广大投资者谨慎决策，注意防范投资风险。",
+          "region": [
+            90,
+            147.89,
+            505.32,
+            183.29
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114,
+            225.89,
+            174,
+            237.89
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p002_b00006",
+          "page": 2,
+          "role": "BODY",
+          "text": "扬州惠通科技股份有限公司董事会",
+          "text_raw": "扬州惠通科技股份有限公司董事会",
+          "region": [
+            325.32,
+            303.89,
+            505.32,
+            315.89
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "2026年9月28日",
+          "text_raw": "2026年9月28日",
+          "region": [
+            412.32,
+            327.29,
+            505.32,
+            341.28
+          ]
+        },
+        {
+          "block_id": "dc1c912b9_p002_b00008",
+          "page": 2,
+          "role": "FOOTER",
+          "text": "2",
+          "text_raw": "2",
+          "region": [
+            295.32,
+            783.94,
+            299.87,
+            792.94
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "扬州惠通科技股份有限公司",
+          "value": "扬州惠通科技股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dc1c912b9_p001_b00013",
+              "page": 1,
+              "region": [
+                114,
+                619.61,
+                511.32,
+                631.61
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标单位仍为本公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "图木舒克新纶化纤有限责任公司",
+          "value": "图木舒克新纶化纤有限责任公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dc1c912b9_p001_b00009",
+              "page": 1,
+              "region": [
+                90,
+                432.41,
+                517.32,
+                516.6
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "招标单位为图木舒克新纶化纤有限责任公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "新纶化纤年产30万吨涤纶化纤项目",
+          "value": "新纶化纤年产30万吨涤纶化纤项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dc1c912b9_p001_b00009",
+              "page": 1,
+              "region": [
+                90,
+                432.41,
+                517.32,
+                516.6
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "新纶化纤年产30万吨涤纶化纤项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": "2026年9月26日",
+          "value": "2026-09-26",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dc1c912b9_p001_b00012",
+              "page": 1,
+              "region": [
+                90,
+                572.81,
+                505.31,
+                610.2
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "2026年9月26日，在全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）重新发布了相关中标结果公告"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_disclosed",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": "截至本公告披露之日，公司尚未取得该项目的中标通知书",
+          "value": "false",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "dc1c912b9_p002_b00001",
+              "page": 2,
+              "region": [
+                114,
+                77.69,
+                505.32,
+                91.56
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "截至本公告披露之日，公司尚未取得该项目的中标通知书"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-07T12:04:49.415Z",
+    "duration_ms": 3643,
+    "code_version": "3123ae40",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

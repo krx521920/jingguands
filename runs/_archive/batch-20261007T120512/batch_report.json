@@ -1,0 +1,846 @@
+{
+  "stamp": "20261007T120512",
+  "mock": false,
+  "jobs": 4,
+  "timing": {
+    "total_run_ms": 41905,
+    "per_doc_ms": 1270,
+    "slowest_ms": 18803
+  },
+  "results": [
+    {
+      "case": "note-unknown",
+      "event_type": "?",
+      "file": "note-unknown.json",
+      "run_id": null,
+      "ok": false,
+      "status": "skipped",
+      "skip_reason": "无法推断事件类型"
+    },
+    {
+      "case": "pledge-corrupt",
+      "event_type": "pledge",
+      "file": "pledge-corrupt.json",
+      "run_id": null,
+      "ok": false,
+      "status": "skipped",
+      "skip_reason": "非评测样例格式（JSON 无 pages[].text 且非解析块格式）"
+    },
+    {
+      "case": "D4-PLD-001",
+      "event_type": "pledge",
+      "file": "D4-PLD-001.parse.json",
+      "run_id": "20261007T120512-pledge-efed",
+      "ok": true,
+      "duration_ms": 10549,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 3,
+        "needs_review": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 36,
+        "value_hit": 36,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-002",
+      "event_type": "pledge",
+      "file": "D4-PLD-002.parse.json",
+      "run_id": "20261007T120512-pledge-d473",
+      "ok": true,
+      "duration_ms": 4320,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 13,
+        "value_hit": 13,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-003",
+      "event_type": "pledge",
+      "file": "D4-PLD-003.parse.json",
+      "run_id": "20261007T120512-pledge-71f8",
+      "ok": true,
+      "duration_ms": 4193,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-004",
+      "event_type": "pledge",
+      "file": "D4-PLD-004.parse.json",
+      "run_id": "20261007T120512-pledge-f441",
+      "ok": true,
+      "duration_ms": 4412,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-005",
+      "event_type": "pledge",
+      "file": "D4-PLD-005.parse.json",
+      "run_id": "20261007T120516-pledge-bbf9",
+      "ok": true,
+      "duration_ms": 7013,
+      "status_count": {
+        "extracted": 25,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 25,
+        "value_hit": 25,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 2,
+        "mine_events": 2,
+        "matched_events": 2
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-006",
+      "event_type": "pledge",
+      "file": "D4-PLD-006.parse.json",
+      "run_id": "20261007T120516-pledge-f3d2",
+      "ok": true,
+      "duration_ms": 4349,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 13,
+        "value_hit": 13,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-007",
+      "event_type": "pledge",
+      "file": "D4-PLD-007.parse.json",
+      "run_id": "20261007T120516-pledge-bfc5",
+      "ok": true,
+      "duration_ms": 4253,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-008",
+      "event_type": "pledge",
+      "file": "D4-PLD-008.parse.json",
+      "run_id": "20261007T120520-pledge-f65a",
+      "ok": true,
+      "duration_ms": 4798,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 2,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 11,
+        "value_hit": 11,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-009",
+      "event_type": "pledge",
+      "file": "D4-PLD-009.parse.json",
+      "run_id": "20261007T120520-pledge-c946",
+      "ok": true,
+      "duration_ms": 11245,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 6
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 36,
+        "value_hit": 36,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D4-PLD-010",
+      "event_type": "pledge",
+      "file": "D4-PLD-010.parse.json",
+      "run_id": "20261007T120522-pledge-669b",
+      "ok": true,
+      "duration_ms": 4135,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 12,
+        "value_hit": 12,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-001",
+      "event_type": "equity_change",
+      "file": "D5-EQC-001.parse.json",
+      "run_id": "20261007T120523-equity_change-9069",
+      "ok": true,
+      "duration_ms": 15853,
+      "status_count": {
+        "extracted": 45
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 45,
+        "value_hit": 45,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 5,
+        "mine_events": 5,
+        "matched_events": 5
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-002",
+      "event_type": "equity_change",
+      "file": "D5-EQC-002.parse.json",
+      "run_id": "20261007T120525-equity_change-e8b3",
+      "ok": true,
+      "duration_ms": 18803,
+      "status_count": {
+        "extracted": 27
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 27,
+        "value_hit": 27,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-003",
+      "event_type": "equity_change",
+      "file": "D5-EQC-003.parse.json",
+      "run_id": "20261007T120526-equity_change-b04f",
+      "ok": true,
+      "duration_ms": 3576,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 4
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-004",
+      "event_type": "equity_change",
+      "file": "D5-EQC-004.parse.json",
+      "run_id": "20261007T120530-equity_change-4f46",
+      "ok": true,
+      "duration_ms": 3527,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-005",
+      "event_type": "equity_change",
+      "file": "D5-EQC-005.parse.json",
+      "run_id": "20261007T120532-equity_change-473f",
+      "ok": true,
+      "duration_ms": 3477,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-006",
+      "event_type": "equity_change",
+      "file": "D5-EQC-006.parse.json",
+      "run_id": "20261007T120533-equity_change-a253",
+      "ok": true,
+      "duration_ms": 3599,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-007",
+      "event_type": "equity_change",
+      "file": "D5-EQC-007.parse.json",
+      "run_id": "20261007T120535-equity_change-e9d8",
+      "ok": true,
+      "duration_ms": 3879,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-008",
+      "event_type": "equity_change",
+      "file": "D5-EQC-008.parse.json",
+      "run_id": "20261007T120537-equity_change-f4ba",
+      "ok": true,
+      "duration_ms": 3020,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-009",
+      "event_type": "equity_change",
+      "file": "D5-EQC-009.parse.json",
+      "run_id": "20261007T120539-equity_change-b0cd",
+      "ok": true,
+      "duration_ms": 3395,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D5-EQC-010",
+      "event_type": "equity_change",
+      "file": "D5-EQC-010.parse.json",
+      "run_id": "20261007T120539-equity_change-15b3",
+      "ok": true,
+      "duration_ms": 5434,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 8,
+        "value_hit": 8,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-001",
+      "event_type": "award_contract",
+      "file": "D6-AWD-001.raw.json",
+      "run_id": "20261007T120540-award_contract-fc9c",
+      "ok": true,
+      "duration_ms": 3374,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 6,
+        "not_applicable": 2,
+        "not_disclosed": 1
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 5,
+        "value_hit": 5,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-002",
+      "event_type": "award_contract",
+      "file": "D6-AWD-002.raw.json",
+      "run_id": "20261007T120542-award_contract-aec3",
+      "ok": true,
+      "duration_ms": 11439,
+      "status_count": {
+        "extracted": 24,
+        "not_mentioned": 22,
+        "not_applicable": 8,
+        "not_disclosed": 2
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 24,
+        "value_hit": 24,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 4,
+        "mine_events": 4,
+        "matched_events": 4
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-003",
+      "event_type": "award_contract",
+      "file": "D6-AWD-003.raw.json",
+      "run_id": "20261007T120543-award_contract-b734",
+      "ok": true,
+      "duration_ms": 9980,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 21,
+        "value_hit": 21,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 3,
+        "matched_events": 3
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-004",
+      "event_type": "award_contract",
+      "file": "D6-AWD-004.raw.json",
+      "run_id": "20261007T120544-award_contract-d025",
+      "ok": true,
+      "duration_ms": 3979,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 9,
+        "value_hit": 9,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-005",
+      "event_type": "award_contract",
+      "file": "D6-AWD-005.raw.json",
+      "run_id": "20261007T120544-award_contract-4e00",
+      "ok": true,
+      "duration_ms": 5296,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0,
+      "gold": {
+        "gold_extracted_fields": 11,
+        "value_hit": 11,
+        "field_accuracy": 1,
+        "wrong_filled": 0,
+        "status_match_ratio": 1,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 1,
+        "matched_events": 1
+      },
+      "gold_rows": []
+    },
+    {
+      "case": "D6-AWD-006",
+      "event_type": "award_contract",
+      "file": "D6-AWD-006.raw.json",
+      "run_id": "20261007T120548-award_contract-afde",
+      "ok": false,
+      "duration_ms": 573,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 481ms\n[输出] runs/20261007T120548-award_contract-afde/events.json\n[日志] runs/20261007T120548-award_contract-afde/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 28526df5-2feb-4f2e-bb7d-e3cd9daa794c)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 0,
+        "value_hit": 0,
+        "field_accuracy": null,
+        "wrong_filled": 0,
+        "status_match_ratio": null,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 0,
+        "matched_events": 0
+      },
+      "gold_rows": [
+        {
+          "field": "(E01 上海同济建设有限公司)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：上海同济建设有限公司|上海金滨海房地产开发有限公司|pledge|金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目）"
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-007",
+      "event_type": "award_contract",
+      "file": "D6-AWD-007.raw.json",
+      "run_id": "20261007T120548-award_contract-9790",
+      "ok": false,
+      "duration_ms": 772,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 679ms\n[输出] runs/20261007T120548-award_contract-9790/events.json\n[日志] runs/20261007T120548-award_contract-9790/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 449f132c-7fc0-4a85-bd65-6d13d51248a2)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 0,
+        "value_hit": 0,
+        "field_accuracy": null,
+        "wrong_filled": 0,
+        "status_match_ratio": null,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 0,
+        "matched_events": 0
+      },
+      "gold_rows": [
+        {
+          "field": "(E01 江河幕墙中东工程有限公司)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：江河幕墙中东工程有限公司||pledge|WResidences幕墙工程）"
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-008",
+      "event_type": "award_contract",
+      "file": "D6-AWD-008.raw.json",
+      "run_id": "20261007T120549-award_contract-9355",
+      "ok": false,
+      "duration_ms": 558,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 471ms\n[输出] runs/20261007T120549-award_contract-9355/events.json\n[日志] runs/20261007T120549-award_contract-9355/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 7366d04a-05c5-406d-8d3c-9567f7a412b7)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 0,
+        "value_hit": 0,
+        "field_accuracy": null,
+        "wrong_filled": 0,
+        "status_match_ratio": null,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 0,
+        "matched_events": 0
+      },
+      "gold_rows": [
+        {
+          "field": "(E01 快乐小草运动草（内蒙古）科技有限公司)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：快乐小草运动草（内蒙古）科技有限公司|巴彦淖尔市林业和草原局|pledge|内蒙古自治区巴彦淖尔市乌拉特后旗三北工程林草湿荒一体化保护修复项目（2026年度）施工二标段）"
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-009",
+      "event_type": "award_contract",
+      "file": "D6-AWD-009.raw.json",
+      "run_id": "20261007T120550-award_contract-aaa6",
+      "ok": false,
+      "duration_ms": 535,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 446ms\n[输出] runs/20261007T120550-award_contract-aaa6/events.json\n[日志] runs/20261007T120550-award_contract-aaa6/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: b8890edf-5e75-4207-a275-3e68ec789ed3)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 0,
+        "value_hit": 0,
+        "field_accuracy": null,
+        "wrong_filled": 0,
+        "status_match_ratio": null,
+        "gold_unsupported": 0,
+        "gold_events": 3,
+        "mine_events": 0,
+        "matched_events": 0
+      },
+      "gold_rows": [
+        {
+          "field": "(E01 浙江大丰实业股份有限公司)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：浙江大丰实业股份有限公司|深圳市建筑工务署工程管理中心|pledge|深圳歌剧院项目舞台机械设备工程I标）"
+        },
+        {
+          "field": "(E02 浙江大丰实业股份有限公司)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：浙江大丰实业股份有限公司|绍兴市上虞舜韵产业运营管理有限公司|pledge|水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体舞台工艺设备采购项目）"
+        },
+        {
+          "field": "(E03 浙江大丰实业股份有限公司)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：浙江大丰实业股份有限公司|惠州大亚湾润华旅游开发有限公司|pledge|大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装修施工）"
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-010",
+      "event_type": "award_contract",
+      "file": "D6-AWD-010.raw.json",
+      "run_id": "20261007T120550-award_contract-eed6",
+      "ok": false,
+      "duration_ms": 552,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 465ms\n[输出] runs/20261007T120550-award_contract-eed6/events.json\n[日志] runs/20261007T120550-award_contract-eed6/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 508f48ba-3d28-4c42-9c09-3d4623bd093b)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1,
+      "gold": {
+        "gold_extracted_fields": 0,
+        "value_hit": 0,
+        "field_accuracy": null,
+        "wrong_filled": 0,
+        "status_match_ratio": null,
+        "gold_unsupported": 0,
+        "gold_events": 1,
+        "mine_events": 0,
+        "matched_events": 0
+      },
+      "gold_rows": [
+        {
+          "field": "(E01 广东飞南资源利用股份有限公司)",
+          "verdict": "MINE_MISSING_EVENT",
+          "detail": "gold 事件未在系统输出中找到（键：广东飞南资源利用股份有限公司||pledge|销毁类报废品处置项目）"
+        }
+      ]
+    },
+    {
+      "case": "award-empty-text",
+      "event_type": "award_contract",
+      "file": "award-empty-text.txt",
+      "run_id": null,
+      "ok": false,
+      "duration_ms": 50,
+      "output_tail": "输入无可读文本（0 字符）——拒绝调用模型以免编造；扫描件请先走解析（--parse）获得降级块\n"
+    },
+    {
+      "case": "pledge-empty",
+      "event_type": "pledge",
+      "file": "pledge-empty.txt",
+      "run_id": null,
+      "ok": false,
+      "duration_ms": 48,
+      "output_tail": "输入无可读文本（0 字符）——拒绝调用模型以免编造；扫描件请先走解析（--parse）获得降级块\n"
+    },
+    {
+      "case": "pledge-scan-degrade",
+      "event_type": "pledge",
+      "file": "pledge-scan-degrade.parse.json",
+      "run_id": "20261007T120550-pledge-scan",
+      "ok": true,
+      "duration_ms": 84,
+      "status_count": {
+        "unreadable": 14
+      },
+      "validation_errors": 1
+    }
+  ]
+}
