@@ -1,8 +1,10 @@
 // server.js —— 零依赖本地服务器：静态资源 + 数据接口
 // 相对路径实现：所有路径基于本文件位置推导（__dirname），无绝对路径、无外部依赖。
-// 数据源模式：
-//   mock   （默认）：读取 data/<dataset>.json —— 本地模拟数据，页面显式标"模拟"
-//   remote          ：反向代理到上游真实接口（魏文宇的事件 JSON 服务），通过环境变量配置
+// 抽取引擎（bridge/extractor.js，D12 预留入口）：
+//   file  读 data/<case>.json 预生成信封（默认；**不是独立抽取**）
+//   cli   预留：spawn 魏文宇抽取 CLI   —— EXTRACT_CLI_CMD + EXTRACT_CLI_PDF_DIR
+//   http  预留：调魏文宇抽取服务       —— EXTRACT_HTTP_URL
+//   切换只需设环境变量，页面与接口零改动；未配置的引擎不静默回落到 file。
 // 用法：node server.js  →  http://127.0.0.1:8642
 "use strict";
 
@@ -11,6 +13,7 @@ const fs = require("fs");
 const path = require("path");
 const { toContract } = require("./bridge/upstream_bridge.js");   // 转接口：上游格式 → 契约 v0.3
 const { handleMetrics } = require("./bridge/metrics.js");      // D11：真实结果统计（图表页数据源）
+const extractor = require("./bridge/extractor.js");            // D12：抽取引擎适配层（预留魏 CLI 入口）
 
 const ROOT = __dirname;                       // 工程根（相对锚点）
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -20,8 +23,9 @@ const LOG_FILE = path.join(LOG_DIR, "upload_log.jsonl");
 const D10_DIR = path.join(DATA_DIR, "d10");   // D10：多公告集成（宗案例 × 魏bundle × 缓存三态 × 张链检）
 
 const PORT = process.env.PORT || 8642;
-const DATA_SOURCE = process.env.DATA_SOURCE || "mock";        // mock | remote
-const REMOTE_API_URL = process.env.REMOTE_API_URL || "";      // remote 模式的上游地址
+// D12：抽取引擎（旧的 DATA_SOURCE=mock|remote 已由 extractor 的 provider 取代）。
+// DATA_SOURCE / REMOTE_API_URL 仅保留为兼容别名：DATA_SOURCE=remote 等价于 ENGINE=http。
+const ENGINE = process.env.ENGINE || (process.env.DATA_SOURCE === "remote" ? "http" : "file");
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -108,44 +112,64 @@ function handleExport(res, urlObj, readDataset) {
 }
 
 // ---- 数据接口：/api/datasets 与 /api/result?dataset=xxx ----
+/** 数据集清单：只列本地 file 引擎能读到的（live 引擎的枚举由上游自己负责，页面侧不猜）。
+ *  D5：.check.json 是方的旁路核验 sidecar，不是数据集，已由 extractor 过滤。 */
 function listDatasets() {
+  return extractor.PROVIDERS.file.list();
+}
+
+/** 引擎清单接口：诚实暴露每个 provider 的可用性与能力，页面据此显示"未覆盖"而非假装通过。 */
+function handleEngines(res) {
+  const engines = extractor.describeEngines();
+  sendJSON(res, 200, {
+    default_engine: extractor.defaultEngine(),
+    engines,
+    live_ready: engines.some(e => e.kind === "live" && e.available),
+    // 页面顶部黄条用：当前是否具备独立跑抽取的能力（false ⇒ Web/CLI 对照只能标未覆盖）
+    can_rerun_extraction: engines.some(e => e.kind === "live" && e.available)
+  });
+}
+
+/** Web/CLI 对照接口（D10 `web_cli_same_result` 的真实实现入口）。
+ *  a/b 指定两侧引擎；默认 a=file（页面侧所见）b=cli（魏侧）。
+ *  ★ 两侧同源时返回 verdict="not_covered" —— 见 bridge/extractor.js 铁律①。 */
+async function handleParity(res, urlObj) {
+  const a = urlObj.searchParams.get("a") || "file";
+  const b = urlObj.searchParams.get("b") || "cli";
+  const limit = Math.min(Number(urlObj.searchParams.get("limit") || 31), 200);
+  let caseIds = [];
+  const ids = urlObj.searchParams.get("cases");
+  if (ids) caseIds = ids.split(",").map(s => s.trim()).filter(Boolean).slice(0, limit);
+
   try {
-    return fs.readdirSync(DATA_DIR)
-      .filter(f => f.endsWith(".json") && !f.endsWith(".check.json"))   // D5：.check.json 是方的旁路核验 sidecar，不是数据集
-      .map(f => path.basename(f, ".json"));
-  } catch {
-    return [];
+    const r = await extractor.parity(caseIds, { a, b });
+    sendJSON(res, 200, Object.assign({ checked_on: new Date().toISOString().slice(0, 10) }, r));
+  } catch (e) {
+    sendJSON(res, 500, { error: "对照执行失败: " + e.message });
   }
 }
 
-function fetchRemote(dataset, res) {
-  const url = REMOTE_API_URL + (REMOTE_API_URL.includes("?") ? "&" : "?") + "dataset=" + encodeURIComponent(dataset);
-  http.get(url, upstream => {
-    let buf = "";
-    upstream.on("data", c => (buf += c));
-    upstream.on("end", () => {
-      try { sendJSON(res, upstream.statusCode || 200, toContract(JSON.parse(buf))); }   // 上游格式过桥
-      catch { sendJSON(res, 502, { error: "remote response is not valid JSON" }); }
-    });
-  }).on("error", e => sendJSON(res, 502, { error: "remote fetch failed: " + e.message }));
+/** 抽取引擎封装：把 extractor 的 {ok:false, reason} 转成可抛的NOT_FOUND / ENGINE 错误。
+ *  引擎切换只经此一处—— result / export / parity 全部走它，避免口径分叉。 */
+async function extractDataset(dataset, engineId) {
+  const r = await extractor.extract(dataset, engineId);
+  if (r.ok) return r;
+  const err = new Error(r.reason);
+  err.code = extractor.PROVIDERS[r.engine] && extractor.PROVIDERS[r.engine].kind === "prebuilt" ? "NOT_FOUND" : "ENGINE_UNAVAILABLE";
+  err.engine = r.engine;
+  throw err;
 }
 
-/** 读取 mock 数据集并过桥；失败抛错（NOT_FOUND / parse error），供 result 与 export 共用。
+/** 同步读取本地信封（导出用；导出必须与页面所见同源，故固定 file 引擎）。
  *  D5：同名 .check.json（方的 equity_check_D5 旁路核验报告）若存在，挂到 check_report 由转接口合并。 */
 function readDataset(dataset) {
-  const file = path.join(DATA_DIR, dataset + ".json");
-  if (!file.startsWith(DATA_DIR) || !fs.existsSync(file)) {   // 目录逃逸防护
-    const err = new Error("dataset not found: " + dataset);
+  const r = extractor.PROVIDERS.file.run(dataset);
+  if (!r.ok) {
+    const err = new Error(r.reason);
     err.code = "NOT_FOUND";
     throw err;
   }
-  const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
-  const checkFile = path.join(DATA_DIR, dataset + ".check.json");
-  if (fs.existsSync(checkFile)) {
-    try { parsed.check_report = JSON.parse(fs.readFileSync(checkFile, "utf8")); }
-    catch { /* sidecar 坏了不阻塞主数据，留痕 */ parsed.check_report_error = "check sidecar parse failed"; }
-  }
-  return toContract(parsed);
+  return toContract(r.envelope);
 }
 
 // ---- D6：批量上传闭环（零依赖 multipart/form-data 解析）----
@@ -696,20 +720,30 @@ function handleIntegration(res) {
 
 function handleApi(req, res, urlObj) {
   if (urlObj.pathname === "/api/datasets") {
-    return sendJSON(res, 200, { source: DATA_SOURCE, datasets: listDatasets() });
+    return sendJSON(res, 200, { engine: ENGINE, datasets: listDatasets() });
+  }
+  if (urlObj.pathname === "/api/engines") {
+    return handleEngines(res);                        // D12：抽取引擎清单与可用性（诚实暴露）
+  }
+  if (urlObj.pathname === "/api/parity") {
+    return handleParity(res, urlObj);                 // D12：Web/CLI 真实对照（同源则判not_covered）
   }
   if (urlObj.pathname === "/api/result") {
     const dataset = urlObj.searchParams.get("dataset") || "pledge";
     if (!/^[a-z0-9_-]+$/i.test(dataset)) {
       return sendJSON(res, 400, { error: "invalid dataset name" });
     }
-    if (DATA_SOURCE === "remote") return fetchRemote(dataset, res);
-    try {
-      return sendJSON(res, 200, readDataset(dataset));   // mock 也过桥（上游格式数据集自动转换）
-    } catch (e) {
+    // 引擎可被 ?engine= 覆写；未指定则用启动时的 ENGINE（live 引擎优先由extractor.defaultEngine 决定）
+    const engine = urlObj.searchParams.get("engine") || extractor.defaultEngine();
+    return extractDataset(dataset, engine).then(r => {
+      // ★ 引擎来源随数据一起下发：页面与成绩单据此声明"这是预生成信封，非独立抽取"
+      const payload = Object.assign({}, r.data, { extraction_engine: r.run_meta });
+      return sendJSON(res, 200, payload);
+    }).catch(e => {
       if (e.code === "NOT_FOUND") return sendJSON(res, 404, { error: e.message });
+      if (e.code === "ENGINE_UNAVAILABLE") return sendJSON(res, 503, { error: e.message, engine: e.engine });
       return sendJSON(res, 500, { error: "dataset parse failed: " + e.message });
-    }
+    });
   }
   if (urlObj.pathname === "/api/export") {
     return handleExport(res, urlObj, readDataset);   // D3：导出当前数据集为 JSON/CSV（与页面同源同桥）
@@ -757,6 +791,12 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, "127.0.0.1", () => {
   const openDemo = process.argv.includes("--open-demo");
   console.log(`[cjh-page-prototype] http://127.0.0.1:${PORT}${openDemo ? "/demo.html" : "/"}`);
-  console.log(`[cjh-page-prototype] 数据源: ${DATA_SOURCE}${DATA_SOURCE === "remote" ? ` → ${REMOTE_API_URL}` : " → data/*.json（模拟）"}`);
-  console.log(`[cjh-page-prototype] 数据集: ${listDatasets().join(", ") || "（空）"}`);
+  const engines = extractor.describeEngines();
+  for (const e of engines) {
+    console.log(`[cjh-page-prototype] 引擎 ${e.id.padEnd(5)} ${e.available ? "[就绪]" : "[未接通]"} ${e.label} — ${e.reason}`);
+  }
+  console.log(`[cjh-page-prototype] 默认引擎: ${extractor.defaultEngine()}｜数据集: ${listDatasets().join(", ") || "（空）"}`);
+  if (!engines.some(e => e.kind === "live" && e.available)) {
+    console.log("[cjh-page-prototype] ⚠ 无live 引擎：Web/CLI 对照只能标「未覆盖」（同源不构成对照，见 bridge/extractor.js）");
+  }
 });

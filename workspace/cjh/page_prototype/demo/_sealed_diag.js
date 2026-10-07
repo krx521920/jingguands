@@ -1,7 +1,13 @@
 // 诊断：为什么 verify-sealed FAIL —— 是内容变了还是行尾转换？
+// D12-C2：evaluation/ 是宗（评测侧）保管的资产，不在本分支入库。
+//   本脚本只读、需本机已检出 evaluation/sealed/；缺失即报错退出，绝不静默继续。
 const fs = require("fs");
 const crypto = require("crypto");
 const path = require("path");
+const ev = require("./_evals_paths.js");
+
+let SEALED;
+try { SEALED = ev.sealedDir(); } catch (e) { console.error("[中止] " + e.message); process.exit(2); }
 
 function sha256File(p) {
   return crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex");
@@ -10,8 +16,8 @@ function sha256Buf(buf) {
   return crypto.createHash("sha256").update(buf).digest("hex");
 }
 
-const man = JSON.parse(fs.readFileSync("evaluation/sealed/single/manifest.json", "utf8"));
-const lock = JSON.parse(fs.readFileSync("evaluation/sealed/hash-lock.json", "utf8"));
+const man = JSON.parse(fs.readFileSync(path.join(SEALED, "single", "manifest.json"), "utf8"));
+const lock = JSON.parse(fs.readFileSync(path.join(SEALED, "hash-lock.json"), "utf8"));
 const lockMap = new Map(lock.single_cases.map((c) => [c.sealed_id, c]));
 
 function resolve(rel) {

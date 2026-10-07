@@ -1,27 +1,35 @@
 // 终极判定：重跑宗自己的 build 脚本，看生成的 hash 与已入库 manifest 是否一致
 // 目的：区分「检出损坏」「manifest 过期」还是「Gold 被改未重锁」
+// D12-C2：evaluation/ 不在本分支入库。**注意本脚本会临时改写封存集 manifest，**
+//   封存集由宗保管 —— 必须先备份（脚本末尾会自动还原），且仅在本机副本上跑。
 const fs = require("fs");
 const crypto = require("crypto");
 const { execSync } = require("child_process");
+const path = require("path");
+const ev = require("./_evals_paths.js");
+
+let SEALED, DEV30;
+try { SEALED = ev.sealedDir(); DEV30 = ev.EV; } catch (e) { console.error("[中止] " + e.message); process.exit(2); }
+const TMP = path.join(require("os").tmpdir());
 
 const sha = (p) => crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex");
-const OLD = JSON.parse(fs.readFileSync("evaluation/sealed/single/manifest.json", "utf8"));
-const LOCK_OLD = JSON.parse(fs.readFileSync("evaluation/sealed/hash-lock.json", "utf8"));
+const OLD = JSON.parse(fs.readFileSync(path.join(SEALED, "single", "manifest.json"), "utf8"));
+const LOCK_OLD = JSON.parse(fs.readFileSync(path.join(SEALED, "hash-lock.json"), "utf8"));
 
 // 备份旧文件，跑完对比
-fs.copyFileSync("evaluation/sealed/single/manifest.json", "C:/Users/cjh05/AppData/Local/Temp/manifest_old.json");
-fs.copyFileSync("evaluation/sealed/hash-lock.json", "C:/Users/cjh05/AppData/Local/Temp/hashlock_old.json");
-fs.copyFileSync("evaluation/sealed/cross-doc/manifest.json", "C:/Users/cjh05/AppData/Local/Temp/crossdoc_old.json");
+fs.copyFileSync(path.join(SEALED, "single", "manifest.json"), path.join(TMP, "manifest_old.json"));
+fs.copyFileSync(path.join(SEALED, "hash-lock.json"), path.join(TMP, "hashlock_old.json"));
+fs.copyFileSync(path.join(SEALED, "cross-doc", "manifest.json"), path.join(TMP, "crossdoc_old.json"));
 
 // 需要 dev-30 manifest 落地
-if (!fs.existsSync("evaluation/dev-30/manifest.json")) {
+if (!fs.existsSync(path.join(DEV30, "dev-30", "manifest.json"))) {
   console.log("!!缺 evaluation/dev-30/manifest.json，先落地");
   process.exit(2);
 }
 
 let out = "";
 try {
-  out = execSync("node evaluation/sealed/build-sealed-manifests.mjs", { maxBuffer: 1e8 }).toString();
+  out = execSync('node "' + path.join(SEALED, "build-sealed-manifests.mjs") + '"', { maxBuffer: 1e8, cwd: ev.REPO }).toString();
   console.log("=== build 脚本执行成功 ===");
   console.log(out.trim());
 } catch (e) {
@@ -31,8 +39,8 @@ try {
   process.exit(1);
 }
 
-const NEW = JSON.parse(fs.readFileSync("evaluation/sealed/single/manifest.json", "utf8"));
-const LOCK_NEW = JSON.parse(fs.readFileSync("evaluation/sealed/hash-lock.json", "utf8"));
+const NEW = JSON.parse(fs.readFileSync(path.join(SEALED, "single", "manifest.json"), "utf8"));
+const LOCK_NEW = JSON.parse(fs.readFileSync(path.join(SEALED, "hash-lock.json"), "utf8"));
 
 const oldMap = new Map(OLD.cases.map((c) => [c.sealed_id, c]));
 const newMap = new Map(NEW.cases.map((c) => [c.sealed_id, c]));
@@ -77,8 +85,8 @@ if (diffRaw.length + diffGold.length > 0) {
   console.log("  ⇒ 这是「Gold 变更未同步 hash-lock」，属P1 级流程缺陷（不是数据被篡改）。");
 }
 
-// 恢复原文件（保持仓库干净）
-fs.copyFileSync("C:/Users/cjh05/AppData/Local/Temp/manifest_old.json", "evaluation/sealed/single/manifest.json");
-fs.copyFileSync("C:/Users/cjh05/AppData/Local/Temp/hashlock_old.json", "evaluation/sealed/hash-lock.json");
-fs.copyFileSync("C:/Users/cjh05/AppData/Local/Temp/crossdoc_old.json", "evaluation/sealed/cross-doc/manifest.json");
-console.log("\n（已把 sealed 三个 manifest 恢复为仓库版本，未留下改动）");
+// 恢复原文件（封存集由宗保管，本脚本不得留下任何改动）
+fs.copyFileSync(path.join(TMP, "manifest_old.json"), path.join(SEALED, "single", "manifest.json"));
+fs.copyFileSync(path.join(TMP, "hashlock_old.json"), path.join(SEALED, "hash-lock.json"));
+fs.copyFileSync(path.join(TMP, "crossdoc_old.json"), path.join(SEALED, "cross-doc", "manifest.json"));
+console.log("\n（已把 sealed 三个 manifest 恢复为检出时的版本，未留下改动）");

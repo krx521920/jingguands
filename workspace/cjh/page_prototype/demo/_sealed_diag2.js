@@ -1,11 +1,16 @@
 // 对比：本地文件 hash vs git blob hash vs manifest 记录 hash —— 三方定位
+// D12-C2：evaluation/ 是宗（评测侧）保管的资产，不在本分支入库；缺失即报错退出。
 const fs = require("fs");
 const crypto = require("crypto");
 const { execSync } = require("child_process");
+const path = require("path");
+const ev = require("./_evals_paths.js");
 
 const SHA = process.argv[2] || "259af54d82f4fed46aef65d0ca53f9770c4cc71b";
-const man = JSON.parse(fs.readFileSync("evaluation/sealed/single/manifest.json", "utf8"));
-const lock = JSON.parse(fs.readFileSync("evaluation/sealed/hash-lock.json", "utf8"));
+let SEALED;
+try { SEALED = ev.sealedDir(); } catch (e) { console.error("[中止] " + e.message); process.exit(2); }
+const man = JSON.parse(fs.readFileSync(path.join(SEALED, "single", "manifest.json"), "utf8"));
+const lock = JSON.parse(fs.readFileSync(path.join(SEALED, "hash-lock.json"), "utf8"));
 const lockMap = new Map(lock.single_cases.map((c) => [c.sealed_id, c]));
 
 function resolve(rel) {

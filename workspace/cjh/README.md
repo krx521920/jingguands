@@ -6,6 +6,8 @@
 workspace/cjh/
 ├── README.md             # 本文件：工作区入口
 ├── page_prototype/       # 三栏展示骨架（独立工程，零依赖，全相对路径）→ 详见其 README.md
+├── spec/                 # 本地规范副本（只读参考，权威在各队友分支 + develop）
+│   └── v0.3/             # 当前核心规范：信封 schema ＋ 接口变更记录＋ 字段注册表单一真源
 └── docs/                 # 工作区文档
     ├── cjh_workspace_00_总规划.md       # 14 天任务线 + 21 天缓冲视角
     ├── cjh_workspace_01_规则.md         # 分支/提交/编辑/协作规则与红线

@@ -1,5 +1,5 @@
 // app.js —— 装配入口：模式横幅 → 数据集选择 → 三栏渲染
-import { fetchDatasets, fetchResult } from "./adapter.js";
+import { fetchDatasets, fetchResult, fetchEngines } from "./adapter.js";
 import { initUpload, uploadBatch, renderBatchReport, renderPendingFiles, renderProgress, renderSourceFile, clearUpload } from "./render/upload.js";
 import { renderResults, clearResults } from "./render/results.js";
 import { renderEvidences, focusEvidence, clearEvidences } from "./render/evidences.js";
@@ -18,6 +18,44 @@ function setMode(data) {
   mb.classList.toggle("real", !sim);
   $("runMeta").textContent =
     `run_id: ${data.run_id} · schema v${data.schema_version} · 来源: ${data.source_file.filename}`;
+
+  // D12：把"这份数据是怎么来的"显式写在页头——预生成信封 ≠ 独立抽取
+  // （页头空间有限，只放短标签，完整口径进 title，避免把标题挤成竖排）
+  const em = data.extraction_engine;
+  if (em) {
+    const box = $("engineMeta");
+    box.textContent = em.reruns_extraction ? "引擎 独立抽取" : "引擎 预生成信封";
+    box.title = `${em.engine}：${em.engine_owner || ""}\n`
+      + `抽取方式：${em.reruns_extraction ? "独立跑抽取管线" : "读预生成信封，未重新抽取"}\n`
+      + `来源：${em.source_path || "—"}\n`
+      + `code_version：${em.code_version || "—"}\n`
+      + `契约版本：v${em.contract_version}`;
+    box.style.color = em.reruns_extraction ? "var(--ok)" : "var(--warn)";
+  }
+}
+
+/** D12：启动时拉引擎清单，把"能否独立重跑抽取"明示在页头（无live 引擎 ⇒ Web/CLI 对照只能标未覆盖）。 */
+async function loadEngineMeta() {
+  try {
+    const e = await fetchEngines();
+    const box = $("engineMeta");
+    const pending = e.engines.filter(x => !x.available);
+    if (e.can_rerun_extraction) {
+      box.textContent = "引擎 可独立抽取";
+      box.title = "已接通 live 引擎，可跑 Web/CLI 独立对照：\n"
+        + e.engines.map(x => `· ${x.id}（${x.owner}）：${x.available ? "就绪 — " + x.reason : "未接通 — " + x.reason}`).join("\n");
+      box.style.color = "var(--ok)";
+    } else {
+      box.textContent = "引擎 仅预生成信封";
+      box.title = "⚠ 未接通独立抽取引擎 ⇒ Web/CLI 对照只能判「未覆盖」（同源消费不构成对照）\n"
+        + "预留入口（待魏文宇提供）：\n"
+        + (pending.length ? pending.map(x => `· ${x.id}（${x.owner}）：${x.reason}`).join("\n") : "—")
+        + "\n接通后仅需设环境变量，页面与接口零改动。";
+      box.style.color = "var(--warn)";
+    }
+  } catch (err) {
+    $("engineMeta").textContent = "引擎 未知";
+  }
 }
 
 let currentDataset = null;   // 当前数据集名（导出按钮用）
@@ -56,6 +94,9 @@ function resetAll() {
 }
 
 async function boot() {
+  // D12：抽取引擎状态（与数据集加载并行，互不阻塞）
+  loadEngineMeta();
+
   // 数据集下拉（由 server 的 /api/datasets 动态列举 data/*.json）
   try {
     await refreshDatasets();

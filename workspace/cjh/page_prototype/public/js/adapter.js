@@ -10,8 +10,15 @@ export async function fetchResult(dataset) {
   const r = await fetch("/api/result?dataset=" + encodeURIComponent(dataset));
   if (!r.ok) {
     let msg = "result fetch failed: " + r.status;
-    try { msg = (await r.json()).error || msg; } catch {}
+    try { const j = await r.json(); msg = j.error || msg; } catch {}
     throw new Error(msg);
   }
+  return r.json();
+}
+
+/** D12：抽取引擎清单。用于页头显示"当前数据来自预生成信封还是独立抽取"。 */
+export async function fetchEngines() {
+  const r = await fetch("/api/engines");
+  if (!r.ok) throw new Error("engines fetch failed: " + r.status);
   return r.json();
 }

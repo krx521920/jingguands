@@ -84,8 +84,7 @@ function cachePanel(c) {
   const asserts = el("div", "int-asserts");
   const A = [
     ["replay_business_fields_identical", "缓存重放：业务字段逐字节一致"],
-    ["cold_cache_new_call_log", "清缓存重跑：产生全新调用日志"],
-    ["web_cli_same_result", "Web/CLI：同次结果一致（信封 JSON 唯一事实源）"]
+    ["cold_cache_new_call_log", "清缓存重跑：产生全新调用日志"]
   ];
   for (const [k, label] of A) {
     const ok = c[k] === true;
@@ -94,8 +93,48 @@ function cachePanel(c) {
     chip.append(el("span", null, label));
     asserts.append(chip);
   }
+
+  // ★ D12：web_cli_same_result 不再渲染成"Web/CLI 一致 ✔"。
+  //   该字段被测方手填、校验脚本只读这一个布尔，不验任何实际对照数据（evaluation/D10/check-integration.mjs:32）。
+  //   且宗魏两侧 cache_definitions 自陈是"消费同一文件" ⇒ 验的是幂等性，不是抽取一致性。
+  //   故降级为中性 chip「同源消费（非独立对照）」，真正的对照由 /api/parity 给出。
+  const chip = el("div", "int-assert neutral");
+  chip.append(el("span", "int-assert-mark", "—"));
+  chip.append(el("span", null, "Web/CLI 对照：同源消费，非独立对照 —— 判未覆盖"));
+  asserts.append(chip);
   box.append(asserts);
-  if (c.web_cli_definition) box.append(el("div", "verify-note", "口径：" + c.web_cli_definition));
+
+  if (c.web_cli_definition) box.append(el("div", "verify-note", "原报告口径：" + c.web_cli_definition));
+
+  // 真实对照结论（页面调 /api/parity；未接通 live 引擎时后端直接判 not_covered）
+  const pbox = el("div", "verify-section int-parity");
+  pbox.append(el("h3", null, "Web/CLI 独立对照（页面侧实跑，D12 预留入口）"));
+  const note = el("div", "verify-note", "正在对照…");
+  pbox.append(note);
+  box.append(pbox);
+  fetch("/api/parity?a=file&b=cli&limit=31")
+    .then(r => r.json())
+    .then(p => {
+      pbox.replaceChildren();
+      pbox.append(el("h3", null, "Web/CLI 独立对照（页面侧实跑，D12 预留入口）"));
+      const v = el("div", "int-assert " + (p.verdict === "pass" ? "ok" : p.verdict === "mismatch" ? "bad" : "neutral"));
+      v.append(el("span", "int-assert-mark", p.verdict === "pass" ? "✓" : p.verdict === "mismatch" ? "✗" : "—"));
+      v.append(el("span", null,
+        p.verdict === "pass" ? `两侧独立抽取一致：${p.fields_same}/${p.fields_compared} 字段（${p.cases_ran}/${p.cases_total} 例）`
+        : p.verdict === "mismatch" ? `对照发现差异：${p.diff_total} 处字段值/状态不同，另有 ${p.unpaired_total} 处事件未配对`
+        : "未覆盖 —— 不构成对照"));
+      pbox.append(v);
+      if (p.partial) pbox.append(el("div", "verify-warn", `部分失败：${p.cases_failed}/${p.cases_total} 例未跑成，本结果不得单独当作全量通过`));
+      if (p.reason) pbox.append(el("div", "verify-note", "原因：" + p.reason));
+      for (const b of (p.blockers || [])) pbox.append(el("div", "verify-warn", `阻塞 · ${b.engine}：${b.reason}`));
+      if (p.remedy) pbox.append(el("div", "verify-note", "解阻：" + p.remedy));
+    })
+    .catch(e => {
+      pbox.replaceChildren();
+      pbox.append(el("h3", null, "Web/CLI 独立对照"));
+      pbox.append(el("div", "verify-warn", "对照请求失败：" + e.message));
+    });
+
   if (c.known_boundary) box.append(el("div", "verify-warn", "已知边界：" + c.known_boundary));
   return box;
 }
@@ -328,7 +367,8 @@ function caseCard(c) {
   const cch = el("div", "int-chips");
   cch.append(el("span", "up-badge " + (cache.replay_business_fields_identical ? "up-badge-ok" : "up-badge-fail"), "重放一致 " + (cache.replay_business_fields_identical ? "✔" : "✗")));
   cch.append(el("span", "up-badge " + (cache.cold_cache_new_call_log ? "up-badge-ok" : "up-badge-fail"), "清缓存新日志 " + (cache.cold_cache_new_call_log ? "✔" : "✗")));
-  cch.append(el("span", "up-badge " + (cache.web_cli_same_result ? "up-badge-ok" : "up-badge-fail"), "Web/CLI 一致 " + (cache.web_cli_same_result ? "✔" : "✗")));
+  // ★ 同源消费不是"一致通过"：改为中性徽标，避免逐卡重复出现绿色"Web/CLI 一致 ✔"
+  cch.append(el("span", "up-badge up-badge-neutral", "Web/CLI 未覆盖"));
   card.append(cch);
 
   return card;

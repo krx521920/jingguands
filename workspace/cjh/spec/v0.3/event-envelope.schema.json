@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/krx521920/jingguands/interface/event-envelope.schema.json",
+  "title": "Jingguan event envelope v0.3",
+  "description": "可信公告事件提取——单文档事件抽取输出契约。v0.3（依据评测方裁决）：中标事件改名 award_contract；分母枚举扩为 holder_shares/total_share_capital/net_assets/other。此前 v0.2 的 6 状态、质押字段拆分、表格证据不变。字段注册表与语义见 interface/README.md。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "is_mock", "source", "events", "run_meta"],
+  "properties": {
+    "schema_version": { "const": "0.3" },
+    "run_id": { "type": "string", "minLength": 1 },
+    "is_mock": { "type": "boolean" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file_name"],
+      "properties": {
+        "file_id": { "type": ["string", "null"] },
+        "file_name": { "type": "string" },
+        "file_sha256": { "type": ["string", "null"] },
+        "parse_meta": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "parser_version": { "type": ["string", "null"] },
+            "page_count": { "type": ["integer", "null"], "minimum": 1 },
+            "blocks": { "type": ["array", "null"], "items": { "type": "object" } }
+          }
+        }
+      }
+    },
+    "events": { "type": "array", "items": { "$ref": "#/$defs/event" } },
+    "run_meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entry": { "enum": ["cli", "web", "tool"] },
+        "model": { "type": ["string", "null"] },
+        "started_at": { "type": "string" },
+        "duration_ms": { "type": ["integer", "null"], "minimum": 0 },
+        "code_version": { "type": "string", "description": "抽取代码的 git commit hash（D6-④ 运行版本日志）" },
+        "interface_version": { "type": "string", "description": "事件 JSON 接口版本（如 v0.3）" },
+        "errors": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["page", "quote"],
+      "properties": {
+        "block_id": { "type": ["string", "null"], "description": "解析侧 DocumentIR 供给的稳定块标识（张智博）" },
+        "source_type": { "enum": ["paragraph", "table", "cell", "scan_region", "document", null], "description": "出处块的来源类型（解析侧供给，与 finstruct 取值集对齐）：paragraph=正文段落；table=表格内未能归入检出单元格的兜底块（解析侧必带 degraded:true，消费方可降权）；cell=表格单元格；scan_region/document=OCR 通道（D4）。null＝纯文本模式或解析未提供。解析侧新增取值须先提契约变更同步本枚举" },
+        "page": { "type": "integer", "minimum": 1 },
+        "region": {
+          "type": ["array", "null"],
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "页面区域 [left, top, right, bottom]。单位：PDF 点（1pt=1/72英寸）；原点：页面左上角，y 轴向下为正；屏幕换算：region / [page.width, page.height] × 显示尺寸（每页 width/height 由解析侧给出）。禁止理解为 x/y/宽/高。"
+        },
+        "table_id": { "type": ["string", "null"], "description": "表格证据：所属表格唯一标识（解析侧供给，纯文本出处为 null）" },
+        "cell_ref": { "type": ["string", "null"], "description": "表格证据：单元格引用（如 \"B3\" 或 \"r2c3\"；非表格出处为 null）" },
+        "quote": { "type": "string", "minLength": 1, "description": "原文子串，禁止事后按数字反搜" }
+      }
+    },
+    "field_value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw_value", "value", "unit", "status", "provenance"],
+      "properties": {
+        "raw_value": { "type": ["string", "null"] },
+        "value": { "type": ["number", "string", "boolean", "null"] },
+        "unit": { "enum": ["shares", "cny", "percent", "date", "date_range", "text", "count"] },
+        "standardized": { "type": "boolean" },
+        "status": { "enum": ["extracted", "not_disclosed", "not_applicable", "not_mentioned", "unreadable", "needs_review"] },
+        "provenance": { "type": "array", "items": { "$ref": "#/$defs/provenance" } },
+        "denominator": { "enum": ["holder_shares", "total_share_capital", "net_assets", "other", null] },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "event_type", "fields"],
+      "properties": {
+        "event_id": { "type": "string", "pattern": "^E[0-9]+$" },
+        "event_type": { "enum": ["pledge", "equity_change", "award_contract"] },
+        "fields": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/field_value" }
+        },
+        "extraction_method": { "enum": ["model", "rule", "hybrid", "mock"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

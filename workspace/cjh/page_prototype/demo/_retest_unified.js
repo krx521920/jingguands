@@ -5,20 +5,20 @@
 // 用法：node demo/_retest_unified.js   （在 page_prototype/ 下运行）
 const fs = require("fs");
 const path = require("path");
+const ev = require("./_evals_paths.js");   // D12-C2：evaluation/ 不再入库，路径与缺失处置集中在此
 
 const ROOT = path.resolve(__dirname, "..");            // page_prototype/
-const REPO = path.resolve(ROOT, "..", "..", "..");     // 仓库根 jingguands/（要退三级：page_prototype→cjh→workspace→repo）
-// 输入目录优先用仓库内宗分支已入库的位置；未合流时回退到本地只读检出副本 data_unified/（不入库）
-const CANDIDATE_ENV_DIRS = [
-  path.join(REPO, "evaluation", "D11", "firsttest-envelopes"),
-  path.join(ROOT, "data_unified")
-];
-const ENV_DIR = CANDIDATE_ENV_DIRS.find(d => fs.existsSync(d) && fs.readdirSync(d).some(f => f.endsWith(".json")));
-if (!ENV_DIR) {
-  console.error("找不到输入信封目录。请先检出：git show zongbowen@<sha>:evaluation/D11/firsttest-envelopes/<name> > data_unified/<name>");
+const REPO = ev.REPO;                                // 仓库根 jingguands/
+// 输入目录：仓库内 evaluation/D11/firsttest-envelopes/ 优先，回退本地只读检出 data_unified/；
+// 两者都无 → 显式报错退出（绝不静默 0 命中，那会被误读成"Gold 缺失"）
+let ENV_DIR, GOLD_DIRS;
+try {
+  ENV_DIR = ev.envDir();
+  GOLD_DIRS = ev.goldDirs();
+} catch (e) {
+  console.error("[中止] " + e.message);
   process.exit(2);
 }
-const GOLD_DIRS = ["D4", "D5", "D6"].map(d => path.join(REPO, "evaluation", d, "dev", "gold"));
 
 // D11 首测基线（2026-10-07 19:42，commit 9240bd7b，冻结标签 v0.6-d11-firsttest@4a8d0c33）
 const BASELINE = {
