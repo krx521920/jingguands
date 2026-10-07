@@ -1,0 +1,792 @@
+{
+  "built_at": "2026-10-06T13:00:29.793Z",
+  "built_by": "build_d10_bundle.mjs",
+  "code_version": "bcc0cc6e",
+  "cache_definitions": {
+    "replay_business_fields_identical": "冷批 vs 重放批 31 信封业务字段（schema/is_mock/sha/events 全量）逐字节一致",
+    "cold_cache_new_call_log": "清缓存后重跑产生全新调用日志（cache.hit=false），见证据文件",
+    "web_cli_same_result": "CLI 产物（信封 JSON）为唯一事实源，Web（陈页面）读取同一文件——三态批次两两逐字节一致"
+  },
+  "results": [
+    {
+      "case_id": "D10-INT-001",
+      "title": "科创新材三份同事件互证",
+      "input_sha256": [
+        "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+        "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+        "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e"
+      ],
+      "run_id": "b-20261006130027",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D5-EQC-001",
+          "envelope_found": true,
+          "run_id": "20261006T085808-equity_change-5778",
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "is_mock": false,
+          "events": 5,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "envelope_found": true,
+          "run_id": "20261006T085808-equity_change-ae68",
+          "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "is_mock": false,
+          "events": 3,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D5-EQC-003",
+          "envelope_found": true,
+          "run_id": "20261006T085809-equity_change-14e4",
+          "file_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D5-EQC-001",
+            "events": 5
+          },
+          {
+            "case_id": "D5-EQC-002",
+            "events": 3
+          },
+          {
+            "case_id": "D5-EQC-003",
+            "events": 1
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 10,
+          "complementaries": 7,
+          "relation": "related"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": []
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-002",
+      "title": "海正药业转让双方反向咬合",
+      "input_sha256": [
+        "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+        "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33"
+      ],
+      "run_id": "b-20261006130027",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D5-EQC-004",
+          "envelope_found": true,
+          "run_id": "20261006T085809-equity_change-e235",
+          "file_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "envelope_found": true,
+          "run_id": "20261006T085809-equity_change-b223",
+          "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D5-EQC-004",
+            "events": 1
+          },
+          {
+            "case_id": "D5-EQC-005",
+            "events": 1
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 2,
+          "relation": "related"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": []
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-003",
+      "title": "鸿路钢构同公司不同事件",
+      "input_sha256": [
+        "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+        "3b1abc7f47dbb6062f40f7631b263356bfacd930f23672ebd7a1e96603671a02"
+      ],
+      "run_id": "b-20261006130027",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D5-EQC-006",
+          "envelope_found": true,
+          "run_id": "20261006T085809-equity_change-02d1",
+          "file_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "DEMO-EQC-HL-0930",
+          "envelope_found": true,
+          "run_id": "20261004T105620-equity_change-a567",
+          "file_sha256": "3b1abc7f47dbb6062f40f7631b263356bfacd930f23672ebd7a1e96603671a02",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D5-EQC-006",
+            "events": 1
+          },
+          {
+            "case_id": "DEMO-EQC-HL-0930",
+            "events": 1
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 0,
+          "relation": "unrelated"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": []
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-004",
+      "title": "质押×权益变动跨类型",
+      "input_sha256": [
+        "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+        "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51"
+      ],
+      "run_id": "b-20261006130028",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D4-PLD-001",
+          "envelope_found": true,
+          "run_id": "20261006T085807-pledge-aa0e",
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "is_mock": false,
+          "events": 3,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D5-EQC-001",
+          "envelope_found": true,
+          "run_id": "20261006T085808-equity_change-5778",
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "is_mock": false,
+          "events": 5,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D4-PLD-001",
+            "events": 3
+          },
+          {
+            "case_id": "D5-EQC-001",
+            "events": 5
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 0,
+          "relation": "unrelated"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": []
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-005",
+      "title": "中标三份同类型不同主体",
+      "input_sha256": [
+        "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+        "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+        "0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa"
+      ],
+      "run_id": "b-20261006130028",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D6-AWD-001",
+          "envelope_found": true,
+          "run_id": "20261006T085809-award_contract-2da6",
+          "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "envelope_found": true,
+          "run_id": "20261006T085810-award_contract-3d86",
+          "file_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+          "is_mock": false,
+          "events": 4,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D6-AWD-003",
+          "envelope_found": true,
+          "run_id": "20261006T085810-award_contract-9fb2",
+          "file_sha256": "0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+          "is_mock": false,
+          "events": 3,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D6-AWD-001",
+            "events": 1
+          },
+          {
+            "case_id": "D6-AWD-002",
+            "events": 4
+          },
+          {
+            "case_id": "D6-AWD-003",
+            "events": 3
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 0,
+          "relation": "unrelated"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": []
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-006",
+      "title": "扫描降级参与的多公告任务",
+      "input_sha256": [
+        "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
+        "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63"
+      ],
+      "run_id": "b-20261006130028",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "envelope_found": true,
+          "run_id": "20261006T085811-pledge-scan",
+          "file_sha256": "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "envelope_found": true,
+          "run_id": "20261006T085809-award_contract-2da6",
+          "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "pledge-scan-degrade",
+            "events": 1
+          },
+          {
+            "case_id": "D6-AWD-001",
+            "events": 1
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 0,
+          "relation": "unknown"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": [
+          "证据不足：INSUFFICIENT_SIGNALS",
+          "证据不足：MEMBER_NO_USABLE_FIELDS:pledge-scan-degrade"
+        ]
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-007",
+      "title": "含税口径跨文档",
+      "input_sha256": [
+        "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+        "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee"
+      ],
+      "run_id": "b-20261006130028",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D6-AWD-004",
+          "envelope_found": true,
+          "run_id": "20261006T085810-award_contract-e1de",
+          "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "envelope_found": true,
+          "run_id": "20261006T085810-award_contract-61fc",
+          "file_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D6-AWD-004",
+            "events": 1
+          },
+          {
+            "case_id": "D6-AWD-005",
+            "events": 1
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 0,
+          "relation": "unrelated"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": []
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-008",
+      "title": "币种折算跨文档",
+      "input_sha256": [
+        "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+        "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa"
+      ],
+      "run_id": "b-20261006130029",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D6-AWD-007",
+          "envelope_found": true,
+          "run_id": "20261006T085810-award_contract-af7b",
+          "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D6-AWD-002",
+          "envelope_found": true,
+          "run_id": "20261006T085810-award_contract-3d86",
+          "file_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+          "is_mock": false,
+          "events": 4,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D6-AWD-007",
+            "events": 1
+          },
+          {
+            "case_id": "D6-AWD-002",
+            "events": 4
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 0,
+          "relation": "unknown"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": [
+          "证据不足：INSUFFICIENT_SIGNALS"
+        ]
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-009",
+      "title": "本次/累计口径",
+      "input_sha256": [
+        "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+        "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1"
+      ],
+      "run_id": "b-20261006130029",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D4-PLD-001",
+          "envelope_found": true,
+          "run_id": "20261006T085807-pledge-aa0e",
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "is_mock": false,
+          "events": 3,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D4-PLD-009",
+          "envelope_found": true,
+          "run_id": "20261006T085808-pledge-f3b5",
+          "file_sha256": "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+          "is_mock": false,
+          "events": 3,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D4-PLD-001",
+            "events": 3
+          },
+          {
+            "case_id": "D4-PLD-009",
+            "events": 3
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 0,
+          "relation": "unrelated"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": []
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    },
+    {
+      "case_id": "D10-INT-010",
+      "title": "混合鲁棒链",
+      "input_sha256": [
+        "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+        "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+        "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+        "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26"
+      ],
+      "run_id": "b-20261006130029",
+      "code_version": "bcc0cc6e",
+      "schema_version": "0.3",
+      "records": [
+        {
+          "case_id": "D4-PLD-001",
+          "envelope_found": true,
+          "run_id": "20261006T085807-pledge-aa0e",
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "is_mock": false,
+          "events": 3,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D5-EQC-001",
+          "envelope_found": true,
+          "run_id": "20261006T085808-equity_change-5778",
+          "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "is_mock": false,
+          "events": 5,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "D6-AWD-001",
+          "envelope_found": true,
+          "run_id": "20261006T085809-award_contract-2da6",
+          "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        },
+        {
+          "case_id": "pledge-scan-degrade",
+          "envelope_found": true,
+          "run_id": "20261006T085811-pledge-scan",
+          "file_sha256": "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
+          "is_mock": false,
+          "events": 1,
+          "cache": {
+            "hit": null,
+            "hits": null,
+            "misses": null
+          }
+        }
+      ],
+      "diff_list": [],
+      "report": {
+        "events": [
+          {
+            "case_id": "D4-PLD-001",
+            "events": 3
+          },
+          {
+            "case_id": "D5-EQC-001",
+            "events": 5
+          },
+          {
+            "case_id": "D6-AWD-001",
+            "events": 1
+          },
+          {
+            "case_id": "pledge-scan-degrade",
+            "events": 1
+          }
+        ],
+        "diffs": {
+          "conflicts": 0,
+          "corroborations": 0,
+          "complementaries": 0,
+          "relation": "unknown"
+        },
+        "attribution": {
+          "conflict_count": 0,
+          "attributions": [],
+          "note": "零冲突（引擎零误报）——无需归因"
+        },
+        "boundaries": [
+          "证据不足：INSUFFICIENT_SIGNALS",
+          "证据不足：MEMBER_NO_USABLE_FIELDS:pledge-scan-degrade"
+        ]
+      },
+      "cache": {
+        "replay_business_fields_identical": true,
+        "cold_cache_new_call_log": true,
+        "web_cli_same_result": true,
+        "evidence": "runs/_archive/batch-20261006T083905(冷) → runs/batch-20261006T085807(重放,同缓存,含降级哈希修复) → runs/_archive/batch-20261006T084717(清缓存重跑)"
+      }
+    }
+  ]
+}
