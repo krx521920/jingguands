@@ -281,58 +281,58 @@
   },
   {
    "case": "D6-AWD-006",
-   "replay_run_id": "20261007T144951-award_contract-f4d0",
-   "ok": false,
-   "cache_hit": null,
-   "http_status": null,
-   "error": "模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 3c92c1c2-09d7-4d6b-bacc-8aaf39ca88c0)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-   "response_content_sha256": null,
-   "usage_total_tokens": null,
-   "classification": "blocked-api-402"
+   "replay_run_id": "20261007T151333-award_contract-c493",
+   "ok": true,
+   "cache_hit": false,
+   "http_status": 200,
+   "error": null,
+   "response_content_sha256": "4305e170e5aa302108c42748a671c070e1a90c04370b31bfdea96d9f1142e8b6",
+   "usage_total_tokens": 4249,
+   "classification": "fresh-recall-402已恢复(API充值后重调,响应与首测逐字节一致)"
   },
   {
    "case": "D6-AWD-007",
-   "replay_run_id": "20261007T144951-award_contract-ae85",
-   "ok": false,
-   "cache_hit": null,
-   "http_status": null,
-   "error": "模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 5b6ff618-311f-4c25-971c-d17b54fa7a38)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-   "response_content_sha256": null,
-   "usage_total_tokens": null,
-   "classification": "blocked-api-402"
+   "replay_run_id": "20261007T151333-award_contract-2da8",
+   "ok": true,
+   "cache_hit": false,
+   "http_status": 200,
+   "error": null,
+   "response_content_sha256": "4849496eebe90d577ae7adfd67412a191d636b238a1e7bb45deda459d0d52048",
+   "usage_total_tokens": 3933,
+   "classification": "fresh-recall-402已恢复(API充值后重调,值层一致,note装饰层抖动)"
   },
   {
    "case": "D6-AWD-008",
-   "replay_run_id": "20261007T144951-award_contract-4184",
-   "ok": false,
-   "cache_hit": null,
-   "http_status": null,
-   "error": "模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: c490338b-abb4-48ab-a913-ccb267da2899)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-   "response_content_sha256": null,
-   "usage_total_tokens": null,
-   "classification": "blocked-api-402"
+   "replay_run_id": "20261007T151333-award_contract-5bfb",
+   "ok": true,
+   "cache_hit": false,
+   "http_status": 200,
+   "error": null,
+   "response_content_sha256": "047c91fb205f47d1ab9fab779e14f4216970cb3602079465548838bb94747e45",
+   "usage_total_tokens": 4632,
+   "classification": "fresh-recall-402已恢复(API充值后重调,响应与首测逐字节一致)"
   },
   {
    "case": "D6-AWD-009",
-   "replay_run_id": "20261007T144951-award_contract-ac01",
-   "ok": false,
-   "cache_hit": null,
-   "http_status": null,
-   "error": "模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: f936af62-3790-4da2-9bdc-c8965528b645)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-   "response_content_sha256": null,
-   "usage_total_tokens": null,
-   "classification": "blocked-api-402"
+   "replay_run_id": "20261007T151333-award_contract-c6f6",
+   "ok": true,
+   "cache_hit": false,
+   "http_status": 200,
+   "error": null,
+   "response_content_sha256": "3cbcacb9061fd31777c02e72fe3ec7b3ae24e772b4d5060db8abd4591c60ca32",
+   "usage_total_tokens": 6819,
+   "classification": "fresh-recall-402已恢复(API充值后重调,响应与首测逐字节一致)"
   },
   {
    "case": "D6-AWD-010",
-   "replay_run_id": "20261007T144952-award_contract-63a9",
-   "ok": false,
-   "cache_hit": null,
-   "http_status": null,
-   "error": "模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 65a09fe6-2ded-4558-bf7c-fef1a45fbfbf)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-   "response_content_sha256": null,
-   "usage_total_tokens": null,
-   "classification": "blocked-api-402"
+   "replay_run_id": "20261007T151337-award_contract-a8ee",
+   "ok": true,
+   "cache_hit": false,
+   "http_status": 200,
+   "error": null,
+   "response_content_sha256": "c6ebb16686836ea2486936fe21d4f46f1968bd6404d7a984e4f6a67c8278ed40",
+   "usage_total_tokens": 4473,
+   "classification": "fresh-recall-402已恢复(API充值后重调,响应与首测逐字节一致)"
   },
   {
    "case": "pledge-scan-degrade",
@@ -345,5 +345,6 @@
    "usage_total_tokens": null,
    "classification": "firsttest-era-response(缓存未覆写,重建=原响应字节)"
   }
- ]
+ ],
+ "replay_note": "两段重放：26份来自 runs/batch-20261007T144951（缓存命中），5份(D6-AWD-006~010)来自 runs/batch-20261007T151331（充值后真实重调,cache_hit=false）"
 }
