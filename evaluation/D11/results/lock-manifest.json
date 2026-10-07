@@ -1,6 +1,8 @@
 {
   "locked_on": "2026-10-07",
+  "revised_on": "2026-10-07",
   "frozen_input": "weiwenyu@bc67ccd8",
+  "note": "不含 lock-manifest.json 自身（自引用无法自校验）",
   "files": [
     {
       "path": "evaluation\\D11\\firsttest-envelopes\\D4-PLD-001.json",
@@ -163,9 +165,19 @@
       "bytes": 4913
     },
     {
+      "path": "evaluation\\D11\\results\\D11-终版收口.md",
+      "sha256": "44fecaeaa1d786d73948fa93c30fc3bee8505c184a38cc56cc056045dd73804f",
+      "bytes": 2989
+    },
+    {
       "path": "evaluation\\D11\\results\\D11-首测报告.md",
       "sha256": "456c3152a5caad20b239ef6c1209d53ff09fdd196e3cd231eb41e74c5d269bcc",
       "bytes": 4266
+    },
+    {
+      "path": "evaluation\\D11\\results\\cold-run-verification.json",
+      "sha256": "0a2938c44c9234d325145804cb953fefe2b3c459c5645cac36b238878d492fec",
+      "bytes": 409
     },
     {
       "path": "evaluation\\D11\\results\\crossdoc-firsttest-score.json",
@@ -176,6 +188,16 @@
       "path": "evaluation\\D11\\results\\crossdoc-firsttest.json",
       "sha256": "e7b6a6abcc9c49998361f2eefe4c994dd390112f86dc8b30ab3186f403f62b8f",
       "bytes": 34848
+    },
+    {
+      "path": "evaluation\\D11\\results\\d6-block-supplement-v2.json",
+      "sha256": "e70471a052ced93179d08beddfababa0e079cfd04e83e545c98c466a8b9bcd63",
+      "bytes": 214
+    },
+    {
+      "path": "evaluation\\D11\\results\\d6-block-supplement.json",
+      "sha256": "b22c99f96d525454871add4ecefe15bf9da3f51551fc18ef7ffb0e5a36f5e6df",
+      "bytes": 505
     },
     {
       "path": "evaluation\\D11\\results\\d8-firsttest-score.json",
@@ -193,6 +215,11 @@
       "bytes": 5736
     },
     {
+      "path": "evaluation\\D11\\results\\d9-block-evidence-check-v02.json",
+      "sha256": "1941f13ed8a60e20f5b3a2669593a39e86789ed5666314e2a2ae3a4f46c17261",
+      "bytes": 591
+    },
+    {
       "path": "evaluation\\D11\\results\\d9-block-evidence-check.json",
       "sha256": "aef7eb0f06128f56c50a9aba34b86a1d3c5eb5f3f878d4998a4faf213c0c4598",
       "bytes": 793
@@ -203,14 +230,14 @@
       "bytes": 5736
     },
     {
+      "path": "evaluation\\D11\\results\\d9-v02-rerun-score.json",
+      "sha256": "0e0f2147a5452fa63a6244e6ae5ae31e243971751c8ee1a63c6b3b5bd5e536f2",
+      "bytes": 5828
+    },
+    {
       "path": "evaluation\\D11\\results\\d9-v02-score.json",
       "sha256": "9fbba1dd102420424b74766401e0d31012768f379feecd3495fbb213b4ad5a7f",
       "bytes": 5736
-    },
-    {
-      "path": "evaluation\\D11\\results\\lock-manifest.json",
-      "sha256": "86689175c87c3d0b573e11d718e2f1dc80a26dc74583459ec1fbe1fff4cdcbed",
-      "bytes": 8522
     },
     {
       "path": "evaluation\\D11\\results\\single-doc-firsttest.json",
@@ -223,14 +250,19 @@
       "bytes": 2553
     },
     {
+      "path": "evaluation\\D11\\results\\冷跑一致率-口径说明.md",
+      "sha256": "5861a6c9ba66b22cda1f3801af906a5a5dcd35abf88398c0655ea5a3cc63b178",
+      "bytes": 2823
+    },
+    {
       "path": "evaluation\\D11\\results\\原始日志索引.md",
       "sha256": "7ca27dfc1feba0157782d3c0d61dc6f8180f66a762a118847d651dc6b64f5dcb",
       "bytes": 2612
     },
     {
       "path": "evaluation\\D11\\results\\失败清单.md",
-      "sha256": "e6fc8825465c528b0dd1f9a884d87b053c1404de6a16beee509acb2509c7f979",
-      "bytes": 2178
+      "sha256": "9a87ffb5c06a8c24432e71f6dd2229ea5b0af7a527928a2a553471ba82cefc4b",
+      "bytes": 2522
     }
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "checked_on": "2026-10-07",
+  "source": "evaluation/D9/parses-blocks/*.parse-blocks.json @weiwenyu",
+  "d6_sides_ok": 8,
+  "d6_sides_not_in_block": 0,
+  "d6_block_miss": 0,
+  "verdict": "PASS",
+  "fails": []
+}

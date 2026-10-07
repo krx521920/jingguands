@@ -34,6 +34,16 @@ for(const c of ds.cases){
   if(!r){rows.push({case_id:c.case_id,expected:c.expected_verdict,status:'not_run'}); STRICT?fail++:notRun++; continue;}
   const v=r.verdict; const notes=[];
   let ok=(v===c.expected_verdict);
+  // 漏检修复①：无效证据 —— 非 insufficient 的判定，每侧必须带 block_id + quote
+  if(v!=='insufficient'){
+    const badSides=(r.sides||[]).filter(x=>!x.block_id||!x.quote);
+    if(badSides.length){ok=false;notes.push('INVALID_EVIDENCE:'+badSides.length);}
+  }
+  // 漏检修复②：必要计算缺失 —— 用例声明需程序化合计的，报告必须给出计算记录
+  if(c.requires_programmatic_sum){
+    const cmp=(r.computed||[]).filter(x=>/sum|total|合计|勾稽/i.test(String(x.name||'')));
+    if(cmp.length===0){ok=false;notes.push('MISSING_REQUIRED_COMPUTATION');}
+  }
   // 误报：非矛盾类别却判 conflict
   if(c.expected_verdict!=='conflict'&&v==='conflict'){ok=false;notes.push('FALSE_POSITIVE_CONFLICT');fp.push(c.case_id);}
   // 漏报：真矛盾却未判 conflict
