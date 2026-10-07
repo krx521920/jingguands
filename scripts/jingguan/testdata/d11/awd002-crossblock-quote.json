@@ -1,0 +1,21 @@
+{
+ "defect": "AWD-002-crossblock",
+ "classification": {
+  "symptom": "A5出处指错",
+  "cause": "B5抽取侧",
+  "impact": "C3局部",
+  "known": "D2"
+ },
+ "quote": "沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同",
+ "suffix_block": {
+  "id": "dc0a3d5fb_p002_b00022",
+  "text_head": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，"
+ },
+ "prefix_block": {
+  "id": "dc0a3d5fb_p001_b00005",
+  "text_tail": "消声器项目1,941.1万元。上述中标项目合计金额为8,063.39万元。近期中标项目具体情况如下："
+ },
+ "expectation": {
+  "修复目标_D12": "跨块重锚：quote 前缀在前块、后缀在锚定块——repairQuotes 应（a）双块 provenance 或（b）后缀重锚锚定块；不得留校验错误"
+ }
+}

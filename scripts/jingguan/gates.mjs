@@ -42,6 +42,7 @@ const results = [
   runGate('B归因引擎单测', ['scripts/jingguan/test_attribution.mjs']),
   runGate('方D8完整入口单测', ['scripts/jingguan/test_group_matcher.mjs']),
   runGate('宗D9归因用例', ['scripts/jingguan/test_d9_rules.mjs']),
+  runGate('D11缺陷定位固化', ['scripts/jingguan/test_d11_defects.mjs']),
 ]
 
 // ---- 6 git 状态守卫 ----
