@@ -1,3 +1,7 @@
 # D10 演示产物：可复现的中间件不入库
 # 录制命令：python demo/_record.py（生成 demo/D10演示操作.mp4，那个入库）
 video/
+
+# D11 统一基线重测的输入信封：宗分支已入库 evaluation/D11/firsttest-envelopes/，
+# 此处只是本地只读检出副本（3.0MB / 32 份），不重复入库。
+# 注意：.gitignore 内不支持 "../" 上跳语法，规则写在 page_prototype/.gitignore。

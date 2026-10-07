@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-10-01",
+  "upstream_branch": "feature/fang-rules",
+  "upstream_commit": "24d067abc8088f50c0919c12205f5e57be247aeb",
+  "status": "accepted",
+  "delivery_manifest_hashes": {"checked": 12, "passed": 12, "failed": 0},
+  "independent_runs": {
+    "cli_synthetic": "PASS",
+    "zong_challenge_cases": {"total": 10, "passed": 10, "failed": 0},
+    "zong_gold_documents": {"documents": 10, "verified": 4, "needs_review": 6, "mismatch": 0, "invalid": 0, "input_unchanged": true},
+    "node_test_runner": "not reproduced in this sandbox because child-process spawn is blocked with EPERM; direct CLI and an independent in-process challenge harness were executed instead."
+  },
+  "delivery_files": [
+    "README_D5.md",
+    "src_D5/equity_check_D5.ts",
+    "src_D5/cli_D5.ts",
+    "tests_D5/equity.test_D5.mjs",
+    "tests_D5/compatibility_D5.mjs",
+    "examples_D5/equity_input_D5.json",
+    "docs_D5/验收记录_D5.md"
+  ],
+  "blocking": false
+}

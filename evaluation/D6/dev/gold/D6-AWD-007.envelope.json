@@ -1,0 +1,262 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D6-AWD-007",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+    "file_name": "D6-AWD-007.pdf",
+    "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+    "parse_meta": {
+      "parser_version": "0.9.0",
+      "page_count": 1,
+      "blocks": 10
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "江河幕墙中东工程有限公司",
+          "value": "江河幕墙中东工程有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00004",
+              "page": 1,
+              "region": [
+                114,
+                264.77,
+                505.32,
+                276.77
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "全资子公司江河幕墙中东工程"
+            },
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "有限公司近日在中东迪拜中标WResidences幕墙工程"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "WResidences幕墙工程",
+          "value": "WResidences幕墙工程",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标WResidences幕墙工程"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "人民币317,915,000元",
+          "value": 317915000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+            }
+          ],
+          "denominator": null,
+          "note": "采用公告明示的人民币折合金额；原始计价金额为173,800,000 AED。未执行汇率计算，未推断含税状态。"
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00005",
+              "page": 1,
+              "region": [
+                90,
+                288.17,
+                517.32,
+                346.97
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+            }
+          ],
+          "denominator": null,
+          "note": "本字段对应选定的人民币金额；原始计价币种AED保留在完整引文与独立判定记录中。"
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "尚未完成与相关方签订正式合同",
+          "value": "false",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d3a6938fe_p001_b00006",
+              "page": 1,
+              "region": [
+                114.12,
+                362.21,
+                505.32,
+                374.21
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "截至本公告披露日，公司尚未完成与相关方签订正式合同"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "rule",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-10-02T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": [],
+    "note": "D6 Gold candidate frozen from the upstream real envelope after contract/evidence review."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "checked_on": "2026-10-02",
+  "method": "Source-block annotation and contract/evidence review; no production code modified.",
+  "documents": [
+    {"case_id":"D6-AWD-001","mode":"candidate_envelope_frozen_after_block_review","events":1},
+    {"case_id":"D6-AWD-002","mode":"candidate_envelope_frozen_after_block_review","events":4},
+    {"case_id":"D6-AWD-003","mode":"candidate_envelope_frozen_after_block_review","events":3},
+    {"case_id":"D6-AWD-004","mode":"candidate_envelope_frozen_after_block_review","events":1},
+    {"case_id":"D6-AWD-005","mode":"candidate_envelope_frozen_after_block_review","events":1},
+    {"case_id":"D6-AWD-006","mode":"candidate_envelope_frozen_after_block_review","events":1},
+    {"case_id":"D6-AWD-007","mode":"candidate_envelope_frozen_after_block_review","events":1},
+    {"case_id":"D6-AWD-008","mode":"candidate_envelope_frozen_after_block_review","events":1},
+    {"case_id":"D6-AWD-009","mode":"manual_source_block_annotation","events":3},
+    {"case_id":"D6-AWD-010","mode":"manual_source_block_annotation","events":1}
+  ],
+  "manual_source_block_documents": 2,
+  "candidate_frozen_documents": 8,
+  "result": "PASS",
+  "second_person_review": "pending"
+}

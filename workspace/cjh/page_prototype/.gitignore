@@ -1,0 +1,5 @@
+# D11 统一基线重测的输入信封（本地只读检出副本，不入库）
+# 宗分支已入库 evaluation/D11/firsttest-envelopes/，此处 3.0MB / 32 份不重复入库。
+# demo/_retest_unified.js 会优先读仓库内路径，未合流时回退到此目录。
+# 复现命令见 workspace/cjh/docs/D11_统一基线重测报告.md
+data_unified/

@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-10-07T12:19:52.218Z",
+  "counts": {
+    "P0": 3,
+    "P1": 4,
+    "P2": 1,
+    "total": 8,
+    "fixed": 0,
+    "unfixed": 7,
+    "untested": 1
+  },
+  "owners": {
+    "张智博": [
+      "D11-P0-01",
+      "D11-P1-02"
+    ],
+    "魏文宇 / 方轩诚": [
+      "D11-P0-02",
+      "D11-P1-01",
+      "D11-P1-04"
+    ],
+    "宗博文": [
+      "D11-P0-03",
+      "D11-P2-01"
+    ],
+    "方轩诚（核验报告）+ 张智博（出处）": [
+      "D11-P1-03"
+    ]
+  },
+  "defects": [
+    {
+      "id": "D11-P0-01",
+      "sev": "P0",
+      "title": "旧版解析器 0.3.0 字段溯源指向错误 block，命中仅 16.67%（2/12）",
+      "symptom": "A5 出处指错（quote 不在其 block_id 所指的块里）",
+      "cause": "B3 跨版本漂移",
+      "scope": "C2 高影响（该文档 12 个溯源字段 10 个指向错误块）",
+      "known": "D2 新发现（我方 D11 首测实测）",
+      "metric": "wei_real_pledge_ce37 命中 2/12 = 16.67%；同文档 0197（parser 0.7.0）为 12/12 = 100%",
+      "evidence": "① 两版 region 完全相同 [466.25,469.52,519.85,504.82] ⇒ 坐标对、映射错；② ce37 指 b00016（表头「是否为限售股」）而 quote 实际在 b00031；③ 0.3.0 的 cell_ref=null，0.7.0 有 cell_ref=\"r2c10\"；④ 根因：解析快照 tables[].cells 为空数组，单元格文本是独立 block，旧版按 cell_ref 推算 block_id 算错",
+      "owner": {
+        "name": "张智博",
+        "role": "解析层",
+        "note": "跨版本漂移，需张提供修正后 block 映射（对方重锚定）"
+      },
+      "status": "未修复 · 已建框架待接",
+      "statusNote": "张 10-07 11:06 的《解析错误分类与最小复现》已建A5/B3 分类框架并明写「首测未出数，不预判」；其文档早于我 19:42 的提交，未见我的实测证据（16.67% vs 100%、region 相同、cell_ref 差异）",
+      "action": "张提供修正后的 block 映射（重锚定），并按最小复现法固化回归用例",
+      "verify": "重跑 demo/_evidence_check.js，该数据集 L3 命中率应达 100%",
+      "due": "D12 首周"
+    },
+    {
+      "id": "D11-P0-02",
+      "sev": "P0",
+      "title": "溯源存在率 L1 = 73.18%（401/548），147 个字段无溯源无法回跳定位",
+      "symptom": "A4 出处缺失（provenance 为空或 null）",
+      "cause": "B5 抽取侧（主）+ B2 解析侧（次）",
+      "scope": "C2 高影响（覆盖全部 31 份数据集）",
+      "known": "D2 新发现（我方 D11 首测实算）",
+      "metric": "L1 = 73.18%（401/548）；注意此指标 ≠ 字段抽取率 71.53%（status=extracted）",
+      "evidence": "GET /api/metrics → summary.l1_pct = 73.18；逐数据集 l1_rate 见 demo/_evidence_check.json → per_dataset[].l1_rate",
+      "owner": {
+        "name": "魏文宇 / 方轩诚",
+        "role": "抽取 / 规则",
+        "note": "出处对、值错"
+      },
+      "status": "未修复 · 数据已换但无法复算",
+      "statusNote": "魏 10-07 19:42 交付「31 份修复后信封」，但该批信封未入库（魏分支 runs/ 最新仍是 09-29 归档），我本地 data/ 仍是 D2 时期拷贝，**无法复算验证修复声明**",
+      "action": "魏将 31 份修复后信封入库 develop；我收到后重跑 _evidence_check.js 复算 L1",
+      "verify": "L1 ≥ 90%（总规划目标），并给出修复前后对比",
+      "due": "信封入库后 1 日内"
+    },
+    {
+      "id": "D11-P0-03",
+      "sev": "P0",
+      "title": "封存集 hash-lock 过期：verify-sealed 报 FAIL（19/60 raw+gold 不符）",
+      "symptom": "评测资产自校验失效（manifest 记录 hash ≠ 实体文件实际 hash）",
+      "cause": "流程缺陷（Gold 实体变更后未重跑 build-sealed-manifests.mjs）",
+      "scope": "C1 阻断（首测基线的可复现性无法自证）",
+      "known": "D2 新发现（我方 D11 合流核对实测，10-07 20:00）",
+      "metric": "verify-sealed.mjs → result=FAIL；19 处不符（raw 9 + gold 10）",
+      "evidence": "① 三方比对：本地文件 hash == 宗分支 blob hash ⇒ 检出无损，非传输损坏；② manifest / hash-lock / verification.json 三者内部完全一致（都记 44a2d8fa…）⇒ 非记录错乱；③ 重跑宗自己的 build-sealed-manifests.mjs 后 **raw 实测 30/30 全命中** ⇒ 数据完好、manifest 过期；④ 差异明细：raw 变 9 例（SEALED-006~010, 017~020）、gold 变 10 例（SEALED-001~010）；⑤ 宗 10-04 修订 v0.3 后又改动实体文件但未重新生成 hash-lock",
+      "owner": {
+        "name": "宗博文",
+        "role": "评测侧",
+        "note": "评测资产与自校验流程"
+      },
+      "status": "未修复 · 本次合流新发现",
+      "statusNote": "宗侧 verification.json 里 result=PASS 是 v0.3 生成时的旧结论，与当前实体文件不符；**这不是数据被篡改，是 Gold 变更未同步 hash-lock**。首测若在此状态下开跑，基线可复现性无法自证",
+      "action": "宗重跑 build-sealed-manifests.mjs 重新生成 manifest + hash-lock + verification.json 并入库",
+      "verify": "node evaluation/sealed/verify-sealed.mjs → result=PASS，issues 为空",
+      "due": "首测开跑前（阻断项）"
+    },
+    {
+      "id": "D11-P1-01",
+      "sev": "P1",
+      "title": "标准化率 69.87%（364/521），低于目标 98%",
+      "symptom": "值未标准化（standardized ≠ true）",
+      "cause": "待定（需宗侧首测成绩归因后才能定性）",
+      "scope": "C2 高影响",
+      "known": "D1 已知边界",
+      "metric": "364/521 = 69.87%，未标注 27 个不入分母",
+      "evidence": "GET /api/metrics → cards[标准化率]",
+      "owner": {
+        "name": "魏文宇 / 方轩诚",
+        "role": "抽取 / 规则",
+        "note": "出处对、值错"
+      },
+      "status": "未修复 · 魏定位的两条均非本项",
+      "statusNote": "魏 10-07 的 d11-defect-localization.md 定位两条缺陷（PLD-009 E03 模型方差、AWD-002 跨块 quote），**均属 B5 抽取侧但都不是标准化率本身**；本项根因尚无人认领",
+      "action": "待宗侧首测成绩下发后按链路归因；魏/方确认是否与已定位两条同源",
+      "verify": "标准化率 ≥ 98%",
+      "due": "首测成绩下发后 2 日内"
+    },
+    {
+      "id": "D11-P1-02",
+      "sev": "P1",
+      "title": "溯源带 block_id 仅 81.14%，约 19% 只有页级锚点",
+      "symptom": "A4 出处缺失（缺 block_id，region/table_id/cell_ref 更缺）",
+      "cause": "B1 源 PDF 版面（无框表tables=0、列语义丢）",
+      "scope": "C3 局部 + C4 边界",
+      "known": "D1 已在能力边界表登记",
+      "metric": "锚点完备性 n=403：page/quote 100%、block_id 81.14%、region 70.72%、table_id 30.77%、cell_ref 28.29%",
+      "evidence": "GET /api/metrics → anchors[]；张《解析能力边界表》登记无框表格 tables=0、内容不丢、列语义丢",
+      "owner": {
+        "name": "张智博",
+        "role": "解析层",
+        "note": "源 PDF 版面问题，登记能力边界"
+      },
+      "status": "未修复 · 已登记为能力边界",
+      "statusNote": "张已如实登记为能力边界（对应症状 A6列语义丢失 / A7 表格未检出），但**未承诺修复时间**",
+      "action": "张给出边界升级计划（何种版面能支持 block_id / cell_ref）；或明确接受该边界并在页面标注",
+      "verify": "锚点完备性提升，或能力边界表给出明确时间表",
+      "due": "待张排期"
+    },
+    {
+      "id": "D11-P1-03",
+      "sev": "P1",
+      "title": "核验清单中 2 条 finding 的 provenance 为 null",
+      "symptom": "A4 出处缺失（核验视图侧）",
+      "cause": "B5 抽取侧 / 规则侧",
+      "scope": "C3 局部（2 条 finding）",
+      "known": "D2 新发现（我方 D11 首测巡检）",
+      "metric": "2/7 条 finding 的 provenance 为 null",
+      "evidence": "demo/_ui_survey.json → views[核验] 的 provenance_null 统计",
+      "owner": {
+        "name": "方轩诚（核验报告）+ 张智博（出处）",
+        "role": "规则 / 解析",
+        "note": "核验报告未更新 + 出处侧未给锚点"
+      },
+      "status": "未修复 · 缺 sidecar 无法复现",
+      "statusNote": "方 feature/fang-rules 最新提交为 ef8738e3「Add files via upload」，无提交信息、**无 *.check.json**；核验侧 sidecar 未更新，本条**连复现依据都不足**",
+      "action": "方更新核验 sidecar（data/*.check.json）并写明每条 finding 的出处或无出处原因",
+      "verify": "finding 的 provenance 全部非 null，或显式标注「为何无出处」",
+      "due": "D12 首周"
+    },
+    {
+      "id": "D11-P1-04",
+      "sev": "P1",
+      "title": "字段抽取率 71.53%（392/548），低于目标 90%",
+      "symptom": "status ≠ extracted",
+      "cause": "待定",
+      "scope": "C2 高影响",
+      "known": "D2 新发现（我方 D11 首测实算）",
+      "metric": "392/548 = 71.53%（口径：status=extracted 占已判定状态字段的比例）",
+      "evidence": "GET /api/metrics → cards[字段抽取率]；demo/_evidence_check.json → per_dataset",
+      "owner": {
+        "name": "魏文宇 / 方轩诚",
+        "role": "抽取 / 规则",
+        "note": "出处对、值错"
+      },
+      "status": "未修复 · 需宗侧首测归因",
+      "statusNote": "此项与 P0-02 是**两个不同指标**（本项看 status=extracted，P0-02 看有无 provenance），不可混用；我方已犯过一次混用错误并修正",
+      "action": "待宗侧首测成绩下发后归因",
+      "verify": "字段抽取率 ≥ 90%",
+      "due": "首测成绩下发后 2 日内"
+    },
+    {
+      "id": "D11-P2-01",
+      "sev": "P2",
+      "title": "矛盾召回率 / 误报率 / 重复一致率 / 20 页 ≤90 秒 四项指标未测",
+      "symptom": "无数据（缺输入）",
+      "cause": "非缺陷（缺封存集与引擎数据）",
+      "scope": "C1 阻断（验收所需但当前不可测）",
+      "known": "D1 已知",
+      "metric": "四项均无实算值",
+      "evidence": "docs/cjh_workspace_10_D11首测议程与验收.md §未测项",
+      "owner": {
+        "name": "宗博文",
+        "role": "评测侧",
+        "note": "评测资产与自校验流程"
+      },
+      "status": "未测 · 缺输入",
+      "statusNote": "封存集已在宗/魏分支交付但**未合流 develop**（develop 仍停 477b4f42/ 09-24）；引擎侧数据未到位。四项指标是验收必需项，当前**无法判定**",
+      "action": "封存集合流 develop + 引擎数据到位后重跑首测，四项指标补测",
+      "verify": "四项均有实算值与目标对比",
+      "due": "封存集合流后"
+    }
+  ]
+}

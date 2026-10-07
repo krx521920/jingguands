@@ -1,0 +1,274 @@
+{
+  "dataset_id": "financial-events-30-document-dev-set-v0.1",
+  "version": "0.1.0",
+  "created_on": "2026-10-02",
+  "description": "Three event types, ten public development documents each; raw PDFs are not redistributed.",
+  "total_documents": 30,
+  "total_events": 48,
+  "total_fields": 592,
+  "summaries": [
+    {
+      "event_type": "pledge",
+      "documents": 10,
+      "events": 15,
+      "fields": 210,
+      "source_manifest": "evaluation/D4/dev/manifest.json"
+    },
+    {
+      "event_type": "equity_change",
+      "documents": 10,
+      "events": 16,
+      "fields": 144,
+      "source_manifest": "evaluation/D5/dev/manifest.json"
+    },
+    {
+      "event_type": "award_contract",
+      "documents": 10,
+      "events": 17,
+      "fields": 238,
+      "source_manifest": "evaluation/D6/dev/manifest.json"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "D4-PLD-001",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-001.envelope.json",
+      "raw": "../D4/dev/../../D3/dev/raw/D3-PLD-001.raw.json",
+      "event_count": 3
+    },
+    {
+      "case_id": "D4-PLD-002",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-002.envelope.json",
+      "raw": "../D4/dev/../../D3/dev/raw/D3-PLD-002.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D4-PLD-003",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-003.envelope.json",
+      "raw": "../D4/dev/../../D3/dev/raw/D3-PLD-003.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D4-PLD-004",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-004.envelope.json",
+      "raw": "../D4/dev/../../D3/dev/raw/D3-PLD-004.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D4-PLD-005",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-005.envelope.json",
+      "raw": "../D4/dev/../../D3/dev/raw/D3-PLD-005.raw.json",
+      "event_count": 2
+    },
+    {
+      "case_id": "D4-PLD-006",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-006.envelope.json",
+      "raw": "../D4/dev/raw/D4-PLD-006.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D4-PLD-007",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-007.envelope.json",
+      "raw": "../D4/dev/raw/D4-PLD-007.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-008.envelope.json",
+      "raw": "../D4/dev/raw/D4-PLD-008.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D4-PLD-009",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-009.envelope.json",
+      "raw": "../D4/dev/raw/D4-PLD-009.raw.json",
+      "event_count": 3
+    },
+    {
+      "case_id": "D4-PLD-010",
+      "event_type": "pledge",
+      "source_manifest": "evaluation/D4/dev/manifest.json",
+      "gold": "../D4/dev/gold/D4-PLD-010.envelope.json",
+      "raw": "../D4/dev/raw/D4-PLD-010.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D5-EQC-001",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-001.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-001.raw.json",
+      "event_count": 5
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-002.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-002.raw.json",
+      "event_count": 3
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-003.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-003.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-004.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-004.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-005.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-005.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-006.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-006.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-007.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-007.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-008.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-008.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-009.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-009.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "event_type": "equity_change",
+      "source_manifest": "evaluation/D5/dev/manifest.json",
+      "gold": "../D5/dev/gold/D5-EQC-010.envelope.json",
+      "raw": "../D5/dev/raw/D5-EQC-010.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D6-AWD-001",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-001.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-001.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-002.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-002.raw.json",
+      "event_count": 4
+    },
+    {
+      "case_id": "D6-AWD-003",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-003.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-003.raw.json",
+      "event_count": 3
+    },
+    {
+      "case_id": "D6-AWD-004",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-004.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-004.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D6-AWD-005",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-005.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-005.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D6-AWD-006",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-006.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-006.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D6-AWD-007",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-007.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-007.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D6-AWD-008",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-008.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-008.raw.json",
+      "event_count": 1
+    },
+    {
+      "case_id": "D6-AWD-009",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-009.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-009.raw.json",
+      "event_count": 3
+    },
+    {
+      "case_id": "D6-AWD-010",
+      "event_type": "award_contract",
+      "source_manifest": "evaluation/D6/dev/manifest.json",
+      "gold": "../D6/dev/gold/D6-AWD-010.envelope.json",
+      "raw": "../D6/dev/raw/D6-AWD-010.raw.json",
+      "event_count": 1
+    }
+  ]
+}

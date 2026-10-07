@@ -26,7 +26,7 @@ export const FIELD_TEXT = {
   bidder: "中标人", tenderer: "招标人", project_name: "项目名称", bid_amount: "中标金额",
   currency: "币种", tax_included: "是否含税", duration: "工期",
   consortium_members: "联合体成员名单", consortium_shares: "联合体份额",
-  consortium: "联合体及份额",   // v0.3b 前旧字段名（consortium 拆分前的历史数据兼容）
+  consortium: "联合体及份额",   // ⚠️ v0.3b 前旧字段名（consortium 拆分前的历史数据兼容）；新数据不应产出此键
   bid_date: "中标/公告日期",
   contract_signed: "是否已签署合同", formal_award_notice_received: "是否收到正式中标通知书",
   price_adjustment_status: "调价条款状态", recognized_revenue: "当期确认收入"

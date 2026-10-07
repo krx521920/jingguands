@@ -1,0 +1,258 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D5-EQC-005",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+    "file_name": "D5-EQC-005.pdf",
+    "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+    "parse_meta": {
+      "parser_version": "0.9.0",
+      "page_count": 18,
+      "blocks": 373
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "浙江省国际贸易集团有限公司",
+          "value": "浙江省国际贸易集团有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p001_b00008",
+              "source_type": "paragraph",
+              "page": 1,
+              "region": [
+                114.24,
+                341.21,
+                365.28,
+                353.21
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "浙江省国际贸易集团有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": "Use the full legal name; 国贸集团 is only the disclosed abbreviation."
+        },
+        "direction": {
+          "raw_value": "减少",
+          "value": "decrease",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p001_b00011",
+              "page": 1,
+              "region": [
+                114.24,
+                458.45,
+                365.4,
+                470.45
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "股份减少"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_before": {
+          "raw_value": "72,673,907股",
+          "value": 72673907,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p008_b00002",
+              "page": 8,
+              "region": [
+                114.24,
+                83.09,
+                500.16,
+                157.56
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_after": {
+          "raw_value": "0",
+          "value": 0,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p008_b00016",
+              "page": 8,
+              "region": [
+                337.75,
+                277.87,
+                422.8,
+                300.18
+              ],
+              "table_id": "da8d294d2_p008_t001",
+              "cell_ref": "r3c3",
+              "source_type": "cell",
+              "quote": "0"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "ratio_before": {
+          "raw_value": "6.16%",
+          "value": 6.16,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p008_b00003",
+              "page": 8,
+              "region": [
+                90.36,
+                166.85,
+                240.12,
+                180.84
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "占上市公司总股本的6.16%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "ratio_after": {
+          "raw_value": "0",
+          "value": 0,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p008_b00017",
+              "page": 8,
+              "region": [
+                108.48,
+                283.93,
+                481.73,
+                296.73
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "国贸集团0"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "change_shares": {
+          "raw_value": "72,673,907股",
+          "value": 72673907,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p017_b00029",
+              "page": 17,
+              "region": [
+                214.65,
+                526.02,
+                558.25,
+                584.47
+              ],
+              "table_id": "da8d294d2_p017_t001",
+              "cell_ref": "r9c2",
+              "source_type": "cell",
+              "quote": "变动数量：减少72,673,907股"
+            }
+          ],
+          "denominator": null,
+          "note": "D5 annotation rule: change_shares is the absolute magnitude; direction carries the sign."
+        },
+        "method": {
+          "raw_value": "公开征集协议转让",
+          "value": "公开征集协议转让",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p001_b00011",
+              "page": 1,
+              "region": [
+                114.24,
+                458.45,
+                365.4,
+                470.45
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "公开征集协议转让"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "change_date": {
+          "raw_value": "时间：办理完成股份过户登记手续之日",
+          "value": null,
+          "unit": "date_range",
+          "standardized": false,
+          "status": "needs_review",
+          "provenance": [
+            {
+              "block_id": "da8d294d2_p017_b00031",
+              "page": 17,
+              "region": [
+                214.65,
+                584.47,
+                558.25,
+                623.77
+              ],
+              "table_id": "da8d294d2_p017_t001",
+              "cell_ref": "r10c2",
+              "source_type": "cell",
+              "quote": "时间：办理完成股份过户登记手续之日"
+            }
+          ],
+          "denominator": null,
+          "note": "原文为条件性描述，未给出具体日期"
+        }
+      },
+      "extraction_method": "hybrid",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-10-01T20:30:00+08:00",
+    "duration_ms": 0,
+    "errors": [],
+    "note": "D5 Gold frozen from upstream candidate after block-level evidence and direction checks."
+  }
+}

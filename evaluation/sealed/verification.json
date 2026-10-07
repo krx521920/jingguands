@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "checked_on": "2026-10-04",
+  "single_cases": 30,
+  "cross_doc_groups": 20,
+  "related_groups": 4,
+  "unrelated_control_groups": 16,
+  "single_manifest_sha256": "b5e4f35253f9ab9af1bce6a239ca9df7990a3de1f8318ec8ad7ec22a4249aae9",
+  "cross_doc_manifest_sha256": "da70dd239f1e2d26c688400847daff482bfc41d4cab7a44311341f32489a7e14",
+  "hash_lock_manifest_sha256": "8f1de002686b22b1a404ec0e0c2e66b64a7d37f995a3ca315fe82e713deb494a",
+  "issues": []
+}

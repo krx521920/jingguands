@@ -1,0 +1,258 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D5-EQC-006",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+    "file_name": "D5-EQC-006.pdf",
+    "file_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+    "parse_meta": {
+      "parser_version": "0.9.0",
+      "page_count": 3,
+      "blocks": 126
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "商晓波及其一致行动人",
+          "value": "商晓波及其一致行动人",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p001_b00017",
+              "page": 1,
+              "region": [
+                131.6,
+                661.88,
+                533.12,
+                702.12
+              ],
+              "table_id": "d97e2cfab_p001_t001",
+              "cell_ref": "r2c2",
+              "source_type": "cell",
+              "quote": "商晓波及其一致行动人"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "direction": {
+          "raw_value": "下降",
+          "value": "decrease",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p002_b00007",
+              "page": 2,
+              "region": [
+                131.6,
+                132.62,
+                307.3,
+                172.87
+              ],
+              "table_id": "d97e2cfab_p002_t001",
+              "cell_ref": "r3c2",
+              "source_type": "cell",
+              "quote": "□上升下降"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "shares_before": {
+          "raw_value": "249,519,764",
+          "value": 249519764,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p002_b00035",
+              "page": 2,
+              "region": [
+                211.9,
+                463.37,
+                307.3,
+                483.62
+              ],
+              "table_id": "d97e2cfab_p002_t001",
+              "cell_ref": "r14c3",
+              "source_type": "cell",
+              "quote": "249,519,764"
+            }
+          ],
+          "denominator": null,
+          "note": "商晓波本次变动前合计持有股份"
+        },
+        "shares_after": {
+          "raw_value": "249,519,764",
+          "value": 249519764,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p002_b00037",
+              "page": 2,
+              "region": [
+                372.5,
+                463.37,
+                471.4,
+                483.62
+              ],
+              "table_id": "d97e2cfab_p002_t001",
+              "cell_ref": "r14c5",
+              "source_type": "cell",
+              "quote": "249,519,764"
+            }
+          ],
+          "denominator": null,
+          "note": "商晓波本次变动后合计持有股份"
+        },
+        "ratio_before": {
+          "raw_value": "45.62%",
+          "value": 45.62,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p001_b00013",
+              "page": 1,
+              "region": [
+                56.64,
+                539.74,
+                524.64,
+                591.82
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "持股比例由45.62%被动稀释至44.89%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "ratio_after": {
+          "raw_value": "44.89%",
+          "value": 44.89,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p001_b00013",
+              "page": 1,
+              "region": [
+                56.64,
+                539.74,
+                524.64,
+                591.82
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "持股比例由45.62%被动稀释至44.89%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "change_shares": {
+          "raw_value": "0",
+          "value": 0,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p002_b00017",
+              "page": 2,
+              "region": [
+                211.9,
+                253.62,
+                372.5,
+                273.87
+              ],
+              "table_id": "d97e2cfab_p002_t001",
+              "cell_ref": "r7c3",
+              "source_type": "cell",
+              "quote": "0"
+            }
+          ],
+          "denominator": null,
+          "note": "本次变动股数为0，不涉及其持股数量的变化 D5 annotation rule: change_shares is the absolute magnitude; direction carries the sign."
+        },
+        "method": {
+          "raw_value": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。",
+          "value": "可转债转股被动稀释",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p002_b00023",
+              "page": 2,
+              "region": [
+                211.9,
+                294.12,
+                533.13,
+                362.37
+              ],
+              "table_id": "d97e2cfab_p002_t001",
+              "cell_ref": "r9c3",
+              "source_type": "cell",
+              "quote": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。"
+            }
+          ],
+          "denominator": null,
+          "note": "Canonical method label; keep the full disclosure sentence in raw_value/provenance."
+        },
+        "change_date": {
+          "raw_value": "2026年9月22日至2026年9月23日",
+          "value": "2026-09-22/2026-09-23",
+          "unit": "date_range",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d97e2cfab_p001_b00021",
+              "page": 1,
+              "region": [
+                131.6,
+                722.37,
+                533.12,
+                742.62
+              ],
+              "table_id": "d97e2cfab_p001_t001",
+              "cell_ref": "r4c2",
+              "source_type": "cell",
+              "quote": "2026年9月22日至2026年9月23日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "hybrid",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-10-01T20:30:00+08:00",
+    "duration_ms": 0,
+    "errors": [],
+    "note": "D5 Gold frozen from upstream candidate after block-level evidence and direction checks."
+  }
+}

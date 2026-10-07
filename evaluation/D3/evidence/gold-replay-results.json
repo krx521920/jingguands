@@ -1,0 +1,18 @@
+{
+  "checked_on": "2026-09-29",
+  "mode": "gold_replay_pipeline_conformance",
+  "is_real_model_result": false,
+  "description": "魏文宇当前 runner 使用张智博 evidence/0.7 解析结果，以 D3 Gold 作为受控模型响应回放；用于验证接口、出处回填和标准化链路，不计入真实抽取准确率。",
+  "documents": 5,
+  "events": 7,
+  "run_errors": 0,
+  "events_equal_to_gold": 5,
+  "cases": [
+    {"case_id": "D3-PLD-001", "events": 3, "run_errors": 0, "events_equal": true},
+    {"case_id": "D3-PLD-002", "events": 1, "run_errors": 0, "events_equal": true},
+    {"case_id": "D3-PLD-003", "events": 1, "run_errors": 0, "events_equal": true},
+    {"case_id": "D3-PLD-004", "events": 1, "run_errors": 0, "events_equal": true},
+    {"case_id": "D3-PLD-005", "events": 1, "run_errors": 0, "events_equal": true}
+  ],
+  "finding": "表格列头单位为万股时，单元格原值必须携带列头单位进入 raw_value，或由 runner 从 header_path 继承单位；否则 364.00 会被错误当作 364 股，27,495.8065 会因小数股被拒绝。"
+}

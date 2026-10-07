@@ -1,0 +1,480 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "d3a6938fe",
+    "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+    "file_name": "bid-007.pdf",
+    "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+    "file_size": 75022,
+    "page_count": 1,
+    "parsed_at": "2026-10-01T17:30:52+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.9.0"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 368,
+        "text_area_ratio": 0.1347,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d3a6938fe_p001_b00001",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "股票代码：601886 股票简称：江河集团 公告编号：临2026-048",
+          "text_raw": "股票代码：601886股票简称：江河集团公告编号：临2026-048",
+          "region": [
+            90.0,
+            73.85,
+            503.88,
+            85.85
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00002",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "江河创建集团股份有限公司关于全资子公司签署重大工程合同的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "text_raw": "江河创建集团股份有限公司关于全资子公司签署重大工程合同的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "region": [
+            114.12,
+            126.75,
+            498.12,
+            210.53
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00003",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "text_raw": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "region": [
+            90.0,
+            221.93,
+            474.0,
+            233.93
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00004",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "江河创建集团股份有限公司(下称“公司”)全资子公司江河幕墙中东工程",
+          "text_raw": "江河创建集团股份有限公司(下称“公司”)全资子公司江河幕墙中东工程",
+          "region": [
+            114.0,
+            264.77,
+            505.32,
+            276.77
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00005",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "有限公司近日在中东迪拜中标W Residences幕墙工程，中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元），约占公司2025年度营业收入的1.46%，该项目位于迪拜，建成后将成为当地的高端公寓项目。",
+          "text_raw": "有限公司近日在中东迪拜中标WResidences幕墙工程，中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元），约占公司2025年度营业收入的1.46%，该项目位于迪拜，建成后将成为当地的高端公寓项目。",
+          "region": [
+            90.0,
+            288.17,
+            517.32,
+            346.97
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00006",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "风险提示：截至本公告披露日，公司尚未完成与相关方签订正式合同，合同",
+          "text_raw": "风险提示：截至本公告披露日，公司尚未完成与相关方签订正式合同，合同",
+          "region": [
+            114.12,
+            362.21,
+            505.32,
+            374.21
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00007",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "的签订与履行均存在不确定性，敬请广大投资者注意投资风险。",
+          "text_raw": "的签订与履行均存在不确定性，敬请广大投资者注意投资风险。",
+          "region": [
+            90.0,
+            385.61,
+            426.0,
+            397.61
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00008",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114.0,
+            420.65,
+            174.0,
+            432.65
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00009",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "江河创建集团股份有限公司董事会",
+          "text_raw": "江河创建集团股份有限公司董事会",
+          "region": [
+            315.6,
+            463.49,
+            495.6,
+            475.49
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00010",
+          "doc_id": "d3a6938fe",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2026年9月23日",
+          "text_raw": "2026年9月23日",
+          "region": [
+            359.16,
+            486.77,
+            452.16,
+            498.77
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    }
+  ],
+  "reading_order": [
+    "d3a6938fe_p001_b00001",
+    "d3a6938fe_p001_b00002",
+    "d3a6938fe_p001_b00003",
+    "d3a6938fe_p001_b00004",
+    "d3a6938fe_p001_b00005",
+    "d3a6938fe_p001_b00006",
+    "d3a6938fe_p001_b00007",
+    "d3a6938fe_p001_b00008",
+    "d3a6938fe_p001_b00009",
+    "d3a6938fe_p001_b00010"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+      "file_name": "bid-007.pdf",
+      "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.9.0",
+        "page_count": 1,
+        "blocks": [
+          {
+            "block_id": "d3a6938fe_p001_b00001",
+            "page": 1,
+            "role": "BODY",
+            "text": "股票代码：601886 股票简称：江河集团 公告编号：临2026-048",
+            "text_raw": "股票代码：601886股票简称：江河集团公告编号：临2026-048",
+            "region": [
+              90.0,
+              73.85,
+              503.88,
+              85.85
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00002",
+            "page": 1,
+            "role": "BODY",
+            "text": "江河创建集团股份有限公司关于全资子公司签署重大工程合同的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+            "text_raw": "江河创建集团股份有限公司关于全资子公司签署重大工程合同的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+            "region": [
+              114.12,
+              126.75,
+              498.12,
+              210.53
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+            "text_raw": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+            "region": [
+              90.0,
+              221.93,
+              474.0,
+              233.93
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "江河创建集团股份有限公司(下称“公司”)全资子公司江河幕墙中东工程",
+            "text_raw": "江河创建集团股份有限公司(下称“公司”)全资子公司江河幕墙中东工程",
+            "region": [
+              114.0,
+              264.77,
+              505.32,
+              276.77
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00005",
+            "page": 1,
+            "role": "BODY",
+            "text": "有限公司近日在中东迪拜中标W Residences幕墙工程，中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元），约占公司2025年度营业收入的1.46%，该项目位于迪拜，建成后将成为当地的高端公寓项目。",
+            "text_raw": "有限公司近日在中东迪拜中标WResidences幕墙工程，中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元），约占公司2025年度营业收入的1.46%，该项目位于迪拜，建成后将成为当地的高端公寓项目。",
+            "region": [
+              90.0,
+              288.17,
+              517.32,
+              346.97
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00006",
+            "page": 1,
+            "role": "BODY",
+            "text": "风险提示：截至本公告披露日，公司尚未完成与相关方签订正式合同，合同",
+            "text_raw": "风险提示：截至本公告披露日，公司尚未完成与相关方签订正式合同，合同",
+            "region": [
+              114.12,
+              362.21,
+              505.32,
+              374.21
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00007",
+            "page": 1,
+            "role": "BODY",
+            "text": "的签订与履行均存在不确定性，敬请广大投资者注意投资风险。",
+            "text_raw": "的签订与履行均存在不确定性，敬请广大投资者注意投资风险。",
+            "region": [
+              90.0,
+              385.61,
+              426.0,
+              397.61
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00008",
+            "page": 1,
+            "role": "BODY",
+            "text": "特此公告。",
+            "text_raw": "特此公告。",
+            "region": [
+              114.0,
+              420.65,
+              174.0,
+              432.65
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00009",
+            "page": 1,
+            "role": "BODY",
+            "text": "江河创建集团股份有限公司董事会",
+            "text_raw": "江河创建集团股份有限公司董事会",
+            "region": [
+              315.6,
+              463.49,
+              495.6,
+              475.49
+            ]
+          },
+          {
+            "block_id": "d3a6938fe_p001_b00010",
+            "page": 1,
+            "role": "BODY",
+            "text": "2026年9月23日",
+            "text_raw": "2026年9月23日",
+            "region": [
+              359.16,
+              486.77,
+              452.16,
+              498.77
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [],
+    "warnings": []
+  }
+}

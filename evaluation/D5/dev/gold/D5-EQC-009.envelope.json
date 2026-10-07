@@ -1,0 +1,258 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D5-EQC-009",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+    "file_name": "D5-EQC-009.pdf",
+    "file_sha256": "31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+    "parse_meta": {
+      "parser_version": "0.9.0",
+      "page_count": 16,
+      "blocks": 194
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "RONGJIANLU（陆荣健）",
+          "value": "RONGJIANLU（陆荣健）",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p001_b00004",
+              "source_type": "paragraph",
+              "page": 1,
+              "region": [
+                114.12,
+                280.49,
+                349.44,
+                317.88
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "RONGJIANLU（陆荣健）"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "direction": {
+          "raw_value": "持股比例被动稀释及股份减少",
+          "value": "decrease",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p001_b00005",
+              "source_type": "paragraph",
+              "page": 1,
+              "region": [
+                90,
+                350.69,
+                511.32,
+                388.08
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "持股比例被动稀释及股份减少"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "shares_before": {
+          "raw_value": "21,743,750股",
+          "value": 21743750,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p007_b00004",
+              "source_type": "paragraph",
+              "page": 7,
+              "region": [
+                90,
+                163.49,
+                505.2,
+                198.89
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "21,743,750"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "shares_after": {
+          "raw_value": "18,728,733股",
+          "value": 18728733,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p007_b00012",
+              "source_type": "paragraph",
+              "page": 7,
+              "region": [
+                90,
+                467.69,
+                511.32,
+                479.69
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "18,728,733"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "ratio_before": {
+          "raw_value": "6.0440%",
+          "value": 6.044,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p007_b00004",
+              "source_type": "paragraph",
+              "page": 7,
+              "region": [
+                90,
+                163.49,
+                505.2,
+                198.89
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "6.0440%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": "Disclosed against IPO total share capital 359,760,000; denominator_base is not represented separately in v0.3."
+        },
+        "ratio_after": {
+          "raw_value": "4.9999%",
+          "value": 4.9999,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p007_b00012",
+              "source_type": "paragraph",
+              "page": 7,
+              "region": [
+                90,
+                467.69,
+                511.32,
+                479.69
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "4.9999%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital",
+          "note": "Disclosed against current total share capital 374,578,653."
+        },
+        "change_shares": {
+          "raw_value": "3,015,017股",
+          "value": 3015017,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p007_b00010",
+              "source_type": "paragraph",
+              "page": 7,
+              "region": [
+                90,
+                374.09,
+                505.32,
+                432.89
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "3,015,017"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": "D5 annotation rule: absolute magnitude; direction carries sign."
+        },
+        "method": {
+          "raw_value": "集中竞价及大宗交易",
+          "value": "集中竞价及大宗交易",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p014_b00028",
+              "source_type": "cell",
+              "page": 14,
+              "region": [
+                203.8,
+                483.54,
+                508.2,
+                546.44
+              ],
+              "table_id": "d31d2e428_p014_t001",
+              "cell_ref": "r9c2",
+              "quote": "集中竞价及大宗交易"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        },
+        "change_date": {
+          "raw_value": "2026年8月7日至2026年9月28日",
+          "value": "2026-08-07/2026-09-28",
+          "unit": "date_range",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d31d2e428_p007_b00009",
+              "source_type": "paragraph",
+              "page": 7,
+              "region": [
+                114,
+                350.69,
+                505.32,
+                362.69
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "2026年8月7日至2026年9月28日"
+            }
+          ],
+          "standardized": true,
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "rule",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-10-01T20:30:00+08:00",
+    "duration_ms": 0,
+    "errors": [],
+    "note": "D5 Gold annotation"
+  }
+}

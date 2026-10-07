@@ -1,0 +1,64 @@
+{
+  "checked_on": "2026-10-02",
+  "source_commit": "2eb871394dd946b1c23225b24c4d00e2bf4bd7e1",
+  "batch": "runs/batch-20261002T120859",
+  "core": {
+    "documents": 30,
+    "zero_error_documents": 30,
+    "format_compliance": 1,
+    "gold_extracted_fields": 437,
+    "value_hits": 437,
+    "field_accuracy": 1,
+    "wrong_filled": 0
+  },
+  "adversarial": {
+    "inputs": 5,
+    "completed": 1,
+    "failed": 4,
+    "failure_paths": [
+      {
+        "case": "award-empty-text",
+        "ok": false,
+        "status": null,
+        "skip_reason": null,
+        "validation_errors": null
+      },
+      {
+        "case": "note-unknown",
+        "ok": false,
+        "status": "skipped",
+        "skip_reason": "无法推断事件类型",
+        "validation_errors": null
+      },
+      {
+        "case": "pledge-corrupt",
+        "ok": false,
+        "status": "skipped",
+        "skip_reason": "非评测样例格式（JSON 无 pages[].text 且非解析块格式）",
+        "validation_errors": null
+      },
+      {
+        "case": "pledge-empty",
+        "ok": false,
+        "status": null,
+        "skip_reason": null,
+        "validation_errors": null
+      },
+      {
+        "case": "pledge-scan-degrade",
+        "ok": true,
+        "status": null,
+        "skip_reason": null,
+        "validation_errors": 1
+      }
+    ]
+  },
+  "manifest_alignment": {
+    "our_cases": 30,
+    "combined_cases": 30,
+    "missing": [],
+    "extra": [],
+    "result": "MATCH"
+  },
+  "batch_result": "PASS"
+}
