@@ -1,0 +1,668 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261007T084701-award_contract-9186",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702",
+    "file_name": "bid-010.pdf",
+    "file_sha256": "74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 2,
+      "blocks": [
+        {
+          "block_id": "d74b68381_p001_b00001",
+          "page": 1,
+          "role": "HEADER",
+          "text": "证券代码：301500 证券简称：飞南资源 公告编号：2026-053",
+          "text_raw": "证券代码：301500证券简称：飞南资源公告编号：2026-053",
+          "region": [
+            90,
+            44.38,
+            503.88,
+            56.38
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "广东飞南资源利用股份有限公司关于中标项目的公告",
+          "text_raw": "广东飞南资源利用股份有限公司关于中标项目的公告",
+          "region": [
+            185.16,
+            79.95,
+            409.9,
+            127.1
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+          "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+          "region": [
+            114,
+            172.9,
+            505.19,
+            184.9
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "假记载、误导性陈述或重大遗漏。",
+          "text_raw": "假记载、误导性陈述或重大遗漏。",
+          "region": [
+            90,
+            196.3,
+            270.6,
+            208.3
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "广东飞南资源利用股份有限公司（以下简称公司）于近日收到招标方发来的",
+          "text_raw": "广东飞南资源利用股份有限公司（以下简称公司）于近日收到招标方发来的",
+          "region": [
+            114,
+            256.18,
+            505.32,
+            268.18
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "《中标函》，具体情况如下：",
+          "text_raw": "《中标函》，具体情况如下：",
+          "region": [
+            90,
+            279.58,
+            246,
+            291.58
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00007",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、中标项目主要内容",
+          "text_raw": "一、中标项目主要内容",
+          "region": [
+            114,
+            310.66,
+            234.48,
+            322.66
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00008",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（一）招标方：国内从事通信设备的知名企业。因招标方信息涉及商业机密，",
+          "text_raw": "（一）招标方：国内从事通信设备的知名企业。因招标方信息涉及商业机密，",
+          "region": [
+            114,
+            341.86,
+            511.32,
+            353.86
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "根据《深圳证券交易所创业板股票上市规则》和公司《信息披露管理制度》等相关规定，豁免披露招标方的具体信息。该招标方具有良好的信用，具备履约能力，履约风险可控。公司与招标方不存在关联关系。",
+          "text_raw": "根据《深圳证券交易所创业板股票上市规则》和公司《信息披露管理制度》等相关规定，豁免披露招标方的具体信息。该招标方具有良好的信用，具备履约能力，履约风险可控。公司与招标方不存在关联关系。",
+          "region": [
+            90,
+            365.14,
+            511.32,
+            423.82
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00010",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（二）中标方：广东飞南资源利用股份有限公司",
+          "text_raw": "（二）中标方：广东飞南资源利用股份有限公司",
+          "region": [
+            114,
+            443.02,
+            366,
+            455.02
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00011",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（三）中标内容：公司中标招标方销毁类报废品处置项目，项目期限为2026",
+          "text_raw": "（三）中标内容：公司中标招标方销毁类报废品处置项目，项目期限为2026",
+          "region": [
+            114,
+            474.22,
+            505.32,
+            486.22
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "年10月至2028年9月，报废品主要包括废线路板、废机柜插框、废电子零件（含芯片、光模块等）、废模块、废锂电池、废储能系统、废资料等，项目期限内中标报废品数量预计约2.1万吨。在履行过程中如出现质量、交付等相关问题，招标方保留调整公司份额的权利。",
+          "text_raw": "年10月至2028年9月，报废品主要包括废线路板、废机柜插框、废电子零件（含芯片、光模块等）、废模块、废锂电池、废储能系统、废资料等，项目期限内中标报废品数量预计约2.1万吨。在履行过程中如出现质量、交付等相关问题，招标方保留调整公司份额的权利。",
+          "region": [
+            90,
+            497.5,
+            505.32,
+            579.58
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00013",
+          "page": 1,
+          "role": "SECTION",
+          "text": "二、审议程序",
+          "text_raw": "二、审议程序",
+          "region": [
+            114,
+            598.66,
+            186.24,
+            610.66
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00014",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次中标项目在公司经营层审批的权限范围内，无需提交公司董事会或股东",
+          "text_raw": "本次中标项目在公司经营层审批的权限范围内，无需提交公司董事会或股东",
+          "region": [
+            114,
+            629.86,
+            505.32,
+            641.86
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00015",
+          "page": 1,
+          "role": "BODY",
+          "text": "会审议。",
+          "text_raw": "会审议。",
+          "region": [
+            90,
+            653.14,
+            138,
+            665.14
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00016",
+          "page": 1,
+          "role": "SECTION",
+          "text": "三、对公司的影响",
+          "text_raw": "三、对公司的影响",
+          "region": [
+            114,
+            684.34,
+            210.36,
+            696.34
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00017",
+          "page": 1,
+          "role": "BODY",
+          "text": "公司主要从事有色金属类危险废物处置及再生资源回收利用业务，本次中标",
+          "text_raw": "公司主要从事有色金属类危险废物处置及再生资源回收利用业务，本次中标",
+          "region": [
+            114,
+            715.42,
+            505.32,
+            727.42
+          ]
+        },
+        {
+          "block_id": "d74b68381_p001_b00018",
+          "page": 1,
+          "role": "BODY",
+          "text": "项目属于公司日常经营范围的业务，可以拓展公司再生资源的原料采购来源，具",
+          "text_raw": "项目属于公司日常经营范围的业务，可以拓展公司再生资源的原料采购来源，具",
+          "region": [
+            90,
+            738.82,
+            505.32,
+            750.82
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00001",
+          "page": 2,
+          "role": "BODY",
+          "text": "体收运报废品数量及公司支付的采购金额以实际收运为准。本次中标项目如能顺利实施，预计将对公司整体经营产生积极影响，不会对公司业务的独立性造成影响，短期内不会对公司的经营业绩产生重大影响。",
+          "text_raw": "体收运报废品数量及公司支付的采购金额以实际收运为准。本次中标项目如能顺利实施，预计将对公司整体经营产生积极影响，不会对公司业务的独立性造成影响，短期内不会对公司的经营业绩产生重大影响。",
+          "region": [
+            90,
+            73.78,
+            505.32,
+            132.46
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00002",
+          "page": 2,
+          "role": "SECTION",
+          "text": "四、风险提示",
+          "text_raw": "四、风险提示",
+          "region": [
+            114,
+            151.66,
+            186.24,
+            163.66
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "1、截至本公告披露日，公司已收到中标函，尚未签订正式合同，正式合同",
+          "text_raw": "1、截至本公告披露日，公司已收到中标函，尚未签订正式合同，正式合同",
+          "region": [
+            114,
+            182.74,
+            505.2,
+            194.74
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00004",
+          "page": 2,
+          "role": "BODY",
+          "text": "签署时间及履约安排尚存在不确定性。本次中标项目涉及的合同条款等内容均以正式签订的合同为准。",
+          "text_raw": "签署时间及履约安排尚存在不确定性。本次中标项目涉及的合同条款等内容均以正式签订的合同为准。",
+          "region": [
+            90,
+            206.14,
+            505.32,
+            241.42
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "2、本次中标项目在履行过程中如遇到不可预见的或不可抗力等因素的影响，",
+          "text_raw": "2、本次中标项目在履行过程中如遇到不可预见的或不可抗力等因素的影响，",
+          "region": [
+            114,
+            260.62,
+            511.32,
+            272.62
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00006",
+          "page": 2,
+          "role": "BODY",
+          "text": "有可能会导致项目无法全部履行或终止的风险。",
+          "text_raw": "有可能会导致项目无法全部履行或终止的风险。",
+          "region": [
+            90,
+            284.02,
+            342,
+            296.02
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "3、公司将根据相关规定和中标项目后续实施进展情况及时履行信息披露义",
+          "text_raw": "3、公司将根据相关规定和中标项目后续实施进展情况及时履行信息披露义",
+          "region": [
+            114,
+            315.1,
+            505.32,
+            327.1
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00008",
+          "page": 2,
+          "role": "BODY",
+          "text": "务。敬请广大投资者谨慎决策，注意投资风险。",
+          "text_raw": "务。敬请广大投资者谨慎决策，注意投资风险。",
+          "region": [
+            90,
+            338.38,
+            342,
+            350.38
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00009",
+          "page": 2,
+          "role": "SECTION",
+          "text": "五、报备文件",
+          "text_raw": "五、报备文件",
+          "region": [
+            114,
+            369.58,
+            186.24,
+            381.58
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00010",
+          "page": 2,
+          "role": "BODY",
+          "text": "1、中标函。",
+          "text_raw": "1、中标函。",
+          "region": [
+            114,
+            400.78,
+            180,
+            412.78
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00011",
+          "page": 2,
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114,
+            431.86,
+            174.24,
+            443.86
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00012",
+          "page": 2,
+          "role": "BODY",
+          "text": "广东飞南资源利用股份有限公司董事会",
+          "text_raw": "广东飞南资源利用股份有限公司董事会",
+          "region": [
+            301.32,
+            482.62,
+            505.32,
+            494.62
+          ]
+        },
+        {
+          "block_id": "d74b68381_p002_b00013",
+          "page": 2,
+          "role": "BODY",
+          "text": "2026年9月23日",
+          "text_raw": "2026年9月23日",
+          "region": [
+            412.32,
+            506.02,
+            505.32,
+            518.02
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "广东飞南资源利用股份有限公司",
+          "value": "广东飞南资源利用股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b68381_p001_b00010",
+              "page": 1,
+              "region": [
+                114,
+                443.02,
+                366,
+                455.02
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中标方：广东飞南资源利用股份有限公司"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_disclosed",
+          "provenance": [
+            {
+              "block_id": "d74b68381_p001_b00008",
+              "page": 1,
+              "region": [
+                114,
+                341.86,
+                511.32,
+                353.86
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "因招标方信息涉及商业机密"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "销毁类报废品处置项目",
+          "value": "销毁类报废品处置项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b68381_p001_b00011",
+              "page": 1,
+              "region": [
+                114,
+                474.22,
+                505.32,
+                486.22
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "公司中标招标方销毁类报废品处置项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "项目期限为2026年10月至2028年9月",
+          "value": "2026年10月至2028年9月",
+          "unit": "text",
+          "standardized": false,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b68381_p001_b00011",
+              "page": 1,
+              "region": [
+                114,
+                474.22,
+                505.32,
+                486.22
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "项目期限为2026"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "尚未签订正式合同",
+          "value": "false",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b68381_p002_b00003",
+              "page": 2,
+              "region": [
+                114,
+                182.74,
+                505.2,
+                194.74
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "尚未签订正式合同"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": "公司已收到中标函",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b68381_p002_b00003",
+              "page": 2,
+              "region": [
+                114,
+                182.74,
+                505.2,
+                194.74
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "公司已收到中标函"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": "原文为份额调整权，非价格调价条款，判定为可调需复核［口径修正：出处讲份额/股权调整而非价格调整→not_mentioned］"
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-07T08:47:01.434Z",
+    "duration_ms": 1,
+    "code_version": "292d252b",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

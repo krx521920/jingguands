@@ -1,0 +1,1564 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261007T084852-pledge-7d6c",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+    "file_name": "D4-PLD-008.pdf",
+    "file_sha256": "74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 3,
+      "blocks": [
+        {
+          "block_id": "d74b527f3_p001_b00001",
+          "page": 1,
+          "role": "HEADER",
+          "text": "证券代码：603261 证券简称：立航科技 公告编号：2026-054",
+          "text_raw": "证券代码：603261证券简称：立航科技公告编号：2026-054",
+          "region": [
+            89.88,
+            65.81,
+            505.32,
+            80.05
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "成都立航科技股份有限公司关于控股股东部分股份质押的公告",
+          "text_raw": "成都立航科技股份有限公司关于控股股东部分股份质押的公告",
+          "region": [
+            162.12,
+            113.33,
+            433.08,
+            162.53
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带责任。",
+          "text_raw": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带责任。",
+          "region": [
+            96,
+            196.14,
+            502.8,
+            226.99
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "重要内容提示：",
+          "text_raw": "重要内容提示：",
+          "region": [
+            114,
+            266.09,
+            198.24,
+            278.09
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "截至本公告披露日，成都立航科技股份有限公司（以下简称“公司”）",
+          "text_raw": "截至本公告披露日，成都立航科技股份有限公司（以下简称“公司”）",
+          "region": [
+            113.88,
+            297.29,
+            505.44,
+            310.01
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "控股股东刘随阳先生持有公司股份总数为 49,355,164 股，占公司总股本的63.68%，本次控股股东刘随阳先生质押公司股份数量为3,875,260股，占其持有公司股份数量的7.85%，占公司总股本的5.00%。",
+          "text_raw": "控股股东刘随阳先生持有公司股份总数为49,355,164股，占公司总股本的63.68%，本次控股股东刘随阳先生质押公司股份数量为3,875,260股，占其持有公司股份数量的7.85%，占公司总股本的5.00%。",
+          "region": [
+            89.88,
+            320.69,
+            505.44,
+            381.48
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": ".控股股东刘随阳先生及其一致行动人成都瑞联嘉信企业管理咨询合伙企",
+          "text_raw": ".控股股东刘随阳先生及其一致行动人成都瑞联嘉信企业管理咨询合伙企",
+          "region": [
+            113.88,
+            398.69,
+            505.43,
+            411.41
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "业（有限合伙）（以下简称“瑞联嘉信”）合计持有公司股份总数为51,155,164股，占公司总股本的66.00%。本次质押后，刘随阳先生及其一致行动人控制的股份累计质押19,534,520股，占持有公司股份总数的38.19%，占公司总股本的25.20%。",
+          "text_raw": "业（有限合伙）（以下简称“瑞联嘉信”）合计持有公司股份总数为51,155,164股，占公司总股本的66.00%。本次质押后，刘随阳先生及其一致行动人控制的股份累计质押19,534,520股，占持有公司股份总数的38.19%，占公司总股本的25.20%。",
+          "region": [
+            89.88,
+            422.09,
+            505.44,
+            506.28
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次股份质押，系控股股东刘随阳先生为履行与李奔签署的《股份转让",
+          "text_raw": "本次股份质押，系控股股东刘随阳先生为履行与李奔签署的《股份转让",
+          "region": [
+            113.88,
+            523.49,
+            505.44,
+            536.21
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00010",
+          "page": 1,
+          "role": "BODY",
+          "text": "协议》项下交易安排，将本次协议转让标的股份质押给受让方，具体内容详见公司于2026年9月15日在上海证券交易所网站(www.sse.com.cn)披露的相关公告。本次股份质押不会导致公司控制权发生变更，不会对公司生产经营、公司治理等产生不利影响。",
+          "text_raw": "协议》项下交易安排，将本次协议转让标的股份质押给受让方，具体内容详见公司于2026年9月15日在上海证券交易所网站(www.sse.com.cn)披露的相关公告。本次股份质押不会导致公司控制权发生变更，不会对公司生产经营、公司治理等产生不利影响。",
+          "region": [
+            89.88,
+            546.89,
+            505.44,
+            629.09
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00011",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、本次股份质押基本情况",
+          "text_raw": "一、本次股份质押基本情况",
+          "region": [
+            113.88,
+            648.29,
+            257.88,
+            660.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "公司于近日获悉控股股东刘随阳先生所持有本公司的部分股份被质押，具",
+          "text_raw": "公司于近日获悉控股股东刘随阳先生所持有本公司的部分股份被质押，具",
+          "region": [
+            113.88,
+            679.49,
+            505.44,
+            691.49
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "体情况如下。1、本次股份质押基本情况",
+          "text_raw": "体情况如下。1、本次股份质押基本情况",
+          "region": [
+            89.88,
+            702.89,
+            239.88,
+            748.08
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00001",
+          "page": 2,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            42.6,
+            64.29,
+            84.9,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00002",
+          "page": 2,
+          "role": "BODY",
+          "text": "是否为控股股东",
+          "text_raw": "是否为控股股东",
+          "region": [
+            84.9,
+            64.29,
+            127.4,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "本次质押股数（股）",
+          "text_raw": "本次质押股数（股）",
+          "region": [
+            127.4,
+            64.29,
+            177.05,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00004",
+          "page": 2,
+          "role": "BODY",
+          "text": "是否为限售股",
+          "text_raw": "是否为限售股",
+          "region": [
+            177.05,
+            64.29,
+            212.45,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "是否补充质押",
+          "text_raw": "是否补充质押",
+          "region": [
+            212.45,
+            64.29,
+            247.93,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00006",
+          "page": 2,
+          "role": "BODY",
+          "text": "质押起始日",
+          "text_raw": "质押起始日",
+          "region": [
+            247.93,
+            64.29,
+            311.7,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "质押到期日",
+          "text_raw": "质押到期日",
+          "region": [
+            311.7,
+            64.29,
+            361.3,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00008",
+          "page": 2,
+          "role": "BODY",
+          "text": "质权人",
+          "text_raw": "质权人",
+          "region": [
+            361.3,
+            64.29,
+            410.9,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00009",
+          "page": 2,
+          "role": "BODY",
+          "text": "占其所持股份比例",
+          "text_raw": "占其所持股份比例",
+          "region": [
+            410.9,
+            64.29,
+            453.45,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00010",
+          "page": 2,
+          "role": "BODY",
+          "text": "占公司总股本比例",
+          "text_raw": "占公司总股本比例",
+          "region": [
+            453.45,
+            64.29,
+            495.95,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00011",
+          "page": 2,
+          "role": "BODY",
+          "text": "质押融资资金用途",
+          "text_raw": "质押融资资金用途",
+          "region": [
+            495.95,
+            64.29,
+            552.65,
+            111.59
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00012",
+          "page": 2,
+          "role": "BODY",
+          "text": "刘随阳",
+          "text_raw": "刘随阳",
+          "region": [
+            42.6,
+            111.59,
+            84.9,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00013",
+          "page": 2,
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            84.9,
+            111.59,
+            127.4,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00014",
+          "page": 2,
+          "role": "BODY",
+          "text": "3,875,260",
+          "text_raw": "3,875,260",
+          "region": [
+            127.4,
+            111.59,
+            177.05,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00015",
+          "page": 2,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            177.05,
+            111.59,
+            212.45,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00016",
+          "page": 2,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            212.45,
+            111.59,
+            247.93,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00017",
+          "page": 2,
+          "role": "BODY",
+          "text": "2026.09.23",
+          "text_raw": "2026.09.23",
+          "region": [
+            247.93,
+            111.59,
+            311.7,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00018",
+          "page": 2,
+          "role": "BODY",
+          "text": "办理完股份解除质押登记之日",
+          "text_raw": "办理完股份解除质押登记之日",
+          "region": [
+            311.7,
+            111.59,
+            361.3,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00019",
+          "page": 2,
+          "role": "BODY",
+          "text": "李奔",
+          "text_raw": "李奔",
+          "region": [
+            361.3,
+            111.59,
+            410.9,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00020",
+          "page": 2,
+          "role": "BODY",
+          "text": "7.85%",
+          "text_raw": "7.85%",
+          "region": [
+            410.9,
+            111.59,
+            453.45,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00021",
+          "page": 2,
+          "role": "BODY",
+          "text": "5.00%",
+          "text_raw": "5.00%",
+          "region": [
+            453.45,
+            111.59,
+            495.95,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00022",
+          "page": 2,
+          "role": "BODY",
+          "text": "履行股份协议转让交易约定，为协议转让项下标的股份进行质押。",
+          "text_raw": "履行股份协议转让交易约定，为协议转让项下标的股份进行质押。",
+          "region": [
+            495.95,
+            111.59,
+            552.65,
+            205.69
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00023",
+          "page": 2,
+          "role": "TITLE",
+          "text": "2、本次股份质押，系控股股东刘随阳先生为履行与李奔签署的《股份转让",
+          "text_raw": "2、本次股份质押，系控股股东刘随阳先生为履行与李奔签署的《股份转让",
+          "region": [
+            113.88,
+            225.65,
+            505.44,
+            239.64
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00024",
+          "page": 2,
+          "role": "BODY",
+          "text": "协议》项下交易安排，将本次协议转让标的股份质押给受让方，具体内容详见公司于2026年9月15日在上海证券交易所网站(www.sse.com.cn)披露的相关公告。",
+          "text_raw": "协议》项下交易安排，将本次协议转让标的股份质押给受让方，具体内容详见公司于2026年9月15日在上海证券交易所网站(www.sse.com.cn)披露的相关公告。",
+          "region": [
+            89.88,
+            249.05,
+            505.44,
+            307.85
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00025",
+          "page": 2,
+          "role": "BODY",
+          "text": "3、股东累计质押股份情况",
+          "text_raw": "3、股东累计质押股份情况",
+          "region": [
+            113.88,
+            327.05,
+            251.88,
+            341.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00026",
+          "page": 2,
+          "role": "BODY",
+          "text": "截至公告披露日，公司控股股东刘随阳先生及其一致行动人累计质押股份",
+          "text_raw": "截至公告披露日，公司控股股东刘随阳先生及其一致行动人累计质押股份",
+          "region": [
+            113.88,
+            358.25,
+            505.44,
+            370.25
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00027",
+          "page": 2,
+          "role": "BODY",
+          "text": "情况如下：",
+          "text_raw": "情况如下：",
+          "region": [
+            89.88,
+            381.65,
+            149.88,
+            393.65
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00028",
+          "page": 2,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            42.6,
+            407.39,
+            97.4,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00029",
+          "page": 2,
+          "role": "BODY",
+          "text": "持股数量（股）",
+          "text_raw": "持股数量（股）",
+          "region": [
+            97.4,
+            407.39,
+            155.45,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00030",
+          "page": 2,
+          "role": "BODY",
+          "text": "持股比例(%)",
+          "text_raw": "持股比例(%)",
+          "region": [
+            155.45,
+            407.39,
+            189.9,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00031",
+          "page": 2,
+          "role": "BODY",
+          "text": "本次质押前累计质押数量",
+          "text_raw": "本次质押前累计质押数量",
+          "region": [
+            189.9,
+            407.39,
+            247.93,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00032",
+          "page": 2,
+          "role": "BODY",
+          "text": "本次质押后累计质押数量（股）",
+          "text_raw": "本次质押后累计质押数量（股）",
+          "region": [
+            247.93,
+            407.39,
+            306,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00033",
+          "page": 2,
+          "role": "BODY",
+          "text": "占其所持股份比例(%)",
+          "text_raw": "占其所持股份比例(%)",
+          "region": [
+            306,
+            407.39,
+            349.15,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00034",
+          "page": 2,
+          "role": "BODY",
+          "text": "占公司总股本比例(%)",
+          "text_raw": "占公司总股本比例(%)",
+          "region": [
+            349.15,
+            407.39,
+            403.9,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00035",
+          "page": 2,
+          "role": "BODY",
+          "text": "已质押股份情况",
+          "text_raw": "已质押股份情况",
+          "region": [
+            403.9,
+            407.39,
+            482,
+            439.09
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00036",
+          "page": 2,
+          "role": "BODY",
+          "text": "未质押股份情况",
+          "text_raw": "未质押股份情况",
+          "region": [
+            482,
+            407.39,
+            552.65,
+            439.09
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00037",
+          "page": 2,
+          "role": "BODY",
+          "text": "已质押股份中限售股份数量",
+          "text_raw": "已质押股份中限售股份数量",
+          "region": [
+            403.9,
+            439.09,
+            442.85,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00038",
+          "page": 2,
+          "role": "BODY",
+          "text": "已质押股份中冻结股份数量",
+          "text_raw": "已质押股份中冻结股份数量",
+          "region": [
+            442.85,
+            439.09,
+            482,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00039",
+          "page": 2,
+          "role": "BODY",
+          "text": "未质押股份中限售股份数量",
+          "text_raw": "未质押股份中限售股份数量",
+          "region": [
+            482,
+            439.09,
+            517.7,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00040",
+          "page": 2,
+          "role": "BODY",
+          "text": "未质押股份中冻结股份数量",
+          "text_raw": "未质押股份中冻结股份数量",
+          "region": [
+            517.7,
+            439.09,
+            552.65,
+            533.19
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00041",
+          "page": 2,
+          "role": "BODY",
+          "text": "刘随阳",
+          "text_raw": "刘随阳",
+          "region": [
+            42.6,
+            533.19,
+            97.4,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00042",
+          "page": 2,
+          "role": "BODY",
+          "text": "49,355,164",
+          "text_raw": "49,355,164",
+          "region": [
+            97.4,
+            533.19,
+            155.45,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00043",
+          "page": 2,
+          "role": "BODY",
+          "text": "63.68",
+          "text_raw": "63.68",
+          "region": [
+            155.45,
+            533.19,
+            189.9,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00044",
+          "page": 2,
+          "role": "BODY",
+          "text": "15,659,260",
+          "text_raw": "15,659,260",
+          "region": [
+            189.9,
+            533.19,
+            247.93,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00045",
+          "page": 2,
+          "role": "BODY",
+          "text": "19,534,520",
+          "text_raw": "19,534,520",
+          "region": [
+            247.93,
+            533.19,
+            306,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00046",
+          "page": 2,
+          "role": "BODY",
+          "text": "39.58",
+          "text_raw": "39.58",
+          "region": [
+            306,
+            533.19,
+            349.15,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00047",
+          "page": 2,
+          "role": "BODY",
+          "text": "25.20",
+          "text_raw": "25.20",
+          "region": [
+            349.15,
+            533.19,
+            403.9,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00048",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            403.9,
+            533.19,
+            442.85,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00049",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            442.85,
+            533.19,
+            482,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00050",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            482,
+            533.19,
+            517.7,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00051",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            517.7,
+            533.19,
+            552.65,
+            557.24
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00052",
+          "page": 2,
+          "role": "BODY",
+          "text": "瑞联嘉信",
+          "text_raw": "瑞联嘉信",
+          "region": [
+            42.6,
+            557.24,
+            97.4,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00053",
+          "page": 2,
+          "role": "BODY",
+          "text": "1,800,000",
+          "text_raw": "1,800,000",
+          "region": [
+            97.4,
+            557.24,
+            155.45,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00054",
+          "page": 2,
+          "role": "BODY",
+          "text": "2.32",
+          "text_raw": "2.32",
+          "region": [
+            155.45,
+            557.24,
+            189.9,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00055",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            189.9,
+            557.24,
+            247.93,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00056",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            247.93,
+            557.24,
+            306,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00057",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            306,
+            557.24,
+            349.15,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00058",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            349.15,
+            557.24,
+            403.9,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00059",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            403.9,
+            557.24,
+            442.85,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00060",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            442.85,
+            557.24,
+            482,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00061",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            482,
+            557.24,
+            517.7,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00062",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            517.7,
+            557.24,
+            552.65,
+            581.29
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00063",
+          "page": 2,
+          "role": "BODY",
+          "text": "合计",
+          "text_raw": "合计",
+          "region": [
+            42.6,
+            581.29,
+            97.4,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00064",
+          "page": 2,
+          "role": "BODY",
+          "text": "51,155,164",
+          "text_raw": "51,155,164",
+          "region": [
+            97.4,
+            581.29,
+            155.45,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00065",
+          "page": 2,
+          "role": "BODY",
+          "text": "66.00",
+          "text_raw": "66.00",
+          "region": [
+            155.45,
+            581.29,
+            189.9,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00066",
+          "page": 2,
+          "role": "BODY",
+          "text": "15,659,260",
+          "text_raw": "15,659,260",
+          "region": [
+            189.9,
+            581.29,
+            247.93,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00067",
+          "page": 2,
+          "role": "BODY",
+          "text": "19,534,520",
+          "text_raw": "19,534,520",
+          "region": [
+            247.93,
+            581.29,
+            306,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00068",
+          "page": 2,
+          "role": "BODY",
+          "text": "38.19",
+          "text_raw": "38.19",
+          "region": [
+            306,
+            581.29,
+            349.15,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00069",
+          "page": 2,
+          "role": "BODY",
+          "text": "25.20",
+          "text_raw": "25.20",
+          "region": [
+            349.15,
+            581.29,
+            403.9,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00070",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            403.9,
+            581.29,
+            442.85,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00071",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            442.85,
+            581.29,
+            482,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00072",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            482,
+            581.29,
+            517.7,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00073",
+          "page": 2,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            517.7,
+            581.29,
+            552.65,
+            600.04
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00074",
+          "page": 2,
+          "role": "SECTION",
+          "text": "二、其他情况说明",
+          "text_raw": "二、其他情况说明",
+          "region": [
+            113.88,
+            619.97,
+            209.88,
+            631.97
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00075",
+          "page": 2,
+          "role": "BODY",
+          "text": "本次质押不会导致公司控制权发生变更，不会对公司生产经营、公司治理",
+          "text_raw": "本次质押不会导致公司控制权发生变更，不会对公司生产经营、公司治理",
+          "region": [
+            113.88,
+            651.17,
+            505.44,
+            663.17
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00076",
+          "page": 2,
+          "role": "BODY",
+          "text": "等产生不利影响。公司将持续关注控股股东及其一致行动人的股票质押情况及质押风险情况，并按照相关规定及时履行信息披露，敬请广大投资者注意投资风险。",
+          "text_raw": "等产生不利影响。公司将持续关注控股股东及其一致行动人的股票质押情况及质押风险情况，并按照相关规定及时履行信息披露，敬请广大投资者注意投资风险。",
+          "region": [
+            89.88,
+            674.57,
+            505.44,
+            733.37
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p002_b00077",
+          "page": 2,
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            113.88,
+            752.57,
+            173.88,
+            764.57
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p003_b00001",
+          "page": 3,
+          "role": "BODY",
+          "text": "成都立航科技股份有限公司董事会",
+          "text_raw": "成都立航科技股份有限公司董事会",
+          "region": [
+            318.48,
+            100.97,
+            498.48,
+            112.97
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p003_b00002",
+          "page": 3,
+          "role": "BODY",
+          "text": "2026年9月25日",
+          "text_raw": "2026年9月25日",
+          "region": [
+            371.28,
+            128.33,
+            462.48,
+            142.2
+          ]
+        },
+        {
+          "block_id": "d74b527f3_p003_b00003",
+          "page": 3,
+          "role": "BODY",
+          "text": "报备文件1、中国证券登记结算有限责任公司证券质押登记证明。",
+          "text_raw": "报备文件1、中国证券登记结算有限责任公司证券质押登记证明。",
+          "region": [
+            101.88,
+            249.17,
+            395.88,
+            294.36
+          ]
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "质押",
+          "value": "pledge",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p001_b00002",
+              "page": 1,
+              "region": [
+                162.12,
+                113.33,
+                433.08,
+                162.53
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "关于控股股东部分股份质押的公告"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "刘随阳",
+          "value": "刘随阳",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00012",
+              "page": 2,
+              "region": [
+                42.6,
+                111.59,
+                84.9,
+                205.69
+              ],
+              "table_id": "d74b527f3_p002_t001",
+              "cell_ref": "r2c1",
+              "source_type": "cell",
+              "quote": "刘随阳"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "李奔",
+          "value": "李奔",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00019",
+              "page": 2,
+              "region": [
+                361.3,
+                111.59,
+                410.9,
+                205.69
+              ],
+              "table_id": "d74b527f3_p002_t001",
+              "cell_ref": "r2c8",
+              "source_type": "cell",
+              "quote": "李奔"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "3,875,260",
+          "value": 3875260,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00014",
+              "page": 2,
+              "region": [
+                127.4,
+                111.59,
+                177.05,
+                205.69
+              ],
+              "table_id": "d74b527f3_p002_t001",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "3,875,260"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "19,534,520",
+          "value": 19534520,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00045",
+              "page": 2,
+              "region": [
+                247.93,
+                533.19,
+                306,
+                557.24
+              ],
+              "table_id": "d74b527f3_p002_t002",
+              "cell_ref": "r3c5",
+              "source_type": "cell",
+              "quote": "19,534,520"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "7.85%",
+          "value": 7.85,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00020",
+              "page": 2,
+              "region": [
+                410.9,
+                111.59,
+                453.45,
+                205.69
+              ],
+              "table_id": "d74b527f3_p002_t001",
+              "cell_ref": "r2c9",
+              "source_type": "cell",
+              "quote": "7.85%"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "5.00%",
+          "value": 5,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00021",
+              "page": 2,
+              "region": [
+                453.45,
+                111.59,
+                495.95,
+                205.69
+              ],
+              "table_id": "d74b527f3_p002_t001",
+              "cell_ref": "r2c10",
+              "source_type": "cell",
+              "quote": "5.00%"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "39.58",
+          "value": 39.58,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00046",
+              "page": 2,
+              "region": [
+                306,
+                533.19,
+                349.15,
+                557.24
+              ],
+              "table_id": "d74b527f3_p002_t002",
+              "cell_ref": "r3c6",
+              "source_type": "cell",
+              "quote": "39.58"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "25.20",
+          "value": 25.2,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00047",
+              "page": 2,
+              "region": [
+                349.15,
+                533.19,
+                403.9,
+                557.24
+              ],
+              "table_id": "d74b527f3_p002_t002",
+              "cell_ref": "r3c7",
+              "source_type": "cell",
+              "quote": "25.20"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026.09.23",
+          "value": "2026-09-23",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00017",
+              "page": 2,
+              "region": [
+                247.93,
+                111.59,
+                311.7,
+                205.69
+              ],
+              "table_id": "d74b527f3_p002_t001",
+              "cell_ref": "r2c6",
+              "source_type": "cell",
+              "quote": "2026.09.23"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "办理完股份解除质押登记之日",
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "needs_review",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00018",
+              "page": 2,
+              "region": [
+                311.7,
+                111.59,
+                361.3,
+                205.69
+              ],
+              "table_id": "d74b527f3_p002_t001",
+              "cell_ref": "r2c7",
+              "source_type": "cell",
+              "quote": "办理完股份解除质押登记之日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "履行股份协议转让交易约定，为协议转让项下标的股份进行质押。",
+          "value": "履行股份协议转让交易约定，为协议转让项下标的股份进行质押。",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d74b527f3_p002_b00022",
+              "page": 2,
+              "region": [
+                495.95,
+                111.59,
+                552.65,
+                205.69
+              ],
+              "table_id": "d74b527f3_p002_t001",
+              "cell_ref": "r2c11",
+              "source_type": "cell",
+              "quote": "履行股份协议转让交易约定，为协议转让项下标的股份进行质押。"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": true,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": "［口径修正：出处为报备/备查文件落款日期而非公告披露日→not_mentioned］"
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-07T08:48:52.476Z",
+    "duration_ms": 1,
+    "code_version": "292d252b",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

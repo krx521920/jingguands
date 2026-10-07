@@ -497,6 +497,24 @@ function repairQuotes(events, parseDoc, inputText, repairs) {
             }
           }
         }
+        // 跨块重锚（D11 缺陷②修复）：quote 前缀在前块、后缀在引用块（如 AWD-002 工程名跨
+        // p001/p002 边界）——按最长后缀唯一命中重锚（后缀≥8 字），quote 改为块内后缀段。
+        for (let len = p.quote.length; len >= 8; len--) {
+          const suffix = p.quote.slice(-len)
+          const hits = allBlocks.filter((b) => b.text_raw && b.text_raw.includes(suffix))
+          if (hits.length === 1) {
+            const b = hits[0]
+            repairs.push(`[出处修复] events[${i}].fields.${name}.provenance[${pi}]: quote 跨块（前缀在他块），按最长后缀唯一命中重锚至 ${b.block_id}（${suffix.slice(0, 20)}…）`)
+            p.block_id = b.block_id
+            p.page = b.page
+            p.region = b.region ?? null
+            p.table_id = b.table_ref?.table_id ?? null
+            p.cell_ref = b.table_ref?.cell_ref ?? null
+            p.source_type = b.source_type ?? null
+            p.quote = suffix
+            return
+          }
+        }
       })
     }
   })
@@ -796,7 +814,48 @@ function applyGoldConventions(events, inputText, parseDoc, postErrors, repairs =
             f.note = `${f.note ?? ''}［口径归一：${f.value}→${def[2]}（原文简称定义，质押主体跟简称）］`
             f.value = def[2]
           }
+          // P2b（D11 缺陷①修复·对称面）：值=定义简称而字段自身引文含全称 → 按引文归全称
+          // （PLD-009 E03 坏变体：value="有格投资" 而 quote="有格创业投资有限公司"）。
+          // 双约束防误伤（PLD-010 教训：gold 本就要简称"中信银行宁波分行"，引文片段
+          // "宁波分行"不是全称）：①全称须以机构后缀结尾；②首字与值相同且值为全称的
+          // 子序列（有格投资⊂有格创业投资有限公司✓；宁波分行首字≠中信…✗）。
+          else {
+            const defShort = shortDefs.find((dm) => dm[2] === f.value)
+            const ownQuote = String(f.provenance?.[0]?.quote ?? '')
+            if (defShort !== undefined && ownQuote.length >= 4) {
+              let full = null
+              for (let len = defShort[1].length; len >= 4; len--) {
+                const s = defShort[1].slice(-len)
+                if (ownQuote.includes(s)) { full = s; break }
+              }
+              const subseq = (short, long) => { let i = 0; for (const ch of long) if (ch === short[i]) i++; return i === short.length }
+              const orgSuffix = /(股份有限公司|有限公司|有限责任公司|公司|企业|集团|银行|分行|中心|院|所)$/
+              if (full !== null && full !== f.value && orgSuffix.test(full)
+                && full[0] === f.value[0] && f.value.length < full.length && subseq(f.value, full)) {
+                f.note = `${f.note ?? ''}［口径归一：${f.value}→${full}（值取简称而引文为全称，按引文归一）］`
+                f.value = full
+              }
+            }
+          }
         }
+      }
+    }
+
+    // P2c（D11 缺陷①修复·守卫）：质押事件"本次质押"字段 quote 含"原质押"语境
+    // （解除质押段在描述被解除的原质押量，如"本次原质押给…的18,564,000股已解除质押"）
+    // → 不得认证为新质押：降 needs_review（候选值与出处保留，不静默、不编造）。
+    for (const ev of plEvents) {
+      const dir = ev.fields?.direction?.value
+      if (dir === 'release') continue // 解押方向事件本就描述原质押，属正常
+      const f = ev.fields?.pledged_shares_this_time
+      if (f?.status !== 'extracted') continue
+      const q = String(f.provenance?.[0]?.quote ?? f.raw_value ?? '')
+      if (/原质押/.test(q) && /解除|已解除|解除质押/.test(String(ev.notes ?? '') + q + String(ev.fields?.direction?.raw_value ?? ''))) {
+        f.status = 'needs_review'
+        f.note = `${f.note ?? ''}［守卫：quote 属解除质押段（原质押描述），不得认证为新质押——D11 缺陷①修复］`
+      } else if (/原质押给.{0,30}已解除/.test(q.replace(/\s/g, ''))) {
+        f.status = 'needs_review'
+        f.note = `${f.note ?? ''}［守卫：quote 属解除质押段（原质押描述），不得认证为新质押——D11 缺陷①修复］`
       }
     }
 
