@@ -1,0 +1,2179 @@
+{
+  "schema_version": "fang-d11-regression-results/1",
+  "checked_on": "2026-10-07",
+  "baseline_date": "2026-10-07",
+  "test_kind": "post_firsttest_public_regression",
+  "fresh_model_calls": 0,
+  "official_firsttest_overwritten": false,
+  "summary": {
+    "direct": {
+      "total": 46,
+      "pass": 46,
+      "fail": 0,
+      "conflict_positive": 3,
+      "conflict_negative": 43,
+      "false_positive": 0,
+      "false_negative": 0,
+      "note": "固定公开用例的计数，不估计真实业务泛化率；insufficient被强判也是错误。"
+    },
+    "wei_builtin": {
+      "total": 46,
+      "pass": 25,
+      "fail": 21,
+      "conflict_positive": 3,
+      "conflict_negative": 43,
+      "false_positive": 6,
+      "false_negative": 2,
+      "note": "固定公开用例的计数，不估计真实业务泛化率；insufficient被强判也是错误。"
+    },
+    "wei_rules_plugin": {
+      "total": 46,
+      "pass": 46,
+      "fail": 0,
+      "conflict_positive": 3,
+      "conflict_negative": 43,
+      "false_positive": 0,
+      "false_negative": 0,
+      "note": "固定公开用例的计数，不估计真实业务泛化率；insufficient被强判也是错误。"
+    },
+    "D8": {
+      "total": 16,
+      "pass": 16,
+      "B_plugin_agrees": true
+    },
+    "B_attribution_adapter_pass": true,
+    "label_independence_checked": 46,
+    "input_immutability_checked": 46,
+    "computed_records_dropped_by_wei_bridge": 5,
+    "invalid_evidence_accepted_by_evaluator": true,
+    "missing_calculation_accepted_by_evaluator": true,
+    "all_integration_gates_pass": false
+  },
+  "d9_direct": [
+    {
+      "case_id": "D11-U01",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "EXPLICIT_UNIT_RECONCILED",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 1
+    },
+    {
+      "case_id": "D11-U02",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "conflict",
+      "code": "SAME_BASIS_CONFLICT",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-U03",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "VALUE_EVIDENCE_MISMATCH",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-U04",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "UNIT_DIMENSION_MISMATCH",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E01",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "EVENT_IDENTITY_UNPROVEN",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E02",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "EVENT_IDENTITY_UNPROVEN",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E03",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "SUBJECT_SCOPE_UNPROVEN",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V01",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "conflict",
+      "code": "SAME_BASIS_CONFLICT",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V02",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V03",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "EVIDENCE_NOT_VERIFIED",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V04",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "EVIDENCE_NOT_VERIFIED",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V05",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "A_FIELD_BINDING_UNCONFIRMED",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-C01",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "FX_BASIS_MISSING",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-C02",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "EXPLICIT_FX_RECONCILED",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 1
+    },
+    {
+      "case_id": "D11-C03",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "FX_BASIS_MISSING",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-T01",
+      "category": "tax",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "TAX_RATE_MISSING",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-T02",
+      "category": "tax",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "EXPLICIT_TAX_RECONCILED",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 1
+    },
+    {
+      "case_id": "D11-D01",
+      "category": "denominator",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "DENOMINATOR_DIFFERENT",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-D02",
+      "category": "denominator",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "DENOMINATOR_UNPROVEN",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-S01",
+      "category": "cumulative",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "CUMULATIVE_VS_SINGLE",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-P01",
+      "category": "time",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "TIME_BASIS_DIFFERENT",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-P02",
+      "category": "time",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "OBSERVATION_TIME_UNPROVEN",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-R01",
+      "category": "correction",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "CORRECTION_LINK_OR_ORDER_MISSING",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-R02",
+      "category": "correction",
+      "source_kind": "public_controlled",
+      "expected": "restated",
+      "actual": "restated",
+      "code": "EXPLICIT_LINKED_CORRECTION",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-B01",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-B02",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V06",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "conflict",
+      "code": "SAME_BASIS_CONFLICT",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V07",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "MISSING_VALUE",
+      "pass": true,
+      "expected_code_match": true,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-001",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "category": "aggregate_detail",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "AGGREGATE_DETAIL_RECONCILED",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 1
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "category": "aggregate_detail",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "AGGREGATE_DETAIL_RECONCILED",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 1
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "category": "partial_coverage",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "SINGLE_SIDE_DISCLOSURE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "category": "partial_coverage",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "SINGLE_SIDE_DISCLOSURE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "category": "reverse_match",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "VERIFIED_TRANSFER_COUNTERPARTIES",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "category": "reverse_match",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "VERIFIED_TRANSFER_COUNTERPARTIES",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "category": "scope_cumulative",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "CUMULATIVE_VS_SINGLE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "category": "scope_cumulative",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "CUMULATIVE_VS_SINGLE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "category": "ratio_denominator",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "DENOMINATOR_DIFFERENT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "category": "tax_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "TAX_METADATA_BINDING",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "category": "tax_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "TAX_METADATA_BINDING",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "category": "currency_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "ISSUER_DISCLOSED_EQUIVALENT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "category": "currency_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "ISSUER_DISCLOSED_EQUIVALENT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "category": "insufficient",
+      "source_kind": "existing_public",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "MISSING_VALUE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "category": "insufficient",
+      "source_kind": "existing_public",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "NO_COMPARISON_CONTEXT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    }
+  ],
+  "wei_builtin": [
+    {
+      "case_id": "D11-U01",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "UNIT_SCALE",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-U02",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "explainable_difference",
+      "code": "UNIT_SCALE",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-U03",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-U04",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E01",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E02",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E03",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "REVERSE_BITE",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V01",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "explainable_difference",
+      "code": "ROUNDING",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V02",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "conflict",
+      "code": "TRUE_CONFLICT",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V03",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V04",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V05",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-C01",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "explainable_difference",
+      "code": "CURRENCY_SCOPE",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-C02",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "conflict",
+      "code": "TRUE_CONFLICT",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-C03",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "conflict",
+      "code": "TRUE_CONFLICT",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-T01",
+      "category": "tax",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "conflict",
+      "code": "TRUE_CONFLICT",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-T02",
+      "category": "tax",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "conflict",
+      "code": "TRUE_CONFLICT",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-D01",
+      "category": "denominator",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-D02",
+      "category": "denominator",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-S01",
+      "category": "cumulative",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "SCOPE_CUMULATIVE",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-P01",
+      "category": "time",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "conflict",
+      "code": "TRUE_CONFLICT",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-P02",
+      "category": "time",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-R01",
+      "category": "correction",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "restated",
+      "code": "RESTATEMENT_EXPLICIT",
+      "pass": false,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-R02",
+      "category": "correction",
+      "source_kind": "public_controlled",
+      "expected": "restated",
+      "actual": "restated",
+      "code": "RESTATEMENT_EXPLICIT",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-B01",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-B02",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V06",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "conflict",
+      "code": "TRUE_CONFLICT",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V07",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "NO_VALUE",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-001",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "SAME_ENTITY_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "category": "aggregate_detail",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "AGGREGATE_DETAIL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "category": "aggregate_detail",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "AGGREGATE_DETAIL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "category": "partial_coverage",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "PARTIAL_COVERAGE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "category": "partial_coverage",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "PARTIAL_COVERAGE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "category": "reverse_match",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "REVERSE_BITE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "category": "reverse_match",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "REVERSE_BITE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "category": "scope_cumulative",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "SCOPE_CUMULATIVE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "category": "scope_cumulative",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "SCOPE_CUMULATIVE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "category": "ratio_denominator",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "RATIO_DENOMINATOR",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "category": "tax_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "TAX_SCOPE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "category": "tax_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "TAX_SCOPE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "category": "currency_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "CURRENCY_SCOPE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "category": "currency_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "CURRENCY_SCOPE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "category": "insufficient",
+      "source_kind": "existing_public",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "NO_VALUE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "category": "insufficient",
+      "source_kind": "existing_public",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "NO_SUBJECT_CONTEXT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    }
+  ],
+  "wei_rules_plugin": [
+    {
+      "case_id": "D11-U01",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:EXPLICIT_UNIT_RECONCILED",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-U02",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "conflict",
+      "code": "plugin:SAME_BASIS_CONFLICT",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-U03",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:VALUE_EVIDENCE_MISMATCH",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-U04",
+      "category": "unit",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:UNIT_DIMENSION_MISMATCH",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E01",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:EVENT_IDENTITY_UNPROVEN",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E02",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:EVENT_IDENTITY_UNPROVEN",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-E03",
+      "category": "alignment",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:SUBJECT_SCOPE_UNPROVEN",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V01",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "conflict",
+      "code": "plugin:SAME_BASIS_CONFLICT",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V02",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:QUALIFIED_AMOUNT_NOT_EXACT",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V03",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:EVIDENCE_NOT_VERIFIED",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V04",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:EVIDENCE_NOT_VERIFIED",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V05",
+      "category": "evidence",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:A_FIELD_BINDING_UNCONFIRMED",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-C01",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:FX_BASIS_MISSING",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-C02",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:EXPLICIT_FX_RECONCILED",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-C03",
+      "category": "currency",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:FX_BASIS_MISSING",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-T01",
+      "category": "tax",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:TAX_RATE_MISSING",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-T02",
+      "category": "tax",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:EXPLICIT_TAX_RECONCILED",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-D01",
+      "category": "denominator",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:DENOMINATOR_DIFFERENT",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-D02",
+      "category": "denominator",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:DENOMINATOR_UNPROVEN",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-S01",
+      "category": "cumulative",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:CUMULATIVE_VS_SINGLE",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-P01",
+      "category": "time",
+      "source_kind": "public_controlled",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:TIME_BASIS_DIFFERENT",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-P02",
+      "category": "time",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:OBSERVATION_TIME_UNPROVEN",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-R01",
+      "category": "correction",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:CORRECTION_LINK_OR_ORDER_MISSING",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-R02",
+      "category": "correction",
+      "source_kind": "public_controlled",
+      "expected": "restated",
+      "actual": "restated",
+      "code": "plugin:EXPLICIT_LINKED_CORRECTION",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-B01",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "plugin:SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-B02",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "plugin:SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V06",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "conflict",
+      "actual": "conflict",
+      "code": "plugin:SAME_BASIS_CONFLICT",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D11-V07",
+      "category": "verification",
+      "source_kind": "public_controlled",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:MISSING_VALUE",
+      "pass": true,
+      "expected_code_match": false,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-001",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "plugin:SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "plugin:SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "category": "corroboration",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "plugin:SAME_OBSERVATION_EQUAL",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "category": "aggregate_detail",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:AGGREGATE_PARTIAL_COVERAGE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "category": "aggregate_detail",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:AGGREGATE_DETAIL_RECONCILED",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "category": "partial_coverage",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:SINGLE_SIDE_DISCLOSURE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "category": "partial_coverage",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:SINGLE_SIDE_DISCLOSURE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "category": "reverse_match",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "plugin:VERIFIED_TRANSFER_COUNTERPARTIES",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "category": "reverse_match",
+      "source_kind": "existing_public",
+      "expected": "corroborated",
+      "actual": "corroborated",
+      "code": "plugin:VERIFIED_TRANSFER_COUNTERPARTIES",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "category": "scope_cumulative",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:CUMULATIVE_VS_SINGLE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "category": "scope_cumulative",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:CUMULATIVE_VS_SINGLE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "category": "ratio_denominator",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:DENOMINATOR_DIFFERENT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "category": "tax_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:TAX_METADATA_BINDING",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "category": "tax_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:TAX_METADATA_BINDING",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "category": "currency_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:ISSUER_DISCLOSED_EQUIVALENT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "category": "currency_scope",
+      "source_kind": "existing_public",
+      "expected": "explainable_difference",
+      "actual": "explainable_difference",
+      "code": "plugin:ISSUER_DISCLOSED_EQUIVALENT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "category": "insufficient",
+      "source_kind": "existing_public",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:MISSING_VALUE",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "category": "insufficient",
+      "source_kind": "existing_public",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "code": "plugin:NO_COMPARISON_CONTEXT",
+      "pass": true,
+      "expected_code_match": null,
+      "computed_count": 0
+    }
+  ],
+  "D8": [
+    {
+      "group_id": "D8-PAIR-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "expected": "related",
+      "actual": "related",
+      "pass": true,
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。"
+    },
+    {
+      "group_id": "D8-PAIR-002",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "expected": "related",
+      "actual": "related",
+      "pass": true,
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。"
+    },
+    {
+      "group_id": "D8-PAIR-003",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "expected": "related",
+      "actual": "related",
+      "pass": true,
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。"
+    },
+    {
+      "group_id": "D8-PAIR-004",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "expected": "related",
+      "actual": "related",
+      "pass": true,
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。"
+    },
+    {
+      "group_id": "D8-PAIR-005",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "explanation": "股票代码明确不同，按标的证券上的股权或质押事件分别保留。"
+    },
+    {
+      "group_id": "D8-PAIR-006",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "explanation": "股票代码明确不同，按标的证券上的股权或质押事件分别保留。"
+    },
+    {
+      "group_id": "D8-PAIR-007",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISTINCT_PROCUREMENT_IDENTITIES"
+      ],
+      "explanation": "每个候选对的采购主体与具体项目均不同，按中标合同粒度分别保留；公司代码本身不是项目编号。"
+    },
+    {
+      "group_id": "D8-PAIR-008",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "explanation": "股票代码明确不同，按标的证券上的股权或质押事件分别保留。"
+    },
+    {
+      "group_id": "D8-PAIR-009",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISTINCT_PROCUREMENT_IDENTITIES"
+      ],
+      "explanation": "每个候选对的采购主体与具体项目均不同，按中标合同粒度分别保留；公司代码本身不是项目编号。"
+    },
+    {
+      "group_id": "D8-PAIR-010",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "explanation": "双方披露的质押、股权变动或中标原子类型互不重合；更高层关联未推断。"
+    },
+    {
+      "group_id": "D8-PAIR-011",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "explanation": "双方披露的质押、股权变动或中标原子类型互不重合；更高层关联未推断。"
+    },
+    {
+      "group_id": "D8-PAIR-012",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "explanation": "双方披露的质押、股权变动或中标原子类型互不重合；更高层关联未推断。"
+    },
+    {
+      "group_id": "D8-PAIR-013",
+      "members": [
+        "pledge-scan-degrade",
+        "D6-AWD-001"
+      ],
+      "expected": "unknown",
+      "actual": "unknown",
+      "pass": true,
+      "reasons": [
+        "INSUFFICIENT_SIGNALS",
+        "SOURCE_OR_EVIDENCE_UNAVAILABLE"
+      ],
+      "explanation": "至少一侧输入或解析证据不可用；不得把缺失判成不同事件。"
+    },
+    {
+      "group_id": "D8-DEMO-001",
+      "members": [
+        "DEMO-EQC-HZ-RESULT",
+        "D5-EQC-004"
+      ],
+      "expected": "related",
+      "actual": "related",
+      "pass": true,
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。"
+    },
+    {
+      "group_id": "D8-DEMO-002",
+      "members": [
+        "DEMO-EQC-HZ-RESULT",
+        "D5-EQC-005"
+      ],
+      "expected": "related",
+      "actual": "related",
+      "pass": true,
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "explanation": "标的公司、签约日期、明确转让方集合与受让方一致，双侧签约和转让原文已定位；同交易可含不同主体动作，不自动合并金额。"
+    },
+    {
+      "group_id": "D8-DEMO-003",
+      "members": [
+        "D5-EQC-006",
+        "DEMO-EQC-HL-0930"
+      ],
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "pass": true,
+      "reasons": [
+        "DISJOINT_DILUTION_INTERVALS"
+      ],
+      "explanation": "同公司被动稀释的实际发生区间不相交；共享主体和持股数不代表同一事件。"
+    }
+  ],
+  "alignment_input_sources": {
+    "D5-EQC-001": "D11_frozen_envelope",
+    "D5-EQC-002": "D11_frozen_envelope",
+    "D5-EQC-003": "D11_frozen_envelope",
+    "D5-EQC-004": "D11_frozen_envelope",
+    "D5-EQC-005": "D11_frozen_envelope",
+    "D4-PLD-001": "D11_frozen_envelope",
+    "D4-PLD-002": "D11_frozen_envelope",
+    "D5-EQC-006": "D11_frozen_envelope",
+    "D5-EQC-007": "D11_frozen_envelope",
+    "D6-AWD-001": "D11_frozen_envelope",
+    "D6-AWD-002": "D11_frozen_envelope",
+    "D4-PLD-003": "D11_frozen_envelope",
+    "D4-PLD-004": "D11_frozen_envelope",
+    "D6-AWD-008": "D11_frozen_envelope",
+    "D6-AWD-009": "D11_frozen_envelope",
+    "D4-PLD-006": "D11_frozen_envelope",
+    "D4-PLD-008": "D11_frozen_envelope",
+    "D6-AWD-007": "D11_frozen_envelope",
+    "D5-EQC-009": "D11_frozen_envelope",
+    "D6-AWD-005": "D11_frozen_envelope",
+    "pledge-scan-degrade": "D11_frozen_envelope",
+    "DEMO-EQC-HZ-RESULT": "existing_public_D8_demo",
+    "DEMO-EQC-HL-0930": "existing_public_D8_demo"
+  },
+  "calculation_loss": [
+    {
+      "case_id": "D11-U01",
+      "direct_computed": [
+        {
+          "name": "unit_scale",
+          "result": null,
+          "used_source": "explicit_raw_units"
+        }
+      ],
+      "bridge_computed": [],
+      "verdict_unchanged": true
+    },
+    {
+      "case_id": "D11-C02",
+      "direct_computed": [
+        {
+          "name": "exchange_rate",
+          "result": "200",
+          "used_source": "explicit_scoped_rate"
+        }
+      ],
+      "bridge_computed": [],
+      "verdict_unchanged": true
+    },
+    {
+      "case_id": "D11-T02",
+      "direct_computed": [
+        {
+          "name": "tax_rate",
+          "result": "106",
+          "used_source": "explicit_same_event_tax_rate"
+        }
+      ],
+      "bridge_computed": [],
+      "verdict_unchanged": true
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "direct_computed": [
+        {
+          "name": "share_sum",
+          "result": "8427900",
+          "used_source": "D8_verified_transaction_seller_fields"
+        }
+      ],
+      "bridge_computed": [],
+      "verdict_unchanged": true
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "direct_computed": [
+        {
+          "name": "share_sum",
+          "result": "8427900",
+          "used_source": "D8_verified_transaction_seller_fields"
+        }
+      ],
+      "bridge_computed": [],
+      "verdict_unchanged": true
+    }
+  ],
+  "zong_score_compatibility": {
+    "direct": {
+      "exit_code": 0,
+      "result": "PASS",
+      "pass": 46,
+      "fail": 0
+    },
+    "builtin": {
+      "exit_code": 1,
+      "result": "FAIL",
+      "pass": 25,
+      "fail": 21
+    },
+    "plugin": {
+      "exit_code": 0,
+      "result": "PASS",
+      "pass": 46,
+      "fail": 0
+    }
+  },
+  "score_negative_probes": [
+    {
+      "kind": "invalid_evidence",
+      "expected": "FAIL",
+      "result": "PASS",
+      "pass": 46,
+      "fail": 0
+    },
+    {
+      "kind": "missing_calculation",
+      "expected": "FAIL",
+      "result": "PASS",
+      "pass": 46,
+      "fail": 0
+    }
+  ],
+  "B_attribution": {
+    "builtin": [
+      {
+        "group_id": "D11-U02",
+        "actual": "caliber_unit_scale",
+        "decided_by": "builtin:UNIT_SCALE_MISMATCH"
+      },
+      {
+        "group_id": "D11-V01",
+        "actual": "caliber_rounding",
+        "decided_by": "builtin:ROUNDING_TOLERANCE"
+      },
+      {
+        "group_id": "D11-C01",
+        "actual": "caliber_currency",
+        "decided_by": "builtin:CURRENCY_EQUIV"
+      }
+    ],
+    "plugin": [
+      {
+        "group_id": "D11-U02",
+        "actual": "true_conflict",
+        "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST"
+      },
+      {
+        "group_id": "D11-V01",
+        "actual": "true_conflict",
+        "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST"
+      },
+      {
+        "group_id": "D11-C01",
+        "actual": "insufficient_evidence",
+        "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "owner": "fang",
+      "path": "src_D9/attribution_D9.mjs",
+      "sha256": "4150576fa7911a297803bcdd80eef7fbbb0e5df551a5358c4f805f6a518bcd4f"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D8/matching_D8.mjs",
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d"
+    },
+    {
+      "owner": "delivery",
+      "path": "公开回归用例_D11.json",
+      "sha256": "42ca9790e27cf8c6b34eda3c10b1d0a97df1d97cef79a890599305803bd4019f"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D5-EQC-001.json",
+      "sha256": "32ed4bc84d955457f45d7709f360323ad1672fe16d292b238d6b089c9bd440d1"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D5/parse/D5-EQC-001.parse.json",
+      "sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D5-EQC-002.json",
+      "sha256": "2bdf9d636048582f5019912c51b1b0fcabc8cb633ec62dc4b1acda8864548219"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D5/parse/D5-EQC-002.parse.json",
+      "sha256": "3060a015349ff01ba2840c4049b96bb8aaed36cd41d7dfde0d3905f49c928dc6"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D5-EQC-003.json",
+      "sha256": "f7941f00f0511304508f77a1e15fd60744713129aa9fa2edf4d6d6149c1207c1"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D5/parse/D5-EQC-003.parse.json",
+      "sha256": "214bee892670158a6916dab6df63fdacae2a2ecf79415df609646bb1e09a60a2"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D5-EQC-004.json",
+      "sha256": "f2ead089c94b5613bd9253fbefe484f0b1a0a057c1f1f2455f7a4f99726e3b97"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D5/parse/D5-EQC-004.parse.json",
+      "sha256": "ad1242db5df6076f8524408b4cd554d6e46933823e144a9e4ba9b4e5f4c6c019"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D5-EQC-005.json",
+      "sha256": "84c0a42a447ccf468d44c6cd88d8a4716e492a4efcfb61a0187b9ed560c640bd"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D5/parse/D5-EQC-005.parse.json",
+      "sha256": "fa2cff4fc4de28f8511af98d580cb59f3d2487f0b8e397c75f71251aff577ce1"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D4-PLD-001.json",
+      "sha256": "325bbdb916ac2ba5a3fcc7b79dd89ba4d13c5ef053ba76bd388a8b0b28f7307e"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D4/parse/D4-PLD-001.parse.json",
+      "sha256": "8d7ba5f04cf6e3f26498da6b5cd643feaa37b99910579dcfecf1ae3029a348c3"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D4-PLD-009.json",
+      "sha256": "7db0fe717d7ee6316d646c8dbedc62f506946602f0ba61c24931ca7ddff260a8"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D4/parse/D4-PLD-009.parse.json",
+      "sha256": "e7b60326b0ccddc441e532596f836fb3499c9a2f3f55f730bb153f94a4758ac6"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D6-AWD-004.json",
+      "sha256": "959bbe0683a9ea18ac87225eb8d6ac139a54e8ed2e11962807fbacc210ccec0e"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D6/parse/D6-AWD-004.parse.json",
+      "sha256": "799806ba054b7e12b92ad532c130a5392041323550fa930614fe7b869e26f772"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D6-AWD-005.json",
+      "sha256": "8c666026b2af11f0860ef46a5fff25c5e0953a950c1a711a38bddf4f3160ba79"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D6/parse/D6-AWD-005.parse.json",
+      "sha256": "00d031c9a9f95bf21ebc307ee4a5dd00aa359ffdbc5523b0415d5eb44f5c6a74"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D6-AWD-007.json",
+      "sha256": "1ea1b98b1a33e67d3f28e8992bc7944e6b51a90426bb0ba362c1c0ad4a876c63"
+    },
+    {
+      "owner": "zhang",
+      "path": "sample/D6/parse/D6-AWD-007.parse.json",
+      "sha256": "fb9a11aa02cf3ac005ba0077afbfd520e1f87c566d28432e7558f6a7a76e95ce"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/pledge-scan-degrade.json",
+      "sha256": "0047f3cfe4efb394dac5fdab89f758c8d23b0d0e6a1e406e13706edeb50019b3"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/run_d9_rules.mjs",
+      "sha256": "474e798e3a63fe395086fc8207ca66bf166a63f75e8af9674bb026168ec9009e"
+    },
+    {
+      "owner": "zong",
+      "path": "evaluation/D9/score-rules.mjs",
+      "sha256": "ddecad8271f9b040b974d1ec44911356d38a91c0ad8629b566242fd8f9c65c8f"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D8/input_manifest_D8.json",
+      "sha256": "4bb629dacff13afde191ebf733df00ec0979d105f296b67263e2a45f229ca211"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D4-PLD-002.json",
+      "sha256": "233d46e0b16f02752433ef685151ecbdf79c680356ca10caeca837c150143621"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D5-EQC-006.json",
+      "sha256": "9aba639b613c44144f29e76dfc634995528f62141fbb88f9fd63683c7b73b739"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D5-EQC-007.json",
+      "sha256": "ba9ec988633daa12df413edadd37e0bb22500e75d3a8d0a03d6d1bd1f46e6d59"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D6-AWD-001.json",
+      "sha256": "2618a04767cff821bf2796439e72c5a851a7fc46d95316550d16c38a5768d607"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D6-AWD-002.json",
+      "sha256": "699b52ea9887dc4f490c960beaabffe245b41c3301917ca098b1574486a95fcf"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D4-PLD-003.json",
+      "sha256": "179ebcdfebad4ab2de15b02ab9ddf6ad9d3eb120450c8f2ee0a21b60bf996997"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D4-PLD-004.json",
+      "sha256": "857be1d99df250e439c73519ab355fc1da4d1562f29862a153d402e69a1b143e"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D6-AWD-008.json",
+      "sha256": "4a77be9708c89681fbb827e83464970767630a2dcaaf80cf2ee3f55c93d48929"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D6-AWD-009.json",
+      "sha256": "3303d5fa13b91c4260a1bbf81134a77ba9912a4613e672e7292fd99593899fc9"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D4-PLD-006.json",
+      "sha256": "ed0581d8fbb7d177cbbca91a5f4f268cb1149d45a6eff2490d0aea2824781fbe"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D4-PLD-008.json",
+      "sha256": "a6920423142bd9886d619cab41004e70d184479f85896c54640f718cf14715c8"
+    },
+    {
+      "owner": "wei",
+      "path": "evaluation/D11/firsttest-envelopes/D5-EQC-009.json",
+      "sha256": "fd695cedcf761886395c8210b8219908903253fd7a5431f6ffd57ff68f1655c2"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D8/envelopes_D8/DEMO-EQC-HZ-RESULT_D8.json",
+      "sha256": "3a4fca1d4d8c7298bdf9defb4989a3a8f3b9914a53fa31c4ce4c3ce75fcb61d0"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D8/envelopes_D8/DEMO-EQC-HL-0930_D8.json",
+      "sha256": "0df396853dc3450b075339cb49f6862cfa1e9b4b6d8fa5fcc5ff4fd90287fca4"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/verify_crossdoc.mjs",
+      "sha256": "266343d0fd518e6957147cfb98bbb5397f032d49555a2bf8cea2074cf273eb67"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/attribute_b.mjs",
+      "sha256": "4cd2250f3b889796002b5c3c1ba04746d728abccd1b27ce17e2cbba4516750ec"
+    }
+  ]
+}

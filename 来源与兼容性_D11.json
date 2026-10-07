@@ -1,0 +1,240 @@
+{
+  "schema_version": "fang-d11-sources/1",
+  "author": "方轩诚",
+  "checked_on": "2026-10-07",
+  "pins": {
+    "zongbowen": "af3f9561cea6224376acf4c8b7c6e9e89febdcdc",
+    "weiwenyu": "408415c717157ae791765006d59ec3c69c036f05",
+    "zhangzhibo": "4b46d44da9ba45f41cef780d3ac02df094a05505",
+    "cjh-workspace": "9240bd7b2671c98cd13fc65d0f4c00d82fcd6f65",
+    "feature/fang-rules": "ef8738e3140c49f7bbf14c3fabaceef577f52d74"
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "branch": "zongbowen",
+      "commit": "af3f9561cea6224376acf4c8b7c6e9e89febdcdc",
+      "path": "evaluation/D11/results/D11-首测报告.md",
+      "sha256": "5a2263ba153a136ea4a839ff8f5bddc0ce45410fee9200aa1b7cc01679b8f2b4",
+      "url": "https://github.com/krx521920/jingguands/blob/af3f9561cea6224376acf4c8b7c6e9e89febdcdc/evaluation/D11/results/D11-%E9%A6%96%E6%B5%8B%E6%8A%A5%E5%91%8A.md"
+    },
+    {
+      "id": "S02",
+      "branch": "zongbowen",
+      "commit": "af3f9561cea6224376acf4c8b7c6e9e89febdcdc",
+      "path": "evaluation/D11/results/single-doc-firsttest.json",
+      "sha256": "c8d814a04a9f78ea318b97b2225c73e6dbffc5da8e2a0990e53bd6ac77464108",
+      "url": "https://github.com/krx521920/jingguands/blob/af3f9561cea6224376acf4c8b7c6e9e89febdcdc/evaluation/D11/results/single-doc-firsttest.json"
+    },
+    {
+      "id": "S03",
+      "branch": "zongbowen",
+      "commit": "af3f9561cea6224376acf4c8b7c6e9e89febdcdc",
+      "path": "evaluation/D11/results/d8-firsttest-score.json",
+      "sha256": "638ac3bf930ea91e30c826587e15aad0b6ae9a6c7055405383f49f5a4366119f",
+      "url": "https://github.com/krx521920/jingguands/blob/af3f9561cea6224376acf4c8b7c6e9e89febdcdc/evaluation/D11/results/d8-firsttest-score.json"
+    },
+    {
+      "id": "S04",
+      "branch": "zongbowen",
+      "commit": "af3f9561cea6224376acf4c8b7c6e9e89febdcdc",
+      "path": "evaluation/D11/results/crossdoc-firsttest-score.json",
+      "sha256": "c25fd0cb53e1e0f13f37aef6ca35cfac1bc60d0d46bfd1a07c70a7e24320fb1e",
+      "url": "https://github.com/krx521920/jingguands/blob/af3f9561cea6224376acf4c8b7c6e9e89febdcdc/evaluation/D11/results/crossdoc-firsttest-score.json"
+    },
+    {
+      "id": "S05",
+      "branch": "zongbowen",
+      "commit": "af3f9561cea6224376acf4c8b7c6e9e89febdcdc",
+      "path": "evaluation/D11/results/d9-ft-score.json",
+      "sha256": "9fbba1dd102420424b74766401e0d31012768f379feecd3495fbb213b4ad5a7f",
+      "url": "https://github.com/krx521920/jingguands/blob/af3f9561cea6224376acf4c8b7c6e9e89febdcdc/evaluation/D11/results/d9-ft-score.json"
+    },
+    {
+      "id": "S06",
+      "branch": "zongbowen",
+      "commit": "af3f9561cea6224376acf4c8b7c6e9e89febdcdc",
+      "path": "evaluation/D9/score-rules.mjs",
+      "sha256": "ddecad8271f9b040b974d1ec44911356d38a91c0ad8629b566242fd8f9c65c8f",
+      "url": "https://github.com/krx521920/jingguands/blob/af3f9561cea6224376acf4c8b7c6e9e89febdcdc/evaluation/D9/score-rules.mjs"
+    },
+    {
+      "id": "S07",
+      "branch": "weiwenyu",
+      "commit": "408415c717157ae791765006d59ec3c69c036f05",
+      "path": "scripts/jingguan/run_d9_rules.mjs",
+      "sha256": "474e798e3a63fe395086fc8207ca66bf166a63f75e8af9674bb026168ec9009e",
+      "url": "https://github.com/krx521920/jingguands/blob/408415c717157ae791765006d59ec3c69c036f05/scripts/jingguan/run_d9_rules.mjs"
+    },
+    {
+      "id": "S08",
+      "branch": "weiwenyu",
+      "commit": "408415c717157ae791765006d59ec3c69c036f05",
+      "path": "scripts/jingguan/attribute_b.mjs",
+      "sha256": "4cd2250f3b889796002b5c3c1ba04746d728abccd1b27ce17e2cbba4516750ec",
+      "url": "https://github.com/krx521920/jingguands/blob/408415c717157ae791765006d59ec3c69c036f05/scripts/jingguan/attribute_b.mjs"
+    },
+    {
+      "id": "S09",
+      "branch": "weiwenyu",
+      "commit": "408415c717157ae791765006d59ec3c69c036f05",
+      "path": "evaluation/D11/README-firsttest-inputs.md",
+      "sha256": "36a6a230e4ae80b0784f75908b0495fff4778ada2e4d803d05424938c2df38e0",
+      "url": "https://github.com/krx521920/jingguands/blob/408415c717157ae791765006d59ec3c69c036f05/evaluation/D11/README-firsttest-inputs.md"
+    },
+    {
+      "id": "S10",
+      "branch": "weiwenyu",
+      "commit": "408415c717157ae791765006d59ec3c69c036f05",
+      "path": "evaluation/D11/firsttest-run-registry.json",
+      "sha256": "de6cb4517e502733ac51e8eff63c6af8fdda8342e3aa37ff237976c60d8feda4",
+      "url": "https://github.com/krx521920/jingguands/blob/408415c717157ae791765006d59ec3c69c036f05/evaluation/D11/firsttest-run-registry.json"
+    },
+    {
+      "id": "S11",
+      "branch": "weiwenyu",
+      "commit": "408415c717157ae791765006d59ec3c69c036f05",
+      "path": "runs/D11-cold-run-consistency.json",
+      "sha256": "66138fc8308f1e7c71f7d8e41470448c4de2c5655585804e23e9eb54780b138c",
+      "url": "https://github.com/krx521920/jingguands/blob/408415c717157ae791765006d59ec3c69c036f05/runs/D11-cold-run-consistency.json"
+    },
+    {
+      "id": "S12",
+      "branch": "weiwenyu",
+      "commit": "408415c717157ae791765006d59ec3c69c036f05",
+      "path": "docs/d12-perf-and-stability.md",
+      "sha256": "e7e240b017040ad1d7ebfcd2af50f379c210968e7dfd3bdb525d424ab3de55e3",
+      "url": "https://github.com/krx521920/jingguands/blob/408415c717157ae791765006d59ec3c69c036f05/docs/d12-perf-and-stability.md"
+    },
+    {
+      "id": "S13",
+      "branch": "zhangzhibo",
+      "commit": "4b46d44da9ba45f41cef780d3ac02df094a05505",
+      "path": "sample/D11/解析错误分类与最小复现.md",
+      "sha256": "a58f6d5ab561d255742362a61c98be7bab031e92f9b48563486c833f60770fb3",
+      "url": "https://github.com/krx521920/jingguands/blob/4b46d44da9ba45f41cef780d3ac02df094a05505/sample/D11/%E8%A7%A3%E6%9E%90%E9%94%99%E8%AF%AF%E5%88%86%E7%B1%BB%E4%B8%8E%E6%9C%80%E5%B0%8F%E5%A4%8D%E7%8E%B0.md"
+    },
+    {
+      "id": "S14",
+      "branch": "cjh-workspace",
+      "commit": "9240bd7b2671c98cd13fc65d0f4c00d82fcd6f65",
+      "path": "workspace/cjh/docs/D11_缺陷清单.md",
+      "sha256": "ae440b8f0ea7423527c6a7deecde167d27facfb1a2585f0a07b78576d48dbcad",
+      "url": "https://github.com/krx521920/jingguands/blob/9240bd7b2671c98cd13fc65d0f4c00d82fcd6f65/workspace/cjh/docs/D11_%E7%BC%BA%E9%99%B7%E6%B8%85%E5%8D%95.md"
+    },
+    {
+      "id": "S15",
+      "branch": "cjh-workspace",
+      "commit": "9240bd7b2671c98cd13fc65d0f4c00d82fcd6f65",
+      "path": "workspace/cjh/page_prototype/server.js",
+      "sha256": "e5f056a7c411aa56d730f4d0726cc8aaef3b55fccc182fa4b49c118d7619d436",
+      "url": "https://github.com/krx521920/jingguands/blob/9240bd7b2671c98cd13fc65d0f4c00d82fcd6f65/workspace/cjh/page_prototype/server.js"
+    },
+    {
+      "id": "S16",
+      "branch": "feature/fang-rules",
+      "commit": "ef8738e3140c49f7bbf14c3fabaceef577f52d74",
+      "path": "src_D9/attribution_D9.mjs",
+      "sha256": "4150576fa7911a297803bcdd80eef7fbbb0e5df551a5358c4f805f6a518bcd4f",
+      "url": "https://github.com/krx521920/jingguands/blob/ef8738e3140c49f7bbf14c3fabaceef577f52d74/src_D9/attribution_D9.mjs"
+    },
+    {
+      "id": "S17",
+      "branch": "feature/fang-rules",
+      "commit": "ef8738e3140c49f7bbf14c3fabaceef577f52d74",
+      "path": "src_D8/matching_D8.mjs",
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d",
+      "url": "https://github.com/krx521920/jingguands/blob/ef8738e3140c49f7bbf14c3fabaceef577f52d74/src_D8/matching_D8.mjs"
+    },
+    {
+      "id": "S18",
+      "branch": "zongbowen",
+      "commit": "af3f9561cea6224376acf4c8b7c6e9e89febdcdc",
+      "path": "evaluation/sealed/single/manifest.json",
+      "sha256": "b5e4f35253f9ab9af1bce6a239ca9df7990a3de1f8318ec8ad7ec22a4249aae9",
+      "url": "https://github.com/krx521920/jingguands/blob/af3f9561cea6224376acf4c8b7c6e9e89febdcdc/evaluation/sealed/single/manifest.json"
+    },
+    {
+      "id": "S19",
+      "branch": "weiwenyu",
+      "commit": "408415c717157ae791765006d59ec3c69c036f05",
+      "path": "runs/first-test-20261006130046-dry/d9-rules.json",
+      "sha256": "998a915f2d9b5888b8c7a2b8cfc469c7eca633ecc90d3abc229fafd9156d3edb",
+      "url": "https://github.com/krx521920/jingguands/blob/408415c717157ae791765006d59ec3c69c036f05/runs/first-test-20261006130046-dry/d9-rules.json"
+    },
+    {
+      "id": "S20",
+      "branch": "feature/fang-rules",
+      "commit": "ef8738e3140c49f7bbf14c3fabaceef577f52d74",
+      "path": "public_dev_D8/expanded_pairs_D8.json",
+      "sha256": "f40620854f813eea0c691c20be03161da1e8f2d38e3b17d7af39ec933e85717b",
+      "url": "https://github.com/krx521920/jingguands/blob/ef8738e3140c49f7bbf14c3fabaceef577f52d74/public_dev_D8/expanded_pairs_D8.json"
+    }
+  ],
+  "compatibility": {
+    "A_schema": "0.3 (仅读取，不改字段)",
+    "parse_schema": "evidence/0.9，原文SHA一致后使用",
+    "D8": "D8.2 document-alignment/0.2；same/different/unknown对应related/unrelated/unknown",
+    "D9": "D9.1五态；来源/事件/时点/单位/币种/税/分母/累计证据先验",
+    "D10": "verification-report/1.0原数据不改，17/17既有检查通过",
+    "Wei_B": "--matcher、--rules、--parses-map、--d9-enrich真实CLI调用；判定通过、5例computed丢失",
+    "Zong": "score-rules可读本报告；两种无效报告均被误判PASS，完整门禁失败",
+    "Chen": "检查server装配路径、D8第三态提示与既有D10投影测试；本轮未运行Web浏览器"
+  },
+  "counts": {
+    "delivery_files": 6,
+    "new_controlled": 28,
+    "existing_public_rules": 18,
+    "public_alignment_groups": 16,
+    "independent_positive_transactions": 2
+  },
+  "evidence_limits": {
+    "fresh_model_calls": 0,
+    "independent_new_blind_test": false,
+    "official_scores_changed": false,
+    "peer_code_changed": false,
+    "pushed": false,
+    "peer_label_review_pending": true,
+    "web_live_verified": false
+  },
+  "pending": [
+    "宗复核28条新构造预期；不预先称为团队Gold",
+    "魏修复内置回退及computed透传，宗加证据与计算门禁",
+    "魏/宗补首测输入-代码-评分版本映射与原日志缺口说明",
+    "陈空出处须给具体记录定位后再归责"
+  ],
+  "verification": {
+    "regression_result": "回归结果_D11.json",
+    "strict_all_exit_code": 1,
+    "strict_all_reason": "21个内置错判、5个计算记录丢失、评分器两种反例未拒绝；按红色基线如实交付",
+    "D10_check": "17/17",
+    "Wei_saved_defect_check": "PASS；已保存fixture/批次报告校验，不等于新冷跑"
+  },
+  "files": [
+    {
+      "path": "README_D11.md",
+      "sha256": "70f4d7c5d9c7a19fb941357c4828a76b35130d4620bc8d85ad88e221d9bdadb0",
+      "bytes": 3405
+    },
+    {
+      "path": "公开回归用例_D11.json",
+      "sha256": "42ca9790e27cf8c6b34eda3c10b1d0a97df1d97cef79a890599305803bd4019f",
+      "bytes": 311015
+    },
+    {
+      "path": "回归核验_D11.mjs",
+      "sha256": "20581c1b3c509202e9a36d9dfb000dd6d4682403d161eabcb9b1e401611f7d68",
+      "bytes": 12088
+    },
+    {
+      "path": "回归结果_D11.json",
+      "sha256": "69243d12fb59909f876b5c3adcbe7a6fd3361f4f57f1e6cebc96b7d00d002ce7",
+      "bytes": 62865
+    },
+    {
+      "path": "规则错误分类与判定_D11.md",
+      "sha256": "cc647f3e379a0fe30d326fad211acdd883072c1e5f87a4d7413c1e2928c82f20",
+      "bytes": 14853
+    }
+  ]
+}
