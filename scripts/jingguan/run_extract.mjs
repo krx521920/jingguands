@@ -175,12 +175,25 @@ async function callModel({ baseURL, model, apiKey, system, user, signal }) {
     response_format: { type: 'json_object' },
     temperature: 0,
   }
-  const doFetch = async (payload) => fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify(payload),
-    signal,
-  })
+  const doFetch = async (payload, attempt = 1) => {
+    // D12：单次调用 180 秒超时（AbortSignal 与外部 signal 合并）；超时/网络错误重试一次
+    const timeoutSignal = AbortSignal.timeout(180_000)
+    const sig = signal !== undefined ? AbortSignal.any([signal, timeoutSignal]) : timeoutSignal
+    try {
+      return await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify(payload),
+        signal: sig,
+      })
+    } catch (err) {
+      if (attempt === 1 && (err?.name === 'TimeoutError' || err?.name === 'AbortError' || err?.code === 'ECONNRESET' || err?.code === 'ETIMEDOUT' || err?.code === 'ECONNREFUSED')) {
+        console.log(`[重试] 模型调用${err?.name === 'TimeoutError' ? '超时' : '网络错误'}（${String(err?.message ?? err).slice(0, 80)}）——重试 1/1`)
+        return doFetch(payload, 2)
+      }
+      throw Object.assign(new Error(`模型调用失败（${err?.name ?? '网络'}）：${String(err?.message ?? err).slice(0, 300)}`), { cause: err })
+    }
+  }
   const started = Date.now()
   let res = await doFetch(body)
   let retriesWithoutResponseFormat = false

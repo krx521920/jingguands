@@ -32,7 +32,7 @@ const GOLD_MANIFEST = join(REPO_ROOT, 'corpus/zongbowen/dev/manifest.json')
 // ---------- 参数与文件收集 ----------
 
 function parseArgs(argv) {
-  const args = { files: [], mock: false, gold: false, goldManifest: null, cacheDir: null, noCache: false }
+  const args = { files: [], mock: false, gold: false, goldManifest: null, cacheDir: null, noCache: false, jobs: 1 }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--mock') args.mock = true
@@ -40,6 +40,7 @@ function parseArgs(argv) {
     else if (a === '--gold-manifest') args.goldManifest = argv[++i]
     else if (a === '--cache-dir') args.cacheDir = argv[++i] // D10 模型调用缓存（透传子进程）
     else if (a === '--no-cache') args.noCache = true // 清缓存重跑（旁路缓存，强制真实调用）
+    else if (a === '--jobs') args.jobs = Math.max(1, parseInt(argv[++i], 10) || 1) // D12 并发抽取（默认 1＝顺序，保留修前行为）
     else args.files.push(a)
   }
   return args
@@ -242,6 +243,7 @@ if (args.gold) {
 }
 
 const results = []
+const tasks = []
 for (const file of files) {
   const name = basename(file)
   const eventType = inferEventType(name)
@@ -279,13 +281,52 @@ for (const file of files) {
   if (args.mock) runArgs.push('--mock')
   if (args.cacheDir !== null) runArgs.push('--cache-dir', args.cacheDir)
   if (args.noCache) runArgs.push('--no-cache')
+  tasks.push({ caseId, eventType, name, runArgs, rawText })
+}
 
-  console.log(`\n===== ${caseId}（${eventType}）=====`)
-  const proc = spawnSync(process.execPath, [RUNNER, ...runArgs], { encoding: 'utf8' })
-  const out = (proc.stdout ?? '') + (proc.stderr ?? '')
+// ---------- 执行（D12：--jobs 并发；默认 1＝顺序 spawnSync，保留修前行为） ----------
+const t0 = Date.now()
+const runOutputs = new Array(tasks.length)
+if (args.jobs === 1) {
+  for (let i = 0; i < tasks.length; i++) {
+    const t = tasks[i]
+    console.log(`\n===== ${t.caseId}（${t.eventType}）=====`)
+    const s = Date.now()
+    const proc = spawnSync(process.execPath, [RUNNER, ...t.runArgs], { encoding: 'utf8' })
+    runOutputs[i] = { out: (proc.stdout ?? '') + (proc.stderr ?? ''), status: proc.status, ms: Date.now() - s }
+  }
+} else {
+  const { spawn } = await import('node:child_process')
+  const runOne = (t) => new Promise((resolve) => {
+    const s = Date.now()
+    const p = spawn(process.execPath, [RUNNER, ...t.runArgs], { encoding: 'utf8' })
+    let out = ''
+    p.stdout.on('data', (d) => { out += d })
+    p.stderr.on('data', (d) => { out += d })
+    p.on('close', (code) => {
+      console.log(`[完成:${args.jobs}并发] ${t.caseId} ${(Date.now() - s)}ms`)
+      resolve({ out, status: code, ms: Date.now() - s })
+    })
+    p.on('error', (err) => resolve({ out: String(err), status: 1, ms: Date.now() - s }))
+  })
+  let next = 0
+  const workers = Array.from({ length: Math.min(args.jobs, tasks.length) }, async () => {
+    while (next < tasks.length) {
+      const i = next++
+      console.log(`\n===== ${tasks[i].caseId}（${tasks[i].eventType}）=====`)
+      runOutputs[i] = await runOne(tasks[i])
+    }
+  })
+  await Promise.all(workers)
+}
+const totalRunMs = Date.now() - t0
+
+for (let i = 0; i < tasks.length; i++) {
+  const t = tasks[i]
+  const { out, status, ms } = runOutputs[i]
   const runIdMatch = out.match(/runs[\\/](\S+?)[\\/]events\.json/)
   const runId = runIdMatch?.[1] ?? null
-  const entry = { case: caseId, event_type: eventType, file: name, run_id: runId, ok: proc.status === 0 && runId !== null }
+  const entry = { case: t.caseId, event_type: t.eventType, file: t.name, run_id: runId, ok: status === 0 && runId !== null, duration_ms: ms }
   if (!entry.ok) entry.output_tail = out.split('\n').slice(-6).join('\n')
   if (runId !== null) {
     // 失败隔离：单文件产物损坏/不可读不得炸整批——按失败记录后继续
@@ -295,8 +336,8 @@ for (const file of files) {
       for (const ev of events.events ?? []) for (const fv of Object.values(ev.fields ?? {})) statusCount[fv.status] = (statusCount[fv.status] ?? 0) + 1
       entry.status_count = statusCount
       entry.validation_errors = events.run_meta?.errors?.length ?? 0
-      if (args.gold && goldMap.has(caseId)) {
-        const cmp = compareWithGold(events, goldMap.get(caseId).gold, rawText)
+      if (args.gold && goldMap.has(t.caseId)) {
+        const cmp = compareWithGold(events, goldMap.get(t.caseId).gold, t.rawText)
         entry.gold = cmp.metrics
         entry.gold_rows = cmp.rows.filter((r) => r.verdict !== 'MATCH')
       }
@@ -342,7 +383,7 @@ if (args.gold) {
   }
 }
 writeFileSync(join(batchDir, 'batch_report.md'), md, 'utf8')
-writeFileSync(join(batchDir, 'batch_report.json'), JSON.stringify({ stamp, mock: args.mock, results }, null, 2), 'utf8')
+writeFileSync(join(batchDir, 'batch_report.json'), JSON.stringify({ stamp, mock: args.mock, jobs: args.jobs, timing: { total_run_ms: totalRunMs, per_doc_ms: tasks.length > 0 ? Math.round(totalRunMs / tasks.length) : null, slowest_ms: runOutputs.length > 0 ? Math.max(...runOutputs.map((r) => r?.ms ?? 0)) : null }, results }, null, 2), 'utf8')
 console.log(`\n[汇总] 成功 ${okCount}/${results.length}，校验问题合计 ${errTotal}`)
 console.log(`[报告] runs/batch-${stamp}/batch_report.md`)
 if (errTotal > 0 || okCount < results.length) process.exit(1)
