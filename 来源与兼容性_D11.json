@@ -182,7 +182,7 @@
     "Chen": "检查server装配路径、D8第三态提示与既有D10投影测试；本轮未运行Web浏览器"
   },
   "counts": {
-    "delivery_files": 6,
+    "delivery_files": 7,
     "new_controlled": 28,
     "existing_public_rules": 18,
     "public_alignment_groups": 16,
@@ -201,7 +201,8 @@
     "宗复核28条新构造预期；不预先称为团队Gold",
     "魏修复内置回退及computed透传，宗加证据与计算门禁",
     "魏/宗补首测输入-代码-评分版本映射与原日志缺口说明",
-    "陈空出处须给具体记录定位后再归责"
+    "陈空出处须给具体记录定位后再归责",
+    "F1书面回复已补：第4项held_shares/holder_shares文字异议待宗勘误及签署表登记；不标全项签署完成。"
   ],
   "verification": {
     "regression_result": "回归结果_D11.json",
@@ -213,8 +214,8 @@
   "files": [
     {
       "path": "README_D11.md",
-      "sha256": "70f4d7c5d9c7a19fb941357c4828a76b35130d4620bc8d85ad88e221d9bdadb0",
-      "bytes": 3405
+      "sha256": "d960839ba652ac3bdccdc1be6d9a85f2994f4de0c43d1b068de28bea9e934702",
+      "bytes": 3992
     },
     {
       "path": "公开回归用例_D11.json",
@@ -232,9 +233,120 @@
       "bytes": 62865
     },
     {
+      "path": "契约v0.3逐项确认_D11.md",
+      "sha256": "88a1b3ad376dc6253d32900cec34c67245b419fdc141959302d7f91f2bfc8bcb",
+      "bytes": 5439
+    },
+    {
       "path": "规则错误分类与判定_D11.md",
       "sha256": "cc647f3e379a0fe30d326fad211acdd883072c1e5f87a4d7413c1e2928c82f20",
       "bytes": 14853
     }
-  ]
+  ],
+  "contract_signoff_supplement": {
+    "record": "契约v0.3逐项确认_D11.md",
+    "date": "2026-10-07",
+    "respondent": "方轩诚",
+    "status": "five_confirmed_one_documentation_objection_pending_evaluator",
+    "confirmed_items": [
+      1,
+      2,
+      3,
+      5,
+      6
+    ],
+    "objection_item": 4,
+    "objection": "宗签署表held_shares与实际Schema及实现holder_shares不一致；按现行完整枚举保留实现，待宗勘误登记。",
+    "evaluator_registered": false,
+    "business_code_changed": false,
+    "regression_rerun": false,
+    "sources": [
+      {
+        "branch": "zongbowen",
+        "commit": "db876a6a827aef6150ec6fdfce4a4df4f4601daa",
+        "path": "evaluation/integration/D1-freeze-decision.md",
+        "sha256": "78859aec9509efea776b7a9532e184ace60ad6dc838dbd032f1bbc71597335dd",
+        "url": "https://github.com/krx521920/jingguands/blob/db876a6a827aef6150ec6fdfce4a4df4f4601daa/evaluation/integration/D1-freeze-decision.md"
+      },
+      {
+        "branch": "zongbowen",
+        "commit": "db876a6a827aef6150ec6fdfce4a4df4f4601daa",
+        "path": "evaluation/integration/待办汇总-发队友.md",
+        "sha256": "3dd9d72761060bf50efc88c332c2c7ecb307563358b14b9451b592874275cd5f",
+        "url": "https://github.com/krx521920/jingguands/blob/db876a6a827aef6150ec6fdfce4a4df4f4601daa/evaluation/integration/%E5%BE%85%E5%8A%9E%E6%B1%87%E6%80%BB-%E5%8F%91%E9%98%9F%E5%8F%8B.md"
+      },
+      {
+        "branch": "weiwenyu",
+        "commit": "d9e266c5b9678bb66a3435944223935a09c5a60e",
+        "path": "interface/event-envelope.schema.json",
+        "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96",
+        "url": "https://github.com/krx521920/jingguands/blob/d9e266c5b9678bb66a3435944223935a09c5a60e/interface/event-envelope.schema.json"
+      },
+      {
+        "branch": "weiwenyu",
+        "commit": "d9e266c5b9678bb66a3435944223935a09c5a60e",
+        "path": "interface/README.md",
+        "sha256": "36cd21ee9ad3f5f1b5c0f37f83102a3302bdedc2c3be9be259d14879026f29f9",
+        "url": "https://github.com/krx521920/jingguands/blob/d9e266c5b9678bb66a3435944223935a09c5a60e/interface/README.md"
+      },
+      {
+        "branch": "feature/fang-rules",
+        "commit": "81b3215c1f231ffb667e06644fb2ff082c0b464f",
+        "path": "src_D9/attribution_D9.mjs",
+        "sha256": "4150576fa7911a297803bcdd80eef7fbbb0e5df551a5358c4f805f6a518bcd4f",
+        "url": "https://github.com/krx521920/jingguands/blob/81b3215c1f231ffb667e06644fb2ff082c0b464f/src_D9/attribution_D9.mjs"
+      }
+    ],
+    "compatibility_checks": {
+      "holder_shares_accepted": true,
+      "held_shares_rejected": [
+        "$.denominator: 必须是 [\"holder_shares\",\"total_share_capital\",\"net_assets\",\"other\",null] 之一，实际 \"held_shares\""
+      ],
+      "full_status_enum": [
+        "extracted",
+        "not_disclosed",
+        "not_applicable",
+        "not_mentioned",
+        "unreadable",
+        "needs_review"
+      ],
+      "full_unit_enum": [
+        "shares",
+        "cny",
+        "percent",
+        "date",
+        "date_range",
+        "text",
+        "count"
+      ],
+      "full_denominator_enum": [
+        "holder_shares",
+        "total_share_capital",
+        "net_assets",
+        "other",
+        null
+      ],
+      "frozen_31_envelope_denominator_counts": {
+        "holder_shares": 30,
+        "total_share_capital": 60
+      }
+    },
+    "preserved_repository_root_paths": [
+      {
+        "path": "公开回归用例_D11.json",
+        "sha256": "42ca9790e27cf8c6b34eda3c10b1d0a97df1d97cef79a890599305803bd4019f",
+        "unchanged": true
+      },
+      {
+        "path": "回归结果_D11.json",
+        "sha256": "69243d12fb59909f876b5c3adcbe7a6fd3361f4f57f1e6cebc96b7d00d002ce7",
+        "unchanged": true
+      }
+    ],
+    "repush_files": [
+      "契约v0.3逐项确认_D11.md",
+      "README_D11.md",
+      "来源与兼容性_D11.json"
+    ]
+  }
 }
