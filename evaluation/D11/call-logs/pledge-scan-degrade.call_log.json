@@ -1,0 +1,17 @@
+{
+  "run_id": "20261007T144952-pledge-scan",
+  "is_mock": false,
+  "endpoint": "none（扫描降级，未调用模型）",
+  "model": null,
+  "request": {
+    "mode": "scan-degraded",
+    "readable_chars": 0
+  },
+  "response": null,
+  "error": null,
+  "timing": {
+    "total_ms": 0,
+    "call_ms": null
+  },
+  "created_at": "2026-10-07T14:49:52.488Z"
+}

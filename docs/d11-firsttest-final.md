@@ -11,6 +11,8 @@
 | ② | 封存 20 组跨文档 | **20/20** | verify_crossdoc --expect |
 | ③ | D8 13 组配对 | **13/13** | score-pairs --strict |
 | ④ | D9 20 条归因 | **20/20** | score-rules --strict |
+
+> ④ 版本注记（2026-10-07 宗补）：**以 v0.2 重跑报告为准**（`runs/D9-rules-report-v02-20261005.json`＋宗 `evaluation/D11/results/d9-v02-rerun-score.json`，20/20 strict PASS、块级 0 反例）。v0.1 报告锚点已失效、含 5 条反例，不得引用。
 | ⑤ | D10 10 组集成 | **10/10** | check-integration --strict |
 
 ## 宗的三次自纠（评测方法偏差，全部非魏方问题）
@@ -25,8 +27,8 @@
 
 **零新增失败。** D11 期间发现的两项缺陷（PLD-009 E03 方差、AWD-002 跨块引文）均在首测前修复，首测中验证保持通过。
 
-## 宗登记的三条未覆盖边界（列 D12 跟进）
+## 宗登记的三条未覆盖边界（2026-10-07 晚更新状态）
 
-1. D9 块级证据包未逐条人工复核
-2. Web 端未独立重跑
-3. call_log 未逐份留存
+1. ~~D9 块级证据包未逐条人工复核~~ → **已完成**：宗已复核（22 通过 / 0 反例，见宗 `evaluation/D11/results/d9-block-evidence-check.json` 复核记录与待办汇总第六节）；此前的块级缺口根因是 D6 缺块级解析（张 Z1 待入库），魏已先导出 D6 全部 10 份块级解析（`evaluation/D9/parses-blocks/`，回应 W3）补齐复核载体
+2. Web 端未独立重跑（列 D12；N09 CLI 抽取入口另议）
+3. ~~call_log 未逐份留存~~ → **已补**：`evaluation/D11/call-logs/` 重建归档 31 份＋逐份分类 manifest＋缓存快照（回应 W2；5 份因 API 余额 402 待充值后补齐，差异说明见该目录 README）

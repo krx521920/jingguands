@@ -66,6 +66,19 @@ function loadParseDoc(parsePath) {
   return { doc, blockIndex, blocks, annotated, joinedRaw, pageDims }
 }
 
+// W1（宗 2026-10-07 待办）：信封内嵌块改为全保真投影——handoff 的 parse_meta.blocks 是
+// 六键简约版（无 source_type/table_ref/header_path），方 D7 信封侧归因 71 处 UNIT_MISSING
+// 误判即源于此。三键直接随信封下发后，下游不再必须回原始解析文件才能判锚。
+function projectBlocks(blocks) {
+  return blocks.map((b) => ({
+    block_id: b.block_id, page: b.page, role: b.role,
+    text: b.text, text_raw: b.text_raw, region: b.region,
+    source_type: b.source_type ?? null,
+    table_ref: b.table_ref ?? null,
+    header_path: b.header_path ?? b.table_ref?.header_path ?? null,
+  }))
+}
+
 function inferEventType(fileName) {
   if (/pledge/i.test(fileName)) return 'pledge'
   if (/equity_change|equity/i.test(fileName)) return 'equity_change'
@@ -1390,7 +1403,12 @@ async function main() {
         file_id: parseDoc.doc.handoff?.source?.file_id ?? `sha256:${sha0.slice(0, 16)}`,
         file_name: parseDoc.doc.doc?.file_name ?? basename(args.parse),
         file_sha256: parseDoc.doc.handoff?.source?.file_sha256 ?? sha0,
-        parse_meta: parseDoc.doc.handoff?.source?.parse_meta ?? { parser_version: null, page_count: parseDoc.doc.doc?.page_count ?? 1, blocks: null },
+        parse_meta: {
+          parser_version: null,
+          page_count: parseDoc.doc.doc?.page_count ?? 1,
+          ...(parseDoc.doc.handoff?.source?.parse_meta ?? {}),
+          blocks: projectBlocks(parseDoc.blocks), // W1：三键全保真，降级件同样可核
+        },
       },
       events: [{
         event_id: 'E01', event_type: eventType, fields: skeleton,
@@ -1657,10 +1675,11 @@ async function main() {
           file_id: handoff?.source?.file_id ?? `sha256:${sha256.slice(0, 16)}`,
           file_name: fileName,
           file_sha256: sha256,
-          parse_meta: handoff?.source?.parse_meta ?? {
+          parse_meta: {
             parser_version: null,
             page_count: parseDoc.doc.doc?.page_count ?? 1,
-            blocks: null,
+            ...(handoff?.source?.parse_meta ?? {}),
+            blocks: projectBlocks(parseDoc.blocks), // W1：三键全保真，下游（方 D7 归因/D9 块级复核）免 parses-map
           },
         }
       : {

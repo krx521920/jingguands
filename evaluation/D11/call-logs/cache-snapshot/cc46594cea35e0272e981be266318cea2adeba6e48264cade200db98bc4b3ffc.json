@@ -1,0 +1,17 @@
+{
+ "model": "deepseek-chat",
+ "content": "{\"events\":[{\"event_id\":\"E01\",\"event_type\":\"equity_change\",\"fields\":{\"holder\":{\"raw_value\":\"ZHANGNING\",\"value\":\"ZHANGNING\",\"unit\":\"text\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00022\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"ZHANGNING\"}],\"denominator\":null,\"note\":null},\"direction\":{\"raw_value\":\"增持\",\"value\":\"increase\",\"unit\":\"text\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00003\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"通过联交所集中竞价交易方式增持彤程新材H股股份733,400股\"}],\"denominator\":null,\"note\":null},\"shares_before\":{\"raw_value\":\"837,500\",\"value\":837500,\"unit\":\"shares\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00023\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"837,500\"}],\"denominator\":null,\"note\":null},\"shares_after\":{\"raw_value\":\"1,570,900\",\"value\":1570900,\"unit\":\"shares\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00025\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"1,570,900\"}],\"denominator\":null,\"note\":null},\"ratio_before\":{\"raw_value\":\"0.12%\",\"value\":0.12,\"unit\":\"percent\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00024\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"0.12%\"}],\"denominator\":\"total_share_capital\",\"note\":null},\"ratio_after\":{\"raw_value\":\"0.23%\",\"value\":0.23,\"unit\":\"percent\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00026\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"0.23%\"}],\"denominator\":\"total_share_capital\",\"note\":null},\"change_shares\":{\"raw_value\":\"733,400股\",\"value\":733400,\"unit\":\"shares\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00003\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"增持彤程新材H股股份733,400股\"}],\"denominator\":null,\"note\":null},\"method\":{\"raw_value\":\"集中竞价交易\",\"value\":\"集中竞价交易\",\"unit\":\"text\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00003\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"通过联交所集中竞价交易方式增持\"}],\"denominator\":null,\"note\":null},\"change_date\":{\"raw_value\":\"2026年9月29日\",\"value\":\"2026-09-29\",\"unit\":\"date\",\"standardized\":true,\"status\":\"extracted\",\"provenance\":[{\"block_id\":\"daf34725a_p009_b00003\",\"page\":9,\"region\":null,\"table_id\":null,\"cell_ref\":null,\"source_type\":null,\"quote\":\"2026年9月29日\"}],\"denominator\":null,\"note\":null}},\"extraction_method\":\"model\",\"notes\":null}]}",
+ "usage": {
+  "prompt_tokens": 9035,
+  "completion_tokens": 903,
+  "total_tokens": 9938,
+  "prompt_tokens_details": {
+   "cached_tokens": 8832
+  },
+  "prompt_cache_hit_tokens": 8832,
+  "prompt_cache_miss_tokens": 203
+ },
+ "durationMs": 199,
+ "httpStatus": 200,
+ "cached_at": "2026-10-07T12:05:40.449Z"
+}

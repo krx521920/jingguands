@@ -49,4 +49,4 @@ node evaluation/D10/check-integration.mjs \
 1. **信封 run_id**：`firsttest-envelopes/*.json` 31 份每份都有 `run_id`（v0.3 schema required）——请拉 `weiwenyu@5f25133a` 确认
 2. **缓存三件**：`D10-cache-evidence.json` 已拷入本目录（三态实测：冷31miss→重放31hit/0miss→清31miss，业务字段逐字节一致31/31）
 3. **D10 bundle**：`D10-integration-bundle.json` 已拷入本目录（`check-integration --strict` PASS 10/10 的那份）
-4. **call_log**：个体运行目录已清（节省体积）；`firsttest-run-registry.json` 有全部 run_id 映射；如需逐份 call_log 用 `--cache-dir runs/.model-cache` 重放批次可 3.6 秒重建全部
+4. **call_log**：个体运行目录已清（节省体积）；`firsttest-run-registry.json` 有全部 run_id 映射。**2026-10-07 晚已重建入库**：`evaluation/D11/call-logs/` 31 份 call_log＋逐份分类 manifest＋缓存快照（14 份首测原响应字节 / 12 份冷跑实验覆写后值层等价 / 5 份 API 402 待充值补齐），差异说明见该目录 README——勿再用 `runs/.model-cache` 重放（已被冷跑实验部分覆写，改用快照目录）

@@ -1,0 +1,410 @@
+{
+  "stamp": "20261007T144951",
+  "mock": false,
+  "jobs": 4,
+  "timing": {
+    "total_run_ms": 1901,
+    "per_doc_ms": 61,
+    "slowest_ms": 927
+  },
+  "results": [
+    {
+      "case": "D4-PLD-001",
+      "event_type": "pledge",
+      "file": "D4-PLD-001.parse.json",
+      "run_id": "20261007T144951-pledge-f237",
+      "ok": true,
+      "duration_ms": 108,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 3,
+        "needs_review": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-002",
+      "event_type": "pledge",
+      "file": "D4-PLD-002.parse.json",
+      "run_id": "20261007T144951-pledge-db24",
+      "ok": true,
+      "duration_ms": 107,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-003",
+      "event_type": "pledge",
+      "file": "D4-PLD-003.parse.json",
+      "run_id": "20261007T144951-pledge-6cae",
+      "ok": true,
+      "duration_ms": 107,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-004",
+      "event_type": "pledge",
+      "file": "D4-PLD-004.parse.json",
+      "run_id": "20261007T144951-pledge-f65c",
+      "ok": true,
+      "duration_ms": 107,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-005",
+      "event_type": "pledge",
+      "file": "D4-PLD-005.parse.json",
+      "run_id": "20261007T144951-pledge-1a9f",
+      "ok": true,
+      "duration_ms": 99,
+      "status_count": {
+        "extracted": 25,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-006",
+      "event_type": "pledge",
+      "file": "D4-PLD-006.parse.json",
+      "run_id": "20261007T144951-pledge-6e8e",
+      "ok": true,
+      "duration_ms": 98,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-007",
+      "event_type": "pledge",
+      "file": "D4-PLD-007.parse.json",
+      "run_id": "20261007T144951-pledge-272a",
+      "ok": true,
+      "duration_ms": 100,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-008",
+      "event_type": "pledge",
+      "file": "D4-PLD-008.parse.json",
+      "run_id": "20261007T144951-pledge-2515",
+      "ok": true,
+      "duration_ms": 132,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 2,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-009",
+      "event_type": "pledge",
+      "file": "D4-PLD-009.parse.json",
+      "run_id": "20261007T144951-pledge-39d7",
+      "ok": true,
+      "duration_ms": 101,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 6
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-010",
+      "event_type": "pledge",
+      "file": "D4-PLD-010.parse.json",
+      "run_id": "20261007T144951-pledge-f847",
+      "ok": true,
+      "duration_ms": 100,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-001",
+      "event_type": "equity_change",
+      "file": "D5-EQC-001.parse.json",
+      "run_id": "20261007T144951-equity_change-afdb",
+      "ok": true,
+      "duration_ms": 107,
+      "status_count": {
+        "extracted": 45
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-002",
+      "event_type": "equity_change",
+      "file": "D5-EQC-002.parse.json",
+      "run_id": "20261007T144951-equity_change-85e0",
+      "ok": true,
+      "duration_ms": 121,
+      "status_count": {
+        "extracted": 27
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-003",
+      "event_type": "equity_change",
+      "file": "D5-EQC-003.parse.json",
+      "run_id": "20261007T144951-equity_change-9f81",
+      "ok": true,
+      "duration_ms": 131,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 4
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-004",
+      "event_type": "equity_change",
+      "file": "D5-EQC-004.parse.json",
+      "run_id": "20261007T144951-equity_change-3ff4",
+      "ok": true,
+      "duration_ms": 120,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-005",
+      "event_type": "equity_change",
+      "file": "D5-EQC-005.parse.json",
+      "run_id": "20261007T144951-equity_change-0de6",
+      "ok": true,
+      "duration_ms": 117,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-006",
+      "event_type": "equity_change",
+      "file": "D5-EQC-006.parse.json",
+      "run_id": "20261007T144951-equity_change-60c6",
+      "ok": true,
+      "duration_ms": 99,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-007",
+      "event_type": "equity_change",
+      "file": "D5-EQC-007.parse.json",
+      "run_id": "20261007T144951-equity_change-2c5e",
+      "ok": true,
+      "duration_ms": 149,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-008",
+      "event_type": "equity_change",
+      "file": "D5-EQC-008.parse.json",
+      "run_id": "20261007T144951-equity_change-7432",
+      "ok": true,
+      "duration_ms": 138,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-009",
+      "event_type": "equity_change",
+      "file": "D5-EQC-009.parse.json",
+      "run_id": "20261007T144951-equity_change-072b",
+      "ok": true,
+      "duration_ms": 129,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-010",
+      "event_type": "equity_change",
+      "file": "D5-EQC-010.parse.json",
+      "run_id": "20261007T144951-equity_change-aa8f",
+      "ok": true,
+      "duration_ms": 131,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-001",
+      "event_type": "award_contract",
+      "file": "D6-AWD-001.raw.json",
+      "run_id": "20261007T144951-award_contract-b73e",
+      "ok": true,
+      "duration_ms": 96,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 6,
+        "not_applicable": 2,
+        "not_disclosed": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-002",
+      "event_type": "award_contract",
+      "file": "D6-AWD-002.raw.json",
+      "run_id": "20261007T144951-award_contract-3513",
+      "ok": true,
+      "duration_ms": 100,
+      "status_count": {
+        "extracted": 24,
+        "not_mentioned": 22,
+        "not_applicable": 8,
+        "not_disclosed": 2
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-003",
+      "event_type": "award_contract",
+      "file": "D6-AWD-003.raw.json",
+      "run_id": "20261007T144951-award_contract-a211",
+      "ok": true,
+      "duration_ms": 99,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-004",
+      "event_type": "award_contract",
+      "file": "D6-AWD-004.raw.json",
+      "run_id": "20261007T144951-award_contract-995b",
+      "ok": true,
+      "duration_ms": 99,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-005",
+      "event_type": "award_contract",
+      "file": "D6-AWD-005.raw.json",
+      "run_id": "20261007T144951-award_contract-6d79",
+      "ok": true,
+      "duration_ms": 104,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-006",
+      "event_type": "award_contract",
+      "file": "D6-AWD-006.raw.json",
+      "run_id": "20261007T144951-award_contract-f4d0",
+      "ok": false,
+      "duration_ms": 927,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 829ms\n[输出] runs/20261007T144951-award_contract-f4d0/events.json\n[日志] runs/20261007T144951-award_contract-f4d0/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 3c92c1c2-09d7-4d6b-bacc-8aaf39ca88c0)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1
+    },
+    {
+      "case": "D6-AWD-007",
+      "event_type": "award_contract",
+      "file": "D6-AWD-007.raw.json",
+      "run_id": "20261007T144951-award_contract-ae85",
+      "ok": false,
+      "duration_ms": 896,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 795ms\n[输出] runs/20261007T144951-award_contract-ae85/events.json\n[日志] runs/20261007T144951-award_contract-ae85/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 5b6ff618-311f-4c25-971c-d17b54fa7a38)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1
+    },
+    {
+      "case": "D6-AWD-008",
+      "event_type": "award_contract",
+      "file": "D6-AWD-008.raw.json",
+      "run_id": "20261007T144951-award_contract-4184",
+      "ok": false,
+      "duration_ms": 556,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 457ms\n[输出] runs/20261007T144951-award_contract-4184/events.json\n[日志] runs/20261007T144951-award_contract-4184/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: c490338b-abb4-48ab-a913-ccb267da2899)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1
+    },
+    {
+      "case": "D6-AWD-009",
+      "event_type": "award_contract",
+      "file": "D6-AWD-009.raw.json",
+      "run_id": "20261007T144951-award_contract-ac01",
+      "ok": false,
+      "duration_ms": 572,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 477ms\n[输出] runs/20261007T144951-award_contract-ac01/events.json\n[日志] runs/20261007T144951-award_contract-ac01/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: f936af62-3790-4da2-9bdc-c8965528b645)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1
+    },
+    {
+      "case": "D6-AWD-010",
+      "event_type": "award_contract",
+      "file": "D6-AWD-010.raw.json",
+      "run_id": "20261007T144952-award_contract-63a9",
+      "ok": false,
+      "duration_ms": 638,
+      "output_tail": "[完成] schema v0.3，0 个事件，字段状态：{}，标准化 0 项，耗时 543ms\n[输出] runs/20261007T144952-award_contract-63a9/events.json\n[日志] runs/20261007T144952-award_contract-63a9/call_log.json\n[校验] 1 个问题（已如实写入 run_meta.errors）：\n  - 模型调用失败：模型调用失败 HTTP 402：{\"error\":{\"message\":\"Insufficient Balance (request_id: 65a09fe6-2ded-4558-bf7c-fef1a45fbfbf)\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}\n",
+      "status_count": {},
+      "validation_errors": 1
+    },
+    {
+      "case": "pledge-scan-degrade",
+      "event_type": "pledge",
+      "file": "pledge-scan-degrade.parse.json",
+      "run_id": "20261007T144952-pledge-scan",
+      "ok": true,
+      "duration_ms": 85,
+      "status_count": {
+        "unreadable": 14
+      },
+      "validation_errors": 1
+    }
+  ]
+}
