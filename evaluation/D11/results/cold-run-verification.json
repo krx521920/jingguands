@@ -1,0 +1,15 @@
+{
+  "checked_on": "2026-10-07",
+  "batches": {
+    "A": "runs/_archive/batch-20261007T120236/envelopes",
+    "B": "runs/_archive/batch-20261007T120421/envelopes"
+  },
+  "docs": 31,
+  "docs_identical_business": 30,
+  "docs_differ": 1,
+  "value_slots_identical": 606,
+  "value_slots_differ": 0,
+  "diff_detail": [
+    "D4-PLD-009.json [2] end_date 状态 not_mentioned vs needs_review（值 null/null）"
+  ]
+}
