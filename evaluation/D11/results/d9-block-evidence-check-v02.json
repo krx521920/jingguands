@@ -1,0 +1,22 @@
+{
+  "checked_on": "2026-10-07",
+  "report": "runs/D9-rules-rerun-for-zong.json（v0.2 重跑）",
+  "parses_dir": "runs/D9-parses-map.json @d9e266c5",
+  "sides_total": 35,
+  "quote_in_block_ok": 22,
+  "quote_not_in_block": 0,
+  "block_missing_or_noparse": 12,
+  "no_block_or_quote": 1,
+  "fetch_failed": [
+    "D6-AWD-004(fetch)",
+    "D6-AWD-005(fetch)",
+    "D6-AWD-007(fetch)",
+    "pledge-scan-degrade(no-map)",
+    "SYNTH-CTRL-01-A(no-map)",
+    "SYNTH-CTRL-01-B(no-map)",
+    "SYNTH-CTRL-02-A(no-map)",
+    "SYNTH-CTRL-02-B(no-map)"
+  ],
+  "verdict": "FAIL",
+  "counterexamples": []
+}
