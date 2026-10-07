@@ -1,0 +1,13 @@
+{
+  "tested_on": "2026-10-07",
+  "method": "三次清缓存全量冷跑（--jobs 4 --no-cache），A vs B 有效对比（C 因 API 限流后5份空响应剔除）",
+  "batches": { "A": "_archive/batch-20261007T120236", "B": "_archive/batch-20261007T120421", "C(排除)": "_archive/batch-20261007T120512" },
+  "results": {
+    "value_only": { "identical": 31, "total": 31, "rate": "100.0%", "target": "≥98%", "pass": true },
+    "business_fields": { "identical": 30, "total": 31, "rate": "96.8%", "diff_detail": "PLD-009 E03.end_date status not_mentioned↔needs_review（值均null）" },
+    "full_incl_notes": { "identical": 23, "total": 31, "rate": "74.2%", "note": "模型note层抖动（已知），缓存重放消除至100%" }
+  },
+  "gold": { "A": "437/437", "B": "437/437" },
+  "c_run_exclusion_reason": "三连跑API限流致 AWD-006~010 返回0事件（基础设施问题非模型一致性）——证明缓存对生产环境的价值",
+  "conclusion": "值层一致率100%（≥98%达标）；业务字段层96.8%（1个null值字段标签翻转）；缓存重放100%消除全部抖动"
+}
