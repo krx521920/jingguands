@@ -1,0 +1,21 @@
+{
+  "checked_on": "2026-10-07",
+  "frozen_source": {
+    "repo": "krx521920/jingguands",
+    "commit": "5f25133a",
+    "dir": "evaluation/D11/firsttest-envelopes",
+    "envelopes": 31
+  },
+  "docs_total": 30,
+  "docs_present": 30,
+  "docs_zero_error": 30,
+  "format_compliance": "30/30",
+  "gold_extracted_fields": 437,
+  "value_hit": 437,
+  "field_accuracy": 1,
+  "gold_nonextracted": 155,
+  "status_match": 592,
+  "wrong_filled": 0,
+  "evidence_with_provenance": "437/437",
+  "failures": []
+}
