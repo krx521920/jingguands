@@ -15,6 +15,7 @@
   <button class="btn ghost" id="verifyBtn" style="margin-left:auto">核验清单 D9</button>
   <button class="btn ghost" id="pairsBtn">跨文档配对 D8</button>
   <button class="btn ghost" id="integrationBtn">多公告集成 D10</button>
+  <button class="btn ghost" id="metricsBtn">结果图表 D11</button>
 </header>
 <div id="simBanner" class="sim-banner">⚠ 模拟数据 —— 当前展示内容全部为模拟接口返回，不得计入真实成绩</div>
 
@@ -76,6 +77,13 @@
 <section id="integrationView" class="pairs-view" hidden>
   <div class="pairs-wrap" id="integrationList">
     <div class="empty">集成视图未加载</div>
+  </div>
+</section>
+
+<!-- D11：真实结果图表视图（实算指标 vs 目标 + 解析器版本对比 + 覆盖范围声明；五视图互斥） -->
+<section id="metricsView" class="pairs-view" hidden>
+  <div class="pairs-wrap" id="metricsList">
+    <div class="empty">结果图表未加载</div>
   </div>
 </section>
 

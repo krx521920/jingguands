@@ -1,0 +1,1032 @@
+{
+  "generated_at": "2026-10-06T17:54:16.539Z",
+  "caliber": {
+    "L1": "溯源存在性：抽取字段带非空 provenance[] 的比例",
+    "L2": "锚点完备性：provenance 中 block_id / page / region / quote 各自的覆盖率",
+    "L3": "原文命中：quote 是否在 block_id 指向的原始解析 block（或同表单元格 / 整篇全文）中"
+  },
+  "parse_snapshot": {
+    "path": "workspace/cjh/docs/_ref_zhang_D3_pledge.parse.json",
+    "doc_id": "d44e95085",
+    "doc_name": "pledge.pdf",
+    "page_count": 2,
+    "block_count": 127
+  },
+  "l3_scope": {
+    "note": "本地仅一份原始解析快照；仅 block_id 前缀 ==该 doc_id 的证据可做原文核对，其余标'无解析包·未核'且不计入分母",
+    "doc_id": "d44e95085",
+    "eligible": 24,
+    "checked": 24,
+    "hit": 14,
+    "miss": 10,
+    "hit_rate_pct": 58.33,
+    "datasets_checkable": [
+      "wei_real_pledge_0197",
+      "wei_real_pledge_ce37"
+    ],
+    "datasets_unverifiable": [
+      "bank_guarantee",
+      "pledge",
+      "share_change",
+      "upstream_case",
+      "wei_multi_event_test",
+      "wei_real_awd_001",
+      "wei_real_awd_002",
+      "wei_real_awd_003",
+      "wei_real_awd_004",
+      "wei_real_awd_005",
+      "wei_real_awd_006",
+      "wei_real_awd_007",
+      "wei_real_awd_008",
+      "wei_real_awd_009",
+      "wei_real_awd_010",
+      "wei_real_D4_scan",
+      "wei_real_eqc_001",
+      "wei_real_eqc_002",
+      "wei_real_eqc_003",
+      "wei_real_eqc_004",
+      "wei_real_eqc_005",
+      "wei_real_eqc_006",
+      "wei_real_eqc_007",
+      "wei_real_eqc_008",
+      "wei_real_eqc_009",
+      "wei_real_eqc_010",
+      "wei_real_PLD001_3ev",
+      "wei_real_PLD005_release",
+      "wei_run_pledge"
+    ]
+  },
+  "summary": {
+    "datasets": 31,
+    "fields_total": 548,
+    "fields_with_provenance": 401,
+    "l1_pct": 73.18,
+    "provenance_total": 403,
+    "block_id_pct": 81.14,
+    "page_pct": 100,
+    "region_pct": 70.72,
+    "quote_pct": 100
+  },
+  "l3_miss_all": [
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "pledgee",
+      "block_id": "d44e95085_p001_b00016",
+      "quote": "建德市新安小额贷款股份有限公司",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "pledged_shares_this_time",
+      "block_id": "d44e95085_p001_b00031",
+      "quote": "合计——7,800,0008.92%3.66%",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "pledged_shares_cumulative",
+      "block_id": "d44e95085_p001_b00051",
+      "quote": "50,350,000",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "block_id": "d44e95085_p001_b00031",
+      "quote": "合计——7,800,0008.92%3.66%",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "block_id": "d44e95085_p001_b00031",
+      "quote": "合计——7,800,0008.92%3.66%",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "block_id": "d44e95085_p001_b00052",
+      "quote": "57.58%",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "block_id": "d44e95085_p001_b00053",
+      "quote": "23.62%",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "start_date",
+      "block_id": "d44e95085_p001_b00018",
+      "quote": "2026年09月是2,100,0002.40%0.99%否否23日",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "end_date",
+      "block_id": "d44e95085_p001_b00015",
+      "quote": "申请解除质押登记日",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "event_id": "E01",
+      "field": "purpose",
+      "block_id": "d44e95085_p001_b00017",
+      "quote": "融资",
+      "reason": "该 block 内未找到（含单元格兜底）"
+    }
+  ],
+  "attribution": {
+    "note": "未命中归因三类：① 真错指——quote 在解析快照中存在但不在所指的 block 内（指向了别的 block）；② 取层错——quote 取了清洗后的 text 而非 text_raw；③ 快照无——quote 在整份快照中都不存在",
+    "true_mispoint": 6,
+    "layer_error": 0,
+    "absent_in_snapshot": 4,
+    "attributable_total": 10,
+    "mispoint_detail": [
+      {
+        "dataset": "wei_real_pledge_ce37",
+        "event_id": "E01",
+        "field": "pledgee",
+        "block_id": "d44e95085_p001_b00016",
+        "quote": "建德市新安小额贷款股份有限公司",
+        "reason": "该 block 内未找到（含单元格兜底）",
+        "real_blocks": [
+          "d44e95085_p001_b00031"
+        ]
+      },
+      {
+        "dataset": "wei_real_pledge_ce37",
+        "event_id": "E01",
+        "field": "pledged_shares_cumulative",
+        "block_id": "d44e95085_p001_b00051",
+        "quote": "50,350,000",
+        "reason": "该 block 内未找到（含单元格兜底）",
+        "real_blocks": [
+          "d44e95085_p001_b00083",
+          "d44e95085_p001_b00086",
+          "d44e95085_p002_b00006",
+          "d44e95085_p002_b00009"
+        ]
+      },
+      {
+        "dataset": "wei_real_pledge_ce37",
+        "event_id": "E01",
+        "field": "pledged_ratio_cumulative_of_held",
+        "block_id": "d44e95085_p001_b00052",
+        "quote": "57.58%",
+        "reason": "该 block 内未找到（含单元格兜底）",
+        "real_blocks": [
+          "d44e95085_p001_b00084"
+        ]
+      },
+      {
+        "dataset": "wei_real_pledge_ce37",
+        "event_id": "E01",
+        "field": "pledged_ratio_cumulative_of_total",
+        "block_id": "d44e95085_p001_b00053",
+        "quote": "23.62%",
+        "reason": "该 block 内未找到（含单元格兜底）",
+        "real_blocks": [
+          "d44e95085_p001_b00085",
+          "d44e95085_p002_b00008"
+        ]
+      },
+      {
+        "dataset": "wei_real_pledge_ce37",
+        "event_id": "E01",
+        "field": "end_date",
+        "block_id": "d44e95085_p001_b00015",
+        "quote": "申请解除质押登记日",
+        "reason": "该 block 内未找到（含单元格兜底）",
+        "real_blocks": [
+          "d44e95085_p001_b00030",
+          "d44e95085_p001_b00040",
+          "d44e95085_p001_b00050"
+        ]
+      },
+      {
+        "dataset": "wei_real_pledge_ce37",
+        "event_id": "E01",
+        "field": "purpose",
+        "block_id": "d44e95085_p001_b00017",
+        "quote": "融资",
+        "reason": "该 block 内未找到（含单元格兜底）",
+        "real_blocks": [
+          "d44e95085_p001_b00032",
+          "d44e95085_p001_b00042",
+          "d44e95085_p001_b00052",
+          "d44e95085_p002_b00017"
+        ]
+      }
+    ]
+  },
+  "per_dataset": [
+    {
+      "dataset": "bank_guarantee",
+      "data_mode": "simulated",
+      "run_id": "mock-run-0003",
+      "file_name": null,
+      "parser_version": null,
+      "events": 1,
+      "fields_total": 0,
+      "fields_with_provenance": 0,
+      "l1_rate": null,
+      "provenance": 0,
+      "with_block_id": 0,
+      "with_page": 0,
+      "with_region": 0,
+      "with_quote": 0,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "pledge",
+      "data_mode": "simulated",
+      "run_id": "mock-run-0001",
+      "file_name": null,
+      "parser_version": null,
+      "events": 2,
+      "fields_total": 0,
+      "fields_with_provenance": 0,
+      "l1_rate": null,
+      "provenance": 0,
+      "with_block_id": 0,
+      "with_page": 0,
+      "with_region": 0,
+      "with_quote": 0,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "share_change",
+      "data_mode": "simulated",
+      "run_id": "mock-eqc-demo-0001",
+      "file_name": "股权变动公告样例（模拟）.txt",
+      "parser_version": null,
+      "events": 3,
+      "fields_total": 27,
+      "fields_with_provenance": 27,
+      "l1_rate": 1,
+      "provenance": 27,
+      "with_block_id": 27,
+      "with_page": 27,
+      "with_region": 0,
+      "with_quote": 27,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "upstream_case",
+      "data_mode": "simulated",
+      "run_id": "bridge-case-0001",
+      "file_name": null,
+      "parser_version": null,
+      "events": 0,
+      "fields_total": 0,
+      "fields_with_provenance": 0,
+      "l1_rate": null,
+      "provenance": 0,
+      "with_block_id": 0,
+      "with_page": 0,
+      "with_region": 0,
+      "with_quote": 0,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_multi_event_test",
+      "data_mode": "simulated",
+      "run_id": "20260929T000000-pledge-multi-test",
+      "file_name": "multi_pledge_合成三事件.txt",
+      "parser_version": null,
+      "events": 3,
+      "fields_total": 16,
+      "fields_with_provenance": 15,
+      "l1_rate": 0.9375,
+      "provenance": 15,
+      "with_block_id": 15,
+      "with_page": 15,
+      "with_region": 0,
+      "with_quote": 15,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_001",
+      "data_mode": "real",
+      "run_id": "20261002T121106-award_contract-7bfe",
+      "file_name": "bid-001.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 14,
+      "fields_with_provenance": 5,
+      "l1_rate": 0.3571,
+      "provenance": 5,
+      "with_block_id": 5,
+      "with_page": 5,
+      "with_region": 5,
+      "with_quote": 5,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_002",
+      "data_mode": "real",
+      "run_id": "20261002T121109-award_contract-b51b",
+      "file_name": "bid-002.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 4,
+      "fields_total": 56,
+      "fields_with_provenance": 24,
+      "l1_rate": 0.4286,
+      "provenance": 24,
+      "with_block_id": 24,
+      "with_page": 24,
+      "with_region": 24,
+      "with_quote": 24,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_003",
+      "data_mode": "real",
+      "run_id": "20261002T121121-award_contract-35f9",
+      "file_name": "bid-003.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 3,
+      "fields_total": 42,
+      "fields_with_provenance": 21,
+      "l1_rate": 0.5,
+      "provenance": 21,
+      "with_block_id": 21,
+      "with_page": 21,
+      "with_region": 21,
+      "with_quote": 21,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_004",
+      "data_mode": "real",
+      "run_id": "20261002T121131-award_contract-c5ab",
+      "file_name": "bid-004.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 14,
+      "fields_with_provenance": 9,
+      "l1_rate": 0.6429,
+      "provenance": 9,
+      "with_block_id": 9,
+      "with_page": 9,
+      "with_region": 9,
+      "with_quote": 9,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_005",
+      "data_mode": "real",
+      "run_id": "20261002T121135-award_contract-ace9",
+      "file_name": "bid-005.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 14,
+      "fields_with_provenance": 11,
+      "l1_rate": 0.7857,
+      "provenance": 11,
+      "with_block_id": 11,
+      "with_page": 11,
+      "with_region": 11,
+      "with_quote": 11,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_006",
+      "data_mode": "real",
+      "run_id": "20261002T121139-award_contract-f0c3",
+      "file_name": "bid-006.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 14,
+      "fields_with_provenance": 9,
+      "l1_rate": 0.6429,
+      "provenance": 9,
+      "with_block_id": 9,
+      "with_page": 9,
+      "with_region": 9,
+      "with_quote": 9,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_007",
+      "data_mode": "real",
+      "run_id": "20261002T121143-award_contract-ba62",
+      "file_name": "bid-007.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 14,
+      "fields_with_provenance": 5,
+      "l1_rate": 0.3571,
+      "provenance": 6,
+      "with_block_id": 6,
+      "with_page": 6,
+      "with_region": 6,
+      "with_quote": 6,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_008",
+      "data_mode": "real",
+      "run_id": "20261002T121147-award_contract-a2c8",
+      "file_name": "bid-008.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 14,
+      "fields_with_provenance": 8,
+      "l1_rate": 0.5714,
+      "provenance": 8,
+      "with_block_id": 8,
+      "with_page": 8,
+      "with_region": 8,
+      "with_quote": 8,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_009",
+      "data_mode": "real",
+      "run_id": "20261002T121151-award_contract-7852",
+      "file_name": "bid-009.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 3,
+      "fields_total": 42,
+      "fields_with_provenance": 21,
+      "l1_rate": 0.5,
+      "provenance": 21,
+      "with_block_id": 21,
+      "with_page": 21,
+      "with_region": 21,
+      "with_quote": 21,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_awd_010",
+      "data_mode": "real",
+      "run_id": "20261002T121159-award_contract-ffb9",
+      "file_name": "bid-010.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 14,
+      "fields_with_provenance": 6,
+      "l1_rate": 0.4286,
+      "provenance": 6,
+      "with_block_id": 6,
+      "with_page": 6,
+      "with_region": 6,
+      "with_quote": 6,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_D4_scan",
+      "data_mode": "real",
+      "run_id": "20260930T093845-pledge-scan",
+      "file_name": "scanned_synthetic.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 14,
+      "fields_with_provenance": 0,
+      "l1_rate": 0,
+      "provenance": 0,
+      "with_block_id": 0,
+      "with_page": 0,
+      "with_region": 0,
+      "with_quote": 0,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_001",
+      "data_mode": "real",
+      "run_id": "20261002T121003-equity_change-20d2",
+      "file_name": "D5-EQC-001.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 5,
+      "fields_total": 45,
+      "fields_with_provenance": 45,
+      "l1_rate": 1,
+      "provenance": 45,
+      "with_block_id": 45,
+      "with_page": 45,
+      "with_region": 45,
+      "with_quote": 45,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_002",
+      "data_mode": "real",
+      "run_id": "20261002T121016-equity_change-8f54",
+      "file_name": "D5-EQC-002.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 3,
+      "fields_total": 27,
+      "fields_with_provenance": 27,
+      "l1_rate": 1,
+      "provenance": 27,
+      "with_block_id": 27,
+      "with_page": 27,
+      "with_region": 27,
+      "with_quote": 27,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_003",
+      "data_mode": "real",
+      "run_id": "20261002T121035-equity_change-abca",
+      "file_name": "D5-EQC-003.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 9,
+      "fields_with_provenance": 5,
+      "l1_rate": 0.5556,
+      "provenance": 5,
+      "with_block_id": 5,
+      "with_page": 5,
+      "with_region": 5,
+      "with_quote": 5,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_004",
+      "data_mode": "real",
+      "run_id": "20261002T121038-equity_change-e850",
+      "file_name": "D5-EQC-004.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 9,
+      "fields_with_provenance": 9,
+      "l1_rate": 1,
+      "provenance": 9,
+      "with_block_id": 9,
+      "with_page": 9,
+      "with_region": 9,
+      "with_quote": 9,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_005",
+      "data_mode": "real",
+      "run_id": "20261002T121042-equity_change-fd9a",
+      "file_name": "D5-EQC-005.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 9,
+      "fields_with_provenance": 9,
+      "l1_rate": 1,
+      "provenance": 9,
+      "with_block_id": 9,
+      "with_page": 9,
+      "with_region": 9,
+      "with_quote": 9,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_006",
+      "data_mode": "real",
+      "run_id": "20261002T121045-equity_change-0ae0",
+      "file_name": "D5-EQC-006.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 9,
+      "fields_with_provenance": 9,
+      "l1_rate": 1,
+      "provenance": 9,
+      "with_block_id": 9,
+      "with_page": 9,
+      "with_region": 9,
+      "with_quote": 9,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_007",
+      "data_mode": "real",
+      "run_id": "20261002T121049-equity_change-1e8d",
+      "file_name": "D5-EQC-007.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 9,
+      "fields_with_provenance": 9,
+      "l1_rate": 1,
+      "provenance": 10,
+      "with_block_id": 10,
+      "with_page": 10,
+      "with_region": 10,
+      "with_quote": 10,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_008",
+      "data_mode": "real",
+      "run_id": "20261002T121053-equity_change-7083",
+      "file_name": "D5-EQC-008.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 9,
+      "fields_with_provenance": 9,
+      "l1_rate": 1,
+      "provenance": 9,
+      "with_block_id": 9,
+      "with_page": 9,
+      "with_region": 9,
+      "with_quote": 9,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_009",
+      "data_mode": "real",
+      "run_id": "20261002T121057-equity_change-1041",
+      "file_name": "D5-EQC-009.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 9,
+      "fields_with_provenance": 9,
+      "l1_rate": 1,
+      "provenance": 9,
+      "with_block_id": 9,
+      "with_page": 9,
+      "with_region": 9,
+      "with_quote": 9,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_eqc_010",
+      "data_mode": "real",
+      "run_id": "20261002T121100-equity_change-25f7",
+      "file_name": "D5-EQC-010.pdf",
+      "parser_version": "finstruct.parse/0.9.0",
+      "events": 1,
+      "fields_total": 9,
+      "fields_with_provenance": 9,
+      "l1_rate": 1,
+      "provenance": 9,
+      "with_block_id": 9,
+      "with_page": 9,
+      "with_region": 9,
+      "with_quote": 9,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_PLD001_3ev",
+      "data_mode": "real",
+      "run_id": "20260929T152309-pledge-b12e",
+      "file_name": "D3-PLD-001.txt",
+      "parser_version": null,
+      "events": 3,
+      "fields_total": 42,
+      "fields_with_provenance": 39,
+      "l1_rate": 0.9286,
+      "provenance": 39,
+      "with_block_id": 0,
+      "with_page": 39,
+      "with_region": 0,
+      "with_quote": 39,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_PLD005_release",
+      "data_mode": "real",
+      "run_id": "20260929T152335-pledge-d337",
+      "file_name": "D3-PLD-005.txt",
+      "parser_version": null,
+      "events": 2,
+      "fields_total": 28,
+      "fields_with_provenance": 25,
+      "l1_rate": 0.8929,
+      "provenance": 25,
+      "with_block_id": 0,
+      "with_page": 25,
+      "with_region": 0,
+      "with_quote": 25,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_pledge_0197",
+      "data_mode": "real",
+      "run_id": "20260929T025658-pledge-0197",
+      "file_name": "pledge.pdf",
+      "parser_version": "finstruct.parse/0.7.0",
+      "events": 1,
+      "fields_total": 13,
+      "fields_with_provenance": 12,
+      "l1_rate": 0.9231,
+      "provenance": 12,
+      "with_block_id": 12,
+      "with_page": 12,
+      "with_region": 12,
+      "with_quote": 12,
+      "l3": {
+        "eligible": 12,
+        "checked": 12,
+        "hit": 12,
+        "miss": 0,
+        "miss_samples": []
+      }
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "data_mode": "real",
+      "run_id": "20260929T014901-pledge-ce37",
+      "file_name": "pledge.pdf",
+      "parser_version": "finstruct.parse/0.3.0",
+      "events": 1,
+      "fields_total": 13,
+      "fields_with_provenance": 12,
+      "l1_rate": 0.9231,
+      "provenance": 12,
+      "with_block_id": 12,
+      "with_page": 12,
+      "with_region": 12,
+      "with_quote": 12,
+      "l3": {
+        "eligible": 12,
+        "checked": 12,
+        "hit": 2,
+        "miss": 10,
+        "miss_samples": [
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "pledgee",
+            "block_id": "d44e95085_p001_b00016",
+            "quote": "建德市新安小额贷款股份有限公司",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "pledged_shares_this_time",
+            "block_id": "d44e95085_p001_b00031",
+            "quote": "合计——7,800,0008.92%3.66%",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "pledged_shares_cumulative",
+            "block_id": "d44e95085_p001_b00051",
+            "quote": "50,350,000",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "pledged_ratio_this_time_of_held",
+            "block_id": "d44e95085_p001_b00031",
+            "quote": "合计——7,800,0008.92%3.66%",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "pledged_ratio_this_time_of_total",
+            "block_id": "d44e95085_p001_b00031",
+            "quote": "合计——7,800,0008.92%3.66%",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "pledged_ratio_cumulative_of_held",
+            "block_id": "d44e95085_p001_b00052",
+            "quote": "57.58%",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "pledged_ratio_cumulative_of_total",
+            "block_id": "d44e95085_p001_b00053",
+            "quote": "23.62%",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "start_date",
+            "block_id": "d44e95085_p001_b00018",
+            "quote": "2026年09月是2,100,0002.40%0.99%否否23日",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "end_date",
+            "block_id": "d44e95085_p001_b00015",
+            "quote": "申请解除质押登记日",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          },
+          {
+            "dataset": "wei_real_pledge_ce37",
+            "event_id": "E01",
+            "field": "purpose",
+            "block_id": "d44e95085_p001_b00017",
+            "quote": "融资",
+            "reason": "该 block 内未找到（含单元格兜底）"
+          }
+        ]
+      }
+    },
+    {
+      "dataset": "wei_run_pledge",
+      "data_mode": "real",
+      "run_id": "20260928T061450-pledge-3506",
+      "file_name": "pledge_sample_01.txt",
+      "parser_version": null,
+      "events": 1,
+      "fields_total": 13,
+      "fields_with_provenance": 12,
+      "l1_rate": 0.9231,
+      "provenance": 12,
+      "with_block_id": 0,
+      "with_page": 12,
+      "with_region": 0,
+      "with_quote": 12,
+      "l3": {
+        "eligible": 0,
+        "checked": 0,
+        "hit": 0,
+        "miss": 0,
+        "miss_samples": []
+      }
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { renderEvidences, focusEvidence, clearEvidences } from "./render/evidenc
 import { renderPairs, clearPairs } from "./render/pairs.js";
 import { renderVerify, clearVerify } from "./render/verify.js";
 import { renderIntegration, clearIntegration } from "./render/integration.js";
+import { renderMetrics, clearMetrics } from "./render/metrics.js";   // D11：真实结果图表
 
 const $ = id => document.getElementById(id);
 
@@ -64,15 +65,18 @@ async function boot() {
     console.error("boot failed:", e);
   }
 
-  // D8/D9/D10：四个视图互斥切换（单文档 / 配对 / 核验 / 集成），首进才拉对应接口，内容缓存
+  // D8/D9/D10/D11：五个视图互斥切换（单文档 / 配对 / 核验 / 集成 / 图表），首进才拉对应接口，内容缓存
   let pairsLoaded = false, verifyLoaded = false;
-  const VIEW_LABEL = { main: "« 返回单文档", pairs: "跨文档配对 D8", verify: "核验清单 D9", integration: "多公告集成 D10" };
+  const VIEW_LABEL = { main: "« 返回单文档", pairs: "跨文档配对 D8", verify: "核验清单 D9",
+    integration: "多公告集成 D10", metrics: "结果图表 D11" };
   const showView = name => {
     $("pairsView").hidden = name !== "pairs";
     $("verifyView").hidden = name !== "verify";
     $("integrationView").hidden = name !== "integration";
+    $("metricsView").hidden = name !== "metrics";
     document.querySelector("main").style.display = name === "main" ? "" : "none";
-    for (const [btn, view] of [["pairsBtn", "pairs"], ["verifyBtn", "verify"], ["integrationBtn", "integration"]]) {
+    for (const [btn, view] of [["pairsBtn", "pairs"], ["verifyBtn", "verify"],
+      ["integrationBtn", "integration"], ["metricsBtn", "metrics"]]) {
       $(btn).textContent = name === view ? VIEW_LABEL.main : VIEW_LABEL[view];
     }
   };
@@ -91,6 +95,7 @@ async function boot() {
     }
   };
   const pairsFlag = { v: false }, verifyFlag = { v: false }, integrationFlag = { v: false };
+  const metricsFlag = { v: false };   // D11：图表数据随数据变化，加"刷新"入口而非永久缓存
   $("pairsBtn").addEventListener("click", async () => {
     const target = $("pairsView").hidden ? "pairs" : "main";
     showView(target);
@@ -105,6 +110,13 @@ async function boot() {
     const target = $("integrationView").hidden ? "integration" : "main";
     showView(target);
     if (target === "integration") await loadInto("integrationBtn", "integrationList", "/api/integration", renderIntegration, clearIntegration, integrationFlag);
+  });
+  $("metricsBtn").addEventListener("click", async () => {
+    const target = $("metricsView").hidden ? "metrics" : "main";
+    showView(target);
+    // 每次进入都重算：数据可能被上传/替换，缓存会显示过期数字（首测口径禁止）
+    metricsFlag.v = false;
+    if (target === "metrics") await loadInto("metricsBtn", "metricsList", "/api/metrics", renderMetrics, clearMetrics, metricsFlag);
   });
 
   $("loadBtn").addEventListener("click", () => loadDataset($("datasetSel").value));

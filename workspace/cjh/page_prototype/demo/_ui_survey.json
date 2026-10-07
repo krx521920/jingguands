@@ -1,0 +1,210 @@
+{
+  "generated_at": "2026-10-07T02:07:39",
+  "base": "http://127.0.0.1:8643",
+  "views": [
+    {
+      "view": "单文档三栏",
+      "btn": null,
+      "anchor": null,
+      "anchored": false,
+      "render_ms": 2106,
+      "probe": {
+        "overlap": [],
+        "overflow": [
+          {
+            "kind": "page_hscroll",
+            "scrollW": 1600,
+            "clientW": 1600,
+            "excess": 0
+          }
+        ],
+        "tiny": [],
+        "counts": {
+          "tables": 1,
+          "details": 1,
+          "cards": 1,
+          "rows": 6,
+          "visible_text_len": 1449
+        },
+        "title": "公告事件提取 · 三栏骨架（D1）"
+      },
+      "render_check": {
+        "total": 0,
+        "present": [],
+        "missing": []
+      },
+      "console_errors": [],
+      "page_errors": []
+    },
+    {
+      "view": "配对 D8",
+      "btn": "#pairsBtn",
+      "anchor": "D8-PAIR-001",
+      "anchored": true,
+      "render_ms": 5353,
+      "probe": {
+        "overlap": [],
+        "overflow": [
+          {
+            "kind": "page_hscroll",
+            "scrollW": 1600,
+            "clientW": 1600,
+            "excess": 0
+          }
+        ],
+        "tiny": [],
+        "counts": {
+          "tables": 1,
+          "details": 1,
+          "cards": 14,
+          "rows": 6,
+          "visible_text_len": 8728
+        },
+        "title": "公告事件提取 · 三栏骨架（D1）"
+      },
+      "render_check": {
+        "total": 13,
+        "present": [
+          "D8-PAIR-001",
+          "D8-PAIR-002",
+          "D8-PAIR-003",
+          "D8-PAIR-004",
+          "D8-PAIR-005",
+          "D8-PAIR-006",
+          "D8-PAIR-007",
+          "D8-PAIR-008",
+          "D8-PAIR-009",
+          "D8-PAIR-010",
+          "D8-PAIR-011",
+          "D8-PAIR-012",
+          "D8-PAIR-013"
+        ],
+        "missing": []
+      },
+      "console_errors": [],
+      "page_errors": []
+    },
+    {
+      "view": "核验 D9",
+      "btn": "#verifyBtn",
+      "anchor": "MISSING_SHARE_PAIR",
+      "anchored": true,
+      "render_ms": 5341,
+      "probe": {
+        "overlap": [],
+        "overflow": [
+          {
+            "kind": "page_hscroll",
+            "scrollW": 1600,
+            "clientW": 1600,
+            "excess": 0
+          }
+        ],
+        "tiny": [],
+        "counts": {
+          "tables": 1,
+          "details": 1,
+          "cards": 1,
+          "rows": 6,
+          "visible_text_len": 4332
+        },
+        "title": "公告事件提取 · 三栏骨架（D1）"
+      },
+      "render_check": {
+        "total": 7,
+        "present": [
+          "E01",
+          "EQUAL_SHARES_NO_DIRECTION",
+          "MISSING_OR_INVALID_PERIOD",
+          "MISSING_RATIO_PAIR",
+          "MISSING_SHARE_PAIR",
+          "RATIO_CHANGED_WITH_EQUAL_SHARES",
+          "UNCONFIRMED_FIELD"
+        ],
+        "missing": []
+      },
+      "console_errors": [],
+      "page_errors": []
+    },
+    {
+      "view": "集成 D10",
+      "btn": "#integrationBtn",
+      "anchor": "D10-INT-001",
+      "anchored": true,
+      "render_ms": 5347,
+      "probe": {
+        "overlap": [],
+        "overflow": [
+          {
+            "kind": "page_hscroll",
+            "scrollW": 1600,
+            "clientW": 1600,
+            "excess": 0
+          }
+        ],
+        "tiny": [],
+        "counts": {
+          "tables": 1,
+          "details": 11,
+          "cards": 11,
+          "rows": 6,
+          "visible_text_len": 10144
+        },
+        "title": "公告事件提取 · 三栏骨架（D1）"
+      },
+      "render_check": {
+        "total": 10,
+        "present": [
+          "D10-INT-001",
+          "D10-INT-002",
+          "D10-INT-003",
+          "D10-INT-004",
+          "D10-INT-005",
+          "D10-INT-006",
+          "D10-INT-007",
+          "D10-INT-008",
+          "D10-INT-009",
+          "D10-INT-010"
+        ],
+        "missing": []
+      },
+      "console_errors": [],
+      "page_errors": []
+    },
+    {
+      "view": "结果图表 D11",
+      "btn": "#metricsBtn",
+      "anchor": "出处命中率",
+      "anchored": true,
+      "render_ms": 5341,
+      "probe": {
+        "overlap": [],
+        "overflow": [
+          {
+            "kind": "page_hscroll",
+            "scrollW": 1600,
+            "clientW": 1600,
+            "excess": 0
+          }
+        ],
+        "tiny": [],
+        "counts": {
+          "tables": 2,
+          "details": 1,
+          "cards": 21,
+          "rows": 17,
+          "visible_text_len": 3059
+        },
+        "title": "公告事件提取 · 三栏骨架（D1）"
+      },
+      "render_check": {
+        "total": 0,
+        "present": [],
+        "missing": []
+      },
+      "console_errors": [],
+      "page_errors": []
+    }
+  ],
+  "findings": []
+}

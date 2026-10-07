@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-10-06T18:04:27.550Z",
+  "counts": {
+    "P0": 2,
+    "P1": 3,
+    "P2": 0
+  },
+  "total": 5,
+  "defects": [
+    {
+      "id": "D11-P0-01",
+      "sev": "P0",
+      "title": "旧版解析器（0.3.0）把字段溯源指向错误的 block，region 坐标却正确",
+      "area": "证据链 / 解析-抽取衔接",
+      "repro": "node demo/_evidence_check.js  → 观察 L3 未命中清单；\n手工核对：wei_real_pledge_ce37 的 E01.pledgee 指向 d44e95085_p001_b00016（表头「是否为限售股」），\n而 quote「建德市新安小额贷款股份有限公司」实际在 d44e95085_p001_b00031",
+      "expect": "provenance.block_id 指向的 block 内应包含 provenance.quote",
+      "actual": "parser 0.3.0 命中率 16.67%（2/12），parser 0.7.0 命中率 100%（12/12）；同文档同 region，差异只在 block_id 映射 —— 即坐标对、映射错。真错指 6 条，另 4 条 quote 在整份解析快照中都不存在",
+      "owner": "张智博（block 映射口径）+ 魏文宇（抽取侧 provenance 生成）",
+      "evidence": "demo/_evidence_check.json → attribution.mispoint_detail（含 real_blocks 对照）",
+      "day": "D11"
+    },
+    {
+      "id": "D11-P0-02",
+      "sev": "P0",
+      "title": "溯源存在率（L1）73.18% ，147 个字段无任何 provenance",
+      "area": "溯源完整性",
+      "repro": "curl http://127.0.0.1:8643/api/metrics → l1_provenance（或 summary.l1_pct）",
+      "expect": "≥90%（与总规划『字段抽取率』不同：抽取率看 status=extracted，本项看有无溯源；当前字段抽取率 71.53%，两者都未达标）",
+      "actual": "73.18%（401/548 字段带 provenance）；缺口 147 个字段无溯源，页面无法回跳定位",
+      "owner": "魏文宇（抽取）+ 张智博（出处）",
+      "evidence": "GET /api/metrics → l1_provenance / summary",
+      "day": "D11"
+    },
+    {
+      "id": "D11-P1-01",
+      "sev": "P1",
+      "title": "标准化率 69.87% ，低于目标 98%",
+      "area": "标准化",
+      "repro": "curl http://127.0.0.1:8643/api/metrics → cards[标准化率]",
+      "expect": "≥98%",
+      "actual": "69.87%（standardized=true 占 true/false 之比，未标注不计入分母）",
+      "owner": "魏文宇",
+      "evidence": "GET /api/metrics → summary.standardized_pct",
+      "day": "D11"
+    },
+    {
+      "id": "D11-P1-02",
+      "sev": "P1",
+      "title": "溯源带 block_id 仅 81.14% ，76 条只有页级锚点",
+      "area": "证据锚点",
+      "repro": "curl http://127.0.0.1:8643/api/metrics → anchors[溯源带 block_id]",
+      "expect": "块级锚点可回跳定位；仅页级为合法降级（D4-PLD 口径）且须显式标注降级原因",
+      "actual": "block_id 81.14% / region 70.72% / cell_ref 28.29%（n=403）",
+      "owner": "张智博",
+      "evidence": "GET /api/metrics → anchors",
+      "day": "D11"
+    },
+    {
+      "id": "D11-P1-03",
+      "sev": "P1",
+      "title": "核验清单中 2 条 finding 的 provenance 为 null",
+      "area": "核验视图",
+      "repro": "curl http://127.0.0.1:8643/api/verify → findings[].provenance",
+      "expect": "每条 finding 应带出处，或显式标注为何无出处",
+      "actual": "2/10 条为 null",
+      "owner": "方轩诚（核验报告）+ 张智博（出处）",
+      "evidence": "demo/_survey.json → view_stats[path=/api/verify].provenance_null",
+      "day": "D11"
+    }
+  ],
+  "limits": [
+    "本次只跑现有 31 份真实数据集；宗博文保管的 30 份单文档 + 20 组跨文档封存集未交付（按规则首测前不交开发），故本次成绩为「开发侧自测」，不得写成独立首测成绩。",
+    "L3 原文命中仅覆盖 2 个数据集（本地仅 1 份原始解析快照 doc_id=d44e95085），其余 29 份未核，未计入任何命中率分母。",
+    "矛盾召回 / 矛盾误报 / 重复运行一致率 / 20 页 ≤90 秒 四项未测：需封存集与引擎侧运行数据，属宗与魏职责范围。",
+    "接口层与页面层巡检均为 0 缺陷，但0 缺陷不等于验收通过——验收需封存集首测成绩。"
+  ],
+  "metrics_summary": {
+    "datasets": 31,
+    "fields_total": 548,
+    "fields_with_prov": 401,
+    "l1_pct": 73.18,
+    "prov_total": 403,
+    "block_id_pct": 81.14,
+    "page_pct": 100,
+    "region_pct": 70.72,
+    "quote_pct": 100,
+    "table_id_pct": 30.77,
+    "cell_ref_pct": 28.29,
+    "standardized_pct": 69.87,
+    "extracted_pct": 71.53
+  },
+  "l3": {
+    "doc_id": "d44e95085",
+    "doc_name": "pledge.pdf",
+    "checked": 24,
+    "hit": 14,
+    "miss": 10,
+    "hit_rate_pct": 58.33,
+    "datasets_checkable": [
+      "wei_real_pledge_0197",
+      "wei_real_pledge_ce37"
+    ],
+    "datasets_unverifiable": 29
+  }
+}

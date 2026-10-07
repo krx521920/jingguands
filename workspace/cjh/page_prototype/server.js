@@ -10,6 +10,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const { toContract } = require("./bridge/upstream_bridge.js");   // 转接口：上游格式 → 契约 v0.3
+const { handleMetrics } = require("./bridge/metrics.js");      // D11：真实结果统计（图表页数据源）
 
 const ROOT = __dirname;                       // 工程根（相对锚点）
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -727,6 +728,9 @@ function handleApi(req, res, urlObj) {
   }
   if (urlObj.pathname === "/api/integration") {
     return handleIntegration(res);                   // D10：多公告集成（10 组）+ 缓存三态 + 出处链
+  }
+  if (urlObj.pathname === "/api/metrics") {
+    return handleMetrics(res);                       // D11：真实结果统计（图表页数据源，实算不估算）
   }
   sendJSON(res, 404, { error: "unknown api" });
 }
