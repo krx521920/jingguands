@@ -22,3 +22,11 @@ export async function fetchEngines() {
   if (!r.ok) throw new Error("engines fetch failed: " + r.status);
   return r.json();
 }
+
+/** D12：指标注册表（单一真源）。图表页、材料表格、缺陷表共用这一份口径。
+ *  为什么不自己算：前端二次加工数是"同一指标在两处对不上"的根源。 */
+export async function fetchMetricRegistry() {
+  const r = await fetch("/api/metrics/registry");
+  if (!r.ok) throw new Error("metrics registry fetch failed: " + r.status);
+  return r.json();
+}

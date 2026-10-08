@@ -202,6 +202,12 @@ function handleMetrics(res) {
     const m = computeMetrics();
     const s = m.summary, l3 = m.l3, agg = m.agg;
 
+    // D12：把指标注册表一并下发，让页面顶层的口径面板与下方旧图表读同一份真源。
+    // 不这么做就会出现「上屏口径」与「图表数值」两套定义，正是要根治的毛病。
+    let registryPayload = null;
+    try { registryPayload = require("./metrics_registry.js"); }
+    catch (e) { registryPayload = null; }
+
     // 目标值来自 cjh_workspace_00_总规划.md §验收指标（仅作对照，不参与计算）
     // 口径严格对应总规划原文，不混用近似指标：
     //   字段抽取率 ≥90%   → status === "extracted" 占已判定状态字段的比例
@@ -257,12 +263,28 @@ function handleMetrics(res) {
 
     return sendJSON(res, 200, {
       generated_at: new Date().toISOString(),
+      // ★ D12：口径注册表（单一真源）。页面顶层按三类分列渲染，下方旧图表保留对照。
+      registry: registryPayload ? {
+        categories: registryPayload.CATEGORIES,
+        status_legend: registryPayload.STATUS,
+        metrics: registryPayload.list(),
+        not_covered: registryPayload.notCovered(),
+        coverage_statement: registryPayload.coverageStatement(),
+        fingerprint: registryPayload.fingerprint(),
+        discipline: [
+          "准确率 / 覆盖率 / 出处命中率分列，三者不相加、不合并成综合分",
+          "每项带自己的分子分母；分母不同的两个数不可比",
+          "status=not_covered 即未测，禁止按目标值或经验值填充",
+          "引用任何成绩须同时引用 input_fingerprint 与 source_script",
+        ],
+      } : null,
       caliber_discipline: [
         "全部指标由 data/ 下真实数据集实算，无示例值、无估算",
         "每项带分母 n；'未核'不计入命中分母",
         "L3 原文命中需原始解析快照，当前仅 1 份，覆盖范围如实标注",
         "目标值取自总规划验收指标，仅作对照，不参与计算；不达标即显示不达标",
         "字段抽取率与溯源存在率（L1）是两个不同指标，勿混用：前者看 status，后者看 provenance 是否存在",
+        "★ D12 起口径以顶层注册表为准，本节仅保留 D11 原始口径供对照",
       ],
       cards,
       anchors,

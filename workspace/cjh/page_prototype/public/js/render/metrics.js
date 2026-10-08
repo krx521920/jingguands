@@ -185,10 +185,234 @@ function anchorBars(anchors) {
 }
 
 /**
+ * ★ D12 新增：指标注册表面板。
+ *
+ * 存在的理由：旧图表页把准确率/覆盖率/出处命中率混在一堆卡片里，
+ * 分母不同的数字并排显示，读者（和写材料的人）极易把它们当成同一量纲比较。
+ * 本面板按 bridge/metrics_registry.js 的三类分列渲染，并把「未测」项
+ * 集中显式列出——未测项在旧版里是空白格子，空白最容易被当成"没问题"。
+ */
+export function renderRegistry(root, reg) {
+  root.textContent = "";
+
+  // ---- 口径纪律 ----
+  const disc = el("div", "mx-caliber");
+  disc.appendChild(el("div", "mx-caliber-title", "指标口径纪律 · 单一真源"));
+  const ul = el("ul");
+  (reg.discipline || []).forEach((t) => ul.appendChild(el("li", null, t)));
+  disc.appendChild(ul);
+  const fp = reg.fingerprint || {};
+  disc.appendChild(el("div", "mx-stamp",
+    "输入指纹 page_data=" + String(fp.primary || "").slice(0, 16) + "…（" +
+    ((fp.inputs && fp.inputs.page_data && fp.inputs.page_data.files) || 0) + " 份）／ unified=" +
+    String((fp.inputs && fp.inputs.unified_batch && fp.inputs.unified_batch.sha256) || "").slice(0, 16) +
+    "…（" + ((fp.inputs && fp.inputs.unified_batch && fp.inputs.unified_batch.files) || 0) +
+    " 份）　★ 换批即失效，图表与材料必须同步重跑"));
+  root.appendChild(disc);
+
+  const cov = reg.coverage_statement || {};
+  const sum = el("div", "mx-reg-sum");
+  sum.appendChild(el("span", "mx-reg-sum-t", "共 " + cov.total + " 项："));
+  sum.appendChild(el("span", "mx-badge st-measured", "已实测 " + cov.measured));
+  sum.appendChild(el("span", "mx-badge st-unverified", "不可核 " + cov.unverified));
+  sum.appendChild(el("span", "mx-badge st-not_covered", "未测 " + cov.not_covered));
+  root.appendChild(sum);
+
+  // ---- 三类分列表格 ----
+  const cats = reg.categories || {};
+  const metrics = reg.metrics || [];
+  for (const cat of ["accuracy", "coverage", "evidence", "compliance"]) {
+    const c = cats[cat];
+    if (!c) continue;
+    const rows = metrics.filter((m) => m.category === cat);
+    if (!rows.length) continue;
+
+    const sec = el("section", "mx-sec mx-reg-cat cat-" + cat);
+    const h = el("h3", null, c.name + "　——　" + c.question);
+    sec.appendChild(h);
+    sec.appendChild(el("div", "mx-hint", "分母规则：" + c.denominator_rule));
+    sec.appendChild(el("div", "mx-warn-line", c.must_not_mix));
+
+    const tb = el("table", "mx-table mx-reg-table");
+    const thead = el("thead");
+    const trh = el("tr");
+    ["指标", "数值", "分子/分母", "目标", "状态", "证据类型", "口径说明"].forEach((x) =>
+      trh.appendChild(el("th", null, x)));
+    thead.appendChild(trh);
+    tb.appendChild(thead);
+    const tbody = el("tbody");
+    rows.forEach((m) => {
+      const tr = el("tr", m.status === "not_covered" ? "row-nc" : null);
+      tr.appendChild(el("td", null, m.name));
+      // ★ 未测项数值列写"未测"而不是留空或填目标值
+      const vtd = el("td", m.status === "not_covered" ? "nc-txt mono" : "mono",
+        m.value === null ? "未测" : m.value + (m.unit === "%" ? "%" : " " + (m.unit || "")));
+      tr.appendChild(vtd);
+      tr.appendChild(el("td", "mono", m.num === null ? "—" : m.num + " / " + m.den));
+      tr.appendChild(el("td", "mono", m.target == null ? "—" : String(m.target)));
+      const std = el("td");
+      std.appendChild(el("span", "mx-badge st-" + m.status, m.status_label));
+      tr.appendChild(std);
+      tr.appendChild(el("td", "mono small", m.evidence_kind || "—"));
+      const note = el("td", "small", m.evidence_note || m.caliber || "");
+      if (m.blocked_by) {
+        note.appendChild(el("div", "nc-txt small", "阻塞：" + m.blocked_by));
+      }
+      tr.appendChild(note);
+      tbody.appendChild(tr);
+    });
+    tb.appendChild(tbody);
+    const wrap = el("div", "mx-table-wrap");
+    wrap.appendChild(tb);
+    sec.appendChild(wrap);
+    root.appendChild(sec);
+  }
+
+  // ---- 未测项集中清单 ----
+  const nc = reg.not_covered || [];
+  if (nc.length) {
+    const sec = el("section", "mx-sec mx-sec-alert");
+    sec.appendChild(el("h3", null, "未测项清单（" + nc.length + " 项）——空白不等于达标"));
+    const ul2 = el("ul", "mx-list");
+    nc.forEach((m) => {
+      const li = el("li");
+      li.appendChild(el("span", "mono", "[" + m.category + "] "));
+      li.appendChild(el("b", null, m.name));
+      li.appendChild(document.createTextNode("：" + (m.blocked_by ? "阻塞于 " + m.blocked_by : "缺分母/缺数据")));
+      ul2.appendChild(li);
+    });
+    sec.appendChild(ul2);
+    root.appendChild(sec);
+  }
+}
+
+/**
+ * ★ D12 新增：实际对照三层面板（L1 哈希 / L2 跨批逐字段 / L3 导出字节）。
+ *
+ * 为什么必须有：demo/_parity_real.js 已把对照跑完，结论躺在 JSON 里。
+ * **页面上看不到 = 读者无从判断，等于没做**——这正是 D10 `web_cli_same_result`
+ * 的翻版。本次补的正是"产物可见"这一环。
+ *
+ * 措辞纪律：每层都印「证明了什么 / 不能证明什么」。少后一句，读者就会把
+ * L3 的幂等性读成 Web/CLI 一致性——那正是我们这次要消灭的混用。
+ */
+export function renderParityReport(root, rep) {
+  root.textContent = "";
+
+  const sec = el("section", "mx-sec mx-parity-sec");
+  sec.appendChild(el("h3", null, "实际对照三层（页面可见 · 报告可复跑）"));
+
+  if (!rep.available) {
+    sec.appendChild(el("div", "mx-warn-line", "★ " + (rep.reason || "对照报告不可用")));
+    if (rep.how_to_generate) {
+      sec.appendChild(el("div", "mx-hint", "生成命令：node " + rep.how_to_generate));
+    }
+    root.appendChild(sec);
+    return;
+  }
+
+  if (rep.headline) sec.appendChild(el("div", "mx-hint mono", rep.headline));
+  sec.appendChild(el("div", "mx-stamp",
+    "报告生成于 " + (rep.generated_at || "—") +
+    "　★ 报告是快照：数据源换批后须重跑 node demo/_parity_real.js，否则以下数字是旧的"));
+
+  const wrap = el("div", "mx-parity-grid");
+  for (const L of rep.layers || []) {
+    const tone = L.badge ? L.badge.tone : "neutral";
+    const card = el("div", "mx-parity-card tone-" + tone);
+    const head = el("div", "mx-parity-head");
+    head.appendChild(el("span", "mx-parity-key", L.key));
+    head.appendChild(el("span", "mx-parity-title", L.title || ""));
+    card.appendChild(head);
+
+    // ★ 三态徽标：已测通过 / 已测有差异 / 未测。不允许二分
+    const stCls = tone === "ok" ? "measured" : tone === "bad" ? "unverified" : "not_covered";
+    card.appendChild(el("span", "mx-badge st-" + stCls,
+      (L.badge ? L.badge.mark + " " + L.badge.label : "未测")));
+
+    if (L.question) card.appendChild(el("div", "mx-parity-q", L.question));
+    if (L.reason) card.appendChild(el("div", "mx-parity-reason", L.reason));
+    if (L.unpaired_note) card.appendChild(el("div", "mx-warn-line", L.unpaired_note));
+
+    if ((L.numbers || []).length) {
+      const ul = el("div", "mx-parity-nums");
+      for (const kv of L.numbers) {
+        const s = el("span", "mx-parity-num");
+        s.appendChild(el("span", "k", kv[0]));
+        s.appendChild(el("span", "v mono", kv[1]));
+        ul.appendChild(s);
+      }
+      card.appendChild(ul);
+    }
+
+    // ★ 证明 / 不证明 —— 两句都印，缺一句就会重新产生口径混用
+    const pr = el("div", "mx-parity-scope");
+    pr.appendChild(el("div", "ok", "证明：" + (L.proves || "—")));
+    pr.appendChild(el("div", "no", "不证明：" + (L.not_proves || "—")));
+    card.appendChild(pr);
+    wrap.appendChild(card);
+  }
+  sec.appendChild(wrap);
+
+  // ---- 仍未测项：把"没测的"和"测出差异的"分开陈述 ----
+  const snc = rep.still_not_covered;
+  if (snc) {
+    const box = el("div", "mx-parity-snc");
+    box.appendChild(el("div", "mx-parity-snc-h", "仍未测：" + snc.claim));
+    if (snc.why) box.appendChild(el("div", "mx-hint", snc.why));
+    if ((snc.blockers || []).length) {
+      const ul = el("ul", "mx-list");
+      snc.blockers.forEach((b) => {
+        const li = el("li");
+        // ★ b 可能是对象 {owner,need} 或裸字符串；直接字符串化会渲染成 [object HTMLIElement]
+        if (b && typeof b === "object") {
+          li.appendChild(el("b", null, b.owner || "未指派"));
+          li.appendChild(document.createTextNode("：" + (b.need || "")));
+        } else {
+          li.appendChild(document.createTextNode(String(b)));
+        }
+        ul.appendChild(li);
+      });
+      box.appendChild(ul);
+    }
+    if (snc.how_to_close) box.appendChild(el("div", "mx-hint mono", "关闭方式：" + snc.how_to_close));
+    sec.appendChild(box);
+  }
+
+  root.appendChild(sec);
+}
+
+/**
  * 主渲染：把 /api/metrics 响应画成图表页
  */
 export function renderMetrics(root, data) {
   root.textContent = "";
+
+  // ---- ★ D12：注册表面板置顶（口径先于数字）----
+  if (data.registry) {
+    const holder = el("div", "mx-reg-holder");
+    holder.id = "mxRegistry";
+    root.appendChild(holder);
+    renderRegistry(holder, data.registry);
+    root.appendChild(el("hr", "mx-sep"));
+    root.appendChild(el("div", "mx-sec-title", "以下为 D11 图表页原始视图（保留以便对照）"));
+  }
+
+  // ---- ★ D12：实际对照三层紧随其后（"这些数字凭什么"）----
+  {
+    const ph = el("div", "mx-parity-holder");
+    ph.id = "mxParity";
+    ph.appendChild(el("div", "mx-hint", "正在读对照报告…"));
+    root.appendChild(ph);
+    root.appendChild(el("hr", "mx-sep"));
+    fetch("/api/parity/real")
+      .then((r) => r.json())
+      .then((rep) => renderParityReport(ph, rep))
+      .catch((e) => {
+        ph.textContent = "";
+        ph.appendChild(el("div", "mx-warn-line", "对照报告请求失败：" + e.message));
+      });
+  }
 
   // ---- 顶部：口径声明（必须最显眼）----
   const cal = el("div", "mx-caliber");

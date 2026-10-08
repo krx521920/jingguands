@@ -293,3 +293,69 @@ footer { color: var(--muted); font-size: 12px; padding: 4px 20px 10px; }
 .mx-l1-v { font-size: 22px; font-weight: 700; font-family: Consolas, monospace; color: var(--warn); }
 .mx-l1-sub { font-size: 12px; color: var(--muted); font-family: Consolas, monospace; }
 .mx-l1-note { font-size: 11.5px; color: #7a5b00; flex-basis: 100%; line-height: 1.55; }
+
+/* ===== D12：指标注册表面板（口径先于数字）===== */
+.mx-reg-sum { display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: var(--gray-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: 9px 14px; margin-bottom: 12px; }
+.mx-reg-sum-t { font-size: 12.5px; font-weight: 700; color: var(--text); }
+.mx-reg-holder { margin-bottom: 4px; }
+.mx-sec-title { font-size: 12px; color: var(--muted); margin: 14px 0 8px;
+  padding-top: 10px; border-top: 1px dashed var(--border); }
+.mx-sep { border: 0; border-top: 1px solid var(--border); margin: 18px 0 6px; }
+
+/* 类别标签色：准确率绿 / 覆盖率蓝 / 出处琥珀 / 合规灰——四类视觉可区分，
+   避免读者把不同量纲的条形图当成同一坐标轴下的系列 */
+.mx-reg-cat.cat-accuracy > h3 { color: var(--ok); }
+.mx-reg-cat.cat-coverage > h3 { color: #1d4ed8; }
+.mx-reg-cat.cat-evidence > h3 { color: var(--warn); }
+.mx-reg-cat.cat-compliance > h3 { color: var(--gray); }
+.mx-reg-cat.cat-accuracy { border-left: 4px solid var(--ok); }
+.mx-reg-cat.cat-coverage { border-left: 4px solid #1d4ed8; }
+.mx-reg-cat.cat-evidence { border-left: 4px solid var(--warn); }
+.mx-reg-cat.cat-compliance { border-left: 4px solid var(--gray); }
+
+.mx-warn-line { background: var(--warn-bg); border: 1px solid #f0d48a; border-radius: 6px;
+  padding: 6px 10px; font-size: 11.5px; color: #7a5b00; margin-bottom: 8px; }
+
+.mx-reg-table { font-size: 12px; }
+.mx-reg-table th { white-space: nowrap; }
+.mx-reg-table td { vertical-align: top; }
+.mx-reg-table td.small, .mx-reg-table th.small { font-size: 11px; color: var(--muted); line-height: 1.5; }
+.mx-reg-table tr.row-nc { background: var(--gray-bg); }
+.mx-reg-table tr.row-nc td { color: var(--gray); }
+
+/* ★ 未测态：灰色虚线，视觉上明确区别于"达标绿"与"未达标红" */
+.nc-txt { color: var(--gray); font-style: italic; }
+.mx-badge.st-measured { background: var(--ok-bg); color: var(--ok); border: 1px solid var(--ok); }
+.mx-badge.st-unverified { background: var(--warn-bg); color: var(--warn); border: 1px solid var(--warn); }
+.mx-badge.st-not_covered { background: var(--gray-bg); color: var(--gray);
+  border: 1px dashed var(--gray); }
+
+/* ===== D12：实际对照三层面板 ===== */
+.mx-parity-holder { margin-bottom: 6px; }
+.mx-parity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px; margin: 10px 0 4px; }
+.mx-parity-card { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+  background: var(--panel); font-size: 12px; }
+.mx-parity-card.tone-ok { border-left: 4px solid var(--ok); }
+.mx-parity-card.tone-bad { border-left: 4px solid var(--bad); }
+.mx-parity-card.tone-neutral { border-left: 4px dashed var(--gray); }
+.mx-parity-head { display: flex; align-items: baseline; gap: 7px; margin-bottom: 5px; }
+.mx-parity-key { font-weight: 700; font-size: 13px; color: var(--text); }
+.mx-parity-title { color: var(--muted); font-size: 11.5px; }
+.mx-parity-q { font-size: 11.5px; color: var(--text); margin: 4px 0; line-height: 1.5; }
+.mx-parity-reason { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin-bottom: 5px; }
+.mx-parity-nums { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0; }
+.mx-parity-num { background: var(--gray-bg); border-radius: 5px; padding: 2px 7px;
+  display: inline-flex; gap: 5px; align-items: baseline; }
+.mx-parity-num .k { font-size: 10.5px; color: var(--muted); }
+.mx-parity-num .v { font-size: 12px; font-weight: 700; color: var(--text); }
+/* ★ 证明/不证明：两句必须视觉上同等显著，否则"不证明"会被扫过去 */
+.mx-parity-scope { margin-top: 7px; padding-top: 7px; border-top: 1px dashed var(--border);
+  font-size: 11px; line-height: 1.55; }
+.mx-parity-scope .ok { color: var(--ok); }
+.mx-parity-scope .no { color: #b91c1c; font-weight: 600; }
+.mx-parity-snc { margin-top: 10px; background: var(--warn-bg); border: 1px solid #f0d48a;
+  border-radius: 6px; padding: 8px 11px; }
+.mx-parity-snc-h { font-size: 12.5px; font-weight: 700; color: #7a5b00; margin-bottom: 3px; }

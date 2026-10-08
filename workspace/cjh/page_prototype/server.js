@@ -13,7 +13,9 @@ const fs = require("fs");
 const path = require("path");
 const { toContract } = require("./bridge/upstream_bridge.js");   // 转接口：上游格式 → 契约 v0.3
 const { handleMetrics } = require("./bridge/metrics.js");      // D11：真实结果统计（图表页数据源）
+const registry = require("./bridge/metrics_registry.js");      // D12：指标单一真源（页面/材料共用口径）
 const extractor = require("./bridge/extractor.js");            // D12：抽取引擎适配层（预留魏 CLI 入口）
+const parityReport = require("./bridge/parity_report.js");    // D12：实际对照报告读取（三层措辞单一真源）
 
 const ROOT = __dirname;                       // 工程根（相对锚点）
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -728,6 +730,11 @@ function handleApi(req, res, urlObj) {
   if (urlObj.pathname === "/api/parity") {
     return handleParity(res, urlObj);                 // D12：Web/CLI 真实对照（同源则判not_covered）
   }
+  if (urlObj.pathname === "/api/parity/real") {
+    // D12：实际对照报告（demo/_parity_real.js 产出，页面与材料共用同一措辞）。
+    //   报告缺失/损坏 ⇒ not_covered，不回退到任何"通过"表述。
+    return sendJSON(res, 200, parityReport.loadReport());
+  }
   if (urlObj.pathname === "/api/result") {
     const dataset = urlObj.searchParams.get("dataset") || "pledge";
     if (!/^[a-z0-9_-]+$/i.test(dataset)) {
@@ -765,6 +772,26 @@ function handleApi(req, res, urlObj) {
   }
   if (urlObj.pathname === "/api/metrics") {
     return handleMetrics(res);                       // D11：真实结果统计（图表页数据源，实算不估算）
+  }
+  if (urlObj.pathname === "/api/metrics/registry") {
+    // D12：指标注册表（单一真源）。★ 图表页、材料表格、缺陷表读的都是这份口径，
+    //   任何人另立一套口径都会与此处不一致——这是"同一指标在两处对不上"的根治办法。
+    return sendJSON(res, 200, {
+      generated_at: new Date().toISOString(),
+      categories: registry.CATEGORIES,
+      status_legend: registry.STATUS,
+      metrics: registry.list(),
+      not_covered: registry.notCovered(),
+      coverage_statement: registry.coverageStatement(),
+      fingerprint: registry.fingerprint(),
+      // 纪律写在接口里，页面上屏时一并显示，避免"看到数字忘了口径"
+      discipline: [
+        "准确率 / 覆盖率 / 出处命中率分列，三者不相加、不合并成综合分",
+        "每项带自己的分子分母；分母不同的两个数不可比",
+        "status=not_covered 即未测，禁止按目标值或经验值填充",
+        "引用任何成绩须同时引用 input_fingerprint 与 source_script",
+      ],
+    });
   }
   sendJSON(res, 404, { error: "unknown api" });
 }
