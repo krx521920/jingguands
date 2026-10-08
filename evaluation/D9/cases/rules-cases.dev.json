@@ -150,8 +150,9 @@
       ],
       "attribution_basis": "核查意见给出的是四人群体合计，与受让方单人明细相等；合计不得拆记到个人，亦非矛盾。",
       "synthetic_controlled": false,
-      "requires_programmatic_sum": true,
-      "must_not_conclude": "conflict"
+      "must_not_conclude": "conflict",
+      "correction_20261008": "原标 requires_programmatic_sum 有误：本例是「群体合计 vs 单人明细」的直接比较，不需要程序求和；改为必需计算。",
+      "requires_programmatic_sum_reason": "none：直接比较合计与单人值，无需求和"
     },
     {
       "case_id": "D9-RULE-005",
@@ -182,7 +183,8 @@
       "attribution_basis": "出让方分人减持之和 = 受让方增持额；跨文档合计勾稽成立。",
       "synthetic_controlled": false,
       "requires_programmatic_sum": true,
-      "must_not_conclude": "conflict"
+      "must_not_conclude": "conflict",
+      "requires_programmatic_sum_reason": "四个出让方 change_shares 之和 = 受让方增持额，必须由程序求和"
     },
     {
       "case_id": "D9-RULE-006",
@@ -600,6 +602,7 @@
       "requires_dual_evidence": true
     }
   ],
-  "revised_on": "2026-10-05",
-  "revision_note": "v0.2: 按张/魏重锚清单修正 5 处 block_id（RULE-009/010×2/012×2），RULE-010 cumulative 由宗人工定为 b00084，并更正 RULE-018 的表格形态依据。expected_verdict 与成员未变。"
+  "revised_on": "2026-10-08",
+  "revision_note": "v0.2: 按张/魏重锚清单修正 5 处 block_id（RULE-009/010×2/012×2），RULE-010 cumulative 由宗人工定为 b00084，并更正 RULE-018 的表格形态依据。expected_verdict 与成员未变。",
+  "revision_note_v3": "v0.3: 修正 D9-RULE-004 的 requires_programmatic_sum 标注（该例为直接比较、无需求和）；RULE-005 保留（确需求和）。"
 }
