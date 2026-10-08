@@ -1,8 +1,8 @@
 {
   "locked_on": "2026-10-07",
-  "revised_on": "2026-10-07",
+  "revised_on": "2026-10-08",
   "frozen_input": "weiwenyu@bc67ccd8",
-  "note": "不含 lock-manifest.json 自身（自引用无法自校验）",
+  "note": "不含 lock-manifest.json 自身；2026-10-08 因 D9 口径更正(20/20→18/20)重新锁存",
   "files": [
     {
       "path": "evaluation\\D11\\firsttest-envelopes\\D4-PLD-001.json",
@@ -166,13 +166,13 @@
     },
     {
       "path": "evaluation\\D11\\results\\D11-终版收口.md",
-      "sha256": "44fecaeaa1d786d73948fa93c30fc3bee8505c184a38cc56cc056045dd73804f",
-      "bytes": 2989
+      "sha256": "b6d0c0f2689679264b37aa7ab4f0736a4c11df79f36e8ffae3a8e6ee9a2555e4",
+      "bytes": 3315
     },
     {
       "path": "evaluation\\D11\\results\\D11-首测报告.md",
-      "sha256": "456c3152a5caad20b239ef6c1209d53ff09fdd196e3cd231eb41e74c5d269bcc",
-      "bytes": 4266
+      "sha256": "6e120f56f80f5c764beba5521a8b3a1494c81fec94e2a6690e2f250874cc4e21",
+      "bytes": 4644
     },
     {
       "path": "evaluation\\D11\\results\\cold-run-verification.json",
@@ -261,8 +261,8 @@
     },
     {
       "path": "evaluation\\D11\\results\\失败清单.md",
-      "sha256": "9a87ffb5c06a8c24432e71f6dd2229ea5b0af7a527928a2a553471ba82cefc4b",
-      "bytes": 2522
+      "sha256": "f701f359775900a5f93f0359f2bd24a9903df49d8aaf3178b6943da8b9f65981",
+      "bytes": 2848
     }
   ]
 }
