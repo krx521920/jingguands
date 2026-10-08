@@ -38,6 +38,8 @@ const SCOPE_TEXT = { single: "单次", cumulative: "累计" };
 
 export function fmtValue(f) {
   let v = f.value;
+  if (v == null || v === "") return "—";
+  if (typeof v === "boolean") v = v ? "是" : "否";
   if (typeof v === "number") v = v.toLocaleString("zh-CN");
   // 原文已含单位符号时不再追加（避免 "8.5% %" 这类重复；D5 演示发现）
   if (f.unit && !(typeof v === "string" && v.includes(f.unit))) v += " " + f.unit;
@@ -104,7 +106,7 @@ function renderAnomalyBar(container, abnormal) {
   if (!abnormal.length) return;
   const bar = document.createElement("div");
   bar.className = "anomaly-bar";
-  bar.append(Object.assign(document.createElement("span"), { textContent: "异常状态：" }));
+  bar.append(Object.assign(document.createElement("span"), { textContent: "字段状态" }));
   const cursor = {};   // key → 已定位到第几条（点击循环）
   for (const s of ABNORMAL_STATES) {
     const list = abnormal.filter(a => a.key === s.key);
@@ -304,7 +306,10 @@ export function renderResults(container, data, onFocusEvidence) {
     const head = document.createElement("div");
     head.className = "head";
     const title = document.createElement("strong");
-    title.textContent = `事件 ${ev.event_id} · ${EVENT_TYPE_TEXT[ev.event_type] || ev.event_type}`;
+    const eventId = document.createElement("span");
+    eventId.className = "event-id";
+    eventId.textContent = ev.event_id;
+    title.append(eventId, EVENT_TYPE_TEXT[ev.event_type] || ev.event_type);
     head.append(title, badge(ev.status));   // D5：去掉右侧重复的 eid（标题已含 id）
     // v0.4 D4：direction=release（解除质押）独立事件，卡片标题区显式区分（默认 pledge 不加噪音）
     // 枚举键在 normalized（raw_value 是中文原文），两者都兜底
@@ -334,32 +339,40 @@ export function renderResults(container, data, onFocusEvidence) {
       tdK.textContent = FIELD_TEXT[key] || key;
       const tdV = document.createElement("td");
       tdV.className = "v";
-      // direction 字段显示中文（枚举键 normalized 优先，原文兜底），其余走通用格式化
-      tdV.append(key === "direction" ? (DIRECTION_TEXT[f.normalized] || DIRECTION_TEXT[f.value] || f.value || "—") : fmtValue(f),
-                 badge(f.status_override || "success"));   // D3：字段级状态（不再继承事件级待复核，修错位）
+      const value = document.createElement("span");
+      value.className = "field-value";
+      value.textContent = key === "direction" ? (DIRECTION_TEXT[f.normalized] || DIRECTION_TEXT[f.value] || f.value || "—") : fmtValue(f);
+      tdV.append(value);
+      const meta = document.createElement("div");
+      meta.className = "field-meta";
+      if (f.status_override && f.status_override !== "success") meta.append(badge(f.status_override));
+      if (f.evidence_id) {
+        const first = (data.evidences || []).find(x => x.evidence_id === f.evidence_id) || {};
+        const link = document.createElement("button");
+        link.type = "button";
+        link.className = "ev-link";
+        link.textContent = first.page != null ? "↗ 第 " + first.page + " 页原文" : "↗ 查看原文";
+        link.title = [f.evidence_id, SOURCE_TYPE_TEXT[first.source_type], first.cell_ref].filter(Boolean).join(" · ");
+        link.addEventListener("click", () => onFocusEvidence(f.evidence_id));
+        meta.append(link);
+      } else if (hasValue) {
+        const missing = document.createElement("span");
+        missing.className = "field-missing";
+        missing.textContent = "缺少出处";
+        meta.append(missing);
+      }
       const marks = fmtMarks(f);
       if (marks) {
-        const mk = document.createElement("span");
-        mk.className = "ev-link none";
-        mk.textContent = marks;
-        tdV.append(mk);
+        const detail = document.createElement("details");
+        detail.className = "field-details";
+        const summary = document.createElement("summary");
+        summary.textContent = "口径详情 ⌄";
+        const text = document.createElement("p");
+        text.textContent = marks;
+        detail.append(summary, text);
+        meta.append(detail);
       }
-      if (f.evidence_id) {
-        const link = document.createElement("span");
-        link.className = "ev-link";
-        // D3：锚点带上出处定位（表格 cell_ref / 段落），一眼看清出处类型
-        const first = (data.evidences || []).find(x => x.evidence_id === f.evidence_id) || {};
-        const st = first.source_type && SOURCE_TYPE_TEXT[first.source_type] ? SOURCE_TYPE_TEXT[first.source_type] : "";
-        const loc = first.cell_ref ? "#" + first.cell_ref : (first.page != null ? " p" + first.page : "");
-        link.textContent = `证据 ${f.evidence_id}${st ? " · " + st + loc : ""}`;
-        link.addEventListener("click", () => onFocusEvidence(f.evidence_id));
-        tdV.append(link);
-      } else {
-        const none = document.createElement("span");
-        none.className = "ev-link none";
-        none.textContent = "无出处";
-        tdV.append(none);
-      }
+      if (meta.childNodes.length) tdV.append(meta);
       tr.append(tdK, tdV);
       table.append(tr);
     }

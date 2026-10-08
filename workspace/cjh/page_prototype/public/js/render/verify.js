@@ -1,6 +1,7 @@
 // render/verify.js —— D9 核验清单视图：先归因再判矛盾 + 双侧证据视图
 // 主题落地：每条核验发现先渲染方的归因文案（message），再渲染判定码徽章——"先归因再判矛盾"。
 // 出处：张的字段级 provenance（quote + 页码 + block_id）挂在条目上，页面与命令行同源。
+import { FIELD_TEXT } from "./results.js";
 const SEV = {
   conflict: { text: "矛盾", cls: "sev-conflict" },
   error:    { text: "错误", cls: "sev-error" },
@@ -23,17 +24,20 @@ function findingItem(f) {
   main.append(el("span", "vf-message", "归因：" + (f.message || "（方侧未提供文案）")));
   const sev = sevOf(f.severity);
   main.append(el("span", "vf-badge " + sev.cls, sev.text));
-  main.append(el("span", "vf-code", f.code));
   item.append(main);
   const sub = el("div", "vf-sub");
-  sub.append(el("span", null, f.dataset + (f.event_id ? " · " + f.event_id : "") + (f.holder ? " · " + f.holder : "")));
-  if (f.fields.length) sub.append(el("span", null, "字段：" + f.fields.join("、")));
+  sub.append(el("span", null, (f.holder || f.dataset) + (f.event_id ? " · " + f.event_id : "")));
+  if (f.fields.length) sub.append(el("span", null, "涉及字段：" + f.fields.map(k => FIELD_TEXT[k] || k).join("、")));
   item.append(sub);
   if (f.provenance) {
     const p = f.provenance;
     item.append(el("div", "vf-prov",
-      "出处（" + p.field + " · 第 " + (p.page ?? "?") + " 页" + (p.block_id ? " · " + p.block_id : "") + "）：「" + String(p.quote).slice(0, 50) + "」"));
+      "原文 · 第 " + (p.page ?? "?") + " 页：「" + String(p.quote || "未提供原文") + "」"));
   }
+  const details = el("details", "evidence-technical");
+  details.append(el("summary", null, "判定与定位详情 ⌄"), el("p", null,
+    ["判定码：" + f.code, "数据集：" + f.dataset, f.provenance?.block_id ? "块标识：" + f.provenance.block_id : ""].filter(Boolean).join(" · ")));
+  item.append(details);
   return item;
 }
 
@@ -98,14 +102,14 @@ export function renderVerify(container, data) {
 
   // 区一：核验清单（按严重级排序：矛盾→错误→待复核→提示）
   const sec1 = el("div", "verify-section");
-  sec1.append(el("h3", null, "① 核验清单——" + data.findings.length + " 条发现（每条先归因文案，后判定码）"));
+  sec1.append(el("h3", null, "核验发现 · " + data.findings.length + " 项"));
   if (!data.findings.length) sec1.append(el("div", "empty", "无发现（全部事件通过核验）"));
   for (const f of data.findings) sec1.append(findingItem(f));
   container.append(sec1);
 
   // 区二：双侧证据视图（互证点）
   const sec2 = el("div", "verify-section");
-  sec2.append(el("h3", null, "② 双侧证据视图——" + s.corroboration_total + " 个互证点（A|B 两侧原文并排）"));
+  sec2.append(el("h3", null, "双侧证据 · " + s.corroboration_total + " 个互证点"));
   for (const p of data.pairs) {
     if (!p.corroborations.length && !(p.conflicts || []).length) continue;
     const g = el("div", "corr-group");

@@ -27,7 +27,7 @@ function setEngineMeta(data) {
   const em = data.extraction_engine;
   if (!em) return;
   const box = $("engineMeta");
-  box.textContent = em.reruns_extraction ? "引擎 独立抽取" : "引擎 预生成信封";
+  box.textContent = em.reruns_extraction ? "引擎 独立抽取" : "抽取方式：预生成结果（未重新抽取）";
   box.title = `${em.engine}：${em.engine_owner || ""}\n`
     + `抽取方式：${em.reruns_extraction ? "独立跑抽取管线" : "读预生成信封，未重新抽取"}\n`
     + `来源：${em.source_path || "—"}\n`
@@ -48,7 +48,7 @@ async function loadEngineMeta() {
         + e.engines.map(x => `· ${x.id}（${x.owner}）：${x.available ? "就绪 — " + x.reason : "未接通 — " + x.reason}`).join("\n");
       box.style.color = "var(--ok)";
     } else {
-      box.textContent = "引擎 仅预生成信封";
+      box.textContent = "抽取方式：预生成结果（在线抽取未接通）";
       box.title = "⚠ 未接通独立抽取引擎 ⇒ Web/CLI 对照只能判「未覆盖」（同源消费不构成对照）\n"
         + "预留入口（待魏文宇提供）：\n"
         + (pending.length ? pending.map(x => `· ${x.id}（${x.owner}）：${x.reason}`).join("\n") : "—")
@@ -60,10 +60,13 @@ async function loadEngineMeta() {
   }
 }
 
+let loadRequest = 0;
+let currentMethod = "预生成结果 · 可追溯";
 let currentDataset = null;   // 当前数据集名（导出按钮用）
 
 function exportDataset(format) {
   if (!currentDataset) { alert("请先加载数据集"); return; }
+  document.querySelector(".export-menu").open = false;
   const a = document.createElement("a");
   a.href = `/api/export?dataset=${encodeURIComponent(currentDataset)}&format=${format}`;
   a.download = "";
@@ -73,23 +76,43 @@ function exportDataset(format) {
 }
 
 async function loadDataset(name) {
+  const request = ++loadRequest;
   try {
-    currentDataset = name;
+    $("loadBtn").disabled = true;
     const data = await fetchResult(name);
+    if (request !== loadRequest) return;
+    currentDataset = name;
     setMode(data);
     renderSourceFile($("fileList"), data.source_file);
     renderResults($("results"), data, focusEvidence);
     renderEvidences($("evidences"), data);
+    updateOverview(data);
   } catch (e) {
-    alert("加载失败：" + e.message);
-  }
+    if (request === loadRequest) alert("加载失败：" + e.message);
+  } finally { if (request === loadRequest) $("loadBtn").disabled = false; }
+}
+
+function updateOverview(data) {
+  const fields = (data.events || []).flatMap(event => Object.values(event.fields || {}));
+  const review = fields.filter(f => ["pending_review", "unreadable"].includes(f.status_override) || ((f.value != null || f.normalized != null) && !f.evidence_id)).length;
+  $("summaryEvents").textContent = String(data.events.length).padStart(2, "0");
+  $("summaryEvidence").textContent = String(data.evidences.length).padStart(2, "0");
+  $("summaryReview").textContent = String(review).padStart(2, "0");
+  currentMethod = data.extraction_engine?.reruns_extraction ? "独立抽取结果 · 可追溯" : "预生成结果 · 可追溯";
+  $("dataMethod").textContent = currentMethod;
 }
 
 function resetAll() {
+  ++loadRequest;
+  currentDataset = null;
+  $("loadBtn").disabled = false;
+  currentMethod = "选择数据集开始研读";
+  $("dataMethod").textContent = currentMethod;
+  for (const id of ["summaryEvents", "summaryEvidence", "summaryReview"]) $(id).textContent = "—";
   $("simBanner").classList.remove("show");
   $("modeBadge").textContent = "未加载";
   $("modeBadge").classList.remove("real");
-  $("runMeta").textContent = "D1 骨架 · 独立本地原型";
+  $("runMeta").textContent = "尚未加载数据";
   clearUpload();
   clearResults($("results"));
   clearEvidences($("evidences"));
@@ -110,19 +133,28 @@ async function boot() {
 
   // D8/D9/D10/D11：五个视图互斥切换（单文档 / 配对 / 核验 / 集成 / 图表），首进才拉对应接口，内容缓存
   let pairsLoaded = false, verifyLoaded = false;
-  const VIEW_LABEL = { main: "« 返回单文档", pairs: "跨文档配对 D8", verify: "核验清单 D9",
-    integration: "多公告集成 D10", metrics: "结果图表 D11" };
+  const VIEW_LABEL = { main: "公告研读", pairs: "跨文档比对", verify: "核验清单", integration: "综合核验", metrics: "质量报告" };
+  const VIEW_DESC = { main: "从结构化事件出发，回到原文核对每一条证据。", pairs: "并排阅读关联公告，核对同一事件的前后变化。", verify: "先理解差异的原因，再判断是否构成矛盾。", integration: "汇集多份公告与核验报告，检查事件之间的完整关系。", metrics: "按独立口径查看已测结果、覆盖范围与待完成项。" };
   const showView = name => {
-    $("pairsView").hidden = name !== "pairs";
-    $("verifyView").hidden = name !== "verify";
-    $("integrationView").hidden = name !== "integration";
-    $("metricsView").hidden = name !== "metrics";
+    for (const view of ["pairs", "verify", "integration", "metrics"]) $(view + "View").hidden = name !== view;
     document.querySelector("main").style.display = name === "main" ? "" : "none";
-    for (const [btn, view] of [["pairsBtn", "pairs"], ["verifyBtn", "verify"],
-      ["integrationBtn", "integration"], ["metricsBtn", "metrics"]]) {
-      $(btn).textContent = name === view ? VIEW_LABEL.main : VIEW_LABEL[view];
-    }
+    document.querySelectorAll(".nav-item").forEach(btn => {
+      const active = btn.id === name + "Btn";
+      btn.classList.toggle("active", active);
+      if (active) btn.setAttribute("aria-current", "page"); else btn.removeAttribute("aria-current");
+    });
+    const dot = document.createElement("span");
+    dot.className = "title-dot";
+    dot.textContent = ".";
+    $("pageTitle").replaceChildren(VIEW_LABEL[name], dot);
+    $("breadcrumbTitle").textContent = VIEW_LABEL[name];
+    $("pageDescription").textContent = VIEW_DESC[name];
+    $("modeBadge").hidden = name !== "main";
+    $("dataMethod").textContent = name === "main" ? currentMethod : "仓库报告 · 非实时评测";
+    $("simBanner").hidden = name !== "main";
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
+  $("mainBtn").addEventListener("click", () => showView("main"));
   const loadInto = async (btn, listId, url, renderFn, clearFn, loadedFlag) => {
     if (loadedFlag.v) return true;
     try {
@@ -140,22 +172,22 @@ async function boot() {
   const pairsFlag = { v: false }, verifyFlag = { v: false }, integrationFlag = { v: false };
   const metricsFlag = { v: false };   // D11：图表数据随数据变化，加"刷新"入口而非永久缓存
   $("pairsBtn").addEventListener("click", async () => {
-    const target = $("pairsView").hidden ? "pairs" : "main";
+    const target = "pairs";
     showView(target);
     if (target === "pairs") await loadInto("pairsBtn", "pairsList", "/api/pairs", renderPairs, clearPairs, pairsFlag);
   });
   $("verifyBtn").addEventListener("click", async () => {
-    const target = $("verifyView").hidden ? "verify" : "main";
+    const target = "verify";
     showView(target);
     if (target === "verify") await loadInto("verifyBtn", "verifyList", "/api/verify", renderVerify, clearVerify, verifyFlag);
   });
   $("integrationBtn").addEventListener("click", async () => {
-    const target = $("integrationView").hidden ? "integration" : "main";
+    const target = "integration";
     showView(target);
     if (target === "integration") await loadInto("integrationBtn", "integrationList", "/api/integration", renderIntegration, clearIntegration, integrationFlag);
   });
   $("metricsBtn").addEventListener("click", async () => {
-    const target = $("metricsView").hidden ? "metrics" : "main";
+    const target = "metrics";
     showView(target);
     // 每次进入都重算：数据可能被上传/替换，缓存会显示过期数字（首测口径禁止）
     metricsFlag.v = false;
@@ -198,10 +230,13 @@ async function refreshDatasets() {
   sel.replaceChildren();
   for (const d of datasets) {
     const opt = document.createElement("option");
-    opt.value = d; opt.textContent = d;
+    opt.value = d;
+    const kind = d.includes("awd") ? "中标合同" : d.includes("eqc") ? "股权变动" : /pledge|PLD/.test(d) ? "股份质押" : null;
+    opt.textContent = kind ? kind + " · " + d.replace(/^wei_real_/, "") : d;
     sel.append(opt);
   }
   if (prev && datasets.includes(prev)) sel.value = prev;
+  else if (datasets.includes("wei_real_awd_001")) sel.value = "wei_real_awd_001";
 }
 
 boot();

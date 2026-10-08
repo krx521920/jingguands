@@ -29,7 +29,7 @@ function renderGuaranteeNote(container) {
   const box = document.createElement("details");
   box.className = "ev-guarantee";
   const sum = document.createElement("summary");
-  sum.textContent = "出处口径：保证与不保证（张 D7 解析能力边界，点击展开）";
+  sum.textContent = "关于原文定位与证据适用范围";
   box.append(sum);
   const g = document.createElement("div");
   g.className = "ev-note";
@@ -67,16 +67,16 @@ export function renderEvidences(container, data) {
       Object.assign(document.createElement("span"), { textContent: e.evidence_id }),
       Object.assign(document.createElement("span"), { textContent: e.source_type ? (SOURCE_TYPE_TEXT[e.source_type] || e.source_type) : "出处类型:—" })
     );
-    if (e.block_id) meta.append(Object.assign(document.createElement("span"), { textContent: "block: " + e.block_id }));
-    meta.append(Object.assign(document.createElement("span"), { textContent: "第 " + e.page + " 页" }));
-    if (e.table_id || e.cell_ref) {
-      // v0.3 表格证据：table_id + cell_ref 不丢失
-      meta.append(Object.assign(document.createElement("span"), { textContent: "表格 " + (e.table_id || "?") + (e.cell_ref ? "#" + e.cell_ref : "") }));
-    }
-    meta.append(
-      Object.assign(document.createElement("span"), { textContent: e.bbox ? "bbox:有" : "bbox:待补" })
-    );
+    meta.firstElementChild.className = "evidence-label";
+    meta.append(Object.assign(document.createElement("span"), { textContent: e.page != null ? "第 " + e.page + " 页" : "页码未提供" }));
     item.append(meta);
+    const technical = document.createElement("details");
+    technical.className = "evidence-technical";
+    const technicalSummary = document.createElement("summary");
+    technicalSummary.textContent = "查看定位信息 ⌄";
+    const technicalText = document.createElement("p");
+    technicalText.textContent = ["块标识：" + (e.block_id || "未提供"), "坐标：" + (e.bbox ? "已提供" : "待补充"), e.table_id ? "表格：" + e.table_id : "", e.cell_ref ? "单元格：" + e.cell_ref : ""].filter(Boolean).join(" · ");
+    technical.append(technicalSummary, technicalText);
 
     // D7：弱锚定——无块级锚点的出处（文本模式输入），quote 不唯一时定位无据
     if (!e.block_id && e.source_type !== "scan_region" && e.source_type !== "document") {
@@ -126,9 +126,9 @@ export function renderEvidences(container, data) {
     quote.className = "quote";
     // scan_region 无文本层，quote 必为空——显式声明而非留白
     quote.textContent = e.quote || (e.source_type === "scan_region" ? "（该区域无文本层，无原文可引）" : "");
-    item.append(quote);
+    item.append(quote, technical);
 
-    item.addEventListener("click", () => focusEvidence(e.evidence_id));
+
     container.append(item);
   }
 }
@@ -138,7 +138,9 @@ export function focusEvidence(id) {
   const card = document.getElementById("card-" + id);
   if (card) {
     card.classList.add("active");
-    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    card.tabIndex = -1;
+    card.focus({ preventScroll: true });
+    card.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "center" });
   }
 }
 

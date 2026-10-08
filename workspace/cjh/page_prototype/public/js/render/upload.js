@@ -134,7 +134,7 @@ export function renderSourceFile(container, sourceFile) {
   container.replaceChildren();
   const item = document.createElement("div");
   item.className = "file-item";
-  item.append("📄 " + sourceFile.filename);
+  item.append("当前文档 / " + sourceFile.filename);
   import("../status.js").then(({ badge }) => item.append(badge(sourceFile.parse_status)));
   container.append(item);
 }

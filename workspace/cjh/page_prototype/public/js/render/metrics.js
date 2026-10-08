@@ -394,8 +394,10 @@ export function renderMetrics(root, data) {
     holder.id = "mxRegistry";
     root.appendChild(holder);
     renderRegistry(holder, data.registry);
-    root.appendChild(el("hr", "mx-sep"));
-    root.appendChild(el("div", "mx-sec-title", "以下为 D11 图表页原始视图（保留以便对照）"));
+    const details = el("details", "legacy-report");
+    details.appendChild(el("summary", null, "详细对照与历史统计 · 展开查看来源与限制"));
+    root.appendChild(details);
+    root = details;
   }
 
   // ---- ★ D12：实际对照三层紧随其后（"这些数字凭什么"）----
