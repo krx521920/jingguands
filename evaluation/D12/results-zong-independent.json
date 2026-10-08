@@ -1,0 +1,34 @@
+{
+  "checked_on": "2026-10-08",
+  "method": "事件按主体+方向+项目+期初持股配对；数值容错归一；状态翻转单列",
+  "A_vs_frozen": {
+    "docs": 31,
+    "value_slots": 606,
+    "value_differ": 0,
+    "extracted_slots": 437,
+    "extracted_differ": 0,
+    "docs_with_diff": 1,
+    "unmatched_events": 0,
+    "flips": [
+      "D6-AWD-002.json  formal_award_notice_received not_disclosed<->not_mentioned"
+    ],
+    "examples": []
+  },
+  "A_vs_B": {
+    "docs": 31,
+    "value_slots": 606,
+    "value_differ": 0,
+    "extracted_slots": 437,
+    "extracted_differ": 0,
+    "docs_with_diff": 1,
+    "unmatched_events": 0,
+    "flips": [
+      "D4-PLD-009.json  end_date not_mentioned<->needs_review"
+    ],
+    "examples": []
+  },
+  "self_control": {
+    "value_differ": 0,
+    "docs_with_diff": 0
+  }
+}
