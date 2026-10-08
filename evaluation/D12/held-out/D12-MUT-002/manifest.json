@@ -1,0 +1,14 @@
+{
+  "sealed_set_id": "heldout-D12-MUT-002",
+  "total": 1,
+  "groups": [
+    {
+      "group_id": "D12-MUT-002",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "expected_relation": "unknown"
+    }
+  ]
+}

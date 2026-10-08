@@ -1,0 +1,41 @@
+{
+  "checked_on": "2026-10-08",
+  "rev": 2,
+  "total": 4,
+  "pass": 4,
+  "fail": 0,
+  "rows": [
+    {
+      "id": "D12-MUT-001",
+      "expected": "related",
+      "got": "related",
+      "conflicts": 1,
+      "pass": true,
+      "notes": []
+    },
+    {
+      "id": "D12-MUT-002",
+      "expected": "unrelated",
+      "got": "unrelated",
+      "conflicts": 0,
+      "pass": true,
+      "notes": []
+    },
+    {
+      "id": "D12-MUT-003",
+      "expected": "unrelated",
+      "got": "unrelated",
+      "conflicts": 0,
+      "pass": true,
+      "notes": []
+    },
+    {
+      "id": "D12-MUT-004",
+      "expected": "unrelated",
+      "got": "unrelated",
+      "conflicts": 0,
+      "pass": true,
+      "notes": []
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "checked_on": "2026-10-08",
+  "b_run": {
+    "b_run_id": "b-20261008044402",
+    "engine": "verify_crossdoc.mjs",
+    "matcher": {
+      "builtin": "nameEq+anchors"
+    },
+    "envelopes_dir": "C:\\Users\\43031\\Documents\\Codex\\2026-09-17\\https-em-bjfu-edu-cn-rcpy\\work\\repo-jingguands\\evaluation\\D12\\held-out\\D12-MUT-001"
+  },
+  "envelopes_dir": "C:\\Users\\43031\\Documents\\Codex\\2026-09-17\\https-em-bjfu-edu-cn-rcpy\\work\\repo-jingguands\\evaluation\\D12\\held-out\\D12-MUT-001",
+  "manifest": "C:\\Users\\43031\\Documents\\Codex\\2026-09-17\\https-em-bjfu-edu-cn-rcpy\\work\\repo-jingguands\\evaluation\\D12\\held-out\\D12-MUT-001\\manifest.json",
+  "expect_mode": false,
+  "groups_total": 1,
+  "groups_checked": 1,
+  "groups_missing_envelope": [],
+  "related_detected": 1,
+  "related_conflicts_total": 1,
+  "related_corroborations_total": 8,
+  "results": [
+    {
+      "group_id": "D12-MUT-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "a_run_links": [
+        {
+          "case_id": "D5-EQC-001",
+          "a_run_id": "20261007T084852-equity_change-5815",
+          "code_version": "292d252b",
+          "schema_version": "0.3",
+          "is_mock": false
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "a_run_id": "20261007T084852-equity_change-72c1",
+          "code_version": "292d252b",
+          "schema_version": "0.3",
+          "is_mock": false
+        }
+      ],
+      "fields_excluded": [
+        {
+          "case_id": "D5-EQC-001",
+          "usable": 45,
+          "excluded": 0
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "usable": 27,
+          "excluded": 0
+        }
+      ],
+      "predicted_relation": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "signals": {
+        "shared_entity_count": 3,
+        "shared_entities": [
+          "蔚文绪",
+          "蔚文举",
+          "于春生"
+        ],
+        "shared_entities_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-002"
+        ],
+        "anchor_count": 8,
+        "shared_anchor_numbers": [
+          14722917,
+          3680700,
+          3190004,
+          1848404,
+          1341600,
+          4472000,
+          12899900,
+          8427900
+        ],
+        "shared_anchors_from_pair": [
+          "D5-EQC-001",
+          "D5-EQC-002"
+        ],
+        "reverse_match": false,
+        "reverse_match_numbers": [],
+        "reverse_from_pair": null
+      },
+      "consistency": {
+        "corroborations": [
+          {
+            "entity": "蔚文绪",
+            "field": "shares_before",
+            "value": 14722917,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "14,722,917",
+              "14,722,917"
+            ]
+          },
+          {
+            "entity": "蔚文绪",
+            "field": "change_shares",
+            "value": 3680700,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "-3,680,700",
+              "-3,680,700"
+            ]
+          },
+          {
+            "entity": "蔚文举",
+            "field": "shares_before",
+            "value": 3190004,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "3,190,004",
+              "3,190,004"
+            ]
+          },
+          {
+            "entity": "蔚文举",
+            "field": "shares_after",
+            "value": 1848404,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "1,848,404",
+              "1,848,404"
+            ]
+          },
+          {
+            "entity": "蔚文举",
+            "field": "change_shares",
+            "value": 1341600,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "-1,341,600",
+              "-1,341,600"
+            ]
+          },
+          {
+            "entity": "于春生",
+            "field": "shares_before",
+            "value": 4472000,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "4,472,000",
+              "4,472,000"
+            ]
+          },
+          {
+            "entity": "于春生",
+            "field": "shares_after",
+            "value": 12899900,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "12,899,900",
+              "12,899,900"
+            ]
+          },
+          {
+            "entity": "于春生",
+            "field": "change_shares",
+            "value": 8427900,
+            "docs": [
+              "D5-EQC-001",
+              "D5-EQC-002"
+            ],
+            "quotes": [
+              "8,427,900",
+              "8,427,900"
+            ]
+          }
+        ],
+        "conflicts": [
+          {
+            "entity": "蔚文绪",
+            "field": "shares_after",
+            "values": [
+              {
+                "doc": "D5-EQC-001",
+                "value": 11042217,
+                "quote": "11,042,217"
+              },
+              {
+                "doc": "D5-EQC-002",
+                "value": 11042218,
+                "quote": "11,042,217"
+              }
+            ]
+          }
+        ],
+        "complementaries": [
+          {
+            "entity": "马军强",
+            "only_in": "D5-EQC-001"
+          },
+          {
+            "entity": "杨占坡",
+            "only_in": "D5-EQC-001"
+          }
+        ]
+      }
+    }
+  ]
+}
