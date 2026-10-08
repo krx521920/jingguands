@@ -1,0 +1,1594 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "d3aa23f9a",
+    "file_id": "sha256:3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+    "file_name": "D6-AWD-009.pdf",
+    "file_sha256": "3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+    "file_size": 122234,
+    "page_count": 2,
+    "parsed_at": "2026-10-02T21:11:31+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.9.0"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 595,
+        "text_area_ratio": 0.2245,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d3aa23f9a_p001_b00001",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "证券代码：603081 证券简称：大丰实业 公告编号：2026-037",
+          "text_raw": "证券代码：603081证券简称：大丰实业公告编号：2026-037",
+          "region": [
+            90.0,
+            73.73,
+            505.2,
+            85.73
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00002",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "浙江大丰实业股份有限公司关于项目中标的公告",
+          "text_raw": "浙江大丰实业股份有限公司关于项目中标的公告",
+          "region": [
+            189.24,
+            133.54,
+            405.96,
+            186.58
+          ],
+          "table_ref": null,
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00003",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "text_raw": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "region": [
+            114.0,
+            227.62,
+            498.0,
+            239.62
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00004",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "text_raw": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "region": [
+            90.0,
+            251.02,
+            474.0,
+            263.02
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00005",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "浙江大丰实业股份有限公司（以下简称“公司”）于本月陆续收到相关项目",
+          "text_raw": "浙江大丰实业股份有限公司（以下简称“公司”）于本月陆续收到相关项目",
+          "region": [
+            114.0,
+            302.81,
+            505.32,
+            314.81
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00006",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目—曹娥江文化艺术中心产业综合体舞台工艺设备采购项目”及“大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装修施工”的中标人，中标总金额合计约为人民币36,992.4746万元。具体情况如下：",
+          "text_raw": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目—曹娥江文化艺术中心产业综合体舞台工艺设备采购项目”及“大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装修施工”的中标人，中标总金额合计约为人民币36,992.4746万元。具体情况如下：",
+          "region": [
+            90.0,
+            326.21,
+            505.32,
+            431.81
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00007",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "一、中标项目概况",
+          "text_raw": "一、中标项目概况",
+          "region": [
+            114.12,
+            447.05,
+            210.48,
+            459.05
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00008",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（一）深圳歌剧院项目舞台机械设备工程I标",
+          "text_raw": "（一）深圳歌剧院项目舞台机械设备工程I标",
+          "region": [
+            114.12,
+            474.41,
+            348.96,
+            486.41
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00009",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、项目名称：深圳歌剧院项目舞台机械设备工程I标",
+          "text_raw": "1、项目名称：深圳歌剧院项目舞台机械设备工程I标",
+          "region": [
+            114.0,
+            497.81,
+            390.0,
+            509.81
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00010",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、招标人：深圳市建筑工务署工程管理中心",
+          "text_raw": "2、招标人：深圳市建筑工务署工程管理中心",
+          "region": [
+            114.0,
+            521.21,
+            348.0,
+            533.21
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00011",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、中标人：浙江大丰实业股份有限公司",
+          "text_raw": "3、中标人：浙江大丰实业股份有限公司",
+          "region": [
+            114.0,
+            544.61,
+            324.0,
+            556.61
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00012",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "4、中标金额：人民币19,656.5875万元",
+          "text_raw": "4、中标金额：人民币19,656.5875万元",
+          "region": [
+            114.0,
+            568.01,
+            318.0,
+            580.01
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00013",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "5、项目地址：深圳市",
+          "text_raw": "5、项目地址：深圳市",
+          "region": [
+            114.0,
+            591.41,
+            228.0,
+            603.41
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00014",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（二）水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体舞台工",
+          "text_raw": "（二）水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体舞台工",
+          "region": [
+            114.12,
+            614.81,
+            505.2,
+            626.81
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00015",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "艺设备采购项目",
+          "text_raw": "艺设备采购项目",
+          "region": [
+            90.0,
+            638.21,
+            174.24,
+            650.21
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00016",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、项目名称：水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体",
+          "text_raw": "1、项目名称：水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体",
+          "region": [
+            114.0,
+            661.61,
+            505.32,
+            673.61
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00017",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "舞台工艺设备采购项目",
+          "text_raw": "舞台工艺设备采购项目",
+          "region": [
+            90.0,
+            685.01,
+            210.0,
+            697.01
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00018",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、招标人：绍兴市上虞舜韵产业运营管理有限公司",
+          "text_raw": "2、招标人：绍兴市上虞舜韵产业运营管理有限公司",
+          "region": [
+            114.0,
+            708.41,
+            384.0,
+            720.41
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00019",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、中标人：浙江大丰实业股份有限公司",
+          "text_raw": "3、中标人：浙江大丰实业股份有限公司",
+          "region": [
+            114.0,
+            731.81,
+            324.0,
+            743.81
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00020",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "4、中标金额：人民币10,758.6198万元",
+          "text_raw": "4、中标金额：人民币10,758.6198万元",
+          "region": [
+            114.0,
+            755.21,
+            318.0,
+            767.21
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00021",
+          "doc_id": "d3aa23f9a",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "FOOTER",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            295.44,
+            784.0,
+            299.94,
+            793.0
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 2,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 388,
+        "text_area_ratio": 0.1364,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [
+        [
+          90.0,
+          325.0
+        ],
+        [
+          414.0,
+          505.32
+        ]
+      ],
+      "blocks": [
+        {
+          "block_id": "d3aa23f9a_p002_b00001",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（三）大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装",
+          "text_raw": "（三）大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装",
+          "region": [
+            114.12,
+            101.09,
+            505.2,
+            113.09
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00002",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "5、项目地址：绍兴市",
+          "text_raw": "5、项目地址：绍兴市",
+          "region": [
+            114.0,
+            77.69,
+            228.0,
+            89.69
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00003",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、项目名称：大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区",
+          "text_raw": "1、项目名称：大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区",
+          "region": [
+            114.0,
+            147.89,
+            505.32,
+            159.89
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00004",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "修施工",
+          "text_raw": "修施工",
+          "region": [
+            90.0,
+            124.49,
+            126.12,
+            136.49
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00005",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、招标人：惠州大亚湾润华旅游开发有限公司",
+          "text_raw": "2、招标人：惠州大亚湾润华旅游开发有限公司",
+          "region": [
+            114.0,
+            194.69,
+            360.0,
+            206.69
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00006",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "室内装修施工",
+          "text_raw": "室内装修施工",
+          "region": [
+            90.0,
+            171.29,
+            162.0,
+            183.29
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00007",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "上述项目的中标总金额约为36,992.4746万元，占公司2025年度经审计营",
+          "text_raw": "上述项目的中标总金额约为36,992.4746万元，占公司2025年度经审计营",
+          "region": [
+            114.0,
+            319.49,
+            505.2,
+            331.49
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00008",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、中标人：浙江大丰实业股份有限公司4、中标金额：人民币6,577.2673万元5、项目地址：惠州市二、此次中标对公司的影响",
+          "text_raw": "3、中标人：浙江大丰实业股份有限公司4、中标金额：人民币6,577.2673万元5、项目地址：惠州市二、此次中标对公司的影响",
+          "region": [
+            114.0,
+            218.09,
+            324.0,
+            304.25
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00009",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+          "text_raw": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+          "region": [
+            90.0,
+            342.89,
+            505.31,
+            354.89
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00010",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "经营业绩产生长期积极的影响。上述项目的履行不会影响公司业务的独立性，公",
+          "text_raw": "经营业绩产生长期积极的影响。上述项目的履行不会影响公司业务的独立性，公",
+          "region": [
+            90.0,
+            366.29,
+            505.32,
+            378.29
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00011",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "司不会因为履行上述项目对业主方形成依赖。",
+          "text_raw": "司不会因为履行上述项目对业主方形成依赖。",
+          "region": [
+            90.0,
+            389.69,
+            330.0,
+            401.69
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00012",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "公司将按照招标文件要求办理合同签订事宜，具体细节以最终签署的正式合",
+          "text_raw": "公司将按照招标文件要求办理合同签订事宜，具体细节以最终签署的正式合",
+          "region": [
+            114.0,
+            444.29,
+            505.32,
+            456.29
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00013",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "三、风险提示",
+          "text_raw": "三、风险提示",
+          "region": [
+            114.12,
+            417.05,
+            186.36,
+            429.05
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00014",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "浙江大丰实业股份有限公司",
+          "text_raw": "浙江大丰实业股份有限公司",
+          "region": [
+            361.32,
+            561.29,
+            505.32,
+            573.29
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00015",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "同为准，敬请广大投资者注意投资风险。",
+          "text_raw": "同为准，敬请广大投资者注意投资风险。",
+          "region": [
+            90.0,
+            467.69,
+            306.0,
+            479.69
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00016",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114.0,
+            514.49,
+            174.0,
+            526.49
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00017",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2026年9月23日",
+          "text_raw": "2026年9月23日",
+          "region": [
+            383.16,
+            608.09,
+            476.16,
+            620.09
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00018",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "董事会",
+          "text_raw": "董事会",
+          "region": [
+            414.0,
+            584.69,
+            450.0,
+            596.69
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00019",
+          "doc_id": "d3aa23f9a",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "FOOTER",
+          "text": "2",
+          "text_raw": "2",
+          "region": [
+            295.44,
+            784.0,
+            299.94,
+            793.0
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    }
+  ],
+  "reading_order": [
+    "d3aa23f9a_p001_b00001",
+    "d3aa23f9a_p001_b00002",
+    "d3aa23f9a_p001_b00003",
+    "d3aa23f9a_p001_b00004",
+    "d3aa23f9a_p001_b00005",
+    "d3aa23f9a_p001_b00006",
+    "d3aa23f9a_p001_b00007",
+    "d3aa23f9a_p001_b00008",
+    "d3aa23f9a_p001_b00009",
+    "d3aa23f9a_p001_b00010",
+    "d3aa23f9a_p001_b00011",
+    "d3aa23f9a_p001_b00012",
+    "d3aa23f9a_p001_b00013",
+    "d3aa23f9a_p001_b00014",
+    "d3aa23f9a_p001_b00015",
+    "d3aa23f9a_p001_b00016",
+    "d3aa23f9a_p001_b00017",
+    "d3aa23f9a_p001_b00018",
+    "d3aa23f9a_p001_b00019",
+    "d3aa23f9a_p001_b00020",
+    "d3aa23f9a_p001_b00021",
+    "d3aa23f9a_p002_b00001",
+    "d3aa23f9a_p002_b00002",
+    "d3aa23f9a_p002_b00003",
+    "d3aa23f9a_p002_b00004",
+    "d3aa23f9a_p002_b00005",
+    "d3aa23f9a_p002_b00006",
+    "d3aa23f9a_p002_b00007",
+    "d3aa23f9a_p002_b00008",
+    "d3aa23f9a_p002_b00009",
+    "d3aa23f9a_p002_b00010",
+    "d3aa23f9a_p002_b00011",
+    "d3aa23f9a_p002_b00012",
+    "d3aa23f9a_p002_b00013",
+    "d3aa23f9a_p002_b00014",
+    "d3aa23f9a_p002_b00015",
+    "d3aa23f9a_p002_b00016",
+    "d3aa23f9a_p002_b00017",
+    "d3aa23f9a_p002_b00018",
+    "d3aa23f9a_p002_b00019"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+      "file_name": "D6-AWD-009.pdf",
+      "file_sha256": "3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.9.0",
+        "page_count": 2,
+        "blocks": [
+          {
+            "block_id": "d3aa23f9a_p001_b00001",
+            "page": 1,
+            "role": "BODY",
+            "text": "证券代码：603081 证券简称：大丰实业 公告编号：2026-037",
+            "text_raw": "证券代码：603081证券简称：大丰实业公告编号：2026-037",
+            "region": [
+              90.0,
+              73.73,
+              505.2,
+              85.73
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00002",
+            "page": 1,
+            "role": "BODY",
+            "text": "浙江大丰实业股份有限公司关于项目中标的公告",
+            "text_raw": "浙江大丰实业股份有限公司关于项目中标的公告",
+            "region": [
+              189.24,
+              133.54,
+              405.96,
+              186.58
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+            "text_raw": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+            "region": [
+              114.0,
+              227.62,
+              498.0,
+              239.62
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+            "text_raw": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+            "region": [
+              90.0,
+              251.02,
+              474.0,
+              263.02
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00005",
+            "page": 1,
+            "role": "BODY",
+            "text": "浙江大丰实业股份有限公司（以下简称“公司”）于本月陆续收到相关项目",
+            "text_raw": "浙江大丰实业股份有限公司（以下简称“公司”）于本月陆续收到相关项目",
+            "region": [
+              114.0,
+              302.81,
+              505.32,
+              314.81
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00006",
+            "page": 1,
+            "role": "BODY",
+            "text": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目—曹娥江文化艺术中心产业综合体舞台工艺设备采购项目”及“大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装修施工”的中标人，中标总金额合计约为人民币36,992.4746万元。具体情况如下：",
+            "text_raw": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目—曹娥江文化艺术中心产业综合体舞台工艺设备采购项目”及“大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装修施工”的中标人，中标总金额合计约为人民币36,992.4746万元。具体情况如下：",
+            "region": [
+              90.0,
+              326.21,
+              505.32,
+              431.81
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00007",
+            "page": 1,
+            "role": "SECTION",
+            "text": "一、中标项目概况",
+            "text_raw": "一、中标项目概况",
+            "region": [
+              114.12,
+              447.05,
+              210.48,
+              459.05
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00008",
+            "page": 1,
+            "role": "SECTION",
+            "text": "（一）深圳歌剧院项目舞台机械设备工程I标",
+            "text_raw": "（一）深圳歌剧院项目舞台机械设备工程I标",
+            "region": [
+              114.12,
+              474.41,
+              348.96,
+              486.41
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00009",
+            "page": 1,
+            "role": "BODY",
+            "text": "1、项目名称：深圳歌剧院项目舞台机械设备工程I标",
+            "text_raw": "1、项目名称：深圳歌剧院项目舞台机械设备工程I标",
+            "region": [
+              114.0,
+              497.81,
+              390.0,
+              509.81
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00010",
+            "page": 1,
+            "role": "BODY",
+            "text": "2、招标人：深圳市建筑工务署工程管理中心",
+            "text_raw": "2、招标人：深圳市建筑工务署工程管理中心",
+            "region": [
+              114.0,
+              521.21,
+              348.0,
+              533.21
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00011",
+            "page": 1,
+            "role": "BODY",
+            "text": "3、中标人：浙江大丰实业股份有限公司",
+            "text_raw": "3、中标人：浙江大丰实业股份有限公司",
+            "region": [
+              114.0,
+              544.61,
+              324.0,
+              556.61
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00012",
+            "page": 1,
+            "role": "BODY",
+            "text": "4、中标金额：人民币19,656.5875万元",
+            "text_raw": "4、中标金额：人民币19,656.5875万元",
+            "region": [
+              114.0,
+              568.01,
+              318.0,
+              580.01
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00013",
+            "page": 1,
+            "role": "BODY",
+            "text": "5、项目地址：深圳市",
+            "text_raw": "5、项目地址：深圳市",
+            "region": [
+              114.0,
+              591.41,
+              228.0,
+              603.41
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00014",
+            "page": 1,
+            "role": "SECTION",
+            "text": "（二）水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体舞台工",
+            "text_raw": "（二）水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体舞台工",
+            "region": [
+              114.12,
+              614.81,
+              505.2,
+              626.81
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00015",
+            "page": 1,
+            "role": "BODY",
+            "text": "艺设备采购项目",
+            "text_raw": "艺设备采购项目",
+            "region": [
+              90.0,
+              638.21,
+              174.24,
+              650.21
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00016",
+            "page": 1,
+            "role": "BODY",
+            "text": "1、项目名称：水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体",
+            "text_raw": "1、项目名称：水韵“青春之城”EOD项目—曹娥江文化艺术中心产业综合体",
+            "region": [
+              114.0,
+              661.61,
+              505.32,
+              673.61
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00017",
+            "page": 1,
+            "role": "BODY",
+            "text": "舞台工艺设备采购项目",
+            "text_raw": "舞台工艺设备采购项目",
+            "region": [
+              90.0,
+              685.01,
+              210.0,
+              697.01
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00018",
+            "page": 1,
+            "role": "BODY",
+            "text": "2、招标人：绍兴市上虞舜韵产业运营管理有限公司",
+            "text_raw": "2、招标人：绍兴市上虞舜韵产业运营管理有限公司",
+            "region": [
+              114.0,
+              708.41,
+              384.0,
+              720.41
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00019",
+            "page": 1,
+            "role": "BODY",
+            "text": "3、中标人：浙江大丰实业股份有限公司",
+            "text_raw": "3、中标人：浙江大丰实业股份有限公司",
+            "region": [
+              114.0,
+              731.81,
+              324.0,
+              743.81
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00020",
+            "page": 1,
+            "role": "BODY",
+            "text": "4、中标金额：人民币10,758.6198万元",
+            "text_raw": "4、中标金额：人民币10,758.6198万元",
+            "region": [
+              114.0,
+              755.21,
+              318.0,
+              767.21
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p001_b00021",
+            "page": 1,
+            "role": "FOOTER",
+            "text": "1",
+            "text_raw": "1",
+            "region": [
+              295.44,
+              784.0,
+              299.94,
+              793.0
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00001",
+            "page": 2,
+            "role": "SECTION",
+            "text": "（三）大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装",
+            "text_raw": "（三）大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区室内装",
+            "region": [
+              114.12,
+              101.09,
+              505.2,
+              113.09
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00002",
+            "page": 2,
+            "role": "BODY",
+            "text": "5、项目地址：绍兴市",
+            "text_raw": "5、项目地址：绍兴市",
+            "region": [
+              114.0,
+              77.69,
+              228.0,
+              89.69
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00003",
+            "page": 2,
+            "role": "BODY",
+            "text": "1、项目名称：大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区",
+            "text_raw": "1、项目名称：大亚湾综合文化创意园项目—大亚湾综合文化创意园项目B区",
+            "region": [
+              114.0,
+              147.89,
+              505.32,
+              159.89
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00004",
+            "page": 2,
+            "role": "BODY",
+            "text": "修施工",
+            "text_raw": "修施工",
+            "region": [
+              90.0,
+              124.49,
+              126.12,
+              136.49
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00005",
+            "page": 2,
+            "role": "BODY",
+            "text": "2、招标人：惠州大亚湾润华旅游开发有限公司",
+            "text_raw": "2、招标人：惠州大亚湾润华旅游开发有限公司",
+            "region": [
+              114.0,
+              194.69,
+              360.0,
+              206.69
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00006",
+            "page": 2,
+            "role": "BODY",
+            "text": "室内装修施工",
+            "text_raw": "室内装修施工",
+            "region": [
+              90.0,
+              171.29,
+              162.0,
+              183.29
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00007",
+            "page": 2,
+            "role": "BODY",
+            "text": "上述项目的中标总金额约为36,992.4746万元，占公司2025年度经审计营",
+            "text_raw": "上述项目的中标总金额约为36,992.4746万元，占公司2025年度经审计营",
+            "region": [
+              114.0,
+              319.49,
+              505.2,
+              331.49
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00008",
+            "page": 2,
+            "role": "BODY",
+            "text": "3、中标人：浙江大丰实业股份有限公司4、中标金额：人民币6,577.2673万元5、项目地址：惠州市二、此次中标对公司的影响",
+            "text_raw": "3、中标人：浙江大丰实业股份有限公司4、中标金额：人民币6,577.2673万元5、项目地址：惠州市二、此次中标对公司的影响",
+            "region": [
+              114.0,
+              218.09,
+              324.0,
+              304.25
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00009",
+            "page": 2,
+            "role": "BODY",
+            "text": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+            "text_raw": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+            "region": [
+              90.0,
+              342.89,
+              505.31,
+              354.89
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00010",
+            "page": 2,
+            "role": "BODY",
+            "text": "经营业绩产生长期积极的影响。上述项目的履行不会影响公司业务的独立性，公",
+            "text_raw": "经营业绩产生长期积极的影响。上述项目的履行不会影响公司业务的独立性，公",
+            "region": [
+              90.0,
+              366.29,
+              505.32,
+              378.29
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00011",
+            "page": 2,
+            "role": "BODY",
+            "text": "司不会因为履行上述项目对业主方形成依赖。",
+            "text_raw": "司不会因为履行上述项目对业主方形成依赖。",
+            "region": [
+              90.0,
+              389.69,
+              330.0,
+              401.69
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00012",
+            "page": 2,
+            "role": "BODY",
+            "text": "公司将按照招标文件要求办理合同签订事宜，具体细节以最终签署的正式合",
+            "text_raw": "公司将按照招标文件要求办理合同签订事宜，具体细节以最终签署的正式合",
+            "region": [
+              114.0,
+              444.29,
+              505.32,
+              456.29
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00013",
+            "page": 2,
+            "role": "SECTION",
+            "text": "三、风险提示",
+            "text_raw": "三、风险提示",
+            "region": [
+              114.12,
+              417.05,
+              186.36,
+              429.05
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00014",
+            "page": 2,
+            "role": "BODY",
+            "text": "浙江大丰实业股份有限公司",
+            "text_raw": "浙江大丰实业股份有限公司",
+            "region": [
+              361.32,
+              561.29,
+              505.32,
+              573.29
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00015",
+            "page": 2,
+            "role": "BODY",
+            "text": "同为准，敬请广大投资者注意投资风险。",
+            "text_raw": "同为准，敬请广大投资者注意投资风险。",
+            "region": [
+              90.0,
+              467.69,
+              306.0,
+              479.69
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00016",
+            "page": 2,
+            "role": "BODY",
+            "text": "特此公告。",
+            "text_raw": "特此公告。",
+            "region": [
+              114.0,
+              514.49,
+              174.0,
+              526.49
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00017",
+            "page": 2,
+            "role": "BODY",
+            "text": "2026年9月23日",
+            "text_raw": "2026年9月23日",
+            "region": [
+              383.16,
+              608.09,
+              476.16,
+              620.09
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00018",
+            "page": 2,
+            "role": "BODY",
+            "text": "董事会",
+            "text_raw": "董事会",
+            "region": [
+              414.0,
+              584.69,
+              450.0,
+              596.69
+            ]
+          },
+          {
+            "block_id": "d3aa23f9a_p002_b00019",
+            "page": 2,
+            "role": "FOOTER",
+            "text": "2",
+            "text_raw": "2",
+            "region": [
+              295.44,
+              784.0,
+              299.94,
+              793.0
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [],
+    "warnings": []
+  }
+}

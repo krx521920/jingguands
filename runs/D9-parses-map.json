@@ -6,7 +6,7 @@
  "D5-EQC-005": "corpus/zhangzhibo/d5/parse-official/D5-EQC-005.parse.json",
  "D4-PLD-001": "corpus/zhangzhibo/d4/parse-official/D4-PLD-001.parse.json",
  "D4-PLD-009": "corpus/zhangzhibo/d4/parse-official/D4-PLD-009.parse.json",
- "D6-AWD-004": "evaluation/D9/parses-blocks/D6-AWD-004.parse-blocks.json",
- "D6-AWD-005": "evaluation/D9/parses-blocks/D6-AWD-005.parse-blocks.json",
- "D6-AWD-007": "evaluation/D9/parses-blocks/D6-AWD-007.parse-blocks.json"
+ "D6-AWD-004": "corpus/zhangzhibo/d6/parse-official/D6-AWD-004.parse.json",
+ "D6-AWD-005": "corpus/zhangzhibo/d6/parse-official/D6-AWD-005.parse.json",
+ "D6-AWD-007": "corpus/zhangzhibo/d6/parse-official/D6-AWD-007.parse.json"
 }

@@ -34,5 +34,8 @@ v0.2 报告（`runs/D9-rules-report-v02-20261005.json`）35 侧的分域核验�
 
 ## 与张 Z1 的关系
 
-张的 Z1 会把 D6 三类的官方 `parse-official` 入库；届时 `runs/D9-parses-map.json` 可改指
-官方件复核（预期一致：本目录文件与其同源于张的解析器）。在此之前，宗按本目录复核即可全覆盖。
+**张 Z1 已落地（2026-10-08，zhangzhibo@55b95c14）**：D6 官方 `parse-official` 十份已 vendor 至
+`corpus/zhangzhibo/d6/parse-official/`（sha256 对其 manifest 全 OK）。`runs/D9-parses-map.json`
+与 `runs/full-parses-map.json` 的 D6 条目已改指官方件；**用官方件复核 v0.2 报告 D6 8 侧
+quote∈block 全过（8/8）**。本目录派生件保留作历史快照。已知差异：D6-AWD-003 官方件 85 块
+vs raw 派生 82 块（raw 为较早版本解析；两侧锚点均可解析，不影响复核），版本对齐归张/宗。
