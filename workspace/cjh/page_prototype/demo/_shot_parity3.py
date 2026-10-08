@@ -34,8 +34,27 @@ with sync_playwright() as p:
     pg.on("console", lambda m: errs.append(m.text) if m.type() == "error" else None)
     pg.on("pageerror", lambda e: errs.append("PAGEERROR: " + str(e)))
     pg.goto(f"http://127.0.0.1:{PORT}/", wait_until="networkidle")
+    # D17：先等 boot() 把导航按钮接上再点。领导 UI 重设计后 boot() 里多了
+    # loadEngineMeta() 异步请求，早点击会打空。
+    pg.wait_for_selector("#metricsBtn", state="attached", timeout=30000)
+    pg.wait_for_timeout(400)
     pg.click("#metricsBtn")
-    pg.wait_for_selector(".mx-parity-card", timeout=15000)
+    # ★ D17 关键修正：领导 UI 重设计把「实际对照三层」收进了默认折叠的
+    #   <details>（summary="详细对照与历史统计 · 展开查看来源与限制"）。
+    #   Playwright 的 visible 判定要求祖先 <details> 处于 open ⇒ 之前一直
+    #   "89× locator resolved to 3 elements" 却仍超时。**这是守卫过时，不是页面缺陷。**
+    #   正确做法：先断言折叠态存在（确认设计意图），再展开，再断言卡片。
+    pg.wait_for_selector(".mx-parity-card", state="attached", timeout=45000)
+    fold = pg.evaluate("""() => {
+      const d = document.querySelector('.mx-parity-card')?.closest('details');
+      return d ? { open: d.open, summary: d.querySelector('summary')?.textContent.trim().slice(0,40) } : null;
+    }""")
+    if fold and not fold["open"]:
+        print("FOLDED: 对照三层默认折叠 =", fold["summary"], "→ 守卫代为展开")
+        pg.evaluate("""() => { document.querySelectorAll('.mx-parity-card').forEach(c => {
+            const d = c.closest('details'); if (d) d.open = true; }); }""")
+        pg.wait_for_timeout(400)
+    pg.wait_for_selector(".mx-parity-card", state="visible", timeout=30000)
     pg.wait_for_timeout(800)
     info = pg.evaluate(JS)
     print("PANEL:", info["cards"], "cards | tones", info["tones"], "| keys", info["keys"])
@@ -51,6 +70,13 @@ with sync_playwright() as p:
         fails.append("未找到 L3 卡")
     if not info["snc"]:
         fails.append("『仍未测』区块缺失")
+    # ★ D17：把"对照三层默认折叠"这个设计意图锁住。
+    #   领导 UI 重设计把它收进 <details> 默认收起（这是对的：明细默认不刷屏）。
+    #   此处断言"折叠容器存在且带说明文字"—— 防止以后有人误删折叠层或丢掉引导文案。
+    if fold is None:
+        fails.append("对照三层的 <details> 折叠层消失了（若改为常显，请同步改本守卫）")
+    elif not fold.get("summary"):
+        fails.append("折叠层缺 summary 引导文案")
     print("SNC:", info["sncText"])
     print("REGISTRY:", info["regCats"], "类 /", info["regRows"], "行 / 未测", info["ncRows"], "行")
     ov = pg.evaluate("() => document.documentElement.scrollWidth > window.innerWidth + 2")
