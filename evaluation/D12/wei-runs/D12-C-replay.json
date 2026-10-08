@@ -1,0 +1,15 @@
+{
+ "compared_on": "2026-10-08",
+ "dirs": {
+  "a": "runs/batch-20261008T005756/envelopes",
+  "b": "runs/batch-20261008T010943/envelopes"
+ },
+ "docs": 31,
+ "events_byte_identical": 31,
+ "business_identical": 31,
+ "value_slots_total": 437,
+ "value_slots_differ": 0,
+ "event_count_mismatch": [],
+ "status_flips_null_null": [],
+ "business_diffs": []
+}

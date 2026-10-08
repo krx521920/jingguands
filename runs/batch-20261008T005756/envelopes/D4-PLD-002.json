@@ -1,0 +1,2402 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261008T005806-pledge-6dbb",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+    "file_name": "D4-PLD-002.pdf",
+    "file_sha256": "16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 2,
+      "blocks": [
+        {
+          "block_id": "d16c6a948_p001_b00001",
+          "page": 1,
+          "role": "BODY",
+          "text": "证券代码：603169 证券简称：兰石重装 公告编号：临2026-057",
+          "text_raw": "证券代码：603169证券简称：兰石重装公告编号：临2026-057",
+          "region": [
+            90,
+            74.01,
+            505.26,
+            90.39
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "兰州兰石重型装备股份有限公司关于控股股东部分股份质押的公告",
+          "text_raw": "兰州兰石重型装备股份有限公司关于控股股东部分股份质押的公告",
+          "region": [
+            162.12,
+            104.57,
+            433.08,
+            153.77
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "text_raw": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "region": [
+            122.52,
+            179.69,
+            502.8,
+            191.69
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "text_raw": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "region": [
+            108.6,
+            203.09,
+            492.6,
+            215.09
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "重要内容提示：",
+          "text_raw": "重要内容提示：",
+          "region": [
+            114,
+            243.41,
+            198.24,
+            255.41
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "截至本公告披露日，兰州兰石重型装备股份有限公司（以下简称“公司”）",
+          "text_raw": "截至本公告披露日，兰州兰石重型装备股份有限公司（以下简称“公司”）",
+          "region": [
+            114,
+            266.81,
+            510,
+            278.81
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": "控股股东兰州兰石集团有限公司（以下简称“兰石集团”）直接持有公司无限售条件流通股602,062,196股，占公司总股本的46.09%。本次办理质押手续后，兰石集团累计质押公司股份数量为215,000,000股，占兰石集团持有公司股份总数的35.71%，占公司总股本的16.46%。",
+          "text_raw": "控股股东兰州兰石集团有限公司（以下简称“兰石集团”）直接持有公司无限售条件流通股602,062,196股，占公司总股本的46.09%。本次办理质押手续后，兰石集团累计质押公司股份数量为215,000,000股，占兰石集团持有公司股份总数的35.71%，占公司总股本的16.46%。",
+          "region": [
+            90,
+            290.09,
+            505.32,
+            374.04
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "公司近日收到控股股东兰石集团通知，获悉其将所持有的公司40,000,000",
+          "text_raw": "公司近日收到控股股东兰石集团通知，获悉其将所持有的公司40,000,000",
+          "region": [
+            114,
+            404.21,
+            505.2,
+            418.08
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "股无限售流通股质押给中国进出口银行甘肃省分行。具体事项如下：",
+          "text_raw": "股无限售流通股质押给中国进出口银行甘肃省分行。具体事项如下：",
+          "region": [
+            90,
+            427.49,
+            450,
+            439.49
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00010",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、股份质押情况",
+          "text_raw": "一、股份质押情况",
+          "region": [
+            114,
+            450.89,
+            210.24,
+            462.89
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00011",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（一）股份质押基本情况",
+          "text_raw": "（一）股份质押基本情况",
+          "region": [
+            114,
+            474.17,
+            246,
+            486.17
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            69.05,
+            496.04,
+            98,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "header_path": "股东名称"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否为控股股东",
+          "text_raw": "是否为控股股东",
+          "region": [
+            98,
+            496.04,
+            139.65,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c003",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东"
+          },
+          "header_path": "是否为控股股东"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00014",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次质押股数（股）",
+          "text_raw": "本次质押股数（股）",
+          "region": [
+            139.65,
+            496.04,
+            187.25,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c005",
+            "cell_ref": "r1c3",
+            "row": 0,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押股数（股）"
+          },
+          "header_path": "本次质押股数（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00015",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否为限售股",
+          "text_raw": "是否为限售股",
+          "region": [
+            187.25,
+            496.04,
+            224.7,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c007",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股"
+          },
+          "header_path": "是否为限售股"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00016",
+          "page": 1,
+          "role": "BODY",
+          "text": "是否补充质押",
+          "text_raw": "是否补充质押",
+          "region": [
+            224.7,
+            496.04,
+            260.1,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c009",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否补充质押"
+          },
+          "header_path": "是否补充质押"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00017",
+          "page": 1,
+          "role": "BODY",
+          "text": "质押起始日",
+          "text_raw": "质押起始日",
+          "region": [
+            260.1,
+            496.04,
+            302.65,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c011",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押起始日"
+          },
+          "header_path": "质押起始日"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00018",
+          "page": 1,
+          "role": "BODY",
+          "text": "质押到期日",
+          "text_raw": "质押到期日",
+          "region": [
+            302.65,
+            496.04,
+            345.75,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c013",
+            "cell_ref": "r1c7",
+            "row": 0,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "header_path": "质押到期日"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00019",
+          "page": 1,
+          "role": "BODY",
+          "text": "质权人",
+          "text_raw": "质权人",
+          "region": [
+            345.75,
+            496.04,
+            399.35,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c015",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "header_path": "质权人"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00020",
+          "page": 1,
+          "role": "BODY",
+          "text": "占其所持股份比例（%）",
+          "text_raw": "占其所持股份比例（%）",
+          "region": [
+            399.35,
+            496.04,
+            441.65,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c017",
+            "cell_ref": "r1c9",
+            "row": 0,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "header_path": "占其所持股份比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00021",
+          "page": 1,
+          "role": "BODY",
+          "text": "占公司总股本比例（%）",
+          "text_raw": "占公司总股本比例（%）",
+          "region": [
+            441.65,
+            496.04,
+            483.67,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c019",
+            "cell_ref": "r1c10",
+            "row": 0,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "header_path": "占公司总股本比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00022",
+          "page": 1,
+          "role": "BODY",
+          "text": "质押融资资金用途",
+          "text_raw": "质押融资资金用途",
+          "region": [
+            483.67,
+            496.04,
+            526.25,
+            529.54
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c021",
+            "cell_ref": "r1c11",
+            "row": 0,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押融资资金用途"
+          },
+          "header_path": "质押融资资金用途"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00023",
+          "page": 1,
+          "role": "BODY",
+          "text": "兰石集团",
+          "text_raw": "兰石集团",
+          "region": [
+            69.05,
+            529.54,
+            98,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "header_path": "股东名称"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00024",
+          "page": 1,
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是",
+          "region": [
+            98,
+            529.54,
+            139.65,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c004",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东"
+          },
+          "header_path": "是否为控股股东"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00025",
+          "page": 1,
+          "role": "BODY",
+          "text": "40,000,000",
+          "text_raw": "40,000,000",
+          "region": [
+            139.65,
+            529.54,
+            187.25,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c006",
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押股数（股）"
+          },
+          "header_path": "本次质押股数（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00026",
+          "page": 1,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            187.25,
+            529.54,
+            224.7,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c008",
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股"
+          },
+          "header_path": "是否为限售股"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00027",
+          "page": 1,
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否",
+          "region": [
+            224.7,
+            529.54,
+            260.1,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c010",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否补充质押"
+          },
+          "header_path": "是否补充质押"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00028",
+          "page": 1,
+          "role": "BODY",
+          "text": "2026年9月24日",
+          "text_raw": "2026年9月24日",
+          "region": [
+            260.1,
+            529.54,
+            302.65,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c012",
+            "cell_ref": "r2c6",
+            "row": 1,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押起始日"
+          },
+          "header_path": "质押起始日"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00029",
+          "page": 1,
+          "role": "BODY",
+          "text": "2028年9月23日",
+          "text_raw": "2028年9月23日",
+          "region": [
+            302.65,
+            529.54,
+            345.75,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c014",
+            "cell_ref": "r2c7",
+            "row": 1,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "header_path": "质押到期日"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00030",
+          "page": 1,
+          "role": "BODY",
+          "text": "中国进出口银行甘肃省分行",
+          "text_raw": "中国进出口银行甘肃省分行",
+          "region": [
+            345.75,
+            529.54,
+            399.35,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c016",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "header_path": "质权人"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00031",
+          "page": 1,
+          "role": "BODY",
+          "text": "6.64",
+          "text_raw": "6.64",
+          "region": [
+            399.35,
+            529.54,
+            441.65,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c018",
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "header_path": "占其所持股份比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00032",
+          "page": 1,
+          "role": "BODY",
+          "text": "3.06",
+          "text_raw": "3.06",
+          "region": [
+            441.65,
+            529.54,
+            483.67,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c020",
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "header_path": "占公司总股本比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00033",
+          "page": 1,
+          "role": "BODY",
+          "text": "自身生产经营",
+          "text_raw": "自身生产经营",
+          "region": [
+            483.67,
+            529.54,
+            526.25,
+            555.69
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t001",
+            "cell_id": "d16c6a948_p001_t001_c022",
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押融资资金用途"
+          },
+          "header_path": "质押融资资金用途"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00034",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（二）本次质押股份不涉及用作重大资产重组业绩补偿等事项的担保或其他",
+          "text_raw": "（二）本次质押股份不涉及用作重大资产重组业绩补偿等事项的担保或其他",
+          "region": [
+            114,
+            561.65,
+            505.32,
+            573.65
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00035",
+          "page": 1,
+          "role": "BODY",
+          "text": "保障用途的情况。",
+          "text_raw": "保障用途的情况。",
+          "region": [
+            90,
+            585.05,
+            186,
+            597.05
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00036",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（三）股东累计质押股份情况",
+          "text_raw": "（三）股东累计质押股份情况",
+          "region": [
+            114,
+            608.45,
+            270,
+            620.45
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00037",
+          "page": 1,
+          "role": "BODY",
+          "text": "截至本公告披露日，公司控股股东兰石集团累计质押股份情况如下：",
+          "text_raw": "截至本公告披露日，公司控股股东兰石集团累计质押股份情况如下：",
+          "region": [
+            114,
+            631.85,
+            474,
+            643.85
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p001_b00038",
+          "page": 1,
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称",
+          "region": [
+            76.75,
+            649.79,
+            107.45,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 0,
+                "cell_ref": "r2c1"
+              }
+            ],
+            "header_path": "股东名称"
+          },
+          "header_path": "股东名称"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00039",
+          "page": 1,
+          "role": "BODY",
+          "text": "持股数量（股）",
+          "text_raw": "持股数量（股）",
+          "region": [
+            107.45,
+            649.79,
+            162.3,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c004",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 1,
+                "cell_ref": "r2c2"
+              }
+            ],
+            "header_path": "持股数量（股）"
+          },
+          "header_path": "持股数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00040",
+          "page": 1,
+          "role": "BODY",
+          "text": "持股比例（%）",
+          "text_raw": "持股比例（%）",
+          "region": [
+            162.3,
+            649.79,
+            197.9,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c007",
+            "cell_ref": "r1c3",
+            "row": 0,
+            "col": 2,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 2,
+                "cell_ref": "r2c3"
+              }
+            ],
+            "header_path": "持股比例（%）"
+          },
+          "header_path": "持股比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00041",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次质押前累计质押数量（股）",
+          "text_raw": "本次质押前累计质押数量（股）",
+          "region": [
+            197.9,
+            649.79,
+            254.45,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c010",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 3,
+                "cell_ref": "r2c4"
+              }
+            ],
+            "header_path": "本次质押前累计质押数量（股）"
+          },
+          "header_path": "本次质押前累计质押数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00042",
+          "page": 1,
+          "role": "BODY",
+          "text": "本次质押后累计质押数量（股）",
+          "text_raw": "本次质押后累计质押数量（股）",
+          "region": [
+            254.45,
+            649.79,
+            311,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c013",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 4,
+                "cell_ref": "r2c5"
+              }
+            ],
+            "header_path": "本次质押后累计质押数量（股）"
+          },
+          "header_path": "本次质押后累计质押数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00043",
+          "page": 1,
+          "role": "BODY",
+          "text": "占其所持股份比例（%）",
+          "text_raw": "占其所持股份比例（%）",
+          "region": [
+            311,
+            649.79,
+            345.75,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c016",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 5,
+                "cell_ref": "r2c6"
+              }
+            ],
+            "header_path": "占其所持股份比例（%）"
+          },
+          "header_path": "占其所持股份比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00044",
+          "page": 1,
+          "role": "BODY",
+          "text": "占公司总股本比例（%）",
+          "text_raw": "占公司总股本比例（%）",
+          "region": [
+            345.75,
+            649.79,
+            376.15,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c019",
+            "cell_ref": "r1c7",
+            "row": 0,
+            "col": 6,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 6,
+                "cell_ref": "r2c7"
+              }
+            ],
+            "header_path": "占公司总股本比例（%）"
+          },
+          "header_path": "占公司总股本比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00045",
+          "page": 1,
+          "role": "BODY",
+          "text": "已质押股份情况",
+          "text_raw": "已质押股份情况",
+          "region": [
+            376.15,
+            649.79,
+            447.7,
+            664.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c022",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 8,
+                "cell_ref": "r1c9"
+              }
+            ],
+            "header_path": "已质押股份情况/已质押股份中限售股份数量（股）"
+          },
+          "header_path": "已质押股份情况/已质押股份中限售股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00046",
+          "page": 1,
+          "role": "BODY",
+          "text": "未质押股份情况",
+          "text_raw": "未质押股份情况",
+          "region": [
+            447.7,
+            649.79,
+            518.55,
+            664.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c029",
+            "cell_ref": "r1c10",
+            "row": 0,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 10,
+                "cell_ref": "r1c11"
+              }
+            ],
+            "header_path": "未质押股份情况/未质押股份中限售股份数量（股）"
+          },
+          "header_path": "未质押股份情况/未质押股份中限售股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00047",
+          "page": 1,
+          "role": "BODY",
+          "text": "已质押股份中限售股份数量（股）",
+          "text_raw": "已质押股份中限售股份数量（股）",
+          "region": [
+            376.15,
+            664.44,
+            411.85,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c023",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份中限售股份数量（股）"
+          },
+          "header_path": "已质押股份情况/已质押股份中限售股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00048",
+          "page": 1,
+          "role": "BODY",
+          "text": "已质押股份中冻结股份数量（股）",
+          "text_raw": "已质押股份中冻结股份数量（股）",
+          "region": [
+            411.85,
+            664.44,
+            447.7,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c026",
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份中冻结股份数量（股）"
+          },
+          "header_path": "已质押股份情况/已质押股份中冻结股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00049",
+          "page": 1,
+          "role": "BODY",
+          "text": "未质押股份中限售股份数量（股）",
+          "text_raw": "未质押股份中限售股份数量（股）",
+          "region": [
+            447.7,
+            664.44,
+            483.67,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c030",
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份中限售股份数量（股）"
+          },
+          "header_path": "未质押股份情况/未质押股份中限售股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00050",
+          "page": 1,
+          "role": "BODY",
+          "text": "未质押股份中冻结股份数量（股）",
+          "text_raw": "未质押股份中冻结股份数量（股）",
+          "region": [
+            483.67,
+            664.44,
+            518.55,
+            721.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c033",
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份中冻结股份数量（股）"
+          },
+          "header_path": "未质押股份情况/未质押股份中冻结股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00051",
+          "page": 1,
+          "role": "BODY",
+          "text": "兰石集团",
+          "text_raw": "兰石集团",
+          "region": [
+            76.75,
+            721.39,
+            107.45,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c002",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "header_path": "股东名称"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00052",
+          "page": 1,
+          "role": "BODY",
+          "text": "602,062,196",
+          "text_raw": "602,062,196",
+          "region": [
+            107.45,
+            721.39,
+            162.3,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c005",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股数量（股）"
+          },
+          "header_path": "持股数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00053",
+          "page": 1,
+          "role": "BODY",
+          "text": "46.09",
+          "text_raw": "46.09",
+          "region": [
+            162.3,
+            721.39,
+            197.9,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c008",
+            "cell_ref": "r3c3",
+            "row": 2,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股比例（%）"
+          },
+          "header_path": "持股比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00054",
+          "page": 1,
+          "role": "BODY",
+          "text": "175,000,000",
+          "text_raw": "175,000,000",
+          "region": [
+            197.9,
+            721.39,
+            254.45,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c011",
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押前累计质押数量（股）"
+          },
+          "header_path": "本次质押前累计质押数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00055",
+          "page": 1,
+          "role": "BODY",
+          "text": "215,000,000",
+          "text_raw": "215,000,000",
+          "region": [
+            254.45,
+            721.39,
+            311,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c014",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押后累计质押数量（股）"
+          },
+          "header_path": "本次质押后累计质押数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00056",
+          "page": 1,
+          "role": "BODY",
+          "text": "35.71",
+          "text_raw": "35.71",
+          "region": [
+            311,
+            721.39,
+            345.75,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c017",
+            "cell_ref": "r3c6",
+            "row": 2,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "header_path": "占其所持股份比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00057",
+          "page": 1,
+          "role": "BODY",
+          "text": "16.46",
+          "text_raw": "16.46",
+          "region": [
+            345.75,
+            721.39,
+            376.15,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c020",
+            "cell_ref": "r3c7",
+            "row": 2,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "header_path": "占公司总股本比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00058",
+          "page": 1,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            376.15,
+            721.39,
+            411.85,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c024",
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份中限售股份数量（股）"
+          },
+          "header_path": "已质押股份情况/已质押股份中限售股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00059",
+          "page": 1,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            411.85,
+            721.39,
+            447.7,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c027",
+            "cell_ref": "r3c9",
+            "row": 2,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份中冻结股份数量（股）"
+          },
+          "header_path": "已质押股份情况/已质押股份中冻结股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00060",
+          "page": 1,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            447.7,
+            721.39,
+            483.67,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c031",
+            "cell_ref": "r3c10",
+            "row": 2,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份中限售股份数量（股）"
+          },
+          "header_path": "未质押股份情况/未质押股份中限售股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00061",
+          "page": 1,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            483.67,
+            721.39,
+            518.55,
+            749.39
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c034",
+            "cell_ref": "r3c11",
+            "row": 2,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份中冻结股份数量（股）"
+          },
+          "header_path": "未质押股份情况/未质押股份中冻结股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00062",
+          "page": 1,
+          "role": "BODY",
+          "text": "合计",
+          "text_raw": "合计",
+          "region": [
+            76.75,
+            749.39,
+            107.45,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c003",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "header_path": "股东名称"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00063",
+          "page": 1,
+          "role": "BODY",
+          "text": "602,062,196",
+          "text_raw": "602,062,196",
+          "region": [
+            107.45,
+            749.39,
+            162.3,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c006",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股数量（股）"
+          },
+          "header_path": "持股数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00064",
+          "page": 1,
+          "role": "BODY",
+          "text": "46.09",
+          "text_raw": "46.09",
+          "region": [
+            162.3,
+            749.39,
+            197.9,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c009",
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股比例（%）"
+          },
+          "header_path": "持股比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00065",
+          "page": 1,
+          "role": "BODY",
+          "text": "175,000,000",
+          "text_raw": "175,000,000",
+          "region": [
+            197.9,
+            749.39,
+            254.45,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c012",
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押前累计质押数量（股）"
+          },
+          "header_path": "本次质押前累计质押数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00066",
+          "page": 1,
+          "role": "BODY",
+          "text": "215,000,000",
+          "text_raw": "215,000,000",
+          "region": [
+            254.45,
+            749.39,
+            311,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c015",
+            "cell_ref": "r4c5",
+            "row": 3,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押后累计质押数量（股）"
+          },
+          "header_path": "本次质押后累计质押数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00067",
+          "page": 1,
+          "role": "BODY",
+          "text": "35.71",
+          "text_raw": "35.71",
+          "region": [
+            311,
+            749.39,
+            345.75,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c018",
+            "cell_ref": "r4c6",
+            "row": 3,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "header_path": "占其所持股份比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00068",
+          "page": 1,
+          "role": "BODY",
+          "text": "16.46",
+          "text_raw": "16.46",
+          "region": [
+            345.75,
+            749.39,
+            376.15,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c021",
+            "cell_ref": "r4c7",
+            "row": 3,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "header_path": "占公司总股本比例（%）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00069",
+          "page": 1,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            376.15,
+            749.39,
+            411.85,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c025",
+            "cell_ref": "r4c8",
+            "row": 3,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份中限售股份数量（股）"
+          },
+          "header_path": "已质押股份情况/已质押股份中限售股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00070",
+          "page": 1,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            411.85,
+            749.39,
+            447.7,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c028",
+            "cell_ref": "r4c9",
+            "row": 3,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份中冻结股份数量（股）"
+          },
+          "header_path": "已质押股份情况/已质押股份中冻结股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00071",
+          "page": 1,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            447.7,
+            749.39,
+            483.67,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c032",
+            "cell_ref": "r4c10",
+            "row": 3,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份中限售股份数量（股）"
+          },
+          "header_path": "未质押股份情况/未质押股份中限售股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00072",
+          "page": 1,
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0",
+          "region": [
+            483.67,
+            749.39,
+            518.55,
+            766.89
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d16c6a948_p001_t002",
+            "cell_id": "d16c6a948_p001_t002_c035",
+            "cell_ref": "r4c11",
+            "row": 3,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份中冻结股份数量（股）"
+          },
+          "header_path": "未质押股份情况/未质押股份中冻结股份数量（股）"
+        },
+        {
+          "block_id": "d16c6a948_p001_b00073",
+          "page": 1,
+          "role": "FOOTER",
+          "text": "1",
+          "text_raw": "1",
+          "region": [
+            294.96,
+            798.24,
+            300.18,
+            808.69
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00001",
+          "page": 2,
+          "role": "SECTION",
+          "text": "二、控股股东股份质押情况",
+          "text_raw": "二、控股股东股份质押情况",
+          "region": [
+            111,
+            73.73,
+            255.48,
+            85.73
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00002",
+          "page": 2,
+          "role": "SECTION",
+          "text": "（一）兰石集团本次质押主要系满足其生产经营需要，不涉及新的融资安排。",
+          "text_raw": "（一）兰石集团本次质押主要系满足其生产经营需要，不涉及新的融资安排。",
+          "region": [
+            114,
+            97.13,
+            511.32,
+            109.13
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "兰石集团资信状况良好，具备相应的还款能力，风险可控。兰石集团将在贷款到期前，以自有资金或自筹资金做好合理还款安排。兰石集团目前质押公司股票不存在被平仓的风险，若后续出现平仓风险，兰石集团将及时采取包括但不限于补充质押、提前还款等应对措施。本次质押不会导致公司实际控制权发生变更。",
+          "text_raw": "兰石集团资信状况良好，具备相应的还款能力，风险可控。兰石集团将在贷款到期前，以自有资金或自筹资金做好合理还款安排。兰石集团目前质押公司股票不存在被平仓的风险，若后续出现平仓风险，兰石集团将及时采取包括但不限于补充质押、提前还款等应对措施。本次质押不会导致公司实际控制权发生变更。",
+          "region": [
+            90,
+            120.41,
+            505.32,
+            202.49
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00004",
+          "page": 2,
+          "role": "SECTION",
+          "text": "（二）截至本公告披露日，兰石集团不存在通过非经营性资金占用、违规担",
+          "text_raw": "（二）截至本公告披露日，兰石集团不存在通过非经营性资金占用、违规担",
+          "region": [
+            114,
+            213.77,
+            505.32,
+            225.77
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "保、关联交易等侵害上市公司利益的情况。",
+          "text_raw": "保、关联交易等侵害上市公司利益的情况。",
+          "region": [
+            90,
+            237.17,
+            318,
+            249.17
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00006",
+          "page": 2,
+          "role": "SECTION",
+          "text": "（三）兰石集团质押事项对上市公司的影响",
+          "text_raw": "（三）兰石集团质押事项对上市公司的影响",
+          "region": [
+            114,
+            260.57,
+            342,
+            272.57
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "1.本次质押不会对公司主营业务、融资授信及融资成本、持续经营能力等生",
+          "text_raw": "1.本次质押不会对公司主营业务、融资授信及融资成本、持续经营能力等生",
+          "region": [
+            114,
+            283.85,
+            505.32,
+            297.72
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00008",
+          "page": 2,
+          "role": "BODY",
+          "text": "产经营产生重大影响。",
+          "text_raw": "产经营产生重大影响。",
+          "region": [
+            90,
+            307.13,
+            210,
+            319.13
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00009",
+          "page": 2,
+          "role": "BODY",
+          "text": "2.本次质押不会影响公司董事会组成，不影响控股股东与公司在产权、业务、",
+          "text_raw": "2.本次质押不会影响公司董事会组成，不影响控股股东与公司在产权、业务、",
+          "region": [
+            114,
+            330.53,
+            511.32,
+            344.52
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00010",
+          "page": 2,
+          "role": "BODY",
+          "text": "资产、人员等方面的关联情况，不会导致公司实际控制权发生变更。",
+          "text_raw": "资产、人员等方面的关联情况，不会导致公司实际控制权发生变更。",
+          "region": [
+            90,
+            353.93,
+            450,
+            365.93
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00011",
+          "page": 2,
+          "role": "BODY",
+          "text": "3.截至本公告披露日，兰石集团不存在需履行的业绩补偿义务。",
+          "text_raw": "3.截至本公告披露日，兰石集团不存在需履行的业绩补偿义务。",
+          "region": [
+            114,
+            377.21,
+            447,
+            391.2
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00012",
+          "page": 2,
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114,
+            400.61,
+            174,
+            412.61
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00013",
+          "page": 2,
+          "role": "BODY",
+          "text": "兰州兰石重型装备股份有限公司董事会",
+          "text_raw": "兰州兰石重型装备股份有限公司董事会",
+          "region": [
+            301.32,
+            506.69,
+            505.32,
+            518.69
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00014",
+          "page": 2,
+          "role": "BODY",
+          "text": "2026年9月29日",
+          "text_raw": "2026年9月29日",
+          "region": [
+            352.32,
+            529.97,
+            445.32,
+            543.96
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d16c6a948_p002_b00015",
+          "page": 2,
+          "role": "FOOTER",
+          "text": "2",
+          "text_raw": "2",
+          "region": [
+            294.96,
+            798.24,
+            300.18,
+            808.69
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "direction": {
+          "raw_value": "质押",
+          "value": "pledge",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00009",
+              "page": 1,
+              "region": [
+                90,
+                427.49,
+                450,
+                439.49
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "质押给中国进出口银行甘肃省分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgor": {
+          "raw_value": "兰石集团",
+          "value": "兰石集团",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00023",
+              "page": 1,
+              "region": [
+                69.05,
+                529.54,
+                98,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c1",
+              "source_type": "cell",
+              "quote": "兰石集团"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledgee": {
+          "raw_value": "中国进出口银行甘肃省分行",
+          "value": "中国进出口银行甘肃省分行",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00030",
+              "page": 1,
+              "region": [
+                345.75,
+                529.54,
+                399.35,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c8",
+              "source_type": "cell",
+              "quote": "中国进出口银行甘肃省分行"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "40,000,000",
+          "value": 40000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00025",
+              "page": 1,
+              "region": [
+                139.65,
+                529.54,
+                187.25,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c3",
+              "source_type": "cell",
+              "quote": "40,000,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "215,000,000",
+          "value": 215000000,
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00055",
+              "page": 1,
+              "region": [
+                254.45,
+                721.39,
+                311,
+                749.39
+              ],
+              "table_id": "d16c6a948_p001_t002",
+              "cell_ref": "r3c5",
+              "source_type": "cell",
+              "quote": "215,000,000"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "6.64",
+          "value": 6.64,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00031",
+              "page": 1,
+              "region": [
+                399.35,
+                529.54,
+                441.65,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c9",
+              "source_type": "cell",
+              "quote": "6.64"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "3.06",
+          "value": 3.06,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00032",
+              "page": 1,
+              "region": [
+                441.65,
+                529.54,
+                483.67,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c10",
+              "source_type": "cell",
+              "quote": "3.06"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "35.71",
+          "value": 35.71,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00056",
+              "page": 1,
+              "region": [
+                311,
+                721.39,
+                345.75,
+                749.39
+              ],
+              "table_id": "d16c6a948_p001_t002",
+              "cell_ref": "r3c6",
+              "source_type": "cell",
+              "quote": "35.71"
+            }
+          ],
+          "denominator": "holder_shares",
+          "note": null
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "16.46",
+          "value": 16.46,
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00057",
+              "page": 1,
+              "region": [
+                345.75,
+                721.39,
+                376.15,
+                749.39
+              ],
+              "table_id": "d16c6a948_p001_t002",
+              "cell_ref": "r3c7",
+              "source_type": "cell",
+              "quote": "16.46"
+            }
+          ],
+          "denominator": "total_share_capital",
+          "note": null
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "start_date": {
+          "raw_value": "2026年9月24日",
+          "value": "2026-09-24",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00028",
+              "page": 1,
+              "region": [
+                260.1,
+                529.54,
+                302.65,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c6",
+              "source_type": "cell",
+              "quote": "2026年9月24日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "end_date": {
+          "raw_value": "2028年9月23日",
+          "value": "2028-09-23",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00029",
+              "page": 1,
+              "region": [
+                302.65,
+                529.54,
+                345.75,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c7",
+              "source_type": "cell",
+              "quote": "2028年9月23日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "purpose": {
+          "raw_value": "自身生产经营",
+          "value": "自身生产经营",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p001_b00033",
+              "page": 1,
+              "region": [
+                483.67,
+                529.54,
+                526.25,
+                555.69
+              ],
+              "table_id": "d16c6a948_p001_t001",
+              "cell_ref": "r2c11",
+              "source_type": "cell",
+              "quote": "自身生产经营"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月29日",
+          "value": "2026-09-29",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d16c6a948_p002_b00014",
+              "page": 2,
+              "region": [
+                352.32,
+                529.97,
+                445.32,
+                543.96
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "2026年9月29日"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-08T00:58:06.887Z",
+    "duration_ms": 4410,
+    "code_version": "06a25212",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

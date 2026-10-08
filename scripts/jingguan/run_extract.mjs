@@ -1502,6 +1502,7 @@ async function main() {
     console.log(`[分块] 输入 ${modelInput.length} 字符超上限，按块分 ${chunks.length} 次调用（每块 ≤${CHUNK_LIMIT} 字符）`)
     const sysPrompt = buildSystemPrompt(eventType, true)
     let chunkDurations = 0
+    let chunkCacheHits = 0
     const seenKeys = new Set()
 
     for (let ci = 0; ci < chunks.length; ci++) {
@@ -1511,6 +1512,7 @@ async function main() {
       try {
         const chunkCall = await callModel({ baseURL, model, apiKey, system: sysPrompt, user: chunkText })
         chunkDurations += chunkCall.durationMs ?? 0
+        if (chunkCall.cache_hit === true) chunkCacheHits++
         const chunkParsed = parseModelJson(chunkCall.content)
         for (const ev of chunkParsed.events ?? []) {
           const f = ev.fields ?? {}
@@ -1535,7 +1537,13 @@ async function main() {
       }
     }
 
-    call = { content: JSON.stringify({ events: allEvents }), usage: null, durationMs: chunkDurations, httpStatus: 200, retriesWithoutResponseFormat: false }
+    // D12：分块路径的缓存命中聚合上报——此前合成 call 不带 cache_hit/cache_key，
+    // call_log 顶层 hit 恒 null（分块缓存实际生效，纯上报缺口）。key 为 null 表多块多键。
+    call = {
+      content: JSON.stringify({ events: allEvents }), usage: null, durationMs: chunkDurations, httpStatus: 200, retriesWithoutResponseFormat: false,
+      cache_hit: chunkCacheHits === chunks.length ? true : (chunkCacheHits === 0 ? false : null),
+      cache_key: null,
+    }
     truncated = false // 分块模式下不截断
     const durationMs = Date.now() - t0
     console.log(`[分块完成] ${chunks.length} 块 → ${allEvents.length} 个事件（去重后），总耗时 ${durationMs}ms`)

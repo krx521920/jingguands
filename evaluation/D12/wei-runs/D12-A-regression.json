@@ -1,0 +1,18 @@
+{
+ "compared_on": "2026-10-08",
+ "dirs": {
+  "a": "evaluation/D11/firsttest-envelopes",
+  "b": "runs/batch-20261008T005756/envelopes"
+ },
+ "docs": 31,
+ "events_byte_identical": 17,
+ "business_identical": 30,
+ "value_slots_total": 437,
+ "value_slots_differ": 0,
+ "event_count_mismatch": [],
+ "status_flips_null_null": [
+  "D6-AWD-002 浙江金盾风机股份有限公司|沈阳地铁集团有限公司|pledge|沈阳地铁9号线二期 formal_award_notice_received：not_disclosed ↔ not_mentioned（值 null/null）",
+  "D6-AWD-002 浙江金盾风机股份有限公司|沈阳地铁集团有限公司|pledge|沈阳地铁9号线二期 formal_award_notice_received：not_disclosed ↔ not_mentioned（值 null/null）"
+ ],
+ "business_diffs": []
+}

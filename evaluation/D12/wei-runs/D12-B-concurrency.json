@@ -1,0 +1,17 @@
+{
+ "compared_on": "2026-10-08",
+ "dirs": {
+  "a": "runs/batch-20261008T005756/envelopes",
+  "b": "runs/batch-20261008T010231/envelopes"
+ },
+ "docs": 31,
+ "events_byte_identical": 17,
+ "business_identical": 30,
+ "value_slots_total": 437,
+ "value_slots_differ": 0,
+ "event_count_mismatch": [],
+ "status_flips_null_null": [
+  "D4-PLD-009 有格创业投资有限公司|中国银河证券股份有限公司|release| end_date：not_mentioned ↔ needs_review（值 null/null）"
+ ],
+ "business_diffs": []
+}

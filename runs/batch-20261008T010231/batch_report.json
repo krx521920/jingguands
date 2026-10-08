@@ -1,0 +1,426 @@
+{
+  "stamp": "20261008T010231",
+  "mock": false,
+  "jobs": 4,
+  "timing": {
+    "total_run_ms": 53579,
+    "per_doc_ms": 1728,
+    "slowest_ms": 20806
+  },
+  "results": [
+    {
+      "case": "D4-PLD-001",
+      "event_type": "pledge",
+      "file": "D4-PLD-001.parse.json",
+      "run_id": "20261008T010231-pledge-bc50",
+      "ok": true,
+      "duration_ms": 11356,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 3,
+        "needs_review": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-002",
+      "event_type": "pledge",
+      "file": "D4-PLD-002.parse.json",
+      "run_id": "20261008T010231-pledge-5e6c",
+      "ok": true,
+      "duration_ms": 4386,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-003",
+      "event_type": "pledge",
+      "file": "D4-PLD-003.parse.json",
+      "run_id": "20261008T010231-pledge-f46c",
+      "ok": true,
+      "duration_ms": 4568,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-004",
+      "event_type": "pledge",
+      "file": "D4-PLD-004.parse.json",
+      "run_id": "20261008T010231-pledge-40d0",
+      "ok": true,
+      "duration_ms": 4741,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-005",
+      "event_type": "pledge",
+      "file": "D4-PLD-005.parse.json",
+      "run_id": "20261008T010236-pledge-a418",
+      "ok": true,
+      "duration_ms": 7750,
+      "status_count": {
+        "extracted": 25,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-006",
+      "event_type": "pledge",
+      "file": "D4-PLD-006.parse.json",
+      "run_id": "20261008T010236-pledge-37fe",
+      "ok": true,
+      "duration_ms": 4347,
+      "status_count": {
+        "extracted": 13,
+        "not_mentioned": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-007",
+      "event_type": "pledge",
+      "file": "D4-PLD-007.parse.json",
+      "run_id": "20261008T010236-pledge-e6b8",
+      "ok": true,
+      "duration_ms": 4729,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-008",
+      "event_type": "pledge",
+      "file": "D4-PLD-008.parse.json",
+      "run_id": "20261008T010240-pledge-f2d7",
+      "ok": true,
+      "duration_ms": 4896,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 2,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-009",
+      "event_type": "pledge",
+      "file": "D4-PLD-009.parse.json",
+      "run_id": "20261008T010241-pledge-d3a2",
+      "ok": true,
+      "duration_ms": 14645,
+      "status_count": {
+        "extracted": 36,
+        "not_mentioned": 5,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D4-PLD-010",
+      "event_type": "pledge",
+      "file": "D4-PLD-010.parse.json",
+      "run_id": "20261008T010243-pledge-5883",
+      "ok": true,
+      "duration_ms": 4672,
+      "status_count": {
+        "extracted": 12,
+        "not_mentioned": 1,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-001",
+      "event_type": "equity_change",
+      "file": "D5-EQC-001.parse.json",
+      "run_id": "20261008T010243-equity_change-d3a7",
+      "ok": true,
+      "duration_ms": 13505,
+      "status_count": {
+        "extracted": 45
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-002",
+      "event_type": "equity_change",
+      "file": "D5-EQC-002.parse.json",
+      "run_id": "20261008T010245-equity_change-56f1",
+      "ok": true,
+      "duration_ms": 20806,
+      "status_count": {
+        "extracted": 27
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-003",
+      "event_type": "equity_change",
+      "file": "D5-EQC-003.parse.json",
+      "run_id": "20261008T010247-equity_change-3787",
+      "ok": true,
+      "duration_ms": 3859,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 4
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-004",
+      "event_type": "equity_change",
+      "file": "D5-EQC-004.parse.json",
+      "run_id": "20261008T010251-equity_change-0b84",
+      "ok": true,
+      "duration_ms": 3878,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-005",
+      "event_type": "equity_change",
+      "file": "D5-EQC-005.parse.json",
+      "run_id": "20261008T010255-equity_change-b111",
+      "ok": true,
+      "duration_ms": 3560,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-006",
+      "event_type": "equity_change",
+      "file": "D5-EQC-006.parse.json",
+      "run_id": "20261008T010255-equity_change-cadc",
+      "ok": true,
+      "duration_ms": 4314,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-007",
+      "event_type": "equity_change",
+      "file": "D5-EQC-007.parse.json",
+      "run_id": "20261008T010257-equity_change-c139",
+      "ok": true,
+      "duration_ms": 3780,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-008",
+      "event_type": "equity_change",
+      "file": "D5-EQC-008.parse.json",
+      "run_id": "20261008T010259-equity_change-09a8",
+      "ok": true,
+      "duration_ms": 3831,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-009",
+      "event_type": "equity_change",
+      "file": "D5-EQC-009.parse.json",
+      "run_id": "20261008T010300-equity_change-f615",
+      "ok": true,
+      "duration_ms": 3604,
+      "status_count": {
+        "extracted": 9
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D5-EQC-010",
+      "event_type": "equity_change",
+      "file": "D5-EQC-010.parse.json",
+      "run_id": "20261008T010301-equity_change-d092",
+      "ok": true,
+      "duration_ms": 6150,
+      "status_count": {
+        "extracted": 8,
+        "needs_review": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-001",
+      "event_type": "award_contract",
+      "file": "D6-AWD-001.raw.json",
+      "run_id": "20261008T010302-award_contract-ebc4",
+      "ok": true,
+      "duration_ms": 3372,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 6,
+        "not_applicable": 2,
+        "not_disclosed": 1
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-002",
+      "event_type": "award_contract",
+      "file": "D6-AWD-002.raw.json",
+      "run_id": "20261008T010303-award_contract-d0f2",
+      "ok": true,
+      "duration_ms": 12557,
+      "status_count": {
+        "extracted": 24,
+        "not_mentioned": 22,
+        "not_applicable": 8,
+        "not_disclosed": 2
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-003",
+      "event_type": "award_contract",
+      "file": "D6-AWD-003.raw.json",
+      "run_id": "20261008T010306-award_contract-5a40",
+      "ok": true,
+      "duration_ms": 10628,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-004",
+      "event_type": "award_contract",
+      "file": "D6-AWD-004.raw.json",
+      "run_id": "20261008T010306-award_contract-08b4",
+      "ok": true,
+      "duration_ms": 4620,
+      "status_count": {
+        "extracted": 9,
+        "not_applicable": 2,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-005",
+      "event_type": "award_contract",
+      "file": "D6-AWD-005.raw.json",
+      "run_id": "20261008T010307-award_contract-3533",
+      "ok": true,
+      "duration_ms": 4685,
+      "status_count": {
+        "extracted": 11,
+        "not_mentioned": 3
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-006",
+      "event_type": "award_contract",
+      "file": "D6-AWD-006.raw.json",
+      "run_id": "20261008T010310-award_contract-0c86",
+      "ok": true,
+      "duration_ms": 4228,
+      "status_count": {
+        "extracted": 9,
+        "not_mentioned": 5
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-007",
+      "event_type": "award_contract",
+      "file": "D6-AWD-007.raw.json",
+      "run_id": "20261008T010311-award_contract-9834",
+      "ok": true,
+      "duration_ms": 3869,
+      "status_count": {
+        "extracted": 5,
+        "not_mentioned": 7,
+        "not_applicable": 2
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-008",
+      "event_type": "award_contract",
+      "file": "D6-AWD-008.raw.json",
+      "run_id": "20261008T010315-award_contract-a583",
+      "ok": true,
+      "duration_ms": 4426,
+      "status_count": {
+        "extracted": 8,
+        "not_mentioned": 4,
+        "not_applicable": 2
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-009",
+      "event_type": "award_contract",
+      "file": "D6-AWD-009.raw.json",
+      "run_id": "20261008T010315-award_contract-3b2b",
+      "ok": true,
+      "duration_ms": 9444,
+      "status_count": {
+        "extracted": 21,
+        "not_mentioned": 15,
+        "not_applicable": 6
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "D6-AWD-010",
+      "event_type": "award_contract",
+      "file": "D6-AWD-010.raw.json",
+      "run_id": "20261008T010316-award_contract-9f38",
+      "ok": true,
+      "duration_ms": 3978,
+      "status_count": {
+        "extracted": 5,
+        "not_disclosed": 1,
+        "not_mentioned": 6,
+        "not_applicable": 2
+      },
+      "validation_errors": 0
+    },
+    {
+      "case": "pledge-scan-degrade",
+      "event_type": "pledge",
+      "file": "pledge-scan-degrade.parse.json",
+      "run_id": "20261008T010316-pledge-scan",
+      "ok": true,
+      "duration_ms": 96,
+      "status_count": {
+        "unreadable": 14
+      },
+      "validation_errors": 1
+    }
+  ]
+}

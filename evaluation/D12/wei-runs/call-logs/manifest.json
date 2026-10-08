@@ -1,0 +1,38 @@
+{
+ "A": {
+  "batch": "batch-20261008T005756",
+  "ok": "31/31",
+  "call_logs": 31,
+  "log_fields_complete": 31,
+  "with_timing": 31,
+  "timing": {
+   "total_run_ms": 183602,
+   "per_doc_ms": 5923,
+   "slowest_ms": 19251
+  }
+ },
+ "B": {
+  "batch": "batch-20261008T010231",
+  "ok": "31/31",
+  "call_logs": 31,
+  "log_fields_complete": 31,
+  "with_timing": 31,
+  "timing": {
+   "total_run_ms": 53579,
+   "per_doc_ms": 1728,
+   "slowest_ms": 20806
+  }
+ },
+ "C": {
+  "batch": "batch-20261008T010943",
+  "ok": "31/31",
+  "call_logs": 31,
+  "log_fields_complete": 31,
+  "with_timing": 31,
+  "timing": {
+   "total_run_ms": 957,
+   "per_doc_ms": 31,
+   "slowest_ms": 170
+  }
+ }
+}

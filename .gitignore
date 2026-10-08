@@ -60,4 +60,4 @@ corpus/**/raw/
 .tmp_*
 
 # D10 模型调用缓存（可由冷跑重建，不入库）
-runs/.model-cache/
+runs/.model-cache*/
