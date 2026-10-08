@@ -1,7 +1,7 @@
 /** D9 确定性归因：只读事实与出处；expected_verdict/category/attribution_basis 不参与判定。 */
 import {decimal,compare,multiply,sum,normalizeStated,roundHalfUp} from './exact_D9.mjs';
 import {alignDocuments} from '../vendor_D8/src_D8/matching_D8.mjs';
-export const VERSION='D9.1';
+export const VERSION='D12.1';
 const clone=x=>structuredClone(x),obj=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
 const norm=x=>String(x??'').normalize('NFKC').replace(/\s+/gu,'');
@@ -12,6 +12,14 @@ const currencyTokens=s=>[...new Set((String(s??'').match(/人民币|美元|港�
 const dates=v=>typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&Number.isFinite(Date.parse(v))&&new Date(v).toISOString().slice(0,10)===v;
 const sameValue=(a,b)=>decimal(a)!==null&&decimal(b)!==null?decimal(a)===decimal(b):eq(a,b);
 const qtext=f=>(f?.provenance??[]).map(p=>norm(p.quote)).join('');
+// 限定词须修饰当前数字，避免把“合约”等普通词误当近似值。
+function qualifiedValue(s){
+  const raw=String(s.input.raw_value??'').normalize('NFKC');
+  const targets=(raw.match(/-?\d[\d,]*(?:\.\d+)?/g)??[]).map(x=>decimal(x.replaceAll(',','')));
+  if(!targets.length)targets.push(s.value);
+  const pattern=/(?:(?<![合签履违预解])约(?:为|合|计)?|暂定(?:为)?|暂估(?:为)?|预计(?:为)?|至少|至多|不超过|[<>≤≥~～])\s*(-?\d[\d,]*(?:\.\d+)?)/gu;
+  return [raw,String(s.input.quote??'').normalize('NFKC')].some(q=>[...q.matchAll(pattern)].some(m=>targets.includes(decimal(m[1].replaceAll(',','')))));
+}
 function quotedNumber(q,v){
   const target=decimal(v);if(target===null)return false;
   return (String(q??'').normalize('NFKC').match(/-?\d[\d,]*(?:\.\d+)?/g)??[]).some(t=>decimal(t.replaceAll(',',''))===target||abs(decimal(t.replaceAll(',','')))===target);
@@ -163,6 +171,9 @@ export function attributeCase(input,options={}){
   const failures=ss.flatMap(s=>s.issues);if(failures.length){r.findings.push(...failures);return done('insufficient','VALUE_EVIDENCE_MISMATCH','输入值、单位或出处不一致，先复核抽取/标准化，不能归为业务矛盾。');}
   const [a,b]=ss;
 
+  // 先检查原文和 raw 的精确性，防止汇率、税率或合计分支提前闭合近似值。
+  if(ss.some(qualifiedValue))return done('insufficient','QUALIFIED_AMOUNT_NOT_EXACT','近似、暂定或上下界不按精确值判断；需要明确精度/范围依据。');
+
   // 明示双币金额是原文的两个记录，绝不由除法反推汇率。
   for(const s of ss){
     const q=norm(s.input.quote),m=q.match(/([\d,]+(?:\.\d+)?)阿联酋迪拉姆[（(]折合人民币([\d,]+(?:\.\d+)?)元/u);
@@ -258,7 +269,7 @@ export function attributeCase(input,options={}){
       if(!at||!bt||at!==bt)return done('insufficient','FX_TAX_BASIS_UNALIGNED','跨币种金额的税口径也未对齐；单个汇率不能解释全部差额。');
       const fx=a.input.caliber?.fx??b.input.caliber?.fx,s=a.input.caliber?.fx?a:b;
       const from=fx?.from===ac?a:fx?.from===bc?b:null,to=from===a?b:a;
-      const directionText=fx&&qtext(fx).includes(`1${fx.from}=${fx.value}${fx.to}`);
+      const directionText=fx&&from&&fx.to===(from===a?bc:ac)&&decimal(fx.value)!==null&&new RegExp(`(?<![\\d.+-])1${fx.from}=${String(fx.value).replaceAll('.','\\.')}${fx.to}(?![A-Za-z])`).test(qtext(fx));
       if(fx&&fact(s,fx)&&from&&fx.to===(from===a?bc:ac)&&directionText&&decimal(fx.value)!==null&&compare(fx.value,'0')===1&&dates(fx.date)
         &&ap&&bp&&ap.value===fx.date&&bp.value===fx.date&&fx.provenance.some(p=>dateIn(p.quote,fx.date))
         &&currencyTokens(qtext(fx)).includes(ac)&&currencyTokens(qtext(fx)).includes(bc)&&quotedNumber(qtext(fx),fx.value)){
@@ -271,8 +282,9 @@ export function attributeCase(input,options={}){
     if(!at||!bt)return done('insufficient','TAX_BASIS_UNKNOWN','至少一侧税口径未披露，不默认含税或未税。');
     if(at!==bt){
       const rate=a.input.caliber?.tax_rate??b.input.caliber?.tax_rate,s=a.input.caliber?.tax_rate?a:b;
+      const statedRates=[...new Set([...qtext(rate).matchAll(/税率(?:为|是|[:：])?(-?\d+(?:\.\d+)?)%/gu)].map(m=>decimal(m[1])))];
       if(rate&&fact(s,rate)&&decimal(rate.value)!==null&&compare(rate.value,'0')>=0&&compare(rate.value,'100')<=0
-        &&/税率/u.test(qtext(rate))&&qtext(rate).includes(norm(rate.value)+'%')){
+        &&statedRates.length===1&&statedRates[0]===decimal(rate.value)){
         const net=at==='excluded'?a:b,gross=net===a?b:a,coefficient=sum(['1',multiply(rate.value,'0.01')]),result=multiply(net.normalized,coefficient);
         r.computed.push({name:'tax_rate',used_source:'explicit_same_event_tax_rate',rate_percent:String(rate.value),input:net.normalized,result,evidence:rate.provenance});r.comparison_performed=true;
         if(result===gross.normalized)return done('explainable_difference','EXPLICIT_TAX_RECONCILED','同事件明示税率解释含税/未税差异；原金额保留。');
@@ -281,16 +293,16 @@ export function attributeCase(input,options={}){
       return done('insufficient','TAX_RATE_MISSING','已识别含税与未税口径不同，但没有可适用税率，差额仍待解释。');
     }
   }
-  const qualified=ss.some(s=>/暂定|暂估|约|至少|至多|不超过|预计|[<>≤≥~～]/u.test(String(s.input.raw_value??'')));
-  if(qualified)return done('insufficient','QUALIFIED_AMOUNT_NOT_EXACT','近似、暂定或上下界不按精确值判断；需要明确精度/范围依据。');
   if(a.normalized===b.normalized){r.comparison_performed=true;
     if(a.sourceUnit&&b.sourceUnit&&a.sourceUnit!==b.sourceUnit){r.computed.push({name:'unit_scale',used_source:'explicit_raw_units',left:a.normalized,right:b.normalized});return done('explainable_difference','EXPLICIT_UNIT_RECONCILED','原文单位明确且精确归一后相等；不是仅凭一万倍关系猜单位。');}
     return done('corroborated','SAME_OBSERVATION_EQUAL','事件、主体、字段和适用口径一致，精确十进制数值相同。');
   }
   const rounding=a.input.caliber?.rounding??b.input.caliber?.rounding,s=a.input.caliber?.rounding?a:b;
   if(rounding&&fact(s,rounding)&&Number.isInteger(rounding.value)&&rounding.value>=0&&rounding.value<=30&&qtext(rounding).includes(`四舍五入保留${rounding.value}位小数`)){
-    const rounded=roundHalfUp((s===a?b:a).normalized,rounding.value);
-    if(rounded===s.normalized){r.computed.push({name:'rounding',used_source:'explicit_rounding_precision',places:rounding.value,result:rounded,evidence:rounding.provenance});r.comparison_performed=true;return done('explainable_difference','EXPLICIT_ROUNDING','有明确舍入规则并通过精确复算；不使用通用0.5%容差。');}
+    const scalePlaces=/^万[元股]$/.test(s.sourceUnit)?4:/^亿[元股]$/.test(s.sourceUnit)?8:0;
+    const normalizedPlaces=rounding.value-scalePlaces;
+    const rounded=roundHalfUp((s===a?b:a).normalized,normalizedPlaces);
+    if(rounded===s.normalized){r.computed.push({name:'rounding',used_source:'explicit_rounding_precision',places:rounding.value,source_unit:s.sourceUnit,normalized_places:normalizedPlaces,input:(s===a?b:a).normalized,result:rounded,evidence:rounding.provenance});r.comparison_performed=true;return done('explainable_difference','EXPLICIT_ROUNDING','按原文披露单位与明确小数位精确复算；不使用通用0.5%容差。');}
   }
   r.comparison_performed=true;return done('conflict','SAME_BASIS_CONFLICT','双侧原文、同一原子事件/观察时点和全部适用口径均成立，精确值仍不一致；作为有证据的矛盾提交人工终审。',true);
 }

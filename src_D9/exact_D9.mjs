@@ -14,8 +14,10 @@ export function normalizeStated(raw,unit,kind='shares'){
   const v=decimal(raw);if(v===null)return null;
   try{return normalize({kind,rawText:`${raw}${unit}`,rawValue:v,sourceUnit:unit,qualifier:'exact',scope:'unknown',status:v==='0'?'explicit_zero':'present',denominator:null},{allowUnknownRatioDenominator:true}).value;}catch{return null;}
 }
+/** places 为基准单位小数位；-8..-1 用于“亿/万”披露单位换算后的十进制位，正负半值均远离零。 */
 export function roundHalfUp(value,places){
-  const d=decimal(value);if(d===null||!Number.isInteger(places)||places<0||places>30)return null;
+  const d=decimal(value);if(d===null||!Number.isInteger(places)||places< -8||places>30)return null;
   const [v,n]=parts(d);if(n<=places)return d;const div=10n**BigInt(n-places),abs=v<0n?-v:v;
-  return render((abs/div+(abs%div*2n>=div?1n:0n))*(v<0n?-1n:1n),places);
+  const rounded=(abs/div+(abs%div*2n>=div?1n:0n))*(v<0n?-1n:1n);
+  return places<0?render(rounded*10n**BigInt(-places),0):render(rounded,places);
 }
