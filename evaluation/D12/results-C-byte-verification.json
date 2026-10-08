@@ -1,0 +1,13 @@
+{
+  "checked_on": "2026-10-08",
+  "dirs": {
+    "A": "runs/batch-20261008T005756/envelopes",
+    "C": "runs/batch-20261008T010943/envelopes"
+  },
+  "docs": 31,
+  "events_byte_identical": 31,
+  "events_differ": 0,
+  "business_top_level_identical": 31,
+  "schema_version_identical": 31,
+  "detail": []
+}
