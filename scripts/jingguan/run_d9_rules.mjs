@@ -221,6 +221,12 @@ for (const c of cases) {
     try {
       const documents = {}
       const parses = {}
+      // 用例自带 context（方的受控例在 context.documents 携带 mock 信封/parses）——
+      // 先以用例冻结的上下文为种子，再按 --envelopes 目录补缺；两处都无才为 null
+      const caseCtxDocs = c.context?.documents
+      const caseCtxParses = c.context?.parses
+      if (caseCtxDocs && typeof caseCtxDocs === 'object') Object.assign(documents, caseCtxDocs)
+      if (caseCtxParses && typeof caseCtxParses === 'object') Object.assign(parses, caseCtxParses)
       for (const s of c.sides ?? []) {
         if (documents[s.case_id] !== undefined) continue
         try {
@@ -247,7 +253,9 @@ for (const c of cases) {
       }
       const r = rulesLib({ case_id: c.case_id, sides: c.sides ?? [] }, { documents, parses })
       if (r && typeof r.verdict === 'string' && ['corroborated', 'explainable_difference', 'restated', 'conflict', 'insufficient'].includes(r.verdict)) {
-        d = { verdict: r.verdict, code: `plugin:${r.attribution_code ?? 'FANG_D9'}`, attribution: r.attribution ?? r.reason ?? `方 D9 规则库判定 ${r.verdict}`, computed: [] }
+        // 透传插件计算记录（share_sum/exchange_rate/tax_rate/unit_scale/rounding 五类，含 used_source）——
+        // 此前硬编码 computed:[] 把方库的复算证据全丢了（宗 D12 待办指出，2026-10-08 修复）
+        d = { verdict: r.verdict, code: `plugin:${r.attribution_code ?? 'FANG_D9'}`, attribution: r.attribution ?? r.reason ?? `方 D9 规则库判定 ${r.verdict}`, computed: Array.isArray(r.computed) ? r.computed : [] }
       }
     } catch (err) {
       pluginFallbacks.push({ case_id: c.case_id, error: String(err?.message ?? err).slice(0, 120) })

@@ -1,0 +1,1303 @@
+{
+  "checked_on": "2026-10-08",
+  "tool": "run_d9_rules.mjs",
+  "code_version": "15d6f8ae",
+  "input": "evaluation/D9/cases/fang-regression-46.json",
+  "bilateral": null,
+  "block_verify": null,
+  "policy": "期望标签不进入判定（只读 sides 值/字段/主体/引文/块）",
+  "cases_total": 46,
+  "by_verdict": {
+    "explainable_difference": 17,
+    "conflict": 3,
+    "insufficient": 18,
+    "restated": 1,
+    "corroborated": 7
+  },
+  "cases": [
+    {
+      "case_id": "D11-U01",
+      "verdict": "explainable_difference",
+      "attribution": "原文单位明确且精确归一后相等；不是仅凭一万倍关系猜单位。",
+      "attribution_code": "plugin:EXPLICIT_UNIT_RECONCILED",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-U01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 1万元 CNY 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-U01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 10000元 CNY 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": [
+        {
+          "name": "unit_scale",
+          "used_source": "explicit_raw_units",
+          "left": "10000",
+          "right": "10000"
+        }
+      ]
+    },
+    {
+      "case_id": "D11-U02",
+      "verdict": "conflict",
+      "attribution": "双侧原文、同一原子事件/观察时点和全部适用口径均成立，精确值仍不一致；作为有证据的矛盾提交人工终审。",
+      "attribution_code": "plugin:SAME_BASIS_CONFLICT",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-U02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 1股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-U02-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 10000股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-U03",
+      "verdict": "insufficient",
+      "attribution": "输入值、单位或出处不一致，先复核抽取/标准化，不能归为业务矛盾。",
+      "attribution_code": "plugin:VALUE_EVIDENCE_MISMATCH",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-U03-0",
+          "block_id": "control-0",
+          "quote": "甲主体持股1股",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-U03-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 10000股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-U04",
+      "verdict": "insufficient",
+      "attribution": "物理/业务单位不一致，不能跨维度比较。",
+      "attribution_code": "plugin:UNIT_DIMENSION_MISMATCH",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-U04-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100lot  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-U04-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100lot  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-E01",
+      "verdict": "insufficient",
+      "attribution": "尚未证明同一交易/标的观察；同公司、同主体、同数字都不能替代事件对齐。",
+      "attribution_code": "plugin:EVENT_IDENTITY_UNPROVEN",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-E01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-E01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-E02",
+      "verdict": "insufficient",
+      "attribution": "尚未证明同一交易/标的观察；同公司、同主体、同数字都不能替代事件对齐。",
+      "attribution_code": "plugin:EVENT_IDENTITY_UNPROVEN",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-E02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-E02-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-E03",
+      "verdict": "insufficient",
+      "attribution": "主体范围不足或不同，不直接对比。",
+      "attribution_code": "plugin:SUBJECT_SCOPE_UNPROVEN",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-E03-0",
+          "block_id": "control-0",
+          "quote": "乙主体 shares_after 123457股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-E03-1",
+          "block_id": "control-1",
+          "quote": "乙主体 shares_after 123457股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-V01",
+      "verdict": "conflict",
+      "attribution": "双侧原文、同一原子事件/观察时点和全部适用口径均成立，精确值仍不一致；作为有证据的矛盾提交人工终审。",
+      "attribution_code": "plugin:SAME_BASIS_CONFLICT",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-V01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 1000股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-V01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 1001股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-V02",
+      "verdict": "insufficient",
+      "attribution": "近似、暂定或上下界不按精确值判断；需要明确精度/范围依据。",
+      "attribution_code": "plugin:QUALIFIED_AMOUNT_NOT_EXACT",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-V02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 约100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-V02-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 101股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-V03",
+      "verdict": "insufficient",
+      "attribution": "至少一侧缺少可核验的源文档、页块或引文；不能以期望说明补足事实。",
+      "attribution_code": "plugin:EVIDENCE_NOT_VERIFIED",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-V03-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  伪造文字",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-V03-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-V04",
+      "verdict": "insufficient",
+      "attribution": "至少一侧缺少可核验的源文档、页块或引文；不能以期望说明补足事实。",
+      "attribution_code": "plugin:EVIDENCE_NOT_VERIFIED",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-V04-0",
+          "block_id": "missing",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-V04-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-V05",
+      "verdict": "insufficient",
+      "attribution": "未能绑定唯一且可核验的已抽取A字段；待复核或未标准化字段不升级为互证/矛盾。",
+      "attribution_code": "plugin:A_FIELD_BINDING_UNCONFIRMED",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-V05-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-V05-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-C01",
+      "verdict": "insufficient",
+      "attribution": "币种不同，但缺适用日期/方向/汇率或明示折合依据；不自行换算。",
+      "attribution_code": "plugin:FX_BASIS_MISSING",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-C01-0",
+          "block_id": "control-0",
+          "quote": "甲主体100元 阿联酋迪拉姆 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-C01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 200元 CNY 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-C02",
+      "verdict": "explainable_difference",
+      "attribution": "明确方向、日期与适用记录的汇率经精确计算可解释差异；不推广到其他日期。",
+      "attribution_code": "plugin:EXPLICIT_FX_RECONCILED",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-C02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100元 AED 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-C02-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 200元 CNY 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": [
+        {
+          "name": "exchange_rate",
+          "used_source": "explicit_scoped_rate",
+          "rate": "2",
+          "from": "AED",
+          "to": "CNY",
+          "date": "2026-10-05",
+          "input": "100",
+          "result": "200",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY",
+              "file_sha256": "dd43e724d579187596ed4678f085afd697723eb7600f27a16ea5be8710483774"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "D11-C03",
+      "verdict": "insufficient",
+      "attribution": "币种不同，但缺适用日期/方向/汇率或明示折合依据；不自行换算。",
+      "attribution_code": "plugin:FX_BASIS_MISSING",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-C03-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100元 AED 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-C03-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 200元 CNY 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-T01",
+      "verdict": "insufficient",
+      "attribution": "已识别含税与未税口径不同，但没有可适用税率，差额仍待解释。",
+      "attribution_code": "plugin:TAX_RATE_MISSING",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-T01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100元 CNY 不含税",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-T01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 106元 CNY 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-T02",
+      "verdict": "explainable_difference",
+      "attribution": "同事件明示税率解释含税/未税差异；原金额保留。",
+      "attribution_code": "plugin:EXPLICIT_TAX_RECONCILED",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-T02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100元 CNY 不含税",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-T02-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 106元 CNY 含税",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": [
+        {
+          "name": "tax_rate",
+          "used_source": "explicit_same_event_tax_rate",
+          "rate_percent": "6",
+          "input": "100",
+          "result": "106",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率6%",
+              "file_sha256": "8480a66ae7be37b4bc565fb2686c07e08f3c457c29207b1963d6ff107f853fdc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "D11-D01",
+      "verdict": "explainable_difference",
+      "attribution": "比例分母范围不同，不能比较百分数大小或推算分母。",
+      "attribution_code": "plugin:DENOMINATOR_DIFFERENT",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-D01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100%  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-D01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100%  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-D02",
+      "verdict": "insufficient",
+      "attribution": "比例分母未明，不能据百分数差异判断矛盾。",
+      "attribution_code": "plugin:DENOMINATOR_UNPROVEN",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-D02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100%  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-D02-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100%  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-S01",
+      "verdict": "explainable_difference",
+      "attribution": "本次与累计口径明确不同，不能直接相减解释为单次增量；两值也可能相等，不能说必然不同。",
+      "attribution_code": "plugin:CUMULATIVE_VS_SINGLE",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-S01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 pledged_shares_this_time 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-S01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 pledged_shares_cumulative 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-P01",
+      "verdict": "explainable_difference",
+      "attribution": "同指标的实际观察时点不同，不能直接判矛盾；不以发布日期代替观察日，也不猜测变化原因。",
+      "attribution_code": "plugin:TIME_BASIS_DIFFERENT",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-P01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 99股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-P01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-P02",
+      "verdict": "insufficient",
+      "attribution": "交易关联不足以证明同一原子观察或同一时点，保留疑点。",
+      "attribution_code": "plugin:OBSERVATION_TIME_UNPROVEN",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-P02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-P02-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-R01",
+      "verdict": "insufficient",
+      "attribution": "检测到更正语句，但缺明确替代对象或先后依据；不能自动用后一个输入覆盖前值。",
+      "attribution_code": "plugin:CORRECTION_LINK_OR_ORDER_MISSING",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-R01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-R01-1",
+          "block_id": "control-1",
+          "quote": "更正为101股",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-R02",
+      "verdict": "restated",
+      "attribution": "明确更正目标与发布先后均有出处，保留旧记录并标记被更正，不回写A。",
+      "attribution_code": "plugin:EXPLICIT_LINKED_CORRECTION",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-R02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-R02-1",
+          "block_id": "control-1",
+          "quote": "更正为101股",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-B01",
+      "verdict": "corroborated",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "attribution_code": "plugin:SAME_OBSERVATION_EQUAL",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-B01-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 0股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-B01-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 0股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-B02",
+      "verdict": "corroborated",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "attribution_code": "plugin:SAME_OBSERVATION_EQUAL",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-B02-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-B02-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-V06",
+      "verdict": "conflict",
+      "attribution": "双侧原文、同一原子事件/观察时点和全部适用口径均成立，精确值仍不一致；作为有证据的矛盾提交人工终审。",
+      "attribution_code": "plugin:SAME_BASIS_CONFLICT",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-V06-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 5000000股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-V06-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 5200000股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D11-V07",
+      "verdict": "insufficient",
+      "attribution": "字段缺失或扫描降级；缺失不等于零。",
+      "attribution_code": "plugin:MISSING_VALUE",
+      "sides": [
+        {
+          "case_id": "SYNTH-D11-V07-0",
+          "block_id": "control-0",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "SYNTH-D11-V07-1",
+          "block_id": "control-1",
+          "quote": "甲主体 shares_after 100股  ",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-001",
+      "verdict": "corroborated",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "attribution_code": "plugin:SAME_OBSERVATION_EQUAL",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00006",
+          "quote": "11,042,217",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00008",
+          "quote": "11,042,217",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "verdict": "corroborated",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "attribution_code": "plugin:SAME_OBSERVATION_EQUAL",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00030",
+          "quote": "3,190,004",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p060_b00039",
+          "quote": "蔚文举 持股种类：A股普通股 持股数量：3,190,004股",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "verdict": "corroborated",
+      "attribution": "事件、主体、字段和适用口径一致，精确十进制数值相同。",
+      "attribution_code": "plugin:SAME_OBSERVATION_EQUAL",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00018",
+          "quote": "8,427,900",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "verdict": "explainable_difference",
+      "attribution": "已识别合计与明细口径，完整分项不足，尚未完成数值勾稽；保留未解释部分。",
+      "attribution_code": "plugin:AGGREGATE_PARTIAL_COVERAGE",
+      "sides": [
+        {
+          "case_id": "D5-EQC-003",
+          "block_id": "d173fee90_p018_b00014",
+          "quote": "8,427,900股",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "verdict": "explainable_difference",
+      "attribution": "完整且不重复的转让方分项经精确求和与总额一致；合计不拆记个人。",
+      "attribution_code": "plugin:AGGREGATE_DETAIL_RECONCILED",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00004",
+          "quote": "-3,680,700",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": [
+        {
+          "name": "share_sum",
+          "used_source": "D8_verified_transaction_seller_fields",
+          "operands": [
+            {
+              "entity": "蔚文绪",
+              "value": "3680700"
+            },
+            {
+              "entity": "马军强",
+              "value": "2975600"
+            },
+            {
+              "entity": "杨占坡",
+              "value": "430000"
+            },
+            {
+              "entity": "蔚文举",
+              "value": "1341600"
+            }
+          ],
+          "result": "8427900",
+          "evidence": [
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "蔚文绪",
+              "original_value": 3680700,
+              "raw_value": "-3,680,700",
+              "normalized_value": "3680700",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00004",
+              "quote": "-3,680,700",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                72.77,
+                325.92,
+                93.6
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r1c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261007T084852-equity_change-5815",
+              "code_version": "292d252b",
+              "is_mock": false,
+              "a_event_ids": [
+                "E01"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00004",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    72.77,
+                    325.92,
+                    93.6
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r1c4",
+                  "source_type": "cell",
+                  "quote": "-3,680,700"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "马军强",
+              "original_value": 2975600,
+              "raw_value": "-2,975,600",
+              "normalized_value": "2975600",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00011",
+              "quote": "-2,975,600",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                93.6,
+                325.92,
+                114.02
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r2c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261007T084852-equity_change-5815",
+              "code_version": "292d252b",
+              "is_mock": false,
+              "a_event_ids": [
+                "E02"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00011",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    93.6,
+                    325.92,
+                    114.02
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r2c4",
+                  "source_type": "cell",
+                  "quote": "-2,975,600"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "杨占坡",
+              "original_value": 430000,
+              "raw_value": "-430,000",
+              "normalized_value": "430000",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00025",
+              "quote": "-430,000",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                134.3,
+                325.92,
+                154.7
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r4c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261007T084852-equity_change-5815",
+              "code_version": "292d252b",
+              "is_mock": false,
+              "a_event_ids": [
+                "E03"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00025",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    134.3,
+                    325.92,
+                    154.7
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r4c4",
+                  "source_type": "cell",
+                  "quote": "-430,000"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            },
+            {
+              "case_id": "D5-EQC-001",
+              "field": "change_shares",
+              "entity": "蔚文举",
+              "original_value": 1341600,
+              "raw_value": "-1,341,600",
+              "normalized_value": "1341600",
+              "unit": "shares",
+              "block_id": "d9d5be14f_p010_b00032",
+              "quote": "-1,341,600",
+              "block_verified": true,
+              "page": 10,
+              "region": [
+                268.78,
+                154.7,
+                325.92,
+                174.98
+              ],
+              "source_type": "cell",
+              "table_id": "d9d5be14f_p010_t001",
+              "cell_ref": "r5c4",
+              "header_path": null,
+              "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+              "a_run_id": "20261007T084852-equity_change-5815",
+              "code_version": "292d252b",
+              "is_mock": false,
+              "a_event_ids": [
+                "E04"
+              ],
+              "a_field_provenance": [
+                {
+                  "block_id": "d9d5be14f_p010_b00032",
+                  "page": 10,
+                  "region": [
+                    268.78,
+                    154.7,
+                    325.92,
+                    174.98
+                  ],
+                  "table_id": "d9d5be14f_p010_t001",
+                  "cell_ref": "r5c4",
+                  "source_type": "cell",
+                  "quote": "-1,341,600"
+                }
+              ],
+              "binding_method": "same_block_A_field",
+              "issues": []
+            }
+          ],
+          "allocation_performed": false
+        }
+      ]
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "verdict": "explainable_difference",
+      "attribution": "本输入仅有该主体一侧披露，不构成矛盾；不据此断言对方整份文件未披露，也不填零。",
+      "attribution_code": "plugin:SINGLE_SIDE_DISCLOSURE",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00011",
+          "quote": "-2,975,600",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "verdict": "explainable_difference",
+      "attribution": "本输入仅有该主体一侧披露，不构成矛盾；不据此断言对方整份文件未披露，也不填零。",
+      "attribution_code": "plugin:SINGLE_SIDE_DISCLOSURE",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00025",
+          "quote": "-430,000",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "verdict": "corroborated",
+      "attribution": "同笔转让的明确买卖双方及相反方向已核验，转让量一致；期末/期初匹配还核验买方原持股与卖方余股为零。",
+      "attribution_code": "plugin:VERIFIED_TRANSFER_COUNTERPARTIES",
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "block_id": "da00b31da_p009_b00004",
+          "quote": "本次权益变动后，信息披露义务人持有上市公司72,673,907股股份",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "block_id": "da8d294d2_p008_b00002",
+          "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "verdict": "corroborated",
+      "attribution": "同笔转让的明确买卖双方及相反方向已核验，转让量一致；期末/期初匹配还核验买方原持股与卖方余股为零。",
+      "attribution_code": "plugin:VERIFIED_TRANSFER_COUNTERPARTIES",
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "block_id": "da00b31da_p019_b00015",
+          "quote": "变动数量：72,673,907股股份",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "block_id": "da8d294d2_p017_b00029",
+          "quote": "变动数量：减少72,673,907股",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "verdict": "explainable_difference",
+      "attribution": "本次与累计口径明确不同，不能直接相减解释为单次增量；两值也可能相等，不能说必然不同。",
+      "attribution_code": "plugin:CUMULATIVE_VS_SINGLE",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00025",
+          "quote": "2,100,000",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00084",
+          "quote": "50,350,000",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "verdict": "explainable_difference",
+      "attribution": "本次与累计口径明确不同，不能直接相减解释为单次增量；两值也可能相等，不能说必然不同。",
+      "attribution_code": "plugin:CUMULATIVE_VS_SINGLE",
+      "sides": [
+        {
+          "case_id": "D4-PLD-009",
+          "block_id": "d1320340e_p002_b00014",
+          "quote": "11,750,000",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D4-PLD-009",
+          "block_id": "d1320340e_p003_b00019",
+          "quote": "33,344,000",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "verdict": "explainable_difference",
+      "attribution": "比例分母范围不同，不能比较百分数大小或推算分母。",
+      "attribution_code": "plugin:DENOMINATOR_DIFFERENT",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00026",
+          "quote": "2.40%",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00027",
+          "quote": "0.99%",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "verdict": "explainable_difference",
+      "attribution": "该记录确认金额的含税属性；不是两个金额相等的证明。未披露税率，不倒算税额。",
+      "attribution_code": "plugin:TAX_METADATA_BINDING",
+      "sides": [
+        {
+          "case_id": "D6-AWD-004",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D6-AWD-004",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "verdict": "explainable_difference",
+      "attribution": "该记录确认金额的含税属性；不是两个金额相等的证明。未披露税率，不倒算税额。",
+      "attribution_code": "plugin:TAX_METADATA_BINDING",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "verdict": "explainable_difference",
+      "attribution": "公告已明示原币金额与人民币折合金额，保留双记录；不计算或推广隐含汇率。",
+      "attribution_code": "plugin:ISSUER_DISCLOSED_EQUIVALENT",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "evidence_status": null,
+          "evidence_note": null
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "verdict": "explainable_difference",
+      "attribution": "公告已明示原币金额与人民币折合金额，保留双记录；不计算或推广隐含汇率。",
+      "attribution_code": "plugin:ISSUER_DISCLOSED_EQUIVALENT",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "verdict": "insufficient",
+      "attribution": "字段缺失或扫描降级；缺失不等于零。",
+      "attribution_code": "plugin:MISSING_VALUE",
+      "sides": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "block_id": null,
+          "quote": null,
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "verdict": "insufficient",
+      "attribution": "单侧输入且主体/比较对象未建立；即使正文金额可读，也不能判断跨文档关系。",
+      "attribution_code": "plugin:NO_COMPARISON_CONTEXT",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "evidence_status": null,
+          "evidence_note": null
+        }
+      ],
+      "computed": []
+    }
+  ]
+}
