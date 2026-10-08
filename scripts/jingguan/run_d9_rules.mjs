@@ -215,6 +215,47 @@ if (args.rules !== null) {
 let parsesMap = {}
 if (args.parsesMap !== null) parsesMap = JSON.parse(readFileSync(resolve(REPO_ROOT, args.parsesMap), 'utf8'))
 const pluginFallbacks = []
+
+/** W7（宗 2026-10-08 待办）·确定性合计勾稽：从"合计"侧引文解析成员名单，在对侧
+ * 文档信封里取各成员 change_shares 明细求和，与合计侧数值程序化比对——留下
+ * "合计是程序算的、不是模型说的"计算记录（合计项、来源与依据）。
+ * 明细缺人则不产记录（判缺证据），绝不硬凑错账。 */
+function programmaticSumCheck(c) {
+  const sides = c.sides ?? []
+  const aggIdx = sides.findIndex((s) => /合计/.test(String(s.quote ?? '')))
+  if (aggIdx === -1) return null
+  const agg = sides[aggIdx]
+  const detail = sides[1 - aggIdx]
+  if (detail == null) return null
+  const m = String(agg.quote ?? '').match(/([\u4e00-\u9fa5]{2,4}(?:[、，和][\u4e00-\u9fa5]{2,4}){1,})(?:等)?(?:将其|持有的)/)
+  if (m === null) return null
+  const members = m[1].split(/[、，和]/).filter((x) => x.length >= 2)
+  if (members.length < 2) return null
+  const env = envelopeOf(detail.case_id)
+  if (env === null) return null
+  const terms = []
+  for (const ev of env.events ?? []) {
+    const holder = ev.fields?.holder?.value
+    const cs = ev.fields?.change_shares
+    if (!members.includes(String(holder)) || cs?.value == null) continue
+    const p = cs.provenance?.[0]
+    terms.push({ entity: holder, doc: detail.case_id, value: Number(cs.value), quote: p?.quote ?? null, block_id: p?.block_id ?? null })
+  }
+  if (terms.length < members.length) return null
+  const sum = terms.reduce((a, t) => a + Math.abs(t.value), 0)
+  const target = Number(agg.value)
+  return {
+    name: 'group_sum_reconciliation',
+    used_source: 'deterministic_envelope_sumcheck',
+    basis: `合计侧引文声明 ${members.join('、')} 合计 ${agg.raw_value ?? target}；程序在对侧文档 ${detail.case_id} 信封中取各成员 change_shares 明细求和比对`,
+    members,
+    terms,
+    sum,
+    aggregate_side: { case_id: agg.case_id, value: target, raw_value: agg.raw_value ?? null, quote: agg.quote, block_id: agg.block_id ?? null },
+    match: sum === target,
+  }
+}
+
 for (const c of cases) {
   let d = decide(c.sides ?? [])
   if (rulesLib !== null) {
@@ -262,6 +303,11 @@ for (const c of cases) {
     }
   }
   byVerdict[d.verdict] = (byVerdict[d.verdict] ?? 0) + 1
+  // W7：需程序化合计的用例——内置路径补充确定性勾稽记录（插件路径若已带 computed 则不覆盖）
+  if (c.requires_programmatic_sum === true && Array.isArray(d.computed) && d.computed.length === 0) {
+    const rec = programmaticSumCheck(c)
+    if (rec !== null) d.computed.push(rec)
+  }
   const bilCase = bilByCase.get(c.case_id) ?? null
   const bilSides = bilCase?.sides ?? null
   const outSides = (c.sides ?? []).map((s, ix) => {

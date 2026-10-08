@@ -12,7 +12,7 @@
 | ③ | D8 13 组配对 | **13/13** | score-pairs --strict |
 | ④ | D9 20 条归因 | **20/20** | score-rules --strict |
 
-> ④ 版本注记（2026-10-07 宗补）：**以 v0.2 重跑报告为准**（`runs/D9-rules-report-v02-20261005.json`＋宗 `evaluation/D11/results/d9-v02-rerun-score.json`，20/20 strict PASS、块级 0 反例）。v0.1 报告锚点已失效、含 5 条反例，不得引用。
+> ④ 版本注记（2026-10-07 宗补）：**以 v0.2 重跑报告为准**（最新正典 `runs/D9-rules-report-v02-20261008.json`——含 W7 补充的合计勾稽计算记录，宗评分器 `runs/D9-rules-score-v02-20261008.json` strict PASS 20/20、块级 0 反例；前身 20261005 版缺 computed 记录已被取代）。v0.1 报告锚点已失效、含 5 条反例，不得引用。
 | ⑤ | D10 10 组集成 | **10/10** | check-integration --strict |
 
 ## 宗的三次自纠（评测方法偏差，全部非魏方问题）

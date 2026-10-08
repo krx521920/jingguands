@@ -20,7 +20,10 @@ function run(args) {
 }
 
 try {
-  const step1 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES, '--out', 'runs/.tmp-d9-rules-report.json'])
+  // W7 后评分器契约：requires_programmatic_sum 用例的勾稽记录需信封源——
+  // step1 与正典命令同参（--verify-blocks）
+  const VB = 'runs/batch-20261005T063943/envelopes'
+  const step1 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES, '--verify-blocks', VB, '--out', 'runs/.tmp-d9-rules-report.json'])
   console.log(step1.out.trim().split(/\r?\n/).slice(-1)[0])
   if (step1.status !== 0) { console.error('[D9规则门禁] runner 未过'); process.exit(1) }
 
@@ -34,7 +37,6 @@ try {
   if (step2.status !== 0 || verdict !== 'PASS') { console.error('[D9规则门禁] --strict 评分未过'); process.exit(1) }
 
   // 块内容级硬校验（宗 v0.2 重锚后主源验证）：20/20 保持＋30 真实侧全 verified
-  const VB = 'runs/batch-20261005T063943/envelopes'
   const step5 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES, '--verify-blocks', VB, '--out', 'runs/.tmp-d9-vb-report.json'])
   const step6 = run(['evaluation/D9/score-rules.mjs', '--report', resolve(REPO_ROOT, 'runs/.tmp-d9-vb-report.json'), '--json', TMP_SCORE, '--strict'])
   const verdict6 = /"result":\s*"(\w+)"/.exec(step6.out)?.[1]
@@ -45,8 +47,9 @@ try {
   if (step5.status !== 0 || step6.status !== 0 || verdict6 !== 'PASS' || vbFalse !== 0) { console.error('[D9规则门禁] 块级校验未过'); process.exit(1) }
 
   // 双侧出处包模式（张 D9 包）：标注不改变判定，20/20 须保持（包待张按 v0.2 再生成，仅标注层）
+  // 同样带 --verify-blocks：W7 后评分器对 requires_programmatic_sum 用例要求勾稽记录（需信封源）
   const BIL = 'tools/zhang-bilateral/bilateral_evidence.json'
-  const step3 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES, '--bilateral', BIL, '--out', 'runs/.tmp-d9-bil-report.json'])
+  const step3 = run(['scripts/jingguan/run_d9_rules.mjs', '--cases', CASES, '--bilateral', BIL, '--verify-blocks', VB, '--out', 'runs/.tmp-d9-bil-report.json'])
   const step4 = run(['evaluation/D9/score-rules.mjs', '--report', resolve(REPO_ROOT, 'runs/.tmp-d9-bil-report.json'), '--json', TMP_SCORE, '--strict'])
   const verdict4 = /"result":\s*"(\w+)"/.exec(step4.out)?.[1]
   console.log(`[D9双侧模式] result=${verdict4}（标注 evidence_status＋重锚建议透传，判定不变）`)

@@ -1,0 +1,24 @@
+{
+  "stamp": "20261008T150658",
+  "mock": false,
+  "jobs": 1,
+  "timing": {
+    "total_run_ms": 11994,
+    "per_doc_ms": 11994,
+    "slowest_ms": 11990
+  },
+  "results": [
+    {
+      "case": "eqc-synth-20p",
+      "event_type": "equity_change",
+      "file": "eqc-synth-20p.parse.json",
+      "run_id": "20261008T150658-equity_change-17a5",
+      "ok": true,
+      "duration_ms": 11990,
+      "status_count": {
+        "extracted": 27
+      },
+      "validation_errors": 0
+    }
+  ]
+}
