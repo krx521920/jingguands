@@ -1,0 +1,195 @@
+{
+  "built_by": "张智博",
+  "day": "D11",
+  "date": "2026-10-06",
+  "purpose": "魏文宇验收项：8 侧引文可直接复核命中",
+  "version_index": {
+    "schema": "evidence/0.9",
+    "parse_official_path": "corpus/zhangzhibo/d6/parse-official/（魏的仓库）",
+    "producer_path": "sample/D6/parse-official/（zhangzhibo 分支）",
+    "naming": "D6-AWD-00N.parse.json",
+    "hash_manifest": "sample/D6/parse-official/manifest.sha256"
+  },
+  "sides": 8,
+  "resolved": 8,
+  "all_resolved": true,
+  "reading_mapping": "无需修正 —— 8 侧引文的 block_id 全部指向当前版本的正确块",
+  "rows": [
+    {
+      "rule_case": "D9-RULE-013",
+      "case_id": "D6-AWD-004",
+      "field": "tax_included",
+      "block_id": "d0be9f419_p001_b00009",
+      "page": 1,
+      "region": [
+        89.88,
+        418.66,
+        505.44,
+        500.86
+      ],
+      "source_type": "paragraph",
+      "table_ref": null,
+      "quote": "合同价（暂定含税总价款）为5,400万元",
+      "quote_in_block_raw": true,
+      "quote_in_block_ws_normalized": true,
+      "parse_file": "sample/D6/parse-official/D6-AWD-004.parse.json",
+      "parse_sha256": "799806ba054b7e12…",
+      "parse_schema": "evidence/0.9",
+      "doc_id": "d0be9f419"
+    },
+    {
+      "rule_case": "D9-RULE-013",
+      "case_id": "D6-AWD-004",
+      "field": "bid_amount",
+      "block_id": "d0be9f419_p001_b00009",
+      "page": 1,
+      "region": [
+        89.88,
+        418.66,
+        505.44,
+        500.86
+      ],
+      "source_type": "paragraph",
+      "table_ref": null,
+      "quote": "合同价（暂定含税总价款）为5,400万元",
+      "quote_in_block_raw": true,
+      "quote_in_block_ws_normalized": true,
+      "parse_file": "sample/D6/parse-official/D6-AWD-004.parse.json",
+      "parse_sha256": "799806ba054b7e12…",
+      "parse_schema": "evidence/0.9",
+      "doc_id": "d0be9f419"
+    },
+    {
+      "rule_case": "D9-RULE-014",
+      "case_id": "D6-AWD-005",
+      "field": "tax_included",
+      "block_id": "ddd80cf89_p001_b00008",
+      "page": 1,
+      "region": [
+        90.0,
+        438.05,
+        505.32,
+        496.85
+      ],
+      "source_type": "paragraph",
+      "table_ref": null,
+      "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+      "quote_in_block_raw": true,
+      "quote_in_block_ws_normalized": true,
+      "parse_file": "sample/D6/parse-official/D6-AWD-005.parse.json",
+      "parse_sha256": "00d031c9a9f95bf2…",
+      "parse_schema": "evidence/0.9",
+      "doc_id": "ddd80cf89"
+    },
+    {
+      "rule_case": "D9-RULE-014",
+      "case_id": "D6-AWD-005",
+      "field": "bid_amount",
+      "block_id": "ddd80cf89_p001_b00008",
+      "page": 1,
+      "region": [
+        90.0,
+        438.05,
+        505.32,
+        496.85
+      ],
+      "source_type": "paragraph",
+      "table_ref": null,
+      "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+      "quote_in_block_raw": true,
+      "quote_in_block_ws_normalized": true,
+      "parse_file": "sample/D6/parse-official/D6-AWD-005.parse.json",
+      "parse_sha256": "00d031c9a9f95bf2…",
+      "parse_schema": "evidence/0.9",
+      "doc_id": "ddd80cf89"
+    },
+    {
+      "rule_case": "D9-RULE-015",
+      "case_id": "D6-AWD-007",
+      "field": "bid_amount",
+      "block_id": "d3a6938fe_p001_b00005",
+      "page": 1,
+      "region": [
+        90.0,
+        288.17,
+        517.32,
+        346.97
+      ],
+      "source_type": "paragraph",
+      "table_ref": null,
+      "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+      "quote_in_block_raw": true,
+      "quote_in_block_ws_normalized": true,
+      "parse_file": "sample/D6/parse-official/D6-AWD-007.parse.json",
+      "parse_sha256": "fb9a11aa02cf3ac0…",
+      "parse_schema": "evidence/0.9",
+      "doc_id": "d3a6938fe"
+    },
+    {
+      "rule_case": "D9-RULE-015",
+      "case_id": "D6-AWD-007",
+      "field": "currency",
+      "block_id": "d3a6938fe_p001_b00005",
+      "page": 1,
+      "region": [
+        90.0,
+        288.17,
+        517.32,
+        346.97
+      ],
+      "source_type": "paragraph",
+      "table_ref": null,
+      "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+      "quote_in_block_raw": true,
+      "quote_in_block_ws_normalized": true,
+      "parse_file": "sample/D6/parse-official/D6-AWD-007.parse.json",
+      "parse_sha256": "fb9a11aa02cf3ac0…",
+      "parse_schema": "evidence/0.9",
+      "doc_id": "d3a6938fe"
+    },
+    {
+      "rule_case": "D9-RULE-016",
+      "case_id": "D6-AWD-007",
+      "field": "bid_amount",
+      "block_id": "d3a6938fe_p001_b00005",
+      "page": 1,
+      "region": [
+        90.0,
+        288.17,
+        517.32,
+        346.97
+      ],
+      "source_type": "paragraph",
+      "table_ref": null,
+      "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+      "quote_in_block_raw": true,
+      "quote_in_block_ws_normalized": true,
+      "parse_file": "sample/D6/parse-official/D6-AWD-007.parse.json",
+      "parse_sha256": "fb9a11aa02cf3ac0…",
+      "parse_schema": "evidence/0.9",
+      "doc_id": "d3a6938fe"
+    },
+    {
+      "rule_case": "D9-RULE-018",
+      "case_id": "D6-AWD-005",
+      "field": "bid_amount",
+      "block_id": "ddd80cf89_p001_b00008",
+      "page": 1,
+      "region": [
+        90.0,
+        438.05,
+        505.32,
+        496.85
+      ],
+      "source_type": "paragraph",
+      "table_ref": null,
+      "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+      "quote_in_block_raw": true,
+      "quote_in_block_ws_normalized": true,
+      "parse_file": "sample/D6/parse-official/D6-AWD-005.parse.json",
+      "parse_sha256": "00d031c9a9f95bf2…",
+      "parse_schema": "evidence/0.9",
+      "doc_id": "ddd80cf89"
+    }
+  ]
+}
