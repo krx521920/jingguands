@@ -1,0 +1,101 @@
+{
+  "pack": "D6 parse-official",
+  "producer": "张智博",
+  "day": "D6/D11",
+  "date": "2026-10-06",
+  "convention": "与 corpus/zhangzhibo/d4|d5/parse-official 对齐（同命名、同规格）",
+  "purpose": "D6 是 437 分母里 118 个字段的来源，必须有可外部复核的块级解析",
+  "schema": "evidence/0.9",
+  "files": [
+    {
+      "file": "D6-AWD-001.parse.json",
+      "sha256": "75cfa4ae01d799a4…",
+      "bytes": 36790,
+      "doc_id": "dc1c912b9",
+      "schema": "evidence/0.9",
+      "pages": 2,
+      "blocks": 27
+    },
+    {
+      "file": "D6-AWD-002.parse.json",
+      "sha256": "03bd7de56ac30643…",
+      "bytes": 62169,
+      "doc_id": "dc0a3d5fb",
+      "schema": "evidence/0.9",
+      "pages": 3,
+      "blocks": 47
+    },
+    {
+      "file": "D6-AWD-003.parse.json",
+      "sha256": "e06a7564ee84c32e…",
+      "bytes": 124686,
+      "doc_id": "d0b56135e",
+      "schema": "evidence/0.9",
+      "pages": 4,
+      "blocks": 85
+    },
+    {
+      "file": "D6-AWD-004.parse.json",
+      "sha256": "799806ba054b7e12…",
+      "bytes": 104426,
+      "doc_id": "d0be9f419",
+      "schema": "evidence/0.9",
+      "pages": 4,
+      "blocks": 78
+    },
+    {
+      "file": "D6-AWD-005.parse.json",
+      "sha256": "00d031c9a9f95bf2…",
+      "bytes": 108663,
+      "doc_id": "ddd80cf89",
+      "schema": "evidence/0.9",
+      "pages": 4,
+      "blocks": 80
+    },
+    {
+      "file": "D6-AWD-006.parse.json",
+      "sha256": "2c2e8e74871c57da…",
+      "bytes": 21158,
+      "doc_id": "dfc6c3d84",
+      "schema": "evidence/0.9",
+      "pages": 1,
+      "blocks": 13
+    },
+    {
+      "file": "D6-AWD-007.parse.json",
+      "sha256": "fb9a11aa02cf3ac0…",
+      "bytes": 16258,
+      "doc_id": "d3a6938fe",
+      "schema": "evidence/0.9",
+      "pages": 1,
+      "blocks": 10
+    },
+    {
+      "file": "D6-AWD-008.parse.json",
+      "sha256": "1911a2de19e64a16…",
+      "bytes": 33653,
+      "doc_id": "daa9b83fa",
+      "schema": "evidence/0.9",
+      "pages": 2,
+      "blocks": 24
+    },
+    {
+      "file": "D6-AWD-009.parse.json",
+      "sha256": "bc7cfd6246a4235b…",
+      "bytes": 50663,
+      "doc_id": "d3aa23f9a",
+      "schema": "evidence/0.9",
+      "pages": 2,
+      "blocks": 40
+    },
+    {
+      "file": "D6-AWD-010.parse.json",
+      "sha256": "79f8cf6c3492ead7…",
+      "bytes": 42324,
+      "doc_id": "d74b68381",
+      "schema": "evidence/0.9",
+      "pages": 2,
+      "blocks": 31
+    }
+  ]
+}
