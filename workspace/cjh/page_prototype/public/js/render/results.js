@@ -20,7 +20,7 @@ export const FIELD_TEXT = {
   // —— equity_change 股权变动（9 字段）——
   holder: "变动股东", direction: "业务方向", shares_before: "变动前持股", shares_after: "变动后持股",
   ratio_before: "变动前比例", ratio_after: "变动后比例", change_shares: "变动股数", method: "变动方式",
-  change_date: "变动完成日",
+  change_date: "变动期间",
   // —— award_contract 中标/合同签署（14 字段：10 必选＋4 专业边界可选，v0.3c 权威清单）——
   // 专业边界语义：bid_amount（合同金额）≠ recognized_revenue（当期收入）；调价 not_disclosed ≠ 固定价格
   bidder: "中标人", tenderer: "招标人", project_name: "项目名称", bid_amount: "中标金额",

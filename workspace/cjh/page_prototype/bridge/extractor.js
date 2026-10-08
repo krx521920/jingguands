@@ -7,7 +7,7 @@
 //
 // 本层做的事：把「数据从哪来」抽象成 provider，页面/接口只认`extract(caseId)`。
 //   file  —— 读 data/<case>.json 预生成信封（当前唯一可用，**不是独立抽取**）
-//   cli   —— 预留：spawn 魏文宇的抽取 CLI（EXTRACT_CLI_CMD / EXTRACT_CLI_PDF_DIR）
+//   cli   —— 接魏文宇抽取 CLI run_extract.mjs（EXTRACT_CLI_CMD / EXTRACT_CLI_PARSE_DIR / 密钥）
 //   http  —— 预留：HTTP 调魏的抽取服务（EXTRACT_HTTP_URL）
 //
 // ★ 铁律（写死在这里，不允许后来者绕过）：
@@ -23,9 +23,45 @@ const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
 const { toContract } = require("./upstream_bridge.js");
+// ★ D14：评判标准单一真源。parity() 的判定全部由它给出，本文件不再自带一套判据
+//   （早先的 diffEnvelopes 逐字节比较只保留作自检对照组）。
+const criteria = require("./parity_criteria.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
+
+// ============================================================
+// .env 加载（零依赖自实现，12 行）
+//
+// ★ 为什么要有：密钥不能写进代码、不能提交、也不该每次靠人手动 export。
+//   放`.env`（根 .gitignore 已忽略，本机 .git/info/exclude 再兜一层），
+//   由本文件读进 process.env，然后现有 available() / spawnSync 逻辑原样可用。
+//
+//纪律：
+//   ① 只在变量**尚未存在于 process.env** 时才注入 ⇒ 真机环境变量永远优先，
+//      不会因为本机有个旧 .env 就把 CI/合流会的密钥覆盖掉。
+//   ② 解析最简格式`KEY=VALUE`，忽略 # 注释与空行，两种引号都剥掉。
+//   ③ 找不到 .env 是正常情况（队友 clone 后没这个文件），静默跳过——
+//      此时 available() 会因缺密钥而**显式拒判**，不是假装可用。
+function loadDotEnv(dir) {
+  const f = path.join(dir, ".env");
+  if (!fs.existsSync(f)) return null;
+  let text;
+  try { text = fs.readFileSync(f, "utf8"); } catch (e) { return null; }
+  for (const raw of text.split(/\r?\n/)) {
+    const line = raw.trim();
+    if (!line || line.startsWith("#")) continue;
+    const i = line.indexOf("=");
+    if (i <= 0) continue;
+    const k = line.slice(0, i).trim();
+    let v = line.slice(i + 1).trim();
+    if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1);
+    if (!(k in process.env)) process.env[k] = v;          // ① 已存在的绝不覆盖
+  }
+  return f;
+}
+
+const DOTENV_FILE = loadDotEnv(ROOT);
 
 // ---- provider 能力画像（诚实声明，页面据此渲染）----
 const CAPS = {
@@ -92,12 +128,25 @@ const fileProvider = {
 };
 
 // ============================================================
-// provider: cli —— 预留：接魏文宇的抽取 CLI（真正独立跑一次）
-// 约定（需与魏对齐后固化）：
-//   EXTRACT_CLI_CMD      形如 `node scripts/jingguan/extract.mjs`
-//   EXTRACT_CLI_PDF_DIR  原始 PDF 所在目录（页面侧当前没有 PDF，必须由魏提供）
-//   调用：spawn(CMD, [...args], { env: { ...process.env, CASE_ID, PDF_PATH } })
-//   期望：stdout 输出一个信封 JSON（与 file provider 同构），exit=0
+// provider: cli —— 接魏文宇的抽取 CLI（真正独立跑一次）
+//
+// ★ 契约已按魏 10-08 交付的 scripts/jingguan/run_extract.mjs 对齐（不再是我 10-07
+//   自拟的 env 契约，那份对不上）：
+//   调用：  node scripts/jingguan/run_extract.mjs --input <txt>  |  --parse <parse.json>
+//           [--event-type pledge|equity_change|award_contract] [--out-dir runs]
+//   注意：  ① 走 argv，不走 env（--input / --parse）
+//          ② 输入是 .txt 或张的解析 JSON，**不是 PDF** —— 页面侧不做 PDF 解析
+//          ③ 输出**落盘** runs/<run_id>/events.json，**不在 stdout** —— 必须读文件
+//          ④ 无密钥必须显式 --mock；mock 全程 is_mock=true，按魏自述
+//             「不得计入真实抽取成绩」⇒ 本provider **绝不在缺密钥时自动加 --mock**
+//
+//环境变量：
+//   EXTRACT_CLI_CMD        默认 `node scripts/jingguan/run_extract.mjs`
+//   EXTRACT_CLI_PARSE_DIR  张的解析 JSON 目录（优先，喂 --parse）
+//   EXTRACT_CLI_TXT_DIR    纯文本目录（回退，喂 --input）
+//   EXTRACT_CLI_REPO       魏的代码所在仓库根（默认仓库根）
+//   EXTRACT_CLI_OUT_DIR    输出根目录（默认 <REPO>/runs）
+//   EXTRACT_CLI_TIMEOUT    单例超时 ms（默认 180000）
 // ============================================================
 
 /** 命令字符串 → [可执行, ...args]。
@@ -108,23 +157,119 @@ function splitCommand(cmd) {
   return [parts[0] || "node", ...parts.slice(1)];
 }
 
+const DEFAULT_CLI_CMD = "node scripts/jingguan/run_extract.mjs";
+
+/** 事件类型推断。
+ *  ★ caseId 是数据集名，不是契约里的英文事件类型，两边对不上是常态：
+ *    - 缩写：`D4-PLD-001`→pledge、`D5-EQC-001`→equity_change、`D6-AWD-007`→award_contract
+ *    - 变体：`share_change` 实为 equity_change；`wei_real_D4_scan` 实为 pledge
+ *    10-08 只写了英文全称匹配，`D4-PLD-001` 直接落空→ 魏的脚本报
+ *    「无法确定事件类型」exit=2，排查时看不出是映射缺失。
+ *  ★ 已知覆盖缺口与不入映射的情况（别混为一谈）：
+ *    - `bank_guarantee`（events[].event_type=guarantee）不在魏的 registry.mjs 里
+ *      （只有 pledge/equity_change/award_contract）⇒ **引擎侧不支持**，须魏扩registry。
+ *    - `wei_multi_event_test` 是**测试样本**（且 is_mock=true），本就不该参与真实对照，
+ *      不给它硬编映射；用 EXTRACT_CLI_EVENT_TYPE_MAP 按需覆盖。
+ *    - 批次级兜底 D4→pledge / D5→equity_change / D6→award_contract，
+ *      依据是 D4=PLD 批、D5=EQC 批、D6=AWD 批；批次名不带类型时（如 `wei_real_D4_scan`）靠它。 */
+const ET_MAP_DEFAULT = {
+  pledge: ["pledge", "PLD", "D4"],
+  equity_change: ["equity_change", "equity", "EQC", "share_change", "sharechange", "D5"],
+  award_contract: ["award_contract", "award", "AWD", "D6"],
+};
+function eventTypeMap() {
+  try {
+    const raw = process.env.EXTRACT_CLI_EVENT_TYPE_MAP;
+    if (!raw) return ET_MAP_DEFAULT;
+    const custom = JSON.parse(raw);
+    const m = {};
+    for (const [k, v] of Object.entries(custom)) m[k] = Array.isArray(v) ? v : [v];
+    return Object.assign({}, ET_MAP_DEFAULT, m);
+  } catch (e) { return ET_MAP_DEFAULT; }
+}
+function inferEventType(name) {
+  // ★ 大小写无关：caseId 实际形态是 `wei_real_awd_001`（小写缩写），
+  //   而映射表里写的是 `AWD`（大写）—— 用 includes 区分大小写会全部落空。
+  const n = String(name).toLowerCase();
+  for (const [type, pats] of Object.entries(eventTypeMap())) {
+    if (pats.some(p => n.includes(String(p).toLowerCase()))) return type;
+  }
+  return null;
+}
+
+/** 快照目录里找 caseId 的输入文件。parse 优先，其次 txt，最后 pdf（pdf 不可用，仅提示）。 */
+function resolveInput(caseId) {
+  const parseDir = process.env.EXTRACT_CLI_PARSE_DIR;
+  const txtDir = process.env.EXTRACT_CLI_TXT_DIR;
+  if (parseDir) {
+    for (const ext of [".parse.json", ".json"]) {
+      const p = path.join(parseDir, caseId + ext);
+      if (fs.existsSync(p)) return { mode: "--parse", file: p };
+    }
+  }
+  if (txtDir) {
+    for (const ext of [".txt", ".md"]) {
+      const p = path.join(txtDir, caseId + ext);
+      if (fs.existsSync(p)) return { mode: "--input", file: p };
+    }
+  }
+  return null;
+}
+
+/** 本地信封里自认 is_mock=true 的数据集（直接扫，不读外部清单——
+ *  清单会与实际信封脱节，而脱节正是这类守卫失效的常见方式）。
+ *  这类样本永远不参与真实抽取一致性对照。 */
+function mockDatasetSet() {
+  const out = new Set();
+  for (const dir of [path.join(ROOT, "data"), path.join(ROOT, "data_unified")]) {
+    if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir)) {
+      if (!f.endsWith(".json") || f.endsWith(".check.json") || f === "upstream_case.json") continue;
+      try {
+        const j = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
+        const m = (j.run_meta && j.run_meta.is_mock !== undefined) ? j.run_meta.is_mock : (j.is_mock === true);
+        if (m === true) out.add(f.replace(/\.json$/, ""));
+      } catch (e) { /* 坏文件跳过，不让守卫整体挂掉 */ }
+    }
+  }
+  return out;
+}
+
 const cliProvider = {
   id: "cli",
-  label: "魏文宇抽取 CLI（预留）",
-  owner: "魏文宇（需提供可被页面调用的 CLI 抽取入口 + 原始 PDF）",
+  label: "魏文宇抽取 CLI（run_extract.mjs）",
+  owner: "魏文宇（scripts/jingguan/run_extract.mjs，weiwenyu@93c8ae28）",
   kind: "live",
   caps: CAPS.live,
 
   available() {
-    const cmd = process.env.EXTRACT_CLI_CMD;
-    const pdfDir = process.env.EXTRACT_CLI_PDF_DIR;
+    const cmd = process.env.EXTRACT_CLI_CMD || DEFAULT_CLI_CMD;
+    const [exe, ...args] = splitCommand(cmd);
+    const parseDir = process.env.EXTRACT_CLI_PARSE_DIR;
+    const txtDir = process.env.EXTRACT_CLI_TXT_DIR;
     const missing = [];
-    if (!cmd) missing.push("EXTRACT_CLI_CMD（未设抽取命令）");
-    if (!pdfDir) missing.push("EXTRACT_CLI_PDF_DIR（未设原始 PDF 目录 —— 页面侧目前没有 PDF）");
-    if (!pdfDir || !fs.existsSync(pdfDir)) missing.push(`PDF 目录不存在：${pdfDir || "(未设)"}`);
+
+    // 入口脚本在不在（按仓库根拼）
+    const repo = process.env.EXTRACT_CLI_REPO || path.resolve(ROOT, "..", "..", "..");
+    const scriptArg = args.find((a) => a.endsWith(".mjs") || a.endsWith(".js"));
+    if (scriptArg) {
+      const sp = path.isAbsolute(scriptArg) ? scriptArg : path.join(repo, scriptArg);
+      if (!fs.existsSync(sp)) missing.push(`入口脚本不存在：${sp}`);
+    }
+    if (!parseDir && !txtDir) {
+      missing.push("EXTRACT_CLI_PARSE_DIR / EXTRACT_CLI_TXT_DIR 均未设（魏的入口收 .txt 或解析 JSON，不收 PDF）");
+    } else {
+      for (const [k, d] of [["EXTRACT_CLI_PARSE_DIR", parseDir], ["EXTRACT_CLI_TXT_DIR", txtDir]]) {
+        if (d && !fs.existsSync(d)) missing.push(`${k} 目录不存在：${d}`);
+      }
+    }
+    // ★ 密钥：无密钥只能跑 mock，mock 不得计入成绩 ⇒ 直接判未接通
+    const hasKey = Boolean(process.env.JINGGUAN_LLM_API_KEY || process.env.DEEPSEEK_API_KEY);
+    if (!hasKey) missing.push("无 LLM 密钥（JINGGUAN_LLM_API_KEY / DEEPSEEK_API_KEY）—— 只能跑 --mock，按魏自述不得计入真实成绩；把密钥写进 page_prototype/.env 即可（该文件不入库）");
+
     return missing.length
-      ? { ok: false, reason: "入口未接通：" + missing.join("；") }
-      : { ok: true, reason: `已接通：${cmd}｜PDF 目录 ${pdfDir}` };
+      ? { ok: false, reason: "入口未接通：" + missing.join("；"), has_key: hasKey, cmd, dotenv: DOTENV_FILE }
+      : { ok: true, reason: `已接通：${cmd}｜输入 ${parseDir || txtDir}`, has_key: hasKey, cmd, dotenv: DOTENV_FILE };
   },
 
   list() { return []; },   // 由魏的 CLI 自行枚举，页面侧不猜
@@ -133,28 +278,82 @@ const cliProvider = {
     const av = this.available();
     if (!av.ok) return { ok: false, reason: av.reason };
 
-    const cmd = process.env.EXTRACT_CLI_CMD;
-    const pdfDir = process.env.EXTRACT_CLI_PDF_DIR;
-    const pdf = path.join(pdfDir, caseId + ".pdf");
-    if (!fs.existsSync(pdf)) {
-      return { ok: false, reason: `PDF 目录内无 ${caseId}.pdf —— 页面侧无法自行解析原始 PDF` };
+    const input = resolveInput(caseId);
+    if (!input) {
+      return { ok: false, reason: `输入侧无 ${caseId} 的解析 JSON / 纯文本（parse=${process.env.EXTRACT_CLI_PARSE_DIR || "未设"} txt=${process.env.EXTRACT_CLI_TXT_DIR || "未设"}）` };
     }
 
-    const [exe, ...args] = splitCommand(cmd);
+    // ★ 检查顺序：mock 判定放在最前。
+    //   顺序错了会怎样：mock 样本（如 wei_multi_event_test）本身就映射不出事件类型，
+    //   若先查映射，报的是「无法推断事件类型」——听起来像我的映射缺一项，
+    //   实际是这份数据根本不该参与真实对照。**报错要指向真正的原因。**
+    const isMockDataset = mockDatasetSet().has(caseId);
+    if (isMockDataset) {
+      return { ok: false, reason: `数据集 ${caseId} 自认 is_mock=true —— mock 样本不参与真实抽取一致性对照（不是映射问题）`, mock: true };
+    }
+
+    const repo = process.env.EXTRACT_CLI_REPO || path.resolve(ROOT, "..", "..", "..");
+    const outRoot = process.env.EXTRACT_CLI_OUT_DIR || path.join(repo, "runs");
+    const outDir = path.join(outRoot, "cjh-l4", caseId);
+    fs.mkdirSync(outDir, { recursive: true });
+
+    const cmd = process.env.EXTRACT_CLI_CMD || DEFAULT_CLI_CMD;
+    const [exe, ...base] = splitCommand(cmd);
+    const args = [
+      ...base,
+      input.mode, input.file,
+      "--out-dir", outDir,
+    ];
+    const et = inferEventType(caseId);
+    // ★ 事件类型推不出来时必须本地拒判：让魏那边报「无法确定事件类型」exit=2 是含糊的失败，
+    //   排查时看不出是 caseId 映射缺失。两种成因要分开说：
+    //   - 已知引擎不支持的类型（guarantee）⇒ 说清是「魏的 registry 没有该事件类型」
+    //   - 真的没认出来 ⇒ 说清可加 EXTRACT_CLI_EVENT_TYPE_MAP 覆盖
+    if (!et) {
+      const unsupported = /guarantee/i.test(caseId);
+      return {
+        ok: false,
+        reason: unsupported
+          ? `引擎侧不支持：caseId「${caseId}」是 ${"guarantee"} 类事件，而魏的 registry.mjs 只注册了 pledge/equity_change/award_contract —— 该类无法用 CLI 重跑（须魏扩registry）`
+          : `无法从 caseId「${caseId}」推断事件类型（现识别 pledge/PLD、equity_change/EQC/share_change、award_contract/AWD）—— 可用 EXTRACT_CLI_EVENT_TYPE_MAP 覆盖`,
+        unsupported_by_engine: unsupported
+      };
+    }
+    args.push("--event-type", et);
+    // ★ 刻意不加 --mock：无密钥已在 available() 拒判；此处若加就等于用 mock 顶替真跑
+
+    const t0 = Date.now();
     const r = spawnSync(exe, args, {
-      env: { ...process.env, CASE_ID: caseId, PDF_PATH: pdf },
+      cwd: repo,                                   // 魏的脚本按 import.meta.dirname 定 REPO_ROOT，cwd 需在仓库内
+      env: { ...process.env },
       encoding: "utf8",
-      timeout: Number(process.env.EXTRACT_CLI_TIMEOUT || 120000),
+      timeout: Number(process.env.EXTRACT_CLI_TIMEOUT || 180000),
       maxBuffer: 64 * 1024 * 1024
     });
+    const ms = Date.now() - t0;
+
     if (r.error) return { ok: false, reason: "CLI 调用失败：" + r.error.message };
     if (r.status !== 0) {
-      return { ok: false, reason: `CLI exit=${r.status}：${String(r.stderr || "").slice(0, 300)}` };
+      return { ok: false, reason: `CLI exit=${r.status}：${String(r.stderr || r.stdout || "").slice(0, 400)}` };
+    }
+
+    // ★ 输出是落盘的 events.json，不在 stdout —— 必须读文件（我 10-07 的自拟契约错在这）
+    const outFile = path.join(outDir, "events.json");
+    if (!fs.existsSync(outFile)) {
+      return { ok: false, reason: `CLI exit=0 但未产出 ${outFile}（stdout: ${String(r.stdout || "").slice(0, 200)}）` };
     }
     let raw;
-    try { raw = JSON.parse(r.stdout); }
-    catch (e) { return { ok: false, reason: "CLI stdout 非合法 JSON：" + e.message }; };
+    try { raw = JSON.parse(fs.readFileSync(outFile, "utf8")); }
+    catch (e) { return { ok: false, reason: "events.json 非合法 JSON：" + e.message }; }
 
+    // ★ 二次守卫：产物若自认 mock，立即拒判——防止上游悄悄回落
+    const meta = raw.run_meta || {};
+    const isMock = meta.is_mock === true || raw.is_mock === true;
+    if (isMock) {
+      return { ok: false, reason: "CLI 产物 is_mock=true —— mock 成绩不得计入真实抽取一致性", mock: true, out_file: outFile };
+    }
+
+    const events = Array.isArray(raw.events) ? raw.events : [];
     return {
       ok: true,
       envelope: raw,
@@ -162,13 +361,17 @@ const cliProvider = {
         engine: "cli",
         engine_owner: this.owner,
         reruns_extraction: true,
-        source_path: pdf,
-        code_version: (raw.run_meta && raw.run_meta.code_version) || raw.code_version || null,
+        source_path: input.file,
+        input_mode: input.mode,
+        code_version: meta.code_version || raw.code_version || null,
         upstream_run_id: raw.run_id || null,
+        events_total: events.length,
+        elapsed_ms: ms,
         cli_stderr: String(r.stderr || "").slice(0, 500) || null
       }
     };
   }
+
 };
 
 // ============================================================
@@ -263,8 +466,13 @@ async function extract(caseId, engineId) {
 
   const r = await p.run(caseId);
   if (!r.ok) return { ok: false, engine: p.id, reason: r.reason };
+  // ★ 转接口返回 {envelope, view, contract_validation}：engine抽取通道消费 **view**
+  //   （页面渲染投影），契约本体与校验结果并列挂在 view 上，供页面显示合规状态。
+  const bridged = toContract(r.envelope);
+  const view = bridged.view || bridged;
+  view.contract_validation = bridged.contract_validation || null;
   return {
-    ok: true, engine: p.id, data: toContract(r.envelope),
+    ok: true, engine: p.id, data: view,
     run_meta: Object.assign({ contract_version: "0.3" }, r.run_meta)
   };
 }
@@ -337,7 +545,7 @@ async function parity(caseIds, opts) {
       verdict: "not_covered",
       reason: "对照所需引擎未全部接通",
       blockers: [!avA.ok ? { engine: aEngine, reason: avA.reason } : null, !avB.ok ? { engine: bEngine, reason: avB.reason } : null].filter(Boolean),
-      remedy: "需魏文宇提供可被页面调用的抽取入口（CLI 或 HTTP）+ 原始 PDF；页面侧随后仅需设环境变量 EXTRACT_CLI_CMD / EXTRACT_CLI_PDF_DIR"
+      remedy: "魏文宇的入口 scripts/jingguan/run_extract.mjs 已交付（weiwenyu@93c8ae28）。页面侧需设 EXTRACT_CLI_PARSE_DIR（张的 sample/D4|D5/parse/）与 LLM 密钥（JINGGUAN_LLM_API_KEY）；无密钥只能跑 --mock，按魏文宇自述不得计入成绩"
     };
   }
 
@@ -375,19 +583,43 @@ async function parity(caseIds, opts) {
       cases.push({ case_id: id, ok: false, reason: [!ra.ok ? `A(${aEngine}): ${ra.reason}` : null, !rb.ok ? `B(${bEngine}): ${rb.reason}` : null].filter(Boolean).join("；") });
       continue;
     }
-    const d = diffEnvelopes(ra.envelope, rb.envelope);
+    // ★ D14：判据不在这里写死 —— 统一走 bridge/parity_criteria.js（评判标准单一真源）。
+    //   本函数早先用 diffEnvelopes() 的逐字节比较，那对 LLM 必然大面积假差异。
+    //   diffEnvelopes 保留导出，供自检做对照组（量化"逐字节"有多不可用）。
+    const j = criteria.judgeEnvelopes(ra.envelope, rb.envelope);
     cases.push({
       case_id: id, ok: true,
       a: { engine: aEngine, code_version: (ra.run_meta && ra.run_meta.code_version) || null, run_id: ra.envelope.run_id || null },
       b: { engine: bEngine, code_version: (rb.run_meta && rb.run_meta.code_version) || null, run_id: rb.envelope.run_id || null },
-      pairs: d.pairs, compared: d.compared, same: d.same, diff_count: d.diff.length,
-      only_a: d.only_a, only_b: d.only_b, diff: d.diff.slice(0, 20)
+      // 分级结果（引用本结构必须带 criteria_version，否则不可复现）
+      criteria_version: criteria.CRITERIA_VERSION,
+      verdict: j.verdict,
+      s0: j.s0, s1: j.s1, s2: j.s2, s3: j.s3,
+      // 扁平汇总（老字段名保留，避免前端/材料引用断掉）
+      pairs: j.s0.paired, compared: j.s2.compared, same: j.s2.equal,
+      diff_count: j.s2.value_diff + j.s2.type_diff + j.s1.status_diff + j.s1.missing_in_a + j.s1.missing_in_b,
+      only_a: j.s0.only_a, only_b: j.s0.only_b,
+      // 差异明细按类别分开，不再混成一个 diff 数组
+      value_diff: j.events.flatMap(e => e.value_diff.map(d => ({ ev: e.ev, ...d }))),
+      status_diff: j.events.flatMap(e => e.status_diff.map(d => ({ ev: e.ev, ...d }))),
+      presence_diff: j.events.flatMap(e => e.presence_diff.map(d => ({ ev: e.ev, ...d }))),
+      evidence_diff: j.events.flatMap(e => e.evidence_diff.map(d => ({ ev: e.ev, ...d }))),
+      format_only: j.events.flatMap(e => e.format_only.map(d => ({ ev: e.ev, ...d }))),
+      type_drift: j.events.flatMap(e => e.type_drift.map(d => ({ ev: e.ev, ...d }))),
+      phrases: j.phrases,
     });
   }
 
   const ran = cases.filter(c => c.ok);
-  const totalDiff = ran.reduce((n, c) => n + c.diff_count, 0);
-  const totalOnly = ran.reduce((n, c) => n + c.only_a.length + c.only_b.length, 0);
+  // ★ 防御：只有带分级结果的用例才参与裁决。
+  //   caseId 有可能在跑的过程中失效（文件被删、引擎中途报错），那时 ok=false 且没有 s0..s3。
+  //   直接 c.s0.pass 会TypeError——崩掉的自检等于没有自检。
+  const judged = ran.filter(c => c.s0 && c.s1 && c.s2 && c.s3);
+  const unjudged = ran.length - judged.length;
+  const LEVEL_KEYS = ["s0", "s1", "s2", "s3"];              // ★ 小写，与 case 对象键一致
+  const hardFail = c => LEVEL_KEYS.some(k => !c[k] || !c[k].pass);
+  const totalDiff = judged.reduce((n, c) => n + c.value_diff.length + c.status_diff.length + c.presence_diff.length, 0);
+  const totalOnly = judged.reduce((n, c) => n + c.only_a.length + c.only_b.length, 0);
 
   // ★ 空跑不得判pass —— "一个都没跑成"与"跑了一致"是两件事。
   //   D10 `web_cli_same_result` 就是这么造假的（补cache 块就变 PASS），这里封死同款漏洞。
@@ -396,6 +628,7 @@ async function parity(caseIds, opts) {
       verdict: "not_covered",
       reason: `对照未跑成任何一例（${cases.length} 例全部失败）—— 空跑不构成通过`,
       a_engine: aEngine, b_engine: bEngine,
+      criteria_version: criteria.CRITERIA_VERSION,
       cases_total: cases.length, cases_ran: 0, cases_failed: cases.length,
       fields_compared: 0, fields_same: 0, diff_total: 0, unpaired_total: 0,
       cases
@@ -403,18 +636,47 @@ async function parity(caseIds, opts) {
   }
   //部分失败也要显式带上，不能把失败例静默丢掉
   const partial = cases.length - ran.length;
+  const passCount = judged.filter(c => !hardFail(c)).length;
+  const mismatched = judged.filter(c => hardFail(c));
 
   return {
-    verdict: (totalDiff + totalOnly) === 0 ? "pass" : "mismatch",
+    verdict: mismatched.length === 0 ? "pass" : "mismatch",
     a_engine: aEngine, b_engine: bEngine,
+    // ★ 引用本结论必须带这四项（判据会变、判据放松过、数字就不可比）
+    criteria_version: criteria.CRITERIA_VERSION,
+    criteria_meta: {
+      levels: criteria.CRITERIA_META.levels,
+      normalization_count: criteria.CRITERIA_META.normalization.length,
+      registry: criteria.registryStatus(),
+      reported_not_vetoed: criteria.CRITERIA_META.reported_not_vetoed,
+      not_covered_by_these: criteria.CRITERIA_META.not_covered_by_these,
+      required_attribution: criteria.CRITERIA_META.required_attribution,
+    },
     cases_total: cases.length, cases_ran: ran.length,
     cases_failed: partial,
+    cases_unjudged: unjudged,      // ★ 跑"成功"但没产出可判结果的例数，不许混进通过
+    cases_pass: passCount, cases_mismatch: mismatched.length,
     partial: partial > 0,          // ★ true 时不得单独引用本结果当"全量通过"
-    fields_compared: ran.reduce((n, c) => n + c.compared, 0),
-    fields_same: ran.reduce((n, c) => n + c.same, 0),
+    fields_compared: judged.reduce((n, c) => n + c.compared, 0),
+    fields_same: judged.reduce((n, c) => n + c.same, 0),
+    // 格式差异/类型漂移：单列上报，不计入 diff_total，但报告里必须能看见
+    format_only_total: judged.reduce((n, c) => n + c.format_only.length, 0),
+    type_drift_total: judged.reduce((n, c) => n + c.type_drift.length, 0),
     diff_total: totalDiff, unpaired_total: totalOnly,
+    // 不通过的例要能让读者一眼看出卡在哪一级
+    // ★ 索引必须用小写：case 对象上的键是 s0/s1/s2/s3（小写），
+    //   这里若写成 "S0" 就是 c["S0"] ⇒ undefined ⇒ .pass 抛 TypeError。
+    //   曾因此让整个 parity() 崩掉——崩掉的自检等于没有自检，教训同上。
+    mismatch_detail: mismatched.map(c => ({
+      case_id: c.case_id,
+      failed_levels: LEVEL_KEYS.filter(k => !c[k] || !c[k].pass).map(k => k.toUpperCase()),
+      value_diff: c.value_diff.slice(0, 10),
+      status_diff: c.status_diff.slice(0, 10),
+      presence_diff: c.presence_diff.slice(0, 10),
+      only_a: c.only_a.slice(0, 5), only_b: c.only_b.slice(0, 5),
+    })),
     cases
   };
 }
 
-module.exports = { extract, parity, describeEngines, defaultEngine, diffEnvelopes, evKey, PROVIDERS };
+module.exports = { extract, parity, describeEngines, defaultEngine, diffEnvelopes, evKey, PROVIDERS, DOTENV_FILE };

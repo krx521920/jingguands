@@ -138,16 +138,16 @@ function buildDefects() {
       due: "D12 首周",
     },
     {
-      id: "D12-P0-02", level: "P0", owner: "张智博（主）＋ 宗博文（对齐）",
-      title: "出处命中率为未测项，但此前多处按100% 上屏",
-      symptom: "D11 首测报告与页面均出现「L3 出处命中率 100%」；实际判据只检查「字段有 block_id」",
-      root_cause_hypothesis: "判据退化——`l3_den` 只验字段有 block_id，未验 quote 能否在 block 文本中定位；而 Gold.blocks[] 30/30 份全空，验证物理上做不了",
-      impact: "整个溯源链的可回跳性从未被验证；这是比任何单点缺陷更根本的问题——它使所有「出处相关」的结论失去证据支撑",
-      evidence_kind: "hash_verified_input",
-      evidence: "Gold 30 份 blocks[] 全空（demo/_evidence_check.js 可复现）；无任何 *.parse.json 快照可供回跳",
-      why_not_covered_before: "首测把「有锚点」当「锚点对」，指标定义本身混淆了两件事",
-      action: "① 解析快照落 blocks[].text ② 命中判据改为「quote ∈ block.text」 ③ 补原文快照后再重测",
-      due: "D12 首周（阻塞全部出处类结论）",
+      id: "D12-P0-02", level: "P0", owner: "魏文宇（快照交付）＋ 张智博（解析侧落 blocks[].text）",
+      title: "出处命中率判据退化（已部分实测 100%，但覆盖仅 1/4 文档）",
+      symptom: "D11 首测报告与页面均出现「L3 出处命中率 100%」；实际判据只检查「字段有 block_id」——把「有锚点」当「锚点对」",
+      root_cause_hypothesis: "判据退化：`l3_den` 只验字段有 block_id，未验 quote 能否在 block 文本中定位。★ 我 10-07 把它记为「物理上无法验证」也是错的——快照在魏分支 evaluation/D9/parses-blocks/，不在我的检索路径内（与宗 10-07 犯的「检索不全≠文件不存在」同类）",
+      impact: "指标定义混淆两件事；已修正判据并实测，但覆盖仅 10/41 份文档、241/863 条 provenance，全量仍不可核",
+      evidence_kind: "quote_in_block_text",
+      evidence: "demo/_evidence_quote_real.js 实测：读魏分支 10 份 D6 快照（432 blocks）→ 241 条 provenance 的 block_id 全部可定位（0 落空）→ quote ∈ block.text 命中 241/241 = 100%",
+      why_not_covered_before: "首测把「有锚点」当「锚点对」；我 10-07 又把「我没搜到快照」当「快照不存在」——两次都是检索不全被当不存在的复现",
+      action: "① 已完成：判据改为「quote ∈ block.text」并实测 100%（可核子集）② 待办：快照扩到全量 41 份文档 ③ 解析侧把 blocks[].text 落进常规产物，不依赖临时补核",
+      due: "判据已改（D12）；全量覆盖 D13",
     },
 
     // ---------- P1 ----------
@@ -326,7 +326,9 @@ function main() {
   md += `> ⚠ 差异数不等于缺陷数——口径未统一时，同一件事必然出差异。归因逐条列出以便反驳，不接受"总数上升=质量下降"的推断。\n\n`;
 
   md += `## 五、证据守卫\n\n`;
-  md += `- 证据类型枚举：\`hash_verified_input\`（依赖输入指纹）／\`field_by_field\`（有逐字段明细）／\`quote_in_block_text\`（有原文回跳，当前 0 条）\n`;
+  // ★ 计数必须实算，不能写死"当前 0 条"——证据增加后写死的数字会变成假陈述
+  const evCnt = (k) => defects.filter((d) => d.evidence_kind === k).length;
+  md += `- 证据类型枚举：\`hash_verified_input\`（依赖输入指纹，${evCnt("hash_verified_input")} 条）／\`field_by_field\`（有逐字段明细，${evCnt("field_by_field")} 条）／\`quote_in_block_text\`（有原文回跳，${evCnt("quote_in_block_text")} 条）\n`;
   md += `- **\`none\` 类型条目一律拒收入表**。本次写入 ${defects.length} 条，拒收 ${rejected.length} 条。\n`;
   md += `- 「实测但不可核」（status=unverified）不得当验收依据；本表当前该项 ${registry.list().filter(m => m.status === "unverified").length} 条。\n\n`;
 

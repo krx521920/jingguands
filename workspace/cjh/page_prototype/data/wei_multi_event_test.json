@@ -12,7 +12,7 @@
     {
       "event_id": "E01",
       "event_type": "pledge",
-      "extraction_method": "synthetic",
+      "extraction_method": "mock",
       "notes": "合成数据——验证多事件渲染与列头单位继承场景；不得计入真实成绩",
       "fields": {
         "pledgor": {
@@ -61,7 +61,7 @@
     {
       "event_id": "E02",
       "event_type": "pledge",
-      "extraction_method": "synthetic",
+      "extraction_method": "mock",
       "notes": "合成数据——第二大笔：小数万股换算（27,495.8065 万股 = 274,958,065 股，整数股成立）",
       "fields": {
         "pledgor": {
@@ -106,7 +106,7 @@
     {
       "event_id": "E03",
       "event_type": "pledge",
-      "extraction_method": "synthetic",
+      "extraction_method": "mock",
       "notes": "合成数据——第三大笔：故意保留一个换算错误字段（value=1200 未按万股×10^4），演示页面'原文/标准化'并列时的错值放大镜效果；修复验证时此字段应显示 原文1,200.00万股 / 标准化1200 股（肉眼即见不符）",
       "fields": {
         "pledgor": {
@@ -133,7 +133,7 @@
   ],
   "run_meta": {
     "entry": "cli",
-    "model": "synthetic",
+    "model": null,
     "started_at": "2026-09-29T00:00:00.000Z",
     "duration_ms": 0,
     "errors": []

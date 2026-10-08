@@ -12,6 +12,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const { toContract } = require("./bridge/upstream_bridge.js");   // 转接口：上游格式 → 契约 v0.3
+const contractValidator = require("./bridge/contract_validate.js");   // D15：契约机器校验（schema + 注册表）
 const { handleMetrics } = require("./bridge/metrics.js");      // D11：真实结果统计（图表页数据源）
 const registry = require("./bridge/metrics_registry.js");      // D12：指标单一真源（页面/材料共用口径）
 const extractor = require("./bridge/extractor.js");            // D12：抽取引擎适配层（预留魏 CLI 入口）
@@ -163,7 +164,9 @@ async function extractDataset(dataset, engineId) {
 }
 
 /** 同步读取本地信封（导出用；导出必须与页面所见同源，故固定 file 引擎）。
- *  D5：同名 .check.json（方的 equity_check_D5 旁路核验报告）若存在，挂到 check_report 由转接口合并。 */
+ *  D5：同名 .check.json（方的 equity_check_D5 旁路核验报告）若存在，挂到 check_report 由转接口合并。
+ *  ★ 转接口返回 {envelope, view, contract_validation} 三件：页面/导出要**view**（渲染投影），
+ *    contract_validation 一并带上，让页面能显示"这份数据契约是否合规"（计划书 §九 合规率 100% 可核）。 */
 function readDataset(dataset) {
   const r = extractor.PROVIDERS.file.run(dataset);
   if (!r.ok) {
@@ -171,7 +174,17 @@ function readDataset(dataset) {
     err.code = "NOT_FOUND";
     throw err;
   }
-  return toContract(r.envelope);
+  return bridgeOf(r.envelope);
+}
+
+/** 过桥并取视图投影（页面/导出的唯一入口）。
+ *  契约本体单独挂view._contract_envelope 引用（只读，不序列化），
+ *  便于 /api/contract 类接口取本体而不必二次转换。 */
+function bridgeOf(envelope) {
+  const out = toContract(envelope);
+  const view = out.view || out;                 // 兼容旧结构（已是契约对象时 view===envelope）
+  view.contract_validation = out.contract_validation || null;
+  return view;
 }
 
 // ---- D6：批量上传闭环（零依赖 multipart/form-data 解析）----
@@ -772,6 +785,28 @@ function handleApi(req, res, urlObj) {
   }
   if (urlObj.pathname === "/api/metrics") {
     return handleMetrics(res);                       // D11：真实结果统计（图表页数据源，实算不估算）
+  }
+  if (urlObj.pathname === "/api/contract") {
+    // D15：契约本体出口。★ 与 /api/result 的区别：result 给**视图投影**（页面渲染用），
+    //   contract 给**严格信封**（符合 interface/event-envelope.schema.json v0.3，
+    //   additionalProperties=false，可直接入库 / 给评测方）。
+    //   两者同源同函数（都经 upstream_bridge.toContract），不是两份数据。
+    try {
+      const ds = urlObj.searchParams.get("dataset") || "pledge";
+      const raw = extractor.PROVIDERS.file.run(ds);
+      if (!raw.ok) return sendJSON(res, 404, { error: raw.reason });
+      const bridged = toContract(raw.envelope);
+      return sendJSON(res, 200, {
+        schema_file: "interface/event-envelope.schema.json",
+        registry_source: contractValidator.registry_status().source,
+        validation: bridged.contract_validation,
+        //★ 视图与契约的关系写在接口里，避免下游误把视图当契约入库
+        relation: "envelope＝契约本体（可入库）；/api/result 的 data＝视图投影（页面渲染用）；两者同源，无两份真源",
+        envelope: bridged.envelope
+      });
+    } catch (e) {
+      return sendJSON(res, 500, { error: "契约转换失败: " + e.message });
+    }
   }
   if (urlObj.pathname === "/api/metrics/registry") {
     // D12：指标注册表（单一真源）。★ 图表页、材料表格、缺陷表读的都是这份口径，

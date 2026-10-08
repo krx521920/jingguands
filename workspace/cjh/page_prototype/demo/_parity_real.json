@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-07T15:23:22.239Z",
+  "generated_at": "2026-10-08T01:50:49.010Z",
   "headline": "实际对照三层已实跑：L1 文件哈希 distinct（22 对，0 对同源）；L2 跨批逐字段 divergent（22 例，372/382 字段一致）；L3 导出字节 idempotent（16/16 字节相同）。★ 三层都不能证明「Web 与 CLI 独立抽取一致」——该结论仍为未测。",
   "input_fingerprint": {
-    "generated_at": "2026-10-07T15:23:22.237Z",
+    "generated_at": "2026-10-08T01:50:49.009Z",
     "inputs": {
       "page_data": {
         "dir": "data",
@@ -1544,15 +1544,15 @@
   },
   "metrics_reference": {
     "total": 14,
-    "measured": 7,
+    "measured": 8,
     "unverified": 0,
-    "not_covered": 7,
+    "not_covered": 6,
     "by_status": {
-      "measured": 7,
-      "not_covered": 7
+      "measured": 8,
+      "not_covered": 6
     },
     "input_sha256": "c3157267d0102ce082ad1339c1ede9e691d3e8d2bee642b4be2cad6549583f91",
     "combined_sha256": "15dda16e0756bc6b95efca971f1c3711c99be1f0bd1eb90ada9b438e61bb7124",
-    "statement": "共登记 14 项指标：已实测 7、实测但不可核 0、**未测 7**。输入数据指纹 page_data=c3157267d010… / unified=2c680b4692eb…（32 份）。材料引用任何一项成绩时须同时引用该指纹与生成脚本，否则数字不可复现。"
+    "statement": "共登记 14 项指标：已实测 8、实测但不可核 0、**未测 6**。输入数据指纹 page_data=c3157267d010… / unified=2c680b4692eb…（32 份）。材料引用任何一项成绩时须同时引用该指纹与生成脚本，否则数字不可复现。"
   }
 }

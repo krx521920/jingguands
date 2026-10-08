@@ -18,20 +18,22 @@ function setMode(data) {
   mb.classList.toggle("real", !sim);
   $("runMeta").textContent =
     `run_id: ${data.run_id} · schema v${data.schema_version} · 来源: ${data.source_file.filename}`;
+  setEngineMeta(data);
+}
 
-  // D12：把"这份数据是怎么来的"显式写在页头——预生成信封 ≠ 独立抽取
+/** D12：把"这份数据是怎么来的"显式写在页头——预生成信封 ≠ 独立抽取 */
+function setEngineMeta(data) {
   // （页头空间有限，只放短标签，完整口径进 title，避免把标题挤成竖排）
   const em = data.extraction_engine;
-  if (em) {
-    const box = $("engineMeta");
-    box.textContent = em.reruns_extraction ? "引擎 独立抽取" : "引擎 预生成信封";
-    box.title = `${em.engine}：${em.engine_owner || ""}\n`
-      + `抽取方式：${em.reruns_extraction ? "独立跑抽取管线" : "读预生成信封，未重新抽取"}\n`
-      + `来源：${em.source_path || "—"}\n`
-      + `code_version：${em.code_version || "—"}\n`
-      + `契约版本：v${em.contract_version}`;
-    box.style.color = em.reruns_extraction ? "var(--ok)" : "var(--warn)";
-  }
+  if (!em) return;
+  const box = $("engineMeta");
+  box.textContent = em.reruns_extraction ? "引擎 独立抽取" : "引擎 预生成信封";
+  box.title = `${em.engine}：${em.engine_owner || ""}\n`
+    + `抽取方式：${em.reruns_extraction ? "独立跑抽取管线" : "读预生成信封，未重新抽取"}\n`
+    + `来源：${em.source_path || "—"}\n`
+    + `code_version：${em.code_version || "—"}\n`
+    + `契约版本：v${em.contract_version}`;
+  box.style.color = em.reruns_extraction ? "var(--ok)" : "var(--warn)";
 }
 
 /** D12：启动时拉引擎清单，把"能否独立重跑抽取"明示在页头（无live 引擎 ⇒ Web/CLI 对照只能标未覆盖）。 */

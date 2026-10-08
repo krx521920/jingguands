@@ -138,12 +138,27 @@ const MEASURED = {
   },
 
   // ---- 出处命中率 ----
-  evidence_hit: {
-    value: null, unit: "%", num: null, den: null,
-    source_script: "demo/_parity_real.js / _evidence_check.js",
-    evidence_kind: "quote_in_block_text",
-    note: "★ 当前不可上屏结论：Gold.blocks[] 30/30 份全空，无原文快照可回跳。判据只到「字段有 block_id」，那属于锚点存在率不是命中率",
-  },
+  //★ 动态读实测结果，不硬编码：快照撤走或脚本没跑时自动退回「未测」，
+  //   绝不在页面上留一个无来源的100%（换批即失效的反面：不能让旧数长期挂着）。
+  evidence_hit: (() => {
+    const p = path.join(__dirname, "..", "demo", "_evidence_quote_real.json");
+    let r = null;
+    try { r = JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { r = null; }
+    const usable = r && r.hit_rate_pct != null && r.block_id_resolved > 0;
+    return {
+      value: usable ? r.hit_rate_pct : null,
+      unit: "%",
+      num: usable ? r.quote_hit : null,
+      den: usable ? r.block_id_resolved : null,
+      source_script: "demo/_evidence_quote_real.js",
+      evidence_kind: "quote_in_block_text",
+      note: usable
+        ? `实测 quote ∈ block.text 命中 ${r.quote_hit}/${r.block_id_resolved}；快照 ${r.snapshot_count} 份（${r.snapshot_blocks} blocks）｜★ 可核子集 ${r.prov_verifiable}/${r.prov_total} 条、覆盖 ${r.docs_covered} 份文档，其余 ${r.prov_unverifiable} 条未核不计入分母`
+        : "★ 未测：快照缺失或实测脚本未跑。判据为「quote ∈ block.text」，不退化为整篇全文包含",
+      measured_at: usable ? (r.generated_at || null) : null,
+      snapshot_source: usable ? r.snapshot_source : null,
+    };
+  })(),
   anchor_presence: {
     value: 100, unit: "%", num: 460, den: 460,
     source_script: "demo/_retest_unified.js",
@@ -221,11 +236,15 @@ const REGISTRY = [
   {
     key: "evidence_hit", category: "evidence", name: "出处原文命中率",
     target: 95,
-    numerator: "quote 能在原始解析 block 文本中定位到的字段数",
-    denominator: "带 block_id 且所在文档有原文快照的字段数",
-    status: "not_covered",
-    caliber: "★ 强判据：必须 quote 落在 block.text 内才算命中。退化为「整篇全文包含」只记weak，不计入分子",
-    blocked_by: "张智博（解析快照落 blocks[].text）",
+    numerator: "quote 能在原始解析 block 文本中定位到的字段数（241）",
+    denominator: "★ 可核子集 241 条 —— 所在 10 份文档有原文快照；不是全量 863 条 provenance",
+    value: 100,
+    status: "measured",
+    caliber: "强判据：必须 quote 落在 block.text 内才算命中。退化为「整篇全文包含」只记 weak，不计入分子",
+    evidence_kind: "quote_in_block_text",
+    evidence_ref: "demo/_evidence_quote_real.js（读魏分支 evaluation/D9/parses-blocks/ 10 份 D6 快照，432 blocks）",
+    blocked_by: "★ 覆盖仅 10/41 份文档、241/863 条 provenance；全量仍不可核 —— 快照由魏文宇交付，未覆盖文档需补",
+    note: "2026-10-08 更正：10-07 记为「未测·无原文快照」是错的——快照在魏分支 evaluation/D9/parses-blocks/，不在我的检索路径内。实测 241/241 = 100%，与宗侧「30 通过 0 反例」互证（分母口径不同：宗按文档侧计，我按 provenance 条数计）",
   },
   {
     key: "anchor_presence", category: "evidence", name: "锚点存在率（block_id/page/quote）",

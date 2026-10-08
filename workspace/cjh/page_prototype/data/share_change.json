@@ -9,7 +9,7 @@
   },
   "events": [
     {
-      "event_id": "D5-EQC-M01",
+      "event_id": "E01",
       "event_type": "equity_change",
       "fields": {
         "holder": {
@@ -137,7 +137,7 @@
         "change_date": {
           "raw_value": "2026-09-25",
           "value": "2026-09-25",
-          "unit": "date",
+          "unit": "date_range",
           "status": "extracted",
           "provenance": [
             {
@@ -152,7 +152,7 @@
       }
     },
     {
-      "event_id": "D5-EQC-M02",
+      "event_id": "E02",
       "event_type": "equity_change",
       "fields": {
         "holder": {
@@ -280,7 +280,7 @@
         "change_date": {
           "raw_value": "2026-09-26",
           "value": "2026-09-26",
-          "unit": "date",
+          "unit": "date_range",
           "status": "extracted",
           "provenance": [
             {
@@ -295,7 +295,7 @@
       }
     },
     {
-      "event_id": "D5-EQC-M03",
+      "event_id": "E03",
       "event_type": "equity_change",
       "fields": {
         "holder": {
@@ -424,7 +424,7 @@
         "change_date": {
           "raw_value": "2026-09-27",
           "value": "2026-09-27",
-          "unit": "date",
+          "unit": "date_range",
           "status": "extracted",
           "provenance": [
             {

@@ -17,16 +17,19 @@ node server.js
 
 ```
 page_prototype/
-├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式，读数自动过转接口）+ /api/export（D3：JSON/CSV 导出）+ /api/upload（D6：批量上传，坏文件进失败列表）+ /api/upload/log（D6：上传日志下载）+ /api/pairs（D8：跨文档配对三态视图）+ /api/verify（D9：核验清单先归因 + 双侧证据）+ /api/integration（D10：五份队友产物服务端合并）
+├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式，读数自动过转接口）+ /api/export（D3：JSON/CSV 导出）+ /api/upload（D6：批量上传，坏文件进失败列表）+ /api/upload/log（D6：上传日志下载）+ /api/pairs（D8：跨文档配对三态视图）+ /api/verify（D9：核验清单先归因 + 双侧证据）+ /api/integration（D10：五份队友产物服务端合并）+ /api/contract（D15：契约本体出口，供入库/评测方）
 ├── bridge/
-│   └── upstream_bridge.js  # 转接口（D2/D3）：上游格式（方口径记录 / 魏事件信封 v0.3b）→ 契约；完整性断链检查；未知格式透传留痕
+│   ├── upstream_bridge.js  # 转接口（D2/D3，★D15 改契约优先）：上游格式（方口径记录 / 魏事件信封 v0.3）→ **envelope（严格符合 schema v0.3，可入库）+ view（页面投影）两层分离**；完整性断链检查；错误填充审计；未知格式透传留痕
+│   ├── contract_validate.js # ★D15 新增：v0.3 契约零依赖机器校验器（JSON Schema 层 + 字段注册表层，注册表直读 registry.mjs 不手抄）
+│   ├── parity_criteria.js  # L4 Web/CLI 一致性判据单一真源（D14）：五级 S0–S4 + 9 条归一化，双向反例守卫
 ├── package.json            # scripts: start / demo（仅声明，无需 install）
+├── .env                     # ★ 本机私有：LLM 密钥（JINGGUAN_LLM_API_KEY / DEEPSEEK_API_KEY）＋可选引擎配置。不入库（双重忽略），由 bridge/extractor.js 读取
 ├── README.md               # 本文件（目录结构维护处，结构变更必须同步更新）
 ├── docs/
-│   └── API.md              # 调用文档：数据契约 v0.3、接口清单、状态枚举、转接口、扩展指南
+│   └── API.md              # 调用文档：数据契约 v0.3、接口清单、状态枚举、环境变量、转接口、密钥管理、扩展指南
 ├── data/                   # 数据集（mock 模式：server 自动列举，放进来即出现在下拉）
-│   ├── pledge.json         # 质押事件样例（D1 mock，旧提案字段，保留兼容）
-│   ├── share_change.json   # 股权变动样例（D5：v0.3 信封 equity_change ×3——增持/减持/冲突演示，比例带分母声明）
+│   ├── pledge.json         # 质押事件样例（D1 mock，旧版 v0.1 页面私有约定，**经转接口兼容升到 v0.3**）
+│   ├── share_change.json   # 股权变动样例（D5：v0.3 信封 equity_change ×3——增持/减持/冲突演示，比例带分母声明；is_mock=true 仅演示，已对齐契约零违规）
 │   ├── upstream_case.json  # 方口径上游格式合成用例（经转接口转换展示，D2 验证）
 │   ├── wei_run_pledge.json # 魏文宇 v0.3 信封真实运行输出（09-28，D2 接入）
 │   ├── wei_real_pledge_0197.json  # 魏 D3 真实 PDF run（pledge.pdf · deepseek-chat · is_mock:false，质押闭环主线）
@@ -61,43 +64,67 @@ page_prototype/
 │           └── integration.js # D10 集成视图：10 组「预期→实判」并排 + 缓存三态面板 + 方报告五段折叠区（差异明细/计算/边界/逐成员缓存核对）+ 出处链面板
 └── demo/
     └── 使用演示.md          # 完整使用 demo（15 个演示）：统一样例全链路/异常汇总条/导出/扫描降级/扩展/remote/自检/股权变动对比页/配对 D8/核验 D9/缓存三态 D10/10 组集成/方报告五段+出处链
+    _engine_check.js         # D12：抽取引擎适配层自检 56 项（机制诚实性，不发模型请求）
+    _secret_guard.js         # D14：密钥泄漏守卫 7 项（.env 是否被忽略 + 已跟踪/未跟踪文件有无密钥）★ 提交前必跑
+    _l4_preflight.js         # D12：Web/CLI 真跑前置体检（不发请求，只查输入资产/入口/密钥）
 ```
 
 ## 架构（三条缝，扩展不动骨架）
 
 ```
-数据集(data/*.json)                          魏/张/方的真实产物
-      │ mock 模式                                  │ remote 模式
-      ▼                                            ▼
+数据集(data/*.json)                魏 run_extract.mjs（真跑）      魏的 HTTP 抽取服务
+      │ file provider                    │ cli provider              │ http provider
+      ▼                                   ▼                           ▼
 ┌─────────────────────── server.js /api ───────────────────────┐
 │  /api/datasets（列举）  /api/result?dataset=x  /api/export（D3）│
+│  /api/engines（D12 引擎清单/可用性）  /api/parity（D12 Web/CLI）│
 │  /api/upload（D6 批量上传）  /api/upload/log（D6 日志下载）      │
 │  /api/pairs（D8：13 组配对 = 宗清单 × 魏B报告 + 本地原文锚点）   │
 │  /api/verify（D9：sidecar 发现聚合（先归因）+ 互证点双侧证据）  │
 │  /api/integration（D10：宗案例 × 魏bundle × 缓存三态 × 张链检 × 方报告五段）│
-│           bridge/upstream_bridge.js：上游格式 → 契约 + 断链自检  │
+│  /api/metrics（D11 实算）  /api/metrics/registry（D12 单一真源）│
+│  /api/contract（D15 契约本体，供入库/评测方）│
+│  bridge/upstream_bridge.js：上游格式 → 契约 + 断链自检  │
+│           bridge/contract_validate.js：契约两层机器校验   │
 └──────────────────────────────┬───────────────────────────────┘
                                ▼
                     adapter.js（前端唯一数据出口）
                                ▼
         app.js 装配 ──► render/upload.js │ render/results.js │ render/evidences.js
                     └► render/pairs.js（D8）│ render/verify.js（D9）│ render/integration.js（D10）
+                    └► render/metrics.js（D11/D12 指标 + 对照三层）
                                ▼
                     status.js（状态枚举单一事实源）
 ```
 
-- **数据缝**：换数据源只动 server 环境变量，前端零改动；
-- **格式缝**：上游格式（方口径记录 / 魏事件信封）直接进 `data/` 或 remote 返回，转接口自动转换，契约对象零损耗透传；
+- **数据缝**：换数据源只动 `ENGINE=file|cli|http`，前端零改动；
+- **格式缝**：上游格式（方口径记录 / 魏事件信封）直接进 `data/` 或 provider 返回，转接口自动转换，契约对象零损耗透传；
+- **契约缝**（D15）：转接口产出 **envelope（严格符合 `interface/event-envelope.schema.json` v0.3，`additionalProperties=false`，可机器校验/可入库）+ view（页面投影）两层分离**。视图只能从契约派生，不存在两份真源；**视图字段绝不写进信封**（写了即破坏契约）；不合规数据**如实上报不静默修好**。校验结果保留在接口层（`GET /api/contract` 返回 `contract_validation`，两层违规数+ 注册表真源路径），**前端不暴露**（2026-10-08 领导裁定：前端用户不需要了解该接口返回值）——后端照跑照查，只是不上屏。
 - **渲染缝**：新栏/新视图 = 新渲染器 + app.js 一行装配；
 - **状态缝**：状态枚举只改 `status.js` 一处；
 - **导出缝**（D3）：导出与页面同一 `readDataset` 路径——页面所见即导出所得，CSV 每字段一行（含出处/单元格号/quote）。
 
-## 数据源切换
+## 数据源切换（D12：provider 取代旧的 mock/remote）
 
-| 模式 | 启动方式 | 数据来自 |
-|---|---|---|
-| 模拟（默认） | `node server.js` | `data/*.json`，页面常驻"模拟"横幅 |
-| 真实 | `DATA_SOURCE=remote REMOTE_API_URL=<上游地址> node server.js` | 反向代理上游接口，返回同一契约 |
+| 引擎 | 启动方式 | 数据来自 | 独立抽取 |
+|---|---|---|---|
+| `file`（默认） | `node server.js` | `data/*.json` 预生成信封，页面常驻"模拟"横幅 | 否 |
+| `cli`（真跑） | `.env` 里配好密钥 + `EXTRACT_CLI_PARSE_DIR`，`node server.js` | 魏 `scripts/jingguan/run_extract.mjs`（argv `--parse/--out-dir/--event-type`，产物落盘 `events.json`） | **是** |
+| `http` | `ENGINE=http EXTRACT_HTTP_URL=<地址> node server.js` | 魏的抽取服务（预留） | 是 |
+
+**未接通的引擎不会静默回落到 `file`**——`/api/engines` 报 `available:false` 并给出可执行的解阻原因，`/api/parity` 直接判 `not_covered`。这是 D10 `web_cli_same_result` 造假的根因，封死了。
+
+## 密钥管理（D14）
+
+密钥放 `page_prototype/.env`（**不入库**），由 `bridge/extractor.js` 的 `loadDotEnv()` 读入——只在变量尚未存在于 `process.env` 时注入，真机环境变量优先。
+
+```bash
+# page_prototype/.env（形如，具体值不上材料、不入仓）
+JINGGUAN_LLM_API_KEY=sk-…
+DEEPSEEK_API_KEY=sk-…
+```
+
+**提交前必跑**：`node demo/_secret_guard.js` —— 验 `.env` 被双重忽略 + 已跟踪/未跟踪文件里没有密钥（7 项守卫）。
 
 ## 约定与红线（继承 01_规则.md）
 

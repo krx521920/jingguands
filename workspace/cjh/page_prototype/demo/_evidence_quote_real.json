@@ -1,0 +1,22 @@
+{
+ "layer": "L_evidence_hit",
+ "question": "字段的 quote 能否在原始解析 block 文本中定位到？",
+ "generated_at": "2026-10-08T01:50:24.675Z",
+ "snapshot_source": "D:\\chenjh\\code\\program\\jingguanpluge\\.peersnap",
+ "snapshot_count": 10,
+ "snapshot_blocks": 432,
+ "prov_total": 863,
+ "prov_verifiable": 241,
+ "prov_unverifiable": 622,
+ "docs_covered": 10,
+ "block_id_resolved": 241,
+ "block_id_unresolved": 0,
+ "no_quote": 0,
+ "quote_hit": 241,
+ "hit_rate_pct": 100,
+ "verdict": "pass",
+ "what_it_proves": "在有原文快照的文档上，字段quote 能定位回原文 block",
+ "what_it_does_not_prove": "★ 不代表全量：仅覆盖 10 份文档 / 241 条 provenance（总863 条），其余 622 条未核，不计入分母",
+ "caliber": "强判据：quote 必须落在 block.text / text_raw 内。不接受整篇全文包含（会把无出处字段算成命中）",
+ "miss_samples": []
+}
