@@ -155,11 +155,20 @@ console.log("\n【2】同源拒判（D10 造假的同款陷阱）");
   // ============================================================
   console.log("\n【3b】mock 产物必须被拒判（mock 不得顶替真跑）");
   const mockCli = path.join(os.tmpdir(), "cjh-mockcli-" + Date.now() + ".js");
+  // ★ D20：权威批次已搬到 data_unified/，这里**不能硬编码 data/**。
+  //   曾写死 path.resolve(cwd,"data",base+".json")，而 cleanIds 取的是权威批数据集
+  //   （D4-PLD-001 等，在 data_unified/），于是 mock CLI 自己 ENOENT 崩掉——
+  //   报出来的是「CLI exit=1找不到文件」，把真正要验的 mock 守卫盖掉了。
+  //   判据失效的自检比没有自检更糟。现走 data_source.resolve 与页面侧同一套解析。
+  const dataSourceForMock = require("../bridge/data_source.js");
   fs.writeFileSync(mockCli, [
     '"use strict";',
     'const fs=require("fs"),path=require("path");',
+    'const ds=require(' + JSON.stringify(path.join(__dirname, "..", "bridge", "data_source.js").replace(/\\/g, "\\\\")) + ');',
     'let base=null;for(let i=2;i<process.argv.length;i++){if(process.argv[i]==="--parse")base=path.basename(process.argv[i+1]).replace(/\\.parse\\.json$/,"")}',
-    'const j=JSON.parse(fs.readFileSync(path.resolve(process.cwd(),"data",base+".json"),"utf8"));',
+    'const info=ds.resolve(base);',
+    'if(!info){console.error("mockcli: 无此数据集 "+base);process.exit(3)}',
+    'const j=JSON.parse(fs.readFileSync(info.file,"utf8"));',
     'j.is_mock=true; j.run_meta=Object.assign({},j.run_meta,{is_mock:true});',
     'const od=process.argv[process.argv.indexOf("--out-dir")+1];',
     'fs.mkdirSync(od,{recursive:true});fs.writeFileSync(path.join(od,"events.json"),JSON.stringify(j));'

@@ -29,6 +29,8 @@ const crypto = require("crypto");
 const ROOT = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
 const UNIFIED_DIR = path.join(ROOT, "data_unified");
+// ★ D20：批次/计数资格改由数据源单一真源提供，本文件不再自己判断哪批算数。
+const dataSource = require("./data_source.js");
 
 // ============================================================
 // 指标类别定义 —— 三类不可互溶
@@ -37,7 +39,7 @@ const CATEGORIES = {
   accuracy: {
     name: "准确率",
     question: "抽出来的东西对不对？",
-    denominator_rule: "分母＝**有 Gold 人工标注**的字段。无标注字段不入分母（不可核验的东西不能算对错）",
+    denominator_rule: "分母＝有 Gold 人工标注的字段。无标注字段不入分母（不可核验的东西不能算对错）",
     must_not_mix: "不可与覆盖率混用。抽不出来（覆盖率低）不等于抽错了（准确率低）",
   },
   coverage: {
@@ -49,7 +51,7 @@ const CATEGORIES = {
   evidence: {
     name: "出处命中率",
     question: "抽出来的值能不能回跳到原文？",
-    denominator_rule: "分母＝**已产出且带出处锚点**的字段；无锚点字段另计「锚点缺失」",
+    denominator_rule: "分母＝已产出且带出处锚点的字段；无锚点字段另计「锚点缺失」",
     must_not_mix: "不可与「锚点存在率」混用。带 block_id ≠ 能回跳到原文（需blocks[].text）",
   },
   compliance: {
@@ -62,8 +64,8 @@ const CATEGORIES = {
 
 const STATUS = {
   measured:     { label: "已实测",       desc: "分母存在、有可核证据、数值由脚本实算得出" },
-  unverified:   { label: "实测但不可核", desc: "分母存在、数值已算出，但缺少回跳/比对所需的对照物（如无原文快照），**结论不可当验收依据**" },
-  not_covered:  { label: "未测",desc: "分母不存在或输入缺失，**未测**。禁止按目标值或经验值填充" },
+  unverified:   { label: "实测但不可核", desc: "分母存在、数值已算出，但缺少回跳/比对所需的对照物（如无原文快照），结论不可当验收依据" },
+  not_covered:  { label: "未测",desc: "分母不存在或输入缺失，属未测。禁止按目标值或经验值填充" },
 };
 
 // ============================================================
@@ -95,8 +97,20 @@ function fingerprint() {
   return {
     generated_at: new Date().toISOString(),
     inputs: { page_data: page, unified_batch: unified },
-    // 页面实算用的就是 page_data；材料若引用统一批成绩，必须写 unified 的 sha
-    primary: page.sha256,
+    // ★ D20：页面实算已换源到权威批次（领导 10-09 裁定「换源」），
+    //   故 primary 从 data/ 改为 data_unified/。
+    //   此前 primary=page.sha256 会让指纹指向旧批次——口径已换，指纹必须跟着换，
+    //   否则材料引用的指纹与页面实算的批次对不上（正是 D19 那类"数字对不上但看不出"的问题）。
+    primary: unified.sha256,
+    primary_batch: dataSource.PRIMARY_ID,
+    primary_files: unified.files,
+    // ★ D21：权威批次的**唯一身份**是宗裁决的锚点，不是目录指纹。
+    //   目录指纹含 1 份本地演示件（32 份），与权威口径的 31 份不是一回事；
+    //   拿它当身份标识，等于用"目录里有什么"冒充"这批数据是什么"。
+    anchor_sha256: dataSource.anchor().sha256,
+    anchor_matches: dataSource.anchor().matches,
+    // 权威批内部的分母口径（已裁决：606 为权威分母），见 data_source.caliber_split
+    caliber_split: dataSource.BATCHES[dataSource.PRIMARY_ID].caliber_split || null,
     combined_sha256: crypto.createHash("sha256")
       .update(`${page.sha256}|${unified.sha256}`).digest("hex"),
   };
@@ -120,7 +134,7 @@ const MEASURED = {
     value: 0, unit: "%", num: 0, den: 0,
     source_script: "demo/_retest_unified.js",
     evidence_kind: "field_by_field_vs_gold",
-    note: "分母为 0（无「非 extracted 却带值」的字段），**不是** 0% 达标，是该类缺陷未出现",
+    note: "分母为 0（无「非 extracted 却带值」的字段），不是 0% 达标，是该类缺陷未出现",
   },
 
   // ---- 覆盖率 ----
@@ -281,7 +295,7 @@ const REGISTRY = [
     numerator: "standardized === true 的字段数（442）",
     denominator: "standardized 已标注 true/false 的字段数（446）",
     status: "measured",
-    caliber: "★ 判定标准未统一，与首测数不可比。**上屏须带此警告**",
+    caliber: "★ 判定标准未统一，与首测数不可比。上屏须带此警告",
     blocked_by: "宗博文（统一 standardized 判据）",
   },
 
@@ -380,12 +394,21 @@ function coverageStatement() {
     unverified: byStatus.unverified || 0,
     not_covered: byStatus.not_covered || 0,
     by_status: byStatus,
+    // ★ D21：primary 改用宗裁决的**锚点**（权威批次唯一身份，31 份口径）。
+    //   目录指纹含 1 份本地演示件（32 份），不能直接当权威批次的身份标识——
+    //   宗的原话是「任何引用权威批次的地方都必须能对上这个值」，指的就是锚点。
     input_sha256: fp.primary,
+    primary_batch: fp.primary_batch,
+    anchor_sha256: fp.anchor_sha256,
+    anchor_matches: fp.anchor_matches,
     combined_sha256: fp.combined_sha256,
     statement:
       `共登记 ${all.length} 项指标：已实测 ${byStatus.measured || 0}、实测但不可核 ${byStatus.unverified || 0}、` +
-      `**未测 ${byStatus.not_covered || 0}**。输入数据指纹 page_data=${String(fp.primary).slice(0, 12)}… / ` +
-      `unified=${String(fp.inputs.unified_batch.sha256).slice(0, 12)}…（${fp.inputs.unified_batch.files} 份）。` +
+      `未测 ${byStatus.not_covered || 0}。` +
+      `★ 页面实算口径＝权威批次「${dataSource.primary().label}」` +
+      `（锚点 ${String(fp.anchor_sha256 || "").slice(0, 12)}…${fp.anchor_matches === false ? "，⚠已偏离登记值" : "，与宗登记锚点一致"}；` +
+      `入口径 31 份 / 分母 606，DEMO-EQC-HL-0930 不计入——详见 data_source.caliber_split）。` +
+      `另一批演示池仅供查看，不计入任何分子分母。` +
       `材料引用任何一项成绩时须同时引用该指纹与生成脚本，否则数字不可复现。`,
   };
 }

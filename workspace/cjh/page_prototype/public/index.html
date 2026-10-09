@@ -21,9 +21,10 @@
   <div class="page-content">
     <section class="page-heading"><div><div class="eyebrow">ANNOUNCEMENT INTELLIGENCE <span>／ 研究工作台</span></div><h1 id="pageTitle">公告研读<span class="title-dot">.</span></h1><p id="pageDescription">从结构化事件出发，回到原文核对每一条证据。</p></div><div class="heading-status"><span id="modeBadge" class="mode-badge">未加载</span><span class="data-method" id="dataMethod">预生成结果 · 可追溯</span></div></section>
     <div id="simBanner" class="sim-banner">模拟演示数据，仅用于体验交互，不计入真实评测成绩。</div>
+    <div id="datasetNotice" class="dataset-notice" hidden></div>
     <main>
       <section class="document-toolbar" aria-label="文档与数据操作">
-        <div class="dataset-control"><label for="datasetSel">当前数据集</label><div class="dataset-select"><select id="datasetSel" class="sel" aria-label="选择数据集"></select><button class="icon-button" id="loadBtn" title="重新加载当前数据集" aria-label="重新加载数据集">↻</button></div></div>
+        <div class="dataset-control"><label for="datasetSel">当前数据集</label><div class="dataset-select"><select id="datasetSel" class="sel" aria-label="选择数据集"></select><button class="icon-button" id="loadBtn" title="重新加载当前数据集" aria-label="重新加载数据集">↻</button></div><div id="sourceBadge" class="source-badge" aria-live="polite">正在读数据源信息…</div></div>
         <div class="toolbar-actions"><button class="drop" id="drop"><span aria-hidden="true">＋</span> 导入结果 <small>JSON</small></button><input type="file" id="fileInput" accept=".json" multiple hidden><details class="export-menu"><summary>导出 <span>⌄</span></summary><div class="export-options"><button id="exportCsvBtn">导出 CSV</button><button id="exportJsonBtn">导出 JSON</button><a href="/api/upload/log" download="upload_log.jsonl">上传日志</a></div></details><button class="text-button" id="resetBtn">清空</button></div>
         <div id="fileList" class="source-list" aria-live="polite"></div>
       </section>

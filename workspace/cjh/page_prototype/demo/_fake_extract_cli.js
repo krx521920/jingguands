@@ -51,8 +51,19 @@ if (!hasKey && !a.mock) {
 
 // ---------- 出数 ----------
 const base = path.basename(src).replace(/\.(parse\.json|json|txt|md)$/i, "");
-const stub = path.resolve(__dirname, "..", "data", base + ".json");
-if (!fs.existsSync(stub)) { process.stderr.write("无 " + base + ".json 作假实现源\n"); process.exit(4); }
+// ★ D20：权威批次已搬到 data_unified/，**不能硬编码 data/**。
+//   曾写死 path.resolve(__dirname,"..","data",base+".json")，权威批数据集（D4-PLD-001 等）
+//   于是全部 exit=4「无 xxx.json 作假实现源」——通道看着是通的，实际一个权威用例都没跑成，
+//   守卫还会因此报出"拒判总数不等于 mock+unsupported"这种看不懂的 FAIL。
+//   现走bridge/data_source.js 的resolve（与页面侧同一套解析，权威优先）。
+let stub = null;
+try {
+  const ds = require("../bridge/data_source.js");
+  const info = ds.resolve(base);
+  if (info) stub = info.file;
+} catch (e) { /* data_source 不可用则退回旧路径 */ }
+if (!stub) stub = path.resolve(__dirname, "..", "data", base + ".json");
+if (!fs.existsSync(stub)) { process.stderr.write("无 " + base + ".json 作假实现源（data_source 与 data/ 均未找到）\n"); process.exit(4); }
 const env = JSON.parse(fs.readFileSync(stub, "utf8"));
 
 // ★ mock 时必须自认is_mock=true —— 页面侧的二次守卫要靠这个字段拒判

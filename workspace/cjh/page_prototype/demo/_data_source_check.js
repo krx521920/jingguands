@@ -112,21 +112,60 @@ if (WEI_SHA) {
 }
 
 // ─────────────────────────────────────────────────────────
-head("B 段★ 核心：页面口径与权威口径的重叠度");
+head("B 段 ★ 换源是否真落地（领导 10-09 裁定「换源」的执行验收）");
+// ★ D20 起本段从「查出重叠度=0 的问题」改为「验收换源已落地」。
+//   原来的 4 条 WARN 是问题记录；裁定落地后它们应当变成 PASS，
+//   若又退回 WARN 说明有人把页面改回了旧数据源——那是要能报警的。
+const ds = require("../bridge/data_source.js");
 console.log("  页面 data/ = " + page.size + " 份｜权威 data_unified/ = " + auth.size +
             " 份｜同名重叠 = " + overlap.length + " 份");
 ok(page.size > 0 && auth.size > 0, "两侧目录均非空");
-if (overlap.length === 0) {
-  w(false,
-    "★ 页面样本与权威批次零重叠 —— 页面指标跑在旧抽取上（不是造假，但样本选错）",
-    "页面 " + [...pageNames].slice(0, 3).join("/") + "… vs 权威 " + [...authNames].slice(0, 3).join("/") + "…");
-  if (STRICT) { fail++; console.log("    （--strict：判 FAIL）"); }
-  else console.log("    → 不判 FAIL：这是待领导裁决的口径问题，不是代码缺陷。" +
-    "  解法见交付文档。默认 WARN 以免每日回归被此条常驻刷红。");
-} else {
-  ok(true, "页面与权威批次存在同名样本", overlap.slice(0, 5).join(","));
-}
-// 页面侧是否有任何机制能读到权威批次
+
+ok(ds.PRIMARY_ID === "authoritative",
+  "★ 数据源单一真源把权威批次定为 primary", "实际 primary=" + ds.PRIMARY_ID);
+const primaryEntries = ds.list().filter(e => e.counts_for_primary);
+ok(primaryEntries.length >= 31 && primaryEntries.every(e => e.batch === "authoritative"),
+  "★ 入权威口径的条目全部来自权威批次（无旧批次混入）",
+  primaryEntries.filter(e => e.batch !== "authoritative").map(e => e.name).join(","));
+ok(primaryEntries.every(e => e.dir === "data_unified"),
+  "★ 入权威口径的条目全部读自 data_unified/", "");
+
+// 页面侧是否真的读权威批：extractor.file.run 能否解出权威 case
+(async () => {
+  const ex = require("../bridge/extractor.js");
+  const r = await ex.extract("D4-PLD-001", "file");
+  ok(r.ok && /data_unified/.test(r.run_meta.source_path),
+    "★ extractor 能从权威批次解出 D4-PLD-001", r.ok ? r.run_meta.source_path : r.reason);
+  ok(r.ok && r.run_meta.data_source && r.run_meta.data_source.counts_for_primary === true,
+    "★ run_meta 明示该数据集计入权威口径", "");
+  const old = await ex.extract("wei_real_pledge_0197", "file");
+  ok(old.ok && old.run_meta.data_source.counts_for_primary === false &&
+     old.run_meta.data_source.role === "p001_witness",
+    "★ P0-01 物证仍在且标注为不计入权威口径",
+    old.ok ? old.run_meta.data_source.role : old.reason);
+})();
+
+// /api/metrics 默认口径必须是权威批次
+const { computeMetrics } = require("../bridge/metrics.js");
+const mA = computeMetrics(ds.PRIMARY_ID);
+const mL = computeMetrics("legacy");
+ok(mA.summary.fields_total !== mL.summary.fields_total,
+  "★ 两批字段规模确实不同（否则换源等于没换，断言会假绿）",
+  `权威 ${mA.summary.fields_total} vs 演示 ${mL.summary.fields_total}`);
+ok(mA.summary.datasets === primaryEntries.length,
+  "★ computeMetrics 默认口径份数 = 权威口径条目数",
+  `实算 ${mA.summary.datasets} vs 登记 ${primaryEntries.length}`);
+console.log("  权威口径实算： " + mA.summary.datasets + " 份 / " + mA.summary.fields_total +
+            " 字段 / 抽取率 " + mA.summary.extracted_pct + "%");
+console.log("  演示池对照：   " + mL.summary.datasets + " 份 / " + mL.summary.fields_total +
+            " 字段 / 抽取率 " + mL.summary.extracted_pct + "%（不计入任何分子分母）");
+
+// L3 核验必须用同版本产物（跨 parser 版本比对会造出假失败）
+ok(mA.l3.source_kind === "self_blocks" || mA.l3.version_mismatch_skipped === 0,
+  "★ L3 核验索引与信封 parser 版本一致（跨版本比对=假失败）",
+  `source_kind=${mA.l3.source_kind} mismatch=${mA.l3.version_mismatch_skipped}`);
+
+// 前端必须暴露信息源
 const pubHits = [];
 (function walk(d) {
   if (!fs.existsSync(d)) return;
@@ -135,63 +174,85 @@ const pubHits = [];
     if (e.isDirectory()) walk(p);
     else if (/\.(js|html)$/.test(e.name)) {
       const s = fs.readFileSync(p, "utf8");
-      if (s.includes("data_unified")) pubHits.push(path.relative(ROOT, p));
+      if (/data_source|dataSource|sourceBadge|mx-ds/.test(s)) pubHits.push(path.relative(ROOT, p));
     }
   }
 })(path.join(ROOT, "public"));
-ok(pubHits.length === 0,
-  "★ 前端未引用 data_unified（证实权威批次在页面上完全不可见）",
-  pubHits.length ? pubHits.join(",") : "");
+ok(pubHits.length >= 2,
+  "★ 前端引用了数据源信息（页面可暴露信息源，领导 10-09 裁定③）",
+  pubHits.join(", "));
+
+// 两批字段规模差是客观事实，必须显式登记而不是藏起来
+ok(ds.compare().note && /不同样本|不可比/.test(ds.compare().note),
+  "★ 两批规模差异被显式登记为「不可比」", "");
+const cs = ds.BATCHES[ds.PRIMARY_ID].caliber_split;
+ok(!!cs && cs.fields_frozen_only !== cs.fields_incl_demo,
+  "★ 权威批内部 606/615 两种分母口径已显式登记（不静默取其一）",
+  cs ? `${cs.fields_frozen_only} / ${cs.fields_incl_demo}` : "未登记");
 
 // ─────────────────────────────────────────────────────────
 head("C 段 D4 批次覆盖率");
 const D4 = n => [...n.values()].filter(v => /^D4-PLD-\d+$/.test(v.name)).length;
 const pageD4 = D4(page), authD4 = D4(auth);
-console.log("  D4-PLD-xxx：权威 " + authD4 + " 份｜页面同名 " + pageD4 + " 份");
+// ★ D20：换源后「页面可见」＝两批合并（权威批 31 份 + 演示池）。
+//   原来只数 data/，权威批搬走后恒为 0，会误报成「页面缺 10 份」——
+//   那是把「某一目录里有几份」当成「页面能不能看到」，两个不同的问法。
+const visibleD4 = ds.list().filter(e => /^D4-PLD-\d+$/.test(e.name)).length;
+console.log("  D4-PLD-xxx：权威目录 " + authD4 + " 份｜演示池同名 " + pageD4 +
+            " 份｜★页面可见合计 " + visibleD4 + " 份");
 ok(authD4 === 10, "权威侧 D4 批次 10 份齐全", "实得 " + authD4);
-w(pageD4 === authD4, "页面侧 D4 批次是否齐全",
-  pageD4 < authD4 ? `缺 ${authD4 - pageD4} 份` : "");
-// 页面侧那两个"像 D4"的文件实际是什么
+ok(visibleD4 === authD4,
+  "★ D4 批次在页面上全部可见（换源后 D4-PLD-xxx 可直接下拉选中）",
+  visibleD4 < authD4 ? `仍缺 ${authD4 - visibleD4} 份` : `页面 ${visibleD4} vs 权威 ${authD4}`);
+// 演示池那两个"像 D4"的文件实际是什么 —— 保留打印：它们是历史物证，不是当前口径
 const fakeD4 = [...page.values()].filter(v => /^wei_real_PLD/.test(v.name) || /^wei_real_pledge/.test(v.name));
-console.log("  页面侧承担 D4 角色的文件（真实来源）：");
+console.log("  演示池中承担 D4 角色的文件（历史物证，已标注不计入口径）：");
 for (const f of fakeD4) {
   console.log("    " + f.name.padEnd(26) + " file=" + String(f.file).padEnd(18) +
               " ev=" + f.events + " at=" + String(f.at).slice(0, 19));
 }
 const txtInput = fakeD4.filter(f => /\.txt$/i.test(f.file || ""));
-w(txtInput.length === 0,
-  "★ 页面 D4 角色文件用的是真 PDF（而非 D3 合成 txt）",
-  txtInput.length ? "txt 输入: " + txtInput.map(f => f.name + "(" + f.file + ")").join(", ") : "");
+ok(txtInput.every(f => ds.resolve(f.name) && ds.resolve(f.name).counts_for_primary === false),
+  "★ D3 合成 txt 来源的旧抽取均已标为不计入权威口径",
+  txtInput.map(f => f.name).join(", "));
+ok(fakeD4.filter(f => /0197|ce37/.test(f.name)).every(f => !!ds.DATASET_NOTE[f.name]),
+  "★ P0-01 两份物证都带标注（领导 10-09 裁定②：保留 + 标注）", "");
 
 // ─────────────────────────────────────────────────────────
-head("D 段数据新鲜度");
+head("D 段数据新鲜度（换源后以上屏口径为准）");
 const dated = [...page.values()].filter(v => v.at).sort((a, b) => String(a.at).localeCompare(String(b.at)));
 const undated = [...page.values()].filter(v => !v.at);
 if (dated.length) {
-  console.log("  页面数据时间跨度：" + String(dated[0].at).slice(0, 10) + " → " +
+  console.log("  演示池 data/ 时间跨度：" + String(dated[0].at).slice(0, 10) + " → " +
               String(dated[dated.length - 1].at).slice(0, 10));
 }
 const authDated = [...auth.values()].filter(v => v.at).sort((a, b) => String(a.at).localeCompare(String(b.at)));
 if (authDated.length) {
-  console.log("  权威批次时间跨度：" + String(authDated[0].at).slice(0, 10) + " → " +
+  console.log("  权威批次（★上屏口径）时间跨度：" + String(authDated[0].at).slice(0, 10) + " → " +
               String(authDated[authDated.length - 1].at).slice(0, 10));
 }
 ok(undated.length / Math.max(1, page.size) < 0.2,
-  "页面数据多数带 started_at（可判断新鲜度）", "无时间戳 " + undated.length + " 份");
-const pageNewest = dated.length ? String(dated[dated.length - 1].at).slice(0, 10) : null;
+  "演示池多数带 started_at（可判断新鲜度）", "无时间戳 " + undated.length + " 份");
 const authNewest = authDated.length ? String(authDated[authDated.length - 1].at).slice(0, 10) : null;
-w(pageNewest && authNewest && pageNewest >= authNewest,
-  "★ 页面数据不旧于权威批次",
-  pageNewest && authNewest ? `页面 ${pageNewest} vs 权威 ${authNewest}` : "无法比较");
+ok(!!authNewest, "★ 上屏口径（权威批次）带可判断新鲜度的时间戳", authNewest || "缺失");
+ok(authNewest >= "2026-10-01",
+  "★ 上屏口径数据不旧于 2026-10-01（换源后不应再跑 09 月旧抽取）",
+  "权威批次最新 " + authNewest);
 
 // ─────────────────────────────────────────────────────────
-head("E 段字段规模：解释两个数字为何不同");
+head("E 段字段规模：两个数字为何不同（引用时必须带来源）");
 const pf = [...page.values()].reduce((n, v) => n + v.fields, 0);
 const af = [...auth.values()].reduce((n, v) => n + v.fields, 0);
-console.log("  页面 data/ 字段合计 = " + pf + "（这正是 /api/metrics 的 fields_total）");
-console.log("  权威 data_unified/ 字段合计 = " + af + "（重测脚本的分子/分母来源）");
-ok(pf > 0 && af > 0, "两侧字段均可统计",
-  "★ 这两个数出自不同样本，引用时必须带数据来源，不能混着说");
+console.log("  权威 data_unified/（★上屏口径）字段合计 = " + af);
+console.log("    其中入权威口径 31 份 = " + mA.summary.fields_total +
+            "；另 1 份本地演示件 " + (af - mA.summary.fields_total) + " 字段（不含在分子分母）");
+console.log("  演示池 data/（不计入）字段合计 = " + pf);
+ok(pf > 0 && af > 0, "两侧字段均可统计");
+ok(mA.summary.fields_total < af,
+  "★ 上屏分母 = 权威目录总量减去本地演示件（口径自洽）",
+  `上屏 ${mA.summary.fields_total} vs 目录 ${af}`);
+console.log("  ★ 引用规则：上屏数字只认 " + mA.summary.fields_total +
+            "（权威批次 31 份）；材料里的 615 含本地演示件，606 才是纯冻结批次。");
 
 console.log("\n" + "=".repeat(60));
 console.log("PASS " + pass + " / FAIL " + fail + " / WARN " + warn);

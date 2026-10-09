@@ -6,7 +6,9 @@
 //   验的只是"读同一文件的两个消费者行为是否一致"（幂等性），不是 Web/CLI 一致性。
 //
 // 本层做的事：把「数据从哪来」抽象成 provider，页面/接口只认`extract(caseId)`。
-//   file  —— 读 data/<case>.json 预生成信封（当前唯一可用，**不是独立抽取**）
+//   file  —— 读本地预生成信封（当前唯一可用，**不是独立抽取**）
+//           ★ D20 起经 data_source.js 解析：权威批 data_unified/ 优先，演示池 data/ 兜底，
+//             run_meta.data_source 明示批次/角色/是否入权威口径
 //   cli   —— 接魏文宇抽取 CLI run_extract.mjs（EXTRACT_CLI_CMD / EXTRACT_CLI_PARSE_DIR / 密钥）
 //   http  —— 预留：HTTP 调魏的抽取服务（EXTRACT_HTTP_URL）
 //
@@ -29,6 +31,10 @@ const criteria = require("./parity_criteria.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
+// ★ D20：数据源不再由单个目录决定，改由 data_source.js 单一真源登记（两批并存、按批次标注）。
+//   领导 10-09 裁定的换源在这里落地：**权威口径只跑 data_unified/**，
+//   data/ 保留为演示与旧抽取池（含 P0-01 物证），不计入权威口径的分子分母。
+const dataSource = require("./data_source.js");
 
 // ============================================================
 // .env 加载（零依赖自实现，12 行）
@@ -80,16 +86,26 @@ const fileProvider = {
   caps: CAPS.prebuilt,
 
   available() {
-    return { ok: true, reason: "data/ 目录常驻可用" };
+    return { ok: true, reason: "本地预生成信封常驻可用（权威批次 data_unified/ + 演示池 data/）" };
   },
 
+  /** 数据集清单：两批全列出（权威优先），让页面能同时看到真实批次与演示件。 */
   list() {
-    try {
-      return fs.readdirSync(DATA_DIR)
-        .filter(f => f.endsWith(".json") && !f.endsWith(".check.json") && f !== "upstream_case.json")
-        .map(f => path.basename(f, ".json"))
-        .sort();
-    } catch { return []; }
+    const out = [];
+    const seen = new Set();
+    for (const id of [dataSource.PRIMARY_ID, ...Object.keys(dataSource.BATCHES).filter(x => x !== dataSource.PRIMARY_ID)]) {
+      for (const e of dataSource.list().filter(x => x.batch === id)) {
+        if (seen.has(e.name)) continue;          // 同名以权威批为准，不重复列
+        seen.add(e.name);
+        out.push(e.name);
+      }
+    }
+    return out;
+  },
+
+  /** 权威口径清单（只跑这批算指标）。 */
+  listPrimary() {
+    return dataSource.list().filter(e => e.counts_for_primary).map(e => e.name);
   },
 
   /** @returns {{ok:true, envelope:object, run_meta:object}} */
@@ -98,16 +114,21 @@ const fileProvider = {
     if (!/^[A-Za-z0-9_-]+$/.test(safe)) {
       return { ok: false, reason: "数据集名含非法字符（仅允许字母数字下划线连字符）" };
     }
-    const file = path.join(DATA_DIR, safe + ".json");
-    if (!file.startsWith(DATA_DIR) || !fs.existsSync(file)) {
-      return { ok: false, reason: `本地无此信封：data/${safe}.json` };
+    // ★ 先查权威批，再查演示池（同名以权威为准）——不静默按目录猜
+    const info = dataSource.resolve(safe);
+    if (!info) {
+      return { ok: false, reason: `本地无此信封：data_unified/${safe}.json 与 data/${safe}.json 均不存在` };
+    }
+    const file = info.file;
+    if (!file.startsWith(ROOT) || !fs.existsSync(file)) {
+      return { ok: false, reason: `本地无此信封：${info.rel_path}` };
     }
     let raw;
     try { raw = JSON.parse(fs.readFileSync(file, "utf8")); }
     catch (e) { return { ok: false, reason: "信封解析失败：" + e.message }; }
 
     // 方核验 sidecar：随数据集走，缺失不报错（D6 起沿用的口径）
-    const checkFile = path.join(DATA_DIR, safe + ".check.json");
+    const checkFile = path.join(path.dirname(file), safe + ".check.json");
     if (fs.existsSync(checkFile)) {
       try { raw.check_report = JSON.parse(fs.readFileSync(checkFile, "utf8")); }
       catch { raw.check_report_error = "check sidecar parse failed"; }
@@ -119,7 +140,23 @@ const fileProvider = {
         engine: "file",
         engine_owner: this.owner,
         reruns_extraction: false,
-        source_path: path.relative(ROOT, file),
+        source_path: info.rel_path,
+        //★ 数据源透明化（D20）：run_meta 带上批次/角色/计数资格，
+        //   页面与守卫据此判定「这个数据集算不算进权威口径」，不靠猜目录名。
+        data_source: {
+          batch: info.batch,
+          batch_label: info.batch_label,
+          role: info.role,
+          role_label: info.role_label,
+          counts_for_primary: info.counts_for_primary,
+          is_mock: info.is_mock,
+          dir: info.dir,
+          note: info.note,
+          // ★ R4：同源变体（同一 file_sha256 的多份抽取）。页面据此显示
+          //   「同源变体·共 N 份」，不得把同源的两份显示成两个独立 case。
+          variant_label: info.variant_label || null,
+          variant_group: info.variant_group || null,
+        },
         code_version: (raw.run_meta && raw.run_meta.code_version) || raw.code_version || null,
         upstream_run_id: raw.run_id || null
       }

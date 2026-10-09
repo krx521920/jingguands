@@ -185,6 +185,171 @@ function anchorBars(anchors) {
 }
 
 /**
+ * ★ D20 新增：数据源披露卡片（领导 10-09 裁定③「页面可以暴露信息源」）。
+ *
+ * 存在的理由（D19 查出）：页面上「质量报告」的指标全部实算，看不出任何假；
+ * 但它**没有说跑的是哪一批数据**。于是"实算旧数据"和"实算当前数据"
+ * 在页面上长得一模一样，读者会把两个不同样本的数当同口径比较。
+ * 结论是真的，读者得到的结论却是错的 —— 这与D10「产出不可见」同族。
+ *
+ * 本卡片回答三件事，且必须排在所有指标之前：
+ *   ① 本次数字跑在哪批数据上（批次名 + 份数 + 目录指纹）
+ *   ② 另一批是什么、为什么不计入（而不是悄悄不给）
+ *   ③ 权威批内部还有 615/606 两种分母口径，并列摆出，不静默取其一
+ */
+export function renderDataSource(ds) {
+  const wrap = el("section", "mx-ds");
+  wrap.id = "mxDataSource";
+
+  const primId = ds.primary_batch;
+  const prim = (ds.batches || {})[primId] || {};
+  const others = Object.values(ds.batches || {}).filter(b => !b.primary);
+  const tag = ds.primary_tag || {};
+  const anc = ds.anchor || {};
+
+  const hd = el("div", "mx-ds-head");
+  hd.appendChild(el("span", "mx-ds-title", "数据源 · 本页数字跑在哪批数据上"));
+  hd.appendChild(el("span", "mx-badge st-pass", "本次口径：" + (prim.name || primId)));
+  wrap.appendChild(hd);
+
+  // ---- ★ R2 批次标识：id + 日期 + 锚点前 12 位，三样齐全 ----
+  // 这不是装饰行：宗验收标准第 2 条就是"页面任意指标旁能看到批次标识"。
+  const idBox = el("div", "mx-ds-id");
+  idBox.appendChild(el("span", "mx-ds-id-title", "批次标识（本页全部数字的来源）"));
+  const idLine = el("div", "mx-ds-id-line mx-mono");
+  idLine.appendChild(el("span", null, tag.batch_id || primId));
+  idLine.appendChild(el("span", "mx-ds-id-sep", "｜"));
+  idLine.appendChild(el("span", null, tag.batch_date || prim.date_range || ""));
+  idLine.appendChild(el("span", "mx-ds-id-sep", "｜"));
+  const drift = anc.drift === true;
+  idLine.appendChild(el("span", drift ? "mx-ds-anchor is-drift" : "mx-ds-anchor",
+    (drift ? "⚠ 锚点已偏离登记值 " : "锚点 ") + (tag.anchor_short || "(无法计算)")));
+  idBox.appendChild(idLine);
+  const idNote = el("div", "mx-ds-id-note", anc.note || "");
+  idBox.appendChild(idNote);
+  idBox.appendChild(el("div", "mx-ds-id-note mx-muted",
+    "算法：" + (anc.algorithm || "—") + " ｜ 登记方：" + (anc.owner || "—") +
+    " ｜ 本地实算而非抄录，偏离即报警（" + (anc.source_ref || "—") + "）"));
+  wrap.appendChild(idBox);
+
+  const st = el("p", "mx-ds-statement", ds.scope_note || ds.statement || "");
+  wrap.appendChild(st);
+
+  // ---- ★ R3：默认屏只有当前批次的数字 ----
+  // 原来这里是一张两批并列表。宗的原话：不同批次的数字禁止同屏并列引用。
+  // 另一批的信息不是删掉（那是隐瞒），而是收进下面那个**显式命名、默认折叠**的对照区。
+  const table = el("table", "mx-ds-table");
+  const thead = el("thead");
+  const hr = el("tr");
+  ["本批次（唯一上屏口径）", "目录", "入口径份数", "计入指标口径", "角色分布", "锚点前 12 位"].forEach(t =>
+    hr.appendChild(el("th", null, t)));
+  thead.appendChild(hr);
+  table.appendChild(thead);
+
+  const tbody = el("tbody");
+  {
+    const tr = el("tr", "is-primary");
+    tr.appendChild(el("td", null, prim.name + "（本批次）"));
+    tr.appendChild(el("td", "mx-mono", (prim.dir || "") + "/"));
+    // ★ 显示"入口径份数"（31）而不是目录总量（32，含 DEMO）。
+    //   两个数摆在一起时，读者会把 32 当成本批次的规模——而口径只认 31。
+    tr.appendChild(el("td", null, String(prim.counts_for_primary || 0)));
+    tr.appendChild(el("td", null, (prim.counts_for_primary || 0) + " 份计入"));
+    tr.appendChild(el("td", null,
+      "冻结 " + ((prim.roles || []).includes("frozen") ? (prim.count - (prim.demo_count || 0)) : 0) +
+      " ｜ 演示 " + (prim.demo_count || 0)));
+    tr.appendChild(el("td", "mx-mono", tag.anchor_short || "—"));
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  wrap.appendChild(table);
+  // 目录总量与口径份数的差额必须说明，否则"32 份目录 vs 31 份口径"看着像不一致
+  if (prim.count && prim.counts_for_primary && prim.count !== prim.counts_for_primary) {
+    wrap.appendChild(el("p", "mx-ds-note mx-muted",
+      "目录共 " + prim.count + " 个信封，其中 " + (prim.count - prim.counts_for_primary) +
+      " 份为本地演示补料，不计入指标口径（见下方分母口径说明）。口径份数以入口径 " +
+      prim.counts_for_primary + " 份为准。"));
+  }
+
+  // ---- 已裁决的分母口径（不再是"待裁决"，按裁决口径陈述）----
+  const cs = prim.caliber_split;
+  if (cs) {
+    const box = el("div", "mx-ds-split" + (cs.resolved ? " is-resolved" : ""));
+    box.appendChild(el("div", "mx-ds-split-title",
+      cs.resolved
+        ? "分母口径已定案（宗博文 2026-10-09 裁决）：权威分母＝" + cs.authoritative_denominator + " 字段 / " + cs.frozen_files + " 份"
+        : "⚠ 本批次内部有两种分母口径，并列如下，未替领导裁定"));
+    const ul = el("ul");
+    if (cs.resolved) {
+      ul.appendChild(el("li", null,
+        "权威口径（页面当前使用）：" + cs.frozen_files + " 份，字段 " + cs.fields_frozen_only +
+        "，已抽 " + cs.extracted_frozen_only + "，覆盖率 " + cs.coverage_frozen_only_pct + "%"));
+      ul.appendChild(el("li", null,
+        "不计入：" + cs.local_demo_names.join("、") + "（本地演示补料，" + cs.local_demo_files +
+        " 份 / " + (cs.fields_incl_demo - cs.fields_frozen_only) + " 字段）"));
+      ul.appendChild(el("li", null,
+        "材料旧文写的 615 是把这份演示件算进去的扩大口径，按裁决不作权威分母引用；" +
+        "确需引用时必须写成「含演示件的扩大口径」（" + cs.extracted_incl_demo + "/" + cs.fields_incl_demo +
+        " = " + cs.coverage_incl_demo_pct + "%）。"));
+      ul.appendChild(el("li", "mx-muted", "裁决方：" + cs.owner));
+    } else {
+      ul.appendChild(el("li", null,
+        "纯冻结 " + cs.frozen_files + " 份：字段 " + cs.fields_frozen_only +
+        "，已抽 " + cs.extracted_frozen_only + "，覆盖率 " + cs.coverage_frozen_only_pct + "%"));
+      ul.appendChild(el("li", null,
+        "含本地演示件 " + cs.local_demo_files + " 份：字段 " + cs.fields_incl_demo +
+        "，覆盖率 " + cs.coverage_incl_demo_pct + "%"));
+      ul.appendChild(el("li", null, cs.note));
+    }
+    box.appendChild(ul);
+    wrap.appendChild(box);
+  }
+
+  // ---- ★ R4：同源变体登记（默认折叠，但必须能一键查到）----
+  const vg = ds.variants || [];
+  if (vg.length) {
+    const vbox = el("details", "mx-ds-compare");
+    vbox.appendChild(el("summary", null,
+      "同源变体登记 · " + vg.length + " 组（同一 file_sha256 的多次抽取，不是独立 case）"));
+    const vul = el("ul");
+    vg.forEach(g => {
+      const li = el("li", g.event_count_mismatch ? "is-risk" : null);
+      li.textContent = "file_sha256 " + g.sha_short + "… → " +
+        g.variants.map(v => v.name + "（" + (v.event_count == null ? "?" : v.event_count) + " 事件）").join("、") +
+        (g.event_count_mismatch ? "★ 事件数不一致（抽取粒度差异）" : "事件数一致（同源重复抽取）");
+      vul.appendChild(li);
+    });
+    vbox.appendChild(vul);
+    vbox.appendChild(el("p", "mx-ds-note mx-muted",
+      "实测 62 个数据集中有 " + vg.length + " 组同源；此前 D19 表述的「两目录文件名零重叠」只对文件名成立，"+
+      "内容上高度重叠（同源改名）。把同源数据当两批独立样本，正是两个数并列的根源。"));
+    wrap.appendChild(vbox);
+  }
+
+  // ---- 其他批次：★ R3 要求显式命名 + 默认折叠，不得与上数同屏并列 ----
+  if (others.length) {
+    const cmp = el("details", "mx-ds-compare");
+    cmp.appendChild(el("summary", null,
+      "其他批次（不计入本页任何数字）· " + others.map(b => b.label + " " + b.count + " 份").join("、")));
+    const cul = el("ul");
+    others.forEach(b => {
+      cul.appendChild(el("li", null,
+        b.label + "：" + b.count + " 份（目录 " + b.dir + "/），" +
+        "演示 " + (b.demo_count || 0) + " ｜ P0-01 物证 " + (b.p001_witness_count || 0) +
+        "，0 份计入指标口径。"));
+    });
+    cul.appendChild(el("li", null,
+      "两批文件名重叠 " + ((ds.overlap || {}).count || 0) + " 个 —— 但同源（file_sha256 相同）有 " +
+      vg.length + " 组，文件名不重叠不代表样本独立。"));
+    (ds.discipline || []).forEach(t => cul.appendChild(el("li", null, t)));
+    cmp.appendChild(cul);
+    wrap.appendChild(cmp);
+  }
+
+  return wrap;
+}
+
+/**
  * ★ D12 新增：指标注册表面板。
  *
  * 存在的理由：旧图表页把准确率/覆盖率/出处命中率混在一堆卡片里，
@@ -388,6 +553,13 @@ export function renderParityReport(root, rep) {
 export function renderMetrics(root, data) {
   root.textContent = "";
 
+  // ---- ★ D20：数据源披露置顶（领导 10-09 裁定③「页面可以暴露信息源」）----
+  //   必须排在所有数字之前：读者先知道"这些数跑在哪批数据上"，再看数。
+  //   数字与批次同时出现，是 D19 那类"实算为真但读者得到错误结论"的唯一解法。
+  if (data.data_source) {
+    root.appendChild(renderDataSource(data.data_source));
+  }
+
   // ---- ★ D12：注册表面板置顶（口径先于数字）----
   if (data.registry) {
     const holder = el("div", "mx-reg-holder");
@@ -424,7 +596,11 @@ export function renderMetrics(root, data) {
   cal.appendChild(calList);
   const stamp = el("div", "mx-stamp",
     "统计时间 " + String(data.generated_at || "").replace("T", " ").slice(0, 19) +
-    " ｜ 数据源 data/ 下 " + (data.summary && data.summary.datasets) + " 份真实数据集（服务端实算）");
+    (data.data_source
+      ? " ｜ 本次口径「" + (data.data_source.batches[data.data_source.primary_batch] || {}).name +
+        "」" + ((data.data_source.measured_now || {}).datasets || "?") + " 份" +
+        "（详见页首数据源卡片）"
+      : " ｜ 数据源 " + (data.summary && data.summary.datasets) + " 份真实数据集（服务端实算）"));
   cal.appendChild(stamp);
   root.appendChild(cal);
 

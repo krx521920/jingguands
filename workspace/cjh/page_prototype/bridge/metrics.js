@@ -1,11 +1,19 @@
 /**
  * D11 首次封存测试 —— 真实结果统计（服务端聚合）
  *
+ * ★ D20 起（领导 10-09 裁定的"换源"在本文件落地）：
+ *   指标默认只跑**权威批次 `data_unified/`**（魏 D11 首测冻结批次）。
+ *   原先只跑 `data/`（09-28~10-02 旧抽取，548 字段），导致页面的71.53% 与材料的
+ *   72.52%（615 字段）出自两个不同样本却常被并列引用（D19 查出）。
+ *   演示池 `data/` 仍可在下拉里查看，但**不计入任何分子分母**。
+ *   数据源批次、份数、指纹由 bridge/data_source.js 单一真源提供，随 /api/metrics 一起下发。
+ *
  * 口径纪律（关键）：
- *  1. 指标全部由 data/ 下真实数据集实算，无任何估算或示例值。
+ *  1. 指标全部由真实数据集实算，无任何估算或示例值。
  *  2. 每项指标必须带分母（n）与覆盖范围，绝不把"未核"计入命中。
  *  3. L3 原文命中只在有原始解析快照的文档上执行；其余单列"无解析包·未核"。
  *  4. 不生成任何合成分数——指标不达标就显示不达标，不修饰。
+ *  5. ★ 每个响应都带 data_source 段：读者必须能看出「这个数跑在哪批数据上」。
  *
  * 统计脚本 _survey.js / _evidence_check.js 的产出（demo/_*.json）会被优先复用；
  * 未产出时按需现场实算，保证接口任何时候都能返回真数。
@@ -13,8 +21,10 @@
 const fs = require("fs");
 const path = require("path");
 
+const dataSource = require("./data_source.js");   // D20：数据源单一真源（批次/口径/指纹）
+
 // __dirname = <工程根>/bridge，故 data / docs 各上退一级
-const DATA_DIR = path.join(__dirname, "..", "data");
+const LEGACY_DATA_DIR = path.join(__dirname, "..", "data");
 const DOCS_DIR = path.join(__dirname, "..", "..", "docs");
 const PARSE_SNAPSHOT = path.join(DOCS_DIR, "_ref_zhang_D3_pledge.parse.json");
 
@@ -30,16 +40,49 @@ function sendJSON(res, code, obj) {
   res.end(body);
 }
 
-function listDataFiles() {
-  if (!fs.existsSync(DATA_DIR)) return [];
-  return fs
-    .readdirSync(DATA_DIR)
-    .filter((f) => f.endsWith(".json") && !f.endsWith(".check.json"))
-    .map((f) => f.replace(/\.json$/, ""));
+/**
+ * ★ D20：枚举参与本次实算的数据集。
+ *   batchId = "authoritative"（默认，权威口径，只跑入分子的批次）
+ *   batchId = "legacy"（对照用，页面按需查演示池；**不进权威口径的分子分母**）
+ *   batchId = "all"（两批都跑，仅用于对账展示，不得作为上屏口径）
+ */
+function listDataFiles(batchId) {
+  const want = batchId || dataSource.PRIMARY_ID;
+  if (want === "all") return dataSource.list().map(e => e.name);
+  if (want === dataSource.PRIMARY_ID) {
+    // ★ 权威口径：只取 counts_for_primary 的条目（已排除本地演示件 DEMO-*）
+    return dataSource.list().filter(e => e.counts_for_primary).map(e => e.name);
+  }
+  return dataSource.list().filter(e => e.batch === want).map(e => e.name);
 }
 
-/** 载入原始解析快照 → block 索引（供 L3 原文命中） */
+/** 数据集名 → 实际文件路径（跨两批解析，权威优先）。 */
+function resolveDataFile(name) {
+  const info = dataSource.resolve(name);
+  return info ? info.file : path.join(LEGACY_DATA_DIR, name + ".json");
+}
+
+/**
+ * 载入 L3 出处核验用的原文block 索引。
+ *
+ * ★ D20 修正（换源暴露出的假失败）：
+ *   本地唯一快照 `docs/_ref_zhang_D3_pledge.parse.json` 是 **parser 0.7.0**（09-29 解析），
+ *   而权威批次 D4-PLD-001 是 **parser 0.9.0**。两者 block 编号体系不同（0.7.0 把
+ *   「翟军」编为 b00023、0.9.0 编为 b00022…），block_id 前缀相同但**指向不同文本**。
+ *   换源前页面跑 0.7.0 信封对 0.7.0 快照 ⇒ 自洽；换源后拿 0.7.0 快照去核 0.9.0 信封
+ *   ⇒ quote 落不进 block，出处命中率显示 **7.69%** —— 这是**假失败**，
+ *   不是抽取变差了。
+ *   实测证明：用该信封自带的 `source.parse_meta.blocks`（同一parser 版本）自校验 = 39/39 = 100%。
+ *
+ *   ⇒ 铁律：**解析产物跨parser 版本不可比对**。版本不匹配时必须判「快照不适用·未核」，
+ *     绝不能拿旧快照算出一个看起来像成绩的百分比。反过来，若信封自带 blocks，
+ *     优先用它自校验（同一份解析产物，可信度最高）。
+ */
 function loadParseIndex() {
+  // ---- ① 信封自带 blocks 优先（与provenance 同源同版本）----
+  const self = parseSelfBlocks();
+  if (self) return self;
+  // ---- ② 回退外部快照，仅当版本与信封一致时才可用 ----
   if (!fs.existsSync(PARSE_SNAPSHOT)) return null;
   const j = JSON.parse(fs.readFileSync(PARSE_SNAPSHOT, "utf8"));
   const byBlockId = new Map();
@@ -60,7 +103,50 @@ function loadParseIndex() {
   });
   return { doc_id: j.doc && j.doc.doc_id, doc_name: j.doc && j.doc.file_name,
     page_count: (j.pages || []).length, block_count: byBlockId.size,
-    byBlockId, tableCells, fullText: fullText.join("\n") };
+    // ★ block_id 前缀：D3 快照的 doc_id 是 "d44e95085"（d 前缀+ sha8），信封侧 block_id 同格式
+    doc_prefix: j.doc && j.doc.doc_id ? String(j.doc.doc_id) : null,
+    byBlockId, tableCells, fullText: fullText.join("\n"),
+    parser_version: (j.doc && j.doc.parser && (j.doc.parser.name + "/" + j.doc.parser.version)) || null,
+    source: PARSE_SNAPSHOT };
+}
+
+/**从当前批次的信封里找唯一自带 blocks 的那一份，做同源自校验。
+ *  判「唯一」是刻意的：多份信封就必然有多套 block_id 体系，混起来是自欺。*/
+function parseSelfBlocks() {
+  try {
+    for (const e of dataSource.list().filter(x => x.counts_for_primary && x.readable)) {
+      const j = JSON.parse(fs.readFileSync(e.file, "utf8"));
+      const blocks = j.source && j.source.parse_meta && j.source.parse_meta.blocks;
+      if (!Array.isArray(blocks) || blocks.length < 10) continue;
+      const byBlockId = new Map();
+      const tableCells = new Map();
+      const fullText = [];
+      for (const b of blocks) {
+        if (b && b.block_id) byBlockId.set(b.block_id, b);
+        if (b && b.text) fullText.push(b.text);
+        if (b && b.table_ref && b.table_ref.table_id) {
+          const arr = tableCells.get(b.table_ref.table_id) || [];
+          if (b.text) arr.push(String(b.text));
+          tableCells.set(b.table_ref.table_id, arr);
+        }
+      }
+      return {
+        doc_id: (j.source && j.source.file_sha256 || "").slice(0, 8),
+        doc_name: (j.source && j.source.file_name) || e.name,
+        page_count: (j.source && j.source.parse_meta && j.source.parse_meta.page_count) || null,
+        block_count: byBlockId.size,
+        // ★ 前缀从 block_id 反推（"d44e95085_p001_b00001" → "d44e95085"），
+        //   不能拿 file_sha256 前8 位直接当——那边没有 d 前缀，比对永远不等。
+        doc_prefix: String((blocks.find(b => b && b.block_id) || {}).block_id || "").split("_")[0] || null,
+        byBlockId, tableCells, fullText: fullText.join("\n"),
+        parser_version: (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null,
+        // ★ 关键标记：本索引来自信封自身，不是外部快照
+        self_from: e.name,
+        source: e.rel_path,
+      };
+    }
+  } catch (e) { /* 坏文件跳过 */ }
+  return null;
 }
 
 function norm(s) {
@@ -94,8 +180,9 @@ function isField(v) {
  * 实算全部指标。
  * 返回结构与 demo/_evidence_check.json 一致，供页面与脚本共用。
  */
-function computeMetrics() {
+function computeMetrics(batchId) {
   const idx = loadParseIndex();
+  const scope = batchId || dataSource.PRIMARY_ID;
   const agg = {
     datasets: 0, fields_total: 0, fields_with_prov: 0,
     prov_total: 0, prov_block: 0, prov_page: 0, prov_region: 0, prov_quote: 0, prov_table: 0, prov_cell_ref: 0,
@@ -106,13 +193,19 @@ function computeMetrics() {
   const l3Miss = [];
   const perDataset = [];
 
-  for (const ds of listDataFiles()) {
-    const j = JSON.parse(fs.readFileSync(path.join(DATA_DIR, ds + ".json"), "utf8"));
+  for (const ds of listDataFiles(scope)) {
+    const j = JSON.parse(fs.readFileSync(resolveDataFile(ds), "utf8"));
     const events = Array.isArray(j.events) ? j.events : [];
+    const src = dataSource.resolve(ds);
     const d = { dataset: ds, file_name: (j.source && j.source.file_name) || null,
       parser_version: (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null,
       data_mode: j.data_mode || (j.is_mock ? "simulated" : "real"),
       run_id: j.run_id || null, events: events.length,
+      // ★ 每份都带批次与角色——逐数据集表格也能看出它算不算进权威口径
+      batch: src ? src.batch : null,
+      batch_label: src ? src.batch_label : null,
+      role: src ? src.role : "unknown",
+      counts_for_primary: src ? src.counts_for_primary : false,
       fields_total: 0, fields_with_prov: 0, prov: 0,
       l3_eligible: 0, l3_checked: 0, l3_hit: 0, l3_miss: [] };
     agg.datasets++;
@@ -145,8 +238,18 @@ function computeMetrics() {
           if (pv.table_id) agg.prov_table++;
           if (pv.cell_ref) agg.prov_cell_ref++;
 
+          //★ D20：核验前必须过两道闸，缺一不可——
+          //  ① block_id 前缀与本索引所属文档一致（否则是拿别的文档的 block 核）
+          //  ② envelope 的 parser_version 与本索引的 parser_version 一致
+          //     （0.7.0 与 0.9.0 的 block 编号体系不同，跨版本比对必然假失败）
+          // 闸不过 ⇒ 不计入分母（判未核），而不是算出一个假的命中率。
           if (!idx || !pv.block_id) return;
-          if (String(pv.block_id).split("_")[0] !== idx.doc_id) return;
+          if (String(pv.block_id).split("_")[0] !== idx.doc_prefix) return;
+          const envParser = (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null;
+          if (idx.parser_version && envParser && idx.parser_version !== envParser) {
+            d.l3_version_mismatch = (d.l3_version_mismatch || 0) + 1;
+            return;
+          }
           d.l3_eligible++; agg.l3_eligible++;
           const blk = idx.byBlockId.get(pv.block_id) || null;
           d.l3_checked++; agg.l3_checked++;
@@ -165,7 +268,7 @@ function computeMetrics() {
   }
 
   return {
-    idx, agg, l3Miss, perDataset,   // agg 一并返回，供handleMetrics 构造口径说明
+    idx, agg, l3Miss, perDataset, scope,   // agg 一并返回，供handleMetrics 构造口径说明
     summary: {
       datasets: agg.datasets,
       fields_total: agg.fields_total,
@@ -184,6 +287,14 @@ function computeMetrics() {
     l3: {
       doc_id: idx && idx.doc_id,
       doc_name: idx && idx.doc_name,
+      // ★ 核验依据（必须能看到，否则 100% 这个数无法追责）
+      source_kind: idx && idx.self_from ? "self_blocks" : (idx ? "external_snapshot" : "none"),
+      source_ref: idx && idx.source ? idx.source : null,
+      parser_version: idx && idx.parser_version ? idx.parser_version : null,
+      version_mismatch_skipped: perDataset.reduce((n, d) => n + (d.l3_version_mismatch || 0), 0),
+      coverage_note: idx && idx.self_from
+        ? "核验索引取自信封自带的 source.parse_meta.blocks（与 provenance 同一次解析产物，同parser 版本）"
+        : (idx ? "核验索引取自外部快照，parser 版本须与信封一致才计入分母" : "无可用解析产物，全部未核"),
       checked: agg.l3_checked, hit: agg.l3_hit, miss: l3Miss.length,
       hit_rate_pct: pct(agg.l3_hit, agg.l3_checked),
       datasets_checkable: perDataset.filter((d) => d.l3_eligible > 0).map((d) => d.dataset),
@@ -197,9 +308,10 @@ function computeMetrics() {
  * 指标卡按总规划 §验收指标给出目标值，但**达标与否由实算数决定**，
  * 未覆盖的指标显式标"未核"，绝不按目标值填充。
  */
-function handleMetrics(res) {
+function handleMetrics(res, batchId) {
   try {
-    const m = computeMetrics();
+    const scope = batchId || dataSource.PRIMARY_ID;
+    const m = computeMetrics(scope);
     const s = m.summary, l3 = m.l3, agg = m.agg;
 
     // D12：把指标注册表一并下发，让页面顶层的口径面板与下方旧图表读同一份真源。
@@ -263,7 +375,27 @@ function handleMetrics(res) {
 
     return sendJSON(res, 200, {
       generated_at: new Date().toISOString(),
+      // ★ D21：数据源披露段（领导 10-09 裁定③「页面可以暴露信息源」；
+      //   宗 10-09 裁决要求附批次标识与锚点，见 data_source.js 的 ANCHOR）。
+      //   ★ 文案里禁用 markdown 标记——这些串会被 textContent 原样渲染到页面上。
+      data_source: Object.assign({}, dataSource.disclose(), {
+        scope,
+        scope_note:
+          scope === dataSource.PRIMARY_ID
+            ? "本次响应为权威口径：只跑「" + dataSource.primary().label + "」中 counts_for_primary 的 " +
+              s.datasets + " 份，其余批次不计入任何分子分母。"
+            : "★ 注意：本次响应跑的是非权威批次「" + scope + "」，数字不可与材料成绩并列引用。",
+        measured_now: {
+          datasets: s.datasets,
+          events: m.perDataset.reduce((n, d) => n + (d.events || 0), 0),
+          fields_total: s.fields_total,
+          extracted_n: agg.status_extracted,
+          extracted_d: agg.status_extracted + agg.status_pending_review + agg.status_other,
+          extracted_pct: s.extracted_pct,
+        },
+      }),
       // ★ D12：口径注册表（单一真源）。页面顶层按三类分列渲染，下方旧图表保留对照。
+      //   不这么做就会出现「上屏口径」与「图表数值」两套定义，正是要根治的毛病。
       registry: registryPayload ? {
         categories: registryPayload.CATEGORIES,
         status_legend: registryPayload.STATUS,
@@ -279,11 +411,13 @@ function handleMetrics(res) {
         ],
       } : null,
       caliber_discipline: [
-        "全部指标由 data/ 下真实数据集实算，无示例值、无估算",
+        "★ D20 起全部指标只跑权威批次 data_unified/（counts_for_primary），无示例值、无估算",
+        "另一批 data/（演示与旧抽取池）仅供查看，不计入任何分子分母",
         "每项带分母 n；'未核'不计入命中分母",
         "L3 原文命中需原始解析快照，当前仅 1 份，覆盖范围如实标注",
         "目标值取自总规划验收指标，仅作对照，不参与计算；不达标即显示不达标",
         "字段抽取率与溯源存在率（L1）是两个不同指标，勿混用：前者看 status，后者看 provenance 是否存在",
+        "★ D20：引用任何数字须同时引用 data_source 段的批次、份数与目录指纹",
         "★ D12 起口径以顶层注册表为准，本节仅保留 D11 原始口径供对照",
       ],
       cards,
@@ -300,7 +434,13 @@ function handleMetrics(res) {
       summary: s,
       l3: Object.assign({}, l3, {
         snapshot: m.idx ? { doc_id: m.idx.doc_id, doc_name: m.idx.doc_name,
-          page_count: m.idx.page_count, block_count: m.idx.block_count } : null,
+          page_count: m.idx.page_count, block_count: m.idx.block_count,
+          source_ref: m.idx.source || null,
+          source_kind: m.idx.self_from ? "self_blocks" : "external_snapshot",
+          parser_version: m.idx.parser_version || null,
+          // ★ 跨 parser 版本不可比（D20 坐实：0.7.0 快照核 0.9.0 信封会假失败 7.69%）
+          parser_mismatch_warning: "解析产物跨 parser 版本 block 编号体系不同，版本不匹配的字段一律不计入分母（判未核），不折算成命中率",
+        } : null,
         miss_samples: m.l3Miss.slice(0, 20),
       }),
       parser_compare: parserCompare,

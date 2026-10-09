@@ -17,6 +17,7 @@ const { handleMetrics } = require("./bridge/metrics.js");      // D11：真实�
 const registry = require("./bridge/metrics_registry.js");      // D12：指标单一真源（页面/材料共用口径）
 const extractor = require("./bridge/extractor.js");            // D12：抽取引擎适配层（预留魏 CLI 入口）
 const parityReport = require("./bridge/parity_report.js");    // D12：实际对照报告读取（三层措辞单一真源）
+const dataSource = require("./bridge/data_source.js");        // D20：数据源单一真源（批次/口径/指纹）
 
 const ROOT = __dirname;                       // 工程根（相对锚点）
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -241,6 +242,7 @@ function processUploadFile(filename, data) {
         toContract(parsed);   // 过桥干跑：转换失败即上传失败（真实闭环的校验闸门）
         const dataset = dedupeDatasetName(safeDatasetName(filename));
         fs.writeFileSync(path.join(DATA_DIR, dataset + ".json"), JSON.stringify(parsed, null, 2) + "\n");
+        dataSource.resetCache();          // ★ D20：新增数据集后必须让批次清单重扫，否则下拉不更新
         entry.ok = true;
         entry.dataset = dataset;
         entry.events = parsed.events.length;
@@ -735,7 +737,25 @@ function handleIntegration(res) {
 
 function handleApi(req, res, urlObj) {
   if (urlObj.pathname === "/api/datasets") {
-    return sendJSON(res, 200, { engine: ENGINE, datasets: listDatasets() });
+    // ★ D20：下拉清单带批次/角色标注（领导 10-09 裁定③「页面可以暴露信息源」）。
+    //   datasets 仍是纯字符串数组（向后兼容，前端 62 项消费点不破）；
+    //   sources 提供逐项的批次、角色、是否入权威口径、备注，供页面分组显示。
+    dataSource.resetCache();                 // 上传后新增文件 ⇒ 强制重扫
+    return sendJSON(res, 200, {
+      engine: ENGINE,
+      datasets: listDatasets(),
+      primary_batch: dataSource.PRIMARY_ID,
+      sources: dataSource.list().map(e => ({
+        name: e.name, batch: e.batch, batch_label: e.batch_label, dir: e.dir,
+        role: e.role, role_label: e.role_label, counts_for_primary: e.counts_for_primary,
+        is_mock: e.is_mock, event_count: e.event_count, note: e.note, readable: e.readable,
+        // ★ R4：同源变体标记（同一 file_sha256 的多份输出）。
+        //   下拉里必须显示为「同源变体」，不能当成两个独立 case。
+        variant_label: e.variant_label || null,
+        variant_group: e.variant_group || null,
+      })),
+      data_source: dataSource.disclose(),
+    });
   }
   if (urlObj.pathname === "/api/engines") {
     return handleEngines(res);                        // D12：抽取引擎清单与可用性（诚实暴露）
@@ -784,7 +804,11 @@ function handleApi(req, res, urlObj) {
     return handleIntegration(res);                   // D10：多公告集成（10 组）+ 缓存三态 + 出处链
   }
   if (urlObj.pathname === "/api/metrics") {
-    return handleMetrics(res);                       // D11：真实结果统计（图表页数据源，实算不估算）
+    // ★ D20：默认只跑权威批次；?batch=legacy|all 可查对照批，但响应里会显式警告不可与材料并列引用。
+    //   未知批次名一律回落权威批并**在响应里标明**（不静默：响应含 scope 字段可核对）。
+    const batch = urlObj.searchParams.get("batch") || dataSource.PRIMARY_ID;
+    const known = batch === "all" || Object.prototype.hasOwnProperty.call(dataSource.BATCHES, batch);
+    return handleMetrics(res, known ? batch : dataSource.PRIMARY_ID);
   }
   if (urlObj.pathname === "/api/contract") {
     // D15：契约本体出口。★ 与 /api/result 的区别：result 给**视图投影**（页面渲染用），
