@@ -1,8 +1,8 @@
 {
   "locked_on": "2026-10-07",
-  "revised_on": "2026-10-08",
+  "revised_on": "2026-10-09",
   "frozen_input": "weiwenyu@bc67ccd8",
-  "note": "不含 lock-manifest.json 自身；2026-10-08 因 D9 口径更正(20/20→18/20)重新锁存",
+  "note": "不含自身；2026-10-09 因 W7 闭环(④→20/20)重新锁存",
   "files": [
     {
       "path": "evaluation\\D11\\firsttest-envelopes\\D4-PLD-001.json",
@@ -166,13 +166,13 @@
     },
     {
       "path": "evaluation\\D11\\results\\D11-终版收口.md",
-      "sha256": "b6d0c0f2689679264b37aa7ab4f0736a4c11df79f36e8ffae3a8e6ee9a2555e4",
-      "bytes": 3315
+      "sha256": "fa0962ee28965858d0d5e463880ae9c6c1392c31ad5e21ec2cbc9e83756152aa",
+      "bytes": 3612
     },
     {
       "path": "evaluation\\D11\\results\\D11-首测报告.md",
-      "sha256": "6e120f56f80f5c764beba5521a8b3a1494c81fec94e2a6690e2f250874cc4e21",
-      "bytes": 4644
+      "sha256": "ae31a1264e142a14c42c5cf5f0112d93038ff029f44688e383c3c7c5fb77223a",
+      "bytes": 4958
     },
     {
       "path": "evaluation\\D11\\results\\cold-run-verification.json",
@@ -231,11 +231,16 @@
     },
     {
       "path": "evaluation\\D11\\results\\d9-v02-rerun-score.json",
-      "sha256": "0e0f2147a5452fa63a6244e6ae5ae31e243971751c8ee1a63c6b3b5bd5e536f2",
-      "bytes": 5828
+      "sha256": "cc737fabbf44992e0cd7650433102546bdffd3e5a2f6dc2094eb83c254397445",
+      "bytes": 5782
     },
     {
       "path": "evaluation\\D11\\results\\d9-v02-score.json",
+      "sha256": "9fbba1dd102420424b74766401e0d31012768f379feecd3495fbb213b4ad5a7f",
+      "bytes": 5736
+    },
+    {
+      "path": "evaluation\\D11\\results\\d9-w7-final-score.json",
       "sha256": "9fbba1dd102420424b74766401e0d31012768f379feecd3495fbb213b4ad5a7f",
       "bytes": 5736
     },
@@ -261,8 +266,8 @@
     },
     {
       "path": "evaluation\\D11\\results\\失败清单.md",
-      "sha256": "f701f359775900a5f93f0359f2bd24a9903df49d8aaf3178b6943da8b9f65981",
-      "bytes": 2848
+      "sha256": "00145cd8d9ff66a3842948e11f932cb8432fbfc204d525218f382f65c5274dd5",
+      "bytes": 3136
     }
   ]
 }
