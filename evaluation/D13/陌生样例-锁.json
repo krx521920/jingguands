@@ -1,0 +1,39 @@
+{
+  "locked_on": "2026-10-09",
+  "note": "只公开输入 sha256 与预期 sha256；预期原文不入库（执行方拿不到答案）",
+  "samples": [
+    {
+      "id": "D13-STR-01",
+      "name": "诺唯赞 减持结果公告",
+      "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+      "bytes": 98239,
+      "pages": 4,
+      "type": "equity_change（减持结果）",
+      "code": "688105",
+      "notice": "2026-041",
+      "expectation_sha256": "49125dcfb8793c5c89aab6cf2c229136f2470b36987d45056ab94128cf96d9e8"
+    },
+    {
+      "id": "D13-STR-02",
+      "name": "通化东宝 控股股东解押及再质押",
+      "file_sha256": "36c7a18c4cd40551ebe7a3922b79fbf0ec46f432586b526805183e22c8badfba",
+      "bytes": 186675,
+      "pages": 6,
+      "type": "pledge（解押＋再质押 复合）",
+      "code": "600867",
+      "notice": "2026-055",
+      "expectation_sha256": "3a5fb6ccf32b4806fe4d4d9a589d6b1c80160b6b863e9d05af399f5002c65f46"
+    },
+    {
+      "id": "D13-STR-03",
+      "name": "华凯易佰 股东部分股份质押",
+      "file_sha256": "08764c8e69fce58381709a3228bf4efab41645994d8bb393fc15af8f079ef771",
+      "bytes": 95726,
+      "pages": 2,
+      "type": "pledge（合伙企业股东＋表格）",
+      "code": "300592",
+      "notice": "2026-062",
+      "expectation_sha256": "c67b12db6730e1a2b1b665d627b68adc8e6fbf4028da9efb1ad9d93ceebaa262"
+    }
+  ]
+}
