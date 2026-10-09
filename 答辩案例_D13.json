@@ -1,0 +1,99 @@
+{
+  "schema_version": "fang.defense-cases/1.0",
+  "date": "2026-10-09",
+  "rule_version": "D12.1",
+  "source_pins": {
+    "feature/fang-rules": "7e809c49a036e193df0dbd708a6d2a760d608c6b",
+    "weiwenyu": "aa976d60b7feba36eef61a855090096d1f43e39e",
+    "zongbowen": "6ee49ce337cb95185955c173af05076d7a8344c9",
+    "zhangzhibo": "9ce44ddb18a5570c3b917e0be170a2c7250f02f1",
+    "cjh-workspace": "e7bec616557464318fdf9813b6da683fb8b2338a"
+  },
+  "cases": [
+    {
+      "case_id": "D13-C01",
+      "title": "真矛盾类型：同一观察相差1股",
+      "source_kind": "synthetic_controlled",
+      "source_id": "D12-Q04",
+      "loader": "D12_builder",
+      "expected": {
+        "verdict": "conflict",
+        "attribution_code": "SAME_BASIS_CONFLICT",
+        "comparison_performed": true,
+        "requires_review": true,
+        "native_computed_count": 0
+      },
+      "presentation_calculation": {
+        "operation": "sum",
+        "operands": [
+          "1001",
+          "-1000"
+        ],
+        "result": "1",
+        "unit": "shares",
+        "origin": "D13_demo_recalculation_not_native_computed"
+      },
+      "warning": "甲主体、证券代码及事件编号仅为受控占位；不是上市公司真实矛盾证据。"
+    },
+    {
+      "case_id": "D13-C02",
+      "title": "口径差异：个人减持与四人合计",
+      "source_kind": "public_announcement_snapshot",
+      "source_id": "D9-RULE-005",
+      "loader": "public_D9_with_current_zhang_parse",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "expected": {
+        "verdict": "explainable_difference",
+        "attribution_code": "AGGREGATE_DETAIL_RECONCILED",
+        "comparison_performed": true,
+        "requires_review": false,
+        "native_computed_count": 1,
+        "sum_result": "8427900"
+      },
+      "presentation_calculation": {
+        "operation": "sum",
+        "operands": [
+          "3680700",
+          "2975600",
+          "430000",
+          "1341600"
+        ],
+        "result": "8427900",
+        "unit": "shares",
+        "origin": "cross_check_native_share_sum"
+      },
+      "warning": "核对已披露四人份额，不从总额反推或平均分摊到个人。"
+    },
+    {
+      "case_id": "D13-C03",
+      "title": "未知：金额清楚但比较上下文不足",
+      "source_kind": "public_announcement_snapshot_limited_input",
+      "source_id": "D9-RULE-018",
+      "loader": "public_D9_with_current_zhang_parse",
+      "members": [
+        "D6-AWD-005"
+      ],
+      "expected": {
+        "verdict": "insufficient",
+        "attribution_code": "NO_COMPARISON_CONTEXT",
+        "comparison_performed": false,
+        "requires_review": true,
+        "native_computed_count": 0
+      },
+      "presentation_calculation": {
+        "operation": "multiply",
+        "operands": [
+          "14888.20",
+          "10000"
+        ],
+        "result": "148882000",
+        "unit": "cny",
+        "origin": "D13_unit_illustration_not_crossdoc_comparison"
+      },
+      "warning": "entity=null 和单侧是本条输入的限制，不能说原公告缺金额、无主体或原文不可读。"
+    }
+  ]
+}
