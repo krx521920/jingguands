@@ -16,7 +16,8 @@
 
 ## 一、依赖
 
-**抽取/核验/归因/门禁全链：Node.js ≥ 20.11（推荐 24.x，全程实测 24.17），零 npm 依赖。**
+**抽取/核验/归因/门禁全链：推荐 Node 24.x（团队实测 24.17/24.21），零 npm 依赖。**
+下限说明：抽取侧脚本自身仅用 Node 20.11+ 特性（import.meta.dirname/AbortSignal.any），但 vendored 方规则库（.mts 直跑）仅在 24.x 实测过——**不承诺 Node 20 原样可跑**（方的 D13 核验意见，已采纳）。
 所有脚本纯 Node 标准库（node:http / node:crypto / node:fs / node:child_process / fetch），`git clone` 后**不需要 `npm install`** 即可运行：
 
 ```bash
