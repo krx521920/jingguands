@@ -1,0 +1,1189 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "de9c42d9d",
+    "file_id": "sha256:e9c42d9d9b0917f48f6dbe2003f775eed323c5de2cf757a499f35dee957b73f7",
+    "file_name": "D13-STR-05_002973_qiaoyin.pdf",
+    "file_sha256": "e9c42d9d9b0917f48f6dbe2003f775eed323c5de2cf757a499f35dee957b73f7",
+    "file_size": 124308,
+    "page_count": 2,
+    "parsed_at": "2026-10-09T11:37:47+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.9.0"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 620,
+        "text_area_ratio": 0.2472,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "de9c42d9d_p001_b00001",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "证券代码：002973 证券简称：侨银股份 公告编号：2026-115债券代码：128138 债券简称：侨银转债",
+          "text_raw": "证券代码：002973证券简称：侨银股份公告编号：2026-115债券代码：128138债券简称：侨银转债",
+          "region": [
+            90.0,
+            77.74,
+            501.48,
+            115.08
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00002",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "侨银城市管理股份有限公司",
+          "text_raw": "侨银城市管理股份有限公司",
+          "region": [
+            189.24,
+            149.02,
+            405.96,
+            167.02
+          ],
+          "table_ref": null,
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00003",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "关于收到约5.28亿元广东省茂名市中心城区（北组",
+          "text_raw": "关于收到约5.28亿元广东省茂名市中心城区（北组",
+          "region": [
+            96.96,
+            177.46,
+            498.12,
+            198.16
+          ],
+          "table_ref": null,
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00004",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "团）环卫作业服务项目中标通知书的公告",
+          "text_raw": "团）环卫作业服务项目中标通知书的公告",
+          "region": [
+            135.0,
+            201.46,
+            460.2,
+            219.46
+          ],
+          "table_ref": null,
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00005",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+          "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+          "region": [
+            114.0,
+            252.7,
+            505.32,
+            264.7
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00006",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "假记载、误导性陈述或重大遗漏。",
+          "text_raw": "假记载、误导性陈述或重大遗漏。",
+          "region": [
+            90.0,
+            276.1,
+            270.0,
+            288.1
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00007",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "近日，侨银城市管理股份有限公司（以下简称“公司”）收到广东省茂名",
+          "text_raw": "近日，侨银城市管理股份有限公司（以下简称“公司”）收到广东省茂名",
+          "region": [
+            114.0,
+            336.94,
+            505.32,
+            348.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00008",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "市中心城区（北组团）环卫作业服务项目的《中标通知书》，具体情况公告如下：",
+          "text_raw": "市中心城区（北组团）环卫作业服务项目的《中标通知书》，具体情况公告如下：",
+          "region": [
+            90.0,
+            360.34,
+            505.31,
+            395.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00009",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "一、项目的基本情况",
+          "text_raw": "一、项目的基本情况",
+          "region": [
+            114.0,
+            419.14,
+            222.24,
+            431.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00010",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1．项目名称：茂名市中心城区（北组团）环卫作业服务项目；",
+          "text_raw": "1．项目名称：茂名市中心城区（北组团）环卫作业服务项目；",
+          "region": [
+            114.0,
+            454.54,
+            444.0,
+            468.48
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00011",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2．采购人：茂名市茂南区城市管理和综合执法局；",
+          "text_raw": "2．采购人：茂名市茂南区城市管理和综合执法局；",
+          "region": [
+            114.0,
+            477.94,
+            384.0,
+            491.88
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00012",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3．采购代理机构：广东智信招标采购有限公司；",
+          "text_raw": "3．采购代理机构：广东智信招标采购有限公司；",
+          "region": [
+            114.0,
+            501.34,
+            372.0,
+            515.28
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00013",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "4．中标（成交）金额：527,677,119元/3年；",
+          "text_raw": "4．中标（成交）金额：527,677,119元/3年；",
+          "region": [
+            114.0,
+            524.74,
+            349.68,
+            538.68
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00014",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "5．服务时间：项目合同期3年（2026年9月起至2029年9月）。三年内",
+          "text_raw": "5．服务时间：项目合同期3年（2026年9月起至2029年9月）。三年内",
+          "region": [
+            114.0,
+            548.14,
+            505.2,
+            562.08
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00015",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "每年考核得分（按每年所有月份的平均考核计算）达到75分以上为合格，如有一年内连续两个月考核不合格或一年内累计出现两次考核不合格且限期整改不达标的，则采购人有权解除合同；",
+          "text_raw": "每年考核得分（按每年所有月份的平均考核计算）达到75分以上为合格，如有一年内连续两个月考核不合格或一年内累计出现两次考核不合格且限期整改不达标的，则采购人有权解除合同；",
+          "region": [
+            90.0,
+            571.54,
+            505.32,
+            630.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00016",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "6．项目服务范围：主要包括区域范围内的道路（含主次干道、内街内巷和",
+          "text_raw": "6．项目服务范围：主要包括区域范围内的道路（含主次干道、内街内巷和",
+          "region": [
+            114.0,
+            641.74,
+            505.2,
+            655.68
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p001_b00017",
+          "doc_id": "de9c42d9d",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "城中村道路）、人工湖、河涌的清扫保洁；开放式小区、无物业管理小区的保洁服务及生活垃圾分类收集、清运；有物业小区的生活垃圾分类运输；环卫设施运作和管养，包括生活垃圾转运设施（垃圾压缩中转站等）、公厕、垃圾分类收集点、环卫工人驿站、两网融合点等；按照市、区关于城市生活垃圾分类",
+          "text_raw": "城中村道路）、人工湖、河涌的清扫保洁；开放式小区、无物业管理小区的保洁服务及生活垃圾分类收集、清运；有物业小区的生活垃圾分类运输；环卫设施运作和管养，包括生活垃圾转运设施（垃圾压缩中转站等）、公厕、垃圾分类收集点、环卫工人驿站、两网融合点等；按照市、区关于城市生活垃圾分类",
+          "region": [
+            90.0,
+            665.14,
+            505.31,
+            747.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 2,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 380,
+        "text_area_ratio": 0.1396,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "de9c42d9d_p002_b00001",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "工作要求，做好生活垃圾分类管理（包括落实开放式小区和无物业管理小区的生活垃圾定时分类投放引导，生活垃圾的分类收集和分类运输）；区域范围内及茂南区的 9个镇的垃圾清运服务；其他相关环卫服务项目等。保洁面积约1,697.15万平方米，年清运生活垃圾约30万吨；",
+          "text_raw": "工作要求，做好生活垃圾分类管理（包括落实开放式小区和无物业管理小区的生活垃圾定时分类投放引导，生活垃圾的分类收集和分类运输）；区域范围内及茂南区的9个镇的垃圾清运服务；其他相关环卫服务项目等。保洁面积约1,697.15万平方米，年清运生活垃圾约30万吨；",
+          "region": [
+            90.0,
+            77.74,
+            505.32,
+            161.88
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00002",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "7．中标（成交）供应商名称：侨银城市管理股份有限公司（联合体成员：",
+          "text_raw": "7．中标（成交）供应商名称：侨银城市管理股份有限公司（联合体成员：",
+          "region": [
+            114.0,
+            171.34,
+            505.2,
+            185.28
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00003",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "茂名港城资源循环有限公司）。",
+          "text_raw": "茂名港城资源循环有限公司）。",
+          "region": [
+            90.0,
+            194.74,
+            258.0,
+            206.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00004",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "二、对公司业绩的影响",
+          "text_raw": "二、对公司业绩的影响",
+          "region": [
+            111.0,
+            230.14,
+            231.36,
+            242.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00005",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "上述公示的项目属于公司的主营业务，将对后续市场开拓产生积极影响，",
+          "text_raw": "上述公示的项目属于公司的主营业务，将对后续市场开拓产生积极影响，",
+          "region": [
+            114.0,
+            265.54,
+            505.32,
+            277.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00006",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "并对公司未来经营业绩产生积极的促进作用。",
+          "text_raw": "并对公司未来经营业绩产生积极的促进作用。",
+          "region": [
+            90.0,
+            288.94,
+            330.0,
+            300.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00007",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "三、风险提示",
+          "text_raw": "三、风险提示",
+          "region": [
+            111.0,
+            324.34,
+            183.12,
+            336.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00008",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "该项目总金额、具体实施内容等均以正式合同为准，且合同的履行存在一",
+          "text_raw": "该项目总金额、具体实施内容等均以正式合同为准，且合同的履行存在一",
+          "region": [
+            114.0,
+            359.74,
+            505.32,
+            371.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00009",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "定周期，在实际履行过程中如遇到不可预计或不可抗力等因素的影响，可能导致合同部分内容或全部内容无法履行或终止的风险。敬请广大投资者谨慎决策，注意投资风险。",
+          "text_raw": "定周期，在实际履行过程中如遇到不可预计或不可抗力等因素的影响，可能导致合同部分内容或全部内容无法履行或终止的风险。敬请广大投资者谨慎决策，注意投资风险。",
+          "region": [
+            90.0,
+            383.14,
+            510.0,
+            441.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00010",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            114.0,
+            476.74,
+            174.0,
+            488.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00011",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "侨银城市管理股份有限公司董事会",
+          "text_raw": "侨银城市管理股份有限公司董事会",
+          "region": [
+            325.32,
+            546.94,
+            505.32,
+            558.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "de9c42d9d_p002_b00012",
+          "doc_id": "de9c42d9d",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2026年10月9日",
+          "text_raw": "2026年10月9日",
+          "region": [
+            390.12,
+            570.34,
+            481.32,
+            584.28
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    }
+  ],
+  "reading_order": [
+    "de9c42d9d_p001_b00001",
+    "de9c42d9d_p001_b00002",
+    "de9c42d9d_p001_b00003",
+    "de9c42d9d_p001_b00004",
+    "de9c42d9d_p001_b00005",
+    "de9c42d9d_p001_b00006",
+    "de9c42d9d_p001_b00007",
+    "de9c42d9d_p001_b00008",
+    "de9c42d9d_p001_b00009",
+    "de9c42d9d_p001_b00010",
+    "de9c42d9d_p001_b00011",
+    "de9c42d9d_p001_b00012",
+    "de9c42d9d_p001_b00013",
+    "de9c42d9d_p001_b00014",
+    "de9c42d9d_p001_b00015",
+    "de9c42d9d_p001_b00016",
+    "de9c42d9d_p001_b00017",
+    "de9c42d9d_p002_b00001",
+    "de9c42d9d_p002_b00002",
+    "de9c42d9d_p002_b00003",
+    "de9c42d9d_p002_b00004",
+    "de9c42d9d_p002_b00005",
+    "de9c42d9d_p002_b00006",
+    "de9c42d9d_p002_b00007",
+    "de9c42d9d_p002_b00008",
+    "de9c42d9d_p002_b00009",
+    "de9c42d9d_p002_b00010",
+    "de9c42d9d_p002_b00011",
+    "de9c42d9d_p002_b00012"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:e9c42d9d9b0917f48f6dbe2003f775eed323c5de2cf757a499f35dee957b73f7",
+      "file_name": "D13-STR-05_002973_qiaoyin.pdf",
+      "file_sha256": "e9c42d9d9b0917f48f6dbe2003f775eed323c5de2cf757a499f35dee957b73f7",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.9.0",
+        "page_count": 2,
+        "blocks": [
+          {
+            "block_id": "de9c42d9d_p001_b00001",
+            "page": 1,
+            "role": "BODY",
+            "text": "证券代码：002973 证券简称：侨银股份 公告编号：2026-115债券代码：128138 债券简称：侨银转债",
+            "text_raw": "证券代码：002973证券简称：侨银股份公告编号：2026-115债券代码：128138债券简称：侨银转债",
+            "region": [
+              90.0,
+              77.74,
+              501.48,
+              115.08
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00002",
+            "page": 1,
+            "role": "BODY",
+            "text": "侨银城市管理股份有限公司",
+            "text_raw": "侨银城市管理股份有限公司",
+            "region": [
+              189.24,
+              149.02,
+              405.96,
+              167.02
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "关于收到约5.28亿元广东省茂名市中心城区（北组",
+            "text_raw": "关于收到约5.28亿元广东省茂名市中心城区（北组",
+            "region": [
+              96.96,
+              177.46,
+              498.12,
+              198.16
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "团）环卫作业服务项目中标通知书的公告",
+            "text_raw": "团）环卫作业服务项目中标通知书的公告",
+            "region": [
+              135.0,
+              201.46,
+              460.2,
+              219.46
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00005",
+            "page": 1,
+            "role": "BODY",
+            "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+            "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚",
+            "region": [
+              114.0,
+              252.7,
+              505.32,
+              264.7
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00006",
+            "page": 1,
+            "role": "BODY",
+            "text": "假记载、误导性陈述或重大遗漏。",
+            "text_raw": "假记载、误导性陈述或重大遗漏。",
+            "region": [
+              90.0,
+              276.1,
+              270.0,
+              288.1
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00007",
+            "page": 1,
+            "role": "BODY",
+            "text": "近日，侨银城市管理股份有限公司（以下简称“公司”）收到广东省茂名",
+            "text_raw": "近日，侨银城市管理股份有限公司（以下简称“公司”）收到广东省茂名",
+            "region": [
+              114.0,
+              336.94,
+              505.32,
+              348.94
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00008",
+            "page": 1,
+            "role": "BODY",
+            "text": "市中心城区（北组团）环卫作业服务项目的《中标通知书》，具体情况公告如下：",
+            "text_raw": "市中心城区（北组团）环卫作业服务项目的《中标通知书》，具体情况公告如下：",
+            "region": [
+              90.0,
+              360.34,
+              505.31,
+              395.74
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00009",
+            "page": 1,
+            "role": "SECTION",
+            "text": "一、项目的基本情况",
+            "text_raw": "一、项目的基本情况",
+            "region": [
+              114.0,
+              419.14,
+              222.24,
+              431.14
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00010",
+            "page": 1,
+            "role": "BODY",
+            "text": "1．项目名称：茂名市中心城区（北组团）环卫作业服务项目；",
+            "text_raw": "1．项目名称：茂名市中心城区（北组团）环卫作业服务项目；",
+            "region": [
+              114.0,
+              454.54,
+              444.0,
+              468.48
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00011",
+            "page": 1,
+            "role": "BODY",
+            "text": "2．采购人：茂名市茂南区城市管理和综合执法局；",
+            "text_raw": "2．采购人：茂名市茂南区城市管理和综合执法局；",
+            "region": [
+              114.0,
+              477.94,
+              384.0,
+              491.88
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00012",
+            "page": 1,
+            "role": "BODY",
+            "text": "3．采购代理机构：广东智信招标采购有限公司；",
+            "text_raw": "3．采购代理机构：广东智信招标采购有限公司；",
+            "region": [
+              114.0,
+              501.34,
+              372.0,
+              515.28
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00013",
+            "page": 1,
+            "role": "BODY",
+            "text": "4．中标（成交）金额：527,677,119元/3年；",
+            "text_raw": "4．中标（成交）金额：527,677,119元/3年；",
+            "region": [
+              114.0,
+              524.74,
+              349.68,
+              538.68
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00014",
+            "page": 1,
+            "role": "BODY",
+            "text": "5．服务时间：项目合同期3年（2026年9月起至2029年9月）。三年内",
+            "text_raw": "5．服务时间：项目合同期3年（2026年9月起至2029年9月）。三年内",
+            "region": [
+              114.0,
+              548.14,
+              505.2,
+              562.08
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00015",
+            "page": 1,
+            "role": "BODY",
+            "text": "每年考核得分（按每年所有月份的平均考核计算）达到75分以上为合格，如有一年内连续两个月考核不合格或一年内累计出现两次考核不合格且限期整改不达标的，则采购人有权解除合同；",
+            "text_raw": "每年考核得分（按每年所有月份的平均考核计算）达到75分以上为合格，如有一年内连续两个月考核不合格或一年内累计出现两次考核不合格且限期整改不达标的，则采购人有权解除合同；",
+            "region": [
+              90.0,
+              571.54,
+              505.32,
+              630.34
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00016",
+            "page": 1,
+            "role": "BODY",
+            "text": "6．项目服务范围：主要包括区域范围内的道路（含主次干道、内街内巷和",
+            "text_raw": "6．项目服务范围：主要包括区域范围内的道路（含主次干道、内街内巷和",
+            "region": [
+              114.0,
+              641.74,
+              505.2,
+              655.68
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p001_b00017",
+            "page": 1,
+            "role": "BODY",
+            "text": "城中村道路）、人工湖、河涌的清扫保洁；开放式小区、无物业管理小区的保洁服务及生活垃圾分类收集、清运；有物业小区的生活垃圾分类运输；环卫设施运作和管养，包括生活垃圾转运设施（垃圾压缩中转站等）、公厕、垃圾分类收集点、环卫工人驿站、两网融合点等；按照市、区关于城市生活垃圾分类",
+            "text_raw": "城中村道路）、人工湖、河涌的清扫保洁；开放式小区、无物业管理小区的保洁服务及生活垃圾分类收集、清运；有物业小区的生活垃圾分类运输；环卫设施运作和管养，包括生活垃圾转运设施（垃圾压缩中转站等）、公厕、垃圾分类收集点、环卫工人驿站、两网融合点等；按照市、区关于城市生活垃圾分类",
+            "region": [
+              90.0,
+              665.14,
+              505.31,
+              747.34
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00001",
+            "page": 2,
+            "role": "BODY",
+            "text": "工作要求，做好生活垃圾分类管理（包括落实开放式小区和无物业管理小区的生活垃圾定时分类投放引导，生活垃圾的分类收集和分类运输）；区域范围内及茂南区的 9个镇的垃圾清运服务；其他相关环卫服务项目等。保洁面积约1,697.15万平方米，年清运生活垃圾约30万吨；",
+            "text_raw": "工作要求，做好生活垃圾分类管理（包括落实开放式小区和无物业管理小区的生活垃圾定时分类投放引导，生活垃圾的分类收集和分类运输）；区域范围内及茂南区的9个镇的垃圾清运服务；其他相关环卫服务项目等。保洁面积约1,697.15万平方米，年清运生活垃圾约30万吨；",
+            "region": [
+              90.0,
+              77.74,
+              505.32,
+              161.88
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00002",
+            "page": 2,
+            "role": "BODY",
+            "text": "7．中标（成交）供应商名称：侨银城市管理股份有限公司（联合体成员：",
+            "text_raw": "7．中标（成交）供应商名称：侨银城市管理股份有限公司（联合体成员：",
+            "region": [
+              114.0,
+              171.34,
+              505.2,
+              185.28
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00003",
+            "page": 2,
+            "role": "BODY",
+            "text": "茂名港城资源循环有限公司）。",
+            "text_raw": "茂名港城资源循环有限公司）。",
+            "region": [
+              90.0,
+              194.74,
+              258.0,
+              206.74
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00004",
+            "page": 2,
+            "role": "SECTION",
+            "text": "二、对公司业绩的影响",
+            "text_raw": "二、对公司业绩的影响",
+            "region": [
+              111.0,
+              230.14,
+              231.36,
+              242.14
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00005",
+            "page": 2,
+            "role": "BODY",
+            "text": "上述公示的项目属于公司的主营业务，将对后续市场开拓产生积极影响，",
+            "text_raw": "上述公示的项目属于公司的主营业务，将对后续市场开拓产生积极影响，",
+            "region": [
+              114.0,
+              265.54,
+              505.32,
+              277.54
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00006",
+            "page": 2,
+            "role": "BODY",
+            "text": "并对公司未来经营业绩产生积极的促进作用。",
+            "text_raw": "并对公司未来经营业绩产生积极的促进作用。",
+            "region": [
+              90.0,
+              288.94,
+              330.0,
+              300.94
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00007",
+            "page": 2,
+            "role": "SECTION",
+            "text": "三、风险提示",
+            "text_raw": "三、风险提示",
+            "region": [
+              111.0,
+              324.34,
+              183.12,
+              336.34
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00008",
+            "page": 2,
+            "role": "BODY",
+            "text": "该项目总金额、具体实施内容等均以正式合同为准，且合同的履行存在一",
+            "text_raw": "该项目总金额、具体实施内容等均以正式合同为准，且合同的履行存在一",
+            "region": [
+              114.0,
+              359.74,
+              505.32,
+              371.74
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00009",
+            "page": 2,
+            "role": "BODY",
+            "text": "定周期，在实际履行过程中如遇到不可预计或不可抗力等因素的影响，可能导致合同部分内容或全部内容无法履行或终止的风险。敬请广大投资者谨慎决策，注意投资风险。",
+            "text_raw": "定周期，在实际履行过程中如遇到不可预计或不可抗力等因素的影响，可能导致合同部分内容或全部内容无法履行或终止的风险。敬请广大投资者谨慎决策，注意投资风险。",
+            "region": [
+              90.0,
+              383.14,
+              510.0,
+              441.94
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00010",
+            "page": 2,
+            "role": "BODY",
+            "text": "特此公告。",
+            "text_raw": "特此公告。",
+            "region": [
+              114.0,
+              476.74,
+              174.0,
+              488.74
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00011",
+            "page": 2,
+            "role": "BODY",
+            "text": "侨银城市管理股份有限公司董事会",
+            "text_raw": "侨银城市管理股份有限公司董事会",
+            "region": [
+              325.32,
+              546.94,
+              505.32,
+              558.94
+            ]
+          },
+          {
+            "block_id": "de9c42d9d_p002_b00012",
+            "page": 2,
+            "role": "BODY",
+            "text": "2026年10月9日",
+            "text_raw": "2026年10月9日",
+            "region": [
+              390.12,
+              570.34,
+              481.32,
+              584.28
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [],
+    "warnings": []
+  }
+}
