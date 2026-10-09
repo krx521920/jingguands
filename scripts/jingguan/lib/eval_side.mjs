@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'node:fs'
+import { existsSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -14,6 +14,15 @@ const CACHE_DIR = resolve(REPO_ROOT, 'runs/.tmp-eval')
  */
 export function evalFile(relPath) {
   if (relPath.startsWith('evaluation/')) relPath = relPath.slice('evaluation/'.length)
+  // 陈旧缓存防护：origin/zongbowen 前进后旧物化件失效——ref sha 变了就整目录重建
+  const refSha = spawnSync('git', ['rev-parse', REF], { cwd: REPO_ROOT, encoding: 'utf8' })
+  if (refSha.status === 0) {
+    const sha = refSha.stdout.trim()
+    try {
+      const prov = JSON.parse(readFileSync(resolve(CACHE_DIR, '.provenance.json'), 'utf8'))
+      if (prov.__ref && prov.__ref !== sha) rmSync(CACHE_DIR, { recursive: true, force: true })
+    } catch { /* 无 provenance＝首用 */ }
+  }
   const target = resolve(CACHE_DIR, relPath)
   if (existsSync(target)) return target
   if (spawnSync('git', ['rev-parse', '--verify', '--quiet', REF], { cwd: REPO_ROOT }).status !== 0) {
@@ -29,6 +38,7 @@ export function evalFile(relPath) {
   try { prov = JSON.parse(readFileSync(provPath, 'utf8')) } catch { /* 首次 */ }
   const sha = spawnSync('git', ['rev-parse', REF], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
   prov[relPath] = { ref: REF, sha, fetched_files_bytes: show.stdout.length }
+  prov.__ref = sha
   writeFileSync(provPath, JSON.stringify(prov, null, 1), 'utf8')
   return target
 }

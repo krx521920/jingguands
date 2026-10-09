@@ -83,8 +83,10 @@ node scripts/jingguan/run_batch.mjs \
   --cache-dir evaluation/D12/wei-runs/cache-snapshot-d12 --jobs 4
 ```
 
-D12 冻结缓存快照（31 条＋SHA256SUMS）：模型响应字节与 D12-A 基线一致，重放 events
-**31/31 逐字节一致**（`evaluation/D12/wei-runs/README.md` 有三组运行与比对报告）。
+D12 冻结缓存快照（31 条＋SHA256SUMS）：模型响应字节与 D12-A 基线一致。
+**已实测（2026-10-09，批次 runs/batch-20261009T112750）**：按本节命令全量重放，
+events 与 D12-A 基线 **31/31 逐字节一致**、模型调用 30/30 缓存命中（第 31 份为扫描降级件，
+设计上不调用）。三组运行与比对报告见 `evaluation/D12/wei-runs/README.md`。
 
 ### 4.3 冷跑（需要密钥）：修后基线 / 并发 / 重放三组
 
@@ -113,11 +115,13 @@ curl -X POST localhost:8788/extract -d '{"event_type":"pledge","parse_path":"cor
 
 评测侧裁定归宗；抽取侧的入口、标识与落盘约定如下，评测 README 可直接引用：
 
-1. **入口命令**（逐份独立、干净环境）：
+1. **入口命令**（逐份独立、干净环境；事件类型**必须显式指定**——陌生样例文件名不含
+   pledge/equity/award 关键字，`run_batch` 的文件名推断对它们会返回 null 并跳过，实测
+   STR-04/05/06 文件名均无法推断）：
    ```bash
    node scripts/jingguan/run_extract.mjs --parse <样例.parse.json> --event-type <pledge|equity_change|award_contract>
    ```
-   事件类型未知时可用推断入口：`node scripts/jingguan/run_batch.mjs <样例目录或文件>`（按文件名/内容推断并显式打印）。
+   类型以评测侧样例登记为准（`run_batch` 推断入口仅适用于按惯例命名的文件）。
 2. **run_id 生成规则**：`<YYYYMMDDTHHMMSS>-<event_type>-<4位十六进制随机>`（运行起始时间戳＋事件类型＋随机后缀）；扫描降级件固定后缀 `-scan`。run_id 写入信封顶层与 call_log，同码可追溯。
 3. **落盘路径**：单份 `runs/<run_id>/events.json`（v0.3 信封）＋ `runs/<run_id>/call_log.json`（含请求参数/响应/缓存命中/耗时，无密钥）；批量 `runs/batch-<stamp>/batch_report.{json,md}`＋`envelopes/`。原始输出即上述文件，**不手改、不裁剪**。
 4. **耗时口径**：`call_log.timing.total_ms` 与批次报告 `duration_ms`（墙钟，含模型调用；解析为纯本地输入不在内）。
