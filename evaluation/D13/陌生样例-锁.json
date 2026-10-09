@@ -1,6 +1,6 @@
 {
   "locked_on": "2026-10-09",
-  "note": "正式样例集 = 3 份，均为 cninfo 公开渠道下载、来源 URL 可核、已解析可运行。STR-01/02/03 因来源不可核已移入 rejected，对应 PDF 移至 evaluation/D13/unverified-samples/。",
+  "note": "哈希一律以**仓库字节**为准（git show HEAD:<path>），非工作区磁盘字节。",
   "samples": [
     {
       "id": "D13-STR-04",
@@ -18,11 +18,17 @@
       "file_sha256": "706bf32cb39cd5db0fee37618abf0d4ff788c9a5a520dc1ec75bfb99deb46a6c",
       "bytes": 73174,
       "parse": "D13-STR-04_002458_yisheng.parse.json",
-      "parse_sha256": "c95ebe93a45216b8fd5719d4e055e3c6c49bc026bff2960e3a8c4033a786ca8e",
+      "parse_sha256": "c348c48b3d1235bb7f96f25ff8a409043230b57d1686139936d81a942c7a8347",
       "pages": 2,
-      "blocks": 107,
+      "blocks": {
+        "reading_order": 107,
+        "pages_blocks": 107,
+        "authoritative": "reading_order"
+      },
       "type": "pledge（解除质押＋质押延期购回 复合）",
-      "expectation_sha256": "62d612320e3fd2cef2adbe5c91bba7ecfd2d9ace9d387696b35fd8828c65874f"
+      "expectation_sha256": "62d612320e3fd2cef2adbe5c91bba7ecfd2d9ace9d387696b35fd8828c65874f",
+      "parse_sha256_worktree_crlf": "c95ebe93a45216b8fd5719d4e055e3c6c49bc026bff2960e3a8c4033a786ca8e",
+      "hash_basis": "repository_bytes (git show HEAD:<path>)"
     },
     {
       "id": "D13-STR-05",
@@ -41,8 +47,15 @@
       "file_sha256": "e9c42d9d9b0917f48f6dbe2003f775eed323c5de2cf757a499f35dee957b73f7",
       "bytes": 124308,
       "parse": "D13-STR-05_002973_qiaoyin.parse.json",
-      "parse_sha256": "f45da7f0f36cb9b80bed6b4631880c48ab701360f26f7890210595015dfdaafd",
-      "expectation_sha256": "22d89e4216d474ce4c62c2a148f80e1f173c6a3353afe0b05951baf6d058a02f"
+      "parse_sha256": "15e2331cfb29e79799c14ef88a1ef0db1313bbd37b82dbe0a34f37edb9b068af",
+      "expectation_sha256": "22d89e4216d474ce4c62c2a148f80e1f173c6a3353afe0b05951baf6d058a02f",
+      "parse_sha256_worktree_crlf": "f45da7f0f36cb9b80bed6b4631880c48ab701360f26f7890210595015dfdaafd",
+      "hash_basis": "repository_bytes (git show HEAD:<path>)",
+      "blocks": {
+        "reading_order": 29,
+        "pages_blocks": 29,
+        "authoritative": "reading_order"
+      }
     },
     {
       "id": "D13-STR-06",
@@ -61,8 +74,15 @@
       "file_sha256": "8ebfbd3b219ec076d01ac6f4d742e4dac5ef744ede20f4e2fb6cb2352f9d44b4",
       "bytes": 207183,
       "parse": "D13-STR-06_001246_liqin.parse.json",
-      "parse_sha256": "9441f6b168b73a3b548f0fcea93bbe4dde9797bd8a5273b570c00af7329c0800",
-      "expectation_sha256": "6dfa6686006326f0ae396761d34b43ff8af670f9884668537131c1044a738d16"
+      "parse_sha256": "dc0bddda66328221568f6a3482f7b0a9bdfe6654d9e0af530a51a11d3bea39d2",
+      "expectation_sha256": "6dfa6686006326f0ae396761d34b43ff8af670f9884668537131c1044a738d16",
+      "parse_sha256_worktree_crlf": "9441f6b168b73a3b548f0fcea93bbe4dde9797bd8a5273b570c00af7329c0800",
+      "hash_basis": "repository_bytes (git show HEAD:<path>)",
+      "blocks": {
+        "reading_order": 239,
+        "pages_blocks": 239,
+        "authoritative": "reading_order"
+      }
     }
   ],
   "rejected": {
@@ -102,5 +122,11 @@
         "expectation_sha256": "c67b12db6730e1a2b1b665d627b68adc8e6fbf4028da9efb1ad9d93ceebaa262"
       }
     ]
+  },
+  "lock_algorithm": {
+    "basis": "repository bytes (git show HEAD:<path>)",
+    "verify": "git show HEAD:<path> > f && sha256sum f",
+    "why": "git 默认对文本做 CRLF→LF 规范化，工作区字节 ≠ 仓库字节；2026-10-09 曾因此锁错 3 份 parse 哈希",
+    "guard": ".gitattributes: evaluation/**/*.json -text"
   }
 }
