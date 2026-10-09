@@ -1,6 +1,6 @@
 {
   "locked_on": "2026-10-09",
-  "note": "只公开输入 sha256 与预期 sha256；预期原文不入库（执行方拿不到答案）",
+  "note": "只公开输入 sha256 与预期 sha256；预期原文不入库。D13-STR-04 为来源可核＋已解析的合格样例；STR-01/02/03 来源不可核（见记录第七节勘误），列为待补。",
   "samples": [
     {
       "id": "D13-STR-01",
@@ -34,6 +34,28 @@
       "code": "300592",
       "notice": "2026-062",
       "expectation_sha256": "c67b12db6730e1a2b1b665d627b68adc8e6fbf4028da9efb1ad9d93ceebaa262"
+    },
+    {
+      "id": "D13-STR-04",
+      "name": "益生股份 解除质押及质押延期购回",
+      "code": "002458",
+      "notice": "2026-068",
+      "source": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-09/1225596642.PDF",
+        "page": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002458&announcementId=1225596642",
+        "site": "巨潮资讯网 cninfo.com.cn",
+        "date": "2026-10-09",
+        "acquisition": "评测侧经 cninfo 公开查询接口 hisAnnouncement/query 命中后下载"
+      },
+      "file": "D13-STR-04_002458_yisheng.pdf",
+      "file_sha256": "706bf32cb39cd5db0fee37618abf0d4ff788c9a5a520dc1ec75bfb99deb46a6c",
+      "bytes": 73174,
+      "parse": "D13-STR-04_002458_yisheng.parse.json",
+      "parse_sha256": "c95ebe93a45216b8fd5719d4e055e3c6c49bc026bff2960e3a8c4033a786ca8e",
+      "pages": 2,
+      "blocks": 107,
+      "type": "pledge（解除质押＋质押延期购回 复合）",
+      "expectation_sha256": "62d612320e3fd2cef2adbe5c91bba7ecfd2d9ace9d387696b35fd8828c65874f"
     }
   ]
 }
