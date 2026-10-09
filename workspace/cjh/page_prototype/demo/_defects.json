@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-06T18:04:27.550Z",
+  "generated_at": "2026-10-09T04:13:30.017Z",
   "counts": {
     "P0": 2,
-    "P1": 3,
+    "P1": 2,
     "P2": 0
   },
-  "total": 5,
+  "total": 4,
   "defects": [
     {
       "id": "D11-P0-01",
@@ -22,11 +22,11 @@
     {
       "id": "D11-P0-02",
       "sev": "P0",
-      "title": "溯源存在率（L1）73.18% ，147 个字段无任何 provenance",
+      "title": "溯源存在率（L1）74.09% ，147 个字段无任何 provenance",
       "area": "溯源完整性",
       "repro": "curl http://127.0.0.1:8643/api/metrics → l1_provenance（或 summary.l1_pct）",
-      "expect": "≥90%（与总规划『字段抽取率』不同：抽取率看 status=extracted，本项看有无溯源；当前字段抽取率 71.53%，两者都未达标）",
-      "actual": "73.18%（401/548 字段带 provenance）；缺口 147 个字段无溯源，页面无法回跳定位",
+      "expect": "≥90%（与总规划『字段抽取率』不同：抽取率看 status=extracted，本项看有无溯源；当前字段抽取率 72.11%，两者都未达标）",
+      "actual": "74.09%（449/606 字段带 provenance）；缺口 157 个字段无溯源，页面无法回跳定位",
       "owner": "魏文宇（抽取）+ 张智博（出处）",
       "evidence": "GET /api/metrics → l1_provenance / summary",
       "day": "D11"
@@ -34,29 +34,17 @@
     {
       "id": "D11-P1-01",
       "sev": "P1",
-      "title": "标准化率 69.87% ，低于目标 98%",
+      "title": "标准化率 71.62% ，低于目标 98%",
       "area": "标准化",
       "repro": "curl http://127.0.0.1:8643/api/metrics → cards[标准化率]",
       "expect": "≥98%",
-      "actual": "69.87%（standardized=true 占 true/false 之比，未标注不计入分母）",
+      "actual": "71.62%（standardized=true 占 true/false 之比，未标注不计入分母）",
       "owner": "魏文宇",
       "evidence": "GET /api/metrics → summary.standardized_pct",
       "day": "D11"
     },
     {
       "id": "D11-P1-02",
-      "sev": "P1",
-      "title": "溯源带 block_id 仅 81.14% ，76 条只有页级锚点",
-      "area": "证据锚点",
-      "repro": "curl http://127.0.0.1:8643/api/metrics → anchors[溯源带 block_id]",
-      "expect": "块级锚点可回跳定位；仅页级为合法降级（D4-PLD 口径）且须显式标注降级原因",
-      "actual": "block_id 81.14% / region 70.72% / cell_ref 28.29%（n=403）",
-      "owner": "张智博",
-      "evidence": "GET /api/metrics → anchors",
-      "day": "D11"
-    },
-    {
-      "id": "D11-P1-03",
       "sev": "P1",
       "title": "核验清单中 2 条 finding 的 provenance 为 null",
       "area": "核验视图",
@@ -76,30 +64,34 @@
   ],
   "metrics_summary": {
     "datasets": 31,
-    "fields_total": 548,
-    "fields_with_prov": 401,
-    "l1_pct": 73.18,
-    "prov_total": 403,
-    "block_id_pct": 81.14,
+    "fields_total": 606,
+    "fields_with_prov": 449,
+    "l1_pct": 74.09,
+    "prov_total": 451,
+    "block_id_pct": 100,
     "page_pct": 100,
-    "region_pct": 70.72,
+    "region_pct": 100,
     "quote_pct": 100,
-    "table_id_pct": 30.77,
-    "cell_ref_pct": 28.29,
-    "standardized_pct": 69.87,
-    "extracted_pct": 71.53
+    "table_id_pct": 52.11,
+    "cell_ref_pct": 52.11,
+    "standardized_pct": 71.62,
+    "extracted_pct": 72.11
   },
   "l3": {
-    "doc_id": "d44e95085",
-    "doc_name": "pledge.pdf",
-    "checked": 24,
-    "hit": 14,
-    "miss": 10,
-    "hit_rate_pct": 58.33,
+    "doc_id": "44e95085",
+    "doc_name": "D4-PLD-001.pdf",
+    "source_kind": "self_blocks",
+    "source_ref": "data_unified/D4-PLD-001.json",
+    "parser_version": "finstruct.parse/0.9.0",
+    "version_mismatch_skipped": 0,
+    "coverage_note": "核验索引取自信封自带的 source.parse_meta.blocks（与 provenance 同一次解析产物，同parser 版本）",
+    "checked": 39,
+    "hit": 39,
+    "miss": 0,
+    "hit_rate_pct": 100,
     "datasets_checkable": [
-      "wei_real_pledge_0197",
-      "wei_real_pledge_ce37"
+      "D4-PLD-001"
     ],
-    "datasets_unverifiable": 29
+    "datasets_unverifiable": 30
   }
 }
