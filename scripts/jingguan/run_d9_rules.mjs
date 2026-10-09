@@ -17,15 +17,16 @@
  *   插件优先：返回 verdict 即接管该案（attribution_code='plugin'）；异常/缺信封回退内置链并记录。
  * --envelopes <dir>：--rules 装配 context 用的信封目录。
  */
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
+import { evalFile } from './lib/eval_side.mjs'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 
 function parseArgs(argv) {
-  const a = { cases: 'evaluation/D9/cases/rules-cases.dev.json', out: null, bilateral: null, verifyBlocks: null, rules: null, envelopes: null, parsesMap: null }
+  const a = { cases: 'D9/cases/rules-cases.dev.json', out: null, bilateral: null, verifyBlocks: null, rules: null, envelopes: null, parsesMap: null }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--cases') a.cases = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
@@ -189,7 +190,8 @@ function decide(sides) {
 
 // ---------- 主流程 ----------
 const args = parseArgs(process.argv.slice(2))
-const ds = JSON.parse(readFileSync(resolve(REPO_ROOT, args.cases), 'utf8'))
+const casesPath = existsSync(resolve(REPO_ROOT, args.cases)) ? resolve(REPO_ROOT, args.cases) : evalFile(args.cases)
+const ds = JSON.parse(readFileSync(casesPath, 'utf8'))
 const cases = ds.cases ?? ds
 // 张双侧出处包（可选）：按 case_id 匹配，逐侧取 evidence_status/evidence_note
 let bilateral = null

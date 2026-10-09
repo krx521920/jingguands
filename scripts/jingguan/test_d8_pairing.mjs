@@ -11,12 +11,13 @@
 import { spawnSync } from 'node:child_process'
 import { rmSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { evalFile } from './lib/eval_side.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const node = process.execPath
 // 信封目录＝统一批次（35 输入：30 语料＋5 对抗，含 scan-degrade 信封）
 const ENVELOPES = 'runs/batch-20261005T063943/envelopes'
-const MANIFEST = 'evaluation/D8/pairs/pairs.dev30.json'
+const MANIFEST = evalFile('D8/pairs/pairs.dev30.json')
 const TMP_REPORT = resolve(REPO_ROOT, 'runs', '.tmp-d8-b-report.json')
 
 function run(args) {
@@ -29,7 +30,7 @@ try {
   console.log(step1.out.trim().split(/\r?\n/).slice(-2).join('\n'))
   if (step1.status !== 0) { console.error('[D8配对门禁] B 回放未过'); process.exit(1) }
 
-  const step2 = run(['evaluation/D8/score-pairs.mjs', '--report', TMP_REPORT, '--json', resolve(REPO_ROOT, 'runs', '.tmp-d8-score.json'), '--strict'])
+  const step2 = run([evalFile('D8/score-pairs.mjs'), '--pairs', evalFile('D8/pairs/pairs.dev30.json'), '--report', TMP_REPORT, '--json', resolve(REPO_ROOT, 'runs', '.tmp-d8-score.json'), '--strict'])
   const pass = /"pass":\s*(\d+)/.exec(step2.out)?.[1]
   const fail = /"fail":\s*(\d+)/.exec(step2.out)?.[1]
   const notRun = /"not_run":\s*(\d+)/.exec(step2.out)?.[1]

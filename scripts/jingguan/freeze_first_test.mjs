@@ -16,6 +16,7 @@ import { spawnSync } from 'node:child_process'
 import { mkdirSync, writeFileSync, readFileSync, existsSync, rmSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { evalFile } from './lib/eval_side.mjs'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const node = process.execPath
@@ -89,15 +90,15 @@ if (batchEnvelopes === null && !dry) { console.error('[首测冻结] A 段未产
 
 // ---- B. 宗 D8 v0.2 配对（内置＋方插件）----
 const envelopesDir = batchEnvelopes ?? 'runs/batch-20261005T063943/envelopes'
-const b1 = stage('B1', 'D8 配对·内置引擎', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', envelopesDir, '--manifest', 'evaluation/D8/pairs/pairs.dev30.json', '--expect', '--out', `${rel(outDir)}/d8-builtin.json`], { verdict: /判定一致 (\d+\/\d+)/ })
+const b1 = stage('B1', 'D8 配对·内置引擎', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', envelopesDir, '--manifest', evalFile('D8/pairs/pairs.dev30.json'), '--expect', '--out', `${rel(outDir)}/d8-builtin.json`], { verdict: /判定一致 (\d+\/\d+)/ })
 writeFileSync(resolve(outDir, 'd8-builtin-score.json'), '')
-sh(['evaluation/D8/score-pairs.mjs', '--report', resolve(outDir, 'd8-builtin.json'), '--json', resolve(outDir, 'd8-builtin-score.json'), '--strict'])
+sh([evalFile('D8/score-pairs.mjs'), '--pairs', evalFile('D8/pairs/pairs.dev30.json'), '--report', resolve(outDir, 'd8-builtin.json'), '--json', resolve(outDir, 'd8-builtin-score.json'), '--strict'])
 const s1 = JSON.parse(readFileSync(resolve(outDir, 'd8-builtin-score.json'), 'utf8'))
 manifest.stages.at(-1).checks.strict = `${s1.result} ${s1.pass}/${s1.pass + s1.fail + s1.not_run}`
 lines.push(`- --strict：**${s1.result} ${s1.pass}/${s1.pass + s1.fail + s1.not_run}**`)
 
-const b2 = stage('B2', 'D8 配对·方 matching 插件', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', envelopesDir, '--manifest', 'evaluation/D8/pairs/pairs.dev30.json', '--matcher', 'tools/fang-matching/src_D8/matching_D8.mjs', '--expect', '--out', `${rel(outDir)}/d8-plugin.json`], { verdict: /判定一致 (\d+\/\d+)/ })
-sh(['evaluation/D8/score-pairs.mjs', '--report', resolve(outDir, 'd8-plugin.json'), '--json', resolve(outDir, 'd8-plugin-score.json'), '--strict'])
+const b2 = stage('B2', 'D8 配对·方 matching 插件', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', envelopesDir, '--manifest', evalFile('D8/pairs/pairs.dev30.json'), '--matcher', 'tools/fang-matching/src_D8/matching_D8.mjs', '--expect', '--out', `${rel(outDir)}/d8-plugin.json`], { verdict: /判定一致 (\d+\/\d+)/ })
+sh([evalFile('D8/score-pairs.mjs'), '--pairs', evalFile('D8/pairs/pairs.dev30.json'), '--report', resolve(outDir, 'd8-plugin.json'), '--json', resolve(outDir, 'd8-plugin-score.json'), '--strict'])
 const s2 = JSON.parse(readFileSync(resolve(outDir, 'd8-plugin-score.json'), 'utf8'))
 manifest.stages.at(-1).checks.strict = `${s2.result} ${s2.pass}/${s2.pass + s2.fail + s2.not_run}`
 lines.push(`- --strict：**${s2.result} ${s2.pass}/${s2.pass + s2.fail + s2.not_run}**`)
@@ -106,8 +107,8 @@ lines.push(`- --strict：**${s2.result} ${s2.pass}/${s2.pass + s2.fail + s2.not_
 stage('C', '封存 20 组回放', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', 'runs/batch-20261003T160213/envelopes', '--manifest', 'corpus/zongbowen/sealed/cross-doc-manifest.json', '--expect'], { verdict: /判定一致 (\d+\/\d+)/ })
 
 // ---- D. 宗 D9 20 条归因 ----
-const d1 = stage('D', 'D9 归因 20 条（含双侧证据）', ['scripts/jingguan/run_d9_rules.mjs', '--cases', 'evaluation/D9/cases/rules-cases.dev.json', '--bilateral', 'tools/zhang-bilateral/bilateral_evidence.json', '--out', `${rel(outDir)}/d9-rules.json`], { cases: /(\d+) 案/ })
-sh(['evaluation/D9/score-rules.mjs', '--report', resolve(outDir, 'd9-rules.json'), '--json', resolve(outDir, 'd9-rules-score.json'), '--strict'])
+const d1 = stage('D', 'D9 归因 20 条（含双侧证据）', ['scripts/jingguan/run_d9_rules.mjs', '--cases', evalFile('D9/cases/rules-cases.dev.json'), '--bilateral', 'tools/zhang-bilateral/bilateral_evidence.json', '--out', `${rel(outDir)}/d9-rules.json`], { cases: /(\d+) 案/ })
+sh([evalFile('D9/score-rules.mjs'), '--cases', evalFile('D9/cases/rules-cases.dev.json'), '--report', resolve(outDir, 'd9-rules.json'), '--json', resolve(outDir, 'd9-rules-score.json'), '--strict'])
 const s3 = JSON.parse(readFileSync(resolve(outDir, 'd9-rules-score.json'), 'utf8'))
 manifest.stages.at(-1).checks.strict = `${s3.result} ${s3.pass}/${s3.pass + s3.fail + s3.not_run}`
 lines.push(`- --strict：**${s3.result} ${s3.pass}/${s3.pass + s3.fail + s3.not_run}**`)

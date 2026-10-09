@@ -1,7 +1,7 @@
 {
-  "built_at": "2026-10-06T13:00:29.793Z",
+  "built_at": "2026-10-09T11:04:40.208Z",
   "built_by": "build_d10_bundle.mjs",
-  "code_version": "bcc0cc6e",
+  "code_version": "5959761a",
   "cache_definitions": {
     "replay_business_fields_identical": "冷批 vs 重放批 31 信封业务字段（schema/is_mock/sha/events 全量）逐字节一致",
     "cold_cache_new_call_log": "清缓存后重跑产生全新调用日志（cache.hit=false），见证据文件",
@@ -16,14 +16,14 @@
         "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
         "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e"
       ],
-      "run_id": "b-20261006130027",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110438",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D5-EQC-001",
           "envelope_found": true,
-          "run_id": "20261006T085808-equity_change-5778",
+          "run_id": "20261007T084852-equity_change-5815",
           "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
           "is_mock": false,
           "events": 5,
@@ -36,7 +36,7 @@
         {
           "case_id": "D5-EQC-002",
           "envelope_found": true,
-          "run_id": "20261006T085808-equity_change-ae68",
+          "run_id": "20261007T084852-equity_change-72c1",
           "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
           "is_mock": false,
           "events": 3,
@@ -49,7 +49,7 @@
         {
           "case_id": "D5-EQC-003",
           "envelope_found": true,
-          "run_id": "20261006T085809-equity_change-14e4",
+          "run_id": "20261007T084852-equity_change-21ea",
           "file_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
           "is_mock": false,
           "events": 1,
@@ -103,14 +103,14 @@
         "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
         "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33"
       ],
-      "run_id": "b-20261006130027",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110438",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D5-EQC-004",
           "envelope_found": true,
-          "run_id": "20261006T085809-equity_change-e235",
+          "run_id": "20261007T084852-equity_change-7e2f",
           "file_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
           "is_mock": false,
           "events": 1,
@@ -123,7 +123,7 @@
         {
           "case_id": "D5-EQC-005",
           "envelope_found": true,
-          "run_id": "20261006T085809-equity_change-b223",
+          "run_id": "20261007T084852-equity_change-3479",
           "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
           "is_mock": false,
           "events": 1,
@@ -173,14 +173,14 @@
         "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
         "3b1abc7f47dbb6062f40f7631b263356bfacd930f23672ebd7a1e96603671a02"
       ],
-      "run_id": "b-20261006130027",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110438",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D5-EQC-006",
           "envelope_found": true,
-          "run_id": "20261006T085809-equity_change-02d1",
+          "run_id": "20261007T084852-equity_change-586a",
           "file_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
           "is_mock": false,
           "events": 1,
@@ -243,14 +243,14 @@
         "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
         "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51"
       ],
-      "run_id": "b-20261006130028",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110438",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D4-PLD-001",
           "envelope_found": true,
-          "run_id": "20261006T085807-pledge-aa0e",
+          "run_id": "20261007T084852-pledge-9867",
           "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
           "is_mock": false,
           "events": 3,
@@ -263,7 +263,7 @@
         {
           "case_id": "D5-EQC-001",
           "envelope_found": true,
-          "run_id": "20261006T085808-equity_change-5778",
+          "run_id": "20261007T084852-equity_change-5815",
           "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
           "is_mock": false,
           "events": 5,
@@ -314,14 +314,14 @@
         "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
         "0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa"
       ],
-      "run_id": "b-20261006130028",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110439",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D6-AWD-001",
           "envelope_found": true,
-          "run_id": "20261006T085809-award_contract-2da6",
+          "run_id": "20261007T084853-award_contract-5a63",
           "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
           "is_mock": false,
           "events": 1,
@@ -334,7 +334,7 @@
         {
           "case_id": "D6-AWD-002",
           "envelope_found": true,
-          "run_id": "20261006T085810-award_contract-3d86",
+          "run_id": "20261007T084853-award_contract-b521",
           "file_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
           "is_mock": false,
           "events": 4,
@@ -347,7 +347,7 @@
         {
           "case_id": "D6-AWD-003",
           "envelope_found": true,
-          "run_id": "20261006T085810-award_contract-9fb2",
+          "run_id": "20261007T084853-award_contract-21c0",
           "file_sha256": "0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
           "is_mock": false,
           "events": 3,
@@ -401,14 +401,14 @@
         "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
         "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63"
       ],
-      "run_id": "b-20261006130028",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110439",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "pledge-scan-degrade",
           "envelope_found": true,
-          "run_id": "20261006T085811-pledge-scan",
+          "run_id": "20261007T084853-pledge-scan",
           "file_sha256": "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
           "is_mock": false,
           "events": 1,
@@ -421,7 +421,7 @@
         {
           "case_id": "D6-AWD-001",
           "envelope_found": true,
-          "run_id": "20261006T085809-award_contract-2da6",
+          "run_id": "20261007T084853-award_contract-5a63",
           "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
           "is_mock": false,
           "events": 1,
@@ -474,14 +474,14 @@
         "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
         "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee"
       ],
-      "run_id": "b-20261006130028",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110439",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D6-AWD-004",
           "envelope_found": true,
-          "run_id": "20261006T085810-award_contract-e1de",
+          "run_id": "20261007T084853-award_contract-a99b",
           "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
           "is_mock": false,
           "events": 1,
@@ -494,7 +494,7 @@
         {
           "case_id": "D6-AWD-005",
           "envelope_found": true,
-          "run_id": "20261006T085810-award_contract-61fc",
+          "run_id": "20261007T084853-award_contract-a1c6",
           "file_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
           "is_mock": false,
           "events": 1,
@@ -544,14 +544,14 @@
         "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
         "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa"
       ],
-      "run_id": "b-20261006130029",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110439",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D6-AWD-007",
           "envelope_found": true,
-          "run_id": "20261006T085810-award_contract-af7b",
+          "run_id": "20261007T084853-award_contract-6763",
           "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
           "is_mock": false,
           "events": 1,
@@ -564,7 +564,7 @@
         {
           "case_id": "D6-AWD-002",
           "envelope_found": true,
-          "run_id": "20261006T085810-award_contract-3d86",
+          "run_id": "20261007T084853-award_contract-b521",
           "file_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
           "is_mock": false,
           "events": 4,
@@ -616,14 +616,14 @@
         "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
         "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1"
       ],
-      "run_id": "b-20261006130029",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110439",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D4-PLD-001",
           "envelope_found": true,
-          "run_id": "20261006T085807-pledge-aa0e",
+          "run_id": "20261007T084852-pledge-9867",
           "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
           "is_mock": false,
           "events": 3,
@@ -636,7 +636,7 @@
         {
           "case_id": "D4-PLD-009",
           "envelope_found": true,
-          "run_id": "20261006T085808-pledge-f3b5",
+          "run_id": "20261007T084852-pledge-2bc9",
           "file_sha256": "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
           "is_mock": false,
           "events": 3,
@@ -688,14 +688,14 @@
         "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
         "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26"
       ],
-      "run_id": "b-20261006130029",
-      "code_version": "bcc0cc6e",
+      "run_id": "b-20261009110440",
+      "code_version": "5959761a",
       "schema_version": "0.3",
       "records": [
         {
           "case_id": "D4-PLD-001",
           "envelope_found": true,
-          "run_id": "20261006T085807-pledge-aa0e",
+          "run_id": "20261007T084852-pledge-9867",
           "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
           "is_mock": false,
           "events": 3,
@@ -708,7 +708,7 @@
         {
           "case_id": "D5-EQC-001",
           "envelope_found": true,
-          "run_id": "20261006T085808-equity_change-5778",
+          "run_id": "20261007T084852-equity_change-5815",
           "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
           "is_mock": false,
           "events": 5,
@@ -721,7 +721,7 @@
         {
           "case_id": "D6-AWD-001",
           "envelope_found": true,
-          "run_id": "20261006T085809-award_contract-2da6",
+          "run_id": "20261007T084853-award_contract-5a63",
           "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
           "is_mock": false,
           "events": 1,
@@ -734,7 +734,7 @@
         {
           "case_id": "pledge-scan-degrade",
           "envelope_found": true,
-          "run_id": "20261006T085811-pledge-scan",
+          "run_id": "20261007T084853-pledge-scan",
           "file_sha256": "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26",
           "is_mock": false,
           "events": 1,

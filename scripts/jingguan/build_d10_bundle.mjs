@@ -13,12 +13,13 @@ import { resolve, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { tmpdir } from 'node:os'
 import { spawnSync } from 'node:child_process'
+import { evalFile } from './lib/eval_side.mjs'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const node = process.execPath
 
 function parseArgs(argv) {
-  const a = { envelopes: null, out: 'runs/D10-integration-bundle.json', cases: 'evaluation/D10/cases/integration-cases.json' }
+  const a = { envelopes: null, out: 'runs/D10-integration-bundle.json', cases: 'D10/cases/integration-cases.json' }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--envelopes') a.envelopes = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
@@ -60,7 +61,8 @@ function memberRecord(member) {
   }
 }
 
-const cases = JSON.parse(readFileSync(resolve(REPO_ROOT, args.cases), 'utf8')).cases ?? JSON.parse(readFileSync(resolve(REPO_ROOT, args.cases), 'utf8'))
+const casesPath = args.cases.startsWith('runs/.tmp-eval') ? resolve(REPO_ROOT, args.cases) : (existsSync(resolve(REPO_ROOT, args.cases)) ? resolve(REPO_ROOT, args.cases) : evalFile(args.cases));
+const cases = JSON.parse(readFileSync(casesPath, 'utf8')).cases ?? JSON.parse(readFileSync(casesPath, 'utf8'))
 const codeVersion = spawnSync('git', ['rev-parse', '--short', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8', stdio: 'pipe' }).stdout.trim()
 
 // 缓存三一致性（当日实测：冷批→重放批→清缓存冷批，见 runs/D10-cache-evidence.json）

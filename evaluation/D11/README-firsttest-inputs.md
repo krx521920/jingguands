@@ -50,3 +50,16 @@ node evaluation/D10/check-integration.mjs \
 2. **缓存三件**：`D10-cache-evidence.json` 已拷入本目录（三态实测：冷31miss→重放31hit/0miss→清31miss，业务字段逐字节一致31/31）
 3. **D10 bundle**：`D10-integration-bundle.json` 已拷入本目录（`check-integration --strict` PASS 10/10 的那份）
 4. **call_log**：个体运行目录已清（节省体积）；`firsttest-run-registry.json` 有全部 run_id 映射。**2026-10-07 晚已重建入库**：`evaluation/D11/call-logs/` 31 份 call_log＋逐份分类 manifest＋缓存快照（14 份首测原响应字节 / 12 份冷跑实验覆写后值层等价 / 5 份充值后重调补齐：4 份逐字节一致＋1 份 note 抖动），差异说明见该目录 README——勿再用 `runs/.model-cache` 重放（已被冷跑实验部分覆写，改用快照目录）
+
+
+## 单一真源说明（2026-10-09，宗审计裁定）
+
+`evaluation/` 评测侧文件以 **zongbowen 分支**为唯一正典，本分支不保留副本（含本目录首测信封
+firsttest-envelopes/ 等 45 个重叠件已删除）。在本分支复跑评测命令前先物化评测侧文件：
+
+```bash
+git fetch origin zongbowen && git checkout origin/zongbowen -- evaluation/D9 evaluation/D8 evaluation/D10 evaluation/D11/firsttest-envelopes
+```
+
+或直接在 zongbowen 分支执行（评测命令的正典运行环境）。抽取侧门禁已改为运行时按需物化
+（scripts/jingguan/lib/eval_side.mjs，来源 sha 记录于 runs/.tmp-eval/.provenance.json）。
