@@ -108,6 +108,50 @@
 - [x] 回归：桥 31/31 数据集全过；server e2e（31 数据集、awd_002 四事件 14 字段、CSV/JSON 导出链路共用 readDataset 不受影响）
 - [ ] **张第三节口径问题（D4-PLD 重跑 vs 单列弱锚定组）**：等宗博文裁决——页面侧已按方案 2 做好弱锚定标注，裁决后若选重跑，数据零改动直接换
 
+## 1i. D8（10-04 晚）：跨文档配对视图——交接单点名两项 + 领导截图两条质疑，全部收口
+
+**交付（page_prototype）**
+- **`GET /api/pairs`**：宗 13 组封存清单 v0.2（`data/pairs/pairs_manifest.json`）× 魏 B 全量报告（`data/pairs/b_report.json`，20261004，PAIR-013=unknown）服务端合并；本地信封能对上的成员附代表原文锚点（provenance.quote + 页码），对不上的如实标"本地无此信封"。
+- **配对视图**（`render/pairs.js` + 头部「跨文档配对 D8」按钮，与三栏视图互斥切换）：每组卡片双栏并排。
+- **质疑①修复（双侧元数据上屏）**：A/B 两侧 `issuer_code` / `notice_number` 显式显示 + raw/gold sha256 前 12 位；编号 null 显式显示"—（首页无本文件编号）"+ 黄字"正文引用编号 2025-097（非本文件编号）"（宗 v0.2 更正口径）——EQC-003 清单本身 issuer_code=null（财务顾问核查意见首页无代码），如实显示"清单未登记"，不代填。
+- **质疑②修复（PAIR-013 三态）**：`predicted_relation=unknown` 一律渲染黄徽章「证据不足 · 无法判定」+ 黄条解释（INSUFFICIENT_SIGNALS / 一侧 0 可用字段）+ 卡片描边高亮；代码层 `clsOf()` 保证 insufficient/unknown 同态，**绝不落入"不同事件"**。
+- 每组附：预期（宗清单）→ 实判（魏 B）徽章 + 一致性勾叉、reasons 中文 chips、互证点/矛盾计数、A-run 链路（a_run_id@code_version，版本可追踪）。
+- 顶部诚实边界横幅：同事件上界 C(3,2)+C(2,2)=4，据实交付 13 组不凑 6（宗 README 口径）。
+
+**验证**：`/api/pairs` e2e 断言 3/3 PASS（13 组预期 vs 实判同态；013=unknown→证据不足；双侧元数据字段全送达）；原文锚点 20/26 成员命中（6 个缺：PLD-002/003/004/006/008 本地无信封 + pledge-scan-degrade 0 可用字段——如实标注）；datasets 回归 31 个不受影响；模块语法全过。
+
+**快照**：宗交接单 + 评测 README → `docs/_ref_zong_D8_配对清单交接单.md` / `_ref_zong_D8_评测README.md`。
+
+## 1j. D9（10-05 凌晨）：核验清单页 + 双侧证据视图——"先归因再判矛盾"落地
+
+**交付（page_prototype）**
+- **`GET /api/verify`**：① 扫全部 `data/*.check.json`（方 equity_check_D5 sidecar）→ 发现聚合（code/severity/归因文案/字段），每条从对应数据集信封富化 provenance（quote+页码+block_id，张的出处）；② `data/pairs/b_report.json` → 互证点装配（整条透传 + 本地页码）。
+- **核验清单视图**（`render/verify.js`，头部「核验清单 D9」按钮，与单文档/配对三视图互斥）：每条发现**先归因后判定**——方的 message 加粗在前、判定码殿后，出处条挂底；按严重级排序。
+- **双侧证据视图**：互证点 A|B 两栏 quote 并排（带本地页码）；**合计勾稽形态**（group_total_matches_sum）单独渲染——合计侧 + 分项 chips（D8-PAIR-002：四人之变动股数之和 = EQC-003 合计 8,427,900）。
+- 诚实纪律：缺文案/缺出处显式标注不虚构——EQC-003 两条 MISSING_* 发现无出处（值缺失即发现本身）；sidecar 坏文件计数进汇总条不静默丢弃。
+- 三视图切换重构：showView('main'|'pairs'|'verify') 统一管理，内容缓存首进才拉接口。
+
+**验证**：/api/verify 断言 3/3 PASS——归因文案 10/10 齐全；出处富化 8/10（缺的 2 条如实标注）；互证点分形态成对（simple 9 双侧 + 合计勾稽 1 带分项）。汇总：10 数据集 · 11 verified / 5 review 事件 · 10 发现全 review 级 · 互证 10 · 组级矛盾 0。坑：server 装配初版只挑 simple 字段把 kind/aggregate/parts 丢了 → 改整条透传。
+
+## 1k. D10（10-06）：多公告集成视图 —— 四方新推送全接入 + 轮值议程与演示
+
+**拉码**：四方均有新推送，已全部浅拉并核实口径——魏 `weiwenyu@7bb13c8`（缓存/重放/清缓存 + 10 组 bundle + 修降级信封哈希语义）、张 `zhangzhibo@ada614c`（出处链四段检查 + 同名串证据量化）、宗 `zongbowen@5073ffc`（10 组集成案例 + 校验器 + 对抗样本）、方 `feature/fang-rules@ef8738e3`（核验报告五段 + 10 组合集 + 17 项检查 + toChenVerify 投影）。
+**数据落地** `data/d10/` 五份：宗 integration_cases / 魏 integration_bundle + cache_evidence / 张 chain_check / 方 fang_report_bundle（1.3MB，全量非摘要）。快照 `docs/_ref_*_D10_*` 四份。
+
+**交付**
+- **`GET /api/integration`**：五份产物在服务端合并——宗预期 × 魏实判 × 缓存三态 × 张链检 × 方报告五段；派生 expected_relation（自然语言→三态词映射）、relation_match、宗必填七项自检、成员级链检五段、重复文字组 Top3。
+- **`render/integration.js`**：顶部汇总条（10 组 · related2/unrelated6/unknown2 · 预期一致 9 + 不可验 1 · 必填零缺失）＋缓存三态面板（冷启 0/31 → 重放 31/0 → 清缓存 0/31，gold 437/437，三项断言徽章）＋方报告面板＋出处链面板（齐全 7/10 · 重复文字组内块 2009 · 缺 3 条）＋逐组卡片（预期→实判徽章/考察点/判定明细/归因/边界/差异清单/必填七项/成员表/方报告五段折叠区）。
+- 四视图互斥切换（单文档 / 配对 D8 / 核验 D9 / **集成 D10**）。
+
+**三个必须如实上屏的口径（不做单方调和）**
+1. **方标 requires_review 6/10 组**（003/006/007/008/009/010）vs 宗 `--strict` 10/10 PASS——后者只校验必填完整性，页面并列显示防全绿即无问题误读。
+2. **Web/CLI 一致性的两套口径**：魏给 true（定义=信封 JSON 唯一事实源、同文件消费）；方边界声明 `CACHE_RUNTIME_NOT_REEXECUTED` 明确「未调模型、冷重跑日志与**陈实际 Web/CLI 同次一致性未在本次独立验证**」——该声明置顶显示。
+3. **互证计数三处不同**：宗预期文本「互证9」/ 魏实判 corroborations=10 / 方 upstream_counts=10、规则级 items 中 corroboration 类 3 条（引擎级 vs 规则级）——页面并列，请魏/宗给唯一定义。
+
+**验证**：`/api/integration` e2e 断言 **28/28 PASS**（含方五段、合计勾稽 3,680,700+2,975,600+430,000+1,341,600=8,427,900 求和校验、链检 21 成员五段全过 / 3 成员无解析包如实留空）；渲染函数用 DOM stub 实跑 1373 节点无异常、关键文案 11/11 命中（浏览器截图未做：Chromium 在本机启动被环境杀，已改 stub 验证并在此声明）。
+
+**轮值交付**：`docs/cjh_workspace_09_D10轮值议程与演示.md`（13:00 议程六议题 + 17:30 演示三步）；`demo/使用演示.md` 扩至 15 个演示（13 缓存三态 / 14 十组集成 / 15 方报告五段+出处链）。
+
 ## 2. 待确认区（阻塞于交流数据 / 待拍板文件，等总体完成后统一请领导确认）
 
 

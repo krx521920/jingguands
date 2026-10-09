@@ -1,0 +1,106 @@
+{
+ "base": "http://127.0.0.1:8643",
+ "captured_at": "2026-10-06 23:35:11",
+ "scenes": [
+  {
+   "id": "00",
+   "file": "00_main_three_column.png",
+   "title": "单文档三栏（默认视图 · D3真实闭环）",
+   "viewport": "1600x1000",
+   "full_page": false,
+   "bytes": 354821,
+   "console_errors": []
+  },
+  {
+   "id": "01",
+   "file": "01_equity_change_real.png",
+   "title": "单文档 · D5 股权变动真实批次（方向徽章 + 前后值并排 + 冲突提示）",
+   "viewport": "1600x1100",
+   "full_page": true,
+   "bytes": 959011,
+   "console_errors": []
+  },
+  {
+   "id": "02",
+   "file": "02_pairs_d8.png",
+   "title": "跨文档配对 D8（13 组三态 · PAIR-013 证据不足）",
+   "viewport": "1600x1150",
+   "full_page": true,
+   "bytes": 2546026,
+   "console_errors": []
+  },
+  {
+   "id": "03",
+   "file": "03_verify_d9.png",
+   "title": "核验清单 D9（先归因后判矛盾 + 双侧证据）",
+   "viewport": "1600x1150",
+   "full_page": true,
+   "bytes": 1204687,
+   "console_errors": []
+  },
+  {
+   "id": "04",
+   "file": "04_integration_top_cache.png",
+   "title": "D10 多公告集成 · 顶部汇总 + 缓存一致性三态",
+   "viewport": "1600x1200",
+   "full_page": false,
+   "bytes": 697051,
+   "console_errors": []
+  },
+  {
+   "id": "05b",
+   "file": "05b_provenance_chain.png",
+   "title": "D10 出处链面板（张 · 齐全 7/10 · 重复文字组 2,009 块 · 覆盖缺口 3 条）",
+   "viewport": "1600x1150",
+   "full_page": false,
+   "bytes": 671847,
+   "console_errors": []
+  },
+  {
+   "id": "06",
+   "file": "06_case_006_unknown.png",
+   "title": "D10 案例 006 扫描降级参与（证据不足·无法判定，不进矛盾比较）",
+   "viewport": "1600x1200",
+   "full_page": false,
+   "bytes": 537269,
+   "console_errors": []
+  },
+  {
+   "id": "07",
+   "file": "07_case_001.png",
+   "title": "D10 案例 001 科创新材（同事件互证 · 预期 vs 实判一致）",
+   "viewport": "1600x1300",
+   "full_page": false,
+   "bytes": 598496,
+   "console_errors": []
+  },
+  {
+   "id": "08",
+   "file": "08_case_003_006_010.png",
+   "title": "D10 案例 003 鸿路钢构（同公司同股数仍判不同事件）+ 006/010 证据不足",
+   "viewport": "1600x1300",
+   "full_page": false,
+   "bytes": 538299,
+   "console_errors": []
+  },
+  {
+   "id": "09",
+   "file": "09_fang_report_five_sections.png",
+   "title": "D10 方报告五段（差异明细 + 计算段勾稽 + 边界声明）",
+   "viewport": "1600x1350",
+   "full_page": false,
+   "bytes": 702053,
+   "console_errors": []
+  },
+  {
+   "id": "10",
+   "file": "10_caliber_statement.png",
+   "title": "D10 口径声明（三处不单方调和的口径如实上屏）",
+   "viewport": "1600x1200",
+   "full_page": false,
+   "bytes": 522174,
+   "console_errors": []
+  }
+ ],
+ "errors": []
+}

@@ -1,0 +1,1558 @@
+{
+  "generated_at": "2026-10-07T15:23:22.239Z",
+  "headline": "实际对照三层已实跑：L1 文件哈希 distinct（22 对，0 对同源）；L2 跨批逐字段 divergent（22 例，372/382 字段一致）；L3 导出字节 idempotent（16/16 字节相同）。★ 三层都不能证明「Web 与 CLI 独立抽取一致」——该结论仍为未测。",
+  "input_fingerprint": {
+    "generated_at": "2026-10-07T15:23:22.237Z",
+    "inputs": {
+      "page_data": {
+        "dir": "data",
+        "exists": true,
+        "files": 41,
+        "sha256": "c3157267d0102ce082ad1339c1ede9e691d3e8d2bee642b4be2cad6549583f91",
+        "per_file": {
+          "bank_guarantee.json": "debfacb30c75",
+          "pledge.json": "ba4c6d14ab42",
+          "share_change.json": "e2f01da5d233",
+          "upstream_case.json": "d1a2e9dff212",
+          "wei_multi_event_test.json": "d6cfe4df8858",
+          "wei_real_D4_scan.json": "d55aa9ec4687",
+          "wei_real_PLD001_3ev.json": "dea38533e961",
+          "wei_real_PLD005_release.json": "20aff6c2c948",
+          "wei_real_awd_001.json": "cc2d879e6c0f",
+          "wei_real_awd_002.json": "de25ec1ac1cf",
+          "wei_real_awd_003.json": "42f371636a19",
+          "wei_real_awd_004.json": "ef1fc74e9f6c",
+          "wei_real_awd_005.json": "ea6193523e7d",
+          "wei_real_awd_006.json": "7fce24ff88cf",
+          "wei_real_awd_007.json": "1e7649e4efe0",
+          "wei_real_awd_008.json": "9ea048c60e3a",
+          "wei_real_awd_009.json": "4c1a04b8d248",
+          "wei_real_awd_010.json": "568f488e0933",
+          "wei_real_eqc_001.check.json": "3e70c9f7fc42",
+          "wei_real_eqc_001.json": "62d8b7191278",
+          "wei_real_eqc_002.check.json": "9a332340b858",
+          "wei_real_eqc_002.json": "7d07931d1636",
+          "wei_real_eqc_003.check.json": "8e82b6d15ac5",
+          "wei_real_eqc_003.json": "46e57234c6d5",
+          "wei_real_eqc_004.check.json": "272becbb326c",
+          "wei_real_eqc_004.json": "d34221c143d6",
+          "wei_real_eqc_005.check.json": "fac9ed677455",
+          "wei_real_eqc_005.json": "adf5f543bc89",
+          "wei_real_eqc_006.check.json": "28caf6445da6",
+          "wei_real_eqc_006.json": "359f71c2623c",
+          "wei_real_eqc_007.check.json": "b2c497880aca",
+          "wei_real_eqc_007.json": "32b34ea5207f",
+          "wei_real_eqc_008.check.json": "a458dd997c45",
+          "wei_real_eqc_008.json": "b1e572e99685",
+          "wei_real_eqc_009.check.json": "bf7480a73820",
+          "wei_real_eqc_009.json": "523dfccda814",
+          "wei_real_eqc_010.check.json": "4023b1fc3e18",
+          "wei_real_eqc_010.json": "1562f2b8c84d",
+          "wei_real_pledge_0197.json": "bf26e5aa0fc7",
+          "wei_real_pledge_ce37.json": "feb6e613b7d0",
+          "wei_run_pledge.json": "63ac3f89a3bf"
+        }
+      },
+      "unified_batch": {
+        "dir": "data_unified",
+        "exists": true,
+        "files": 32,
+        "sha256": "2c680b4692ebd4ff4462fa071d642198565797b5b296b9d7288ac463729aeba6",
+        "per_file": {
+          "D4-PLD-001.json": "325bbdb916ac",
+          "D4-PLD-002.json": "233d46e0b16f",
+          "D4-PLD-003.json": "179ebcdfebad",
+          "D4-PLD-004.json": "857be1d99df2",
+          "D4-PLD-005.json": "ad6ec0e8bdd7",
+          "D4-PLD-006.json": "ed0581d8fbb7",
+          "D4-PLD-007.json": "e6dbfb8881ee",
+          "D4-PLD-008.json": "a6920423142b",
+          "D4-PLD-009.json": "7db0fe717d7e",
+          "D4-PLD-010.json": "e8c964c3eabd",
+          "D5-EQC-001.json": "32ed4bc84d95",
+          "D5-EQC-002.json": "2bdf9d636048",
+          "D5-EQC-003.json": "f7941f00f051",
+          "D5-EQC-004.json": "f2ead089c94b",
+          "D5-EQC-005.json": "84c0a42a447c",
+          "D5-EQC-006.json": "9aba639b613c",
+          "D5-EQC-007.json": "ba9ec988633d",
+          "D5-EQC-008.json": "27204cec4a9f",
+          "D5-EQC-009.json": "fd695cedcf76",
+          "D5-EQC-010.json": "d2c6007d43ed",
+          "D6-AWD-001.json": "2618a04767cf",
+          "D6-AWD-002.json": "699b52ea9887",
+          "D6-AWD-003.json": "678efe9608ae",
+          "D6-AWD-004.json": "959bbe0683a9",
+          "D6-AWD-005.json": "8c666026b2af",
+          "D6-AWD-006.json": "f74bff987258",
+          "D6-AWD-007.json": "1ea1b98b1a33",
+          "D6-AWD-008.json": "4a77be9708c8",
+          "D6-AWD-009.json": "3303d5fa13b9",
+          "D6-AWD-010.json": "8fe863d3f533",
+          "DEMO-EQC-HL-0930.json": "0df396853dc3",
+          "pledge-scan-degrade.json": "0047f3cfe4ef"
+        }
+      }
+    },
+    "primary": "c3157267d0102ce082ad1339c1ede9e691d3e8d2bee642b4be2cad6549583f91",
+    "combined_sha256": "15dda16e0756bc6b95efca971f1c3711c99be1f0bd1eb90ada9b438e61bb7124"
+  },
+  "layers": {
+    "L1": {
+      "layer": "L1_file_hash",
+      "question": "两侧信封是不是同一份文件？（同源则后续对照无意义）",
+      "verdict": "distinct",
+      "a_dir": "data/",
+      "b_dir": "data_unified/",
+      "a_files": 31,
+      "b_files": 32,
+      "paired": 22,
+      "identical": 0,
+      "same_source": false,
+      "reason": "22 对全部字节不同 ⇒ 确为两个独立产物，可继续 L2 跨批逐字段对照",
+      "rows": [
+        {
+          "a_file": "bank_guarantee.json",
+          "paired": false,
+          "reason": "A 侧无 file_id"
+        },
+        {
+          "a_file": "pledge.json",
+          "paired": false,
+          "reason": "A 侧无 file_id"
+        },
+        {
+          "a_file": "share_change.json",
+          "paired": false,
+          "reason": "统一批无此 file_id"
+        },
+        {
+          "a_file": "upstream_case.json",
+          "paired": false,
+          "reason": "A 侧无 file_id"
+        },
+        {
+          "a_file": "wei_multi_event_test.json",
+          "paired": false,
+          "reason": "统一批无此 file_id"
+        },
+        {
+          "a_file": "wei_real_D4_scan.json",
+          "paired": false,
+          "reason": "统一批无此 file_id"
+        },
+        {
+          "a_file": "wei_real_PLD001_3ev.json",
+          "paired": false,
+          "reason": "统一批无此 file_id"
+        },
+        {
+          "a_file": "wei_real_PLD005_release.json",
+          "paired": false,
+          "reason": "统一批无此 file_id"
+        },
+        {
+          "a_file": "wei_real_awd_001.json",
+          "b_file": "D6-AWD-001.json",
+          "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+          "paired": true,
+          "sha_a": "cc2d879e6c0f3a2c8554460fd0d317facdb35b98b0ed1f44451371e0ef7d9ed4",
+          "sha_b": "2618a04767cff821bf2796439e72c5a851a7fc46d95316550d16c38a5768d607",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121106-award_contract-7bfe",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-5a63",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_awd_002.json",
+          "b_file": "D6-AWD-002.json",
+          "file_id": "sha256:c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+          "paired": true,
+          "sha_a": "de25ec1ac1cf5ae0a9dd544e7370a247dc2fdddcfadd4d96d0451b42db26e17a",
+          "sha_b": "699b52ea9887dc4f490c960beaabffe245b41c3301917ca098b1574486a95fcf",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121109-award_contract-b51b",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-b521",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 4,
+          "b_events": 4
+        },
+        {
+          "a_file": "wei_real_awd_003.json",
+          "b_file": "D6-AWD-003.json",
+          "file_id": "sha256:0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+          "paired": true,
+          "sha_a": "42f371636a19aa4a860a5fd47ffb3c5ac3bc4fd25f63a8278a97f5e896dc5a92",
+          "sha_b": "678efe9608ae8b92c1ba8031c89fc2c703f5a9153ee385e9a9af7212bfe2c22b",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121121-award_contract-35f9",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-21c0",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 3,
+          "b_events": 3
+        },
+        {
+          "a_file": "wei_real_awd_004.json",
+          "b_file": "D6-AWD-004.json",
+          "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+          "paired": true,
+          "sha_a": "ef1fc74e9f6c04390d8d4d60ef3367372e8d2991f21bd7c215a11e2d2d7e0ec6",
+          "sha_b": "959bbe0683a9ea18ac87225eb8d6ac139a54e8ed2e11962807fbacc210ccec0e",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121131-award_contract-c5ab",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-a99b",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_awd_005.json",
+          "b_file": "D6-AWD-005.json",
+          "file_id": "sha256:dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+          "paired": true,
+          "sha_a": "ea6193523e7d3b5d35dba18b9685979a4b2e3f3f37ea4463d0e7f2b4e0f8f806",
+          "sha_b": "8c666026b2af11f0860ef46a5fff25c5e0953a950c1a711a38bddf4f3160ba79",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121135-award_contract-ace9",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-a1c6",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_awd_006.json",
+          "b_file": "D6-AWD-006.json",
+          "file_id": "sha256:fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
+          "paired": true,
+          "sha_a": "7fce24ff88cf68511e9278f8f9484bcd04141707ff75645f1a4cf753c08f23c7",
+          "sha_b": "f74bff987258f45d01ad0eb9104f3172c9150e5dc0f79e3db377ccaf391a92d4",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121139-award_contract-f0c3",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-7c5a",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_awd_007.json",
+          "b_file": "D6-AWD-007.json",
+          "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+          "paired": true,
+          "sha_a": "1e7649e4efe00752df2b4134b76077d529161631a9ee8287e04f3733cdf659e1",
+          "sha_b": "1ea1b98b1a33e67d3f28e8992bc7944e6b51a90426bb0ba362c1c0ad4a876c63",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121143-award_contract-ba62",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-6763",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_awd_008.json",
+          "b_file": "D6-AWD-008.json",
+          "file_id": "sha256:aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+          "paired": true,
+          "sha_a": "9ea048c60e3aedf0651f54a3d125e834eed17b56e7312f74ddf716638c9e30bc",
+          "sha_b": "4a77be9708c89681fbb827e83464970767630a2dcaaf80cf2ee3f55c93d48929",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121147-award_contract-a2c8",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-0e0e",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_awd_009.json",
+          "b_file": "D6-AWD-009.json",
+          "file_id": "sha256:3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+          "paired": true,
+          "sha_a": "4c1a04b8d248f2ffaa685ffdc62a2253a6280f9ac93d32f5597e04b44d21bc60",
+          "sha_b": "3303d5fa13b91c4260a1bbf81134a77ba9912a4613e672e7292fd99593899fc9",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121151-award_contract-7852",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-01d4",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 3,
+          "b_events": 3
+        },
+        {
+          "a_file": "wei_real_awd_010.json",
+          "b_file": "D6-AWD-010.json",
+          "file_id": "sha256:74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702",
+          "paired": true,
+          "sha_a": "568f488e09333b1e5e5062dc0abb27c344ef1388dc7817bac2e59854ec806119",
+          "sha_b": "8fe863d3f5338c4c8e81922900723b94c7a1bef3e73edebe2a704f5c0bd1f625",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121159-award_contract-ffb9",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-2597",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_eqc_001.json",
+          "b_file": "D5-EQC-001.json",
+          "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "paired": true,
+          "sha_a": "62d8b7191278d00074af2ec92d58431203a1e7b6b0650db94258ca6dbe9bec40",
+          "sha_b": "32ed4bc84d955457f45d7709f360323ad1672fe16d292b238d6b089c9bd440d1",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121003-equity_change-20d2",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-5815",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 5,
+          "b_events": 5
+        },
+        {
+          "a_file": "wei_real_eqc_002.json",
+          "b_file": "D5-EQC-002.json",
+          "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "paired": true,
+          "sha_a": "7d07931d1636195ba330502222f6999eed3e03a836cb221f30e1147d1eb41e72",
+          "sha_b": "2bdf9d636048582f5019912c51b1b0fcabc8cb633ec62dc4b1acda8864548219",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121016-equity_change-8f54",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-72c1",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 3,
+          "b_events": 3
+        },
+        {
+          "a_file": "wei_real_eqc_003.json",
+          "b_file": "D5-EQC-003.json",
+          "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+          "paired": true,
+          "sha_a": "46e57234c6d50bc03dad174fa4573970d7de20088dfb18d46c14cc6c7fd4ee57",
+          "sha_b": "f7941f00f0511304508f77a1e15fd60744713129aa9fa2edf4d6d6149c1207c1",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121035-equity_change-abca",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-21ea",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_eqc_004.json",
+          "b_file": "D5-EQC-004.json",
+          "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+          "paired": true,
+          "sha_a": "d34221c143d68b4fef8804d21d42c35f01a629157cb4a8fbee5ec31b6e868556",
+          "sha_b": "f2ead089c94b5613bd9253fbefe484f0b1a0a057c1f1f2455f7a4f99726e3b97",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121038-equity_change-e850",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-7e2f",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_eqc_005.json",
+          "b_file": "D5-EQC-005.json",
+          "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+          "paired": true,
+          "sha_a": "adf5f543bc8911cbe9754f77fbf46796350b44688e33f62d7a7618c33be10519",
+          "sha_b": "84c0a42a447ccf468d44c6cd88d8a4716e492a4efcfb61a0187b9ed560c640bd",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121042-equity_change-fd9a",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-3479",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_eqc_006.json",
+          "b_file": "D5-EQC-006.json",
+          "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+          "paired": true,
+          "sha_a": "359f71c2623c067235b791e8d1527ef604e271f5de7b1516515286f404396ab9",
+          "sha_b": "9aba639b613c44144f29e76dfc634995528f62141fbb88f9fd63683c7b73b739",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121045-equity_change-0ae0",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-586a",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_eqc_007.json",
+          "b_file": "D5-EQC-007.json",
+          "file_id": "sha256:3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+          "paired": true,
+          "sha_a": "32b34ea5207fd33d35e9e9a3f09c3673e2a64ac46b07f4f2b42b49b45ed6043e",
+          "sha_b": "ba9ec988633daa12df413edadd37e0bb22500e75d3a8d0a03d6d1bd1f46e6d59",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121049-equity_change-1e8d",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-7d95",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_eqc_008.json",
+          "b_file": "D5-EQC-008.json",
+          "file_id": "sha256:af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695",
+          "paired": true,
+          "sha_a": "b1e572e99685dc8bd82b00eae72eb8668a328f6342e8e3c66be11a8110b90429",
+          "sha_b": "27204cec4a9fddbb1c6ef28f78686fcfe115655e137d274c23509df14a27ecb2",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121053-equity_change-7083",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-5d06",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_eqc_009.json",
+          "b_file": "D5-EQC-009.json",
+          "file_id": "sha256:31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+          "paired": true,
+          "sha_a": "523dfccda814ed53038e977057c4691f70fa9c89db672447d39fe5c0745b14da",
+          "sha_b": "fd695cedcf761886395c8210b8219908903253fd7a5431f6ffd57ff68f1655c2",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121057-equity_change-1041",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-64c4",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_eqc_010.json",
+          "b_file": "D5-EQC-010.json",
+          "file_id": "sha256:d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
+          "paired": true,
+          "sha_a": "1562f2b8c84df3c2b16e87c1de9187567be86cde416b65c1d662ced093ea8ed4",
+          "sha_b": "d2c6007d43ed417dbe60f072c2f41441c702b78c20e89792c7688895b789944a",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20261002T121100-equity_change-25f7",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-equity_change-61eb",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 1
+        },
+        {
+          "a_file": "wei_real_pledge_0197.json",
+          "b_file": "D4-PLD-001.json",
+          "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "paired": true,
+          "sha_a": "bf26e5aa0fc78b3eeb4a7f5c3b0a4fa12a68922d178729705ebfeb08ef306f1b",
+          "sha_b": "325bbdb916ac2ba5a3fcc7b79dd89ba4d13c5ef053ba76bd388a8b0b28f7307e",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20260929T025658-pledge-0197",
+            "code_version": null,
+            "parser_version": "finstruct.parse/0.7.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-pledge-9867",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 3
+        },
+        {
+          "a_file": "wei_real_pledge_ce37.json",
+          "b_file": "D4-PLD-001.json",
+          "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "paired": true,
+          "sha_a": "feb6e613b7d053d1d9ea3253104d2486e2a2e554b0a862a51c9e93ab59e90966",
+          "sha_b": "325bbdb916ac2ba5a3fcc7b79dd89ba4d13c5ef053ba76bd388a8b0b28f7307e",
+          "identical": false,
+          "a_batch": {
+            "run_id": "20260929T014901-pledge-ce37",
+            "code_version": null,
+            "parser_version": "finstruct.parse/0.3.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-pledge-9867",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "a_events": 1,
+          "b_events": 3
+        },
+        {
+          "a_file": "wei_run_pledge.json",
+          "paired": false,
+          "reason": "统一批无此 file_id"
+        }
+      ]
+    },
+    "L2": {
+      "layer": "L2_cross_batch_fields",
+      "question": "两次独立抽取在同一文档上逐字段是否一致？",
+      "verdict": "divergent",
+      "what_it_proves": "证明两个抽取批在同一文档上的字段取值是否稳定",
+      "what_it_does_not_prove": "★ 不证明 Web 与 CLI 一致（同源同函数的幂等性另算，见 L3）",
+      "cases_total": 22,
+      "cases_ran": 22,
+      "fields_compared": 382,
+      "fields_same": 372,
+      "same_pct": 97.38,
+      "diff_total": 10,
+      "unpaired_total": 6,
+      "weak_unmatched_total": 2,
+      "unpaired_note": "另有 2 处配对因业务键关键字段缺失而不可靠（方向/名称类字段任一为空即降级配键），已从差异中剔除并单列。此类不可归因于抽取质量，需先补齐键字段后重测",
+      "rows": [
+        {
+          "a_file": "wei_real_awd_001.json",
+          "b_file": "D6-AWD-001.json",
+          "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+          "a_batch": {
+            "run_id": "20261002T121106-award_contract-7bfe",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-5a63",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 14,
+          "same": 14,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_awd_002.json",
+          "b_file": "D6-AWD-002.json",
+          "file_id": "sha256:c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+          "a_batch": {
+            "run_id": "20261002T121109-award_contract-b51b",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-b521",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 4,
+          "compared": 56,
+          "same": 54,
+          "diff_count": 2,
+          "same_pct": 96.43,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": [
+            {
+              "ev": "award_contract|浙江金盾风机股份有限公司|沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+              "field": "formal_award_notice_received",
+              "a": "not_mentioned",
+              "b": "not_disclosed",
+              "kind": "status"
+            },
+            {
+              "ev": "award_contract|浙江金盾风机股份有限公司|沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+              "field": "formal_award_notice_received",
+              "a": "not_mentioned",
+              "b": "not_disclosed",
+              "kind": "status"
+            }
+          ]
+        },
+        {
+          "a_file": "wei_real_awd_003.json",
+          "b_file": "D6-AWD-003.json",
+          "file_id": "sha256:0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+          "a_batch": {
+            "run_id": "20261002T121121-award_contract-35f9",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-21c0",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 3,
+          "compared": 42,
+          "same": 42,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_awd_004.json",
+          "b_file": "D6-AWD-004.json",
+          "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+          "a_batch": {
+            "run_id": "20261002T121131-award_contract-c5ab",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-a99b",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 14,
+          "same": 14,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_awd_005.json",
+          "b_file": "D6-AWD-005.json",
+          "file_id": "sha256:dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+          "a_batch": {
+            "run_id": "20261002T121135-award_contract-ace9",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-a1c6",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 14,
+          "same": 14,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_awd_006.json",
+          "b_file": "D6-AWD-006.json",
+          "file_id": "sha256:fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
+          "a_batch": {
+            "run_id": "20261002T121139-award_contract-f0c3",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-7c5a",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 14,
+          "same": 14,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_awd_007.json",
+          "b_file": "D6-AWD-007.json",
+          "file_id": "sha256:3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+          "a_batch": {
+            "run_id": "20261002T121143-award_contract-ba62",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-6763",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 14,
+          "same": 11,
+          "diff_count": 3,
+          "same_pct": 78.57,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": [
+            {
+              "ev": "award_contract|江河幕墙中东工程有限公司|WResidences幕墙工程",
+              "field": "bid_amount",
+              "a": "173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+              "b": "人民币317,915,000元",
+              "kind": "value"
+            },
+            {
+              "ev": "award_contract|江河幕墙中东工程有限公司|WResidences幕墙工程",
+              "field": "currency",
+              "a": "阿联酋迪拉姆",
+              "b": "人民币",
+              "kind": "value"
+            },
+            {
+              "ev": "award_contract|江河幕墙中东工程有限公司|WResidences幕墙工程",
+              "field": "contract_signed",
+              "a": "截至本公告披露日，公司尚未完成与相关方签订正式合同",
+              "b": "尚未完成与相关方签订正式合同",
+              "kind": "value"
+            }
+          ]
+        },
+        {
+          "a_file": "wei_real_awd_008.json",
+          "b_file": "D6-AWD-008.json",
+          "file_id": "sha256:aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+          "a_batch": {
+            "run_id": "20261002T121147-award_contract-a2c8",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-0e0e",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 14,
+          "same": 14,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_awd_009.json",
+          "b_file": "D6-AWD-009.json",
+          "file_id": "sha256:3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+          "a_batch": {
+            "run_id": "20261002T121151-award_contract-7852",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-01d4",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 3,
+          "compared": 42,
+          "same": 42,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_awd_010.json",
+          "b_file": "D6-AWD-010.json",
+          "file_id": "sha256:74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702",
+          "a_batch": {
+            "run_id": "20261002T121159-award_contract-ffb9",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-award_contract-2597",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 14,
+          "same": 14,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_eqc_001.json",
+          "b_file": "D5-EQC-001.json",
+          "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+          "a_batch": {
+            "run_id": "20261002T121003-equity_change-20d2",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-5815",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 5,
+          "compared": 45,
+          "same": 45,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_eqc_002.json",
+          "b_file": "D5-EQC-002.json",
+          "file_id": "sha256:46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+          "a_batch": {
+            "run_id": "20261002T121016-equity_change-8f54",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-72c1",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 3,
+          "compared": 27,
+          "same": 27,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_eqc_003.json",
+          "b_file": "D5-EQC-003.json",
+          "file_id": "sha256:173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+          "a_batch": {
+            "run_id": "20261002T121035-equity_change-abca",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-21ea",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 9,
+          "same": 9,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_eqc_004.json",
+          "b_file": "D5-EQC-004.json",
+          "file_id": "sha256:a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+          "a_batch": {
+            "run_id": "20261002T121038-equity_change-e850",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-7e2f",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 9,
+          "same": 9,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_eqc_005.json",
+          "b_file": "D5-EQC-005.json",
+          "file_id": "sha256:a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+          "a_batch": {
+            "run_id": "20261002T121042-equity_change-fd9a",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-3479",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 9,
+          "same": 8,
+          "diff_count": 1,
+          "same_pct": 88.89,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": [
+            {
+              "ev": "equity_change|浙江省国际贸易集团有限公司|decrease",
+              "field": "direction",
+              "a": "减少",
+              "b": "股份减少（公开征集协议转让）",
+              "kind": "value"
+            }
+          ]
+        },
+        {
+          "a_file": "wei_real_eqc_006.json",
+          "b_file": "D5-EQC-006.json",
+          "file_id": "sha256:97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+          "a_batch": {
+            "run_id": "20261002T121045-equity_change-0ae0",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-586a",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 9,
+          "same": 6,
+          "diff_count": 3,
+          "same_pct": 66.67,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": [
+            {
+              "ev": "equity_change|商晓波及其一致行动人|decrease",
+              "field": "shares_before",
+              "a": "商晓波合计持有股份249,519,764…249,519,764",
+              "b": "249,519,764",
+              "kind": "value"
+            },
+            {
+              "ev": "equity_change|商晓波及其一致行动人|decrease",
+              "field": "shares_after",
+              "a": "商晓波合计持有股份249,519,764…249,519,764",
+              "b": "249,519,764",
+              "kind": "value"
+            },
+            {
+              "ev": "equity_change|商晓波及其一致行动人|decrease",
+              "field": "method",
+              "a": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释",
+              "b": "因可转债转股使公司总股本增加，导致股东持股比例被动稀释。",
+              "kind": "value"
+            }
+          ]
+        },
+        {
+          "a_file": "wei_real_eqc_007.json",
+          "b_file": "D5-EQC-007.json",
+          "file_id": "sha256:3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+          "a_batch": {
+            "run_id": "20261002T121049-equity_change-1e8d",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-7d95",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 9,
+          "same": 8,
+          "diff_count": 1,
+          "same_pct": 88.89,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": [
+            {
+              "ev": "equity_change|红豆集团有限公司及其一致行动人|decrease",
+              "field": "method",
+              "a": "司法拍卖被动减持",
+              "b": "司法拍卖",
+              "kind": "value"
+            }
+          ]
+        },
+        {
+          "a_file": "wei_real_eqc_008.json",
+          "b_file": "D5-EQC-008.json",
+          "file_id": "sha256:af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695",
+          "a_batch": {
+            "run_id": "20261002T121053-equity_change-7083",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-5d06",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 9,
+          "same": 9,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_eqc_009.json",
+          "b_file": "D5-EQC-009.json",
+          "file_id": "sha256:31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+          "a_batch": {
+            "run_id": "20261002T121057-equity_change-1041",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-equity_change-64c4",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 9,
+          "same": 9,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_eqc_010.json",
+          "b_file": "D5-EQC-010.json",
+          "file_id": "sha256:d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
+          "a_batch": {
+            "run_id": "20261002T121100-equity_change-25f7",
+            "code_version": "37afd2e3",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084853-equity_change-61eb",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 1,
+          "compared": 9,
+          "same": 9,
+          "diff_count": 0,
+          "same_pct": 100,
+          "weak_keys_a": 0,
+          "weak_keys_b": 0,
+          "weak_unmatched": [],
+          "truly_absent": [],
+          "only_a": [],
+          "only_b": [],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_pledge_0197.json",
+          "b_file": "D4-PLD-001.json",
+          "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "a_batch": {
+            "run_id": "20260929T025658-pledge-0197",
+            "code_version": null,
+            "parser_version": "finstruct.parse/0.7.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-pledge-9867",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 0,
+          "compared": 0,
+          "same": 0,
+          "diff_count": 0,
+          "same_pct": null,
+          "weak_keys_a": 1,
+          "weak_keys_b": 0,
+          "weak_unmatched": [
+            {
+              "ev": "pledge|翟军|建德市新安小额贷款股份有限公司",
+              "side": "A"
+            }
+          ],
+          "truly_absent": [
+            {
+              "ev": "pledge|翟军|建德市新安小额贷款股份有限公司|pledge",
+              "side": "B"
+            },
+            {
+              "ev": "pledge|翟军|海宁鸿丰小额贷款股份有限公司|pledge",
+              "side": "B"
+            },
+            {
+              "ev": "pledge|翟军|苏州市吴中典当有限责任公司|pledge",
+              "side": "B"
+            }
+          ],
+          "only_a": [],
+          "only_b": [
+            "pledge|翟军|建德市新安小额贷款股份有限公司|pledge",
+            "pledge|翟军|海宁鸿丰小额贷款股份有限公司|pledge",
+            "pledge|翟军|苏州市吴中典当有限责任公司|pledge"
+          ],
+          "diff": []
+        },
+        {
+          "a_file": "wei_real_pledge_ce37.json",
+          "b_file": "D4-PLD-001.json",
+          "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "a_batch": {
+            "run_id": "20260929T014901-pledge-ce37",
+            "code_version": null,
+            "parser_version": "finstruct.parse/0.3.0"
+          },
+          "b_batch": {
+            "run_id": "20261007T084852-pledge-9867",
+            "code_version": "292d252b",
+            "parser_version": "finstruct.parse/0.9.0"
+          },
+          "pairs": 0,
+          "compared": 0,
+          "same": 0,
+          "diff_count": 0,
+          "same_pct": null,
+          "weak_keys_a": 1,
+          "weak_keys_b": 0,
+          "weak_unmatched": [
+            {
+              "ev": "pledge|翟军|建德市新安小额贷款股份有限公司",
+              "side": "A"
+            }
+          ],
+          "truly_absent": [
+            {
+              "ev": "pledge|翟军|建德市新安小额贷款股份有限公司|pledge",
+              "side": "B"
+            },
+            {
+              "ev": "pledge|翟军|海宁鸿丰小额贷款股份有限公司|pledge",
+              "side": "B"
+            },
+            {
+              "ev": "pledge|翟军|苏州市吴中典当有限责任公司|pledge",
+              "side": "B"
+            }
+          ],
+          "only_a": [],
+          "only_b": [
+            "pledge|翟军|建德市新安小额贷款股份有限公司|pledge",
+            "pledge|翟军|海宁鸿丰小额贷款股份有限公司|pledge",
+            "pledge|翟军|苏州市吴中典当有限责任公司|pledge"
+          ],
+          "diff": []
+        }
+      ]
+    },
+    "L3": {
+      "layer": "L3_export_idempotent",
+      "question": "页面导出（HTTP）与本地同函数算出的字节是否一致？",
+      "verdict": "idempotent",
+      "what_it_proves": "导出链路的序列化稳定（无编码/BOM/列序漂移）",
+      "what_it_does_not_prove": "★ 不证明抽取一致性——两侧跑的是同一个函数、同一份数据。这是幂等性，不是双路对照",
+      "http_ok": 16,
+      "http_failed": 0,
+      "identical": 16,
+      "divergent": 0,
+      "partial": false,
+      "rows": [
+        {
+          "dataset": "bank_guarantee",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "d393144086c72ad4b429a18c0067a30e5b4a41cee3ecbba226be621e64a18948",
+          "http_sha256": "d393144086c72ad4b429a18c0067a30e5b4a41cee3ecbba226be621e64a18948",
+          "local_bytes": 1839,
+          "http_bytes": 1839,
+          "identical": true
+        },
+        {
+          "dataset": "bank_guarantee",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "64b6a77e0ca70fc739a2d11690fb40033670189627038461691b930eefc7e548",
+          "http_sha256": "64b6a77e0ca70fc739a2d11690fb40033670189627038461691b930eefc7e548",
+          "local_bytes": 2014,
+          "http_bytes": 2014,
+          "identical": true
+        },
+        {
+          "dataset": "pledge",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "7783a0edeb74b4c10e96719eea3e0226714b293ab1ce3ad1fff58f31a374fd9c",
+          "http_sha256": "7783a0edeb74b4c10e96719eea3e0226714b293ab1ce3ad1fff58f31a374fd9c",
+          "local_bytes": 1572,
+          "http_bytes": 1572,
+          "identical": true
+        },
+        {
+          "dataset": "pledge",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "32f0b5648f2ad470a7d4eb94b713f8afb8831a89a343ef40d639fa19140bbc4b",
+          "http_sha256": "32f0b5648f2ad470a7d4eb94b713f8afb8831a89a343ef40d639fa19140bbc4b",
+          "local_bytes": 2232,
+          "http_bytes": 2232,
+          "identical": true
+        },
+        {
+          "dataset": "share_change",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "a3b54c267791641a3efa58bd9a05c47ae44dffd08cc25f7c395f27b600ef2d98",
+          "http_sha256": "a3b54c267791641a3efa58bd9a05c47ae44dffd08cc25f7c395f27b600ef2d98",
+          "local_bytes": 5593,
+          "http_bytes": 5593,
+          "identical": true
+        },
+        {
+          "dataset": "share_change",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "3017b2221c49cf461c4dbe275ded9e7cd34a8a778233c43f4c13a2c131f81dc6",
+          "http_sha256": "3017b2221c49cf461c4dbe275ded9e7cd34a8a778233c43f4c13a2c131f81dc6",
+          "local_bytes": 19118,
+          "http_bytes": 19118,
+          "identical": true
+        },
+        {
+          "dataset": "upstream_case",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "62ce313666d4084686d3e8095717f888c595b50021f7999e415524159e888e3e",
+          "http_sha256": "62ce313666d4084686d3e8095717f888c595b50021f7999e415524159e888e3e",
+          "local_bytes": 1160,
+          "http_bytes": 1160,
+          "identical": true
+        },
+        {
+          "dataset": "upstream_case",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "29433e76afe29860ab8dca1ff16483d9f3bb0c344b184818b4a1445d9e3ab8bb",
+          "http_sha256": "29433e76afe29860ab8dca1ff16483d9f3bb0c344b184818b4a1445d9e3ab8bb",
+          "local_bytes": 3811,
+          "http_bytes": 3811,
+          "identical": true
+        },
+        {
+          "dataset": "wei_multi_event_test",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "ee87186f0a848714a38e8ba1aeec59a49419cac4f4423f9255a99080571fcc63",
+          "http_sha256": "ee87186f0a848714a38e8ba1aeec59a49419cac4f4423f9255a99080571fcc63",
+          "local_bytes": 3301,
+          "http_bytes": 3301,
+          "identical": true
+        },
+        {
+          "dataset": "wei_multi_event_test",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "af2c44d5e1b36c1ee632f3ca35659d72715f4e206e660e9a44542dfee941c4a3",
+          "http_sha256": "af2c44d5e1b36c1ee632f3ca35659d72715f4e206e660e9a44542dfee941c4a3",
+          "local_bytes": 11847,
+          "http_bytes": 11847,
+          "identical": true
+        },
+        {
+          "dataset": "wei_real_D4_scan",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "ff589971fff20d8c2d0c8fd45d09248abf71faac1a6b69dfc0744e2c33119348",
+          "http_sha256": "ff589971fff20d8c2d0c8fd45d09248abf71faac1a6b69dfc0744e2c33119348",
+          "local_bytes": 1531,
+          "http_bytes": 1531,
+          "identical": true
+        },
+        {
+          "dataset": "wei_real_D4_scan",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "e61a4c6a2070ef717447cee0a7084f10c55c4ea7b8c0bf8e9de16b07aadb1c93",
+          "http_sha256": "e61a4c6a2070ef717447cee0a7084f10c55c4ea7b8c0bf8e9de16b07aadb1c93",
+          "local_bytes": 5238,
+          "http_bytes": 5238,
+          "identical": true
+        },
+        {
+          "dataset": "wei_real_PLD001_3ev",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "127e1673563570fcf582ef2392df07febc9707672072a58ad9242fc0cc398b5b",
+          "http_sha256": "127e1673563570fcf582ef2392df07febc9707672072a58ad9242fc0cc398b5b",
+          "local_bytes": 6055,
+          "http_bytes": 6055,
+          "identical": true
+        },
+        {
+          "dataset": "wei_real_PLD001_3ev",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "cf81e2fb33ae0cbac2258e4e714d0bdd7c4a2f5ad99a6c22907a3d37a69dd0f6",
+          "http_sha256": "cf81e2fb33ae0cbac2258e4e714d0bdd7c4a2f5ad99a6c22907a3d37a69dd0f6",
+          "local_bytes": 27086,
+          "http_bytes": 27086,
+          "identical": true
+        },
+        {
+          "dataset": "wei_real_PLD005_release",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "99dbca3be6b973359c36d5038c636d45fc9e52667e8ec39c4a594f5416c10145",
+          "http_sha256": "99dbca3be6b973359c36d5038c636d45fc9e52667e8ec39c4a594f5416c10145",
+          "local_bytes": 4077,
+          "http_bytes": 4077,
+          "identical": true
+        },
+        {
+          "dataset": "wei_real_PLD005_release",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "d03668460bbbf0d0470c8fceaea926c393cd0693e690c6101356d1a2a3f68cb9",
+          "http_sha256": "d03668460bbbf0d0470c8fceaea926c393cd0693e690c6101356d1a2a3f68cb9",
+          "local_bytes": 17950,
+          "http_bytes": 17950,
+          "identical": true
+        }
+      ]
+    }
+  },
+  "still_not_covered": {
+    "claim": "Web/CLI 独立抽取一致性",
+    "status": "not_covered",
+    "why": "两侧需各自从**原始 PDF** 独立跑一次抽取管线。页面侧无 PDF，抽取管线在魏文宇分支",
+    "blockers": [
+      {
+        "owner": "魏文宇",
+        "need": "可被页面调用的抽取入口（CLI 命令或 HTTP 服务）+ 原始 PDF 目录"
+      },
+      {
+        "owner": "陈家浩（已完成）",
+        "need": "对照壳bridge/extractor.js + /api/parity + demo/_parity_real.js"
+      }
+    ],
+    "how_to_close": "设 EXTRACT_CLI_CMD=<魏的抽取命令> 与 EXTRACT_CLI_PDF_DIR=<PDF目录>，再跑 node demo/_parity_real.js 即可自动追加 L4 真双路对照"
+  },
+  "metrics_reference": {
+    "total": 14,
+    "measured": 7,
+    "unverified": 0,
+    "not_covered": 7,
+    "by_status": {
+      "measured": 7,
+      "not_covered": 7
+    },
+    "input_sha256": "c3157267d0102ce082ad1339c1ede9e691d3e8d2bee642b4be2cad6549583f91",
+    "combined_sha256": "15dda16e0756bc6b95efca971f1c3711c99be1f0bd1eb90ada9b438e61bb7124",
+    "statement": "共登记 14 项指标：已实测 7、实测但不可核 0、**未测 7**。输入数据指纹 page_data=c3157267d010… / unified=2c680b4692eb…（32 份）。材料引用任何一项成绩时须同时引用该指纹与生成脚本，否则数字不可复现。"
+  }
+}

@@ -22,6 +22,22 @@ const WEI_UNIT_TEXT = { shares: "股", cny: "元", percent: "%", date: null, dat
 // D5/D6 增补：equity_change 方向 increase/decrease（与 results.js 的 DIRECTION_TEXT 保持同步）
 const DIRECTION_TEXT = { pledge: "质押", release: "解除质押", increase: "增持", decrease: "减持" };
 
+// 契约 registry.mjs：equity_change.direction「必须填英文枚举 increase 或 decrease，禁止中文」
+// 页面不做静默兜底（results.js 原本会原样显示中文，等于替上游掩盖契约违规）——
+// 非英文枚举时记入 bridge.notes 并把该事件标pending_review，让违规可见（2026-10-07 契约复核 GAP-03）
+const DIRECTION_ENUM_BY_TYPE = {
+  equity_change: ["increase", "decrease"],
+  pledge: ["pledge", "release"]
+};
+
+/** direction 是否为契约允许的英文枚举；null/空值视为未填（交由状态机处理，不在此报错） */
+function directionViolatesContract(eventType, rawValue) {
+  const allowed = DIRECTION_ENUM_BY_TYPE[eventType];
+  if (!allowed) return false;                // award_contract 注册表无 direction 字段
+  if (rawValue == null || rawValue === "") return false;
+  return !allowed.includes(String(rawValue).trim());
+}
+
 // v0.3b D3：provenance.source_type 枚举（与张智博 finstruct 对齐）
 const SOURCE_TYPE_TEXT = {
   paragraph: "段落", cell: "表格单元格", table: "表格兜底（降权）",
@@ -156,8 +172,15 @@ function fromWeiEnvelope(up) {
     if (c && c.calculations) out.check_calculations = c.calculations;
 
     for (const [name, fv] of Object.entries(ev.fields || {})) {
-      const override = WEI_STATUS_MAP[fv.status];
+      let override = WEI_STATUS_MAP[fv.status];
       if (override === undefined) { notes.push(`${ev.event_id}.${name}: 未知 status=${fv.status}（不猜测，字段未产出）`); continue; }
+
+      // GAP-03：direction 违反契约英文枚举约束 → 记notes + 事件标 pending_review（不静默美化）
+      if (name === "direction" && directionViolatesContract(ev.event_type, fv.value)) {
+        notes.push(`${ev.event_id}.direction: 值「${fv.value}」不在契约枚举 [${DIRECTION_ENUM_BY_TYPE[ev.event_type].join(" / ")}] 内（registry 要求英文枚举，禁止中文）`);
+        if (override === null) override = "pending_review";
+        out.direction_contract_violation = true;
+      }
 
       const f = { value: null, unit: null, normalized: null, normalized_unit: null, evidence_id: null };
       f.status_raw = fv.status;                // v0.3b D3：保留信封原始 6 态（溯源/导出用），展示状态看 status_override
@@ -202,9 +225,9 @@ function fromWeiEnvelope(up) {
       out.fields[name] = f;
     }
 
-    // 事件级状态：有字段无法读取/待复核 → 待复核
+    // 事件级状态：有字段无法读取/待复核/direction 违反契约 → 待复核
     const ov = Object.values(out.fields).map(f => f.status_override);
-    if (ov.includes("unreadable") || ov.includes("pending_review")) out.status = "pending_review";
+    if (ov.includes("unreadable") || ov.includes("pending_review") || out.direction_contract_violation) out.status = "pending_review";
     events.push(out);
   });
 
@@ -313,7 +336,9 @@ function fromFangRecords(up) {
 
   const contract = {
     run_id: up.run_id || up.source_file?.file_id || "bridge-run-0001",
-    schema_version: "0.2",
+    // v0.3 契约：方 records 也经页面统一契约出口，版本号与魏信封路径(:213)保持一致
+    // （原为 "0.2"，导致页头显示"schema v0.2"与官方信封混淆——2026-10-07 契约复核 GAP-01）
+    schema_version: "0.3",
     data_mode: up.data_mode || "real",
     source_file: {
       file_id: up.source_file?.file_id ?? null,
