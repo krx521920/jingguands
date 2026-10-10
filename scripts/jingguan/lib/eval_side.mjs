@@ -25,9 +25,11 @@ export function evalFile(relPath) {
   }
   const target = resolve(CACHE_DIR, relPath)
   if (existsSync(target)) return target
+  // 窄克隆（按 tag --depth 1）的 refspec 只含该 tag：普通 fetch 不建跟踪引用——
+  // 必须显式 refspec 拉成 refs/remotes/origin/zongbowen，物化才能引用（D16 tag 检出实测）
   if (spawnSync('git', ['rev-parse', '--verify', '--quiet', REF], { cwd: REPO_ROOT }).status !== 0) {
-    const f = spawnSync('git', ['fetch', 'origin', 'zongbowen'], { cwd: REPO_ROOT, encoding: 'utf8' })
-    if (f.status !== 0) throw new Error(`评测侧文件 ${relPath} 本地缺失，且 fetch origin/zongbowen 失败`)
+    const f = spawnSync('git', ['fetch', 'origin', '+refs/heads/zongbowen:refs/remotes/origin/zongbowen'], { cwd: REPO_ROOT, encoding: 'utf8' })
+    if (f.status !== 0) throw new Error(`评测侧文件 ${relPath} 本地缺失，且 fetch origin/zongbowen 失败：${String(f.stderr).slice(0, 120)}`)
   }
   const show = spawnSync('git', ['show', `${REF}:evaluation/${relPath}`], { cwd: REPO_ROOT, maxBuffer: 64 * 1024 * 1024 })
   if (show.status !== 0) throw new Error(`origin/zongbowen 无 evaluation/${relPath}：${String(show.stderr).slice(0, 160)}`)

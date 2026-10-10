@@ -55,8 +55,16 @@ results.push({ name: 'git守卫·无临时文件残留', ok: tmpFiles.length ===
 
 // ---- 7 远端同步 ----
 const fetch = spawnSync('git', ['fetch', 'origin', 'weiwenyu'], { cwd: REPO_ROOT, encoding: 'utf8' })
+const remoteExists = spawnSync('git', ['rev-parse', '--verify', '--quiet', 'origin/weiwenyu'], { cwd: REPO_ROOT }).status === 0
 if (fetch.status !== 0) {
   results.push({ name: '远端同步', ok: true, tail: '网络不可达，跳过（网络恢复后重跑）', fatal: false })
+} else if (!remoteExists) {
+  // tag 检出环境（窄克隆无分支引用）：本门禁保护的是开发分支推送纪律，此处改为
+  // 校验 HEAD 精确命中已发布 tag（D16 tag 检出实测补充）
+  const head = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
+  const tagHit = spawnSync('git', ['rev-parse', 'origin/v1.0-d14-release^{commit}', 'origin/v1.1-d16-candidate^{commit}'], { cwd: REPO_ROOT, encoding: 'utf8' })
+  const hit = tagHit.status === 0 && tagHit.stdout.trim().split('\n').includes(head)
+  results.push({ name: '远端同步', ok: hit, fatal: false, tail: hit ? `tag 检出环境：HEAD＝已发布 tag ${head.slice(0, 8)}` : 'tag 检出环境但 HEAD 不在任何已发布 tag 上' })
 } else {
   const head = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
   const remote = spawnSync('git', ['rev-parse', 'origin/weiwenyu'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
