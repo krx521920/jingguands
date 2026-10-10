@@ -34,7 +34,7 @@
  *   alignEvents(envA, envB) => [{entityA, entityB, field, valueA, valueB, quoteA, quoteB}]
  * 的模块替代内置事件对齐（关联判定信号不变）；缺省用内置 nameEq 对齐。
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import {readFileSync, writeFileSync, existsSync, readdirSync} from 'node:fs'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
@@ -164,7 +164,7 @@ function entityFieldMap(env) {
 }
 
 // ---------- 单组核验 ----------
-function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, pluginName = null, d9Enrich = false) {
+function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, pluginName = null, d9Enrich = false, allEnvelopes = null) {
   // B3：逐成员 A 侧运行标识（run_id/code_version/schema_version/is_mock）——A/B 记录可关联
   const a_run_links = group.members.map((cs, ix) => ({
     case_id: cs,
@@ -288,12 +288,17 @@ function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, 
       discrepancy,
     }
   }
-  // 方 D9 归因上下文（--d9-enrich，按其接口规格 §2）：documents＝按成员全信封，
+  // 方 D9 归因上下文（--d9-enrich，按其接口规格 §2）：documents＝**批次全信封**
+  // （D14 收口：方 D12.1 点名——合计勾稽需交易第三方来源，仅给组成员会把
+  // AGGREGATE_PARTIAL_COVERAGE 当数值已勾稽；完整上下文＝其 46/46 验证形态），
   // parses＝从信封内嵌 parse_meta.blocks 重构的 evidence/0.9 布局（块级核验源）
   if (d9Enrich) {
+    const documents = {}
     const parses = {}
-    for (let ix = 0; ix < group.members.length; ix++) {
-      const blocks = envelopes[ix]?.source?.parse_meta?.blocks
+    const addDoc = (caseId, env) => {
+      if (env == null || documents[caseId] !== undefined) return
+      documents[caseId] = env
+      const blocks = env?.source?.parse_meta?.blocks
       if (Array.isArray(blocks) && blocks.length > 0) {
         const pages = new Map()
         for (const b of blocks) {
@@ -301,10 +306,12 @@ function verifyGroup(group, envelopes, matcherFn = null, groupMatcherFn = null, 
           if (!pages.has(p)) pages.set(p, { page: p, blocks: [] })
           pages.get(p).blocks.push(b)
         }
-        parses[group.members[ix]] = { doc: { file_sha256: envelopes[ix].source.file_sha256 }, pages: [...pages.values()], quality: { degraded: false, degrade_reasons: [], warnings: [] } }
+        parses[caseId] = { doc: { file_sha256: env.source.file_sha256 }, pages: [...pages.values()], quality: { degraded: false, degrade_reasons: [], warnings: [] } }
       }
     }
-    result.d9_context = { documents: Object.fromEntries(group.members.map((m, ix) => [m, envelopes[ix]])), parses }
+    for (let ix = 0; ix < group.members.length; ix++) addDoc(group.members[ix], envelopes[ix])
+    if (allEnvelopes !== null) for (const [caseId, env] of allEnvelopes) addDoc(caseId, env)
+    result.d9_context = { documents, parses }
   }
   // d9_input 组装：sides 顺序必须与冲突 values/aggregate+parts 逐项对齐（方适配器按值逐项核对）
   const d9Input = (sides) => ({ case_id: `${group.group_id}:${sides.map((s) => `${s.case_id}.${s.entity}.${s.field}`).join('|')}`, sides })
@@ -434,7 +441,13 @@ for (const g of groups) {
     return null
   })
   if (envelopes.some((e) => e === null)) { missing.push(g.group_id); continue }
-  const r = verifyGroup(g, envelopes, matcherFn, groupMatcherFn, args.matcher, args.d9Enrich)
+  // D14：d9-enrich 需要批次全信封上下文（方 D12.1：合计勾稽的交易第三方来源在成员之外）
+  const allEnvelopes = args.d9Enrich ? new Map(readdirSync(envDir).filter((f) => f.endsWith('.json')).map((f) => {
+    const caseId = f.replace(/.json$/, '')
+    for (const cs of g.members) { if (cs === caseId) return [caseId, envelopes[g.members.indexOf(cs)]] }
+    try { return [caseId, JSON.parse(readFileSync(resolve(envDir, f), 'utf8'))] } catch { return [caseId, null] }
+  })) : null
+  const r = verifyGroup(g, envelopes, matcherFn, groupMatcherFn, args.matcher, args.d9Enrich, allEnvelopes)
   results.push(r)
   // 期望匹配三态（与宗 score-pairs.mjs 判定一致）：related→判 related；unrelated→判
   // unrelated 且 0 矛盾；insufficient→判 unknown 或 reasons 含 INSUFFICIENT_SIGNALS
