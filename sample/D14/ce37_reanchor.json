@@ -1,0 +1,103 @@
+{
+  "built_by": "张智博",
+  "day": "D14",
+  "defect": "D11-P0-01",
+  "parse": "sample/D6/parse/D6-AWD-004.parse.json",
+  "total": 10,
+  "summary": {
+    "not_found": 10
+  },
+  "policy": "只自动改 remapped；spans_blocks 给候选人工确认；not_found **不自动改** —— 硬塞会伪造出处。",
+  "rows": [
+    {
+      "field": "pledgee",
+      "old_block_id": "d44e95085_p001_b00016",
+      "quote": "建德市新安小额贷款股份有限公司",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "pledged_shares_this_time",
+      "old_block_id": "d44e95085_p001_b00031",
+      "quote": "合计——7,800,0008.92%3.66%",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "pledged_shares_cumulative",
+      "old_block_id": "d44e95085_p001_b00051",
+      "quote": "50,350,000",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "pledged_ratio_this_time_of_held",
+      "old_block_id": "d44e95085_p001_b00031",
+      "quote": "合计——7,800,0008.92%3.66%",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "pledged_ratio_this_time_of_total",
+      "old_block_id": "d44e95085_p001_b00031",
+      "quote": "合计——7,800,0008.92%3.66%",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "pledged_ratio_cumulative_of_held",
+      "old_block_id": "d44e95085_p001_b00052",
+      "quote": "57.58%",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "pledged_ratio_cumulative_of_total",
+      "old_block_id": "d44e95085_p001_b00053",
+      "quote": "23.62%",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "start_date",
+      "old_block_id": "d44e95085_p001_b00018",
+      "quote": "2026年09月是2,100,0002.40%0.99%否否23日",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "end_date",
+      "old_block_id": "d44e95085_p001_b00015",
+      "quote": "申请解除质押登记日",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    },
+    {
+      "field": "purpose",
+      "old_block_id": "d44e95085_p001_b00017",
+      "quote": "融资",
+      "status": "not_found",
+      "new_block_id": null,
+      "all_hits": [],
+      "note": "quote 归一后不在当前 parse 的任何块里。需人工看原文：可能是块号错位（可重映射），也可能 quote 本身是旧版拍平的产物（必须先重新取 quote，不能硬塞）"
+    }
+  ]
+}
