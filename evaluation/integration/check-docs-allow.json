@@ -28,7 +28,8 @@
     "evaluation/D12/wei-runs/",
     "evaluation/D9/parses-blocks/",
     "evaluation/D9/cases/fang-",
-    "evaluation/D9/snapshot-paths.json"
+    "evaluation/D9/snapshot-paths.json",
+    "evaluation/run-side/"
   ],
   "reason_of_each": {
     "src_D8/, public_dev_D8/, docs_D8/, tests_D8/, schema_D8.json": "方轩诚 D8 包（feature/fang-rules 分支）",
@@ -39,6 +40,7 @@
     "evaluation/D11/firsttest-, evaluation/D11/D10-": "魏侧交付",
     "evaluation/D12/wei-runs/": "魏侧 D12 产物",
     "evaluation/D9/parses-blocks/, evaluation/D9/cases/fang-": "魏/方侧交付",
-    "evaluation/D9/snapshot-paths.json": "魏侧 D15 交付（weiwenyu@81a5698d）；正典在其分支，本地引入副本为 evaluation/D18/snapshot-paths.weiwenyu-81a5698d.json"
+    "evaluation/D9/snapshot-paths.json": "魏侧 D15 交付（weiwenyu@81a5698d）；正典在其分支，本地引入副本为 evaluation/D18/snapshot-paths.weiwenyu-81a5698d.json",
+    "evaluation/run-side/": "合包后的运行侧证据路径（存在于 delivery/v2.0 交付树，不在评测正典分支 zongbowen）"
   }
 }

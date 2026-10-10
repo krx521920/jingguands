@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-10-10T05:08:41.955Z",
+  "delivery_commit": "a3c4ba5d4f55fd14665b62db69067ee7c40ff33d",
+  "delivery_tree": "b9ae11fa9d0e695b979bc0c268c86a4f8592fc22",
+  "branch": "delivery/v2.0",
+  "base": "41d57c87ded36ff1a28248890f2ac6b849c74f7e",
+  "runside": {
+    "total": 217,
+    "identical": 217,
+    "anomalies": []
+  },
+  "runside_non_eval": {
+    "total": 16273,
+    "identical": 16273,
+    "anomalies": []
+  },
+  "canon": {
+    "total": 455,
+    "identical": 455,
+    "anomalies": []
+  },
+  "total_blobs": 16946,
+  "delivery_readme_present": true
+}
