@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { relative, resolve } from 'node:path'
+import { relative, resolve, dirname } from 'node:path'
 
 /**
  * 并包树（delivery/v2.0）路径解析（2026-10-10 宗并包，裁决 A）：
@@ -22,13 +22,20 @@ export function sideResolve(repoRoot, p, note = true) {
   return abs
 }
 
-/** 写入侧（如 E1 报告）：run-side 镜像已有同名证据文件时写镜像（原位更新我方证据，不混入正典目录），否则写原址。 */
+/**
+ * 写入侧（如 E1 报告、块级解析再导出）：写 run-side 而不污染正典。判镜像的两种情形：
+ * ①镜像已有同名文件 → 原位更新镜像；②原父目录不存在而镜像父目录存在（如并包树上的
+ * evaluation/D9/parses-blocks/）→ 新文件也写镜像。其余写原址（weiwenyu 分支行为不变）。
+ */
 export function sideWriteResolve(repoRoot, p) {
   const abs = resolve(repoRoot, p)
   const rel = relative(repoRoot, abs).replaceAll('\\', '/')
   if (rel.startsWith('evaluation/')) {
-    const mirror = resolve(repoRoot, 'evaluation/run-side/weiwenyu/' + rel.slice('evaluation/'.length))
-    if (existsSync(mirror)) return { path: mirror, rel: 'evaluation/run-side/weiwenyu/' + rel.slice('evaluation/'.length), mirrored: true }
+    const mirrorRel = 'evaluation/run-side/weiwenyu/' + rel.slice('evaluation/'.length)
+    const mirror = resolve(repoRoot, mirrorRel)
+    if (existsSync(mirror) || (!existsSync(dirname(abs)) && existsSync(dirname(mirror)))) {
+      return { path: mirror, rel: mirrorRel, mirrored: true }
+    }
   }
   return { path: abs, rel, mirrored: false }
 }

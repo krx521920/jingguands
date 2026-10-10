@@ -36,7 +36,7 @@ node evaluation/D17/check-standardized.mjs --dir evaluation/D11/firsttest-envelo
 node evaluation/D18/check-snapshot-coverage.mjs --exclude DEMO-EQC-HL-0930                    # 快照覆盖，期望 31/31、451/451
 ```
 
-**首测五段**（30 单文档 / 封存 20 / D8 13 / D9 20 / D10 10）与 **D12 零成本重放 31/31** 的命令，见 `evaluation/D11/README-firsttest-inputs.md` 与 `evaluation/D12/D12回归一致性性能报告.md`。
+**首测五段**（30 单文档 / 封存 20 / D8 13 / D9 20 / D10 10）与 **D12 零成本重放**（D12 时点 events 31/31 逐字节；D17 无值族不变量后当前代码重放＝28/31 逐字节＋4 处翻正、值层 31/31——引用须带双口径，见 `docs/d13-reproduction.md` §4.2）的命令，见 `evaluation/D11/README-firsttest-inputs.md` 与 `evaluation/D12/D12回归一致性性能报告.md`。
 
 ## 四、版本对应表
 

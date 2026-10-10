@@ -17,6 +17,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { resolve, dirname, basename } from 'node:path'
+import { sideWriteResolve } from './lib/side_paths.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const D6_CASES = ['D6-AWD-001', 'D6-AWD-002', 'D6-AWD-003', 'D6-AWD-004', 'D6-AWD-005', 'D6-AWD-006', 'D6-AWD-007', 'D6-AWD-008', 'D6-AWD-009', 'D6-AWD-010']
@@ -69,10 +70,13 @@ function emit(inPath, outPath) {
       note: 'D6 官方 parse-official 入库（张 Z1）后，D9-parses-map 可改指官方件；本文件用于此前阶段的 D9 块级复核',
     },
   }
-  const abs = resolve(REPO_ROOT, outPath)
+  // 并包树（delivery/v2.0）上 evaluation/D9/parses-blocks 位于 run-side 镜像：经 sideWriteResolve
+  // 落镜像原位更新/新建，再生成物不写进评测正典区（宗 2026-10-10 终审核对单 residual ①）
+  const target = sideWriteResolve(REPO_ROOT, outPath)
+  const abs = target.path
   mkdirSync(dirname(abs), { recursive: true })
   writeFileSync(abs, JSON.stringify(out, null, 1), 'utf8')
-  console.log(`[导出] ${inPath} → ${outPath}（${blocksTotal} 块，${pages.length} 页）`)
+  console.log(`[导出] ${inPath} → ${target.rel}（${blocksTotal} 块，${pages.length} 页）`)
 }
 
 const argv = process.argv.slice(2)
