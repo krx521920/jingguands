@@ -1,0 +1,3920 @@
+{
+ "summary": {
+  "checked_on": "2026-10-10",
+  "envelopes_dir": "runs/batch-20261008T005756/envelopes,runs/d8-demo-20261004/envelopes",
+  "snapshots_manifest": "evaluation/D9/snapshot-paths.json",
+  "provenance_total": 488,
+  "hit": 487,
+  "miss": 1,
+  "omit_no_block_or_quote": 0,
+  "omit_no_snapshot": 0,
+  "omit_detail": [],
+  "caliber_note": "权威批次集＝E1 31 信封＋D8 演示批 3 信封（key＝file_sha256，快照自 evaluation/D9/snapshot-paths.json 物化）。页面注册表 863 条的口径含其本地 41 文档集（多出的批次外文档不在权威集）；未中条目如实保留不掩——已知 1 条为演示件表单残片引文（DEMO-EQC-HL-0930.direction 的\"变动方向□上升下降\"，非 E1 计分成员）。"
+ },
+ "rows": [
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d44e95085_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "d44e95085_p001_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "d44e95085_p001_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "d44e95085_p001_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d44e95085_p001_b00084",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d44e95085_p001_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d44e95085_p001_b00027",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d44e95085_p001_b00085",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d44e95085_p001_b00086",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "d44e95085_p001_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "d44e95085_p001_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "d44e95085_p001_b00033",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "d44e95085_p002_b00027",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "direction",
+   "block_id": "d44e95085_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "pledgor",
+   "block_id": "d44e95085_p001_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "pledgee",
+   "block_id": "d44e95085_p001_b00042",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "pledged_shares_this_time",
+   "block_id": "d44e95085_p001_b00035",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d44e95085_p001_b00084",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d44e95085_p001_b00036",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d44e95085_p001_b00037",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d44e95085_p001_b00085",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d44e95085_p001_b00086",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "start_date",
+   "block_id": "d44e95085_p001_b00040",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "end_date",
+   "block_id": "d44e95085_p001_b00041",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "purpose",
+   "block_id": "d44e95085_p001_b00043",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E02",
+   "field": "announcement_date",
+   "block_id": "d44e95085_p002_b00027",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "direction",
+   "block_id": "d44e95085_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "pledgor",
+   "block_id": "d44e95085_p001_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "pledgee",
+   "block_id": "d44e95085_p001_b00052",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "pledged_shares_this_time",
+   "block_id": "d44e95085_p001_b00045",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d44e95085_p001_b00084",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d44e95085_p001_b00046",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d44e95085_p001_b00047",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d44e95085_p001_b00085",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d44e95085_p001_b00086",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "start_date",
+   "block_id": "d44e95085_p001_b00050",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "end_date",
+   "block_id": "d44e95085_p001_b00051",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "purpose",
+   "block_id": "d44e95085_p001_b00053",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-001",
+   "event_id": "E03",
+   "field": "announcement_date",
+   "block_id": "d44e95085_p002_b00027",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d16c6a948_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "d16c6a948_p001_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "d16c6a948_p001_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "d16c6a948_p001_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d16c6a948_p001_b00055",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d16c6a948_p001_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d16c6a948_p001_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d16c6a948_p001_b00056",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d16c6a948_p001_b00057",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "d16c6a948_p001_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "d16c6a948_p001_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "d16c6a948_p001_b00033",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-002",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "d16c6a948_p002_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d36105cfd_p001_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "d36105cfd_p001_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "d36105cfd_p001_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "d36105cfd_p001_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d36105cfd_p002_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d36105cfd_p001_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d36105cfd_p001_b00027",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d36105cfd_p002_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d36105cfd_p002_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "d36105cfd_p001_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "d36105cfd_p001_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "d36105cfd_p001_b00033",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-003",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "d36105cfd_p003_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d62f9a650_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "d62f9a650_p001_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "d62f9a650_p001_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "d62f9a650_p001_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d62f9a650_p001_b00061",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d62f9a650_p001_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d62f9a650_p001_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d62f9a650_p001_b00062",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d62f9a650_p001_b00063",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "d62f9a650_p001_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "d62f9a650_p001_b00027",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "d62f9a650_p001_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-004",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "d62f9a650_p002_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d5bf0524f_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "d5bf0524f_p001_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "d5bf0524f_p001_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "d5bf0524f_p001_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d5bf0524f_p002_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d5bf0524f_p001_b00024",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d5bf0524f_p001_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d5bf0524f_p002_b00015",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d5bf0524f_p002_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "d5bf0524f_p001_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "d5bf0524f_p001_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "d5bf0524f_p001_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "d5bf0524f_p002_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "direction",
+   "block_id": "d5bf0524f_p001_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "pledgor",
+   "block_id": "d5bf0524f_p001_b00041",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "pledgee",
+   "block_id": "d5bf0524f_p001_b00048",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "pledged_shares_this_time",
+   "block_id": "d5bf0524f_p001_b00043",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d5bf0524f_p002_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d5bf0524f_p001_b00044",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d5bf0524f_p001_b00045",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d5bf0524f_p002_b00015",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d5bf0524f_p002_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "start_date",
+   "block_id": "d5bf0524f_p001_b00046",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "end_date",
+   "block_id": "d5bf0524f_p001_b00047",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-005",
+   "event_id": "E02",
+   "field": "announcement_date",
+   "block_id": "d5bf0524f_p002_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d3fbd8497_p001_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "d3fbd8497_p001_b00024",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "d3fbd8497_p001_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "d3fbd8497_p001_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d3fbd8497_p001_b00051",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d3fbd8497_p001_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d3fbd8497_p001_b00033",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d3fbd8497_p001_b00052",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d3fbd8497_p001_b00053",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "d3fbd8497_p001_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "d3fbd8497_p001_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "d3fbd8497_p001_b00034",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-006",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "d3fbd8497_p002_b00041",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "da204c717_p001_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "da204c717_p001_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "da204c717_p001_b00037",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "da204c717_p001_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "da204c717_p002_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "da204c717_p001_b00038",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "da204c717_p001_b00039",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "da204c717_p002_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "da204c717_p002_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "da204c717_p001_b00035",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "da204c717_p001_b00036",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "da204c717_p001_b00040",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-007",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "da204c717_p002_b00134",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d74b527f3_p001_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "d74b527f3_p002_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "d74b527f3_p002_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "d74b527f3_p002_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d74b527f3_p002_b00045",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d74b527f3_p002_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d74b527f3_p002_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d74b527f3_p002_b00046",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d74b527f3_p002_b00047",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "d74b527f3_p002_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "d74b527f3_p002_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-008",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "d74b527f3_p002_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d1320340e_p001_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "d1320340e_p002_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "d1320340e_p002_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "d1320340e_p002_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d1320340e_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d1320340e_p002_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d1320340e_p002_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d1320340e_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d1320340e_p001_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "d1320340e_p002_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "d1320340e_p002_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "d1320340e_p002_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "d1320340e_p003_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "direction",
+   "block_id": "d1320340e_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "pledgor",
+   "block_id": "d1320340e_p002_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "pledgee",
+   "block_id": "d1320340e_p002_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "pledged_shares_this_time",
+   "block_id": "d1320340e_p002_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d1320340e_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d1320340e_p002_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d1320340e_p002_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d1320340e_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d1320340e_p001_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "start_date",
+   "block_id": "d1320340e_p002_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "end_date",
+   "block_id": "d1320340e_p002_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "purpose",
+   "block_id": "d1320340e_p002_b00033",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E02",
+   "field": "announcement_date",
+   "block_id": "d1320340e_p003_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "direction",
+   "block_id": "d1320340e_p002_b00034",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "pledgor",
+   "block_id": "d1320340e_p002_b00036",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "pledgee",
+   "block_id": "d1320340e_p002_b00034",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "pledged_shares_this_time",
+   "block_id": "d1320340e_p002_b00034",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "pledged_shares_cumulative",
+   "block_id": "d1320340e_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "d1320340e_p002_b00040",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "d1320340e_p002_b00042",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "d1320340e_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "d1320340e_p001_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "start_date",
+   "block_id": "d1320340e_p002_b00044",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-009",
+   "event_id": "E03",
+   "field": "announcement_date",
+   "block_id": "d1320340e_p003_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "db2351d0b_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "pledgor",
+   "block_id": "db2351d0b_p002_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "pledgee",
+   "block_id": "db2351d0b_p002_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "pledged_shares_this_time",
+   "block_id": "db2351d0b_p002_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "pledged_shares_cumulative",
+   "block_id": "db2351d0b_p002_b00052",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_held",
+   "block_id": "db2351d0b_p002_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "pledged_ratio_this_time_of_total",
+   "block_id": "db2351d0b_p002_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_held",
+   "block_id": "db2351d0b_p002_b00053",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "pledged_ratio_cumulative_of_total",
+   "block_id": "db2351d0b_p002_b00054",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "start_date",
+   "block_id": "db2351d0b_p002_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "end_date",
+   "block_id": "db2351d0b_p002_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "purpose",
+   "block_id": "db2351d0b_p002_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D4-PLD-010",
+   "event_id": "E01",
+   "field": "announcement_date",
+   "block_id": "db2351d0b_p003_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "d9d5be14f_p010_b00001",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d9d5be14f_p001_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "d9d5be14f_p010_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "d9d5be14f_p010_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "d9d5be14f_p010_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "d9d5be14f_p010_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "d9d5be14f_p010_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "d9d5be14f_p009_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "d9d5be14f_p034_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "holder",
+   "block_id": "d9d5be14f_p010_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "direction",
+   "block_id": "d9d5be14f_p001_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "shares_before",
+   "block_id": "d9d5be14f_p010_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "shares_after",
+   "block_id": "d9d5be14f_p010_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "ratio_before",
+   "block_id": "d9d5be14f_p010_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "ratio_after",
+   "block_id": "d9d5be14f_p010_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "change_shares",
+   "block_id": "d9d5be14f_p010_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "method",
+   "block_id": "d9d5be14f_p009_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E02",
+   "field": "change_date",
+   "block_id": "d9d5be14f_p034_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "holder",
+   "block_id": "d9d5be14f_p010_b00015",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "direction",
+   "block_id": "d9d5be14f_p033_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "shares_before",
+   "block_id": "d9d5be14f_p010_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "shares_after",
+   "block_id": "d9d5be14f_p010_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "ratio_before",
+   "block_id": "d9d5be14f_p010_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "ratio_after",
+   "block_id": "d9d5be14f_p010_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "change_shares",
+   "block_id": "d9d5be14f_p010_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "method",
+   "block_id": "d9d5be14f_p009_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E03",
+   "field": "change_date",
+   "block_id": "d9d5be14f_p034_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "holder",
+   "block_id": "d9d5be14f_p010_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "direction",
+   "block_id": "d9d5be14f_p001_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "shares_before",
+   "block_id": "d9d5be14f_p010_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "shares_after",
+   "block_id": "d9d5be14f_p010_b00027",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "ratio_before",
+   "block_id": "d9d5be14f_p010_b00024",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "ratio_after",
+   "block_id": "d9d5be14f_p010_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "change_shares",
+   "block_id": "d9d5be14f_p010_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "method",
+   "block_id": "d9d5be14f_p009_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E04",
+   "field": "change_date",
+   "block_id": "d9d5be14f_p034_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "holder",
+   "block_id": "d9d5be14f_p010_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "direction",
+   "block_id": "d9d5be14f_p001_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "shares_before",
+   "block_id": "d9d5be14f_p010_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "shares_after",
+   "block_id": "d9d5be14f_p010_b00034",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "ratio_before",
+   "block_id": "d9d5be14f_p010_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "ratio_after",
+   "block_id": "d9d5be14f_p010_b00035",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "change_shares",
+   "block_id": "d9d5be14f_p010_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "method",
+   "block_id": "d9d5be14f_p009_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-001",
+   "event_id": "E05",
+   "field": "change_date",
+   "block_id": "d9d5be14f_p034_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "d46bc2ef0_p018_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d46bc2ef0_p018_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "d46bc2ef0_p018_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "d46bc2ef0_p018_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "d46bc2ef0_p018_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "d46bc2ef0_p018_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "d46bc2ef0_p018_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "d46bc2ef0_p017_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "d46bc2ef0_p017_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "holder",
+   "block_id": "d46bc2ef0_p018_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "direction",
+   "block_id": "d46bc2ef0_p018_b00034",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "shares_before",
+   "block_id": "d46bc2ef0_p018_b00032",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "shares_after",
+   "block_id": "d46bc2ef0_p018_b00036",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "ratio_before",
+   "block_id": "d46bc2ef0_p018_b00033",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "ratio_after",
+   "block_id": "d46bc2ef0_p018_b00037",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "change_shares",
+   "block_id": "d46bc2ef0_p018_b00034",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "method",
+   "block_id": "d46bc2ef0_p017_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E03",
+   "field": "change_date",
+   "block_id": "d46bc2ef0_p017_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "holder",
+   "block_id": "d46bc2ef0_p018_b00045",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "direction",
+   "block_id": "d46bc2ef0_p018_b00048",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "shares_before",
+   "block_id": "d46bc2ef0_p018_b00046",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "shares_after",
+   "block_id": "d46bc2ef0_p018_b00050",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "ratio_before",
+   "block_id": "d46bc2ef0_p018_b00047",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "ratio_after",
+   "block_id": "d46bc2ef0_p018_b00051",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "change_shares",
+   "block_id": "d46bc2ef0_p018_b00048",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "method",
+   "block_id": "d46bc2ef0_p017_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-002",
+   "event_id": "E05",
+   "field": "change_date",
+   "block_id": "d46bc2ef0_p017_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-003",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "d173fee90_p018_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-003",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d173fee90_p005_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-003",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "d173fee90_p005_b00028",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-003",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "d173fee90_p018_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-003",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "d173fee90_p018_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "da00b31da_p001_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "da00b31da_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "da00b31da_p009_b00015",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "da00b31da_p009_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "da00b31da_p009_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "da00b31da_p009_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "da00b31da_p019_b00015",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "da00b31da_p009_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-004",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "da00b31da_p020_b00001",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "da8d294d2_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "da8d294d2_p001_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "da8d294d2_p008_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "da8d294d2_p008_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "da8d294d2_p008_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "da8d294d2_p008_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "da8d294d2_p017_b00029",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "da8d294d2_p001_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-005",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "da8d294d2_p017_b00031",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "d97e2cfab_p001_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d97e2cfab_p002_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "d97e2cfab_p002_b00035",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "d97e2cfab_p002_b00035",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "d97e2cfab_p001_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "d97e2cfab_p001_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "d97e2cfab_p002_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "d97e2cfab_p002_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-006",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "d97e2cfab_p001_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "d3d00372c_p002_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "d3d00372c_p010_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d3d00372c_p010_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "d3d00372c_p010_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "d3d00372c_p010_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "d3d00372c_p010_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "d3d00372c_p010_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "d3d00372c_p009_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "d3d00372c_p016_b00030",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-007",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "d3d00372c_p010_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "daf34725a_p009_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "daf34725a_p009_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "daf34725a_p009_b00023",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "daf34725a_p009_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "daf34725a_p009_b00024",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "daf34725a_p009_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "daf34725a_p009_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "daf34725a_p009_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-008",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "daf34725a_p009_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "d31d2e428_p001_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "d31d2e428_p007_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "d31d2e428_p007_b00024",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "d31d2e428_p007_b00026",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "d31d2e428_p007_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "d31d2e428_p007_b00027",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "d31d2e428_p007_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "d31d2e428_p006_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-009",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "d31d2e428_p007_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "dd2c6e0d0_p008_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "dd2c6e0d0_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "dd2c6e0d0_p008_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "dd2c6e0d0_p008_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "dd2c6e0d0_p008_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "dd2c6e0d0_p008_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "dd2c6e0d0_p008_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "dd2c6e0d0_p014_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D5-EQC-010",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "dd2c6e0d0_p014_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-001",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "dc1c912b9_p001_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-001",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "dc1c912b9_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-001",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "dc1c912b9_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-001",
+   "event_id": "E01",
+   "field": "bid_date",
+   "block_id": "dc1c912b9_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-001",
+   "event_id": "E01",
+   "field": "formal_award_notice_received",
+   "block_id": "dc1c912b9_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "dc0a3d5fb_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "dc0a3d5fb_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "dc0a3d5fb_p001_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E01",
+   "field": "bid_amount",
+   "block_id": "dc0a3d5fb_p001_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E01",
+   "field": "currency",
+   "block_id": "dc0a3d5fb_p001_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E01",
+   "field": "formal_award_notice_received",
+   "block_id": "dc0a3d5fb_p002_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E02",
+   "field": "bidder",
+   "block_id": "dc0a3d5fb_p001_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E02",
+   "field": "tenderer",
+   "block_id": "dc0a3d5fb_p001_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E02",
+   "field": "project_name",
+   "block_id": "dc0a3d5fb_p001_b00017",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E02",
+   "field": "bid_amount",
+   "block_id": "dc0a3d5fb_p001_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E02",
+   "field": "currency",
+   "block_id": "dc0a3d5fb_p001_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E02",
+   "field": "formal_award_notice_received",
+   "block_id": "dc0a3d5fb_p002_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E03",
+   "field": "bidder",
+   "block_id": "dc0a3d5fb_p002_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E03",
+   "field": "tenderer",
+   "block_id": "dc0a3d5fb_p002_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E03",
+   "field": "project_name",
+   "block_id": "dc0a3d5fb_p002_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E03",
+   "field": "bid_amount",
+   "block_id": "dc0a3d5fb_p002_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E03",
+   "field": "currency",
+   "block_id": "dc0a3d5fb_p002_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E03",
+   "field": "contract_signed",
+   "block_id": "dc0a3d5fb_p002_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E04",
+   "field": "bidder",
+   "block_id": "dc0a3d5fb_p002_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E04",
+   "field": "tenderer",
+   "block_id": "dc0a3d5fb_p002_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E04",
+   "field": "project_name",
+   "block_id": "dc0a3d5fb_p002_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E04",
+   "field": "bid_amount",
+   "block_id": "dc0a3d5fb_p002_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E04",
+   "field": "currency",
+   "block_id": "dc0a3d5fb_p002_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-002",
+   "event_id": "E04",
+   "field": "contract_signed",
+   "block_id": "dc0a3d5fb_p002_b00022",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "d0b56135e_p001_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "d0b56135e_p002_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "d0b56135e_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E01",
+   "field": "bid_amount",
+   "block_id": "d0b56135e_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E01",
+   "field": "currency",
+   "block_id": "d0b56135e_p003_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E01",
+   "field": "duration",
+   "block_id": "d0b56135e_p002_b00024",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E01",
+   "field": "contract_signed",
+   "block_id": "d0b56135e_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E02",
+   "field": "bidder",
+   "block_id": "d0b56135e_p001_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E02",
+   "field": "tenderer",
+   "block_id": "d0b56135e_p002_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E02",
+   "field": "project_name",
+   "block_id": "d0b56135e_p002_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E02",
+   "field": "bid_amount",
+   "block_id": "d0b56135e_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E02",
+   "field": "currency",
+   "block_id": "d0b56135e_p003_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E02",
+   "field": "duration",
+   "block_id": "d0b56135e_p002_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E02",
+   "field": "contract_signed",
+   "block_id": "d0b56135e_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E03",
+   "field": "bidder",
+   "block_id": "d0b56135e_p001_b00014",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E03",
+   "field": "tenderer",
+   "block_id": "d0b56135e_p003_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E03",
+   "field": "project_name",
+   "block_id": "d0b56135e_p003_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E03",
+   "field": "bid_amount",
+   "block_id": "d0b56135e_p001_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E03",
+   "field": "currency",
+   "block_id": "d0b56135e_p003_b00025",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E03",
+   "field": "duration",
+   "block_id": "d0b56135e_p003_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-003",
+   "event_id": "E03",
+   "field": "contract_signed",
+   "block_id": "d0b56135e_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "d0be9f419_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "d0be9f419_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "d0be9f419_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "bid_amount",
+   "block_id": "d0be9f419_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "currency",
+   "block_id": "d0be9f419_p003_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "tax_included",
+   "block_id": "d0be9f419_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "duration",
+   "block_id": "d0be9f419_p003_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "contract_signed",
+   "block_id": "d0be9f419_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-004",
+   "event_id": "E01",
+   "field": "price_adjustment_status",
+   "block_id": "d0be9f419_p003_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "ddd80cf89_p002_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "ddd80cf89_p002_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "ddd80cf89_p002_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "ddd80cf89_p002_b00015",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "bid_amount",
+   "block_id": "ddd80cf89_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "currency",
+   "block_id": "ddd80cf89_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "tax_included",
+   "block_id": "ddd80cf89_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "duration",
+   "block_id": "ddd80cf89_p002_b00021",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "consortium_members",
+   "block_id": "ddd80cf89_p002_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "consortium_members",
+   "block_id": "ddd80cf89_p002_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "contract_signed",
+   "block_id": "ddd80cf89_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "formal_award_notice_received",
+   "block_id": "ddd80cf89_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "price_adjustment_status",
+   "block_id": "ddd80cf89_p003_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-005",
+   "event_id": "E01",
+   "field": "price_adjustment_status",
+   "block_id": "ddd80cf89_p003_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "dfc6c3d84_p001_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "dfc6c3d84_p001_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "dfc6c3d84_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "bid_amount",
+   "block_id": "dfc6c3d84_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "currency",
+   "block_id": "dfc6c3d84_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "duration",
+   "block_id": "dfc6c3d84_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "consortium_members",
+   "block_id": "dfc6c3d84_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "contract_signed",
+   "block_id": "dfc6c3d84_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-006",
+   "event_id": "E01",
+   "field": "formal_award_notice_received",
+   "block_id": "dfc6c3d84_p001_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-007",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "d3a6938fe_p001_b00004",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-007",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "d3a6938fe_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-007",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "d3a6938fe_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-007",
+   "event_id": "E01",
+   "field": "bid_amount",
+   "block_id": "d3a6938fe_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-007",
+   "event_id": "E01",
+   "field": "currency",
+   "block_id": "d3a6938fe_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-007",
+   "event_id": "E01",
+   "field": "contract_signed",
+   "block_id": "d3a6938fe_p001_b00006",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "daa9b83fa_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "daa9b83fa_p001_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "daa9b83fa_p001_b00007",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "daa9b83fa_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "bid_amount",
+   "block_id": "daa9b83fa_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "currency",
+   "block_id": "daa9b83fa_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "duration",
+   "block_id": "daa9b83fa_p001_b00013",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "contract_signed",
+   "block_id": "daa9b83fa_p001_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-008",
+   "event_id": "E01",
+   "field": "formal_award_notice_received",
+   "block_id": "daa9b83fa_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "d3aa23f9a_p001_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "d3aa23f9a_p001_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "d3aa23f9a_p001_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E01",
+   "field": "bid_amount",
+   "block_id": "d3aa23f9a_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E01",
+   "field": "currency",
+   "block_id": "d3aa23f9a_p001_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E01",
+   "field": "contract_signed",
+   "block_id": "d3aa23f9a_p002_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E01",
+   "field": "formal_award_notice_received",
+   "block_id": "d3aa23f9a_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E02",
+   "field": "bidder",
+   "block_id": "d3aa23f9a_p001_b00019",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E02",
+   "field": "tenderer",
+   "block_id": "d3aa23f9a_p001_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E02",
+   "field": "project_name",
+   "block_id": "d3aa23f9a_p001_b00016",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E02",
+   "field": "bid_amount",
+   "block_id": "d3aa23f9a_p001_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E02",
+   "field": "currency",
+   "block_id": "d3aa23f9a_p001_b00020",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E02",
+   "field": "contract_signed",
+   "block_id": "d3aa23f9a_p002_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E02",
+   "field": "formal_award_notice_received",
+   "block_id": "d3aa23f9a_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E03",
+   "field": "bidder",
+   "block_id": "d3aa23f9a_p002_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E03",
+   "field": "tenderer",
+   "block_id": "d3aa23f9a_p002_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E03",
+   "field": "project_name",
+   "block_id": "d3aa23f9a_p002_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E03",
+   "field": "bid_amount",
+   "block_id": "d3aa23f9a_p002_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E03",
+   "field": "currency",
+   "block_id": "d3aa23f9a_p002_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E03",
+   "field": "contract_signed",
+   "block_id": "d3aa23f9a_p002_b00012",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-009",
+   "event_id": "E03",
+   "field": "formal_award_notice_received",
+   "block_id": "d3aa23f9a_p001_b00005",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-010",
+   "event_id": "E01",
+   "field": "bidder",
+   "block_id": "d74b68381_p001_b00010",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-010",
+   "event_id": "E01",
+   "field": "tenderer",
+   "block_id": "d74b68381_p001_b00008",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-010",
+   "event_id": "E01",
+   "field": "project_name",
+   "block_id": "d74b68381_p001_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-010",
+   "event_id": "E01",
+   "field": "duration",
+   "block_id": "d74b68381_p001_b00011",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-010",
+   "event_id": "E01",
+   "field": "contract_signed",
+   "block_id": "d74b68381_p002_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "D6-AWD-010",
+   "event_id": "E01",
+   "field": "formal_award_notice_received",
+   "block_id": "d74b68381_p002_b00003",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "3b1abc7f_p001_b00001",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "3b1abc7f_p002_b00002",
+   "hit": false,
+   "reason": "quote_not_in_block"
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "3b1abc7f_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "3b1abc7f_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "3b1abc7f_p001_b00001",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "3b1abc7f_p001_b00001",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "3b1abc7f_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "3b1abc7f_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-0930",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "3b1abc7f_p001_b00001",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-SIMPLE",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "dc91c030_p009_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-SIMPLE",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "dc91c030_p001_b00001",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-SIMPLE",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "dc91c030_p009_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-SIMPLE",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "dc91c030_p009_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-SIMPLE",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "dc91c030_p009_b00009",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-SIMPLE",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "dc91c030_p018_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HL-SIMPLE",
+   "event_id": "E01",
+   "field": "change_date",
+   "block_id": "dc91c030_p018_b00018",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E01",
+   "field": "holder",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E01",
+   "field": "direction",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E01",
+   "field": "shares_before",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E01",
+   "field": "shares_after",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E01",
+   "field": "ratio_before",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E01",
+   "field": "ratio_after",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E01",
+   "field": "change_shares",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E01",
+   "field": "method",
+   "block_id": "3a2d49dd_p001_b00001",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E02",
+   "field": "holder",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E02",
+   "field": "direction",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E02",
+   "field": "shares_before",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E02",
+   "field": "shares_after",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E02",
+   "field": "ratio_before",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E02",
+   "field": "ratio_after",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E02",
+   "field": "change_shares",
+   "block_id": "3a2d49dd_p002_b00002",
+   "hit": true,
+   "reason": null
+  },
+  {
+   "case": "DEMO-EQC-HZ-RESULT",
+   "event_id": "E02",
+   "field": "method",
+   "block_id": "3a2d49dd_p001_b00001",
+   "hit": true,
+   "reason": null
+  }
+ ]
+}
