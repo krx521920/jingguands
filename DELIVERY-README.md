@@ -18,6 +18,7 @@
 | `docs/` | 架构／运行／复现说明（含 `d9-attribution` / `d10-cache-integration` / `d11-firsttest-*` / `d12-perf-and-stability` / `d13-reproduction`） | 全员 |
 | `evaluation/` | **评测侧正典**：封存集、评分器、用例、冻结信封、裁定书、五道门 | 宗 |
 | `evaluation/run-side/weiwenyu/` | 运行侧证据（call-logs、D10 集成包、D12-A/B/C、D6 块级快照）**原路径并入、字节不动** | 魏 |
+| `materials/` | 交付材料：**计划书 PDF**（`项目计划书-可信公告事件提取与跨文档核验智能体.pdf`，5 页，2026-10-10 入仓，未达标清单第 17 条销项）；MP4 待补 | 团队 |
 
 ## 二、评测入口
 
@@ -49,7 +50,7 @@ node evaluation/D18/check-snapshot-coverage.mjs --exclude DEMO-EQC-HL-0930      
 
 ## 五、已知未达标／未解决（必须在材料中如实呈现）
 
-见 `evaluation/2026-10-10-final-delivery/未达标与未解决项-20261010.md`。摘要：展示层 7 项（权威数据未随页面入库、集成包旧构建、用例读法、标准化口径、快照未物化、上传闸门、展示与源码不同版）；抽取侧 4 项（单点数据卫生已修、`parser_version` 未升版、解析复现不一致、扫描件仅降级）；评测口径 5 项（封存集为公开语料回放、弃权正确率未测、Web/CLI 独立一致性未测等）；材料侧 4 项（计划书 PDF / MP4 未入仓、两份 `evaluation/` 已按 A 合包、`develop` 未合流）。
+见 `evaluation/2026-10-10-final-delivery/未达标与未解决项-20261010.md`。摘要：展示层 7 项（权威数据未随页面入库、集成包旧构建、用例读法、标准化口径、快照未物化、上传闸门、展示与源码不同版）；抽取侧 4 项（单点数据卫生已修、`parser_version` 未升版、解析复现不一致、扫描件仅降级）；评测口径 5 项（封存集为公开语料回放、弃权正确率未测、Web/CLI 独立一致性未测等）；材料侧 4 项中计划书 PDF 已入仓 `materials/` 销项（余 MP4 未入仓、两份 `evaluation/` 已按 A 合包、`develop` 未合流）。
 
 ## 六、来源与出处（可复核）
 
