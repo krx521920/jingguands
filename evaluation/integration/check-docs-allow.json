@@ -1,0 +1,21 @@
+{
+  "note": "显式白名单：这些引用指向**上游/他分支/工作区**的文件，本仓评测树内本就不存在，不判错。新增例外必须写明理由。",
+  "externalRefPrefixes": [
+    "work/", "runs/", "corpus/", "sample/", "scripts/", "tools/", "interface/", "reviews/", "apps/", "docs/",
+    "src_D8/", "public_dev_D8/", "docs_D8/", "tests_D8/", "schema_D8.json",
+    "schema_D10/", "results_D10/", "audit_D10/", "docs_D10/",
+    "workspace/", "d4-runtime/",
+    "evaluation/D11/firsttest-", "evaluation/D11/D10-", "evaluation/D11/call-logs/",
+    "evaluation/D12/wei-runs/", "evaluation/D9/parses-blocks/", "evaluation/D9/cases/fang-"
+  ],
+  "reason_of_each": {
+    "src_D8/, public_dev_D8/, docs_D8/, tests_D8/, schema_D8.json": "方轩诚 D8 包（feature/fang-rules 分支）",
+    "schema_D10/, results_D10/, audit_D10/, docs_D10/": "方轩诚 D10 包",
+    "workspace/": "陈家浩工作区（feature/chen-ui 分支）",
+    "corpus/, sample/, scripts/, tools/, interface/, reviews/, runs/": "上游主仓与队友交付",
+    "work/, d4-runtime/": "工作区（仓库外）素材与解析器源码",
+    "evaluation/D11/firsttest-, evaluation/D11/D10-": "魏侧交付",
+    "evaluation/D12/wei-runs/": "魏侧 D12 产物",
+    "evaluation/D9/parses-blocks/, evaluation/D9/cases/fang-": "魏/方侧交付"
+  }
+}
