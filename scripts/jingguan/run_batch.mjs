@@ -327,14 +327,14 @@ const totalRunMs = Date.now() - t0
 for (let i = 0; i < tasks.length; i++) {
   const t = tasks[i]
   const { out, status, ms } = runOutputs[i]
-  const runIdMatch = out.match(/runs[\\/](\S+?)[\\/]events\.json/)
+  const runIdMatch = [...out.matchAll(/runs[\\/]([^\\/]+)[\\/]events\.json/g)].at(-1)
   const runId = runIdMatch?.[1] ?? null
   const entry = { case: t.caseId, event_type: t.eventType, file: t.name, run_id: runId, ok: status === 0 && runId !== null, duration_ms: ms }
   if (!entry.ok) entry.output_tail = out.split('\n').slice(-6).join('\n')
   if (runId !== null) {
     // 失败隔离：单文件产物损坏/不可读不得炸整批——按失败记录后继续
     try {
-      const events = JSON.parse(readFileSync(join(REPO_ROOT, 'runs', runId, 'events.json'), 'utf8'))
+      const events = JSON.parse(readFileSync(join(perRunBase, runId, 'events.json'), 'utf8'))
       const statusCount = {}
       for (const ev of events.events ?? []) for (const fv of Object.values(ev.fields ?? {})) statusCount[fv.status] = (statusCount[fv.status] ?? 0) + 1
       entry.status_count = statusCount
