@@ -30,6 +30,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node
 import { spawnSync } from 'node:child_process'
 import { resolve, dirname, join, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { sideResolve } from './lib/side_paths.mjs'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const RUNNER = join(REPO_ROOT, 'scripts/jingguan/run_extract.mjs')
@@ -88,7 +89,7 @@ function runExtraction(body, reqId) {
     }
     cli.push('--out-dir', TMP_DIR)
     if (args.noCache || cache_dir === 'none') cli.push('--no-cache')
-    else cli.push('--cache-dir', resolve(REPO_ROOT, cache_dir ?? args.cacheDir ?? DEFAULT_CACHE))
+    else cli.push('--cache-dir', sideResolve(REPO_ROOT, cache_dir ?? args.cacheDir ?? DEFAULT_CACHE, false)) // 并包树镜像解析（见 lib/side_paths.mjs），子进程收到的是已存在的路径
 
     const proc = spawnSync(process.execPath, [RUNNER, ...cli.slice(1)], { cwd: REPO_ROOT, encoding: 'utf8', timeout: 200_000, env: process.env })
     if (proc.status !== 0) {

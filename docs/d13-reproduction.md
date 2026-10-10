@@ -3,6 +3,13 @@
 > 魏文宇（抽取/编排侧）｜2026-10-09｜适用分支：`weiwenyu`
 > 本文是"从零克隆到全部成绩复现"的唯一入口说明。评测侧规程以宗 `zongbowen` 分支为准；
 > 解析侧可复现性以张 `sample/D13/D13-B1诊断与可复现性.md` 为准；本文覆盖**抽取侧全链**。
+>
+> **并包树（`delivery/v2.0`／`v2.0-delivery`）路径对照**（2026-10-10）：宗并包把我方 `evaluation/D*` 证据
+> 217 件按原路径并入 `evaluation/run-side/weiwenyu/`（字节不动，blob sha 复用），宗方正典仍在 `evaluation/` 原位。
+> `scripts/jingguan/lib/side_paths.mjs` 提供镜像解析：本文凡指向我方 `evaluation/D12/wei-runs/`、
+> `evaluation/D9/snapshot-paths.json`、`evaluation/D11/call-logs/` 等路径的命令，在并包树上**原样可跑**
+> （原址缺失自动落镜像，stderr 有 `[side]` 提示）；在 `weiwenyu` 分支上行为不变。E1 报告等写入件同理
+> 落镜像原位更新，不混入正典目录。
 
 ## 〇、产物地图（谁的分支放什么）
 

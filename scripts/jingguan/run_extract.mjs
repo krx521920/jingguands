@@ -24,6 +24,7 @@ import { validateAgainstSchema } from './lib/schema_validator.mjs'
 import { FIELD_REGISTRY, checkRegistry } from './lib/registry.mjs'
 import { normalizeFieldValue } from './lib/fang_normalize.mjs'
 import { checkProvenance, checkPageBounds, checkEquityDirection } from './lib/checks.mjs'
+import { sideResolve } from './lib/side_paths.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const SCHEMA = JSON.parse(readFileSync(resolve(REPO_ROOT, 'interface', 'event-envelope.schema.json'), 'utf8'))
@@ -149,7 +150,7 @@ function cacheSetupFromCli(argv) {
   const dir = dirIx > 0 ? argv[dirIx + 1] : process.env.JINGGUAN_CACHE_DIR
   const noCache = argv.includes('--no-cache') || process.env.JINGGUAN_NO_CACHE === '1'
   if (dir && !noCache) {
-    CACHE.dir = resolve(REPO_ROOT, dir)
+    CACHE.dir = sideResolve(REPO_ROOT, dir) // 并包树上魏侧快照位于 evaluation/run-side/weiwenyu/ 镜像，原址缺失自动落镜像
     CACHE.enabled = true
     mkdirSync(CACHE.dir, { recursive: true })
   }

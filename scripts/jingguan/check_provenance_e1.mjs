@@ -11,9 +11,10 @@
  * 输出：逐条 {case, event_id, field, block_id, hit, reason} ＋ summary（命中/总数/omit 清单）
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
-import { resolve, dirname } from 'node:path'
+import { resolve, dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
+import { sideResolve, sideWriteResolve } from './lib/side_paths.mjs'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const argv = process.argv.slice(2)
@@ -27,11 +28,13 @@ for (let i = 0; i < argv.length; i++) {
 const norm = (s) => String(s ?? '').normalize('NFKC').replace(/\s+/gu, '')
 
 // ---- 快照索引（按 file_sha256；扫描降级件例外按 parse 文件 sha）----
-const snap = JSON.parse(readFileSync(resolve(REPO_ROOT, 'evaluation/D9/snapshot-paths.json'), 'utf8'))
+// 清单与 parse_path 经 sideResolve：并包树（delivery/v2.0）上位于 evaluation/run-side/weiwenyu/ 镜像
+const snapPath = sideResolve(REPO_ROOT, 'evaluation/D9/snapshot-paths.json')
+const snap = JSON.parse(readFileSync(snapPath, 'utf8'))
 const byDocSha = new Map()
 const byFileSha = new Map()
 for (const d of snap.docs) {
-  const parse = JSON.parse(readFileSync(resolve(REPO_ROOT, d.parse_path), 'utf8'))
+  const parse = JSON.parse(readFileSync(sideResolve(REPO_ROOT, d.parse_path), 'utf8'))
   const blocks = (parse.pages ?? []).flatMap((p) => p.blocks ?? [])
   const idx = new Map(blocks.map((b) => [b.block_id, b]))
   if (d.file_sha256 && /^[0-9a-f]{64}$/i.test(d.file_sha256)) byDocSha.set(d.file_sha256, { d, blocks, idx })
@@ -86,18 +89,19 @@ for (const { envDir, f } of envFiles) {
   }
 }
 
+const outTarget = sideWriteResolve(REPO_ROOT, args.out) // 镜像已有同名证据时原位更新 run-side，不混入正典 evaluation/D9/
 const summary = {
   checked_on: new Date().toISOString().slice(0, 10),
   envelopes_dir: args.envelopes,
-  snapshots_manifest: 'evaluation/D9/snapshot-paths.json',
+  snapshots_manifest: relative(REPO_ROOT, snapPath).replaceAll('\\', '/'),
   provenance_total: total,
   hit, miss,
   omit_no_block_or_quote: omitNoQuote,
   omit_no_snapshot: omitNoSnap,
   omit_detail: rows.filter((r) => r.reason?.startsWith('omit')).map((r) => `${r.case}.${r.field}(${r.reason})`),
-  caliber_note: '权威批次集＝E1 31 信封＋D8 演示批 3 信封（key＝file_sha256，快照自 evaluation/D9/snapshot-paths.json 物化）。页面注册表 863 条的口径含其本地 41 文档集（多出的批次外文档不在权威集）；未中条目如实保留不掩——已知 1 条为演示件表单残片引文（DEMO-EQC-HL-0930.direction 的"变动方向□上升下降"，非 E1 计分成员）。',
+  caliber_note: '权威批次集＝E1 31 信封＋D8 演示批 3 信封（key＝file_sha256，快照自 evaluation/D9/snapshot-paths.json 物化，并包树上经 sideResolve 落 evaluation/run-side/weiwenyu/ 镜像）。页面注册表 863 条的口径含其本地 41 文档集（多出的批次外文档不在权威集）；未中条目如实保留不掩——已知 1 条为演示件表单残片引文（DEMO-EQC-HL-0930.direction 的"变动方向□上升下降"，非 E1 计分成员）。',
 }
 const out = { summary, rows }
-writeFileSync(resolve(REPO_ROOT, args.out), JSON.stringify(out, null, 1), 'utf8')
-console.log(`[E1出处核验] 总 ${total}｜命中 ${hit}｜未中 ${miss}｜omit(无块/引文) ${omitNoQuote}｜omit(无快照) ${omitNoSnap}｜报告 ${args.out}`)
+writeFileSync(outTarget.path, JSON.stringify(out, null, 1), 'utf8')
+console.log(`[E1出处核验] 总 ${total}｜命中 ${hit}｜未中 ${miss}｜omit(无块/引文) ${omitNoQuote}｜omit(无快照) ${omitNoSnap}｜报告 ${outTarget.rel}`)
 process.exit(miss === 0 ? 0 : 1)

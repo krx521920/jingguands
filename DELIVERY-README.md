@@ -1,7 +1,8 @@
 # DELIVERY-README · 最终交付包入口（v2.0-delivery 候选）
 
-> 本包 = **运行侧封版树**（魏 `weiwenyu@41d57c87`）＋ **评测侧正典**（宗 `zongbowen` 的 `evaluation/`）＋ **运行侧证据并入件**（`evaluation/run-side/weiwenyu/`）。
-> 合包方式：以**评测正典为主**（裁决 A，2026-10-10 魏裁定）；运行侧 215+ 份证据**字节不动**、按原路径并入 `evaluation/run-side/weiwenyu/`，出处已标注。
+> 本包 = **运行侧封版树**（魏 `weiwenyu@dc4080ac`）＋ **评测侧正典**（宗 `zongbowen` 的 `evaluation/`）＋ **运行侧证据并入件**（`evaluation/run-side/weiwenyu/`）。
+> 合包方式：以**评测正典为主**（裁决 A，2026-10-10 魏裁定）；运行侧 217 份证据**字节不动**、按原路径并入 `evaluation/run-side/weiwenyu/`，出处已标注。
+> 魏侧脚本（`run_extract` / `serve_extract` / `check_provenance_e1`）经 `scripts/jingguan/lib/side_paths.mjs` 自动解析镜像：指向我方 `evaluation/D*` 旧路径的命令在本包上原样可跑（详见 `docs/d13-reproduction.md` 头部路径对照）。
 
 ---
 
@@ -40,7 +41,7 @@ node evaluation/D18/check-snapshot-coverage.mjs --exclude DEMO-EQC-HL-0930      
 
 | 角色 | 版本 |
 |---|---|
-| 运行侧封版树（本包基底） | `weiwenyu@41d57c87`（门禁 17 道全绿） |
+| 运行侧封版树（本包基底） | `weiwenyu@dc4080ac`（门禁 17 道全绿；含 run_batch 收容根治与 §4.2 口径更新，为合包时 `weiwenyu` 分支头） |
 | 运行侧交付标签 | `v2.0-delivery`（由魏在合包提交上打；`v1.0-d14-release` / `v1.1-final` 保留为历史里程碑，不重指） |
 | 评测侧正典 | `zongbowen@77771bc4`（合包时的 `evaluation/` 内容快照） |
 | 展示层（页面） | `feature/chen-ui@e7bec616`（**注意：与封版不同源，见未达标清单第 7 项**） |
