@@ -1,0 +1,17 @@
+{
+  "note": "标准化门的**冻结件豁免**清单：首测冻结信封属「历史证据不重写」，其中的历史单点缺陷不判 FAIL，但必须单列（exempted）并写明原因与根治位置。新增豁免必须写理由与批准人——不藏在启发式里。",
+  "updated_on": "2026-10-10",
+  "updated_by": "宗（评测侧）",
+  "exemptions": [
+    {
+      "asset": "evaluation/D11/firsttest-envelopes/D4-PLD-008.json",
+      "path": "events[0].fields.announcement_date",
+      "class": "frozen_asset",
+      "observed": "status=not_mentioned、value=null、provenance=[] 却标 standardized:true",
+      "reason": "首测冻结件按「历史证据不重写」纪律保留原样；该缺陷已由产出侧在生成路径上根治（全局不变量：值 null 恒 false ＋ 翻转换记 call_log.repairs，weiwenyu@41d57c87）。冻结件中此缺陷不影响任何分母（弃权字段不入标准化统计），也不影响值层复算 229/229。",
+      "approved_by": "宗（评测侧）",
+      "approved_on": "2026-10-10",
+      "effect": "计入 exempted，不计入 violations；门结果不受其影响"
+    }
+  ]
+}

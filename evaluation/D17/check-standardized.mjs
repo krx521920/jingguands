@@ -16,6 +16,7 @@
 import fs from "node:fs"; import path from "node:path";
 const argv=process.argv.slice(2); const arg=(k,d)=>{const i=argv.indexOf(k);return i>=0?argv[i+1]:d;}; const has=k=>argv.includes(k);
 const DIR=arg("--dir",null); const EXC=arg("--exclude",null); const OUT=arg("--json",null);
+const EXEMPTIONS=arg("--exemptions","evaluation/D17/standardized-exemptions.json");   // 冻结件豁免清单（历史证据不重写）
 
 export function scan(files){
   const r={files:files.length,fields:0,valued:0,abstain:0,
@@ -46,7 +47,8 @@ export function scan(files){
   return r;
 }
 function load(dir,exc){
-  return fs.readdirSync(dir).filter(f=>f.endsWith(".json")&&f!==exc).sort()
+  const ex=exc? (String(exc).endsWith(".json")? String(exc) : String(exc)+".json") : null;   // 允许 --exclude 不带扩展名
+  return fs.readdirSync(dir).filter(f=>f.endsWith(".json")&&f!==ex).sort()
     .map(f=>({name:f,j:JSON.parse(fs.readFileSync(path.join(dir,f),"utf8"))}));
 }
 if(has("--self-test")){
@@ -67,8 +69,15 @@ if(has("--self-test")){
 }
 if(!DIR){ console.error("需要 --dir <envelopes 目录>（或 --self-test）"); process.exit(2); }
 const r=scan(load(DIR,EXC));
-const violations=r.missing_bool_on_valued.length+r.abstain_true.length;
-const out={checked_on:new Date().toISOString().slice(0,10),dir:DIR,excluded:EXC,result:violations?"FAIL":"PASS",violations,...r};
+// 冻结件豁免：命中清单的 violation 单列为 exempted，不判 FAIL
+let exm=[]; try{ exm=JSON.parse(fs.readFileSync(EXEMPTIONS,"utf8")).exemptions||[]; }catch{}
+const fieldOf=s=>String(s||"").replace(/\(.*\)$/,"").split(".").pop();   // 取字段名
+const isExempt=(item)=>{ const [file,path]=String(item).split("#"); const fb=String(file).split("/").pop(); const fld=fieldOf(path); return exm.some(e=>String(e.asset).split("/").pop()===fb && fieldOf(e.path)===fld); };
+const missingEx=[...r.missing_bool_on_valued,...r.abstain_true];
+const exempted=missingEx.filter(isExempt);
+const realViolations=missingEx.filter(x=>!isExempt(x));
+const violations=realViolations.length;   // 已剔除豁免项
+const out={checked_on:new Date().toISOString().slice(0,10),dir:DIR,excluded:EXC,result:violations?"FAIL":"PASS",violations,violations_exempted:exempted.length,exempted,exemptions_file:EXEMPTIONS,...r};
 if(OUT) fs.writeFileSync(OUT,JSON.stringify(out,null,2)+"\n");
 console.log(JSON.stringify({result:out.result,violations,files:r.files,fields:r.fields,valued:r.valued,
   nontext_valued:r.nontext_valued,nontext_true:r.nontext_true,coverage_main_pct:r.coverage_main_pct,
@@ -76,4 +85,5 @@ console.log(JSON.stringify({result:out.result,violations,files:r.files,fields:r.
   text_valued:r.text_valued,abstain:r.abstain},null,2));
 if(r.missing_bool_on_valued.length) console.log("  有值缺布尔:",r.missing_bool_on_valued.slice(0,5).join(", "));
 if(r.abstain_true.length) console.log("  弃权却标 true:",r.abstain_true.slice(0,5).join(", "));
+if(exempted.length) console.log("  （已豁免·冻结件，单列不计入 violations）:",exempted.join(", "));
 process.exit(violations?1:0);
