@@ -1,0 +1,58 @@
+{
+  "note": "消费副本时效清单：页面为了演示会从各方分支拷文件进自己的 data/，拷的是哪一版无法自证。本清单登记『页面里的这个文件 == 上游原件』应该成立的唯一哈希；对不上即过期，不看日期、不看人话。",
+  "updated_at": "2026-10-10",
+  "updated_by": "宗（评测侧，D14 本地服务实测）",
+  "copies": [
+    {
+      "local": "data/d10/integration_cases.json",
+      "expect_sha256": "306e57f436f62a90135376569d312934761e78737780c74d9ed60573e7d2bfe0",
+      "source": "evaluation/D10/cases/integration-cases.json（宗 · 集成用例正典，10 组）",
+      "level": "gate"
+    },
+    {
+      "local": "data/d10/integration_bundle.json",
+      "expect_sha256": "7939e399dd54f4f12b256305f88b4ecce2152f6690bf07c4c26a55b65ec94597",
+      "source": "weiwenyu@b0954f8c:evaluation/D11/D10-integration-bundle.json（魏 · D11 首测版 10/10 PASS）＝评价侧冻结件 evaluation/D10/results/weiwenyu-bundle.json",
+      "level": "gate"
+    },
+    {
+      "local": "data/d10/cache_evidence.json",
+      "expect_sha256": "69ce04c0ae95c4593476dd730b6d93cd12133ca74131e2b40d6ae10765b88173",
+      "source": "evaluation/D10/results/cache-evidence.json（宗 · 缓存三态证据）",
+      "level": "gate"
+    },
+    {
+      "local": "data/d10/chain_check.json",
+      "expect_sha256": "7baa1fc68d5e6545161ff4b80afd616be52b3cf6d17ba33a76e4b292a3c4f0be",
+      "source": "zhangzhibo@5bab7c3d:sample/D10/chain_check.json（张 · 块级链检）",
+      "level": "warn"
+    },
+    {
+      "local": "data/d10/fang_report_bundle.json",
+      "expect_sha256": "aaba0c475569b5ab7c8901ccd0aab0f61998b7b2516ebab81b92a1f8044f8383",
+      "source": "feature/fang-rules@af4348be:results_D10/核验报告合集_D10.json（方原件；页面本地改名为 fang_report_bundle.json，字节一致）",
+      "level": "gate"
+    },
+    {
+      "local": "data/pairs/pairs_manifest.json",
+      "expect_sha256": "661b26623069e9f7bfe7815f27915147aefcb6bc43716ff9c9ad406b657dedf6",
+      "source": "evaluation/D8/pairs/pairs.dev30.json（宗 · 跨文档配对清单）",
+      "level": "gate"
+    },
+    {
+      "local": "data/pairs/b_report.json",
+      "expect_sha256": "c0ff68ce87d60f1cc2fcfbafafb07a941198f8cecb4f758f42850866f437554b",
+      "source": "evaluation/D8/reference/b-report-20261004.json（魏 B 流报告 → 宗侧冻结）",
+      "level": "gate"
+    }
+  ],
+  "authoritative_batch": {
+    "local_dir": "data_unified",
+    "docs": 31,
+    "excluded": ["DEMO-EQC-HL-0930.json"],
+    "anchor_sha256": "381c760fa07b2dc3a8256282e23009bce4b79445fdc7f4f4280168af6c90cef0",
+    "reference_dir": "evaluation/D11/firsttest-envelopes",
+    "level": "gate",
+    "why": "页面默认口径（指标单一真源裁决 R1）跑的是这一批。页面分支把它 gitignore 了，任何 clone 都看不到 31 份 → 指标卡全是 null（见 metrics-无data_unified-20261010.json）。"
+  }
+}

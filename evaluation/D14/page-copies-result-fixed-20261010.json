@@ -1,0 +1,77 @@
+{
+  "checked_on": "2026-10-10",
+  "page_dir": "tmp\\page",
+  "result": "PASS",
+  "gate_fail": 0,
+  "warn_fail": 0,
+  "copies": [
+    {
+      "local": "data/d10/integration_cases.json",
+      "level": "gate",
+      "status": "MATCH",
+      "expect": "306e57f436f6",
+      "got": "306e57f436f6",
+      "source": "evaluation/D10/cases/integration-cases.json（宗 · 集成用例正典，10 组）"
+    },
+    {
+      "local": "data/d10/integration_bundle.json",
+      "level": "gate",
+      "status": "MATCH",
+      "expect": "7939e399dd54",
+      "got": "7939e399dd54",
+      "source": "weiwenyu@b0954f8c:evaluation/D11/D10-integration-bundle.json（魏 · D11 首测版 10/10 PASS）＝评价侧冻结件 evaluation/D10/results/weiwenyu-bundle.json"
+    },
+    {
+      "local": "data/d10/cache_evidence.json",
+      "level": "gate",
+      "status": "MATCH",
+      "expect": "69ce04c0ae95",
+      "got": "69ce04c0ae95",
+      "source": "evaluation/D10/results/cache-evidence.json（宗 · 缓存三态证据）"
+    },
+    {
+      "local": "data/d10/chain_check.json",
+      "level": "warn",
+      "status": "MATCH",
+      "expect": "7baa1fc68d5e",
+      "got": "7baa1fc68d5e",
+      "source": "zhangzhibo@5bab7c3d:sample/D10/chain_check.json（张 · 块级链检）"
+    },
+    {
+      "local": "data/d10/fang_report_bundle.json",
+      "level": "gate",
+      "status": "MATCH",
+      "expect": "aaba0c475569",
+      "got": "aaba0c475569",
+      "source": "feature/fang-rules@af4348be:results_D10/核验报告合集_D10.json（方原件；页面本地改名为 fang_report_bundle.json，字节一致）"
+    },
+    {
+      "local": "data/pairs/pairs_manifest.json",
+      "level": "gate",
+      "status": "MATCH",
+      "expect": "661b26623069",
+      "got": "661b26623069",
+      "source": "evaluation/D8/pairs/pairs.dev30.json（宗 · 跨文档配对清单）"
+    },
+    {
+      "local": "data/pairs/b_report.json",
+      "level": "gate",
+      "status": "MATCH",
+      "expect": "c0ff68ce87d6",
+      "got": "c0ff68ce87d6",
+      "source": "evaluation/D8/reference/b-report-20261004.json（魏 B 流报告 → 宗侧冻结）"
+    }
+  ],
+  "authoritative_batch": {
+    "status": "MATCH",
+    "docs": 31,
+    "docs_expected": 31,
+    "excluded_present": [
+      "DEMO-EQC-HL-0930.json"
+    ],
+    "anchor": "381c760fa07b2dc3a8256282e23009bce4b79445fdc7f4f4280168af6c90cef0",
+    "anchor_expected": "381c760fa07b2dc3a8256282e23009bce4b79445fdc7f4f4280168af6c90cef0",
+    "anchor_ok": true,
+    "byte_diff": []
+  }
+}

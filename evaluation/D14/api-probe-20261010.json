@@ -1,0 +1,133 @@
+{
+  "started_at": "2026-10-10T03:05:14.811Z",
+  "base": "http://127.0.0.1:8642",
+  "probes": [
+    {
+      "name": "GET /",
+      "status": 200,
+      "note": "<!DOCTYPE html> <html lang=\"zh-CN\"> <head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initi  [33ms, 6618B]",
+      "ms": 33,
+      "bytes": 6618,
+      "ct": "text/html; charset=utf-8"
+    },
+    {
+      "name": "GET /api/datasets",
+      "status": 200,
+      "note": "{\"engine\":\"file\",\"n\":62}  [340ms, 87314B]",
+      "ms": 340,
+      "bytes": 87314,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/engines",
+      "status": 200,
+      "note": "{\"default_engine\":\"file\",\"engines\":[{\"id\":\"file\",\"label\":\"本地预生成信封\",\"owner\":\"陈家浩（页面侧）\",\"kind\":\"prebuilt\",\"available\":true,\"reason\":\"本地预生成信封常驻可用（权威批次 data_unified/ + 演示池 data/）\",\"caps\":{\"reruns_extraction\":false,\"needs_pdf  [18ms, 1497B]",
+      "ms": 18,
+      "bytes": 1497,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/result?dataset=D4-PLD-001",
+      "status": 200,
+      "note": "{\"run_id\":\"20261007T084852-pledge-9867\",\"events\":3}  [33ms, 65837B]",
+      "ms": 33,
+      "bytes": 65837,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/result?dataset=pledge",
+      "status": 200,
+      "note": "{\"events\":2}  [16ms, 6125B]",
+      "ms": 16,
+      "bytes": 6125,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/contract?dataset=D4-PLD-001",
+      "status": 200,
+      "note": "{\"schema_file\":\"interface/event-envelope.schema.json\",\"ok\":true,\"errors\":0}  [9ms, 70753B]",
+      "ms": 9,
+      "bytes": 70753,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/export csv D4-PLD-001",
+      "status": 200,
+      "note": "run_id,data_mode,event_id,event_type,field,status,status_raw,value,normalized,normalized_unit,denominator,evidence_id,bl  [25ms, 7144B]",
+      "ms": 25,
+      "bytes": 7144,
+      "ct": "text/csv; charset=utf-8"
+    },
+    {
+      "name": "GET /api/metrics (authoritative)",
+      "status": 200,
+      "note": "{\"batch\":\"authoritative\",\"docs\":31,\"anchor_ok\":true,\"fields\":606,\"extracted_pct\":72.11}  [828ms, 75256B]",
+      "ms": 828,
+      "bytes": 75256,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/metrics?batch=legacy",
+      "status": 200,
+      "note": "{\"batch\":\"authoritative\",\"datasets\":30,\"warn\":null}  [946ms, 74226B]",
+      "ms": 946,
+      "bytes": 74226,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/metrics?batch=bogus",
+      "status": 200,
+      "note": "{\"batch\":\"authoritative\"}  [977ms, 75256B]",
+      "ms": 977,
+      "bytes": 75256,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/metrics/registry",
+      "status": 200,
+      "note": "{\"metrics\":14,\"fingerprint\":{\"generated_at\":\"2026-10-10T03:05:18.390Z\",\"inputs\":{\"page_data\":{\"dir\":\"data\",\"exists\":true,\"files\":41,\"sha256\":\"43f0277ad0eb4254bf6be0ebf56e26f27273c12e6a529b0b48c32dc7e862debd\",\"per_file\":{  [427ms, 21173B]",
+      "ms": 427,
+      "bytes": 21173,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/pairs",
+      "status": 200,
+      "note": "{\"n\":13}  [57ms, 33044B]",
+      "ms": 57,
+      "bytes": 33044,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/verify",
+      "status": 200,
+      "note": "{\"findings\":10}  [242ms, 12888B]",
+      "ms": 242,
+      "bytes": 12888,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/integration",
+      "status": 200,
+      "note": "{\"cases\":10,\"n_pass\":9}  [25ms, 119338B]",
+      "ms": 25,
+      "bytes": 119338,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "GET /api/parity/real",
+      "status": 200,
+      "note": "{\"available\":true,\"verdict\":\"measured\",\"generated_at\":\"2026-10-08T01:50:49.010Z\",\"input_fingerprint\":{\"generated_at\":\"2026-10-08T01:50:49.009Z\",\"inputs\":{\"page_data\":{\"dir\":\"data\",\"exists\":true,\"files\":41,\"sha256\":\"c3157  [11ms, 7594B]",
+      "ms": 11,
+      "bytes": 7594,
+      "ct": "application/json; charset=utf-8"
+    },
+    {
+      "name": "POST /api/upload (real pdf)",
+      "status": 200,
+      "note": "{\"total\":1,\"ok\":0,\"failed\":1,\"first\":{\"filename\":\"D13-STR-05_002973_qiaoyin.pdf\",\"size\":124308,\"batch_id\":\"20261010030431-17324\",\"ts\":\"2026-10-10T03:05:18.830Z\",\"error\":\"仅接受 .json 信封文件\"}}",
+      "bytes": 327
+    }
+  ],
+  "ended_at": "2026-10-10T03:05:18.831Z"
+}
