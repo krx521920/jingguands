@@ -1,0 +1,73 @@
+{
+  "checked_on": "2026-10-10",
+  "bundle": "evaluation\\D10\\results\\weiwenyu-bundle.json",
+  "cases": "evaluation/D10/cases/integration-cases.json",
+  "result": "PASS",
+  "cases_total": 10,
+  "match": 10,
+  "mismatch": 0,
+  "not_run": 0,
+  "no_expectation": 0,
+  "rows": [
+    {
+      "case_id": "D10-INT-001",
+      "expected": "related",
+      "actual": "related",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-002",
+      "expected": "related",
+      "actual": "related",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-003",
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-004",
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-005",
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-006",
+      "expected": "unknown",
+      "actual": "unknown",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-007",
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-008",
+      "expected": "unknown",
+      "actual": "unknown",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-009",
+      "expected": "unrelated",
+      "actual": "unrelated",
+      "status": "MATCH"
+    },
+    {
+      "case_id": "D10-INT-010",
+      "expected": "unknown",
+      "actual": "unknown",
+      "status": "MATCH"
+    }
+  ]
+}

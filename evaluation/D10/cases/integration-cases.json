@@ -27,7 +27,10 @@
         "D5-EQC-003"
       ],
       "purpose": "同事件跨披露角色：简式×详式×财务顾问核查",
-      "expected": "related + 互证9 + 合计勾稽"
+      "expected": "related + 互证9 + 合计勾稽",
+      "expected_relation": "related",
+      "attribution_demo": "同事件互证（简式×详式×财务顾问核查）；互证与合计勾稽属归因层展示",
+      "expected_text_legacy": "related + 互证9 + 合计勾稽"
     },
     {
       "case_id": "D10-INT-002",
@@ -37,7 +40,10 @@
         "D5-EQC-005"
       ],
       "purpose": "零共享主体，靠 72,673,907 反向咬合",
-      "expected": "related(REVERSE_MATCH)"
+      "expected": "related(REVERSE_MATCH)",
+      "expected_relation": "related",
+      "attribution_demo": "反向咬合同事件（72,673,907）；配键依据属归因层展示",
+      "expected_text_legacy": "related(REVERSE_MATCH)"
     },
     {
       "case_id": "D10-INT-003",
@@ -47,7 +53,10 @@
         "DEMO-EQC-HL-0930"
       ],
       "purpose": "同主体且同持股数 249,519,764，仍须分清两事件",
-      "expected": "unrelated"
+      "expected": "unrelated",
+      "expected_relation": "unrelated",
+      "attribution_demo": "同主体且同持股数，但属两事件；口径差异属归因层展示",
+      "expected_text_legacy": "unrelated"
     },
     {
       "case_id": "D10-INT-004",
@@ -57,7 +66,10 @@
         "D5-EQC-001"
       ],
       "purpose": "不同事件类型不自动合并",
-      "expected": "unrelated"
+      "expected": "unrelated",
+      "expected_relation": "unrelated",
+      "attribution_demo": "跨事件类型，不自动合并",
+      "expected_text_legacy": "unrelated"
     },
     {
       "case_id": "D10-INT-005",
@@ -68,7 +80,10 @@
         "D6-AWD-003"
       ],
       "purpose": "同类型零误报基线",
-      "expected": "unrelated"
+      "expected": "unrelated",
+      "expected_relation": "unrelated",
+      "attribution_demo": "同类型不同主体、不同项目；零误报基线",
+      "expected_text_legacy": "unrelated"
     },
     {
       "case_id": "D10-INT-006",
@@ -78,7 +93,10 @@
         "D6-AWD-001"
       ],
       "purpose": "一侧0可用字段",
-      "expected": "unknown/insufficient，不进矛盾比较"
+      "expected": "unknown/insufficient，不进矛盾比较",
+      "expected_relation": "unknown",
+      "attribution_demo": "一侧 0 可用字段，证据不足不硬判，不进矛盾比较",
+      "expected_text_legacy": "unknown/insufficient，不进矛盾比较"
     },
     {
       "case_id": "D10-INT-007",
@@ -88,7 +106,10 @@
         "D6-AWD-005"
       ],
       "purpose": "含税/增值税口径需先归因",
-      "expected": "explainable_difference，不判矛盾"
+      "expected": "explainable_difference，不判矛盾",
+      "expected_relation": "unrelated",
+      "attribution_demo": "含税/增值税口径差异属归因层（explainable_difference），不构成 relation 预期",
+      "expected_text_legacy": "explainable_difference，不判矛盾"
     },
     {
       "case_id": "D10-INT-008",
@@ -98,7 +119,10 @@
         "D6-AWD-002"
       ],
       "purpose": "AED折算CNY，缺汇率不强行换算",
-      "expected": "explainable_difference，无强制换算"
+      "expected": "explainable_difference，无强制换算",
+      "expected_relation": "unknown",
+      "attribution_demo": "不同主体不同项目；AED↔CNY 双记录在 AWD-007 信封内，缺汇率不自算；缺可比依据不强行关联",
+      "expected_text_legacy": "explainable_difference，无强制换算"
     },
     {
       "case_id": "D10-INT-009",
@@ -108,7 +132,10 @@
         "D4-PLD-009"
       ],
       "purpose": "本次质押 vs 累计质押，同值不同列",
-      "expected": "explainable_difference"
+      "expected": "explainable_difference",
+      "expected_relation": "unrelated",
+      "attribution_demo": "不同质押对；本次 vs 累计口径差异属归因层展示",
+      "expected_text_legacy": "explainable_difference"
     },
     {
       "case_id": "D10-INT-010",
@@ -120,7 +147,19 @@
         "pledge-scan-degrade"
       ],
       "purpose": "三类+降级同批",
-      "expected": "部分正常+降级单列，批不崩"
+      "expected": "部分正常+降级单列，批不崩",
+      "expected_relation": "unknown",
+      "attribution_demo": "混合鲁棒链：三类+降级同批；降级件单列，关系证据不足不硬判",
+      "expected_text_legacy": "部分正常+降级单列，批不崩"
     }
-  ]
+  ],
+  "expectation_fields": {
+    "added_on": "2026-10-10",
+    "why": "原 `expected` 把**归因层**结论（explainable_difference／不判矛盾／无强制换算）写进了 **relation 层**预期，两层口径混写会让消费方按关键词映射出错误的关系枚举（008 被映射成 unrelated，而权威包是 unknown）。按 魏 2026-10-10《D14-INT008判定口径》拆分。",
+    "fields": {
+      "expected_relation": "relation 层唯一真源（related|unrelated|unknown）；消费方不得再用关键词映射 `expected_text_legacy`",
+      "attribution_demo": "归因层展示说明（explainable_difference 之类结论的落点），不参与 relation 判定",
+      "expected_text_legacy": "原始文本，仅作历史留档，禁止机器读取"
+    }
+  }
 }

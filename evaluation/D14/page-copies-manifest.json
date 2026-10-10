@@ -5,8 +5,8 @@
   "copies": [
     {
       "local": "data/d10/integration_cases.json",
-      "expect_sha256": "306e57f436f62a90135376569d312934761e78737780c74d9ed60573e7d2bfe0",
-      "source": "evaluation/D10/cases/integration-cases.json（宗 · 集成用例正典，10 组）",
+      "expect_sha256": "40d9e267179fee31094e853c02cf241e0f66eb36459cfc332edd142698e42ed5",
+      "source": "evaluation/D10/cases/integration-cases.json（宗 · 集成用例正典，10 组）★ 2026-10-10 起含 `expected_relation`（relation 层唯一真源）+ `attribution_demo`（归因层展示）；消费方**不得**再按关键词映射 `expected_text_legacy`",
       "level": "gate"
     },
     {
@@ -49,7 +49,9 @@
   "authoritative_batch": {
     "local_dir": "data_unified",
     "docs": 31,
-    "excluded": ["DEMO-EQC-HL-0930.json"],
+    "excluded": [
+      "DEMO-EQC-HL-0930.json"
+    ],
     "anchor_sha256": "381c760fa07b2dc3a8256282e23009bce4b79445fdc7f4f4280168af6c90cef0",
     "reference_dir": "evaluation/D11/firsttest-envelopes",
     "level": "gate",

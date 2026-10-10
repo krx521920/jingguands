@@ -61,3 +61,6 @@ node evaluation/D14/check-page-copies.mjs --page <页面目录>
 - 清单登记的是**上游原件**（`page-copies-manifest.json`，每条都写出处）。
 - 退出码 1 表示有 gate 项对不上 → **不要改清单去迁就现状**（改清单＝把错的事实写成对的）。
 - 本次实测：现状 **FAIL**（集成包过期；`data_unified/` 缺失时再 FAIL 一项）；把集成包换成魏 D11 版后 **PASS**（正向对照）。
+## 六、后续变更（2026-10-10 晚，D16）
+
+用例正典 `evaluation/D10/cases/integration-cases.json` 已按魏的裁定拆分（`expected_relation`＋`attribution_demo`，新哈希 `40d9e267…`）——见 `evaluation/D16/README.md`。本目录的 `page-copies-result-*.json` 是**变更前**的快照，用于证明门会响；页面副本需按 D16 给陈那份刷新。
