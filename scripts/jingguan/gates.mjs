@@ -54,26 +54,27 @@ results.push({ name: 'git守卫·已跟踪文件零删除', ok: deleted.length =
 results.push({ name: 'git守卫·无临时文件残留', ok: tmpFiles.length === 0, tail: tmpFiles.length === 0 ? '干净' : tmpFiles.join(',') })
 
 // ---- 7 远端同步 ----
-// 比较对象＝当前分支 upstream（缺省回落 origin/weiwenyu）：并包/交付等分支同样受"防以为推了"保护
-const upstreamOut = spawnSync('git', ['rev-parse', '--abbrev-ref', '--symbolic-full-name', '@{upstream}'], { cwd: REPO_ROOT, encoding: 'utf8' })
-const remoteBranch = (upstreamOut.status === 0 ? upstreamOut.stdout.trim() : '').replace(/^origin\//, '') || 'weiwenyu'
-const compareRef = `origin/${remoteBranch}`
-const fetch = spawnSync('git', ['fetch', 'origin', remoteBranch], { cwd: REPO_ROOT, encoding: 'utf8' })
-const remoteExists = spawnSync('git', ['rev-parse', '--verify', '--quiet', compareRef], { cwd: REPO_ROOT }).status === 0
-if (fetch.status !== 0) {
-  results.push({ name: '远端同步', ok: true, tail: '网络不可达，跳过（网络恢复后重跑）', fatal: false })
-} else if (!remoteExists) {
-  // tag 检出环境（窄克隆无分支引用）：本门禁保护的是开发分支推送纪律，此处改为
-  // 校验 HEAD 被任一本地 tag 指向（窄克隆只携带本 tag，不硬编码清单）
-  const head = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
-  const tagsAtHead = spawnSync('git', ['tag', '--points-at', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
-  const hit = tagsAtHead.length > 0
-  results.push({ name: '远端同步', ok: hit, fatal: false, tail: hit ? `tag 检出环境：HEAD＝tag ${tagsAtHead.split('\n')[0]} (${head.slice(0, 8)})` : 'tag 检出环境但 HEAD 无 tag 指向' })
+// 判定次序：①HEAD 被 tag 指向 → tag 检出环境（窄克隆/封版回看），推送纪律不适用，绿；
+// ②当前分支 upstream（缺省回落 origin/weiwenyu）：并包/交付等分支同样受"防以为推了"保护
+const head = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
+const tagsAtHead = spawnSync('git', ['tag', '--points-at', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
+if (tagsAtHead) {
+  results.push({ name: '远端同步', ok: true, fatal: false, tail: `tag 检出环境：HEAD＝tag ${tagsAtHead.split('\n')[0]} (${head.slice(0, 8)})` })
 } else {
-  const head = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
-  const remote = spawnSync('git', ['rev-parse', compareRef], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
-  const ahead = spawnSync('git', ['rev-list', '--count', `${compareRef}..HEAD`], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
-  results.push({ name: `远端同步（防"以为推了"｜${compareRef}）`, ok: head === remote, tail: head === remote ? `一致 ${head.slice(0, 8)}` : `本地领先 ${ahead} 个提交未推送` })
+  const upstreamOut = spawnSync('git', ['rev-parse', '--abbrev-ref', '--symbolic-full-name', '@{upstream}'], { cwd: REPO_ROOT, encoding: 'utf8' })
+  const remoteBranch = (upstreamOut.status === 0 ? upstreamOut.stdout.trim() : '').replace(/^origin\//, '') || 'weiwenyu'
+  const compareRef = `origin/${remoteBranch}`
+  const fetch = spawnSync('git', ['fetch', 'origin', remoteBranch], { cwd: REPO_ROOT, encoding: 'utf8' })
+  const remoteExists = spawnSync('git', ['rev-parse', '--verify', '--quiet', compareRef], { cwd: REPO_ROOT }).status === 0
+  if (fetch.status !== 0) {
+    results.push({ name: '远端同步', ok: true, tail: '网络不可达，跳过（网络恢复后重跑）', fatal: false })
+  } else if (!remoteExists) {
+    results.push({ name: '远端同步', ok: false, fatal: false, tail: `${compareRef} 不存在且非 tag 检出环境` })
+  } else {
+    const remote = spawnSync('git', ['rev-parse', compareRef], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
+    const ahead = spawnSync('git', ['rev-list', '--count', `${compareRef}..HEAD`], { cwd: REPO_ROOT, encoding: 'utf8' }).stdout.trim()
+    results.push({ name: `远端同步（防"以为推了"｜${compareRef}）`, ok: head === remote, tail: head === remote ? `一致 ${head.slice(0, 8)}` : `本地领先 ${ahead} 个提交未推送` })
+  }
 }
 
 // ---- 汇总 ----
