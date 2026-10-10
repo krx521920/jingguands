@@ -28,7 +28,23 @@
       "type": "pledge（解除质押＋质押延期购回 复合）",
       "expectation_sha256": "62d612320e3fd2cef2adbe5c91bba7ecfd2d9ace9d387696b35fd8828c65874f",
       "parse_sha256_worktree_crlf": "c95ebe93a45216b8fd5719d4e055e3c6c49bc026bff2960e3a8c4033a786ca8e",
-      "hash_basis": "repository_bytes (git show HEAD:<path>)"
+      "hash_basis": "repository_bytes (git show HEAD:<path>)",
+      "lock_semantics": {
+        "primary": {
+          "input_sha256": "706bf32cb39cd5db0fee37618abf0d4ff788c9a5a520dc1ec75bfb99deb46a6c",
+          "note": "输入哈希为主锁——不随生成器演进变化"
+        },
+        "generator": {
+          "package_path": "work/d4-runtime/zhang-latest/src/finstruct/parse",
+          "parser_version": "finstruct.parse/0.9.0",
+          "schema_version": "evidence/0.9",
+          "commit": "(未标注——需张补\"块切分规则变更即升版本号\"的规则)"
+        },
+        "product_sha256": {
+          "value": "c348c48b3d1235bb7f96f25ff8a409043230b57d1686139936d81a942c7a8347",
+          "note": "产物哈希＝当次生成的一致性核对值；**不是跨版本可复现承诺**（解析器演进即变）"
+        }
+      }
     },
     {
       "id": "D13-STR-05",
@@ -55,6 +71,22 @@
         "reading_order": 29,
         "pages_blocks": 29,
         "authoritative": "reading_order"
+      },
+      "lock_semantics": {
+        "primary": {
+          "input_sha256": "e9c42d9d9b0917f48f6dbe2003f775eed323c5de2cf757a499f35dee957b73f7",
+          "note": "输入哈希为主锁——不随生成器演进变化"
+        },
+        "generator": {
+          "package_path": "work/d4-runtime/zhang-latest/src/finstruct/parse",
+          "parser_version": "finstruct.parse/0.9.0",
+          "schema_version": "evidence/0.9",
+          "commit": "(未标注——需张补\"块切分规则变更即升版本号\"的规则)"
+        },
+        "product_sha256": {
+          "value": "15e2331cfb29e79799c14ef88a1ef0db1313bbd37b82dbe0a34f37edb9b068af",
+          "note": "产物哈希＝当次生成的一致性核对值；**不是跨版本可复现承诺**（解析器演进即变）"
+        }
       }
     },
     {
@@ -82,6 +114,22 @@
         "reading_order": 239,
         "pages_blocks": 239,
         "authoritative": "reading_order"
+      },
+      "lock_semantics": {
+        "primary": {
+          "input_sha256": "8ebfbd3b219ec076d01ac6f4d742e4dac5ef744ede20f4e2fb6cb2352f9d44b4",
+          "note": "输入哈希为主锁——不随生成器演进变化"
+        },
+        "generator": {
+          "package_path": "work/d4-runtime/zhang-latest/src/finstruct/parse",
+          "parser_version": "finstruct.parse/0.9.0",
+          "schema_version": "evidence/0.9",
+          "commit": "(未标注——需张补\"块切分规则变更即升版本号\"的规则)"
+        },
+        "product_sha256": {
+          "value": "dc0bddda66328221568f6a3482f7b0a9bdfe6654d9e0af530a51a11d3bea39d2",
+          "note": "产物哈希＝当次生成的一致性核对值；**不是跨版本可复现承诺**（解析器演进即变）"
+        }
       }
     }
   ],
@@ -124,9 +172,11 @@
     ]
   },
   "lock_algorithm": {
-    "basis": "repository bytes (git show HEAD:<path>)",
-    "verify": "git show HEAD:<path> > f && sha256sum f",
-    "why": "git 默认对文本做 CRLF→LF 规范化，工作区字节 ≠ 仓库字节；2026-10-09 曾因此锁错 3 份 parse 哈希",
-    "guard": ".gitattributes: evaluation/**/*.json -text"
+    "version": "v2（2026-10-09 按张智博建议修正）",
+    "primary": "输入文件哈希（file_sha256）",
+    "generator": "生成器标识（解析器包路径 + parser_version + schema_version）",
+    "product": "产物哈希降为\"当次生成一致性核对\"，非跨版本承诺",
+    "why": "产物哈希要求产物可复算；解析器块切分规则一改就全部失效，锁必然腐化——2026-10-09 实证：同一 PDF 旧版 107 块、当前源码 105 块",
+    "predecessor": "v1 只锁产物哈希（已废弃）"
   }
 }
