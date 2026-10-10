@@ -1,0 +1,182 @@
+{
+  "locked_on": "2026-10-09",
+  "note": "哈希一律以**仓库字节**为准（git show HEAD:<path>），非工作区磁盘字节。",
+  "samples": [
+    {
+      "id": "D13-STR-04",
+      "name": "益生股份 解除质押及质押延期购回",
+      "code": "002458",
+      "notice": "2026-068",
+      "source": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-09/1225596642.PDF",
+        "page": "http://www.cninfo.com.cn/new/disclosure/detail?stockCode=002458&announcementId=1225596642",
+        "site": "巨潮资讯网 cninfo.com.cn",
+        "date": "2026-10-09",
+        "acquisition": "评测侧经 cninfo 公开查询接口 hisAnnouncement/query 命中后下载"
+      },
+      "file": "D13-STR-04_002458_yisheng.pdf",
+      "file_sha256": "706bf32cb39cd5db0fee37618abf0d4ff788c9a5a520dc1ec75bfb99deb46a6c",
+      "bytes": 73174,
+      "parse": "D13-STR-04_002458_yisheng.parse.json",
+      "parse_sha256": "c348c48b3d1235bb7f96f25ff8a409043230b57d1686139936d81a942c7a8347",
+      "pages": 2,
+      "blocks": {
+        "reading_order": 107,
+        "pages_blocks": 107,
+        "authoritative": "reading_order"
+      },
+      "type": "pledge（解除质押＋质押延期购回 复合）",
+      "expectation_sha256": "62d612320e3fd2cef2adbe5c91bba7ecfd2d9ace9d387696b35fd8828c65874f",
+      "parse_sha256_worktree_crlf": "c95ebe93a45216b8fd5719d4e055e3c6c49bc026bff2960e3a8c4033a786ca8e",
+      "hash_basis": "repository_bytes (git show HEAD:<path>)",
+      "lock_semantics": {
+        "primary": {
+          "input_sha256": "706bf32cb39cd5db0fee37618abf0d4ff788c9a5a520dc1ec75bfb99deb46a6c",
+          "note": "输入哈希为主锁——不随生成器演进变化"
+        },
+        "generator": {
+          "package_path": "work/d4-runtime/zhang-latest/src/finstruct/parse",
+          "parser_version": "finstruct.parse/0.9.0",
+          "schema_version": "evidence/0.9",
+          "commit": "(未标注——需张补\"块切分规则变更即升版本号\"的规则)"
+        },
+        "product_sha256": {
+          "value": "c348c48b3d1235bb7f96f25ff8a409043230b57d1686139936d81a942c7a8347",
+          "note": "产物哈希＝当次生成的一致性核对值；**不是跨版本可复现承诺**（解析器演进即变）"
+        }
+      }
+    },
+    {
+      "id": "D13-STR-05",
+      "name": "侨银股份",
+      "code": "002973",
+      "notice": "2026-115",
+      "title": "关于收到约5.28亿元广东省茂名市中心中心城区（北组团）环卫作业服务项目中标通知书的公告",
+      "type": "award_contract（中标通知书）",
+      "source": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-09/1225598012.PDF",
+        "site": "巨潮资讯网 cninfo.com.cn",
+        "date": "2026-10-09",
+        "acquisition": "评测侧经 cninfo 公开查询接口 hisAnnouncement/query 命中后下载"
+      },
+      "file": "D13-STR-05_002973_qiaoyin.pdf",
+      "file_sha256": "e9c42d9d9b0917f48f6dbe2003f775eed323c5de2cf757a499f35dee957b73f7",
+      "bytes": 124308,
+      "parse": "D13-STR-05_002973_qiaoyin.parse.json",
+      "parse_sha256": "15e2331cfb29e79799c14ef88a1ef0db1313bbd37b82dbe0a34f37edb9b068af",
+      "expectation_sha256": "22d89e4216d474ce4c62c2a148f80e1f173c6a3353afe0b05951baf6d058a02f",
+      "parse_sha256_worktree_crlf": "f45da7f0f36cb9b80bed6b4631880c48ab701360f26f7890210595015dfdaafd",
+      "hash_basis": "repository_bytes (git show HEAD:<path>)",
+      "blocks": {
+        "reading_order": 29,
+        "pages_blocks": 29,
+        "authoritative": "reading_order"
+      },
+      "lock_semantics": {
+        "primary": {
+          "input_sha256": "e9c42d9d9b0917f48f6dbe2003f775eed323c5de2cf757a499f35dee957b73f7",
+          "note": "输入哈希为主锁——不随生成器演进变化"
+        },
+        "generator": {
+          "package_path": "work/d4-runtime/zhang-latest/src/finstruct/parse",
+          "parser_version": "finstruct.parse/0.9.0",
+          "schema_version": "evidence/0.9",
+          "commit": "(未标注——需张补\"块切分规则变更即升版本号\"的规则)"
+        },
+        "product_sha256": {
+          "value": "15e2331cfb29e79799c14ef88a1ef0db1313bbd37b82dbe0a34f37edb9b068af",
+          "note": "产物哈希＝当次生成的一致性核对值；**不是跨版本可复现承诺**（解析器演进即变）"
+        }
+      }
+    },
+    {
+      "id": "D13-STR-06",
+      "name": "力勤资源",
+      "code": "001246",
+      "notice": "—",
+      "title": "简式权益变动报告书",
+      "type": "equity_change（简式权益变动报告书，16 页长文）",
+      "source": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-09/1225598236.PDF",
+        "site": "巨潮资讯网 cninfo.com.cn",
+        "date": "2026-10-09",
+        "acquisition": "评测侧经 cninfo 公开查询接口 hisAnnouncement/query 命中后下载"
+      },
+      "file": "D13-STR-06_001246_liqin.pdf",
+      "file_sha256": "8ebfbd3b219ec076d01ac6f4d742e4dac5ef744ede20f4e2fb6cb2352f9d44b4",
+      "bytes": 207183,
+      "parse": "D13-STR-06_001246_liqin.parse.json",
+      "parse_sha256": "dc0bddda66328221568f6a3482f7b0a9bdfe6654d9e0af530a51a11d3bea39d2",
+      "expectation_sha256": "6dfa6686006326f0ae396761d34b43ff8af670f9884668537131c1044a738d16",
+      "parse_sha256_worktree_crlf": "9441f6b168b73a3b548f0fcea93bbe4dde9797bd8a5273b570c00af7329c0800",
+      "hash_basis": "repository_bytes (git show HEAD:<path>)",
+      "blocks": {
+        "reading_order": 239,
+        "pages_blocks": 239,
+        "authoritative": "reading_order"
+      },
+      "lock_semantics": {
+        "primary": {
+          "input_sha256": "8ebfbd3b219ec076d01ac6f4d742e4dac5ef744ede20f4e2fb6cb2352f9d44b4",
+          "note": "输入哈希为主锁——不随生成器演进变化"
+        },
+        "generator": {
+          "package_path": "work/d4-runtime/zhang-latest/src/finstruct/parse",
+          "parser_version": "finstruct.parse/0.9.0",
+          "schema_version": "evidence/0.9",
+          "commit": "(未标注——需张补\"块切分规则变更即升版本号\"的规则)"
+        },
+        "product_sha256": {
+          "value": "dc0bddda66328221568f6a3482f7b0a9bdfe6654d9e0af530a51a11d3bea39d2",
+          "note": "产物哈希＝当次生成的一致性核对值；**不是跨版本可复现承诺**（解析器演进即变）"
+        }
+      }
+    }
+  ],
+  "rejected": {
+    "reason": "来源不可核验（工作区既有文件，无来源清单/URL），按\"必须合法、可行、可核实\"标准**移出正式样例集**",
+    "samples": [
+      {
+        "id": "D13-STR-01",
+        "name": "诺唯赞 减持结果公告",
+        "file_sha256": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+        "bytes": 98239,
+        "pages": 4,
+        "type": "equity_change（减持结果）",
+        "code": "688105",
+        "notice": "2026-041",
+        "expectation_sha256": "49125dcfb8793c5c89aab6cf2c229136f2470b36987d45056ab94128cf96d9e8"
+      },
+      {
+        "id": "D13-STR-02",
+        "name": "通化东宝 控股股东解押及再质押",
+        "file_sha256": "36c7a18c4cd40551ebe7a3922b79fbf0ec46f432586b526805183e22c8badfba",
+        "bytes": 186675,
+        "pages": 6,
+        "type": "pledge（解押＋再质押 复合）",
+        "code": "600867",
+        "notice": "2026-055",
+        "expectation_sha256": "3a5fb6ccf32b4806fe4d4d9a589d6b1c80160b6b863e9d05af399f5002c65f46"
+      },
+      {
+        "id": "D13-STR-03",
+        "name": "华凯易佰 股东部分股份质押",
+        "file_sha256": "08764c8e69fce58381709a3228bf4efab41645994d8bb393fc15af8f079ef771",
+        "bytes": 95726,
+        "pages": 2,
+        "type": "pledge（合伙企业股东＋表格）",
+        "code": "300592",
+        "notice": "2026-062",
+        "expectation_sha256": "c67b12db6730e1a2b1b665d627b68adc8e6fbf4028da9efb1ad9d93ceebaa262"
+      }
+    ]
+  },
+  "lock_algorithm": {
+    "version": "v2（2026-10-09 按张智博建议修正）",
+    "primary": "输入文件哈希（file_sha256）",
+    "generator": "生成器标识（解析器包路径 + parser_version + schema_version）",
+    "product": "产物哈希降为\"当次生成一致性核对\"，非跨版本承诺",
+    "why": "产物哈希要求产物可复算；解析器块切分规则一改就全部失效，锁必然腐化——2026-10-09 实证：同一 PDF 旧版 107 块、当前源码 105 块",
+    "predecessor": "v1 只锁产物哈希（已废弃）"
+  }
+}

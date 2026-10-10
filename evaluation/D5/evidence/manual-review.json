@@ -1,0 +1,20 @@
+{
+  "dataset_id": "financial-events-d5-manual-review-v0.1",
+  "reviewed_on": "2026-10-01",
+  "reviewer_role": "evaluation-and-data-quality-owner",
+  "review_method": "Field-by-field review against evidence/0.9 blocks and source tables; no production extraction code modified.",
+  "cases": [
+    {"case_id":"D5-EQC-006","reviewed_fields":9,"focus":"equal shares with passive ratio dilution"},
+    {"case_id":"D5-EQC-007","reviewed_fields":9,"focus":"judicial-auction passive decrease and multi-holder disclosure"},
+    {"case_id":"D5-EQC-008","reviewed_fields":9,"focus":"multi-table increase, before/after row binding"},
+    {"case_id":"D5-EQC-009","reviewed_fields":9,"focus":"historical denominator shift plus decrease"},
+    {"case_id":"D5-EQC-010","reviewed_fields":9,"focus":"agreement transfer and unresolved completion date"}
+  ],
+  "manual_field_checks": 45,
+  "result": "PASS",
+  "second_person_review": {
+    "status": "pending",
+    "requested_from": ["weiwenyu", "zhangzhibo"],
+    "note": "A second reviewer must confirm the 4 new real documents and the change_shares magnitude rule before D5 is treated as fully integrated."
+  }
+}

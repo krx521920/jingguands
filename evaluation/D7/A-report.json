@@ -1,0 +1,16 @@
+{
+  "report_id": "financial-events-d7-a-report-v0.1",
+  "created_on": "2026-10-02",
+  "batch": "runs/batch-20261002T120859",
+  "upstream_commit": "2eb871394dd946b1c23225b24c4d00e2bf4bd7e1",
+  "evaluation_commit": "3e1db5de",
+  "core_30": {"documents": 30, "events": 48, "fields": 437, "field_hits": 437, "format_compliance": "30/30", "evidence_spot_checks": "60/60", "wrong_fill": "0/109"},
+  "full_batch_35": {"completed": 31, "failed": 4, "failure_denominator_preserved": true, "scan_degrade_validation_errors": 1},
+  "scope": {"normal_accuracy": "text PDFs and parse-block inputs", "scan": "degrade-only, separate", "adversarial": "separate denominator"},
+  "second_person_review": "partial",
+  "second_person_review_detail": {
+    "parser_evidence": {"reviewer": "Zhang", "status": "conditional_pass", "review_commit": "58a562f6"},
+    "extraction_semantics": {"reviewer": "Wei", "status": "pending"}
+  },
+  "evidence_denominators": {"d4_pledge_text_mode_weak": 182, "d5_d6_block_mode_strong": 257}
+}

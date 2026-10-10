@@ -1,0 +1,342 @@
+{
+  "note": "期望回显报告：由 cases 的 expected_verdict 直接生成，用于验证评分器本身，不代表任何引擎运行结果。",
+  "checked_on": "2026-10-05",
+  "echo": true,
+  "cases": [
+    {
+      "case_id": "D9-RULE-001",
+      "verdict": "corroborated",
+      "attribution": "同一主体同一字段两文档数值逐位一致，属互证不是矛盾。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00006",
+          "quote": "11,042,217"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00008",
+          "quote": "11,042,217"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "verdict": "corroborated",
+      "attribution": "简式与详式对同一股东期初持股一致。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00030",
+          "quote": "3,190,004"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p060_b00039",
+          "quote": "蔚文举 持股种类：A股普通股 持股数量：3,190,004股"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "verdict": "corroborated",
+      "attribution": "受让方增持数量两文档一致。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00018",
+          "quote": "8,427,900"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "verdict": "explainable_difference",
+      "attribution": "核查意见给出的是四人群体合计，与受让方单人明细相等；合计不得拆记到个人，亦非矛盾。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-003",
+          "block_id": "d173fee90_p018_b00014",
+          "quote": "8,427,900股"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "verdict": "explainable_difference",
+      "attribution": "出让方分人减持之和 = 受让方增持额；跨文档合计勾稽成立。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00004",
+          "quote": "-3,680,700"
+        },
+        {
+          "case_id": "D5-EQC-002",
+          "block_id": "d46bc2ef0_p017_b00011",
+          "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "verdict": "explainable_difference",
+      "attribution": "该股东仅出现在简式报告，另一端未披露属覆盖范围差异，不构成矛盾。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00011",
+          "quote": "-2,975,600"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "verdict": "explainable_difference",
+      "attribution": "同上：单侧披露 ≠ 冲突。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-001",
+          "block_id": "d9d5be14f_p010_b00025",
+          "quote": "-430,000"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "verdict": "corroborated",
+      "attribution": "受让方期末 = 出让方期初，同一笔协议转让的反向咬合。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "block_id": "da00b31da_p009_b00004",
+          "quote": "本次权益变动后，信息披露义务人持有上市公司72,673,907股股份"
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "block_id": "da8d294d2_p008_b00002",
+          "quote": "本次权益变动前，信息披露义务人直接持有上市公司72,673,907股股份"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "verdict": "corroborated",
+      "attribution": "双方变动股数一致、方向相反。",
+      "sides": [
+        {
+          "case_id": "D5-EQC-004",
+          "block_id": "da00b31da_p019_b00006",
+          "quote": "变动数量：72,673,907股股份"
+        },
+        {
+          "case_id": "D5-EQC-005",
+          "block_id": "da8d294d2_p017_b00029",
+          "quote": "变动数量：减少72,673,907股"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "verdict": "explainable_difference",
+      "attribution": "“本次质押”与“累计质押”口径不同，数值必然不同；把二者当同一口径比较即为误报。",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00024",
+          "quote": "2,100,000"
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00083",
+          "quote": "50,350,000"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "verdict": "explainable_difference",
+      "attribution": "质押及解押混列时本次/累计口径仍不可混比。",
+      "sides": [
+        {
+          "case_id": "D4-PLD-009",
+          "block_id": "d1320340e_p002_b00014",
+          "quote": "11,750,000"
+        },
+        {
+          "case_id": "D4-PLD-009",
+          "block_id": "d1320340e_p003_b00019",
+          "quote": "33,344,000"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "verdict": "explainable_difference",
+      "attribution": "分母不同（占其所持 vs 占公司总股本），比率不可直接相比。",
+      "sides": [
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00025",
+          "quote": "2.40%"
+        },
+        {
+          "case_id": "D4-PLD-001",
+          "block_id": "d44e95085_p001_b00026",
+          "quote": "0.99%"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "verdict": "explainable_difference",
+      "attribution": "含税状态决定金额可比性；未取得同口径依据时不得跨含税口径直接比数。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-004",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元"
+        },
+        {
+          "case_id": "D6-AWD-004",
+          "block_id": "d0be9f419_p001_b00009",
+          "quote": "合同价（暂定含税总价款）为5,400万元"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "verdict": "explainable_difference",
+      "attribution": "同上：含税/不含税口径需先归因。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+        },
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "verdict": "explainable_difference",
+      "attribution": "原币 AED 173,800,000 与公告明示折合 CNY 317,915,000 属同一金额的两种口径；取明示折合值、不得自行套汇率。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+        },
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "verdict": "explainable_difference",
+      "attribution": "缺汇率/时点时不得换算，须保留原币与折合双记录。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-007",
+          "block_id": "d3a6938fe_p001_b00005",
+          "quote": "中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "verdict": "insufficient",
+      "attribution": "全页扫描降级，14字段全 unreadable、0 可用字段——不得据空缺下任何结论。",
+      "sides": [
+        {
+          "case_id": "pledge-scan-degrade",
+          "block_id": null,
+          "quote": null
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "verdict": "insufficient",
+      "attribution": "无框表格导致列语义丢失、无 header_path；单位依赖表头时不得推断，保留疑点。",
+      "sides": [
+        {
+          "case_id": "D6-AWD-005",
+          "block_id": "ddd80cf89_p001_b00008",
+          "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-019",
+      "verdict": "restated",
+      "attribution": "后发公告显式声明更正前次数值 → 归因为更正，不是矛盾；以后发值为准并保留前次记录。",
+      "sides": [
+        {
+          "case_id": "SYNTH-CTRL-01-A",
+          "block_id": "synth-a",
+          "quote": "（受控构造）首次披露 11,042,217 股"
+        },
+        {
+          "case_id": "SYNTH-CTRL-01-B",
+          "block_id": "synth-b",
+          "quote": "（受控构造）更正公告：更正为 11,042,218 股"
+        }
+      ],
+      "computed": []
+    },
+    {
+      "case_id": "D9-RULE-020",
+      "verdict": "conflict",
+      "attribution": "同一主体同一字段同一时点、无更正声明、无口径差异解释 → 判真矛盾，必须带双侧原文。",
+      "sides": [
+        {
+          "case_id": "SYNTH-CTRL-02-A",
+          "block_id": "synth-c",
+          "quote": "（受控构造）5,000,000 股"
+        },
+        {
+          "case_id": "SYNTH-CTRL-02-B",
+          "block_id": "synth-d",
+          "quote": "（受控构造）5,200,000 股"
+        }
+      ],
+      "computed": []
+    }
+  ]
+}

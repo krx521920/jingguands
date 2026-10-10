@@ -1,0 +1,187 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D2-EQC-002",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:997df0dcadea6f81dca8a74d81df03c7463bf080de8779b0c5da5f94a30c677e",
+    "file_name": "D2-EQC-002.txt",
+    "file_sha256": "997df0dcadea6f81dca8a74d81df03c7463bf080de8779b0c5da5f94a30c677e",
+    "parse_meta": {
+      "parser_version": "controlled-fixture-v0.1",
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "equity_change",
+      "fields": {
+        "holder": {
+          "raw_value": "某公司",
+          "value": "某公司",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某公司"
+            }
+          ],
+          "standardized": true
+        },
+        "direction": {
+          "raw_value": "增持",
+          "value": "increase",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "增持800万股"
+            }
+          ],
+          "standardized": true
+        },
+        "shares_before": {
+          "raw_value": "5,000万股",
+          "value": 50000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "变动前持有5,000万股"
+            }
+          ],
+          "standardized": true
+        },
+        "shares_after": {
+          "raw_value": "5,800万股",
+          "value": 58000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "变动后持有5,800万股"
+            }
+          ],
+          "standardized": true
+        },
+        "ratio_before": {
+          "raw_value": "12%",
+          "value": 12,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "比例12%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital"
+        },
+        "ratio_after": {
+          "raw_value": "14%",
+          "value": 14,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "比例14%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital"
+        },
+        "change_shares": {
+          "raw_value": "800万股",
+          "value": 8000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "合计增持800万股"
+            }
+          ],
+          "standardized": true
+        },
+        "method": {
+          "raw_value": "集中竞价和大宗交易",
+          "value": "集中竞价和大宗交易",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "通过集中竞价和大宗交易"
+            }
+          ],
+          "standardized": true
+        },
+        "change_date": {
+          "raw_value": "2026年8月20日至2026年8月31日",
+          "value": "2026-08-20/2026-08-31",
+          "unit": "date_range",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "2026年8月20日至2026年8月31日"
+            }
+          ],
+          "standardized": true
+        }
+      },
+      "extraction_method": "rule",
+      "notes": "原公告只给出变动区间，保留为 date_range 并标记 needs_review，不臆造单日成交日。"
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-09-28T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "checked_on": "2026-09-29",
+  "fixtures": 6,
+  "events": 6,
+  "fields": 72,
+  "evidence_records": 67,
+  "unsupported_quotes": 0,
+  "status_counts": {
+    "extracted": 60,
+    "needs_review": 1,
+    "not_disclosed": 6,
+    "not_mentioned": 3,
+    "not_applicable": 2
+  },
+  "result": "PASS"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "samples": 3,
+  "fields": 40,
+  "confirmed": 37,
+  "notDisclosed": 2,
+  "notApplicable": 1,
+  "evidenceBearing": 37,
+  "boundaryChecks": 5,
+  "semanticChecks": 3,
+  "errors": []
+}

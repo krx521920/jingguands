@@ -1,0 +1,20 @@
+{
+  "case_id": "D1-AWD-001",
+  "event_type": "award_contract",
+  "source_status": "public_cninfo",
+  "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-24/1225582697.PDF",
+  "source_hash": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+  "source_type": "public_announcement",
+  "source_publisher": "巨潮资讯",
+  "source_code": "301235",
+  "title": "华康洁净关于项目中标及签订合同的公告",
+  "company": "武汉华康世纪洁净科技股份有限公司",
+  "publish_date": "2026-09-24",
+  "pages": [
+    {
+      "page": 1,
+      "text": "公司中标武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程，并与承包人武汉建工集团股份有限公司新洲分公司签署分包合同。签约合同价暂定含税总价款为54,000,000.00元，其中不含增值税价款49,541,284.40元，增值税税额4,458,715.60元，税率9%。工期120个日历天。"
+    }
+  ],
+  "dataset_version": "0.1.1"
+}

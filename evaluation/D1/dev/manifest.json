@@ -1,0 +1,43 @@
+{
+  "dataset_id": "financial-events-d1-dev-v0.1.1",
+  "version": "0.1.1",
+  "created_on": "2026-09-27",
+  "source_policy": "public_cninfo_disclosures",
+  "items": [
+    {
+      "case_id": "D1-PLD-001",
+      "event_type": "pledge",
+      "source_code": "300552",
+      "raw": "raw/pledge-001.json",
+      "gold": "gold/pledge-001.answer.json",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225582749.PDF",
+      "source_hash": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a"
+    },
+    {
+      "case_id": "D1-EQC-001",
+      "event_type": "equity_change",
+      "source_code": "688105",
+      "raw": "raw/equity-change-001.json",
+      "gold": "gold/equity-change-001.answer.json",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225581464.PDF",
+      "source_hash": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13"
+    },
+    {
+      "case_id": "D1-AWD-001",
+      "event_type": "award_contract",
+      "source_code": "301235",
+      "raw": "raw/award-001.json",
+      "gold": "gold/award-001.answer.json",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-24/1225582697.PDF",
+      "source_hash": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802"
+    }
+  ],
+  "updated_on": "2026-09-27",
+  "changes": [
+    "correct award notice receipt to not_disclosed",
+    "split current pledge components and total",
+    "replace synthesized pledgee evidence with table evidence",
+    "rename pledge current ratio fields",
+    "add semantic validation"
+  ]
+}

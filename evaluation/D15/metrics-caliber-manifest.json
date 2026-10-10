@@ -1,0 +1,75 @@
+{
+  "note": "概念表：把『卡片上的名字』和『注册表里的 key』按**概念**配起来，避免同名不同义。每条写清口径类型、允许的目标、以及为什么必须对账。新增概念要写理由——不藏在启发式里。",
+  "updated_at": "2026-10-10",
+  "updated_by": "宗（评测侧，D17 标准化判据裁定）",
+  "concepts": [
+    {
+      "id": "extract_accuracy",
+      "label": "字段抽取准确率",
+      "kind": "accuracy",
+      "target": 90,
+      "card_keys": [],
+      "registry_keys": [
+        "field_accuracy"
+      ],
+      "why": "总规划的 90% 是**准确率**目标（对 Gold 逐字段比对）。卡片若把覆盖率数字挂到这个目标上，等于用错口径宣布未达标。"
+    },
+    {
+      "id": "extract_coverage",
+      "label": "字段抽取覆盖率",
+      "kind": "coverage",
+      "target": null,
+      "allow_value_difference": false,
+      "card_keys": [
+        "extracted_pct"
+      ],
+      "registry_keys": [
+        "field_coverage"
+      ],
+      "why": "覆盖率＝产出取值/契约要求全集（含弃权），与准确率不是一回事；权威分母由 2026-10-09 裁决定为 606，615 只能写作『含演示件的扩大口径』。"
+    },
+    {
+      "id": "standardize_coverage",
+      "label": "标准化覆盖率",
+      "kind": "coverage",
+      "target": null,
+      "allow_value_difference": false,
+      "card_keys": [
+        "standardized_pct"
+      ],
+      "registry_keys": [
+        "standardized_rate"
+      ],
+      "ruling": "evaluation/D17/裁定-standardized判据-20261010.md",
+      "why": "主口径＝standardized=true 的非 text 有值字段 / 非 text 有值字段（权威批 229/229=100%）。分母**不含**弃权字段与 unit=text 字段；目标 98% **不**挂在这一项上。"
+    },
+    {
+      "id": "standardize_accuracy",
+      "label": "标准化正确率",
+      "kind": "accuracy",
+      "target": 98,
+      "allow_value_difference": false,
+      "card_keys": [
+        "standardized_accuracy_pct"
+      ],
+      "registry_keys": [
+        "standardized_accuracy"
+      ],
+      "ruling": "evaluation/D17/裁定-standardized判据-20261010.md",
+      "why": "值层承载：value 即规范化取值；非 text 有值字段中与 Gold 一致的比例（权威批 229/229=100%，D11 值层 437/437 的子集）。总规划的 98% 目标只挂这一项。"
+    },
+    {
+      "id": "evidence_hit",
+      "label": "出处原文命中率",
+      "kind": "evidence",
+      "target": 95,
+      "card_keys": [
+        "provenance_hit"
+      ],
+      "registry_keys": [
+        "evidence_hit"
+      ],
+      "why": "同名指标两个分母（卡片 39 条 / 1 份文档；注册表 241 条 / 10 份文档）会让评审无法核对；应统一到注册表的值并同屏写覆盖范围。"
+    }
+  ]
+}

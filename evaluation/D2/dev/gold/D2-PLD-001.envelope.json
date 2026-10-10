@@ -1,0 +1,248 @@
+{
+  "schema_version": "0.3",
+  "run_id": "dev-D2-PLD-001",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:85ec0e20d14efbdcee5b0f94b0d0704a2ef8acab3971b7e6aeb67916ca0bcdd2",
+    "file_name": "D2-PLD-001.txt",
+    "file_sha256": "85ec0e20d14efbdcee5b0f94b0d0704a2ef8acab3971b7e6aeb67916ca0bcdd2",
+    "parse_meta": {
+      "parser_version": "controlled-fixture-v0.1",
+      "page_count": 1,
+      "blocks": null
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "pledge",
+      "fields": {
+        "pledgor": {
+          "raw_value": "某某制造股份有限公司",
+          "value": "某某制造股份有限公司",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "某某制造股份有限公司"
+            }
+          ],
+          "standardized": true
+        },
+        "pledgee": {
+          "raw_value": "华城银行",
+          "value": "华城银行",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "质押1,000万股给华城银行"
+            }
+          ],
+          "standardized": true
+        },
+        "pledged_shares_this_time": {
+          "raw_value": "1,000万股",
+          "value": 10000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "质押1,000万股"
+            }
+          ],
+          "standardized": true
+        },
+        "pledged_shares_cumulative": {
+          "raw_value": "3,000万股",
+          "value": 30000000,
+          "unit": "shares",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "累计质押3,000万股"
+            }
+          ],
+          "standardized": true
+        },
+        "pledged_ratio_this_time_of_held": {
+          "raw_value": "12.5%",
+          "value": 12.5,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "占其所持股份12.5%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares"
+        },
+        "pledged_ratio_this_time_of_total": {
+          "raw_value": "3.1%",
+          "value": 3.1,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "占公司总股本3.1%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital"
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "raw_value": "37.5%",
+          "value": 37.5,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "占其所持股份37.5%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "holder_shares"
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "raw_value": "9.3%",
+          "value": 9.3,
+          "unit": "percent",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "占公司总股本9.3%"
+            }
+          ],
+          "standardized": true,
+          "denominator": "total_share_capital"
+        },
+        "pledge_amount": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "status": "not_mentioned",
+          "provenance": [],
+          "standardized": false
+        },
+        "start_date": {
+          "raw_value": "2026年9月1日",
+          "value": "2026-09-01",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "质押起始日：2026年9月1日"
+            }
+          ],
+          "standardized": true
+        },
+        "end_date": {
+          "raw_value": "2027年8月31日",
+          "value": "2027-08-31",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "质押到期日：2027年8月31日"
+            }
+          ],
+          "standardized": true
+        },
+        "purpose": {
+          "raw_value": "补充流动资金",
+          "value": "补充流动资金",
+          "unit": "text",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "质押用途：补充流动资金"
+            }
+          ],
+          "standardized": true
+        },
+        "announcement_date": {
+          "raw_value": "2026年9月2日",
+          "value": "2026-09-02",
+          "unit": "date",
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": null,
+              "page": 1,
+              "region": null,
+              "table_id": null,
+              "cell_ref": null,
+              "quote": "2026年9月2日"
+            }
+          ],
+          "standardized": true
+        }
+      },
+      "extraction_method": "rule",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "tool",
+    "model": null,
+    "started_at": "2026-09-28T00:00:00+08:00",
+    "duration_ms": 0,
+    "errors": []
+  }
+}

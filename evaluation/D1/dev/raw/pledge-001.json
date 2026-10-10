@@ -1,0 +1,20 @@
+{
+  "case_id": "D1-PLD-001",
+  "event_type": "pledge",
+  "source_status": "public_cninfo",
+  "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225582749.PDF",
+  "source_hash": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+  "source_type": "public_announcement",
+  "source_publisher": "巨潮资讯",
+  "source_code": "300552",
+  "title": "北京万集科技股份有限公司关于控股股东、实际控制人部分股份质押的公告",
+  "company": "北京万集科技股份有限公司",
+  "publish_date": "2026-09-25",
+  "pages": [
+    {
+      "page": 1,
+      "text": "翟军本次质押2,100,000股、2,650,000股、3,050,000股；合计7,800,000股，占其所持股份8.92%，占公司总股本3.66%。本次质押前质押股份42,550,000股，本次质押后质押股份50,350,000股，占其所持股份57.58%，占公司总股本23.62%。质押起始日为2026年09月23日。"
+    }
+  ],
+  "dataset_version": "0.1.1"
+}

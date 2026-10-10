@@ -1,0 +1,22 @@
+{
+  "checked_on": "2026-10-10",
+  "manifest": "evaluation/D18/snapshot-paths.weiwenyu-81a5698d.json",
+  "envelopes": "evaluation/D11/firsttest-envelopes",
+  "materialized": null,
+  "result": "PASS",
+  "manifest_docs": 34,
+  "manifest_bad": 0,
+  "join": {
+    "sha": 31,
+    "exception": 1,
+    "uncovered": 0
+  },
+  "anchors": {
+    "covered": 460,
+    "total": 460
+  },
+  "covered_docs": 32,
+  "docs_total": 32,
+  "uncovered": [],
+  "materialized_bad": []
+}

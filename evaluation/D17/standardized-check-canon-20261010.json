@@ -1,0 +1,25 @@
+{
+  "checked_on": "2026-10-10",
+  "dir": "evaluation\\D11\\firsttest-envelopes",
+  "excluded": "DEMO-EQC-HL-0930.json",
+  "result": "FAIL",
+  "violations": 1,
+  "files": 31,
+  "fields": 606,
+  "valued": 437,
+  "abstain": 169,
+  "nontext_valued": 229,
+  "nontext_true": 229,
+  "text_valued": 208,
+  "text_true": 204,
+  "text_false": 4,
+  "valued_true": 433,
+  "valued_false": 4,
+  "abstain_true": [
+    "D4-PLD-008.json#E01.announcement_date(not_mentioned)"
+  ],
+  "missing_bool_on_valued": [],
+  "coverage_main_pct": 100,
+  "coverage_aux_pct": 99.08,
+  "annot_complete_pct": 100
+}

@@ -1,0 +1,75 @@
+{
+  "result": "PASS",
+  "documents": 10,
+  "events": 16,
+  "fields": 144,
+  "evidence_records": 144,
+  "unsupported_quotes": 0,
+  "direction_checks": 16,
+  "ratio_checks": 16,
+  "direction_inversion_challenge_cases": 10,
+  "direction_inversion_challenge_pass": 10,
+  "spot_checks": 20,
+  "cases": [
+    {
+      "case_id": "D5-EQC-001",
+      "events": 5,
+      "fields": 45,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "events": 3,
+      "fields": 27,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "events": 1,
+      "fields": 9,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-004",
+      "events": 1,
+      "fields": 9,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-005",
+      "events": 1,
+      "fields": 9,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-006",
+      "events": 1,
+      "fields": 9,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-007",
+      "events": 1,
+      "fields": 9,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-008",
+      "events": 1,
+      "fields": 9,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-009",
+      "events": 1,
+      "fields": 9,
+      "result": "PASS"
+    },
+    {
+      "case_id": "D5-EQC-010",
+      "events": 1,
+      "fields": 9,
+      "result": "PASS"
+    }
+  ]
+}

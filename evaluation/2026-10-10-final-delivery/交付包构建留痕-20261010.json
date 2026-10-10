@@ -1,0 +1,19 @@
+{
+  "note": "本文件记录并包（裁决 A）的核验方法。交付提交 SHA 与文件数会随每次建包变化，以分支 delivery/v2.0 的头为准；此处不硬抄 SHA，避免文件随重建过期。",
+  "branch": "delivery/v2.0",
+  "base_commit": "weiwenyu@41d57c87（运行侧封版头）",
+  "build_method": [
+    "base_tree = 运行侧封版树（scripts/ corpus/ docs/ interface/ tools/ runs/ 逐字节沿用，未重写）",
+    "evaluation/ = 评测正典（全部文件）+ 运行侧证据 217 份并入 evaluation/run-side/weiwenyu/（原路径，直接复用原 blob sha）",
+    "根上新增 DELIVERY-README.md（包内入口）"
+  ],
+  "verification_pattern": {
+    "① run-side 全量": "逐条比对并入件 sha 与运行侧原件 sha（应 100% 一致）",
+    "② 运行侧非 evaluation 目录全量": "逐条比对 scripts/corpus/docs/interface/tools/runs 与封版树 sha（应 100% 一致）",
+    "③ 评测正典全量": "逐条比对 evaluation/ 下文件与 zongbowen 同路径 sha（应 100% 一致）",
+    "总数等式": "运行侧总文件数 − 原 evaluation/ 文件数 + （正典 + 并入件）+ 1（本 README）= 交付树文件数"
+  },
+  "last_verified_on": "2026-10-10",
+  "last_verified_result": "① 217/217 ② 16273/16273 ③ 全量一致；总数等式成立（首建时：16490 − 217 + 672 + 1 = 16946）",
+  "disclosure": "第一次建树时构建器只收「直接子目录」，漏掉 evaluation/run-side/… 多级子树（建成 evaluation 455 / run-side 0）；自校验抓到后修正并强更分支，作废提交 c17e3013。"
+}

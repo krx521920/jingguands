@@ -1,0 +1,22 @@
+{
+  "checked_on": "2026-10-05",
+  "day": "D9",
+  "goal": "先归因，再判矛盾",
+  "members": {
+    "zongbowen": {
+      "status": "delivered",
+      "deliverable": "evaluation/D9：20 条归因规则开发用例 + score-rules.mjs + 误报分析.md",
+      "cases": {"total": 20, "real_public": 18, "controlled": 2, "conflict_cases": 1, "insufficient_cases": 2},
+      "self_check": "PASS",
+      "reference_runs": {"expectation_echo": "20/20 PASS", "adversarial": "FAIL 15/20 (FP 3, FN 1, dual-evidence 1, forced-computation 1)"},
+      "interface": "evaluation/D9/README.md §五 归因报告格式（cases[].verdict/sides/computed）"
+    },
+    "weiwenyu": {"status": "pending", "expected": "B 归因流程＋调用轨迹；模型可解释但不得覆盖确定性规则判定"},
+    "zhangzhibo": {"status": "pending", "expected": "双侧出处包＋缺证据标识（片段/页码/区域补全）"},
+    "fangxuancheng": {"status": "pending", "expected": "单位/币种/税口径/分母/累计/时间归因规则库＋判定说明"},
+    "chenjiahui": {"status": "pending", "expected": "核验清单页：原始值/标准值/差异归因/双侧出处/信息不足并排"}
+  },
+  "corpus_boundary": "公开语料无更正公告、无真矛盾实例（公开对照 conflicts=0），故更正与真矛盾两类为受控构造并显式标注。",
+  "acceptance_standard": ["20 条用例全部符合预期", "所有疑似矛盾带双侧证据", "缺汇率/税率/时点依据不得强行换算", "证据不足单列"],
+  "pending": ["wei: B 归因编排接入并跑本用例集", "fang: 归因规则库", "chen: 核验清单页"]
+}

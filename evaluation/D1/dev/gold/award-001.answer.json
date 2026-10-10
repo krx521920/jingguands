@@ -1,0 +1,234 @@
+{
+  "case_id": "D1-AWD-001",
+  "event_type": "award_contract",
+  "company": "武汉华康世纪洁净科技股份有限公司",
+  "status": "contract_signed",
+  "canonical_event_id": "D1-AWD-001-E1",
+  "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-24/1225582697.PDF",
+  "source_hash": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+  "fields": {
+    "customer": {
+      "value": "武汉建工集团股份有限公司新洲分公司",
+      "raw_value": "武汉建工集团股份有限公司新洲分公司",
+      "normalized_value": "武汉建工集团股份有限公司新洲分公司",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 1,
+          "source_type": "paragraph",
+          "excerpt": "与承包人武汉建工集团股份有限公司新洲分公司签署了分包合同",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "project": {
+      "value": "武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程",
+      "raw_value": "武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程",
+      "normalized_value": "武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 1,
+          "source_type": "paragraph",
+          "excerpt": "中标武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "product": {
+      "value": "医疗专项专业分包工程",
+      "raw_value": "医疗专项专业分包工程",
+      "normalized_value": "医疗专项专业分包工程",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 1,
+          "source_type": "paragraph",
+          "excerpt": "二标段医疗专项专业分包工程",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "amount": {
+      "value": "54000000.00",
+      "raw_value": "5,400万元",
+      "normalized_value": "54000000.00",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 1,
+          "source_type": "paragraph",
+          "excerpt": "合同价（暂定含税总价款）为5,400万元",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "currency": "CNY",
+      "tax_basis": "inclusive"
+    },
+    "amount_ex_vat": {
+      "value": "49541284.40",
+      "raw_value": "49,541,284.40元",
+      "normalized_value": "49541284.40",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 2,
+          "source_type": "paragraph",
+          "excerpt": "不含增值税价款人民币49,541,284.40元",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "currency": "CNY",
+      "tax_basis": "exclusive"
+    },
+    "vat_amount": {
+      "value": "4458715.60",
+      "raw_value": "4,458,715.60元",
+      "normalized_value": "4458715.60",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 2,
+          "source_type": "paragraph",
+          "excerpt": "增值税税额人民币4,458,715.60元",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "currency": "CNY"
+    },
+    "vat_rate_pct": {
+      "value": 9,
+      "raw_value": "9%",
+      "normalized_value": "9",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 2,
+          "source_type": "paragraph",
+          "excerpt": "税率9%",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "award_status": {
+      "value": "contract_signed",
+      "raw_value": "中标并签署合同",
+      "normalized_value": "contract_signed",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 1,
+          "source_type": "paragraph",
+          "excerpt": "中标并签署了合同",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "formal_award_notice_received": {
+      "value": null,
+      "raw_value": null,
+      "normalized_value": null,
+      "status": "not_disclosed",
+      "reason": "notice_receipt_not_disclosed",
+      "evidence": []
+    },
+    "contract_signed": {
+      "value": true,
+      "raw_value": "已签署合同",
+      "normalized_value": true,
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 1,
+          "source_type": "paragraph",
+          "excerpt": "并与承包人武汉建工集团股份有限公司新洲分公司签署了……合同",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "performance_days": {
+      "value": 120,
+      "raw_value": "120个日历天",
+      "normalized_value": "120",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 2,
+          "source_type": "paragraph",
+          "excerpt": "工期120个日历天",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ],
+      "unit": "calendar_day"
+    },
+    "pricing_form": {
+      "value": "rate_based",
+      "raw_value": "采取费率方式确定",
+      "normalized_value": "rate_based",
+      "status": "confirmed",
+      "evidence": [
+        {
+          "document_id": "D1-AWD-001",
+          "page": 2,
+          "source_type": "paragraph",
+          "excerpt": "合同价格形式：采取费率方式确定",
+          "bbox": null,
+          "table": null,
+          "cell": null
+        }
+      ]
+    },
+    "price_adjustment_status": {
+      "value": "not_disclosed",
+      "raw_value": null,
+      "normalized_value": "not_disclosed",
+      "status": "not_disclosed",
+      "evidence": []
+    },
+    "recognized_revenue": {
+      "value": null,
+      "raw_value": null,
+      "normalized_value": null,
+      "status": "not_applicable",
+      "reason": "no_current_period_revenue_disclosure",
+      "evidence": []
+    }
+  },
+  "review": {
+    "annotator": "pending",
+    "reviewer": "pending",
+    "version": "0.1.1",
+    "reviewed_at": null
+  },
+  "dataset_version": "0.1.1"
+}

@@ -1,0 +1,289 @@
+{
+  "mode": "score",
+  "result": "PASS",
+  "pairs_total": 16,
+  "scored": 16,
+  "pass": 16,
+  "fail": 0,
+  "not_run": 0,
+  "same_event": {
+    "total": 6,
+    "hit": 6
+  },
+  "different_event": {
+    "total": 9,
+    "clean": 9
+  },
+  "insufficient": {
+    "total": 1,
+    "ok": 1
+  },
+  "report_provenance": {
+    "b_run_id": "fang-D8-1791120553267",
+    "engine": "run_public_D8.mjs",
+    "matcher": {
+      "plugin": "src_D8/matching_D8.mjs"
+    },
+    "rule_version": "D8.2",
+    "mode": "public_development_not_blind_acceptance"
+  },
+  "rows": [
+    {
+      "group_id": "D8-PAIR-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-PAIR-002",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-PAIR-003",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-PAIR-004",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-PAIR-005",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-006",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-007",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISTINCT_PROCUREMENT_IDENTITIES"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-008",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISTINCT_LISTED_INSTRUMENTS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-009",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISTINCT_PROCUREMENT_IDENTITIES"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-010",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-011",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-012",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISJOINT_EVENT_TYPES"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D8-PAIR-013",
+      "members": [
+        "pledge-scan-degrade",
+        "D6-AWD-001"
+      ],
+      "expected": "insufficient",
+      "predicted": "unknown",
+      "reasons": [
+        "INSUFFICIENT_SIGNALS",
+        "SOURCE_OR_EVIDENCE_UNAVAILABLE"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "insufficient signalled"
+    },
+    {
+      "group_id": "D8-DEMO-001",
+      "members": [
+        "DEMO-EQC-HZ-RESULT",
+        "D5-EQC-004"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-DEMO-002",
+      "members": [
+        "DEMO-EQC-HZ-RESULT",
+        "D5-EQC-005"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SIGNED_TRANSFER_BUNDLE_MATCH"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D8-DEMO-003",
+      "members": [
+        "D5-EQC-006",
+        "DEMO-EQC-HL-0930"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "DISJOINT_DILUTION_INTERVALS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    }
+  ]
+}

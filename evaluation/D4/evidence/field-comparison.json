@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-09-30T05:26:13.378Z",
+  "gold_dir": "evaluation\\D4\\dev\\gold",
+  "system_dir": "external_system_output",
+  "batch_report": null,
+  "cases": [
+    {
+      "case_id": "D4-PLD-001",
+      "status": "MATCH",
+      "gold_events": 3,
+      "system_events": 3,
+      "system_path": "external_system_output/D4-PLD-001.json"
+    },
+    {
+      "case_id": "D4-PLD-002",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-002.json"
+    },
+    {
+      "case_id": "D4-PLD-003",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-003.json"
+    },
+    {
+      "case_id": "D4-PLD-004",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-004.json"
+    },
+    {
+      "case_id": "D4-PLD-005",
+      "status": "MATCH",
+      "gold_events": 2,
+      "system_events": 2,
+      "system_path": "external_system_output/D4-PLD-005.json"
+    },
+    {
+      "case_id": "D4-PLD-006",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-006.json"
+    },
+    {
+      "case_id": "D4-PLD-007",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-007.json"
+    },
+    {
+      "case_id": "D4-PLD-008",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-008.json"
+    },
+    {
+      "case_id": "D4-PLD-009",
+      "status": "MATCH",
+      "gold_events": 3,
+      "system_events": 3,
+      "system_path": "external_system_output/D4-PLD-009.json"
+    },
+    {
+      "case_id": "D4-PLD-010",
+      "status": "MATCH",
+      "gold_events": 1,
+      "system_events": 1,
+      "system_path": "external_system_output/D4-PLD-010.json"
+    }
+  ],
+  "errors": []
+}

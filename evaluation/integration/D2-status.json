@@ -1,0 +1,80 @@
+{
+  "status": "technical_integration_passed",
+  "checked_on": "2026-09-29",
+  "d2_personal_deliverables": "complete",
+  "d2_joint_technical_integration": "complete",
+  "independent_human_review": "not_recorded",
+  "remote_baselines": {
+    "weiwenyu": "59c1d79",
+    "feature/fang-rules": "24b7656",
+    "zhangzhibo": "b108a85",
+    "feature/chen-ui": "2e156fa",
+    "zongbowen": "7e6d0e7_before_this_integration_update"
+  },
+  "checks": {
+    "contract_five_way": {
+      "result": "pass",
+      "event_types": 3,
+      "fields": 36,
+      "statuses": 6,
+      "schema_version": "0.3"
+    },
+    "fang_normalization": {
+      "result": "pass",
+      "passed": 34,
+      "total": 34,
+      "d1": 12,
+      "d2": 22
+    },
+    "d2_gold_format_source_support": {
+      "result": "pass",
+      "passed": 20,
+      "total": 20,
+      "gold_envelopes": 6,
+      "fields": 72,
+      "quotes": 67,
+      "unsupported_quotes": 0
+    },
+    "wei_envelope_validator": {
+      "result": "pass",
+      "files": 77,
+      "validation_errors": 0
+    },
+    "d2_gold_shared_validator": {
+      "result": "pass",
+      "files": 6,
+      "validation_errors": 0
+    },
+    "chen_page_bridge": {
+      "result": "pass",
+      "files": 77,
+      "events": 77,
+      "fields": 931,
+      "evidences": 785,
+      "dangling_evidence": 0
+    },
+    "zhang_d2_structure": {
+      "result": "pass",
+      "cases": 3,
+      "hash_mismatches": 0,
+      "page_count_mismatches": 0,
+      "block_count_mismatches": 0,
+      "source_type_count_mismatches": 0
+    },
+    "wei_end_to_end_replay": {
+      "result": "pass",
+      "cases": 3,
+      "validation_errors": 0,
+      "events_equal_after_source_type_addition": 3
+    }
+  },
+  "blocking_issues": [],
+  "non_blocking_notes": [
+    "张智博 D2 历史交付为 evidence/0.3，当前魏文宇分支已接入 evidence/0.7；两者不得混用 block_id 做跨版本回放。",
+    "本次端到端回放使用当前分支对应的 corpus/zhangzhibo/d3/parse 输入。",
+    "技术机检通过不等于已记录第二人独立复核；如流程要求人工复核，需另记 review_id。"
+  ],
+  "semantic_decisions": {
+    "change_date_range": "显式且可解析的区间使用 extracted + unit=date_range；只有无法确定或不完整的日期才使用 needs_review。"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "mode": "score",
+  "result": "PASS",
+  "cases_total": 20,
+  "scored": 20,
+  "pass": 20,
+  "fail": 0,
+  "not_run": 0,
+  "false_positive_conflict": 0,
+  "false_negative_conflict": 0,
+  "false_positive_ids": [],
+  "false_negative_ids": [],
+  "by_category": {
+    "corroboration": {
+      "total": 3,
+      "pass": 3
+    },
+    "aggregate_detail": {
+      "total": 2,
+      "pass": 2
+    },
+    "partial_coverage": {
+      "total": 2,
+      "pass": 2
+    },
+    "reverse_match": {
+      "total": 2,
+      "pass": 2
+    },
+    "scope_cumulative": {
+      "total": 2,
+      "pass": 2
+    },
+    "ratio_denominator": {
+      "total": 1,
+      "pass": 1
+    },
+    "tax_scope": {
+      "total": 2,
+      "pass": 2
+    },
+    "currency_scope": {
+      "total": 2,
+      "pass": 2
+    },
+    "insufficient": {
+      "total": 2,
+      "pass": 2
+    },
+    "restatement": {
+      "total": 1,
+      "pass": 1
+    },
+    "conflict": {
+      "total": 1,
+      "pass": 1
+    }
+  },
+  "rows": [
+    {
+      "case_id": "D9-RULE-001",
+      "category": "corroboration",
+      "expected": "corroborated",
+      "reported": "corroborated",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-002",
+      "category": "corroboration",
+      "expected": "corroborated",
+      "reported": "corroborated",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-003",
+      "category": "corroboration",
+      "expected": "corroborated",
+      "reported": "corroborated",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-004",
+      "category": "aggregate_detail",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-005",
+      "category": "aggregate_detail",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-006",
+      "category": "partial_coverage",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-007",
+      "category": "partial_coverage",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-008",
+      "category": "reverse_match",
+      "expected": "corroborated",
+      "reported": "corroborated",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-009",
+      "category": "reverse_match",
+      "expected": "corroborated",
+      "reported": "corroborated",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-010",
+      "category": "scope_cumulative",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-011",
+      "category": "scope_cumulative",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-012",
+      "category": "ratio_denominator",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-013",
+      "category": "tax_scope",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-014",
+      "category": "tax_scope",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-015",
+      "category": "currency_scope",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-016",
+      "category": "currency_scope",
+      "expected": "explainable_difference",
+      "reported": "explainable_difference",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-017",
+      "category": "insufficient",
+      "expected": "insufficient",
+      "reported": "insufficient",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-018",
+      "category": "insufficient",
+      "expected": "insufficient",
+      "reported": "insufficient",
+      "synthetic_controlled": false,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-019",
+      "category": "restatement",
+      "expected": "restated",
+      "reported": "restated",
+      "synthetic_controlled": true,
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D9-RULE-020",
+      "category": "conflict",
+      "expected": "conflict",
+      "reported": "conflict",
+      "synthetic_controlled": true,
+      "status": "pass",
+      "notes": []
+    }
+  ]
+}

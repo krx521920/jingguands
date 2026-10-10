@@ -1,0 +1,55 @@
+{
+  "locked_on": "2026-10-08",
+  "rev": 2,
+  "note": "留出标签：只以 sha256 锁存预期；执行方可拿输入与哈希，拿不到答案",
+  "cases": [
+    {
+      "id": "D12-MUT-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "expected_relation": "related",
+      "must_have_conflict": true,
+      "basis": "EQC-002 蔚文绪 shares_after 11,042,217→11,042,218（差 1 股）",
+      "desc": "预期仍 related 但必须出现 conflict",
+      "answer_sha256": "bcca8e929574d2d71c35fea5d7266a14ca14c866516403063201c72ec4eb5197"
+    },
+    {
+      "id": "D12-MUT-002",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "expected_relation": "unrelated",
+      "must_have_conflict": false,
+      "basis": "EQC-005 change/before/after 全部 72,673,907→72,673,900",
+      "desc": "锚点归零+反向咬合断裂 → 预期 unrelated",
+      "answer_sha256": "e9f370abb31f1fc1f7300d57baa88f757aa7756b408b2ce5fd23e7a083fa65ed"
+    },
+    {
+      "id": "D12-MUT-003",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "expected_relation": "unrelated",
+      "must_have_conflict": false,
+      "basis": "EQC-002 全部主体改名 + 数值错开",
+      "desc": "实体与锚点同时归零 → 预期 unrelated",
+      "answer_sha256": "8bde292835ebbfe19ca605a081176d6c9ac4cb37277366d83e2e8f6d3a8a049f"
+    },
+    {
+      "id": "D12-MUT-004",
+      "members": [
+        "D4-PLD-001",
+        "D6-AWD-001"
+      ],
+      "expected_relation": "unrelated",
+      "must_have_conflict": false,
+      "basis": "AWD-001 中标主体改为翟军（与 PLD-001 共享主体）",
+      "desc": "跨类型且无锚点 → 预期 unrelated",
+      "answer_sha256": "fb8a064d2dcea533f86905e3cfb67a97c97b78e0594d3017e727cb06905fa1dd"
+    }
+  ]
+}

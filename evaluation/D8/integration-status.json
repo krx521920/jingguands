@@ -1,0 +1,95 @@
+{
+  "checked_on": "2026-10-04",
+  "day": "D8",
+  "goal": "判断多份公告是否为同一事件（工作流B：跨文档关联）",
+  "members": {
+    "weiwenyu": {
+      "status": "delivered_and_verified",
+      "commit": "954381da031debcbde5cf9c1fe2def3f65adb2f0",
+      "deliverable": "scripts/jingguan/verify_crossdoc.mjs + runs/crossdoc-report-20261003.json + docs/d8-crossdoc-verification.md",
+      "evidence": "sealed cross-doc replay 20/20; D8 pair manifest run runs/D8-b-report-20261004.json 13/13 (PAIR-013 unknown via INSUFFICIENT_SIGNALS + MEMBER_NO_USABLE_FIELDS)",
+      "open": "D7 gold snapshot re-sync; defensive numeric coercion 已由魏修复（2026-10-05 魏答复确认），从 open 项移除",
+      "notes": "defensive numeric coercion: fixed by wei (removed from open 2026-10-05)"
+    },
+    "zhangzhibo": {
+      "status": "delivered",
+      "commit": "1d3efad6ec6f0fa6f24a622f0240140ad68980cb",
+      "deliverable": "sample/D8/cross_index.json + sample/D8/pair_evidence.json + reviews/D8-跨文档索引交接给B流程.md",
+      "open": "subject key for code-less docs (D5-EQC-003)"
+    },
+    "fangxuancheng": {
+      "status": "delivered",
+      "commit": "645ab53c582005a34ada0a0e8d6f56c0684689b2",
+      "deliverable": "D8.2 对齐规则与关联解释（src_D8/matching_D8.mjs: alignDocuments/explainGroup + run_public_D8）",
+      "verified_by_zong": {
+        "dev_set": "13/13 PASS (score-result-fang-public.json)",
+        "expanded": "16/16 PASS (score-result-fang-expanded.json)"
+      },
+      "open": "needs wei to add a group-level entry point (--matcher only swaps field alignment)"
+    },
+    "chenjiahui": {
+      "status": "delivered",
+      "commit": "6bfb9625e4f5bde6f25188aa9fb01980b373746b",
+      "deliverable": "GET /api/pairs + render/pairs.js 配对视图（双栏双侧元数据、raw/gold 哈希前12位、本地锚点、三态徽章、诚实边界横幅）",
+      "verified_by_zong": {
+        "manifest_identity": "与 evaluation/D8/pairs/pairs.dev30.json v0.2 逐组一致（13/13 expected_relation 相同；PAIR-003 basis 已是更正版；EQC-002 notice_number=null + referenced=[2025-097]）",
+        "three_state_render": "unknown → 「证据不足 · 无法判定」，结构上禁止渲染为不同事件",
+        "null_notice_render": "null → 「—（首页无本文件编号）」+「正文引用编号 …（非本文件编号）」"
+      },
+      "finding": "页面横幅与卡片仅覆盖 13 组开发集（4 同事件）；未包含魏方演示补料的「同公司不同事件」组 D8-DEMO-003，而宗侧演示脚本第5步依赖该组"
+    },
+    "zongbowen": {
+      "status": "delivered",
+      "deliverable": "evaluation/D8/pairs/pairs.dev30.json + evaluation/D8/score-pairs.mjs + build-pairs.mjs + README + handoffs",
+      "composition": {
+        "same_event": 4,
+        "different_event": 8,
+        "insufficient": 1,
+        "total": 13
+      },
+      "self_check": "PASS",
+      "offline_demo": "12 pass / 0 fail / 1 not_run (against weiwenyu 954381da report excerpt)",
+      "honest_limit": "public dev-30 corpus supports only 4 verifiable same-event pairs (plan suggested 6)",
+      "strict_result": {
+        "pairs": 13,
+        "pass": 13,
+        "fail": 0,
+        "same_event": "4/4",
+        "different_event": "8/8 clean",
+        "insufficient": "1/1",
+        "reference": "evaluation/D8/reference/score-result-20261004.json"
+      },
+      "demo_script_dependency": "D8-DEMO-003 (鸿路钢构 09-22/23 × 09-30, 同主体+同持股数仍判 unrelated)"
+    }
+  },
+  "interface_chain": "zong pairs -> zhang index -> fang/wei align -> wei B output -> chen UI",
+  "pending": [
+    "wei: add group-level three-state entry (fang explainGroup/alignDocuments) before numeric branches",
+    "chen: extend pairs view to include the 3 demo groups (esp. D8-DEMO-003 for the 同公司不同事件 path) or align demo script to the 13-group page",
+    "wei: D7 gold snapshot re-sync"
+  ],
+  "demo_decision": {
+    "decided_on": "2026-10-04",
+    "decided_by": "轮值主持人（拍板）",
+    "option": "B",
+    "title": "同公司同事件互证 + 语料边界如实说明",
+    "rationale": "语料不存在同公司不同事件样本对；补抓新公告需重跑A全链路并破坏预置封存口径；方案B零新增风险且用PAIR-013的unknown覆盖“同公司不同事件”的判定纪律",
+    "artifact": "evaluation/D8/D8-demo-script.md"
+  },
+  "issues_found": [
+    {
+      "from": "fang",
+      "item": "notice number mis-attribution (EQC-002/003 2025-097 is a prior-report citation)",
+      "action": "fixed in build-pairs.mjs v0.2; only header notice numbers kept; referenced numbers recorded separately"
+    },
+    {
+      "from": "fang",
+      "item": "--matcher can only replace field alignment, not group-level relation or aggregate reconciliation",
+      "action": "wei must add new entry point calling explainGroup/alignDocuments before numeric branches"
+    }
+  ],
+  "refresh_20261005": [
+    "移除过时项：defensive numeric coercion (latent) —— 魏已修复",
+    "D8 演示脚本第 5 步已于 84f28745 改为鸿路实证（同公司不同事件）"
+  ]
+}

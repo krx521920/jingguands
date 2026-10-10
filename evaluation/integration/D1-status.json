@@ -1,0 +1,30 @@
+{
+  "day": "D1",
+  "checked_at": "2026-09-27",
+  "branches": {
+    "evaluation": { "branch": "zongbowen", "commit": "b364c5b8785f66b5783b2f6937ec261d81b1e8f1", "status": "artifact_complete" },
+    "wei": { "branch": "weiwenyu", "commit": "0dd17d843face88ffe3a024d9c2db9f9e3b6fac1", "status": "artifact_present_mock_passed" },
+    "zhang": { "branch": "zhangzhibo", "commit": "74e6eee9c029e54932bfeb2405634ddb7fa081e6", "status": "artifact_present_checker_100pct", "artifact_type": "uploaded_zip" },
+    "fang": { "branch": "feature/fang-rules", "commit": "c8568820f8d2919ed1ee2dae879846b476ef9bd9", "status": "artifact_present_tests_passed" },
+    "chen": { "branch": "feature/chen-ui", "commit": "477b4f420553e8a52c2fbccc464d7561b239c443", "status": "not_submitted" },
+    "integration": { "branch": null, "commit": null, "status": "blocked_interface_conflicts" },
+    "masterUpload": { "commit": "e502c0d83073a091b37f5b642efabfbe7a1d4ea4", "author": "fxc178", "status": "fang_zip_uploaded_directly_to_master" }
+  },
+  "artifact_progress": "4/6",
+  "compatible_progress": "1/6",
+  "integration_ready": false,
+  "checks": {
+    "wei_mock": "passed",
+    "fang_tests": "11/11 passed",
+    "zhang_evidence": "71/71 passed, 100%"
+  },
+  "blockers": [
+    "event_type bid_won conflicts with award_contract",
+    "field status enums differ across Wei, Fang, and evaluation",
+    "unit identifiers differ across Wei and Fang",
+    "ratio denominator identifiers differ",
+    "evidence contract does not yet carry Zhang table/cell fields",
+    "Chen has no D1 commit",
+    "no joint run on one shared corpus"
+  ]
+}

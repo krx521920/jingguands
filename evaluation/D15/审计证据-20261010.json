@@ -1,0 +1,316 @@
+{
+  "audited_at": "2026-10-10T03:37:32.365Z",
+  "target": {
+    "page_commit": "e7bec616",
+    "port": 8642,
+    "node": "v24.20.0"
+  },
+  "probes": [
+    {
+      "name": "result 不存在的数据集",
+      "url": "/api/result?dataset=__nope__",
+      "note": {
+        "status": 404,
+        "j": {
+          "error": "本地无此信封：data_unified/__nope__.json 与 data/__nope__.json 均不存在"
+        }
+      }
+    },
+    {
+      "name": "result 无参（默认返回）",
+      "url": "/api/result",
+      "note": {
+        "status": 200,
+        "j": {
+          "run_id": "mock-run-0001",
+          "data_mode": "simulated",
+          "schema_version": "0.3"
+        }
+      }
+    },
+    {
+      "name": "result 路径遍历",
+      "url": "/api/result?dataset=../../etc/passwd",
+      "note": {
+        "status": 400,
+        "j": {
+          "error": "invalid dataset name"
+        }
+      }
+    },
+    {
+      "name": "result 大小写敏感",
+      "url": "/api/result?dataset=audit-D4-PLD-002",
+      "note": {
+        "status": 404,
+        "j": {
+          "error": "本地无此信封：data_unified/audit-D4-PLD-002.json 与 data/audit-D4-PLD-002.json 均不存在"
+        }
+      }
+    },
+    {
+      "name": "未知引擎",
+      "url": "/api/result?dataset=D4-PLD-001&engine=zzz",
+      "note": {
+        "status": 503,
+        "j": {
+          "error": "未知引擎：zzz",
+          "engine": "zzz"
+        }
+      }
+    },
+    {
+      "name": "导出非法格式",
+      "url": "/api/export?dataset=D4-PLD-001&format=xml",
+      "note": {
+        "status": 400,
+        "j": {
+          "error": "format must be json|csv"
+        }
+      }
+    },
+    {
+      "name": "导出路径遍历",
+      "url": "/api/export?dataset=../../x",
+      "note": {
+        "status": 400,
+        "j": {
+          "error": "invalid dataset name"
+        }
+      }
+    }
+  ],
+  "mutations": [
+    {
+      "label": "改一个字段值（锚点应报警）",
+      "anchor": {
+        "sha256": "f475a3ee780d",
+        "matches": false,
+        "drift": true,
+        "note": "★ 本地锚点与宗登记值不一致（本地 f475a3ee780d… vs 登记 381c760fa07b…）。批次已偏离冻结状态，须查明改动来源后重新走裁决登记，不得就地改锚点。"
+      },
+      "contract": {
+        "ok": true,
+        "errors": []
+      },
+      "view_status": 200,
+      "view_contract_ok": true
+    },
+    {
+      "label": "加未知顶层字段+非法 unit（契约应报错）",
+      "anchor": {
+        "sha256": "c0d5773d09d4",
+        "matches": false,
+        "drift": true,
+        "note": "★ 本地锚点与宗登记值不一致（本地 c0d5773d09d4… vs 登记 381c760fa07b…）。批次已偏离冻结状态，须查明改动来源后重新走裁决登记，不得就地改锚点。"
+      },
+      "contract": {
+        "ok": false,
+        "errors": [
+          "events[0].fields.direction.unit 应为 \"text\"，实际 \"wat\"",
+          "events[0].fields.pledgor.unit 应为 \"text\"，实际 \"wat\"",
+          "events[0].fields.pledgee.unit 应为 \"text\"，实际 \"wat\""
+        ]
+      },
+      "view_status": 200,
+      "view_contract_ok": false
+    }
+  ],
+  "uploads": [
+    {
+      "label": "合法 v0.3 信封",
+      "filename": "audit-D4-PLD-002.json",
+      "ok": true,
+      "dataset": "audit-d4-pld-002",
+      "events": 1
+    },
+    {
+      "label": "缺必填字段的 v0.3（run_id/is_mock/source/run_meta 全缺）",
+      "filename": "audit-norun.json",
+      "ok": true,
+      "dataset": "audit-norun",
+      "events": 0
+    },
+    {
+      "label": "坏 JSON",
+      "filename": "audit-bad.json",
+      "error": "JSON 解析失败：Unexpected token '}', ...\"\"events\":[}\" is not valid JSON"
+    },
+    {
+      "label": "空文件",
+      "filename": "audit-empty.json",
+      "error": "空文件"
+    }
+  ],
+  "cleanup": {
+    "removed": [
+      "audit-d4-pld-002.json",
+      "audit-norun.json"
+    ],
+    "remaining_json": 41,
+    "data_unified_sha256": "325bbdb916ac2ba5a3fcc7b79dd89ba4d13c5ef053ba76bd388a8b0b28f7307e"
+  },
+  "equality": {
+    "result_keys": [
+      "run_id",
+      "schema_version",
+      "data_mode",
+      "source_file",
+      "events",
+      "evidences",
+      "bridge",
+      "contract_validation",
+      "run_meta",
+      "check_report",
+      "integrity",
+      "error_fill_audit",
+      "extraction_engine"
+    ],
+    "export_keys": [
+      "run_id",
+      "schema_version",
+      "data_mode",
+      "source_file",
+      "events",
+      "evidences",
+      "bridge",
+      "contract_validation",
+      "run_meta",
+      "check_report",
+      "integrity",
+      "error_fill_audit"
+    ],
+    "only_in_result": [
+      "extraction_engine"
+    ],
+    "bytes": [
+      65837,
+      64259
+    ]
+  },
+  "mutation_restore": {
+    "sha256_after_restore": "325bbdb916ac2ba5a3fcc7b79dd89ba4d13c5ef053ba76bd388a8b0b28f7307e",
+    "same": true
+  },
+  "upload_effect": {
+    "listed": [
+      "audit-d4-pld-002",
+      "audit-norun"
+    ],
+    "render_status": 200,
+    "contract_of_norun": {
+      "ok": false,
+      "errors": [
+        "envelope: 缺必填字段 \"run_id\"",
+        "envelope: 缺必填字段 \"is_mock\"",
+        "envelope: 缺必填字段 \"source\"",
+        "envelope: 缺必填字段 \"run_meta\""
+      ],
+      "error_count": 4,
+      "warnings": [],
+      "schema_version": "0.3",
+      "is_stale_version": false,
+      "layers": {
+        "schema": 4,
+        "registry": 0
+      }
+    }
+  },
+  "registry": {
+    "measured": [
+      {
+        "key": "field_accuracy",
+        "value": 100,
+        "num": 437,
+        "den": 437,
+        "blocked_by": null
+      },
+      {
+        "key": "wrong_fill_rate",
+        "value": 0,
+        "num": 0,
+        "den": 0,
+        "blocked_by": null
+      },
+      {
+        "key": "field_coverage",
+        "value": 72.52,
+        "num": 446,
+        "den": 615,
+        "blocked_by": null
+      },
+      {
+        "key": "evidence_hit",
+        "value": 100,
+        "num": 241,
+        "den": 241,
+        "blocked_by": "★ 覆盖仅 10/41 份文档、241/863 条 provenance；全量仍不可核 —— 快照由魏文宇交付，未覆盖文档需补"
+      },
+      {
+        "key": "anchor_presence",
+        "value": 100,
+        "num": 460,
+        "den": 460,
+        "blocked_by": null
+      },
+      {
+        "key": "anchor_table_ref",
+        "value": 51.09,
+        "num": 235,
+        "den": 460,
+        "blocked_by": "张智博（无框表补 table_id/列语义）"
+      },
+      {
+        "key": "block_region_selfconsistency",
+        "value": 100,
+        "num": 353,
+        "den": 353,
+        "blocked_by": null
+      },
+      {
+        "key": "standardized_rate",
+        "value": 99.1,
+        "num": 442,
+        "den": 446,
+        "blocked_by": "宗博文（统一 standardized 判据）"
+      }
+    ],
+    "not_covered": [
+      {
+        "key": "abstain_correct",
+        "caliber": "需 Gold 逐条标注「原文是否提及」，现有 Gold 无此维度",
+        "blocked_by": "宗博文（评测侧补 Gold 维度）"
+      },
+      {
+        "key": "cross_doc_match",
+        "caliber": "宗侧成绩未产出，无数据可算",
+        "blocked_by": "宗博文（D12～D13 出数）"
+      },
+      {
+        "key": "multi_doc_conflict",
+        "caliber": "D9 20 条规则用例未跑",
+        "blocked_by": "宗博文（D12～D13 出数）"
+      },
+      {
+        "key": "integration_pass",
+        "caliber": "缺 run_id 与缓存三件证据；且 web_cli_same_result 判据本身须改名",
+        "blocked_by": "宗博文（判据）＋ 魏文宇（抽取入口/原始 PDF）"
+      },
+      {
+        "key": "scan_degrade",
+        "caliber": "扫描样例可失败，但必须明确降级并单独统计——当前无独立分母",
+        "blocked_by": "宗博文（建立扫描件分母）"
+      },
+      {
+        "key": "perf_20page",
+        "caliber": "D12 性能目标；扫描件与缓存路径另报，不混入",
+        "blocked_by": "待D12 实测"
+      }
+    ]
+  },
+  "verify_view": {
+    "findings": 10,
+    "sidecars_in_data": 10,
+    "sidecars_in_data_unified": 0
+  }
+}

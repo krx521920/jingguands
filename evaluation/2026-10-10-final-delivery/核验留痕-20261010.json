@@ -1,0 +1,64 @@
+{
+  "verified_at": "2026-10-10T04:30:22.699Z",
+  "by": "宗（评测侧）· D14 最终核对",
+  "branches": {
+    "cjh-workspace": "e7bec616557464318fdf9813b6da683fb8b2338a",
+    "develop": "477b4f420553e8a52c2fbccc464d7561b239c443",
+    "eval/baseline": "36187afa7061a05d126e1358221c12e8054e62d4",
+    "feature/chen-ui": "e7bec616557464318fdf9813b6da683fb8b2338a",
+    "feature/fang-rules": "af4348be5ddd5ee47f92ae5989dd08083ffae199",
+    "feature/wei-core": "477b4f420553e8a52c2fbccc464d7561b239c443",
+    "feature/zhang-parser": "477b4f420553e8a52c2fbccc464d7561b239c443",
+    "fix/d3-unit-a11b110": "32f2cdc08d6820dad2f402c1c616a790625d1dd3",
+    "master": "e6334aa278b85c0824c8b117723ae48019442d7d",
+    "weiwenyu": "fa958affc7d5ef326fcc330ee96a9a9b0de62bec",
+    "zhangzhibo": "5bab7c3d54eb46d1f8738c8be4bb2b202c614f5b",
+    "zongbowen": "de71755fb27cce12db8d663a2d84ecdc1143d8a6"
+  },
+  "tags": [
+    {
+      "name": "v1.1-d16-candidate",
+      "sha": "fa958affc7d5ef326fcc330ee96a9a9b0de62bec"
+    },
+    {
+      "name": "v1.0-d14-release",
+      "sha": "1e03d09942ece8e70c9c3c682d953257f7858e17"
+    },
+    {
+      "name": "v0.6-d11-firsttest",
+      "sha": "4a8d0c33426b0de556e3b8f22cbd3f4d068cdb48"
+    },
+    {
+      "name": "v0.5-d7-baseline",
+      "sha": "e7ee9dfed16ab6888852ed9f1f7b0349730f97ca"
+    }
+  ],
+  "releases": [],
+  "evaluation_overlap": {
+    "release_tag_files": 215,
+    "canon_files": 448,
+    "same_path_same_bytes": 0,
+    "same_path_diff_bytes": 0,
+    "only_in_release": 215,
+    "only_in_canon": 448
+  },
+  "media_scan": {
+    "master": {
+      "count": 0,
+      "paths": []
+    },
+    "release": {
+      "count": 0,
+      "paths": []
+    },
+    "weiwenyu": {
+      "count": 0,
+      "paths": []
+    },
+    "chen": {
+      "count": 0,
+      "paths": []
+    }
+  },
+  "gates": {}
+}

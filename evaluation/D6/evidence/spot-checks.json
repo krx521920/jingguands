@@ -1,0 +1,345 @@
+{
+  "total": 20,
+  "items": [
+    {
+      "case_id": "D6-AWD-001",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "dc1c912b9_p001_b00013",
+      "page": 1,
+      "region": [
+        114,
+        619.61,
+        511.32,
+        631.61
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "中标单位仍为本公司"
+    },
+    {
+      "case_id": "D6-AWD-001",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "dc1c912b9_p001_b00009",
+      "page": 1,
+      "region": [
+        90,
+        432.41,
+        517.32,
+        516.6
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "招标单位为图木舒克新纶化纤有限责任公司"
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "dc0a3d5fb_p001_b00012",
+      "page": 1,
+      "region": [
+        114,
+        545.74,
+        336,
+        557.74
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "中标单位：浙江金盾风机股份有限公司"
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "dc0a3d5fb_p001_b00009",
+      "page": 1,
+      "region": [
+        114,
+        475.54,
+        372,
+        487.54
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "招标单位：深圳市地铁集团科技产业有限公司"
+    },
+    {
+      "case_id": "D6-AWD-003",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "d0b56135e_p001_b00014",
+      "page": 1,
+      "region": [
+        113.88,
+        631.13,
+        511.44,
+        643.13
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "中国铁路通信信号股份有限公司（以下简称“本公司”）"
+    },
+    {
+      "case_id": "D6-AWD-003",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "d0b56135e_p002_b00005",
+      "page": 2,
+      "region": [
+        196.5,
+        166.34,
+        357.3,
+        307.24
+      ],
+      "table_id": "d0b56135e_p002_t001",
+      "cell_ref": "r2c2",
+      "source_type": "cell",
+      "quote": "阿拉善高新技术产业开发区实业投资运营集团有限公司"
+    },
+    {
+      "case_id": "D6-AWD-004",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "d0be9f419_p001_b00008",
+      "page": 1,
+      "region": [
+        113.88,
+        395.26,
+        505.44,
+        407.26
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉"
+    },
+    {
+      "case_id": "D6-AWD-004",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "d0be9f419_p001_b00009",
+      "page": 1,
+      "region": [
+        89.88,
+        418.66,
+        505.44,
+        500.86
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "并与承包人武汉建工集团股份有限公司新洲分公司（以下简称“合同对方”）签署了"
+    },
+    {
+      "case_id": "D6-AWD-005",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "ddd80cf89_p002_b00012",
+      "page": 2,
+      "region": [
+        114,
+        361.49,
+        505.32,
+        373.49
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "承包方、乙方：吉峰三农科技服务股份有限公司、南京莱斯信息技术股份有"
+    },
+    {
+      "case_id": "D6-AWD-005",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "ddd80cf89_p002_b00011",
+      "page": 2,
+      "region": [
+        114,
+        330.29,
+        390,
+        342.29
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "发包方、甲方：江苏众安建设投资（集团）有限公司"
+    },
+    {
+      "case_id": "D6-AWD-006",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "dfc6c3d84_p001_b00005",
+      "page": 1,
+      "region": [
+        90,
+        314.57,
+        505.32,
+        326.57
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "上海同济建设有限公司与上海天华建筑设计有限公司联合"
+    },
+    {
+      "case_id": "D6-AWD-006",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "dfc6c3d84_p001_b00004",
+      "page": 1,
+      "region": [
+        114,
+        291.29,
+        505.32,
+        303.29
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "上海金滨海房地产开发有限公"
+    },
+    {
+      "case_id": "D6-AWD-007",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "d3a6938fe_p001_b00004",
+      "page": 1,
+      "region": [
+        114,
+        264.77,
+        505.32,
+        276.77
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "全资子公司江河幕墙中东工程"
+    },
+    {
+      "case_id": "D6-AWD-007",
+      "event_id": "E01",
+      "field": "project_name",
+      "block_id": "d3a6938fe_p001_b00005",
+      "page": 1,
+      "region": [
+        90,
+        288.17,
+        517.32,
+        346.97
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "中标WResidences幕墙工程"
+    },
+    {
+      "case_id": "D6-AWD-008",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "daa9b83fa_p001_b00004",
+      "page": 1,
+      "region": [
+        114,
+        229.54,
+        505.2,
+        241.54
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "快乐小"
+    },
+    {
+      "case_id": "D6-AWD-008",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "daa9b83fa_p001_b00010",
+      "page": 1,
+      "region": [
+        114,
+        469.54,
+        342,
+        481.54
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "source_type": "paragraph",
+      "quote": "（三）建设单位：巴彦淖尔市林业和草原局"
+    },
+    {
+      "case_id": "D6-AWD-009",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "d3aa23f9a_p001_b00011",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        114,
+        544.61,
+        324,
+        556.61
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "3、中标人：浙江大丰实业股份有限公司"
+    },
+    {
+      "case_id": "D6-AWD-009",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "d3aa23f9a_p001_b00010",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        114,
+        521.21,
+        348,
+        533.21
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "2、招标人：深圳市建筑工务署工程管理中心"
+    },
+    {
+      "case_id": "D6-AWD-010",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "d74b68381_p001_b00010",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        114,
+        443.02,
+        366,
+        455.02
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "（二）中标方：广东飞南资源利用股份有限公司"
+    },
+    {
+      "case_id": "D6-AWD-010",
+      "event_id": "E01",
+      "field": "project_name",
+      "block_id": "d74b68381_p001_b00011",
+      "source_type": "paragraph",
+      "page": 1,
+      "region": [
+        114,
+        474.22,
+        505.32,
+        486.22
+      ],
+      "table_id": null,
+      "cell_ref": null,
+      "quote": "公司中标招标方销毁类报废品处置项目"
+    }
+  ]
+}

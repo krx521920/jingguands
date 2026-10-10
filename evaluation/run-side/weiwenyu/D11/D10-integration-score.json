@@ -1,0 +1,60 @@
+{
+  "mode": "check",
+  "result": "PASS",
+  "cases_total": 10,
+  "pass": 10,
+  "fail": 0,
+  "not_run": 0,
+  "rows": [
+    {
+      "case_id": "D10-INT-001",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-002",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-003",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-004",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-005",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-006",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-007",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-008",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-009",
+      "status": "pass",
+      "notes": []
+    },
+    {
+      "case_id": "D10-INT-010",
+      "status": "pass",
+      "notes": []
+    }
+  ]
+}

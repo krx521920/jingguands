@@ -1,0 +1,372 @@
+{
+  "mode": "score",
+  "result": "PASS",
+  "pairs_total": 20,
+  "scored": 20,
+  "pass": 20,
+  "fail": 0,
+  "not_run": 0,
+  "same_event": {
+    "total": 4,
+    "hit": 4
+  },
+  "different_event": {
+    "total": 16,
+    "clean": 16
+  },
+  "insufficient": {
+    "total": 0,
+    "ok": 0
+  },
+  "report_provenance": {
+    "b_run_id": "b-20261007120200",
+    "engine": "verify_crossdoc.mjs",
+    "matcher": {
+      "builtin": "nameEq+anchors"
+    },
+    "envelopes_dir": "C:\\Users\\43031\\Documents\\Codex\\2026-09-17\\https-em-bjfu-edu-cn-rcpy\\work\\repo-jingguands\\evaluation\\D11\\firsttest-envelopes"
+  },
+  "rows": [
+    {
+      "group_id": "D7-XDOC-001",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-002"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D7-XDOC-002",
+      "members": [
+        "D5-EQC-002",
+        "D5-EQC-003"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D7-XDOC-003",
+      "members": [
+        "D5-EQC-001",
+        "D5-EQC-003"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "SHARED_ENTITIES_AND_ANCHORS"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D7-XDOC-004",
+      "members": [
+        "D5-EQC-004",
+        "D5-EQC-005"
+      ],
+      "expected": "related",
+      "predicted": "related",
+      "reasons": [
+        "REVERSE_MATCH"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "predicted related"
+    },
+    {
+      "group_id": "D7-XDOC-005",
+      "members": [
+        "D4-PLD-001",
+        "D5-EQC-001",
+        "D6-AWD-001"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-006",
+      "members": [
+        "D4-PLD-003",
+        "D5-EQC-004",
+        "D6-AWD-003"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-007",
+      "members": [
+        "D4-PLD-005",
+        "D5-EQC-006",
+        "D6-AWD-006"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-008",
+      "members": [
+        "D4-PLD-007",
+        "D5-EQC-008",
+        "D6-AWD-008"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-009",
+      "members": [
+        "D4-PLD-009",
+        "D5-EQC-010",
+        "D6-AWD-010"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-010",
+      "members": [
+        "D4-PLD-001",
+        "D4-PLD-002"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-011",
+      "members": [
+        "D4-PLD-003",
+        "D4-PLD-004"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-012",
+      "members": [
+        "D5-EQC-006",
+        "D5-EQC-007"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-013",
+      "members": [
+        "D6-AWD-001",
+        "D6-AWD-002"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-014",
+      "members": [
+        "D6-AWD-008",
+        "D6-AWD-009"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-015",
+      "members": [
+        "D4-PLD-006",
+        "D5-EQC-006"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-016",
+      "members": [
+        "D4-PLD-008",
+        "D6-AWD-007"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-017",
+      "members": [
+        "D5-EQC-009",
+        "D6-AWD-005"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-018",
+      "members": [
+        "D4-PLD-010",
+        "D5-EQC-004"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-019",
+      "members": [
+        "D5-EQC-003",
+        "D6-AWD-004"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    },
+    {
+      "group_id": "D7-XDOC-020",
+      "members": [
+        "D4-PLD-002",
+        "D6-AWD-010"
+      ],
+      "expected": "unrelated",
+      "predicted": "unrelated",
+      "reasons": [
+        "NO_SHARED_ENTITY",
+        "NO_SHARED_ANCHOR"
+      ],
+      "conflicts": 0,
+      "version_traceable": true,
+      "status": "pass",
+      "detail": "unrelated & 0 conflict"
+    }
+  ]
+}

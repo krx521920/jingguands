@@ -1,0 +1,22 @@
+{
+  "dataset_id": "financial-events-d5-direction-inversion-challenge-v0.1",
+  "version": "0.1.0",
+  "created_on": "2026-10-01",
+  "purpose": "Machine-readable challenge cases for equity-change direction and before/after inversion. Expected labels are derived from the D5 standard, not from model output.",
+  "rule": {
+    "shares": "If shares_before and shares_after are both extracted and numeric: before > after requires direction=decrease; before < after requires direction=increase; equal share counts do not encode a direction by themselves.",
+    "ratio": "A ratio reversal with an opposite share-count movement is a conflict signal, not an automatic direction override; it may indicate a denominator change and must be surfaced for review."
+  },
+  "cases": [
+    {"case_id":"D5-INV-001","name":"normal_decrease","event":{"direction":"decrease","shares_before":1000000,"shares_after":800000},"expect":{"direction_issue":false,"ratio_conflict":false}},
+    {"case_id":"D5-INV-002","name":"silent_reversal_decrease","event":{"direction":"increase","shares_before":1000000,"shares_after":800000},"expect":{"direction_issue":true,"ratio_conflict":false}},
+    {"case_id":"D5-INV-003","name":"normal_increase","event":{"direction":"increase","shares_before":800000,"shares_after":1000000},"expect":{"direction_issue":false,"ratio_conflict":false}},
+    {"case_id":"D5-INV-004","name":"silent_reversal_increase","event":{"direction":"decrease","shares_before":800000,"shares_after":1000000},"expect":{"direction_issue":true,"ratio_conflict":false}},
+    {"case_id":"D5-INV-005","name":"close_values_decrease","event":{"direction":"decrease","shares_before":1000001,"shares_after":999999},"expect":{"direction_issue":false,"ratio_conflict":false}},
+    {"case_id":"D5-INV-006","name":"close_values_increase","event":{"direction":"increase","shares_before":999999,"shares_after":1000001},"expect":{"direction_issue":false,"ratio_conflict":false}},
+    {"case_id":"D5-INV-007","name":"reversed_before_after_for_decrease","event":{"direction":"decrease","shares_before":800000,"shares_after":1000000},"expect":{"direction_issue":true,"ratio_conflict":false}},
+    {"case_id":"D5-INV-008","name":"equal_shares_passive_dilution","event":{"direction":"decrease","shares_before":249519764,"shares_after":249519764,"ratio_before":45.62,"ratio_after":44.89},"expect":{"direction_issue":false,"ratio_conflict":false}},
+    {"case_id":"D5-INV-009","name":"ratio_conflict_with_share_increase","event":{"direction":"increase","shares_before":800000,"shares_after":1000000,"ratio_before":12.0,"ratio_after":10.0},"expect":{"direction_issue":false,"ratio_conflict":true}},
+    {"case_id":"D5-INV-010","name":"insufficient_after_value","event":{"direction":"decrease","shares_before":1000000,"shares_after":null},"expect":{"direction_issue":false,"ratio_conflict":false,"requires_review":true}}
+  ]
+}

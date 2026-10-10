@@ -1,0 +1,20 @@
+{
+  "case_id": "D1-EQC-001",
+  "event_type": "equity_change",
+  "source_status": "public_cninfo",
+  "source_url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225581464.PDF",
+  "source_hash": "878ebffbdc131a963294cce96e324793a80aae676a2c56e124914580d3f6ec13",
+  "source_type": "public_announcement",
+  "source_publisher": "巨潮资讯",
+  "source_code": "688105",
+  "title": "诺唯赞关于持股5%以上股东减持股份计划完成暨减持结果公告",
+  "company": "南京诺唯赞生物科技股份有限公司",
+  "publish_date": "2026-09-25",
+  "pages": [
+    {
+      "page": 2,
+      "text": "国寿成达（上海）健康产业股权投资中心（有限合伙）本次减持计划实施前持有公司36,103,002股，占公司总股本的6.9834%。2026年7月22日至2026年9月23日期间，通过集中竞价和大宗交易合计减持15,509,550股，占当前总股本的3%。减持完成后持有20,593,452股，当前持股比例3.9834%。"
+    }
+  ],
+  "dataset_version": "0.1.1"
+}

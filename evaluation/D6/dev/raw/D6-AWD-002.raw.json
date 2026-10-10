@@ -1,0 +1,1864 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "dc0a3d5fb",
+    "file_id": "sha256:c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+    "file_name": "bid-002.pdf",
+    "file_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+    "file_size": 99333,
+    "page_count": 3,
+    "parsed_at": "2026-10-01T17:30:45+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.9.0"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 634,
+        "text_area_ratio": 0.245,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "dc0a3d5fb_p001_b00001",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "证券代码：300411 证券简称：金盾股份 公告编号：2026-032",
+          "text_raw": "证券代码：300411证券简称：金盾股份公告编号：2026-032",
+          "region": [
+            90.0,
+            80.66,
+            505.26,
+            96.87
+          ],
+          "table_ref": null,
+          "font_size": 14.05,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00002",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "浙江金盾风机股份有限公司关于近期中标项目的公告",
+          "text_raw": "浙江金盾风机股份有限公司关于近期中标项目的公告",
+          "region": [
+            189.24,
+            117.82,
+            405.96,
+            167.02
+          ],
+          "table_ref": null,
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00003",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重大遗漏。",
+          "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重大遗漏。",
+          "region": [
+            100.92,
+            195.34,
+            502.79,
+            230.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00004",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "浙江金盾风机股份有限公司（以下简称“公司”）近期成功中标深圳市城市",
+          "text_raw": "浙江金盾风机股份有限公司（以下简称“公司”）近期成功中标深圳市城市",
+          "region": [
+            114.0,
+            264.94,
+            505.32,
+            276.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00005",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风阀设备及服务采购项目3,162.46万元、风机设备及服务采购项目2,959.82万元，中标沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）各类风机及消声器项目1,941.1万元。上述中标项目合计金额为8,063.39万元。近期中标项目具体情况如下：",
+          "text_raw": "轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风阀设备及服务采购项目3,162.46万元、风机设备及服务采购项目2,959.82万元，中标沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）各类风机及消声器项目1,941.1万元。上述中标项目合计金额为8,063.39万元。近期中标项目具体情况如下：",
+          "region": [
+            90.0,
+            288.34,
+            505.32,
+            393.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00006",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "一、中标项目基本情况：",
+          "text_raw": "一、中标项目基本情况：",
+          "region": [
+            114.0,
+            405.34,
+            246.48,
+            417.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00007",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（一）深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线",
+          "text_raw": "（一）深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线",
+          "region": [
+            114.0,
+            428.74,
+            505.32,
+            440.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00008",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "一期工程风阀设备及服务采购项目",
+          "text_raw": "一期工程风阀设备及服务采购项目",
+          "region": [
+            90.0,
+            452.14,
+            270.0,
+            464.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00009",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、招标单位：深圳市地铁集团科技产业有限公司",
+          "text_raw": "1、招标单位：深圳市地铁集团科技产业有限公司",
+          "region": [
+            114.0,
+            475.54,
+            372.0,
+            487.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00010",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、招标项目：深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、",
+          "text_raw": "2、招标项目：深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、",
+          "region": [
+            114.0,
+            498.94,
+            510.0,
+            510.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00011",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "25号线一期工程风阀设备及服务采购项目",
+          "text_raw": "25号线一期工程风阀设备及服务采购项目",
+          "region": [
+            90.0,
+            522.34,
+            309.0,
+            534.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00012",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、中标单位：浙江金盾风机股份有限公司",
+          "text_raw": "3、中标单位：浙江金盾风机股份有限公司",
+          "region": [
+            114.0,
+            545.74,
+            336.0,
+            557.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00013",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "4、中标金额：31,624,628.62元",
+          "text_raw": "4、中标金额：31,624,628.62元",
+          "region": [
+            114.0,
+            569.14,
+            285.0,
+            581.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00014",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（二）深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线",
+          "text_raw": "（二）深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线",
+          "region": [
+            114.0,
+            592.54,
+            505.32,
+            604.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00015",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "一期工程风机设备及服务采购项目",
+          "text_raw": "一期工程风机设备及服务采购项目",
+          "region": [
+            90.0,
+            615.94,
+            270.0,
+            627.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00016",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、招标单位：深圳市地铁集团科技产业有限公司",
+          "text_raw": "1、招标单位：深圳市地铁集团科技产业有限公司",
+          "region": [
+            114.0,
+            639.34,
+            372.0,
+            651.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00017",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、招标项目：深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、",
+          "text_raw": "2、招标项目：深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、",
+          "region": [
+            114.0,
+            662.74,
+            510.0,
+            674.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00018",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "25号线一期工程风机设备及服务采购项目",
+          "text_raw": "25号线一期工程风机设备及服务采购项目",
+          "region": [
+            90.0,
+            686.14,
+            309.0,
+            698.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00019",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、中标单位：浙江金盾风机股份有限公司",
+          "text_raw": "3、中标单位：浙江金盾风机股份有限公司",
+          "region": [
+            114.0,
+            709.54,
+            336.0,
+            721.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p001_b00020",
+          "doc_id": "dc0a3d5fb",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "4、中标金额：29,598,219.34元",
+          "text_raw": "4、中标金额：29,598,219.34元",
+          "region": [
+            114.0,
+            732.94,
+            285.0,
+            744.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 2,
+      "form": "TEXT",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 734,
+        "text_area_ratio": 0.2717,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00001",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "TITLE",
+          "text": "（三）沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水",
+          "text_raw": "（三）沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水",
+          "region": [
+            114.0,
+            77.74,
+            505.32,
+            89.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00002",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+          "text_raw": "电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+          "region": [
+            90.0,
+            101.14,
+            462.0,
+            113.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00003",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、招标单位：沈阳地铁集团有限公司",
+          "text_raw": "1、招标单位：沈阳地铁集团有限公司",
+          "region": [
+            114.0,
+            124.54,
+            312.0,
+            136.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00004",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、招标项目：沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）",
+          "text_raw": "2、招标项目：沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）",
+          "region": [
+            114.0,
+            147.94,
+            511.32,
+            159.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00005",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+          "text_raw": "风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+          "region": [
+            90.0,
+            171.34,
+            486.0,
+            183.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00006",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、中标单位：浙江金盾风机股份有限公司",
+          "text_raw": "3、中标单位：浙江金盾风机股份有限公司",
+          "region": [
+            114.0,
+            194.74,
+            336.0,
+            206.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00007",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "4、中标金额： 4,560,926.30 元",
+          "text_raw": "4、中标金额：4,560,926.30元",
+          "region": [
+            114.0,
+            218.14,
+            288.0,
+            230.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00008",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（四）沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水",
+          "text_raw": "（四）沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水",
+          "region": [
+            114.0,
+            241.54,
+            505.32,
+            253.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00009",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+          "text_raw": "电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+          "region": [
+            90.0,
+            264.94,
+            414.0,
+            276.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00010",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、招标单位：沈阳地铁集团有限公司",
+          "text_raw": "1、招标单位：沈阳地铁集团有限公司",
+          "region": [
+            114.0,
+            288.34,
+            312.0,
+            300.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00011",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、招标项目：沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）",
+          "text_raw": "2、招标项目：沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）",
+          "region": [
+            114.0,
+            311.74,
+            511.32,
+            323.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00012",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+          "text_raw": "风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+          "region": [
+            90.0,
+            335.14,
+            438.0,
+            347.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00013",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、中标单位：浙江金盾风机股份有限公司",
+          "text_raw": "3、中标单位：浙江金盾风机股份有限公司",
+          "region": [
+            114.0,
+            358.54,
+            336.0,
+            370.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00014",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "4、中标金额：14,850,116.40元",
+          "text_raw": "4、中标金额：14,850,116.40元",
+          "region": [
+            114.0,
+            381.94,
+            285.0,
+            393.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00015",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "二、中标对公司的影响",
+          "text_raw": "二、中标对公司的影响",
+          "region": [
+            114.0,
+            405.34,
+            234.48,
+            417.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00016",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+          "text_raw": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+          "region": [
+            114.0,
+            428.74,
+            505.32,
+            440.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00017",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "的23.4%。上述项目签订正式合同并顺利实施后，预计对公司未来的经营业绩和市场开拓产生积极的影响，有利于进一步提升公司在地铁领域的影响力。",
+          "text_raw": "的23.4%。上述项目签订正式合同并顺利实施后，预计对公司未来的经营业绩和市场开拓产生积极的影响，有利于进一步提升公司在地铁领域的影响力。",
+          "region": [
+            90.0,
+            452.14,
+            505.32,
+            487.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "text_raw": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "region": [
+            114.0,
+            498.94,
+            505.32,
+            510.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "项目对业主方形成依赖。",
+          "text_raw": "项目对业主方形成依赖。",
+          "region": [
+            90.0,
+            522.34,
+            222.0,
+            534.34
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "三、风险提示",
+          "text_raw": "三、风险提示",
+          "region": [
+            114.0,
+            545.74,
+            186.24,
+            557.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00021",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "截至本公告披露日，中标项目中，沈阳地铁9号线二期工程、沈阳地铁十号",
+          "text_raw": "截至本公告披露日，中标项目中，沈阳地铁9号线二期工程、沈阳地铁十号",
+          "region": [
+            114.0,
+            569.14,
+            505.32,
+            581.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00022",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书，公司将按规定及时披露项目后续进展情况。",
+          "text_raw": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书，公司将按规定及时披露项目后续进展情况。",
+          "region": [
+            90.0,
+            592.54,
+            505.32,
+            674.74
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00023",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "四、备查文件",
+          "text_raw": "四、备查文件",
+          "region": [
+            114.0,
+            686.14,
+            186.24,
+            698.14
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00024",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、《中标通知书》",
+          "text_raw": "1、《中标通知书》",
+          "region": [
+            114.0,
+            709.54,
+            216.0,
+            721.54
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00025",
+          "doc_id": "dc0a3d5fb",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、《中标候选人公示》",
+          "text_raw": "2、《中标候选人公示》",
+          "region": [
+            114.0,
+            732.94,
+            240.0,
+            744.94
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 3,
+      "form": "MIXED",
+      "width": 595.3,
+      "height": 841.9,
+      "form_evidence": {
+        "text_chars": 39,
+        "text_area_ratio": 0.0159,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R4_fallback_mixed",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "dc0a3d5fb_p003_b00001",
+          "doc_id": "dc0a3d5fb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "3、《供应合同》特此公告。浙江金盾风机股份有限公司董事会",
+          "text_raw": "3、《供应合同》特此公告。浙江金盾风机股份有限公司董事会",
+          "region": [
+            114.0,
+            77.74,
+            505.32,
+            202.78
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "dc0a3d5fb_p003_b00002",
+          "doc_id": "dc0a3d5fb",
+          "page": 3,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "二〇二六年九月二十八日",
+          "text_raw": "二〇二六年九月二十八日",
+          "region": [
+            348.0,
+            218.02,
+            480.0,
+            230.02
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    }
+  ],
+  "reading_order": [
+    "dc0a3d5fb_p001_b00001",
+    "dc0a3d5fb_p001_b00002",
+    "dc0a3d5fb_p001_b00003",
+    "dc0a3d5fb_p001_b00004",
+    "dc0a3d5fb_p001_b00005",
+    "dc0a3d5fb_p001_b00006",
+    "dc0a3d5fb_p001_b00007",
+    "dc0a3d5fb_p001_b00008",
+    "dc0a3d5fb_p001_b00009",
+    "dc0a3d5fb_p001_b00010",
+    "dc0a3d5fb_p001_b00011",
+    "dc0a3d5fb_p001_b00012",
+    "dc0a3d5fb_p001_b00013",
+    "dc0a3d5fb_p001_b00014",
+    "dc0a3d5fb_p001_b00015",
+    "dc0a3d5fb_p001_b00016",
+    "dc0a3d5fb_p001_b00017",
+    "dc0a3d5fb_p001_b00018",
+    "dc0a3d5fb_p001_b00019",
+    "dc0a3d5fb_p001_b00020",
+    "dc0a3d5fb_p002_b00001",
+    "dc0a3d5fb_p002_b00002",
+    "dc0a3d5fb_p002_b00003",
+    "dc0a3d5fb_p002_b00004",
+    "dc0a3d5fb_p002_b00005",
+    "dc0a3d5fb_p002_b00006",
+    "dc0a3d5fb_p002_b00007",
+    "dc0a3d5fb_p002_b00008",
+    "dc0a3d5fb_p002_b00009",
+    "dc0a3d5fb_p002_b00010",
+    "dc0a3d5fb_p002_b00011",
+    "dc0a3d5fb_p002_b00012",
+    "dc0a3d5fb_p002_b00013",
+    "dc0a3d5fb_p002_b00014",
+    "dc0a3d5fb_p002_b00015",
+    "dc0a3d5fb_p002_b00016",
+    "dc0a3d5fb_p002_b00017",
+    "dc0a3d5fb_p002_b00018",
+    "dc0a3d5fb_p002_b00019",
+    "dc0a3d5fb_p002_b00020",
+    "dc0a3d5fb_p002_b00021",
+    "dc0a3d5fb_p002_b00022",
+    "dc0a3d5fb_p002_b00023",
+    "dc0a3d5fb_p002_b00024",
+    "dc0a3d5fb_p002_b00025",
+    "dc0a3d5fb_p003_b00001",
+    "dc0a3d5fb_p003_b00002"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+      "file_name": "bid-002.pdf",
+      "file_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.9.0",
+        "page_count": 3,
+        "blocks": [
+          {
+            "block_id": "dc0a3d5fb_p001_b00001",
+            "page": 1,
+            "role": "BODY",
+            "text": "证券代码：300411 证券简称：金盾股份 公告编号：2026-032",
+            "text_raw": "证券代码：300411证券简称：金盾股份公告编号：2026-032",
+            "region": [
+              90.0,
+              80.66,
+              505.26,
+              96.87
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00002",
+            "page": 1,
+            "role": "BODY",
+            "text": "浙江金盾风机股份有限公司关于近期中标项目的公告",
+            "text_raw": "浙江金盾风机股份有限公司关于近期中标项目的公告",
+            "region": [
+              189.24,
+              117.82,
+              405.96,
+              167.02
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重大遗漏。",
+            "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重大遗漏。",
+            "region": [
+              100.92,
+              195.34,
+              502.79,
+              230.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "浙江金盾风机股份有限公司（以下简称“公司”）近期成功中标深圳市城市",
+            "text_raw": "浙江金盾风机股份有限公司（以下简称“公司”）近期成功中标深圳市城市",
+            "region": [
+              114.0,
+              264.94,
+              505.32,
+              276.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00005",
+            "page": 1,
+            "role": "BODY",
+            "text": "轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风阀设备及服务采购项目3,162.46万元、风机设备及服务采购项目2,959.82万元，中标沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）各类风机及消声器项目1,941.1万元。上述中标项目合计金额为8,063.39万元。近期中标项目具体情况如下：",
+            "text_raw": "轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风阀设备及服务采购项目3,162.46万元、风机设备及服务采购项目2,959.82万元，中标沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）各类风机及消声器项目1,941.1万元。上述中标项目合计金额为8,063.39万元。近期中标项目具体情况如下：",
+            "region": [
+              90.0,
+              288.34,
+              505.32,
+              393.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00006",
+            "page": 1,
+            "role": "SECTION",
+            "text": "一、中标项目基本情况：",
+            "text_raw": "一、中标项目基本情况：",
+            "region": [
+              114.0,
+              405.34,
+              246.48,
+              417.34
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00007",
+            "page": 1,
+            "role": "SECTION",
+            "text": "（一）深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线",
+            "text_raw": "（一）深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线",
+            "region": [
+              114.0,
+              428.74,
+              505.32,
+              440.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00008",
+            "page": 1,
+            "role": "BODY",
+            "text": "一期工程风阀设备及服务采购项目",
+            "text_raw": "一期工程风阀设备及服务采购项目",
+            "region": [
+              90.0,
+              452.14,
+              270.0,
+              464.14
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00009",
+            "page": 1,
+            "role": "BODY",
+            "text": "1、招标单位：深圳市地铁集团科技产业有限公司",
+            "text_raw": "1、招标单位：深圳市地铁集团科技产业有限公司",
+            "region": [
+              114.0,
+              475.54,
+              372.0,
+              487.54
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00010",
+            "page": 1,
+            "role": "BODY",
+            "text": "2、招标项目：深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、",
+            "text_raw": "2、招标项目：深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、",
+            "region": [
+              114.0,
+              498.94,
+              510.0,
+              510.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00011",
+            "page": 1,
+            "role": "BODY",
+            "text": "25号线一期工程风阀设备及服务采购项目",
+            "text_raw": "25号线一期工程风阀设备及服务采购项目",
+            "region": [
+              90.0,
+              522.34,
+              309.0,
+              534.34
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00012",
+            "page": 1,
+            "role": "BODY",
+            "text": "3、中标单位：浙江金盾风机股份有限公司",
+            "text_raw": "3、中标单位：浙江金盾风机股份有限公司",
+            "region": [
+              114.0,
+              545.74,
+              336.0,
+              557.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00013",
+            "page": 1,
+            "role": "BODY",
+            "text": "4、中标金额：31,624,628.62元",
+            "text_raw": "4、中标金额：31,624,628.62元",
+            "region": [
+              114.0,
+              569.14,
+              285.0,
+              581.14
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00014",
+            "page": 1,
+            "role": "SECTION",
+            "text": "（二）深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线",
+            "text_raw": "（二）深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线",
+            "region": [
+              114.0,
+              592.54,
+              505.32,
+              604.54
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00015",
+            "page": 1,
+            "role": "BODY",
+            "text": "一期工程风机设备及服务采购项目",
+            "text_raw": "一期工程风机设备及服务采购项目",
+            "region": [
+              90.0,
+              615.94,
+              270.0,
+              627.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00016",
+            "page": 1,
+            "role": "BODY",
+            "text": "1、招标单位：深圳市地铁集团科技产业有限公司",
+            "text_raw": "1、招标单位：深圳市地铁集团科技产业有限公司",
+            "region": [
+              114.0,
+              639.34,
+              372.0,
+              651.34
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00017",
+            "page": 1,
+            "role": "BODY",
+            "text": "2、招标项目：深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、",
+            "text_raw": "2、招标项目：深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、",
+            "region": [
+              114.0,
+              662.74,
+              510.0,
+              674.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00018",
+            "page": 1,
+            "role": "BODY",
+            "text": "25号线一期工程风机设备及服务采购项目",
+            "text_raw": "25号线一期工程风机设备及服务采购项目",
+            "region": [
+              90.0,
+              686.14,
+              309.0,
+              698.14
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00019",
+            "page": 1,
+            "role": "BODY",
+            "text": "3、中标单位：浙江金盾风机股份有限公司",
+            "text_raw": "3、中标单位：浙江金盾风机股份有限公司",
+            "region": [
+              114.0,
+              709.54,
+              336.0,
+              721.54
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p001_b00020",
+            "page": 1,
+            "role": "BODY",
+            "text": "4、中标金额：29,598,219.34元",
+            "text_raw": "4、中标金额：29,598,219.34元",
+            "region": [
+              114.0,
+              732.94,
+              285.0,
+              744.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00001",
+            "page": 2,
+            "role": "TITLE",
+            "text": "（三）沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水",
+            "text_raw": "（三）沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水",
+            "region": [
+              114.0,
+              77.74,
+              505.32,
+              89.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00002",
+            "page": 2,
+            "role": "BODY",
+            "text": "电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+            "text_raw": "电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+            "region": [
+              90.0,
+              101.14,
+              462.0,
+              113.14
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00003",
+            "page": 2,
+            "role": "BODY",
+            "text": "1、招标单位：沈阳地铁集团有限公司",
+            "text_raw": "1、招标单位：沈阳地铁集团有限公司",
+            "region": [
+              114.0,
+              124.54,
+              312.0,
+              136.54
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00004",
+            "page": 2,
+            "role": "BODY",
+            "text": "2、招标项目：沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）",
+            "text_raw": "2、招标项目：沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）",
+            "region": [
+              114.0,
+              147.94,
+              511.32,
+              159.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00005",
+            "page": 2,
+            "role": "BODY",
+            "text": "风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+            "text_raw": "风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目",
+            "region": [
+              90.0,
+              171.34,
+              486.0,
+              183.34
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00006",
+            "page": 2,
+            "role": "BODY",
+            "text": "3、中标单位：浙江金盾风机股份有限公司",
+            "text_raw": "3、中标单位：浙江金盾风机股份有限公司",
+            "region": [
+              114.0,
+              194.74,
+              336.0,
+              206.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00007",
+            "page": 2,
+            "role": "BODY",
+            "text": "4、中标金额： 4,560,926.30 元",
+            "text_raw": "4、中标金额：4,560,926.30元",
+            "region": [
+              114.0,
+              218.14,
+              288.0,
+              230.14
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00008",
+            "page": 2,
+            "role": "SECTION",
+            "text": "（四）沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水",
+            "text_raw": "（四）沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水",
+            "region": [
+              114.0,
+              241.54,
+              505.32,
+              253.54
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00009",
+            "page": 2,
+            "role": "BODY",
+            "text": "电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+            "text_raw": "电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+            "region": [
+              90.0,
+              264.94,
+              414.0,
+              276.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00010",
+            "page": 2,
+            "role": "BODY",
+            "text": "1、招标单位：沈阳地铁集团有限公司",
+            "text_raw": "1、招标单位：沈阳地铁集团有限公司",
+            "region": [
+              114.0,
+              288.34,
+              312.0,
+              300.34
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00011",
+            "page": 2,
+            "role": "BODY",
+            "text": "2、招标项目：沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）",
+            "text_raw": "2、招标项目：沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）",
+            "region": [
+              114.0,
+              311.74,
+              511.32,
+              323.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00012",
+            "page": 2,
+            "role": "BODY",
+            "text": "风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+            "text_raw": "风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+            "region": [
+              90.0,
+              335.14,
+              438.0,
+              347.14
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00013",
+            "page": 2,
+            "role": "BODY",
+            "text": "3、中标单位：浙江金盾风机股份有限公司",
+            "text_raw": "3、中标单位：浙江金盾风机股份有限公司",
+            "region": [
+              114.0,
+              358.54,
+              336.0,
+              370.54
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00014",
+            "page": 2,
+            "role": "BODY",
+            "text": "4、中标金额：14,850,116.40元",
+            "text_raw": "4、中标金额：14,850,116.40元",
+            "region": [
+              114.0,
+              381.94,
+              285.0,
+              393.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00015",
+            "page": 2,
+            "role": "SECTION",
+            "text": "二、中标对公司的影响",
+            "text_raw": "二、中标对公司的影响",
+            "region": [
+              114.0,
+              405.34,
+              234.48,
+              417.34
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00016",
+            "page": 2,
+            "role": "BODY",
+            "text": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+            "text_raw": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+            "region": [
+              114.0,
+              428.74,
+              505.32,
+              440.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00017",
+            "page": 2,
+            "role": "BODY",
+            "text": "的23.4%。上述项目签订正式合同并顺利实施后，预计对公司未来的经营业绩和市场开拓产生积极的影响，有利于进一步提升公司在地铁领域的影响力。",
+            "text_raw": "的23.4%。上述项目签订正式合同并顺利实施后，预计对公司未来的经营业绩和市场开拓产生积极的影响，有利于进一步提升公司在地铁领域的影响力。",
+            "region": [
+              90.0,
+              452.14,
+              505.32,
+              487.54
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00018",
+            "page": 2,
+            "role": "BODY",
+            "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+            "text_raw": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+            "region": [
+              114.0,
+              498.94,
+              505.32,
+              510.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00019",
+            "page": 2,
+            "role": "BODY",
+            "text": "项目对业主方形成依赖。",
+            "text_raw": "项目对业主方形成依赖。",
+            "region": [
+              90.0,
+              522.34,
+              222.0,
+              534.34
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00020",
+            "page": 2,
+            "role": "SECTION",
+            "text": "三、风险提示",
+            "text_raw": "三、风险提示",
+            "region": [
+              114.0,
+              545.74,
+              186.24,
+              557.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00021",
+            "page": 2,
+            "role": "BODY",
+            "text": "截至本公告披露日，中标项目中，沈阳地铁9号线二期工程、沈阳地铁十号",
+            "text_raw": "截至本公告披露日，中标项目中，沈阳地铁9号线二期工程、沈阳地铁十号",
+            "region": [
+              114.0,
+              569.14,
+              505.32,
+              581.14
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00022",
+            "page": 2,
+            "role": "BODY",
+            "text": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书，公司将按规定及时披露项目后续进展情况。",
+            "text_raw": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书，公司将按规定及时披露项目后续进展情况。",
+            "region": [
+              90.0,
+              592.54,
+              505.32,
+              674.74
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00023",
+            "page": 2,
+            "role": "SECTION",
+            "text": "四、备查文件",
+            "text_raw": "四、备查文件",
+            "region": [
+              114.0,
+              686.14,
+              186.24,
+              698.14
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00024",
+            "page": 2,
+            "role": "BODY",
+            "text": "1、《中标通知书》",
+            "text_raw": "1、《中标通知书》",
+            "region": [
+              114.0,
+              709.54,
+              216.0,
+              721.54
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p002_b00025",
+            "page": 2,
+            "role": "BODY",
+            "text": "2、《中标候选人公示》",
+            "text_raw": "2、《中标候选人公示》",
+            "region": [
+              114.0,
+              732.94,
+              240.0,
+              744.94
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p003_b00001",
+            "page": 3,
+            "role": "BODY",
+            "text": "3、《供应合同》特此公告。浙江金盾风机股份有限公司董事会",
+            "text_raw": "3、《供应合同》特此公告。浙江金盾风机股份有限公司董事会",
+            "region": [
+              114.0,
+              77.74,
+              505.32,
+              202.78
+            ]
+          },
+          {
+            "block_id": "dc0a3d5fb_p003_b00002",
+            "page": 3,
+            "role": "BODY",
+            "text": "二〇二六年九月二十八日",
+            "text_raw": "二〇二六年九月二十八日",
+            "region": [
+              348.0,
+              218.02,
+              480.0,
+              230.02
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [
+      "page 3: page form=MIXED：该页文本层稀疏（39 字符），已按可读部分产出块；未检出图片承载的不可读区域，故没有可标注的降级区域"
+    ],
+    "warnings": []
+  }
+}

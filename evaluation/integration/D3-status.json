@@ -1,0 +1,56 @@
+{
+  "status": "complete",
+  "checked_on": "2026-09-29",
+  "d3_evaluation_deliverables": {
+    "documents": 5,
+    "events": 7,
+    "fields": 91,
+    "evidence_records": 84,
+    "unsupported_quotes": 0,
+    "result": "pass"
+  },
+  "shared_contract_validation": {
+    "source_branch": "origin/weiwenyu",
+    "source_commit": "59c1d79",
+    "files": 5,
+    "result": "pass"
+  },
+  "field_comparison": {
+    "upstream_batch": "runs/batch-20260929T152309",
+    "documents_with_system_output": 5,
+    "documents_pending_system_output": 0,
+    "matched_cases": [
+      "D3-PLD-001",
+      "D3-PLD-002",
+      "D3-PLD-003",
+      "D3-PLD-004",
+      "D3-PLD-005"
+    ],
+    "diff_cases": [],
+    "error_count": 0,
+    "d3_gold_value_accuracy": 1,
+    "d3_gold_status_consistency": 1,
+    "note": "D4 direction fields and the extra release event are out of D3 Gold scope."
+  },
+  "blocking_issue": null,
+  "handoff": "evaluation/D3/handoffs/D3-evaluation.md",
+  "gold_replay_conformance": {
+    "documents": 5,
+    "events": 7,
+    "run_errors": 0,
+    "events_equal_to_gold": 5,
+    "is_real_model_result": false
+  },
+  "validated_local_fix": {
+    "superseded_by_upstream": "8c637a7",
+    "pr": "https://github.com/krx521920/jingguands/pull/1",
+    "pr_state": "closed_as_superseded"
+  },
+  "remote_baselines": {
+    "weiwenyu": "8c637a7",
+    "feature_fang_rules": "5d1d86b",
+    "zhangzhibo": "680bb56c",
+    "feature_chen_ui": "f6b227ec",
+    "zongbowen": "post-95a87f71-final-update"
+  }
+}
