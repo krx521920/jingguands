@@ -1,0 +1,46 @@
+{
+  "note": "概念表：把『卡片上的名字』和『注册表里的 key』按**概念**配起来，避免同名不同义。每条写清口径类型、允许的目标、以及为什么必须对账。新增概念要写理由——不藏在启发式里。",
+  "updated_at": "2026-10-10",
+  "updated_by": "宗（评测侧，D15 深度审计）",
+  "concepts": [
+    {
+      "id": "extract_accuracy",
+      "label": "字段抽取准确率",
+      "kind": "accuracy",
+      "target": 90,
+      "card_keys": [],
+      "registry_keys": ["field_accuracy"],
+      "why": "总规划的 90% 是**准确率**目标（对 Gold 逐字段比对）。卡片若把覆盖率数字挂到这个目标上，等于用错口径宣布未达标。"
+    },
+    {
+      "id": "extract_coverage",
+      "label": "字段抽取覆盖率",
+      "kind": "coverage",
+      "target": null,
+      "allow_value_difference": false,
+      "card_keys": ["extracted_pct"],
+      "registry_keys": ["field_coverage"],
+      "why": "覆盖率＝产出取值/契约要求全集（含弃权），与准确率不是一回事；权威分母由 2026-10-09 裁决定为 606，615 只能写作『含演示件的扩大口径』。"
+    },
+    {
+      "id": "standardize",
+      "label": "标准化",
+      "kind": "mixed",
+      "target": null,
+      "allow_value_difference": true,
+      "card_keys": ["standardized_pct"],
+      "registry_keys": ["standardized_rate"],
+      "require_warning_text": ["判据未统一"],
+      "why": "卡片与注册表用的是两套判定标准（首测 364/521 vs 页面 442/446），两个数不可比；并列上屏必须带『判据未统一』警告，等评测侧出裁定后收口。"
+    },
+    {
+      "id": "evidence_hit",
+      "label": "出处原文命中率",
+      "kind": "evidence",
+      "target": 95,
+      "card_keys": ["provenance_hit"],
+      "registry_keys": ["evidence_hit"],
+      "why": "同名指标两个分母（卡片 39 条 / 1 份文档；注册表 241 条 / 10 份文档）会让评审无法核对；应统一到注册表的值并同屏写覆盖范围。"
+    }
+  ]
+}
