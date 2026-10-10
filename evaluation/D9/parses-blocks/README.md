@@ -39,3 +39,9 @@ v0.2 报告（`runs/D9-rules-report-v02-20261005.json`）35 侧的分域核验�
 与 `runs/full-parses-map.json` 的 D6 条目已改指官方件；**用官方件复核 v0.2 报告 D6 8 侧
 quote∈block 全过（8/8）**。本目录派生件保留作历史快照。已知差异：D6-AWD-003 官方件 85 块
 vs raw 派生 82 块（raw 为较早版本解析；两侧锚点均可解析，不影响复核），版本对齐归张/宗。
+
+
+## D15 · 原文快照可核范围（回应宗 F8，选方案 A）
+
+页面 L3 出处命中核验的快照**按 sha 从本分支物化，不新增副本**：
+映射清单 **evaluation/D9/snapshot-paths.json**（34 份：D4/D5 官方 parse-official 各 10＋D6 官方 10＋演示 raw 3＋扫描降级 1；join 键＝信封 source.file_sha256 ↔ 解析 file_sha256，扫描降级件例外按 parse_file_sha256）。本目录派生件仅作 D6 历史快照（官方件已入 corpus）。无快照的文档（如 STR 陌生样例，在 zongbowen 分支）如实标注不在覆盖内。
