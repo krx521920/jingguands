@@ -31,7 +31,7 @@ node scripts/jingguan/run_extract.mjs --input 公告.txt --event-type pledge
 # 批量＋Gold 对照
 node scripts/jingguan/run_batch.mjs <目录...> --gold --gold-manifest corpus/combined-manifest.json
 
-# 跨文档核验（三态判定＋一致性核验）
+# 跨文档核验（三态判定＋一致性核验；--manifest 是宗侧用例，先跑上方 checkout 行物化）
 node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir <信封目录> --manifest evaluation/D8/pairs/pairs.dev30.json --expect
 
 # 差异归因（先归因后矛盾）

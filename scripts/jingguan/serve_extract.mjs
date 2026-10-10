@@ -26,9 +26,9 @@
  * 这正是 Web/CLI 对照的正确口径。要冷跑传 --no-cache 或 cache_dir 指向空目录。
  */
 import { createServer } from 'node:http'
-import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
-import { resolve, dirname, join } from 'node:path'
+import { resolve, dirname, join, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
@@ -64,6 +64,16 @@ function runExtraction(body, reqId) {
   const cli = ['run_extract.mjs', '--event-type', event_type]
   try {
     if (typeof parse_path === 'string' && parse_path.trim()) {
+      // D16 验收缺陷②：路径守卫——只允许仓库内相对路径（拒绝绝对路径/.. 穿越逃出仓库），
+      // 且须真实存在（原实现对缺失路径回吐子进程栈痕迹，既是噪音也是信息泄漏面）
+      const rel = parse_path.replace(/^\/+/, '').replaceAll('\\', '/')
+      const norm = resolve(REPO_ROOT, rel)
+      if (!norm.startsWith(REPO_ROOT + sep) || rel.split('/').includes('..')) {
+        return { status: 400, error: 'parse_path 只接受仓库内相对路径（禁止绝对路径或 .. 穿越）' }
+      }
+      if (!existsSync(norm)) {
+        return { status: 400, error: `parse_path 不存在：${rel}（仓库内相对路径）` }
+      }
       cli.push('--parse', parse_path.replace(/^\/+/, '')) // 仓库相对路径
     } else if (parse && typeof parse === 'object') {
       const tmp = join(TMP_DIR, `${tag}.parse.json`)

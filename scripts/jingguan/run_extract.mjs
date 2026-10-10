@@ -177,6 +177,8 @@ async function callModel({ baseURL, model, apiKey, system, user, signal }) {
     const hit = cacheRead(key, model)
     if (hit !== null) return hit
     CACHE.misses++
+    // 无密钥重放模式（D16 缺陷①）：未命中即停——不无密钥调 API、不编造
+    if (!apiKey) throw new Error('重放模式（无密钥）缓存未命中——本输入不在快照内。设置 JINGGUAN_LLM_API_KEY 或换用完整快照目录')
   }
   const url = `${baseURL.replace(/\/$/, '')}/chat/completions`
   const body = {
@@ -1460,9 +1462,13 @@ async function main() {
       repairs.push(`[提示] MIXED 文档：第 ${scannedPages2.join('、')} 页为 SCANNED（无可读文本），仅从 TEXT 页抽取——扫描页上的事件可能缺失`)
     }
   }
-  if (!isMock && !apiKey) {
+  // D16 验收缺陷①修复：无密钥＋缓存启用＝密钥免置的重放模式（docs/d13-reproduction.md §4.2
+  // 声称"无需 API 密钥"但原实现无条件拒跑）。缓存未命中即硬错误——绝不无密钥调 API、不编造。
+  const keylessReplay = !isMock && !apiKey && CACHE.enabled
+  if (!isMock && !apiKey && !keylessReplay) {
     console.error('缺少模型密钥：请设置 JINGGUAN_LLM_API_KEY（或 DEEPSEEK_API_KEY）。\n' +
-      '只想联调接口结构时，可显式加 --mock（输出会全程标注 MOCK，不计入真实抽取成绩）。')
+      '只想联调接口结构时，可显式加 --mock（输出会全程标注 MOCK，不计入真实抽取成绩）。\n' +
+      '只想复现冻结批次时：加 --cache-dir <快照目录> 即可无密钥重放（未命中会明确报错）。')
     process.exit(2)
   }
 
