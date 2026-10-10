@@ -1239,6 +1239,7 @@ def test_补格后每个字符都有块覆盖():
 
 
 # ------------------------------------------------------------ 能力边界（D7）
+
 BORDERLESS_FIXTURE = os.path.join(ROOT, "tests", "fixtures", "borderless_table.pdf")
 
 
@@ -1328,3 +1329,32 @@ def test_窄表不判表头_按行读键值对():
     keys = [v for (r, c), v in cells.items() if c == 0]
     for k in ("公司名称", "统一社会信用代码", "成立时间", "住所", "法定代表人", "注册资本", "经营范围"):
         assert k in keys, f"字段名 {k!r} 不在 col0 里"
+
+
+
+
+# ------------------------------------------------------------ parser 版本 ↔ 块切分规则
+_EXPECTED_BLOCK_RULES_FP = "br39ec0aab30ec"
+
+
+def test_块切分规则未变则版本不变():
+    """锁住「parser 版本 ↔ 块切分规则指纹」这一对。
+
+    **若这条红了，说明块切分规则改了 —— 请同时升 PARSER_VERSION。**
+
+    起因（宗 D14 未达标清单第 9 条）：版本号长期停在 0.9.0，而块切分规则在 D5/D6
+    期间改过多次，导致「这份 parse 是哪个版本产的」查不出来。光靠"记得升"不管用，
+    所以把这一对钉住：改了规则不升号 → 这条红。
+
+    更新方式：改规则 → 升 PARSER_VERSION → 把本用例的版本断言与指纹换成新值。
+    """
+    from finstruct.parse import evidence as ev
+
+    fp = ev.block_rules_fingerprint()
+    assert fp == _EXPECTED_BLOCK_RULES_FP, (
+        f"块切分规则指纹变了（{_EXPECTED_BLOCK_RULES_FP} → {fp}）。\n"
+        f"  说明 BLOCK_RULES 里的规则被改动了。\n"
+        f"  **请同时升 PARSER_VERSION，并更新本用例的指纹与版本断言。**\n"
+        f"  当前规则：{ev.BLOCK_RULES}")
+    assert ev.PARSER_VERSION != "0.9.0", (
+        "PARSER_VERSION 退回 0.9.0 —— 块切分规则已变，版本必须能区分新旧产物")

@@ -35,7 +35,41 @@ from typing import Dict, List, Optional
 
 SCHEMA_VERSION = "evidence/0.9"
 PARSER_NAME = "finstruct.parse"
-PARSER_VERSION = "0.9.0"
+
+# 决定块切分的规则常量。改动其中任一项都会改变块的分组方式，
+# 因此必须同时升 `PARSER_VERSION`（由回归用例把关）。
+BLOCK_RULES = {
+    "cell_claim_before_flow": True,      # 先让单元格认领字符，再走正文流
+    "synthesize_missed_cells": True,     # 补 pdfplumber 漏检的单元格
+    "flow_bucket_fullwidth_band": True,  # 通栏行独立分桶
+    "split_flow_by_tables": True,        # 正文行按表格 x 区间切分
+    "min_table_rows": 2,                 # 少于该行数不判表
+    "min_table_cols": 2,                 # 少于该列数不判表（窄表按键值表读）
+    "prose_cell_chars": 20,              # 格内成句过滤门槛
+    "column_row_coverage": 0.5,          # 补列的行覆盖门槛
+}
+
+
+def block_rules_fingerprint() -> str:
+    """块切分规则的指纹，写入产物便于分辨「这份 parse 由哪套规则产出」。"""
+    import hashlib
+    import json as _json
+    blob = _json.dumps(BLOCK_RULES, sort_keys=True, ensure_ascii=False)
+    return "br" + hashlib.sha256(blob.encode()).hexdigest()[:12]
+# **块切分规则变更就必须升这个号。**
+#
+# 起因（宗 D14 未达标清单第 9 条）：本号长期停在 0.9.0，
+# 而块切分规则在 D5/D6 期间改过多次 —— 结果「这份 parse 是哪个版本产的」查不出来，
+# 跨版本字段一律只能判未核。
+#
+# 光靠"记得升"没用（我确实没记得）。所以配两件东西：
+#   ① `BLOCK_RULES` 列出决定块切分的规则常量，其 sha256 作为**规则指纹**
+#   ② `tests/test_parse.py::test_块切分规则未变则版本不变` 锁住「版本 ↔ 指纹」这一对
+#
+# 指纹**不写进产物**：`doc.parser` 是 schema 固定结构（additionalProperties:false），
+# 加字段会破 schema、波及全部已交付产物。指纹只用在本仓内部把关，够用。
+# 改了规则却没升版本 → 指纹变、测试红，提示语直接告诉你该升号。
+PARSER_VERSION = "0.9.1"
 
 # 全队公共契约（用于 handoff 声明与自检提示）
 TEAM_CONTRACT = "interface/event-envelope.schema.json v0.1"
