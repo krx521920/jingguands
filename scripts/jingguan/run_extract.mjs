@@ -1718,6 +1718,18 @@ async function main() {
     },
   }
 
+  // D17 缺陷修复（宗 2026-10-10 裁定"无值族 standardized 恒 false"）：不变量兜底——
+  // 值为 null 的字段若被模型/约定规则标了 true，翻回 false 并记 repairs（全批曾唯一
+  // 一处 D4-PLD-008.announcement_date；此修复让该类缺陷结构性不可再现）
+  for (const ev of events) {
+    for (const [name, fv] of Object.entries(ev.fields ?? {})) {
+      if (fv.value === null && fv.standardized === true) {
+        fv.standardized = false
+        repairs.push(`[不变量] ${ev.event_id}.${name}：值为 null 但 standardized=true，已翻回 false（无值族恒 false，宗 D17 裁定）`)
+      }
+    }
+  }
+
   envelope.run_meta.errors.push(...postErrors, ...validateEnvelope(envelope, inputText), ...(parseDoc ? checkPageBounds(envelope, parseDoc.pageDims) : []))
 
   const outDir = resolve(REPO_ROOT, args.outDir, runId)
