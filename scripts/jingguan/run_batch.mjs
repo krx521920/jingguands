@@ -227,6 +227,9 @@ if (args.files.length === 0) {
 const files = collectFiles(args.files)
 const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\..+/, '')
 const batchDir = join(REPO_ROOT, 'runs', `batch-${stamp}`)
+// 收容个体运行目录（同一失误三次重犯后根治）：run_extract 的产物统一写入批次目录内
+// runs/<run_id>/——删批次一个目录即全清，杜绝时间戳+1 秒个体目录漏清被 add -A 卷入
+const perRunBase = join(batchDir, 'runs')
 mkdirSync(join(batchDir, 'inputs'), { recursive: true })
 
 const goldMap = new Map()
@@ -292,14 +295,14 @@ if (args.jobs === 1) {
     const t = tasks[i]
     console.log(`\n===== ${t.caseId}（${t.eventType}）=====`)
     const s = Date.now()
-    const proc = spawnSync(process.execPath, [RUNNER, ...t.runArgs], { encoding: 'utf8' })
+    const proc = spawnSync(process.execPath, [RUNNER, ...t.runArgs, '--out-dir', perRunBase], { encoding: 'utf8' })
     runOutputs[i] = { out: (proc.stdout ?? '') + (proc.stderr ?? ''), status: proc.status, ms: Date.now() - s }
   }
 } else {
   const { spawn } = await import('node:child_process')
   const runOne = (t) => new Promise((resolve) => {
     const s = Date.now()
-    const p = spawn(process.execPath, [RUNNER, ...t.runArgs], { encoding: 'utf8' })
+      const p = spawn(process.execPath, [RUNNER, ...t.runArgs, '--out-dir', perRunBase], { encoding: 'utf8' })
     let out = ''
     p.stdout.on('data', (d) => { out += d })
     p.stderr.on('data', (d) => { out += d })
@@ -355,7 +358,7 @@ for (let i = 0; i < tasks.length; i++) {
 mkdirSync(join(batchDir, 'envelopes'), { recursive: true })
 for (const r of results) {
   if (r.ok && r.run_id) {
-    copyFileSync(join(REPO_ROOT, 'runs', r.run_id, 'events.json'), join(batchDir, 'envelopes', `${r.case}.json`))
+    copyFileSync(join(perRunBase, r.run_id, 'events.json'), join(batchDir, 'envelopes', `${r.case}.json`))
   }
 }
 
