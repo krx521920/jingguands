@@ -287,6 +287,33 @@ function csvBytes(data) {
   return Buffer.from("﻿" + lines.join("\r\n"), "utf8");
 }
 
+/**
+ * ★ D25 步骤6-③：本地侧的 view —— **直接 require server.js 的 readDataset**，
+ *   不在本文件里重写一份拼装逻辑。
+ *   server.js 被 require 时不监听端口（require.main 守卫），所以这里拿到的
+ *   就是 HTTP 导出链路上那**同一个函数**的输出 ⇒ 字节不同才是真的链路问题。
+ *   （原实现用 toContract(readJson(DATA_DIR/...))，拿到的是契约信封 +旧目录，
+ *     与HTTP 侧的 view 投影 +权威批解析根本不是同一个对象 —— 那个 divergent 是假警报。）
+ */
+let _serverMod = null;
+function localExportView(ds) {
+  if (!_serverMod) _serverMod = require(path.join(ROOT, "server.js"));
+  try { return _serverMod.readDataset(ds); }
+  catch (e) { return null; }
+}
+
+/**
+ * ★ D25 步骤6-③：本地侧的 CSV 字节也走 server.js 的**同一份**实现
+ *   （contractToCsvRows + csvEscape + BOM + CRLF），不在本文件重拼一遍。
+ *   本文件原先的 csvBytes() 是手抄版 —— server 改一列/改一个转义规则，
+ *   这里不会跟着改，L3 就常亮 divergent（假警报）。
+ */
+function exportCsvBytes(view) {
+  const m = require(path.join(ROOT, "server.js"));
+  const lines = [m.CSV_COLUMNS.join(","), ...m.contractToCsvRows(view).map(r => r.map(m.csvEscape).join(","))];
+  return Buffer.from("\uFEFF" + lines.join("\r\n"), "utf8");
+}
+
 /** 起真服务打真HTTP，拿导出字节 */
 function httpExport(dataset, format, port) {
   return new Promise((resolve) => {
@@ -303,17 +330,28 @@ function httpExport(dataset, format, port) {
 async function layer3_export(datasets, port) {
   const rows = [];
   for (const ds of datasets) {
-    const local = upstream.toContract(readJson(path.join(DATA_DIR, ds + ".json")));
+    // ★ D25 步骤6-③ 修：本地侧必须走**与导出链路口径完全相同**的那条路——
+    //   原实现是 `toContract(readJson(path.join(DATA_DIR, ds + ".json")))`，
+    //   而 HTTP 侧是 server.js 的 `readDataset`（数据源经 data_source 解析、
+    //   返回 **view 投影**、并挂 extraction_engine）。两侧压根不是同一个对象，
+    //   比出 divergent 是**基准错配**，不是导出链路走样。
+    //   ★ 这里**不手抄** readDataset 的逻辑：手抄一份就等于多一份真源，
+    //     将来 readDataset 改字段名这里不会跟着改，divergent 会变成常亮红灯
+    //     （假警报比没有警报更糟）。改为**真的起一份服务**、复用其导出实现：
+    //     把 server.js 的 handleExport 所需依赖原样搬过来调。
+    const local = localExportView(ds);
     for (const fmt of ["csv", "json"]) {
-      const mine = fmt === "csv" ? csvBytes(local) : Buffer.from(JSON.stringify(local, null, 2), "utf8");
+      const mine = !local ? null
+        : (fmt === "csv" ? exportCsvBytes(local) : Buffer.from(JSON.stringify(local, null, 2), "utf8"));
       const http = await httpExport(ds, fmt, port);
-      const same = http.ok && sha256(mine) === sha256(http.body);
+      const same = !!(http.ok && mine && sha256(mine) === sha256(http.body));
       rows.push({
         dataset: ds, format: fmt,
         http_status: http.status,
-        local_sha256: sha256(mine), http_sha256: http.ok ? sha256(http.body) : null,
-        local_bytes: mine.length, http_bytes: http.ok ? http.body.length : null,
+        local_sha256: mine ? sha256(mine) : null, http_sha256: http.ok ? sha256(http.body) : null,
+        local_bytes: mine ? mine.length : null, http_bytes: http.ok ? http.body.length : null,
         identical: same,
+        ...(mine ? {} : { local_error: `本地侧取不到该数据集（不在任何批次目录内）：${ds}` }),
       });
     }
   }
@@ -322,7 +360,13 @@ async function layer3_export(datasets, port) {
     return { layer: "L3_export_idempotent", verdict: "not_covered", question: "导出字节是否稳定？",
       reason: "HTTP 导出全部失败，未取得任何对照字节—— 空跑不构成通过", rows };
   }
-  const bad = rows.filter(r => !r.identical);
+  // ★ D25 步骤6-③：**两侧一致地拒绝**（本地取不到 + HTTP 404）不是导出链路走样，
+  //   是该件本来就不在数据集清单内（`upstream_case` 是测试夹具，被 listFilesIn 排除）。
+  //   把这类算进 divergent ⇒ verdict 永远是 divergent ⇒ **假警报比没有警报更糟**。
+  //   它们单列（unavailable），不进分子也不进分母。
+  const unavailable = rows.filter(r => r.http_status === 404 && !r.local_sha256);
+  const comparable = rows.filter(r => !(r.http_status === 404 && !r.local_sha256));
+  const bad = comparable.filter(r => !r.identical);
   return {
     layer: "L3_export_idempotent",
     question: "页面导出（HTTP）与本地同函数算出的字节是否一致？",
@@ -331,9 +375,12 @@ async function layer3_export(datasets, port) {
     what_it_proves: "导出链路的序列化稳定（无编码/BOM/列序漂移）",
     what_it_does_not_prove: "★ 不证明抽取一致性——两侧跑的是同一个函数、同一份数据。这是幂等性，不是双路对照",
     http_ok: ran.length, http_failed: rows.length - ran.length,
-    identical: rows.filter(r => r.identical).length,
+    identical: comparable.filter(r => r.identical).length,
+    comparable_total: comparable.length,
     divergent: bad.length,
-    partial: rows.length !== ran.length,
+    // 两侧一致地拒绝：单列，不进分子分母
+    unavailable: unavailable.map(r => ({ dataset: r.dataset, format: r.format, http_status: r.http_status, why: "不在数据集清单内（测试夹具/已被排除）" })),
+    partial: comparable.length !== ran.length,
     rows,
   };
 }
@@ -355,7 +402,13 @@ async function main() {
 
   let l3;
   try {
-    const ds = listJson(DATA_DIR).map(f => f.replace(/\.json$/, "")).slice(0, 8);
+    // ★ D25 步骤6-③：数据集选取**覆盖两批**（权威批 + 演示池各取几份）。
+    //   原先只取 listJson(DATA_DIR)（演示池）前 8 份 —— 换源后页面跑的是权威批，
+    //   于是 L3 验的全是"页面不再使用的那批数据"，验了也白验（D19 铁律⑧）。
+    const ds = [
+      ...listJson(UNIFIED_DIR).map(f => f.replace(/\.json$/, "")).slice(0, 5),
+      ...listJson(DATA_DIR).map(f => f.replace(/\.json$/, "")).slice(0, 3),
+    ];
     l3 = await layer3_export(ds, PORT);
   } finally {
     srv.kill();

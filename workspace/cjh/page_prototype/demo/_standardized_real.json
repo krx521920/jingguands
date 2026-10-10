@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "generated_at": "2026-10-10T07:39:13.544Z",
+    "input_dir": "D:\\chenjh\\code\\program\\jingguanpluge\\jingguands\\evaluation\\D11\\firsttest-envelopes",
+    "input_note": "权威批次（排除 DEMO-EQC-HL-0930）",
+    "ruling": "evaluation/D17/裁定-standardized判据-20261010.md",
+    "judge": "evaluation/D17/check-standardized.mjs",
+    "gold_pair_key": "source.file_id（★禁按 case_id / file_name）",
+    "ev_key": "业务键（禁按 event_id / 序号）"
+  },
+  "coverage": {
+    "num": 229,
+    "den": 229,
+    "pct": 100,
+    "target": null,
+    "denominator_rule": "非 text 有值字段（value 非空 且 unit !== text）",
+    "by_unit": {
+      "shares": 76,
+      "percent": 90,
+      "date": 35,
+      "date_range": 13,
+      "cny": 15
+    }
+  },
+  "accuracy": {
+    "num": 229,
+    "den": 229,
+    "pct": 100,
+    "target": 98,
+    "evidence_kind": "field_by_field_vs_gold",
+    "note": "按 source.file_id 配对文件 + 业务键配事件，逐字段比对 Gold 规范值"
+  },
+  "context": {
+    "fields_total": 606,
+    "valued": 437,
+    "text_valued": 208,
+    "text_true": 204,
+    "text_false": 4,
+    "abstain": 169,
+    "aux_pct": 99.08,
+    "annot_complete_pct": 100,
+    "gold_files": 30,
+    "gold_paired_files": 30,
+    "gold_no_gold": [
+      "pledge-scan-degrade.json"
+    ]
+  },
+  "violations": {
+    "abstain_true": [
+      "D4-PLD-008.json#E01.announcement_date(not_mentioned)"
+    ],
+    "missing_bool_on_valued": []
+  },
+  "detail": {
+    "acc_miss": []
+  }
+}

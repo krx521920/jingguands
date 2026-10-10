@@ -260,17 +260,24 @@ footer { color: var(--muted); font-size: 12px; padding: 4px 20px 10px; }
 .mx-card.st-pass { border-left-color: var(--ok); }
 .mx-card.st-below { border-left-color: var(--bad); }
 .mx-card.st-unverified { border-left-color: var(--gray); }
+/* D15/D17：no_target＝该项无对标目标（覆盖率/出处类自建口径）。
+   用中性色而非红绿，避免"达标色"误导读者以为它有考核线。 */
+.mx-card.st-no_target { border-left-color: var(--accent, #378add); }
 .mx-card-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .mx-card-name { font-size: 13px; font-weight: 600; }
 .mx-badge { font-size: 11px; padding: 1px 8px; border-radius: 999px; font-weight: 700; border: 1px solid; }
 .st-pass .mx-badge { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
 .st-below .mx-badge { background: var(--bad-bg); color: var(--bad); border-color: var(--bad); }
 .st-unverified .mx-badge { background: var(--gray-bg); color: var(--gray); border-color: var(--gray); }
+.st-no_target .mx-badge { background: #eef4fd; color: #185fa5; border-color: #85b7eb; }
 .mx-card-value { margin: 6px 0 2px; display: flex; align-items: baseline; gap: 3px; }
 .mx-v { font-size: 30px; font-weight: 700; font-family: Consolas, monospace; letter-spacing: -0.5px; }
 .st-pass .mx-v { color: var(--ok); } .st-below .mx-v { color: var(--bad); } .st-unverified .mx-v { color: var(--gray); font-size: 22px; }
+.st-no_target .mx-v { color: #185fa5; }
 .mx-u { font-size: 14px; color: var(--muted); font-weight: 600; }
 .mx-card-target { font-size: 12px; color: var(--muted); font-family: Consolas, monospace; }
+/* 无对标目标：用说明语气而非等宽数字（"目标 null%　差距 NaN"那种假数字必须消失） */
+.mx-card-target.is-no-target { font-style: italic; opacity: 0.85; }
 .mx-card-cal { margin-top: 6px; font-size: 11.5px; color: var(--muted); line-height: 1.6; border-top: 1px dashed var(--border); padding-top: 5px; }
 .mx-card-cov { margin-top: 4px; font-size: 11.5px; color: var(--warn); line-height: 1.55; }
 .mx-sec { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; }

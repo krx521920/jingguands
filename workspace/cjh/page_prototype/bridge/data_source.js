@@ -32,6 +32,12 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+// ★ D25 步骤5：条目级契约状态。**走转接口拿contract_validation，不自己重判**——
+//   上传闸门、datasets 清单、/api/contract 三处必须是同一个结论，
+//   两处各判一次迟早漂移（那是"同一指标两处对不上"的同款漏洞）。
+//   经toContract 而非直调校验器：旧版 v0.1 件要经 fromLegacyEnvelope 兼容后才谈得上合规，
+//   直调会把"兼容后 0 违规"的旧件误报成违规。
+const { toContract } = require("./upstream_bridge.js");
 
 const ROOT = path.resolve(__dirname, "..");
 
@@ -256,6 +262,40 @@ function listFilesIn(dirName) {
     .sort();
 }
 
+/**
+ * ★ D25 步骤5：单个信封的契约状态（宗审计 P1-2）。
+ *
+ * 背景：上传闸门原先只查「有没有 events 数组」，于是
+ *   `{"schema_version":"0.3","events":[]}` 这种空壳件判ok:true 并落盘，
+ *   而同一份数据在 `/api/contract` 的机检是 ok:false（缺 run_id/is_mock/source/run_meta）
+ *   —— **同一个东西两处结论相反**，页面与入库各信一处，合规率就成了假数字。
+ *
+ * 这里刻意**只做如实上报，不静默修好**：
+ *   -旧版 v0.1 件经 fromLegacyEnvelope 兼容后合规 ⇒ 报 ok，不误报；
+ *   - `bank_guarantee` 的 guarantee 事件类型不在 v0.3 三类内 ⇒ 报 fail 并带上原因，
+ *     **不硬塞成 pledge**（硬塞会让合规率变假）。
+ */
+function contractStatusOf(json) {
+  if (!json) return { checked: false, ok: null, error_count: 0, errors: [], reason: "文件不可读/JSON 损坏" };
+  let bridged;
+  try {
+    bridged = toContract(json);
+  } catch (e) {
+    return { checked: true, ok: false, error_count: 1, errors: ["转接口失败：" + String(e.message || e).slice(0, 160)], reason: "转接口失败" };
+  }
+  const cv = (bridged && bridged.contract_validation) || {};
+  return {
+    checked: true,
+    ok: cv.ok === true,
+    error_count: cv.error_count || 0,
+    errors: (cv.errors || []).slice(0, 5),
+    //★ 旧版数据不算"违规"（D1 骨架期 v0.1/v0.2 本来就不合 v0.3），
+    //   混进违规会淹没真正的新错误 —— 与 contract_validate 的 is_stale_version 同义。
+    schema_version: cv.schema_version || null,
+    is_stale_version: !!cv.is_stale_version,
+  };
+}
+
 function readJsonSafe(file) {
   try { return JSON.parse(fs.readFileSync(file, "utf8")); } catch (e) { return null; }
 }
@@ -285,6 +325,9 @@ function entriesOf(batchId) {
       file_sha256: (json && json.source && json.source.file_sha256) || null,
       note: DATASET_NOTE[name] || null,
       readable: json !== null,
+      // ★ D25 步骤5：契约状态随条目走，下拉与清单都能读到"这份数据合不合契约"。
+      //   只报不修（不合规的件照样列出来，只是不被说成合规）。
+      contract: contractStatusOf(json),
     };
   });
 }
@@ -337,15 +380,67 @@ function annotateVariants(list) {
   return list;
 }
 
-/** 数据集名 → 完整解析信息。权威批次优先（换源后权威才是主源）。 */
+/** 数据集名 → 完整解析信息。权威批次优先（换源后权威才是主源）。
+ *
+ * ★ D25 步骤6-②：名字**大小写不敏感**。
+ *   原实现用 `e.name === name` 精确匹配，于是 `d4-pld-001` 查不到 `D4-PLD-001`，
+ *   只回一句"本地无此信封" —— 调用方（材料复核脚本/评委手敲 URL）无法判断是打错还是不存在。
+ *   现在：精确优先 → 大小写不敏感命中（返回**真实原名**并在 meta 里标明是归一化命中）
+ *   →全不中则给**候选提示**（大小写/前缀/子串相近的前若干个）。
+ *
+ *   ★ 只在**读取**侧归一化，不去改磁盘上的文件名 —— 数据归魏/宗所有，
+ *     页面侧改名＝单方面改动共享资产。
+ */
 function resolve(name) {
   const list = all();
   const order = [PRIMARY_ID, ...Object.keys(BATCHES).filter(x => x !== PRIMARY_ID)];
-  for (const b of order) {
-    const hit = list.find(e => e.name === name && e.batch === b);
-    if (hit) return hit;
+  const pick = (pred) => {
+    for (const b of order) {
+      const hit = list.find(e => e.batch === b && pred(e));
+      if (hit) return hit;
+    }
+    return null;
+  };
+  // 1) 精确
+  const exact = pick(e => e.name === name);
+  if (exact) return exact;
+  // 2) 大小写不敏感（不猜、不挑第一个歧义项之外的东西：多命中时如实报歧义）
+  const target = String(name).toLowerCase();
+  const ci = list.filter(e => e.name.toLowerCase() === target);
+  if (ci.length === 1) return ci[0];
+  if (ci.length > 1) {
+    const hit = order.map(b => ci.find(e => e.batch === b)).find(Boolean);
+    return Object.assign({}, hit, { name_resolution: { mode: "case_insensitive_ambiguous", candidates: ci.map(e => e.rel_path) } });
   }
   return null;
+}
+
+/**
+ * ★ D25 步骤6-②：未命中时给候选提示 —— 让"打错字"与"真不存在"可区分。
+ *   判据只做字面相似（大小写归一 + 前缀 + 子串），**不做模糊猜测**：
+ *   猜一个名字返回数据＝伪造"你查的就是这份"，比报错更坏。
+ */
+function suggest(name) {
+  const list = all();
+  const t = String(name || "").toLowerCase();
+  if (!t) return [];
+  const scored = [];
+  for (const e of list) {
+    const n = e.name.toLowerCase();
+    let score = 0;
+    if (n === t) score = 100;
+    else if (n.startsWith(t) || t.startsWith(n)) score = 60;
+    else if (n.includes(t) || t.includes(n)) score = 40;
+    else {
+      // 词元重合（把 - / _ 当分隔）：pledge_scan 与 pledge-scan 才算相近
+      const a = new Set(n.split(/[-_]/)), b = new Set(t.split(/[-_]/));
+      const inter = [...b].filter(x => a.has(x)).length;
+      if (inter > 0) score = 20 + inter;
+    }
+    if (score > 0) scored.push({ name: e.name, score, batch: e.batch });
+  }
+  scored.sort((x, y) => y.score - x.score || x.name.localeCompare(y.name));
+  return scored.slice(0, 5);
 }
 
 /** 名字数组（向后兼容：`/api/datasets` 旧字段 datasets 仍是纯字符串数组）。 */
@@ -568,7 +663,7 @@ function variantGroups() {
 
 module.exports = {
   BATCHES, PRIMARY_ID, ROLE_LABEL, ANCHOR,
-  list: all, names, resolve, resetCache,
+  list: all, names, resolve, suggest, resetCache,
   primaryEntries, primary, rolesInBatch,
   disclose, compare, dirFingerprint, sha256File, isMockEnvelope,
   anchor, variantGroups,

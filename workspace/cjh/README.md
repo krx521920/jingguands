@@ -38,8 +38,30 @@ workspace/cjh/
     ├── _ref_wei_interface_README_v0.3c.md    # 只读参照：源=origin/weiwenyu@e1610b84，v0.4 增补 direction（勿改）
     ├── _ref_wei_run_D3PLD001_multi.json      # 只读参照：魏 PLD-001 run 样例（勿改）
     ├── _ref_zhang_evidence_v0.9.json         # 只读参照：源=origin/zhangzhibo@3d64f4aa，covers+扫描降级（勿改）
-    └── _ref_zong_D4-evaluation.md            # 只读参照：源=origin/zongbowen@728d2334，D4 评测 10/10 MATCH（勿改）
+    ├── _ref_zong_D4-evaluation.md            # 只读参照：源=origin/zongbowen@728d2334，D4 评测 10/10 MATCH（勿改）
+    │
+    │   ── 收口落地记录（D20 起，按日期）──
+    ├── D20_换源落地.md                        # 页面数据源换到权威批次 data_unified/ ＋ 信息源披露
+    ├── D21_对齐宗裁决.md                      # 按宗 10-09 指标裁决对齐 ＋ 21 组同源变体聚类
+    ├── D22_D13陌生样例复现执行记录.md          # D13 哈希闸门拦停记录（含两条阻塞缺陷）
+    ├── D22_给宗-D13裁定请求.md                # 给宗的裁定请求（由领导走其他渠道转交）
+    ├── D23_D14收口清单落地.md                 # 收口清单步骤 1–3：权威数据入库/关系判定改读法/快照物化
+    ├── D24_收口清单步骤4标准化口径收口.md     # 步骤 4：标准化两指标拆分 ＋ 注册表 4 项收口（详见该文件）
+    ├── D25_收口清单步骤5上传闸门接契约校验.md # 步骤 5：上传接契约机检（宗审计 P1-2）＋ sources 带契约状态
+    └── D26_收口清单步骤6其余小项.md           # 步骤 6：5 个小项 ＋ parity 报告 stale 检测 ＋ L3 基准错配修复
 ```
+
+**现场导入/使用须知（步骤 7 落地，评审现场照此操作）**：
+
+- **现场导入只收 `.json` 信封文件**——页面**不做在线 PDF 抽取**。要导PDF，
+  须先经张智博的 DocumentIR 解析、再由魏文宇的抽取管线产出信封，页面只消费信封。
+  上传件会经 `bridge/contract_validate.js` **机检**：缺 `run_id`/`is_mock`/`source`/`run_meta`
+  的件判 `ok:false` 且**不落盘**，逐条列出缺哪个字段。
+- **`GET /api/result` 必须带 `dataset` 参数**（无参返 400，不静默回落演示件）。
+  数据集名**大小写不敏感**（`d4-pld-001` 可命中 `D4-PLD-001`），未命中时返回候选提示。
+- **权威口径只跑 `data_unified/`**（31 份 / 分母 606，锚点 `381c760fa07b…`）；
+  `data/` 是演示池，仅供查看，不计入任何分子分母。
+- **演示前必跑一遍 `node server.js`** 确认指标卡非 null（`/api/metrics` 的 `summary.fields_total` 应为 606）。
 
 **查找规范（任务/进度查证顺序）**：
 1. **某天该干什么、干到哪一步** → 仓库外 `D:\chenjh\code\program\jingguanpluge\team_plan_14days.xlsx` 的**「陈家浩_D1-D14明细」表**（2026-10-01 新增：64 条单元任务，含产出物/协作对象/状态列，公式汇总在表尾）；

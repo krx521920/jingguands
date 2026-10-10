@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-10-08T01:50:49.010Z",
+  "generated_at": "2026-10-10T12:34:05.471Z",
   "headline": "实际对照三层已实跑：L1 文件哈希 distinct（22 对，0 对同源）；L2 跨批逐字段 divergent（22 例，372/382 字段一致）；L3 导出字节 idempotent（16/16 字节相同）。★ 三层都不能证明「Web 与 CLI 独立抽取一致」——该结论仍为未测。",
   "input_fingerprint": {
-    "generated_at": "2026-10-08T01:50:49.009Z",
+    "generated_at": "2026-10-10T12:34:05.462Z",
     "inputs": {
       "page_data": {
         "dir": "data",
         "exists": true,
         "files": 41,
-        "sha256": "c3157267d0102ce082ad1339c1ede9e691d3e8d2bee642b4be2cad6549583f91",
+        "sha256": "43f0277ad0eb4254bf6be0ebf56e26f27273c12e6a529b0b48c32dc7e862debd",
         "per_file": {
           "bank_guarantee.json": "debfacb30c75",
           "pledge.json": "ba4c6d14ab42",
-          "share_change.json": "e2f01da5d233",
+          "share_change.json": "7b50814c89f6",
           "upstream_case.json": "d1a2e9dff212",
-          "wei_multi_event_test.json": "d6cfe4df8858",
+          "wei_multi_event_test.json": "590a8df9ad1a",
           "wei_real_D4_scan.json": "d55aa9ec4687",
           "wei_real_PLD001_3ev.json": "dea38533e961",
           "wei_real_PLD005_release.json": "20aff6c2c948",
@@ -94,8 +94,31 @@
         }
       }
     },
-    "primary": "c3157267d0102ce082ad1339c1ede9e691d3e8d2bee642b4be2cad6549583f91",
-    "combined_sha256": "15dda16e0756bc6b95efca971f1c3711c99be1f0bd1eb90ada9b438e61bb7124"
+    "primary": "2c680b4692ebd4ff4462fa071d642198565797b5b296b9d7288ac463729aeba6",
+    "primary_batch": "authoritative",
+    "primary_files": 32,
+    "anchor_sha256": "381c760fa07b2dc3a8256282e23009bce4b79445fdc7f4f4280168af6c90cef0",
+    "anchor_matches": true,
+    "caliber_split": {
+      "resolved": true,
+      "resolved_by": "宗博文（评测侧）2026-10-09 指标单一真源裁决",
+      "resolved_at": "zongbowen@74f9505b",
+      "frozen_files": 31,
+      "local_demo_files": 1,
+      "local_demo_names": [
+        "DEMO-EQC-HL-0930"
+      ],
+      "fields_frozen_only": 606,
+      "fields_incl_demo": 615,
+      "extracted_frozen_only": 437,
+      "extracted_incl_demo": 446,
+      "coverage_frozen_only_pct": 72.11,
+      "coverage_incl_demo_pct": 72.52,
+      "authoritative_denominator": 606,
+      "note": "权威分母＝606 字段 / 31 份（已裁决）。材料旧文里的 615 是把本地演示件 DEMO-EQC-HL-0930 的 9 个字段算进去的结果，按裁决该件不计入权威批次，引用 615 时必须写成「含演示件的扩大口径」而非权威分母。本页面默认展示与计算一律用 606 口径；615 仅在此处留档说明差异来源。",
+      "owner": "宗博文（已裁决，如需变更须走裁决登记）"
+    },
+    "combined_sha256": "024d178cd675d74f57718ed8947050766a52b5d69503d21692e32056541d7ad5"
   },
   "layers": {
     "L1": {
@@ -1360,167 +1383,169 @@
       "http_ok": 16,
       "http_failed": 0,
       "identical": 16,
+      "comparable_total": 16,
       "divergent": 0,
+      "unavailable": [],
       "partial": false,
       "rows": [
         {
+          "dataset": "D4-PLD-001",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "67803fa2ae3240b466172422d500fef5f6cbc71baf203cbe3537a2079911cca6",
+          "http_sha256": "67803fa2ae3240b466172422d500fef5f6cbc71baf203cbe3537a2079911cca6",
+          "local_bytes": 7879,
+          "http_bytes": 7879,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-001",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "741f0b0753755ffb37254172a6d89ebde47ad4eede0afbc99cdd0a9b3b5bbe00",
+          "http_sha256": "741f0b0753755ffb37254172a6d89ebde47ad4eede0afbc99cdd0a9b3b5bbe00",
+          "local_bytes": 71601,
+          "http_bytes": 71601,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-002",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "ed1b0c0546b3cf7795c1b0e923516da7f2a3f114f3a6c59de299b7f05f3c1ef6",
+          "http_sha256": "ed1b0c0546b3cf7795c1b0e923516da7f2a3f114f3a6c59de299b7f05f3c1ef6",
+          "local_bytes": 2772,
+          "http_bytes": 2772,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-002",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "d4b7edcf43bad170d3d6ffcb69777370c52430c60e69e9cdd5f32ce8375ebc2f",
+          "http_sha256": "d4b7edcf43bad170d3d6ffcb69777370c52430c60e69e9cdd5f32ce8375ebc2f",
+          "local_bytes": 41633,
+          "http_bytes": 41633,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-003",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "6ecfb34fd3fa2a9ebe84a07e78272e58a09aaf3baf92ca83d20f4d0a70cdc42a",
+          "http_sha256": "6ecfb34fd3fa2a9ebe84a07e78272e58a09aaf3baf92ca83d20f4d0a70cdc42a",
+          "local_bytes": 2804,
+          "http_bytes": 2804,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-003",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "12ea2590a3b3f5ff32f0e8a348bce6ab87d4fece260a75e4bb997474e28c587f",
+          "http_sha256": "12ea2590a3b3f5ff32f0e8a348bce6ab87d4fece260a75e4bb997474e28c587f",
+          "local_bytes": 48955,
+          "http_bytes": 48955,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-004",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "b6b1f790458526f4e90f57820c0ddee1565005d28bf7aaf9e31c88fb1c240230",
+          "http_sha256": "b6b1f790458526f4e90f57820c0ddee1565005d28bf7aaf9e31c88fb1c240230",
+          "local_bytes": 2799,
+          "http_bytes": 2799,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-004",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "2ca24c4eda34375ee9e50e5aaca2dd4f9c342288b258969056048a241cc68843",
+          "http_sha256": "2ca24c4eda34375ee9e50e5aaca2dd4f9c342288b258969056048a241cc68843",
+          "local_bytes": 46713,
+          "http_bytes": 46713,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-005",
+          "format": "csv",
+          "http_status": 200,
+          "local_sha256": "7f67b3cb04b66ff2b6135d547e1e01e5852f7356d2371e2fe5eda8b274073617",
+          "http_sha256": "7f67b3cb04b66ff2b6135d547e1e01e5852f7356d2371e2fe5eda8b274073617",
+          "local_bytes": 5261,
+          "http_bytes": 5261,
+          "identical": true
+        },
+        {
+          "dataset": "D4-PLD-005",
+          "format": "json",
+          "http_status": 200,
+          "local_sha256": "777faf10e1a24f1395613399f7a30b54b84791421023f3575780f6bd3357f282",
+          "http_sha256": "777faf10e1a24f1395613399f7a30b54b84791421023f3575780f6bd3357f282",
+          "local_bytes": 45668,
+          "http_bytes": 45668,
+          "identical": true
+        },
+        {
           "dataset": "bank_guarantee",
           "format": "csv",
           "http_status": 200,
-          "local_sha256": "d393144086c72ad4b429a18c0067a30e5b4a41cee3ecbba226be621e64a18948",
-          "http_sha256": "d393144086c72ad4b429a18c0067a30e5b4a41cee3ecbba226be621e64a18948",
-          "local_bytes": 1839,
-          "http_bytes": 1839,
+          "local_sha256": "8b8585334c5bb431b6172a7aa06eaf7763e8a3d99c24df37b6bf73bbc573591f",
+          "http_sha256": "8b8585334c5bb431b6172a7aa06eaf7763e8a3d99c24df37b6bf73bbc573591f",
+          "local_bytes": 170,
+          "http_bytes": 170,
           "identical": true
         },
         {
           "dataset": "bank_guarantee",
           "format": "json",
           "http_status": 200,
-          "local_sha256": "64b6a77e0ca70fc739a2d11690fb40033670189627038461691b930eefc7e548",
-          "http_sha256": "64b6a77e0ca70fc739a2d11690fb40033670189627038461691b930eefc7e548",
-          "local_bytes": 2014,
-          "http_bytes": 2014,
+          "local_sha256": "ac140c7275d707b3e462d8d22212806a093a79fc64e4b70e4a6513dec768a14f",
+          "http_sha256": "ac140c7275d707b3e462d8d22212806a093a79fc64e4b70e4a6513dec768a14f",
+          "local_bytes": 4249,
+          "http_bytes": 4249,
           "identical": true
         },
         {
           "dataset": "pledge",
           "format": "csv",
           "http_status": 200,
-          "local_sha256": "7783a0edeb74b4c10e96719eea3e0226714b293ab1ce3ad1fff58f31a374fd9c",
-          "http_sha256": "7783a0edeb74b4c10e96719eea3e0226714b293ab1ce3ad1fff58f31a374fd9c",
-          "local_bytes": 1572,
-          "http_bytes": 1572,
+          "local_sha256": "c7f787c872032c920c3820bded74bc25b89c528a7ca545baa77129019fc1ff9b",
+          "http_sha256": "c7f787c872032c920c3820bded74bc25b89c528a7ca545baa77129019fc1ff9b",
+          "local_bytes": 1836,
+          "http_bytes": 1836,
           "identical": true
         },
         {
           "dataset": "pledge",
           "format": "json",
           "http_status": 200,
-          "local_sha256": "32f0b5648f2ad470a7d4eb94b713f8afb8831a89a343ef40d639fa19140bbc4b",
-          "http_sha256": "32f0b5648f2ad470a7d4eb94b713f8afb8831a89a343ef40d639fa19140bbc4b",
-          "local_bytes": 2232,
-          "http_bytes": 2232,
+          "local_sha256": "4ad84380d3cd135a3d7e14a3f5b5cf6acc70fe8056bf8274b16e0f90e4fe4671",
+          "http_sha256": "4ad84380d3cd135a3d7e14a3f5b5cf6acc70fe8056bf8274b16e0f90e4fe4671",
+          "local_bytes": 7101,
+          "http_bytes": 7101,
           "identical": true
         },
         {
           "dataset": "share_change",
           "format": "csv",
           "http_status": 200,
-          "local_sha256": "a3b54c267791641a3efa58bd9a05c47ae44dffd08cc25f7c395f27b600ef2d98",
-          "http_sha256": "a3b54c267791641a3efa58bd9a05c47ae44dffd08cc25f7c395f27b600ef2d98",
-          "local_bytes": 5593,
-          "http_bytes": 5593,
+          "local_sha256": "6a0b7b2f0d1cdbe09bf6ff33ecc30d3e5a56e16148ad1debad9465cd12310d6c",
+          "http_sha256": "6a0b7b2f0d1cdbe09bf6ff33ecc30d3e5a56e16148ad1debad9465cd12310d6c",
+          "local_bytes": 5404,
+          "http_bytes": 5404,
           "identical": true
         },
         {
           "dataset": "share_change",
           "format": "json",
           "http_status": 200,
-          "local_sha256": "3017b2221c49cf461c4dbe275ded9e7cd34a8a778233c43f4c13a2c131f81dc6",
-          "http_sha256": "3017b2221c49cf461c4dbe275ded9e7cd34a8a778233c43f4c13a2c131f81dc6",
-          "local_bytes": 19118,
-          "http_bytes": 19118,
-          "identical": true
-        },
-        {
-          "dataset": "upstream_case",
-          "format": "csv",
-          "http_status": 200,
-          "local_sha256": "62ce313666d4084686d3e8095717f888c595b50021f7999e415524159e888e3e",
-          "http_sha256": "62ce313666d4084686d3e8095717f888c595b50021f7999e415524159e888e3e",
-          "local_bytes": 1160,
-          "http_bytes": 1160,
-          "identical": true
-        },
-        {
-          "dataset": "upstream_case",
-          "format": "json",
-          "http_status": 200,
-          "local_sha256": "29433e76afe29860ab8dca1ff16483d9f3bb0c344b184818b4a1445d9e3ab8bb",
-          "http_sha256": "29433e76afe29860ab8dca1ff16483d9f3bb0c344b184818b4a1445d9e3ab8bb",
-          "local_bytes": 3811,
-          "http_bytes": 3811,
-          "identical": true
-        },
-        {
-          "dataset": "wei_multi_event_test",
-          "format": "csv",
-          "http_status": 200,
-          "local_sha256": "ee87186f0a848714a38e8ba1aeec59a49419cac4f4423f9255a99080571fcc63",
-          "http_sha256": "ee87186f0a848714a38e8ba1aeec59a49419cac4f4423f9255a99080571fcc63",
-          "local_bytes": 3301,
-          "http_bytes": 3301,
-          "identical": true
-        },
-        {
-          "dataset": "wei_multi_event_test",
-          "format": "json",
-          "http_status": 200,
-          "local_sha256": "af2c44d5e1b36c1ee632f3ca35659d72715f4e206e660e9a44542dfee941c4a3",
-          "http_sha256": "af2c44d5e1b36c1ee632f3ca35659d72715f4e206e660e9a44542dfee941c4a3",
-          "local_bytes": 11847,
-          "http_bytes": 11847,
-          "identical": true
-        },
-        {
-          "dataset": "wei_real_D4_scan",
-          "format": "csv",
-          "http_status": 200,
-          "local_sha256": "ff589971fff20d8c2d0c8fd45d09248abf71faac1a6b69dfc0744e2c33119348",
-          "http_sha256": "ff589971fff20d8c2d0c8fd45d09248abf71faac1a6b69dfc0744e2c33119348",
-          "local_bytes": 1531,
-          "http_bytes": 1531,
-          "identical": true
-        },
-        {
-          "dataset": "wei_real_D4_scan",
-          "format": "json",
-          "http_status": 200,
-          "local_sha256": "e61a4c6a2070ef717447cee0a7084f10c55c4ea7b8c0bf8e9de16b07aadb1c93",
-          "http_sha256": "e61a4c6a2070ef717447cee0a7084f10c55c4ea7b8c0bf8e9de16b07aadb1c93",
-          "local_bytes": 5238,
-          "http_bytes": 5238,
-          "identical": true
-        },
-        {
-          "dataset": "wei_real_PLD001_3ev",
-          "format": "csv",
-          "http_status": 200,
-          "local_sha256": "127e1673563570fcf582ef2392df07febc9707672072a58ad9242fc0cc398b5b",
-          "http_sha256": "127e1673563570fcf582ef2392df07febc9707672072a58ad9242fc0cc398b5b",
-          "local_bytes": 6055,
-          "http_bytes": 6055,
-          "identical": true
-        },
-        {
-          "dataset": "wei_real_PLD001_3ev",
-          "format": "json",
-          "http_status": 200,
-          "local_sha256": "cf81e2fb33ae0cbac2258e4e714d0bdd7c4a2f5ad99a6c22907a3d37a69dd0f6",
-          "http_sha256": "cf81e2fb33ae0cbac2258e4e714d0bdd7c4a2f5ad99a6c22907a3d37a69dd0f6",
-          "local_bytes": 27086,
-          "http_bytes": 27086,
-          "identical": true
-        },
-        {
-          "dataset": "wei_real_PLD005_release",
-          "format": "csv",
-          "http_status": 200,
-          "local_sha256": "99dbca3be6b973359c36d5038c636d45fc9e52667e8ec39c4a594f5416c10145",
-          "http_sha256": "99dbca3be6b973359c36d5038c636d45fc9e52667e8ec39c4a594f5416c10145",
-          "local_bytes": 4077,
-          "http_bytes": 4077,
-          "identical": true
-        },
-        {
-          "dataset": "wei_real_PLD005_release",
-          "format": "json",
-          "http_status": 200,
-          "local_sha256": "d03668460bbbf0d0470c8fceaea926c393cd0693e690c6101356d1a2a3f68cb9",
-          "http_sha256": "d03668460bbbf0d0470c8fceaea926c393cd0693e690c6101356d1a2a3f68cb9",
-          "local_bytes": 17950,
-          "http_bytes": 17950,
+          "local_sha256": "61f4da224bb2ef2e866cbab488df9a7f9a689cd2f1fb7e243c48e7a5a82bb7f7",
+          "http_sha256": "61f4da224bb2ef2e866cbab488df9a7f9a689cd2f1fb7e243c48e7a5a82bb7f7",
+          "local_bytes": 16954,
+          "http_bytes": 16954,
           "identical": true
         }
       ]
@@ -1543,16 +1568,19 @@
     "how_to_close": "设 EXTRACT_CLI_CMD=<魏的抽取命令> 与 EXTRACT_CLI_PDF_DIR=<PDF目录>，再跑 node demo/_parity_real.js 即可自动追加 L4 真双路对照"
   },
   "metrics_reference": {
-    "total": 14,
-    "measured": 8,
+    "total": 15,
+    "measured": 13,
     "unverified": 0,
-    "not_covered": 6,
+    "not_covered": 2,
     "by_status": {
-      "measured": 8,
-      "not_covered": 6
+      "measured": 13,
+      "not_covered": 2
     },
-    "input_sha256": "c3157267d0102ce082ad1339c1ede9e691d3e8d2bee642b4be2cad6549583f91",
-    "combined_sha256": "15dda16e0756bc6b95efca971f1c3711c99be1f0bd1eb90ada9b438e61bb7124",
-    "statement": "共登记 14 项指标：已实测 8、实测但不可核 0、**未测 6**。输入数据指纹 page_data=c3157267d010… / unified=2c680b4692eb…（32 份）。材料引用任何一项成绩时须同时引用该指纹与生成脚本，否则数字不可复现。"
+    "input_sha256": "2c680b4692ebd4ff4462fa071d642198565797b5b296b9d7288ac463729aeba6",
+    "primary_batch": "authoritative",
+    "anchor_sha256": "381c760fa07b2dc3a8256282e23009bce4b79445fdc7f4f4280168af6c90cef0",
+    "anchor_matches": true,
+    "combined_sha256": "024d178cd675d74f57718ed8947050766a52b5d69503d21692e32056541d7ad5",
+    "statement": "共登记 15 项指标：已实测 13、实测但不可核 0、未测 2。★ 页面实算口径＝权威批次「权威批次（D11 首测冻结）」（锚点 381c760fa07b…，与宗登记锚点一致；入口径 31 份 / 分母 606，DEMO-EQC-HL-0930 不计入——详见 data_source.caliber_split）。另一批演示池仅供查看，不计入任何分子分母。材料引用任何一项成绩时须同时引用该指纹与生成脚本，否则数字不可复现。"
   }
 }

@@ -94,7 +94,7 @@ function handleExport(res, urlObj, readDataset) {
   let data;
   try { data = readDataset(dataset); }
   catch (e) {
-    if (e && e.code === "NOT_FOUND") return sendJSON(res, 404, { error: "dataset not found: " + dataset });
+    if (e && e.code === "NOT_FOUND") return sendJSON(res, 404, { error: "dataset not found: " + dataset, suggestions: e.suggestions || dataSource.suggest(dataset) });
     return sendJSON(res, 500, { error: "dataset parse failed: " + e.message });
   }
 
@@ -161,6 +161,8 @@ async function extractDataset(dataset, engineId) {
   const err = new Error(r.reason);
   err.code = extractor.PROVIDERS[r.engine] && extractor.PROVIDERS[r.engine].kind === "prebuilt" ? "NOT_FOUND" : "ENGINE_UNAVAILABLE";
   err.engine = r.engine;
+  // ★ D25 步骤6-②：provider 算出的候选名一路带到 HTTP 响应（不在 server 里重算一遍）。
+  err.suggestions = r.suggestions || [];
   throw err;
 }
 
@@ -173,9 +175,17 @@ function readDataset(dataset) {
   if (!r.ok) {
     const err = new Error(r.reason);
     err.code = "NOT_FOUND";
+    err.suggestions = r.suggestions || [];
     throw err;
   }
-  return bridgeOf(r.envelope);
+  const view = bridgeOf(r.envelope);
+  // ★ D25 步骤6-④：导出必须与页面所见**逐字段同源** ——
+  //   /api/result 挂了 extraction_engine（引擎来源/是否预生成/批次），
+  //   而导出走的是readDataset → bridgeOf，原来不带 ⇒ 导出的 JSON 少了"这份数据哪来的"，
+  //   拿着导出件的人无法判断它是独立抽取还是预生成信封。
+  //   D10 造假之所以能蒙过去，正是因为产出"看起来像"结论却不带来源。
+  view.extraction_engine = r.run_meta;
+  return view;
 }
 
 /** 过桥并取视图投影（页面/导出的唯一入口）。
@@ -217,15 +227,29 @@ function parseMultipart(buf, contentType) {
   return parts;
 }
 
-/** 文件名 → 安全数据集名：非 [a-z0-9_-] 归一为 -，与 /api/result 的名称校验对齐。 */
+/** 文件名 → 安全数据集名：非 [a-zA-Z0-9_-] 归一为 -，与 /api/result 的名称校验对齐。
+ *
+ * ★ D25 步骤6-⑤：**保留原名大小写**。
+ *   原实现末尾有 `.toLowerCase()`，于是上传 `D5-EQC-007.json` 落盘成 `d5-eqc-007.json`
+ *   —— 文件名与信封里`source.file_name` 对不上，下游按名字回查找不到、
+ *   与权威批 `data_unified/D5-EQC-007.json` 成了两个"不同数据集"（实为同一份）。
+ *   读取侧已做大小写不敏感归一（data_source.resolve），落盘侧就不该再改写名字。
+ */
 function safeDatasetName(filename) {
-  return path.basename(filename).replace(/\.json$/i, "").replace(/[^a-zA-Z0-9_-]+/g, "-").replace(/^-+|-+$/g, "").toLowerCase() || "upload";
+  return path.basename(filename).replace(/\.json$/i, "").replace(/[^a-zA-Z0-9_-]+/g, "-").replace(/^-+|-+$/g, "") || "upload";
 }
 
-/** 数据集名查重：data/ 下已存在则追加 -2、-3…，绝不静默覆盖既有数据集。 */
+/** 数据集名查重：data/ 下已存在则追加 -2、-3…，绝不静默覆盖既有数据集。
+ *  ★ D25 步骤6-⑤：查重**大小写不敏感** —— 文件系统大小写不敏感时会直接覆盖，
+ *    读取侧又是大小写不敏感归一 ⇒ 不查就是静默覆盖既有数据集。 */
 function dedupeDatasetName(base) {
-  if (!fs.existsSync(path.join(DATA_DIR, base + ".json"))) return base;
-  for (let i = 2; ; i++) if (!fs.existsSync(path.join(DATA_DIR, base + "-" + i + ".json"))) return base + "-" + i;
+  const taken = new Set(
+    fs.existsSync(DATA_DIR)
+      ? fs.readdirSync(DATA_DIR).filter(f => f.endsWith(".json")).map(f => path.basename(f, ".json").toLowerCase())
+      : []
+  );
+  if (!taken.has(base.toLowerCase())) return base;
+  for (let i = 2; ; i++) if (!taken.has((base + "-" + i).toLowerCase())) return base + "-" + i;
 }
 
 /** 单文件入账：校验 → 过桥 → 落 data/。返回报告条目（ok 或失败原因，二者必有其一）。 */
@@ -235,22 +259,44 @@ function processUploadFile(filename, data) {
     if (!/\.json$/i.test(filename)) entry.error = "仅接受 .json 信封文件";
     if (!entry.error && (!data || data.length === 0)) entry.error = "空文件";
     if (!entry.error) {
-      const parsed = JSON.parse(data.toString("utf8"));   // 坏 JSON 在此显式失败并进报告
+      const parsed = JSON.parse(data.toString("utf-8"));   // 坏 JSON 在此显式失败并进报告
       if (!Array.isArray(parsed.events)) entry.error = "缺少 events 数组（非事件信封）";
       else if (!parsed.schema_version) entry.error = "缺少 schema_version";
       if (!entry.error) {
-        toContract(parsed);   // 过桥干跑：转换失败即上传失败（真实闭环的校验闸门）
-        const dataset = dedupeDatasetName(safeDatasetName(filename));
-        fs.writeFileSync(path.join(DATA_DIR, dataset + ".json"), JSON.stringify(parsed, null, 2) + "\n");
-        dataSource.resetCache();          // ★ D20：新增数据集后必须让批次清单重扫，否则下拉不更新
-        entry.ok = true;
-        entry.dataset = dataset;
-        entry.events = parsed.events.length;
+        const bridged = toContract(parsed);   // 过桥干跑：转换失败即上传失败（真实闭环的校验闸门）
+        // ★ D25 步骤5（宗审计 P1-2）：接契约机检。
+        //   原先只查 events 数组，于是 {"schema_version":"0.3","events":[]} 判ok:true 并落盘，
+        //   而同一份数据在 /api/contract 是 ok:false（缺 run_id/is_mock/source/run_meta）
+        //   —— 同一件东西两处结论相反，合规率就成了假数字。
+        // ★ 只拒**硬违规**，不合规的件一律不落盘：如实在报告里说清缺哪几个字段，
+        //   绝不静默补齐（补齐＝伪造"这份数据本来合规"）。
+        const cv = (bridged && bridged.contract_validation) || {};
+        entry.contract_checked = true;
+        entry.contract_ok = cv.ok === true;
+        if (!cv.ok) {
+          // ★ ok 必须显式 false 而不是留undefined —— 消费方 `if (r.ok)` 能判false，
+          //   但 `r.ok === false` 的严格比较会漏判，下游"有没有失败项"就会算错。
+          entry.ok = false;
+          entry.error = "契约校验未通过（v0.3）：" + (cv.errors || []).slice(0, 5).join("；");
+          entry.contract_error_count = cv.error_count || 0;
+          entry.contract_errors = (cv.errors || []).slice(0, 10);
+        } else {
+          const dataset = dedupeDatasetName(safeDatasetName(filename));
+          fs.writeFileSync(path.join(DATA_DIR, dataset + ".json"), JSON.stringify(parsed, null, 2) + "\n");
+          dataSource.resetCache();          // ★ D20：新增数据集后必须让批次清单重扫，否则下拉不更新
+          entry.ok = true;
+          entry.dataset = dataset;
+          entry.events = parsed.events.length;
+        }
       }
     }
   } catch (e) {
+    entry.ok = false;
     entry.error = e instanceof SyntaxError ? "JSON 解析失败：" + e.message.slice(0, 160) : String(e.message || e).slice(0, 160);
   }
+  // ★ D25 步骤5：报告条目三态显式化 —— ok 必为 true/false之一（不留给undefined）。
+  //   上传日志 JSONL 是给下游统计用的，字段缺失会被读成"这一项没结论"。
+  if (entry.ok === undefined) entry.ok = false;
   appendUploadLog(entry);
   return entry;
 }
@@ -517,15 +563,27 @@ function readD10(name) {
   try { return JSON.parse(fs.readFileSync(f, "utf8")); } catch { return null; }
 }
 
-// 宗 expected 是自然语言（"related + 互证9 + 合计勾稽" / "explainable_difference，不判矛盾"），
-// 页面要并排显示"预期原文"，同时抽出三态词做徽章比对；抽不出就如实留空，不猜。
-function expectedRelationOf(text) {
-  const s = String(text || "");
-  if (s.includes("unrelated")) return "unrelated";
-  if (s.includes("related")) return "related";
-  if (s.includes("unknown") || s.includes("insufficient")) return "unknown";
-  if (s.includes("explainable_difference")) return "unrelated";  // 判"不矛盾"，落在不同事件侧
-  return null;
+// D14整改（宗 zongbowen 2026-10-10 判定）：关系层预期只能读 expected_relation 单一字段。
+//
+// 原实现从自然语言 expected 做关键词映射，已删除。实测错例：
+//   D10-INT-008「币种折算跨文档」
+//     权威包 diffs.relation            = "unknown"（证据不足，保留疑点）
+//     旧映射explainable_difference  → "unrelated"（不同事件）
+//   fang_report_bundle.json 里同一条自相矛盾：
+//     plugin_relation = "unknown"   builtin_relation = "unrelated"
+//   关键词映射把**归因层**结论（explainable_difference／无强制换算／不判矛盾）
+//   误读成 **relation 层**枚举 → 008 由unknown 翻成 unrelated。
+//   魏《D14-INT008判定口径》已把两层拆开：`expected_relation` 为 relation 层唯一真源，
+//   `attribution_demo` 为归因层展示说明，`expected_text_legacy` 仅作留档、**禁止机器读取**。
+//
+// 纪律：预期抽不出就留 null（relation_match=null，不假装一致），绝不回退到猜。
+const RELATION_ENUM = new Set(["related", "unrelated", "unknown"]);
+
+function expectedRelationOf(exp) {
+  const v = exp && typeof exp === "object" ? exp.expected_relation : null;
+  if (v == null) return null;              // 未登记 → 不猜
+  const s = String(v).trim().toLowerCase();
+  return RELATION_ENUM.has(s) ? s : null;     // 不在枚举 → 不猜
 }
 
 /** 方 D10 报告 → 页面摘要（五段 + 逐成员缓存核对 + 链路 trace）。
@@ -612,7 +670,7 @@ function handleIntegration(res) {
       const cc = chainByCase.get(r.case_id) || null;
       const diffs = (r.report && r.report.diffs) || {};
       const actual = diffs.relation || null;
-      const expected = expectedRelationOf(exp.expected);
+      const expected = expectedRelationOf(exp);
       const chainOf = id => (cc && (cc.chains || []).find(c => c.case_id === id)) || null;
 
       return {
@@ -621,7 +679,11 @@ function handleIntegration(res) {
         purpose: exp.purpose || "",
         members_expected: exp.members || [],
         expected_text: exp.expected || "",
+        attribution_demo: exp.attribution_demo || null,   // 归因层展示（D14 新增，relation 层不读）
         expected_relation: expected,
+        expected_relation_source: exp.expected_relation != null
+          ? "expected_relation"                             // 单一真源（D14 起）
+          : "未登记",// 缺字段 → 不猜、不回退关键词映射
         actual_relation: actual,
         relation_match: expected && actual ? expected === actual : null,   // 抽不出预期时留 null，不假装一致
         required_check: D10_REQUIRED.map(([name, fn]) => ({ name, ok: !!fn(r) })),
@@ -753,6 +815,9 @@ function handleApi(req, res, urlObj) {
         //   下拉里必须显示为「同源变体」，不能当成两个独立 case。
         variant_label: e.variant_label || null,
         variant_group: e.variant_group || null,
+        // ★ D25 步骤5：契约状态（宗审计 P1-2：上传闸门与 /api/contract 必须同结论）。
+        //   如实上报不合规的件，不静默修好，也不把不合规说成合规。
+        contract: e.contract || null,
       })),
       data_source: dataSource.disclose(),
     });
@@ -769,7 +834,17 @@ function handleApi(req, res, urlObj) {
     return sendJSON(res, 200, parityReport.loadReport());
   }
   if (urlObj.pathname === "/api/result") {
-    const dataset = urlObj.searchParams.get("dataset") || "pledge";
+    // ★ D25 步骤6-①：缺 dataset 参数 ⇒ 400，不再静默回落到 "pledge"。
+    //   原为 `|| "pledge"`，于是 `GET /api/result` 会**返回一份演示件当结果**，
+    //   调用方（脚本/材料复核）拿到 200 + 有数据，却从未要求任何数据集
+    //   —— 与 D10「未接通即回落」同款：没接通的通道看起来是通的。
+    const dataset = urlObj.searchParams.get("dataset");
+    if (!dataset || !dataset.trim()) {
+      return sendJSON(res, 400, {
+        error: "missing required query parameter: dataset",
+        hint: "例：/api/result?dataset=D4-PLD-001；可用清单见 /api/datasets",
+      });
+    }
     if (!/^[a-z0-9_-]+$/i.test(dataset)) {
       return sendJSON(res, 400, { error: "invalid dataset name" });
     }
@@ -780,7 +855,10 @@ function handleApi(req, res, urlObj) {
       const payload = Object.assign({}, r.data, { extraction_engine: r.run_meta });
       return sendJSON(res, 200, payload);
     }).catch(e => {
-      if (e.code === "NOT_FOUND") return sendJSON(res, 404, { error: e.message });
+      if (e.code === "NOT_FOUND") {
+        // ★ D25 步骤6-②：404 带候选数据集名，让"打错字"与"真不存在"在接口层也可区分。
+        return sendJSON(res, 404, { error: e.message, suggestions: e.suggestions || dataSource.suggest(dataset) });
+      }
       if (e.code === "ENGINE_UNAVAILABLE") return sendJSON(res, 503, { error: e.message, engine: e.engine });
       return sendJSON(res, 500, { error: "dataset parse failed: " + e.message });
     });
@@ -874,15 +952,24 @@ const server = http.createServer((req, res) => {
   return handleStatic(res, urlObj);
 });
 
-server.listen(PORT, "127.0.0.1", () => {
-  const openDemo = process.argv.includes("--open-demo");
-  console.log(`[cjh-page-prototype] http://127.0.0.1:${PORT}${openDemo ? "/demo.html" : "/"}`);
-  const engines = extractor.describeEngines();
-  for (const e of engines) {
-    console.log(`[cjh-page-prototype] 引擎 ${e.id.padEnd(5)} ${e.available ? "[就绪]" : "[未接通]"} ${e.label} — ${e.reason}`);
-  }
-  console.log(`[cjh-page-prototype] 默认引擎: ${extractor.defaultEngine()}｜数据集: ${listDatasets().join(", ") || "（空）"}`);
-  if (!engines.some(e => e.kind === "live" && e.available)) {
-    console.log("[cjh-page-prototype] ⚠ 无live 引擎：Web/CLI 对照只能标「未覆盖」（同源不构成对照，见 bridge/extractor.js）");
-  }
-});
+// ★ D25 步骤6-③：导出 `readDataset`（视图投影的唯一生成函数）供 demo/_parity_real.js 复用。
+//   L3 导出对照需要"本地侧字节"与"HTTP 侧字节"来自**同一条链路**；
+//   若本地侧另写一份拼装逻辑，就是第二份真源，字段一改就常亮红灯。
+//   require 时**不监听端口**（见文件末 require.main 守卫），`node server.js` 行为不变。
+module.exports = { readDataset, bridgeOf, processUploadFile, PORT, contractToCsvRows, csvEscape, CSV_COLUMNS };
+
+// `node server.js` 才起服务；被 require（守卫脚本/测试）时只拿到函数，不占端口。
+if (require.main === module) {
+  server.listen(PORT, "127.0.0.1", () => {
+    const openDemo = process.argv.includes("--open-demo");
+    console.log(`[cjh-page-prototype] http://127.0.0.1:${PORT}${openDemo ? "/demo.html" : "/"}`);
+    const engines = extractor.describeEngines();
+    for (const e of engines) {
+      console.log(`[cjh-page-prototype] 引擎 ${e.id.padEnd(5)} ${e.available ? "[就绪]" : "[未接通]"} ${e.label} — ${e.reason}`);
+    }
+    console.log(`[cjh-page-prototype] 默认引擎: ${extractor.defaultEngine()}｜数据集: ${listDatasets().join(", ") || "（空）"}`);
+    if (!engines.some(e => e.kind === "live" && e.available)) {
+      console.log("[cjh-page-prototype] ⚠ 无live 引擎：Web/CLI 对照只能标「未覆盖」（同源不构成对照，见 bridge/extractor.js）");
+    }
+  });
+}

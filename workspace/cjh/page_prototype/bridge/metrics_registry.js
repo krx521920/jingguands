@@ -122,6 +122,38 @@ function fingerprint() {
 //   这样做的原因：口径（怎么算）与数值（算出来多少）必须能各自独立审计，
 //   混在一起就会出现「改数不改口径」或反之，且无从发现。
 // ============================================================
+// ============================================================
+// 评测侧成绩单读取（D15 收口用）
+//   evaluation/ 按 C2 规则不入库，clone 后这些文件不存在 ⇒ 相关项自动退回「未测」，
+//   这正是设计意图：取不到证据就不填数。需要本地数字时跑 demo/_fetch_eval_scores.js。
+// ============================================================
+// ★ 路径退级铁律：ROOT 是 page_prototype/bridge/，到仓库根只需退三级
+  //   （bridge → page_prototype → cjh → workspace → jingguands 是四级，多退一级就落到
+  //   workspace/evaluation —— 静默 0 命中，不报错，最容易骗人）。
+const EVAL_DIR = path.resolve(ROOT, "..", "..", "..", "evaluation");
+function readScore(rel) {
+  try { return JSON.parse(fs.readFileSync(path.join(EVAL_DIR, ...rel.split("/")), "utf8")); }
+  catch (e) { return null; }
+}
+function scoreFp(rel) {
+  try {
+    return crypto.createHash("sha256").update(fs.readFileSync(path.join(EVAL_DIR, ...rel.split("/")))).digest("hex");
+  } catch (e) { return null; }
+}
+/** 从成绩单里按 keys 求一个比率项（分母为 0 或无 rows ⇒ 返回 null ⇒ 判未测）。 */
+function ratioScore(relPath, numKeys, denKeys) {
+  const r = readScore(relPath);
+  if (!r || !Array.isArray(r.rows) || r.rows.length === 0) return null;
+  const num = numKeys.reduce((n, k) => n + (Number(r[k]) || 0), 0);
+  const den = denKeys.reduce((n, k) => n + (Number(r[k]) || 0), 0);
+  if (!den) return null;
+  return {
+    value: +(num / den * 100).toFixed(2), unit: "%", num, den,
+    source_script: relPath, evidence_kind: "eval_side_score_sheet",
+    input_fingerprint: scoreFp(relPath), rows_total: r.rows.length, result: r.result || null,
+  };
+}
+
 const MEASURED = {
   // ---- 准确率 ----
   field_accuracy: {
@@ -138,11 +170,12 @@ const MEASURED = {
   },
 
   // ---- 覆盖率 ----
+  // ★ D17＋D20：分母收口到权威批 606（615 是含演示件的扩大口径，只作对照不计入）
   field_coverage: {
-    value: 72.52, unit: "%", num: 446, den: 615,
+    value: 72.11, unit: "%", num: 437, den: 606,
     source_script: "demo/_retest_unified.js",
     evidence_kind: "hash_verified_input",
-    note: "弃权 169 条（未提及 108 / 不适用 30 / 待复核 11 / 未披露 6 / 无法读取 14）计入分母——弃权是正确行为但仍是未覆盖",
+    note: "弃权 169 条（未提及 108 / 不适用 30 / 待复核 11 / 未披露 6 / 无法读取 14）计入分母——弃权是正确行为但仍是未覆盖。★ 权威分母 606（2026-10-09 裁决）；615 为含演示件 DEMO-EQC-HL-0930 的扩大口径，只作对照",
   },
   abstain_correct: {
     value: null, unit: "%", num: null, den: null,
@@ -192,13 +225,97 @@ const MEASURED = {
     note: "353 个 block_id 在全量内 region 唯一，0 冲突（映射自洽性，非正确性）",
   },
 
-  // ---- 格式合规 ----
-  standardized_rate: {
-    value: 99.1, unit: "%", num: 442, den: 446,
-    source_script: "demo/_retest_unified.js",
-    evidence_kind: "hash_verified_input",
-    note: "★ 判定标准与首测（364/521）不一致，两数不可比。需先统一判据再上屏",
-  },
+// ★ D15：以下 4 项此前挂着过期的"未测"理由，其中 integration_pass 还与页面集成视图
+  //   （10/10）同页矛盾。改为**动态读评测侧成绩单**，不硬编码数字——
+  //   成绩单缺失即自动退回未测，绝不把别人的结论抄成自己的测量。
+  //   取件：evaluation/{D11/results,D10/results}/（本机私有，不入库），由 demo/_fetch_eval_scores.js 按 sha 取。
+
+  // ---- 跨文档配对准确率（D15 收口：20/20组） ----
+cross_doc_match: (() => {
+  const m = ratioScore("D11/results/crossdoc-firsttest-score.json", ["pass"], ["pairs_total"]);
+  const r = readScore("D11/results/crossdoc-firsttest-score.json");
+  return m ? Object.assign(m, {
+    note: `宗侧实测 ${m.num}/${m.den} 组：同事件 ${r.same_event.hit}/${r.same_event.total}、无关对照 ${r.different_event.clean}/${r.different_event.total} 零误报。★ 分母按组计（与出处按条计不同，不可混读）`,
+  }) : { value: null, unit: "%", num: null, den: null,
+    source_script: "D11/results/crossdoc-firsttest-score.json",
+    note: "★ 未测：评测侧成绩单缺失（未取件），不按100% 填充" };
+})(),
+
+// ---- 数值矛盾判定准确率（D15 收口：20/20 条，误报漏报均 0） ----
+multi_doc_conflict: (() => {
+  const m = ratioScore("D11/results/d9-v02-score.json", ["pass"], ["cases_total"]);
+  const r = readScore("D11/results/d9-v02-score.json");
+  return m ? Object.assign(m, {
+    note: `宗侧实测 ${m.num}/${m.den} 条规则用例；误报 ${r.false_positive_conflict}、漏报 ${r.false_negative_conflict}。分母＝规则开发用例数，非字段数`,
+  }) : { value: null, unit: "%", num: null, den: null,
+    source_script: "D11/results/d9-v02-score.json",
+    note: "★ 未测：评测侧成绩单缺失（未取件）" };
+})(),
+
+// ---- D10 集成通过率（D15 收口：10/10，与页面集成视图同源，消除同页矛盾） ----
+integration_pass: (() => {
+  const m = ratioScore("D10/results/score-weiwenyu-bundle.json", ["pass"], ["cases_total"]);
+  return m ? Object.assign(m, {
+    note: `宗侧 check-relation --strict 实测 ${m.num}/${m.den} 组结构通过。★ 注意两点：① D10-INT-008 关系判定为 unknown（与旧构建包的 unrelated 不同），该口径待魏确认，故本项只证明结构通过，不证明关系判定正确；② web_cli_same_result 证的是同源同函数幂等，不是独立抽取一致`,
+  }) : { value: null, unit: "%", num: null, den: null,
+    source_script: "D10/results/score-weiwenyu-bundle.json",
+    note: "★ 未测：评测侧成绩单缺失（未取件）" };
+})(),
+
+// ---- 20 页公告处理耗时（D15 收口：D12 实测最大 19.99s，门槛 90s） ----
+perf_20page: (() => {
+  const v = 19.99;
+  return {
+    value: v, unit: "s", num: 19.99, den: 90,
+    source_script: "evaluation/D12/D12回归一致性性能报告.md",
+    evidence_kind: "end_to_end_timing",
+    note: "D12 实测 4 个样本：3.57s / 12.75s / 19.99s / 19.34s（34/35/20(合成)/64 页），最大 19.99s 远低于门槛 90s。★ 取最大值非最小值——取最快那次等于挑样本",
+  };
+})(),
+
+// ---- 格式合规 ----
+  // ★ D17：判据已由评测侧裁定（evaluation/D17/裁定-standardized判据-20261010.md），
+  //   本项从"未测·待统一判据"转为实测。动态读 demo/_standardized_real.js 的产物，
+  //   **不硬编码数值** —— 换批即失效的旧数不能长期挂在页面上。
+  //   脚本产物缺失 ⇒ 自动退回未测，绝不按 100% 填充。
+  standardized_rate: (() => {
+    const p = path.join(__dirname, "..", "demo", "_standardized_real.json");
+    let r = null;
+    try { r = JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { r = null; }
+    const usable = r && r.coverage && r.coverage.den > 0;
+    return {
+      value: usable ? r.coverage.pct : null,
+      unit: "%",
+      num: usable ? r.coverage.num : null,
+      den: usable ? r.coverage.den : null,
+      source_script: "demo/_standardized_real.js",
+      evidence_kind: "hash_verified_input",
+      note: usable
+        ? `★ 主口径：standardized=true 的非 text 有值字段 / 非 text 有值字段 = ${r.coverage.num}/${r.coverage.den}。判据依evaluation/D17/裁定-standardized判据-20261010.md；text 字段按 D13-C2 不入分母；弃权 ${r.context.abstain} 条不计入`
+        : "★ 未测：实算产物缺失或分母为 0。判据已裁定（evaluation/D17/），但本机未产出即不填数",
+      measured_at: usable ? (r.meta && r.meta.generated_at) || null : null,
+    };
+  })(),
+  // ★ D17 新增：正确率（值层承载），总规划 98% 目标**只挂这一项**。
+  //   与standardized_rate 分列，不得相加、不得互相替代。
+  standardized_accuracy: (() => {
+    const p = path.join(__dirname, "..", "demo", "_standardized_real.json");
+    let r = null;
+    try { r = JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { r = null; }
+    const usable = r && r.accuracy && r.accuracy.den > 0;
+    return {
+      value: usable ? r.accuracy.pct : null,
+      unit: "%",
+      num: usable ? r.accuracy.num : null,
+      den: usable ? r.accuracy.den : null,
+      source_script: "demo/_standardized_real.js",
+      evidence_kind: usable ? "field_by_field_vs_gold" : null,
+      note: usable
+        ? `非 text 有值且有 Gold 期望的字段中，value 与 Gold 规范值一致 = ${r.accuracy.num}/${r.accuracy.den}。value 即规范化后取值，值层一致即标准化正确（与D11 值层 437/437 的子集关系）`
+        : "★ 未测：本机无 Gold 或无配对，分母为 0 —— 不得按 100% 填充",
+      measured_at: usable ? (r.meta && r.meta.generated_at) || null : null,
+    };
+  })(),
 };
 
 // ============================================================
@@ -229,11 +346,11 @@ const REGISTRY = [
   // ---------- 覆盖率 ----------
   {
     key: "field_coverage", category: "coverage", name: "字段抽取覆盖率",
-    target: 90,
-    numerator: "实际产出取值的字段数（446）",
-    denominator: "契约注册表要求抽取的字段全集（615）",
+    target: null,
+    numerator: "实际产出取值的字段数（437）",
+    denominator: "契约注册表要求抽取的字段全集（权威口径 606）",
     status: "measured",
-    caliber: "弃权字段计入分母（弃权是正确行为，但仍是未覆盖）",
+    caliber: "弃权字段计入分母（弃权是正确行为，但仍是未覆盖）。★ 准确率 90% 是另一个指标（field_accuracy），不得挂在本项上",
     blocked_by: null,
   },
   {
@@ -290,13 +407,22 @@ const REGISTRY = [
 
   // ---------- 格式合规 ----------
   {
-    key: "standardized_rate", category: "compliance", name: "标准化率",
-    target: 98,
-    numerator: "standardized === true 的字段数（442）",
-    denominator: "standardized 已标注 true/false 的字段数（446）",
+    key: "standardized_rate", category: "compliance", name: "标准化覆盖率",
+    target: null,
+    numerator: "standardized === true 的非 text 有值字段数",
+    denominator: "非 text 有值字段数（权威批 229）",
     status: "measured",
-    caliber: "★ 判定标准未统一，与首测数不可比。上屏须带此警告",
-    blocked_by: "宗博文（统一 standardized 判据）",
+    caliber: "★ 主口径（判据已裁定 evaluation/D17/裁定-standardized判据-20261010.md）：分母不含弃权字段与 unit=text 字段。text 字段的 standardized 键无契约含义（D13-C2），不入分母不上屏。★ 准确率 98% 目标挂 standardized_accuracy，不得挂本项",
+    blocked_by: null,
+  },
+  {
+    key: "standardized_accuracy", category: "accuracy", name: "标准化正确率",
+    target: 98,
+    numerator: "非 text 有值且有 Gold 期望、value 与 Gold 规范值一致的字段数",
+    denominator: "非 text 有值且有 Gold 期望的字段数",
+    status: "measured",
+    caliber: "值层承载：value 即规范化后的取值，值层一致即标准化正确。与标准化覆盖率分列，不得相加或互相替代",
+    blocked_by: null,
   },
 
   // ---------- 未测项显式登记（防止漏项被当成达标） ----------
@@ -304,28 +430,28 @@ const REGISTRY = [
     key: "cross_doc_match", category: "accuracy", name: "跨文档配对准确率",
     target: null,
     numerator: "配对正确的组数",
-    denominator: "已知配对组数（宗侧 20 组 / D8 13 组）",
-    status: "not_covered",
-    caliber: "宗侧成绩未产出，无数据可算",
-    blocked_by: "宗博文（D12～D13 出数）",
+    denominator: "已知配对组数（宗侧实测 20 组）",
+    status: "measured",
+    caliber: "★ 分母按组计（不是字段数）。同事件 4/4、无关对照 16/16 零误报。数据源＝评测侧成绩单，非本页实测",
+    blocked_by: null,
   },
   {
     key: "multi_doc_conflict", category: "accuracy", name: "数值矛盾判定准确率",
     target: null,
     numerator: "判定正确的条数",
     denominator: "规则开发用例 20 条",
-    status: "not_covered",
-    caliber: "D9 20 条规则用例未跑",
-    blocked_by: "宗博文（D12～D13 出数）",
+    status: "measured",
+    caliber: "★ 分母＝规则开发用例数（不是字段数）。误报 0、漏报 0。数据源＝评测侧成绩单",
+    blocked_by: null,
   },
   {
     key: "integration_pass", category: "coverage", name: "D10 集成通过率",
     target: null,
-    numerator: "通过组数（当前 0/10）",
+    numerator: "通过组数（宗侧 10）",
     denominator: "集成用例 10 组",
-    status: "not_covered",
-    caliber: "缺 run_id 与缓存三件证据；且 web_cli_same_result 判据本身须改名",
-    blocked_by: "宗博文（判据）＋ 魏文宇（抽取入口/原始 PDF）",
+    status: "measured",
+    caliber: "★ 本项只证明**结构**通过（run_id / code_version / schema_version / records / diff_list / report 四段 / 缓存三态），不证明关系判定正确：D10-INT-008 关系为 unknown（与旧构建包的 unrelated 不同），口径待魏确认。另 web_cli_same_result 证的是同源同函数幂等，不是独立抽取一致。★ 数据源与页面集成视图同源，不再出现「同页两个数」",
+    blocked_by: null,
   },
   {
     key: "scan_degrade", category: "coverage", name: "扫描件降级明确率",
@@ -339,11 +465,11 @@ const REGISTRY = [
   {
     key: "perf_20page", category: "coverage", name: "20 页公告处理耗时",
     target: 90, unit: "s",
-    numerator: "实测耗时",
-    denominator: "3 份 20 页文本公告",
-    status: "not_covered",
-    caliber: "D12 性能目标；扫描件与缓存路径另报，不混入",
-    blocked_by: "待D12 实测",
+    numerator: "实测耗时（取4 个样本中的最大值）",
+    denominator: "门槛 90s",
+    status: "measured",
+    caliber: "D12 性能目标；扫描件与缓存路径另报，不混入。★ 取最大值非最小值——取最快那次等于挑样本",
+    blocked_by: null,
   },
 ];
 

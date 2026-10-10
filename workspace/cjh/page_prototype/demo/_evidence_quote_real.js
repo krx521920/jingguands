@@ -103,7 +103,13 @@ function main() {
       reason: `快照目录为空或不存在（${SNAP_DIR}）—— 空跑不构成通过`,
       snapshots: 0, prov_total: prov.length, prov_verifiable: 0,
     };
-    fs.writeFileSync(OUT, JSON.stringify(res, null, 1));
+    // 同上：非默认快照目录不覆盖正典产物
+    const isDefault0 = path.resolve(SNAP_DIR) === path.resolve(path.join(ROOT, "..", "..", "..", "..", ".peersnap"));
+    if (isDefault0) {
+      fs.writeFileSync(OUT, JSON.stringify(res, null, 1));
+    } else {
+      console.log(`L-evidence  not_covered: 快照 0 份（试跑，未落盘）`);
+    }
     console.log(`L-evidence  not_covered: 快照 0 份，prov ${prov.length} 条全部未核`);
     return;
   }
@@ -152,7 +158,24 @@ function main() {
     miss_samples: missSamples,
   };
 
-  fs.writeFileSync(OUT, JSON.stringify(res, null, 1));
+  // ★★写产物前的闸：非默认快照目录一律拒绝覆盖正典产物。
+  //   试跑（SNAP_DIR 指向别处）只能读、不能改写 demo/_evidence_quote_real.json——
+  //   该文件是页面注册表 evidence_hit 的唯一数据源，试跑把它改成另一批快照的数
+  //   （实测踩过：241/241 被试跑覆盖成 192/214），页面上的数就会静默换口径。
+  //   确要用非默认快照出数，请显式 --out <路径> 写到副本，人工比对后再决定是否采信。
+  const OUT_PATH = (() => {
+    const i = process.argv.indexOf("--out");
+    return i >= 0 && process.argv[i + 1] ? path.resolve(process.argv[i + 1]) : OUT;
+  })();
+  const isDefaultSnap = path.resolve(SNAP_DIR) === path.resolve(path.join(ROOT, "..", "..", "..", "..", ".peersnap"));
+  //★ 提示只走控制台，绝不追加进 JSON —— 产物是下游解析的数据源，
+  //   掺一句提示就会让所有读它的脚本 JSON.parse 失败（本次即踩到）。
+  if (!isDefaultSnap && OUT_PATH === OUT) {
+    console.log(`  ★ 已拒写：SNAP_DIR 非默认（${SNAP_DIR}），正典产物 _evidence_quote_real.json 未被改动。`);
+    console.log(`    本次结果只打印在屏幕上，不落盘；要留档请显式 --out <副本路径>。`);
+  } else {
+    fs.writeFileSync(OUT_PATH, JSON.stringify(res, null, 1));
+  }
   console.log(`L-evidence  ${res.verdict}: 快照 ${res.snapshot_count} 份（${res.snapshot_blocks} blocks）`);
   console.log(`  可核子集 ${verifiable.length}/${prov.length} 条，覆盖 ${res.docs_covered} 份文档`);
   console.log(`  block_id 可定位 ${okId} / 定位不到 ${missId} / 无 quote ${noQuote}`);

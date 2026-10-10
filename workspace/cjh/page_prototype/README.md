@@ -19,6 +19,21 @@ node server.js
 # 打开 http://127.0.0.1:8642
 ```
 
+### ★ 现场使用须知（收口清单步骤 5–6 落地，评审现场照此操作）
+
+- **导入只收 `.json` 信封，页面不做在线 PDF 抽取。** PDF 须先经张智博的 DocumentIR 解析、
+  再由魏文宇的抽取管线产出信封；页面只消费信封。上传时经`bridge/contract_validate.js`
+  **机检**：缺 `run_id`/`is_mock`/`source`/`run_meta` 的件判 `ok:false` 且**不落盘**，
+  报告逐条列出缺哪个字段（不做静默补齐——补齐等于伪造"这份数据本来合规"）。
+- **`GET /api/result` 必须带 `dataset` 参数**，无参返 400（不静默回落演示件）。
+  数据集名**大小写不敏感**（`d4-pld-001` 命中 `D4-PLD-001`，响应里带
+  `extraction_engine.name_resolution` 如实告知归一化方式）；未命中返回 `suggestions[]` 候选提示。
+- **导出（`/api/export`）与页面所见同源同字段**，JSON 导出带 `extraction_engine`
+  ——拿着导出件的人能判断它是独立抽取还是预生成信封。
+- **演示前必跑一遍 `node server.js`** 确认指标卡非 null：`/api/metrics` 的
+  `summary.fields_total` 应为 **606**、`data_source.scope` 应为 `authoritative`、
+  `data_source.primary_tag.anchor_matches` 应为 `true`。
+
 完整玩法（含扩展演示）见 [demo/使用演示.md](demo/使用演示.md)；数据契约与对接要求见 [docs/API.md](docs/API.md)。
 
 ## 目录结构

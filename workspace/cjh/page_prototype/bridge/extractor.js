@@ -2,7 +2,7 @@
 //
 // 为什么有这个文件：
 //   D10 的`web_cli_same_result` 被判"未覆盖"，根本原因是页面侧**没有独立跑抽取的能力**——
-//   server.js 只做 readFileSync + JSON.parse，消不掉的对比维度。两��边读同一文件，
+//   server.js 只做 readFileSync + JSON.parse，消不掉的对比维度。两侧读同一文件，
 //   验的只是"读同一文件的两个消费者行为是否一致"（幂等性），不是 Web/CLI 一致性。
 //
 // 本层做的事：把「数据从哪来」抽象成 provider，页面/接口只认`extract(caseId)`。
@@ -117,7 +117,15 @@ const fileProvider = {
     // ★ 先查权威批，再查演示池（同名以权威为准）——不静默按目录猜
     const info = dataSource.resolve(safe);
     if (!info) {
-      return { ok: false, reason: `本地无此信封：data_unified/${safe}.json 与 data/${safe}.json 均不存在` };
+      // ★ D25 步骤6-②：未命中时给候选提示 —— 让"大小写/打错字"与"真不存在"可区分。
+      //   ★ 绝不因为名字相近就返回另一份数据：那是伪造"你查的就是这份"，比报错更坏。
+      const sug = dataSource.suggest(safe);
+      const base = `本地无此信封：data_unified/${safe}.json 与 data/${safe}.json 均不存在`;
+      return {
+        ok: false,
+        reason: sug.length ? `${base}；是否想查：${sug.map(s => s.name).join(" / ")}` : base,
+        suggestions: sug.map(s => s.name),
+      };
     }
     const file = info.file;
     if (!file.startsWith(ROOT) || !fs.existsSync(file)) {
@@ -128,7 +136,11 @@ const fileProvider = {
     catch (e) { return { ok: false, reason: "信封解析失败：" + e.message }; }
 
     // 方核验 sidecar：随数据集走，缺失不报错（D6 起沿用的口径）
-    const checkFile = path.join(path.dirname(file), safe + ".check.json");
+    // ★ D25 步骤6-②：sidecar 必须用**数据集的真实名**拼，不是调用方传进来的字符串 ——
+    //   否则大小写归一化命中（查d4-pld-001 拿到 D4-PLD-001）时 sidecar 会静默找不到，
+    //   页面显示成"无核验报告"，看起来像"没做核验"，实为路径拼错。
+    const realName = path.basename(info.file, ".json");
+    const checkFile = path.join(path.dirname(info.file), realName + ".check.json");
     if (fs.existsSync(checkFile)) {
       try { raw.check_report = JSON.parse(fs.readFileSync(checkFile, "utf8")); }
       catch { raw.check_report_error = "check sidecar parse failed"; }
@@ -158,7 +170,13 @@ const fileProvider = {
           variant_group: info.variant_group || null,
         },
         code_version: (raw.run_meta && raw.run_meta.code_version) || raw.code_version || null,
-        upstream_run_id: raw.run_id || null
+        upstream_run_id: raw.run_id || null,
+        // ★ D25 步骤6-②：大小写归一化命中时**如实告知实际取的是哪一份**。
+        //   静默改名＝读者以为查的是自己写的那份。
+        resolved_name: realName,
+        name_resolution: (realName !== safe)
+          ? { mode: "case_insensitive", requested: safe, resolved: realName }
+          : (info.name_resolution || null),
       }
     };
   }
@@ -502,7 +520,10 @@ async function extract(caseId, engineId) {
   if (!av.ok) return { ok: false, engine: p.id, reason: av.reason };
 
   const r = await p.run(caseId);
-  if (!r.ok) return { ok: false, engine: p.id, reason: r.reason };
+  // ★ D25 步骤6-②：失败时**透传 suggestions**。原来只带 reason，
+  //   于是 provider 好不容易算出的候选名在这一层被丢掉，接口只能回一句
+  //   "本地无此信封" —— 打错字与真不存在对调用方完全一样。
+  if (!r.ok) return { ok: false, engine: p.id, reason: r.reason, suggestions: r.suggestions || [] };
   // ★ 转接口返回 {envelope, view, contract_validation}：engine抽取通道消费 **view**
   //   （页面渲染投影），契约本体与校验结果并列挂在 view 上，供页面显示合规状态。
   const bridged = toContract(r.envelope);

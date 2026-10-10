@@ -21,7 +21,9 @@ function svg(tag, attrs) {
 }
 
 function statusText(s) {
-  return { pass: "达标", below: "未达标", unverified: "未核", none: "覆盖率" }[s] || s;
+  // no_target：该项无对标目标（覆盖率/出处类自建口径），不报"达标/未达标"——
+  // 挂错目标等于用错口径宣布达标，那是比缺目标更糟的误导。
+  return { pass: "达标", below: "未达标", unverified: "未核", no_target: "无对标目标", none: "覆盖率" }[s] || s;
 }
 
 /** 横向条形图：目标线 + 实值 + 未核灰条 */
@@ -74,9 +76,11 @@ function barChart(rows, opts) {
     g.appendChild(sub);
 
     const unverified = r.value === null || r.value === undefined;
+    // 无对标目标的项用中性色，不用红绿——避免"达标"色误导读者以为它有考核线
     const color = unverified ? "var(--gray)"
       : r.status === "pass" ? "var(--ok)"
-      : r.status === "below" ? "var(--bad)" : "var(--warn)";
+        : r.status === "below" ? "var(--bad)"
+          : r.status === "no_target" ? "var(--accent)" : "var(--warn)";
 
     if (unverified) {
       g.appendChild(svg("rect", { x: o.padL, y: y + 10, width: plotW, height: 18,
@@ -618,9 +622,14 @@ export function renderMetrics(root, data) {
     if (c.value !== null) big.appendChild(el("span", "mx-u", c.unit));
     card.appendChild(big);
 
+    // ★ 无目标项不得显示「目标 null%　差距 NaN」——那等于把"没目标"渲染成一个
+    //   看起来像目标的假数字。改为说明为何无目标，并指向真正挂目标的指标。
+    const noTarget = c.target === null || c.target === undefined;
     const tg = el("div", "mx-card-target",
-      c.value === null ? "无可核样本" : "目标 " + c.target + c.unit + "　差距 " +
-      (c.gap > 0 ? "+" : "") + c.gap);
+      c.value === null ? "无可核样本"
+        : noTarget ? "无对标目标（不适用准确率类考核线）"
+          : "目标 " + c.target + c.unit + "　差距 " + (c.gap > 0 ? "+" : "") + c.gap);
+    if (noTarget && c.value !== null) tg.classList.add("is-no-target");
     card.appendChild(tg);
     card.appendChild(el("div", "mx-card-cal", c.caliber));
     if (c.coverage_note) card.appendChild(el("div", "mx-card-cov", "⚠ " + c.coverage_note));

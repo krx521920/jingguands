@@ -16,6 +16,10 @@
 
 const fs = require("fs");
 const path = require("path");
+// ★ D25 步骤6-③：接data_source 才能判「报告跑的是哪批数据、现在还准不准」。
+//   本文件原先只在注释里承诺「generated_at 早于数据源变更 ⇒ 带 stale 标记」，
+//   **代码里从未实现** —— 又一条"说了没做"（读者以为有这层保护，实际没有）。
+const dataSource = require("./data_source.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const REPORT = path.join(ROOT, "demo", "_parity_real.json");
@@ -56,6 +60,50 @@ function badgeOf(verdict) {
   }
 }
 
+/**
+ * ★ D25 步骤6-③：报告是否已过期 —— **实算当前输入指纹，与报告里存的对账**。
+ *
+ * D19 铁律⑧的落点：报告里`input_fingerprint` 记的是跑它那一刻的输入目录指纹，
+ * 若之后数据换了（换源、刷新权威批、上传新件），报告的数字就**不再描述当前数据**。
+ * 数字本身可能仍然正确，但"跑在哪批数据上"这一层已不可引用 —— 页面必须显示 stale。
+ *
+ * ★ 判过期用**当前实算指纹 ≠ 报告存指纹**，不看日期：
+ *   日期会被"同一天改了数据"骗过去，而指纹不会。
+ *   指纹算法与 demo/_parity_real.js 用的是同一个（registry.fingerprint / data_source.dirFingerprint）。
+ */
+function staleness(r) {
+  const recorded = (r && r.input_fingerprint && r.input_fingerprint.inputs) || null;
+  // ★ 键名必须与 metrics_registry.fingerprint() 的 inputs 完全一致
+  //   （{page_data, unified_batch}），不是 data_source 的批次 id ——
+  //   键名对不上会**恒判 stale**，那等于把"过期检测"变成"永远报警"，同样是假信号。
+  const DIRS = { page_data: "data", unified_batch: dataSource.BATCHES[dataSource.PRIMARY_ID].dir };
+  const current = {};
+  for (const k of Object.keys(DIRS)) current[k] = dataSource.dirFingerprint(DIRS[k]);
+  // 报告里记的是旧结构（只有 page_data），当前两批都在用：
+  //   只要**报告没覆盖当前任一批次的指纹**，就无法证明它描述当前数据 ⇒ 判 stale。
+  if (!recorded) return { stale: true, reason: "报告未记录输入指纹，无法证明它描述当前数据", current };
+  const missing = Object.keys(current).filter(k => !recorded[k]);
+  if (missing.length) {
+    return {
+      stale: true,
+      reason: `报告生成于数据源换版前：只覆盖 ${Object.keys(recorded).join("/")}，未覆盖 ${missing.join("/")} —— ` +
+              `该报告的数字不描述当前页面所用数据（重跑：node demo/_parity_real.js）`,
+      missing_batches: missing,
+      current,
+    };
+  }
+  const changed = Object.keys(current).filter(k => recorded[k] && recorded[k].sha256 !== current[k].sha256);
+  if (changed.length) {
+    return {
+      stale: true,
+      reason: `报告生成后 ${changed.join("/")} 目录内容已变（指纹不同）—— 须重跑 node demo/_parity_real.js`,
+      changed_batches: changed,
+      current,
+    };
+  }
+  return { stale: false, reason: "输入指纹与报告记录一致，报告仍描述当前数据", current };
+}
+
 function loadReport() {
   if (!fs.existsSync(REPORT)) {
     return {
@@ -83,6 +131,9 @@ function loadReport() {
     };
   }
 
+  const st = staleness(r);
+  //★ stale 时 verdict 降为 not_covered：过期报告的数字不能当"已测通过"引用。
+  //   但**保留原数字并标明** —— 删掉等于把"曾经跑过"也抹了，读者会以为从没跑过。
   const layers = ["L1", "L2", "L3"].map(k => {
     const L = (r.layers || {})[k] || null;
     const P = LAYER_PHRASES[k];
@@ -124,7 +175,12 @@ function loadReport() {
 
   return {
     available: true,
-    verdict: "measured",
+    // ★ 过期报告不算"已测"：verdict 从 measured 降为 stale，页面须显示 stale 标记与重跑命令。
+    verdict: st.stale ? "stale" : "measured",
+    stale: st.stale === true,
+    stale_reason: st.reason,
+    stale_detail: { missing_batches: st.missing_batches || null, changed_batches: st.changed_batches || null },
+    how_to_regenerate: st.stale ? "node demo/_parity_real.js" : null,
     generated_at: r.generated_at || null,
     input_fingerprint: r.input_fingerprint || null,
     headline: r.headline || "",

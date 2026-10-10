@@ -303,6 +303,19 @@ function computeMetrics(batchId) {
   };
 }
 
+/** 读标准化两项实算产物（demo/_standardized_real.js 产出）。
+ *  ★ 不在此处重算：卡片与注册表必须读同一份产物，否则必然重演"同名两个值"。
+ *  ★ 缺失或分母 0 ⇒ 返回 null（判未测），绝不按目标值或经验值填充。 */
+function readStandardized() {
+  const p = path.join(__dirname, "..", "demo", "_standardized_real.json");
+  let r = null;
+  try { r = JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { r = null; }
+  if (!r) return { coverage: null, accuracy: null, context: null };
+  const cov = r.coverage && r.coverage.den > 0 ? r.coverage : null;
+  const acc = r.accuracy && r.accuracy.den > 0 ? r.accuracy : null;
+  return { coverage: cov, accuracy: acc, context: r.context || null };
+}
+
 /**
  * 组装 /api/metrics 响应。
  * 指标卡按总规划 §验收指标给出目标值，但**达标与否由实算数决定**，
@@ -320,22 +333,54 @@ function handleMetrics(res, batchId) {
     try { registryPayload = require("./metrics_registry.js"); }
     catch (e) { registryPayload = null; }
 
-    // 目标值来自 cjh_workspace_00_总规划.md §验收指标（仅作对照，不参与计算）
-    // 口径严格对应总规划原文，不混用近似指标：
-    //   字段抽取率 ≥90%   → status === "extracted" 占已判定状态字段的比例
-    //   标准化   ≥98%     → standardized === true 占 true/false（未标注不入分母）
-    //   出处命中 ≥95%     → L3 原文命中（quote 能在原始解析 block 中找到）
+    // D17：标准化判据已由评测侧裁定（evaluation/D17/裁定-standardized判据-20261010.md）。
+    //  两个指标必须分列，且**数值不在此处重算**——由 demo/_standardized_real.js 实算后
+    //  写 demo/_standardized_real.json，本处只读产物。理由：卡片与注册表必须同源，
+    //  两处各算一次就会重演"同名两个值"。
+    //  产物缺失 ⇒ target 仍挂、value 为 null（判未测），绝不按目标值填充。
+    const std = readStandardized();
+    // ★ 出处命中率：卡片与注册表必须同源，否则同屏出现两个分母（39/241）。
+    //   取注册表 evidence_hit 的实测值为准；L3 明细降级为口径说明里的补充视图。
+    const provCard = (() => {
+      let ev = null;
+      try { ev = require("./metrics_registry.js").get("evidence_hit"); } catch (e) { ev = null; }
+      const den = ev && ev.den != null ? ev.den : null;
+      const num = ev && ev.num != null ? ev.num : null;
+      const docs = (ev && ev.evidence_note && (/覆盖\s*(\d+)\s*份文档/.exec(ev.evidence_note) || [])[1]) || "0";
+      return { value: ev ? ev.value : null, num: num == null ? "—" : num, den: den == null ? "—" : den, docs: docs };
+    })();
+    // 目标值来自 cjh_workspace_00_总规划.md §验收指标（仅作对照，不参与计算）。
+    // ★口径纪律（D15/D17 校准）：90% 是**准确率**目标、98% 是**标准化正确率**目标，
+    //   二者都不得挂在覆盖率/出处这类"分母含弃权"的口径上——挂错等于用错口径宣布未达标。
     const TARGETS = [
-      { key: "extracted_pct", name: "字段抽取率", target: 90, value: s.extracted_pct, unit: "%",
+      { key: "extracted_pct", name: "字段抽取覆盖率", target: null, value: s.extracted_pct, unit: "%",
         caliber: "status=extracted 占已判定状态字段的比例（分子 " + agg.status_extracted +
-          " / 分母 " + (agg.status_extracted + agg.status_pending_review + agg.status_other) + "）" },
-      { key: "standardized_pct", name: "标准化率", target: 98, value: s.standardized_pct, unit: "%",
-        caliber: "standardized=true 占 true/false 之比（分子 " + agg.standardized_true +
-          " / 分母 " + (agg.standardized_true + agg.standardized_false) + "，未标注 " +
-          agg.standardized_null + " 条不入分母）" },
-      { key: "provenance_hit", name: "出处命中率", target: 95, value: l3.hit_rate_pct, unit: "%",
-        caliber: "L3 原文命中：" + l3.hit + "/" + l3.checked + "，仅覆盖 " + l3.datasets_checkable.length + " 个有解析包的文档",
-        coverage_note: "本地仅 1 份原始解析快照，其余 " + l3.datasets_unverifiable + " 个数据集未核，不计入分母" },
+          " / 分母 " + (agg.status_extracted + agg.status_pending_review + agg.status_other) +
+          "）；弃权字段计入分母。权威分母 606",
+        coverage_note: "★ 准确率目标 90% 对应的是另一个指标（字段抽取准确率 437/437），不挂本项" },
+      { key: "standardized_pct", name: "标准化覆盖率", target: null,
+        value: std.coverage ? std.coverage.pct : null, unit: "%",
+        caliber: std.coverage
+          ? "标准化覆盖率＝standardized=true 的非 text 有值字段 / 非 text 有值字段（分子 " +
+            std.coverage.num + " / 分母 " + std.coverage.den + "）"
+          : "标准化覆盖率＝standardized=true 的非 text 有值字段 / 非 text 有值字段（未测，无实算产物）",
+        coverage_note: "★ 判据依 evaluation/D17/裁定-standardized判据-20261010.md；text 字段不入分母（D13-C2）；目标 98% 挂在「标准化正确率」，不挂本项" +
+          (std.coverage ? "（含 text 噪声的辅助口径 " + std.context.aux_pct + "% 仅作对照）" : "") },
+      { key: "standardized_accuracy_pct", name: "标准化正确率", target: 98,
+        value: std.accuracy ? std.accuracy.pct : null, unit: "%",
+        caliber: std.accuracy
+          ? "非 text 有值且有 Gold 期望的字段中，value 与 Gold 规范值一致（分子 " +
+            std.accuracy.num + " / 分母 " + std.accuracy.den + "）"
+          : "非 text 有值且有 Gold 期望的字段中，value 与 Gold 规范值一致（未测）",
+        coverage_note: "value 即规范化后的取值，值层一致即标准化正确（与标准化覆盖率分列，不得相加）" },
+      { key: "provenance_hit", name: "出处命中率", target: 95, value: provCard.value, unit: "%",
+        caliber: "出处原文命中率＝quote 落在原始解析 block.text 内（分子 " +
+          provCard.num + " / 分母 " + provCard.den + "）。数据源＝指标注册表 evidence_hit" +
+          (provCard.value === null ? "（★ 未测：实算产物缺失，不得按 100% 填充）" : ""),
+        coverage_note: "★ 覆盖 " + provCard.docs + " 份文档（有原文快照），可核子集 " +
+          provCard.num + " 条 provenance；其余未覆盖文档的 provenance 未核，不计入分母。" +
+          "本卡是强判据（quote ∈ block.text），退化为整篇包含只记 weak 不计入分子。" +
+          (l3.checked ? " L3 明细（本页自校验，同源信封 blocks）：" + l3.hit + "/" + l3.checked + "，覆盖 " + l3.datasets_checkable.length + " 份文档。" : "") },
     ];
 
     const cards = TARGETS.map((t) => {
@@ -343,8 +388,13 @@ function handleMetrics(res, batchId) {
       return {
         key: t.key, name: t.name, target: t.target, value: t.value, unit: t.unit,
         caliber: t.caliber, coverage_note: t.coverage_note || null,
-        status: !measured ? "unverified" : t.value >= t.target ? "pass" : "below",
-        gap: measured ? +(t.value - t.target).toFixed(2) : null,
+        // ★ 无目标项不得判pass：`value >= null` 恒为 true，会把「覆盖率」这类
+        //   自建口径的指标谎报成达标。target 为 null 时只报实测值，不报达标与否。
+        status: !measured ? "unverified"
+          : (t.target === null || t.target === undefined) ? "no_target"
+            : (t.value >= t.target ? "pass" : "below"),
+        gap: measured && t.target !== null && t.target !== undefined
+          ? +(t.value - t.target).toFixed(2) : null,
       };
     });
 
