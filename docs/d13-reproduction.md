@@ -89,6 +89,12 @@ D12 冻结缓存快照（31 条＋SHA256SUMS）：模型响应字节与 D12-A �
 events 与 D12-A 基线 **31/31 逐字节一致**、模型调用 30/30 缓存命中（第 31 份为扫描降级件，
 设计上不调用）。三组运行与比对报告见 `evaluation/D12/wei-runs/README.md`。
 
+> **D17 不变量后的口径更新（2026-10-10，41d57c87）**：无值族 standardized 恒 false 的
+> 裁定落地后，当前代码重放 vs D12-A＝**28/31 逐字节＋4 处无值字段 standardized 标志翻正**
+> （PLD-008.announcement_date／PLD-009 E03.start_date／AWD-002 E01+E02.contract_signed，
+> 全部翻回 false 并记 call_log.repairs；值层 31/31 不变）。重放确定性不受影响：同代码
+> 两跑 events 仍 31/31 逐字节一致（2026-10-10 双跑实测）。
+
 ### 4.3 冷跑（需要密钥）：修后基线 / 并发 / 重放三组
 
 命令与判据见 `evaluation/D12/wei-runs/README.md`——A：`--jobs 1` 冷跑对首测冻结值层

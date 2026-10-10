@@ -1,0 +1,1718 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261010T050236-award_contract-c844",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+    "file_name": "bid-004.pdf",
+    "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.0",
+      "page_count": 4,
+      "blocks": [
+        {
+          "block_id": "d0be9f419_p001_b00001",
+          "page": 1,
+          "role": "BODY",
+          "text": "证券代码：301235 证券简称：华康洁净 公告编号：2026-117",
+          "text_raw": "证券代码：301235证券简称：华康洁净公告编号：2026-117",
+          "region": [
+            89.88,
+            74.02,
+            495.96,
+            86.02
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00002",
+          "page": 1,
+          "role": "BODY",
+          "text": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告",
+          "text_raw": "武汉华康世纪洁净科技股份有限公司关于项目中标及签订合同的公告",
+          "region": [
+            166.2,
+            117.08,
+            423.1,
+            162.19
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
+          "text_raw": "本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记",
+          "region": [
+            119.28,
+            189.7,
+            490.68,
+            201.7
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "载、误导性陈述或重大遗漏。",
+          "text_raw": "载、误导性陈述或重大遗漏。",
+          "region": [
+            95.28,
+            211.42,
+            245.28,
+            223.42
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "特别提示：",
+          "text_raw": "特别提示：",
+          "region": [
+            113.88,
+            254.86,
+            174.12,
+            266.86
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
+          "text_raw": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
+          "region": [
+            113.88,
+            278.26,
+            505.44,
+            290.26
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": "议的解决方式等作出了明确规定，合同的履行仍存在因市场环境、宏观经济、合同双方履约能力以及其他不可抗力因素发生重大变化而无法正常履行的风险。敬请广大投资者注意投资风险。",
+          "text_raw": "议的解决方式等作出了明确规定，合同的履行仍存在因市场环境、宏观经济、合同双方履约能力以及其他不可抗力因素发生重大变化而无法正常履行的风险。敬请广大投资者注意投资风险。",
+          "region": [
+            89.88,
+            301.66,
+            505.44,
+            360.46
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "近日，武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉",
+          "text_raw": "近日，武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉",
+          "region": [
+            113.88,
+            395.26,
+            505.44,
+            407.26
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程，并与承包人武汉建工集团股份有限公司新洲分公司（以下简称“合同对方”）签署了《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包合同》，合同价（暂定含税总价款）为5,400万元。现将相关内容公告如下：",
+          "text_raw": "市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程，并与承包人武汉建工集团股份有限公司新洲分公司（以下简称“合同对方”）签署了《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包合同》，合同价（暂定含税总价款）为5,400万元。现将相关内容公告如下：",
+          "region": [
+            89.88,
+            418.66,
+            505.44,
+            500.86
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00010",
+          "page": 1,
+          "role": "SECTION",
+          "text": "一、合同对方基本情况",
+          "text_raw": "一、合同对方基本情况",
+          "region": [
+            113.88,
+            512.26,
+            234.24,
+            524.26
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00011",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（一）基本情况",
+          "text_raw": "（一）基本情况",
+          "region": [
+            113.88,
+            535.66,
+            198.12,
+            547.66
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00012",
+          "page": 1,
+          "role": "BODY",
+          "text": "交易对手方名称：武汉建工集团股份有限公司新洲分公司",
+          "text_raw": "交易对手方名称：武汉建工集团股份有限公司新洲分公司",
+          "region": [
+            113.88,
+            559.06,
+            413.88,
+            571.06
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "负责人：吴利斌",
+          "text_raw": "负责人：吴利斌",
+          "region": [
+            113.88,
+            582.46,
+            197.88,
+            594.46
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00014",
+          "page": 1,
+          "role": "BODY",
+          "text": "统一社会信用代码：91420117MADHEPUT9J",
+          "text_raw": "统一社会信用代码：91420117MADHEPUT9J",
+          "region": [
+            113.88,
+            605.86,
+            329.76,
+            617.86
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00015",
+          "page": 1,
+          "role": "BODY",
+          "text": "营业场所：湖北省武汉市新洲区邾城街南安街75号1栋3层301室经营范围：一般项目：承接总公司工程建设业务；凭总公司授权开展经营活",
+          "text_raw": "营业场所：湖北省武汉市新洲区邾城街南安街75号1栋3层301室经营范围：一般项目：承接总公司工程建设业务；凭总公司授权开展经营活",
+          "region": [
+            113.88,
+            629.26,
+            505.44,
+            664.66
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00016",
+          "page": 1,
+          "role": "BODY",
+          "text": "动。（除许可业务外，可自主依法经营法律法规非禁止或限制的项目）",
+          "text_raw": "动。（除许可业务外，可自主依法经营法律法规非禁止或限制的项目）",
+          "region": [
+            89.88,
+            676.06,
+            461.88,
+            688.06
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00017",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（二）关联关系",
+          "text_raw": "（二）关联关系",
+          "region": [
+            113.88,
+            699.46,
+            198.12,
+            711.46
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00018",
+          "page": 1,
+          "role": "BODY",
+          "text": "本公司、控股股东及实际控制人与武汉建工集团股份有限公司及其新洲分公",
+          "text_raw": "本公司、控股股东及实际控制人与武汉建工集团股份有限公司及其新洲分公",
+          "region": [
+            113.88,
+            722.86,
+            505.44,
+            734.86
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p001_b00019",
+          "page": 1,
+          "role": "BODY",
+          "text": "司之间均不存在关联关系。",
+          "text_raw": "司之间均不存在关联关系。",
+          "region": [
+            89.88,
+            746.26,
+            233.88,
+            758.26
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00001",
+          "page": 2,
+          "role": "SECTION",
+          "text": "（三）履约能力分析",
+          "text_raw": "（三）履约能力分析",
+          "region": [
+            113.88,
+            74.98,
+            222.24,
+            86.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00002",
+          "page": 2,
+          "role": "BODY",
+          "text": "武汉建工集团股份有限公司系大型国有建筑施工企业，资信状况良好，在履",
+          "text_raw": "武汉建工集团股份有限公司系大型国有建筑施工企业，资信状况良好，在履",
+          "region": [
+            113.88,
+            98.38,
+            505.44,
+            110.38
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "约能力、信用状况及支付能力方面的风险较小。",
+          "text_raw": "约能力、信用状况及支付能力方面的风险较小。",
+          "region": [
+            89.88,
+            121.78,
+            341.88,
+            133.78
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00004",
+          "page": 2,
+          "role": "SECTION",
+          "text": "（四）过往交易情况",
+          "text_raw": "（四）过往交易情况",
+          "region": [
+            113.88,
+            145.18,
+            222.24,
+            157.18
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00005",
+          "page": 2,
+          "role": "BODY",
+          "text": "除本项目外，最近三年公司与武汉建工集团股份有限公司及其子公司发生交",
+          "text_raw": "除本项目外，最近三年公司与武汉建工集团股份有限公司及其子公司发生交",
+          "region": [
+            113.88,
+            168.58,
+            505.44,
+            180.58
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00006",
+          "page": 2,
+          "role": "BODY",
+          "text": "易如下：",
+          "text_raw": "易如下：",
+          "region": [
+            89.88,
+            191.98,
+            137.88,
+            203.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00007",
+          "page": 2,
+          "role": "BODY",
+          "text": "合同签订日期",
+          "text_raw": "合同签订日期",
+          "region": [
+            84.45,
+            209.79,
+            175.1,
+            241.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同签订日期/2025年5月/2025年7月"
+          },
+          "header_path": "合同签订日期/2025年5月/2025年7月"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00008",
+          "page": 2,
+          "role": "BODY",
+          "text": "项目名称",
+          "text_raw": "项目名称",
+          "region": [
+            175.1,
+            209.79,
+            355.65,
+            241.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c005",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
+          },
+          "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00009",
+          "page": 2,
+          "role": "BODY",
+          "text": "合同对方",
+          "text_raw": "合同对方",
+          "region": [
+            355.65,
+            209.79,
+            442.9,
+            241.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c009",
+            "cell_ref": "r1c3",
+            "row": 0,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
+          },
+          "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00010",
+          "page": 2,
+          "role": "BODY",
+          "text": "合同价款（万元）",
+          "text_raw": "合同价款（万元）",
+          "region": [
+            442.9,
+            209.79,
+            510.85,
+            241.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c013",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同价款（万元）/5,688.06/1,645.04"
+          },
+          "header_path": "合同价款（万元）/5,688.06/1,645.04"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00011",
+          "page": 2,
+          "role": "BODY",
+          "text": "2025年5月",
+          "text_raw": "2025年5月",
+          "region": [
+            84.45,
+            241.44,
+            175.1,
+            273.04
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同签订日期/2025年5月/2025年7月"
+          },
+          "header_path": "合同签订日期/2025年5月/2025年7月"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00012",
+          "page": 2,
+          "role": "BODY",
+          "text": "武汉新城中心医院项目医疗专项设计采购施工一体化",
+          "text_raw": "武汉新城中心医院项目医疗专项设计采购施工一体化",
+          "region": [
+            175.1,
+            241.44,
+            355.65,
+            273.04
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c006",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
+          },
+          "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00013",
+          "page": 2,
+          "role": "BODY",
+          "text": "武汉建工新城建设有限公司",
+          "text_raw": "武汉建工新城建设有限公司",
+          "region": [
+            355.65,
+            241.44,
+            442.9,
+            273.04
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c010",
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
+          },
+          "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00014",
+          "page": 2,
+          "role": "BODY",
+          "text": "5,688.06",
+          "text_raw": "5,688.06",
+          "region": [
+            442.9,
+            241.44,
+            510.85,
+            273.04
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c014",
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同价款（万元）/5,688.06/1,645.04"
+          },
+          "header_path": "合同价款（万元）/5,688.06/1,645.04"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00015",
+          "page": 2,
+          "role": "BODY",
+          "text": "2025年7月",
+          "text_raw": "2025年7月",
+          "region": [
+            84.45,
+            273.04,
+            175.1,
+            320.24
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c003",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同签订日期/2025年5月/2025年7月"
+          },
+          "header_path": "合同签订日期/2025年5月/2025年7月"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00016",
+          "page": 2,
+          "role": "BODY",
+          "text": "市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程",
+          "text_raw": "市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程",
+          "region": [
+            175.1,
+            273.04,
+            355.65,
+            320.24
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c007",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
+          },
+          "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00017",
+          "page": 2,
+          "role": "BODY",
+          "text": "武汉建工集团股份有限公司",
+          "text_raw": "武汉建工集团股份有限公司",
+          "region": [
+            355.65,
+            273.04,
+            442.9,
+            320.24
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c011",
+            "cell_ref": "r3c3",
+            "row": 2,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
+          },
+          "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00018",
+          "page": 2,
+          "role": "BODY",
+          "text": "1,645.04",
+          "text_raw": "1,645.04",
+          "region": [
+            442.9,
+            273.04,
+            510.85,
+            320.24
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c015",
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同价款（万元）/5,688.06/1,645.04"
+          },
+          "header_path": "合同价款（万元）/5,688.06/1,645.04"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00019",
+          "page": 2,
+          "role": "BODY",
+          "text": "2026年1月",
+          "text_raw": "2026年1月",
+          "region": [
+            84.45,
+            320.24,
+            175.1,
+            367.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c004",
+            "cell_ref": "r4c1",
+            "row": 3,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同签订日期/2025年5月/2025年7月"
+          },
+          "header_path": "合同签订日期/2025年5月/2025年7月"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00020",
+          "page": 2,
+          "role": "BODY",
+          "text": "武汉市第一医院利济路院区扩建项目（医疗综合楼、皮肤病专科大楼）工程总承包（EPC）",
+          "text_raw": "武汉市第一医院利济路院区扩建项目（医疗综合楼、皮肤病专科大楼）工程总承包（EPC）",
+          "region": [
+            175.1,
+            320.24,
+            355.65,
+            367.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c008",
+            "cell_ref": "r4c2",
+            "row": 3,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
+          },
+          "header_path": "项目名称/武汉新城中心医院项目医疗专项设计采购施工一体化/市武昌医院东区门诊住院综合楼（平疫结合）项目智慧物流系统工程"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00021",
+          "page": 2,
+          "role": "BODY",
+          "text": "武汉建工集团股份有限公司",
+          "text_raw": "武汉建工集团股份有限公司",
+          "region": [
+            355.65,
+            320.24,
+            442.9,
+            367.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c012",
+            "cell_ref": "r4c3",
+            "row": 3,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
+          },
+          "header_path": "合同对方/武汉建工新城建设有限公司/武汉建工集团股份有限公司"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00022",
+          "page": 2,
+          "role": "BODY",
+          "text": "5,488.00",
+          "text_raw": "5,488.00",
+          "region": [
+            442.9,
+            320.24,
+            510.85,
+            367.44
+          ],
+          "source_type": "cell",
+          "table_ref": {
+            "table_id": "d0be9f419_p002_t001",
+            "cell_id": "d0be9f419_p002_t001_c016",
+            "cell_ref": "r4c4",
+            "row": 3,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "合同价款（万元）/5,688.06/1,645.04"
+          },
+          "header_path": "合同价款（万元）/5,688.06/1,645.04"
+        },
+        {
+          "block_id": "d0be9f419_p002_b00023",
+          "page": 2,
+          "role": "SECTION",
+          "text": "二、合同基本情况",
+          "text_raw": "二、合同基本情况",
+          "region": [
+            113.88,
+            373.42,
+            210.12,
+            385.42
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00024",
+          "page": 2,
+          "role": "SECTION",
+          "text": "（一）合同主体",
+          "text_raw": "（一）合同主体",
+          "region": [
+            113.88,
+            396.82,
+            198.12,
+            408.82
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00025",
+          "page": 2,
+          "role": "BODY",
+          "text": "甲方（承包人）：武汉建工集团股份有限公司新洲分公司",
+          "text_raw": "甲方（承包人）：武汉建工集团股份有限公司新洲分公司",
+          "region": [
+            113.88,
+            420.22,
+            413.88,
+            432.22
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00026",
+          "page": 2,
+          "role": "BODY",
+          "text": "乙方（分包人）：武汉华康世纪洁净科技股份有限公司",
+          "text_raw": "乙方（分包人）：武汉华康世纪洁净科技股份有限公司",
+          "region": [
+            113.88,
+            443.62,
+            401.88,
+            455.62
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00027",
+          "page": 2,
+          "role": "SECTION",
+          "text": "（二）分包工程概况",
+          "text_raw": "（二）分包工程概况",
+          "region": [
+            113.88,
+            467.02,
+            222.12,
+            479.02
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00028",
+          "page": 2,
+          "role": "BODY",
+          "text": "分包工程名称：武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗",
+          "text_raw": "分包工程名称：武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗",
+          "region": [
+            113.88,
+            490.42,
+            505.44,
+            502.42
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00029",
+          "page": 2,
+          "role": "BODY",
+          "text": "专项专业分包工程",
+          "text_raw": "专项专业分包工程",
+          "region": [
+            89.88,
+            513.82,
+            185.88,
+            525.82
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00030",
+          "page": 2,
+          "role": "BODY",
+          "text": "分包工程地点：武汉市新洲区问津产业新城地块，四至为永安大道以东、书",
+          "text_raw": "分包工程地点：武汉市新洲区问津产业新城地块，四至为永安大道以东、书",
+          "region": [
+            113.88,
+            537.22,
+            505.44,
+            549.22
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00031",
+          "page": 2,
+          "role": "BODY",
+          "text": "香大街以南、文昌大道以西、白鹭大街以北。",
+          "text_raw": "香大街以南、文昌大道以西、白鹭大街以北。",
+          "region": [
+            89.88,
+            560.62,
+            329.88,
+            572.62
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00032",
+          "page": 2,
+          "role": "BODY",
+          "text": "分包工程承包范围：二标段医疗专项专业分包工程，包括但不限于：门诊医",
+          "text_raw": "分包工程承包范围：二标段医疗专项专业分包工程，包括但不限于：门诊医",
+          "region": [
+            113.88,
+            584.02,
+            505.44,
+            596.02
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00033",
+          "page": 2,
+          "role": "BODY",
+          "text": "技楼住院楼三层ICU、内镜中心、手术部；门诊医技楼住院楼四层血透中心、病理科、体检中心放射防护；五层产房、NICU、脑外科ICU；科室分布式纯水-医用纯水系统等所有医疗专项界面内的医疗专项对应的装饰、机电、弱电、纯水、放射防护、医疗气体、污水处理等交钥匙专业分包工程，具体工作范围和内容详见附件《武汉市新洲区人民医院项目医疗专项工程施工界面划分及配合事宜》、施工图纸及实际安排的工作为准。",
+          "text_raw": "技楼住院楼三层ICU、内镜中心、手术部；门诊医技楼住院楼四层血透中心、病理科、体检中心放射防护；五层产房、NICU、脑外科ICU；科室分布式纯水-医用纯水系统等所有医疗专项界面内的医疗专项对应的装饰、机电、弱电、纯水、放射防护、医疗气体、污水处理等交钥匙专业分包工程，具体工作范围和内容详见附件《武汉市新洲区人民医院项目医疗专项工程施工界面划分及配合事宜》、施工图纸及实际安排的工作为准。",
+          "region": [
+            89.88,
+            607.42,
+            509.88,
+            736.42
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p002_b00034",
+          "page": 2,
+          "role": "BODY",
+          "text": "分包工程承包方式：包工、包料、包机械设备，包工期、质量、安全、文明",
+          "text_raw": "分包工程承包方式：包工、包料、包机械设备，包工期、质量、安全、文明",
+          "region": [
+            113.88,
+            747.82,
+            505.44,
+            759.82
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00001",
+          "page": 3,
+          "role": "BODY",
+          "text": "施工，包施工配合、检验试验费及包验收通过、包成品保护、包维保等。",
+          "text_raw": "施工，包施工配合、检验试验费及包验收通过、包成品保护、包维保等。",
+          "region": [
+            89.88,
+            74.98,
+            473.88,
+            86.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00002",
+          "page": 3,
+          "role": "SECTION",
+          "text": "（三）工期",
+          "text_raw": "（三）工期",
+          "region": [
+            113.88,
+            98.38,
+            174,
+            110.38
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00003",
+          "page": 3,
+          "role": "BODY",
+          "text": "120个日历天。",
+          "text_raw": "120个日历天。",
+          "region": [
+            113.88,
+            121.78,
+            194.88,
+            133.78
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00004",
+          "page": 3,
+          "role": "SECTION",
+          "text": "（四）工程质量标准",
+          "text_raw": "（四）工程质量标准",
+          "region": [
+            113.88,
+            145.18,
+            222.12,
+            157.18
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00005",
+          "page": 3,
+          "role": "BODY",
+          "text": "达到“国家优质工程奖”标准，并负责配合申报国家优质工程奖。",
+          "text_raw": "达到“国家优质工程奖”标准，并负责配合申报国家优质工程奖。",
+          "region": [
+            113.88,
+            168.58,
+            461.88,
+            180.58
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00006",
+          "page": 3,
+          "role": "SECTION",
+          "text": "（五）签约合同价与合同价格形式",
+          "text_raw": "（五）签约合同价与合同价格形式",
+          "region": [
+            113.88,
+            191.98,
+            294.48,
+            203.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00007",
+          "page": 3,
+          "role": "BODY",
+          "text": "签约合同价（暂定含税总价款）为：人民币54,000,000.00元（大写：伍仟",
+          "text_raw": "签约合同价（暂定含税总价款）为：人民币54,000,000.00元（大写：伍仟",
+          "region": [
+            113.88,
+            215.38,
+            505.44,
+            227.38
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00008",
+          "page": 3,
+          "role": "BODY",
+          "text": "肆佰万元整），其中不含增值税价款人民币49,541,284.40元，增值税税额人民币4,458,715.60元（税率9%）。",
+          "text_raw": "肆佰万元整），其中不含增值税价款人民币49,541,284.40元，增值税税额人民币4,458,715.60元（税率9%）。",
+          "region": [
+            89.88,
+            238.78,
+            505.44,
+            274.18
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00009",
+          "page": 3,
+          "role": "BODY",
+          "text": "合同价格形式：采取费率方式确定。",
+          "text_raw": "合同价格形式：采取费率方式确定。",
+          "region": [
+            113.88,
+            285.58,
+            305.88,
+            297.58
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00010",
+          "page": 3,
+          "role": "SECTION",
+          "text": "（六）合同生效",
+          "text_raw": "（六）合同生效",
+          "region": [
+            113.88,
+            308.98,
+            198.12,
+            320.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00011",
+          "page": 3,
+          "role": "BODY",
+          "text": "本合同自双方盖章之日起生效。",
+          "text_raw": "本合同自双方盖章之日起生效。",
+          "region": [
+            113.88,
+            332.38,
+            281.88,
+            344.38
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00012",
+          "page": 3,
+          "role": "BODY",
+          "text": "上述合同属于公司的日常经营合同，根据《深圳证券交易所创业板股票上市",
+          "text_raw": "上述合同属于公司的日常经营合同，根据《深圳证券交易所创业板股票上市",
+          "region": [
+            113.88,
+            355.78,
+            505.44,
+            367.78
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00013",
+          "page": 3,
+          "role": "BODY",
+          "text": "规则》《公司章程》等相关规定，不涉及关联交易，无需提交董事会或股东会审议。",
+          "text_raw": "规则》《公司章程》等相关规定，不涉及关联交易，无需提交董事会或股东会审议。",
+          "region": [
+            89.88,
+            379.18,
+            505.44,
+            414.58
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00014",
+          "page": 3,
+          "role": "SECTION",
+          "text": "三、合同履行对公司的影响",
+          "text_raw": "三、合同履行对公司的影响",
+          "region": [
+            113.88,
+            425.98,
+            258.36,
+            437.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00015",
+          "page": 3,
+          "role": "BODY",
+          "text": "本次签署的合同是公司的日常经营合同，合同履行对公司业务独立性没有影",
+          "text_raw": "本次签署的合同是公司的日常经营合同，合同履行对公司业务独立性没有影",
+          "region": [
+            113.88,
+            449.38,
+            505.44,
+            461.38
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00016",
+          "page": 3,
+          "role": "BODY",
+          "text": "响，公司主要业务不会因履行合同而对合同对方形成依赖，若合同能够顺利履行，对公司未来经营业绩将产生积极影响。",
+          "text_raw": "响，公司主要业务不会因履行合同而对合同对方形成依赖，若合同能够顺利履行，对公司未来经营业绩将产生积极影响。",
+          "region": [
+            89.88,
+            472.78,
+            511.44,
+            508.18
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00017",
+          "page": 3,
+          "role": "SECTION",
+          "text": "四、合同履行的风险分析",
+          "text_raw": "四、合同履行的风险分析",
+          "region": [
+            113.88,
+            519.58,
+            246.36,
+            531.58
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00018",
+          "page": 3,
+          "role": "BODY",
+          "text": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
+          "text_raw": "合同双方均具有履约能力，合同已对各方权利和义务、违约责任与赔偿、争",
+          "region": [
+            113.88,
+            542.98,
+            505.44,
+            554.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00019",
+          "page": 3,
+          "role": "BODY",
+          "text": "议的解决方式等作出明确规定，合同的履行仍存在因市场环境、宏观经济、合同双方履约能力以及其他不可抗力因素发生重大变化而无法正常履行的风险。同时，本合同最终结算价款以发包人及审计单位最终审定的含税结算总造价为基础下浮确定，实际结算金额存在不确定性。敬请广大投资者注意投资风险。",
+          "text_raw": "议的解决方式等作出明确规定，合同的履行仍存在因市场环境、宏观经济、合同双方履约能力以及其他不可抗力因素发生重大变化而无法正常履行的风险。同时，本合同最终结算价款以发包人及审计单位最终审定的含税结算总造价为基础下浮确定，实际结算金额存在不确定性。敬请广大投资者注意投资风险。",
+          "region": [
+            89.88,
+            566.38,
+            517.44,
+            648.58
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00020",
+          "page": 3,
+          "role": "SECTION",
+          "text": "五、备查文件",
+          "text_raw": "五、备查文件",
+          "region": [
+            113.88,
+            659.98,
+            186.12,
+            671.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00021",
+          "page": 3,
+          "role": "BODY",
+          "text": "1、《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业",
+          "text_raw": "1、《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业",
+          "region": [
+            113.88,
+            683.38,
+            503.88,
+            695.38
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00022",
+          "page": 3,
+          "role": "BODY",
+          "text": "分包合同》。",
+          "text_raw": "分包合同》。",
+          "region": [
+            89.88,
+            706.78,
+            161.88,
+            718.78
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p003_b00023",
+          "page": 3,
+          "role": "BODY",
+          "text": "特此公告。",
+          "text_raw": "特此公告。",
+          "region": [
+            113.88,
+            730.18,
+            173.88,
+            742.18
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p004_b00001",
+          "page": 4,
+          "role": "BODY",
+          "text": "武汉华康世纪洁净科技股份有限公司",
+          "text_raw": "武汉华康世纪洁净科技股份有限公司",
+          "region": [
+            312.6,
+            117.82,
+            504.6,
+            129.82
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0be9f419_p004_b00002",
+          "page": 4,
+          "role": "BODY",
+          "text": "董事会2026年9月24日",
+          "text_raw": "董事会2026年9月24日",
+          "region": [
+            365.88,
+            141.22,
+            458.88,
+            176.62
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "武汉华康世纪洁净科技股份有限公司",
+          "value": "武汉华康世纪洁净科技股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p001_b00008",
+              "page": 1,
+              "region": [
+                113.88,
+                395.26,
+                505.44,
+                407.26
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "武汉华康世纪洁净科技股份有限公司（以下简称“公司”）中标武汉"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "武汉建工集团股份有限公司新洲分公司",
+          "value": "武汉建工集团股份有限公司新洲分公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p001_b00009",
+              "page": 1,
+              "region": [
+                89.88,
+                418.66,
+                505.44,
+                500.86
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "并与承包人武汉建工集团股份有限公司新洲分公司（以下简称“合同对方”）签署了"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程",
+          "value": "武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包工程",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p001_b00009",
+              "page": 1,
+              "region": [
+                89.88,
+                418.66,
+                505.44,
+                500.86
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "5,400万元",
+          "value": 54000000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p001_b00009",
+              "page": 1,
+              "region": [
+                89.88,
+                418.66,
+                505.44,
+                500.86
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合同价（暂定含税总价款）为5,400万元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "人民币",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p003_b00007",
+              "page": 3,
+              "region": [
+                113.88,
+                215.38,
+                505.44,
+                227.38
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "签约合同价（暂定含税总价款）为：人民币54,000,000.00元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": "暂定含税总价款",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p001_b00009",
+              "page": 1,
+              "region": [
+                89.88,
+                418.66,
+                505.44,
+                500.86
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合同价（暂定含税总价款）为5,400万元"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "120个日历天",
+          "value": "120个日历天",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p003_b00003",
+              "page": 3,
+              "region": [
+                113.88,
+                121.78,
+                194.88,
+                133.78
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "120个日历天"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": null,
+          "value": null,
+          "unit": "date",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "签署了《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包合同》",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p001_b00009",
+              "page": 1,
+              "region": [
+                89.88,
+                418.66,
+                505.44,
+                500.86
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "签署了《武汉市新洲区人民医院整体外迁项目EPC总承包二标段医疗专项专业分包合同》"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": "合同价格形式：采取费率方式确定",
+          "value": "adjustable",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0be9f419_p003_b00009",
+              "page": 3,
+              "region": [
+                113.88,
+                285.58,
+                305.88,
+                297.58
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "合同价格形式：采取费率方式确定"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-10T05:02:36.499Z",
+    "duration_ms": 1,
+    "code_version": "41d57c87",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}
