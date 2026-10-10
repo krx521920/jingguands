@@ -2,7 +2,7 @@
   "locked_on": "2026-10-07",
   "revised_on": "2026-10-09",
   "frozen_input": "weiwenyu@bc67ccd8",
-  "note": "不含自身；2026-10-09 因 W7 闭环(④→20/20)重新锁存",
+  "note": "不含自身；以仓库字节为准（见 lock_algorithm）",
   "files": [
     {
       "path": "evaluation\\D11\\firsttest-envelopes\\D4-PLD-001.json",
@@ -166,13 +166,13 @@
     },
     {
       "path": "evaluation\\D11\\results\\D11-终版收口.md",
-      "sha256": "fa0962ee28965858d0d5e463880ae9c6c1392c31ad5e21ec2cbc9e83756152aa",
-      "bytes": 3612
+      "sha256": "97b4eaf93f29dd16b2c704e5c0cca4b277cb5cd8fd89f0cf73485abe9d543aa4",
+      "bytes": 3601
     },
     {
       "path": "evaluation\\D11\\results\\D11-首测报告.md",
-      "sha256": "ae31a1264e142a14c42c5cf5f0112d93038ff029f44688e383c3c7c5fb77223a",
-      "bytes": 4958
+      "sha256": "173670be6447c1e27bd2b9d7f3c5615cb855aa61f10436da94f1f189dbea326a",
+      "bytes": 4926
     },
     {
       "path": "evaluation\\D11\\results\\cold-run-verification.json",
@@ -251,8 +251,8 @@
     },
     {
       "path": "evaluation\\D11\\results\\single-doc-firsttest.md",
-      "sha256": "d058ea9afcbb55d8bbbdaaae0cba7ad31f4287edf2aa05790e1b34cfe66b18cf",
-      "bytes": 2553
+      "sha256": "c3ef04f8be06b22cb00be6c7ec540bbb26c506fc0caf0f268ff74358d6b94631",
+      "bytes": 2651
     },
     {
       "path": "evaluation\\D11\\results\\冷跑一致率-口径说明.md",
@@ -261,13 +261,13 @@
     },
     {
       "path": "evaluation\\D11\\results\\原始日志索引.md",
-      "sha256": "7ca27dfc1feba0157782d3c0d61dc6f8180f66a762a118847d651dc6b64f5dcb",
-      "bytes": 2612
+      "sha256": "f0087eb60da331e54e61e16e12102e3a7a07f40509e2bf5f878af0b9d35f453a",
+      "bytes": 2766
     },
     {
       "path": "evaluation\\D11\\results\\失败清单.md",
-      "sha256": "00145cd8d9ff66a3842948e11f932cb8432fbfc204d525218f382f65c5274dd5",
-      "bytes": 3136
+      "sha256": "bb6151bb5577a2a0aa4790443ebb864a74d8315b8dee6d80e683c2479f783855",
+      "bytes": 3167
     }
   ]
 }

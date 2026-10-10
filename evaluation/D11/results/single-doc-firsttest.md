@@ -29,7 +29,7 @@
 
 ## 三、锁存
 
-- 原始输入：31 份信封已落地 `evaluation/D11/firsttest-envelopes/`（随本提交入库）
+- 原始输入：**权威 31 份**（30 核心 + 1 扫描降级）已落地 `evaluation/D11/firsttest-envelopes/`；目录内另有 1 份 `DEMO-EQC-HL-0930`（演示补料，不计入权威批次）
 - 原始输出：`evaluation/D11/results/single-doc-firsttest.json`
 - 评测脚本：`tmp/d11-single.mjs` 的逻辑已固化进本次结果；
 - 冻结版本：`5f25133a`（**注意：不是旧标签 `v0.6-d11-firsttest`，旧标签是修复前代码**）
