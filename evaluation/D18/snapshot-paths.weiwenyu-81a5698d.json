@@ -1,0 +1,317 @@
+{
+ "built_on": "2026-10-10",
+ "built_by": "weiwenyu（D15 回应宗：原文快照可核范围，选方案A）",
+ "join_key": "信封 source.file_sha256 ↔ 解析 doc/handoff.file_sha256；扫描降级件例外＝按 parse_file_sha256（其 doc 声明为 fixture id 非哈希）",
+ "note": "页面按 file_sha256 物化解析件做 L3 出处命中核验；路径在 weiwenyu 分支，单一真源不新增副本",
+ "docs": [
+  {
+   "case_id": "D4-PLD-001",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-001.parse.json",
+   "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+   "blocks": 128,
+   "pages": 2,
+   "envelope_case": "D4-PLD-001",
+   "parse_file_sha256": "8d7ba5f04cf6e3f26498da6b5cd643feaa37b99910579dcfecf1ae3029a348c3"
+  },
+  {
+   "case_id": "D4-PLD-002",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-002.parse.json",
+   "file_sha256": "16c6a94888ae9810ae40a11de5f7931e8dfe8212d76663e755f42243eb93a548",
+   "blocks": 88,
+   "pages": 2,
+   "envelope_case": "D4-PLD-002",
+   "parse_file_sha256": "7266ecc7134fabd6855ecbd9522df400969e9b4527e5860252697c1539e7403a"
+  },
+  {
+   "case_id": "D4-PLD-003",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-003.parse.json",
+   "file_sha256": "36105cfd130a24007b8bea673245290aee68274bf13295b1e3b065b035c8466d",
+   "blocks": 111,
+   "pages": 3,
+   "envelope_case": "D4-PLD-003",
+   "parse_file_sha256": "6911936039b9c2aab6a00cd6de32d7247b6d50484795845c4e82f22512a8b879"
+  },
+  {
+   "case_id": "D4-PLD-004",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-004.parse.json",
+   "file_sha256": "62f9a650adca0366a0ca1aea7b08a621da804f5e01daf6b6147e57ce49724623",
+   "blocks": 105,
+   "pages": 2,
+   "envelope_case": "D4-PLD-004",
+   "parse_file_sha256": "867c11c415155f763e0d248b8aef4f58fddad853fb8a7731b3f245c93fb7136c"
+  },
+  {
+   "case_id": "D4-PLD-005",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-005.parse.json",
+   "file_sha256": "5bf0524fe864bb12ef1b7180f95a9fecb1c926d0da4a1c8719936939529ca3fe",
+   "blocks": 79,
+   "pages": 2,
+   "envelope_case": "D4-PLD-005",
+   "parse_file_sha256": "bfa690c4fb325a1b087993d884512f28c7059f0bae63a35f33c92e417e4ad077"
+  },
+  {
+   "case_id": "D4-PLD-006",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-006.parse.json",
+   "file_sha256": "3fbd84974472cb08f7ca0a1cce8196ca6b1f1d617a21959bf5fce8f1c4c9f16c",
+   "blocks": 95,
+   "pages": 2,
+   "envelope_case": "D4-PLD-006",
+   "parse_file_sha256": "1c1f84d281734fc1fec345b2dd8aca78bdfe9f7b96cd75d6d924551c7a6d155e"
+  },
+  {
+   "case_id": "D4-PLD-007",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-007.parse.json",
+   "file_sha256": "a204c717003092451d007754d55fcf05b9da0767d27b26f9d18545a714276a0c",
+   "blocks": 187,
+   "pages": 2,
+   "envelope_case": "D4-PLD-007",
+   "parse_file_sha256": "0ff093af599f8a37777dc57a0d1bbabe02140b7ce092f637c1fab29d4dadbf89"
+  },
+  {
+   "case_id": "D4-PLD-008",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-008.parse.json",
+   "file_sha256": "74b527f3eac11ecd359fde506984a9abe1fb505f62a3e83e09e210b367262748",
+   "blocks": 93,
+   "pages": 3,
+   "envelope_case": "D4-PLD-008",
+   "parse_file_sha256": "77e5859a45ab6f43225912d5619bb0fcc8c4c0bd0f7140f9d12bea125f88ee75"
+  },
+  {
+   "case_id": "D4-PLD-009",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-009.parse.json",
+   "file_sha256": "1320340e1f4ce7fc0092c947dd6cad7c6a1bc63015ce373081939a9df0dc78f1",
+   "blocks": 96,
+   "pages": 3,
+   "envelope_case": "D4-PLD-009",
+   "parse_file_sha256": "e7b60326b0ccddc441e532596f836fb3499c9a2f3f55f730bb153f94a4758ac6"
+  },
+  {
+   "case_id": "D4-PLD-010",
+   "parse_path": "corpus/zhangzhibo/d4/parse-official/D4-PLD-010.parse.json",
+   "file_sha256": "b2351d0b057a84635b06721d7371ffc9516d338ef79fb3dfe650e35bce2db251",
+   "blocks": 104,
+   "pages": 3,
+   "envelope_case": "D4-PLD-010",
+   "parse_file_sha256": "2316e73d0f32d691a624a7e3e21e86cf1a374f6cbe1c9cb470991130026fc3ff"
+  },
+  {
+   "case_id": "D5-EQC-001",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-001.parse.json",
+   "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+   "blocks": 861,
+   "pages": 35,
+   "envelope_case": "D5-EQC-001",
+   "parse_file_sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597"
+  },
+  {
+   "case_id": "D5-EQC-002",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-002.parse.json",
+   "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+   "blocks": 1395,
+   "pages": 64,
+   "envelope_case": "D5-EQC-002",
+   "parse_file_sha256": "3060a015349ff01ba2840c4049b96bb8aaed36cd41d7dfde0d3905f49c928dc6"
+  },
+  {
+   "case_id": "D5-EQC-003",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-003.parse.json",
+   "file_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+   "blocks": 621,
+   "pages": 34,
+   "envelope_case": "D5-EQC-003",
+   "parse_file_sha256": "214bee892670158a6916dab6df63fdacae2a2ecf79415df609646bb1e09a60a2"
+  },
+  {
+   "case_id": "D5-EQC-004",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-004.parse.json",
+   "file_sha256": "a00b31dadcda57c2f826e9ed34e117c0cacfdccdd4ab479bc71f091f5ca00980",
+   "blocks": 333,
+   "pages": 21,
+   "envelope_case": "D5-EQC-004",
+   "parse_file_sha256": "ad1242db5df6076f8524408b4cd554d6e46933823e144a9e4ba9b4e5f4c6c019"
+  },
+  {
+   "case_id": "D5-EQC-005",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-005.parse.json",
+   "file_sha256": "a8d294d26ff7b279cc3fca41561f6b5c867b91ec2856b005c25a2f4bc1d80e33",
+   "blocks": 375,
+   "pages": 18,
+   "envelope_case": "D5-EQC-005",
+   "parse_file_sha256": "fa2cff4fc4de28f8511af98d580cb59f3d2487f0b8e397c75f71251aff577ce1"
+  },
+  {
+   "case_id": "D5-EQC-006",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-006.parse.json",
+   "file_sha256": "97e2cfab360ace0c9cdd9babb3f359186bd3aef57fa8f0c6db07f6d66cc3a044",
+   "blocks": 126,
+   "pages": 3,
+   "envelope_case": "D5-EQC-006",
+   "parse_file_sha256": "4fa4f57f09efe3c692dd48fa36271252e125dbb85fdfbbd248ae3f7a33c179dd"
+  },
+  {
+   "case_id": "D5-EQC-007",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-007.parse.json",
+   "file_sha256": "3d00372c0490a4e9728992f7f27901e20f17ef769bbcd038808c8ac57ad66d3b",
+   "blocks": 364,
+   "pages": 18,
+   "envelope_case": "D5-EQC-007",
+   "parse_file_sha256": "777ab8b74b19ac69748fa6ddfd92b52f873e13872e6c4c0a57b7f5e17a1f2354"
+  },
+  {
+   "case_id": "D5-EQC-008",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-008.parse.json",
+   "file_sha256": "af34725aca8d49ccb0c8b0ed840188d5cba8a1990f7a24cf8597f88900699695",
+   "blocks": 249,
+   "pages": 19,
+   "envelope_case": "D5-EQC-008",
+   "parse_file_sha256": "c629723002ee1c301dd411ffb0ded6e8b3dac7f4c218cdce6b07f9659318f490"
+  },
+  {
+   "case_id": "D5-EQC-009",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-009.parse.json",
+   "file_sha256": "31d2e428fb83920dff02c4df35686803ae576e902a5a996dc9821f6521c6cd41",
+   "blocks": 194,
+   "pages": 16,
+   "envelope_case": "D5-EQC-009",
+   "parse_file_sha256": "0fc4c2d36123ab32c59e9cac9f740be0709ca873f9acbf65a058436eaadad38e"
+  },
+  {
+   "case_id": "D5-EQC-010",
+   "parse_path": "corpus/zhangzhibo/d5/parse-official/D5-EQC-010.parse.json",
+   "file_sha256": "d2c6e0d0c40d49ce5f580a8ff705d901a1ea7a5862f25418fe9abe1c00518b3c",
+   "blocks": 438,
+   "pages": 24,
+   "envelope_case": "D5-EQC-010",
+   "parse_file_sha256": "0ab53d2aae90e21b98f9a50b4c62364aff31426b03b57460887f83b6ac0144e4"
+  },
+  {
+   "case_id": "D6-AWD-001",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-001.parse.json",
+   "file_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+   "blocks": 27,
+   "pages": 2,
+   "envelope_case": "D6-AWD-001",
+   "parse_file_sha256": "75cfa4ae01d799a4ddafd247b97c91f0bc3051f000a4c773ebfa25800b6653f8"
+  },
+  {
+   "case_id": "D6-AWD-002",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-002.parse.json",
+   "file_sha256": "c0a3d5fb8c40d2e9647f23d80920a32770c3d912610fbfaf53a350a4caa5ccfa",
+   "blocks": 47,
+   "pages": 3,
+   "envelope_case": "D6-AWD-002",
+   "parse_file_sha256": "03bd7de56ac30643526fa8d019e1ef2f3e4b95ab2be9154b1196e58ea7cbb127"
+  },
+  {
+   "case_id": "D6-AWD-003",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-003.parse.json",
+   "file_sha256": "0b56135e00165e3533a848303086ec6fe5d9c45098ccdae0645e19c6b4b69faa",
+   "blocks": 85,
+   "pages": 4,
+   "envelope_case": "D6-AWD-003",
+   "parse_file_sha256": "e06a7564ee84c32eccbefebbca23111fa2813135f0d32b51bbf9c7e3bb75fb34"
+  },
+  {
+   "case_id": "D6-AWD-004",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-004.parse.json",
+   "file_sha256": "0be9f4193d0d2ddb78d93339fa7546d7ea085e66ba8510201b3bc2288d21d802",
+   "blocks": 78,
+   "pages": 4,
+   "envelope_case": "D6-AWD-004",
+   "parse_file_sha256": "799806ba054b7e12b92ad532c130a5392041323550fa930614fe7b869e26f772"
+  },
+  {
+   "case_id": "D6-AWD-005",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-005.parse.json",
+   "file_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+   "blocks": 80,
+   "pages": 4,
+   "envelope_case": "D6-AWD-005",
+   "parse_file_sha256": "00d031c9a9f95bf21ebc307ee4a5dd00aa359ffdbc5523b0415d5eb44f5c6a74"
+  },
+  {
+   "case_id": "D6-AWD-006",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-006.parse.json",
+   "file_sha256": "fc6c3d849d3395c3444b9e98ac65e9d1a0b905fea85dfb675a7ae9ec914a17d0",
+   "blocks": 13,
+   "pages": 1,
+   "envelope_case": "D6-AWD-006",
+   "parse_file_sha256": "2c2e8e74871c57dafc35d5d6a88bad1d161783c9ef307751c3f3672fe56dda8d"
+  },
+  {
+   "case_id": "D6-AWD-007",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-007.parse.json",
+   "file_sha256": "3a6938fe5990e3fbe3a4c6820040fe3f4d45b80287d0c31f527d4e739fceba33",
+   "blocks": 10,
+   "pages": 1,
+   "envelope_case": "D6-AWD-007",
+   "parse_file_sha256": "fb9a11aa02cf3ac005ba0077afbfd520e1f87c566d28432e7558f6a7a76e95ce"
+  },
+  {
+   "case_id": "D6-AWD-008",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-008.parse.json",
+   "file_sha256": "aa9b83fa35f52cea179f0f56358151c000948a9a7124bfa4efc54c190ff17931",
+   "blocks": 24,
+   "pages": 2,
+   "envelope_case": "D6-AWD-008",
+   "parse_file_sha256": "1911a2de19e64a162f0902c6c0b7f3b0027a28f887076cceae0308815fb2a363"
+  },
+  {
+   "case_id": "D6-AWD-009",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-009.parse.json",
+   "file_sha256": "3aa23f9a58a77dffafd6ac1fd92d84858f827acfd83423dfb188712c68000956",
+   "blocks": 40,
+   "pages": 2,
+   "envelope_case": "D6-AWD-009",
+   "parse_file_sha256": "bc7cfd6246a4235b9364c19ed61fbd2dbaf24003ecd2e3af0a9e707ee44f8263"
+  },
+  {
+   "case_id": "D6-AWD-010",
+   "parse_path": "corpus/zhangzhibo/d6/parse-official/D6-AWD-010.parse.json",
+   "file_sha256": "74b6838161e3b7f81266e9b902db10614bacf57fdc159277b9726fb290a28702",
+   "blocks": 31,
+   "pages": 2,
+   "envelope_case": "D6-AWD-010",
+   "parse_file_sha256": "79f8cf6c3492ead774f4892e54bdaad1da96c4fae8178e4cb3ff4f1325ddaa5b"
+  },
+  {
+   "case_id": "pledge-scan-degrade",
+   "parse_path": "corpus/adversarial/pledge-scan-degrade.parse.json",
+   "file_sha256": "advscan01",
+   "blocks": 1,
+   "pages": 1,
+   "envelope_case": null,
+   "parse_file_sha256": "2ee081587db9216dc3868b034eacca66b9662862f6d1bd07ad0e2def69aeae26"
+  },
+  {
+   "case_id": "DEMO-EQC-HL-0930",
+   "parse_path": "runs/d8-demo-20261004/raw/DEMO-EQC-HL-0930.raw.json",
+   "file_sha256": "3b1abc7f47dbb6062f40f7631b263356bfacd930f23672ebd7a1e96603671a02",
+   "blocks": 3,
+   "pages": 3,
+   "envelope_case": "DEMO-EQC-HL-0930",
+   "parse_file_sha256": "6c54be72d555bb475131536afdd8607ffb102f9263e9b8f889fc595a4ed9a1f7",
+   "provenance_note": "D8 演示批受控抓取件（evidence/0.9 raw，region=null 正常）"
+  },
+  {
+   "case_id": "DEMO-EQC-HL-SIMPLE",
+   "parse_path": "runs/d8-demo-20261004/raw/DEMO-EQC-HL-SIMPLE.raw.json",
+   "file_sha256": "dc91c0302e5604e2ba4ecc99d78ee48e094c179450ca8a953567f41f471fb047",
+   "blocks": 23,
+   "pages": 23,
+   "envelope_case": "DEMO-EQC-HL-SIMPLE",
+   "parse_file_sha256": "8de322b3668743344c6870ad2260951cdaadf4d47335ee00de2b92d8c847a842",
+   "provenance_note": "D8 演示批受控抓取件（evidence/0.9 raw，region=null 正常）"
+  },
+  {
+   "case_id": "DEMO-EQC-HZ-RESULT",
+   "parse_path": "runs/d8-demo-20261004/raw/DEMO-EQC-HZ-RESULT.raw.json",
+   "file_sha256": "3a2d49ddd3b202f150193e44610f876db28a59e75d58cf68ac06d6f1d4cce8bd",
+   "blocks": 10,
+   "pages": 10,
+   "envelope_case": "DEMO-EQC-HZ-RESULT",
+   "parse_file_sha256": "a18772768eb1becfb45a86b4cb4b7717be9ad37206039cc2cd0aeb295995a278",
+   "provenance_note": "D8 演示批受控抓取件（evidence/0.9 raw，region=null 正常）"
+  }
+ ]
+}
