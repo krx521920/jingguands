@@ -14,6 +14,10 @@ const CACHE_DIR = resolve(REPO_ROOT, 'runs/.tmp-eval')
  */
 export function evalFile(relPath) {
   if (relPath.startsWith('evaluation/')) relPath = relPath.slice('evaluation/'.length)
+  // 并包树（delivery/v2.0，裁决 A）正典已随包在树：在树 evaluation/<relPath> 优先——干净克隆离线可跑全部门禁。
+  // 抽取侧分支（与正典交集为空，D14 清理 62b012ba 实证）在树必缺失，仍走下方 zongbowen 物化，单一真源纪律不变。
+  const inTree = resolve(REPO_ROOT, 'evaluation', relPath)
+  if (existsSync(inTree)) return inTree
   // 陈旧缓存防护：origin/zongbowen 前进后旧物化件失效——ref sha 变了就整目录重建
   const refSha = spawnSync('git', ['rev-parse', REF], { cwd: REPO_ROOT, encoding: 'utf8' })
   if (refSha.status === 0) {
