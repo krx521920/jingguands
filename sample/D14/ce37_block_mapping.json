@@ -1,0 +1,182 @@
+{
+  "built_by": "张智博",
+  "day": "D14",
+  "defect": "D11-P0-01",
+  "dataset": "wei_real_pledge_ce37",
+  "canonical_doc": "D4-PLD-001",
+  "same_pdf_sha256": "44e9508596f9…",
+  "generations": {
+    "old_ce37_used": {
+      "parser": "finstruct.parse/0.3.0",
+      "blocks": 95,
+      "path": "corpus/zhangzhibo/parse/pledge-001.parse.json @weiwenyu"
+    },
+    "canonical": {
+      "parser": "finstruct.parse/0.9.0",
+      "blocks": 128,
+      "path": "sample/D4/parse/D4-PLD-001.parse.json @zhangzhibo（＝corpus/zhangzhibo/d4/parse-official）"
+    }
+  },
+  "method": "**几何消歧**：取旧版块的 region，在新版里找重叠面积最大的同页块。不用 quote 消歧 —— 实测 quote 会命中 4 个同名块（'50,350,000'）。陈已证实两版 region 一致，故几何可靠。",
+  "result": {
+    "original_hit": "2/12",
+    "fixed_by_remap": 6,
+    "after_remap": "8/12 = 66.7%",
+    "still_open": 4
+  },
+  "remapped": [
+    {
+      "field": "pledgee",
+      "old_block_id": "d44e95085_p001_b00016",
+      "new_block_id": "d44e95085_p001_b00032",
+      "overlap": 1892.1,
+      "old_region": [
+        466.25,
+        469.52,
+        519.85,
+        504.82
+      ],
+      "new_region": [
+        466.25,
+        469.52,
+        519.85,
+        504.82
+      ],
+      "new_source_type": "cell",
+      "new_cell_ref": "r2c10",
+      "new_text": "建德市新安小额贷款股份有限公司"
+    },
+    {
+      "field": "pledged_shares_cumulative",
+      "old_block_id": "d44e95085_p001_b00051",
+      "new_block_id": "d44e95085_p001_b00084",
+      "overlap": 1093.5,
+      "old_region": [
+        222.1,
+        709.82,
+        276.1,
+        730.07
+      ],
+      "new_region": [
+        222.1,
+        709.82,
+        276.1,
+        730.07
+      ],
+      "new_source_type": "cell",
+      "new_cell_ref": "r3c5",
+      "new_text": "50,350,000"
+    },
+    {
+      "field": "pledged_ratio_cumulative_of_held",
+      "old_block_id": "d44e95085_p001_b00052",
+      "new_block_id": "d44e95085_p001_b00085",
+      "overlap": 769.5,
+      "old_region": [
+        276.1,
+        709.82,
+        314.1,
+        730.07
+      ],
+      "new_region": [
+        276.1,
+        709.82,
+        314.1,
+        730.07
+      ],
+      "new_source_type": "cell",
+      "new_cell_ref": "r3c6",
+      "new_text": "57.58%"
+    },
+    {
+      "field": "pledged_ratio_cumulative_of_total",
+      "old_block_id": "d44e95085_p001_b00053",
+      "new_block_id": "d44e95085_p001_b00086",
+      "overlap": 779.6,
+      "old_region": [
+        314.1,
+        709.82,
+        352.6,
+        730.07
+      ],
+      "new_region": [
+        314.1,
+        709.82,
+        352.6,
+        730.07
+      ],
+      "new_source_type": "cell",
+      "new_cell_ref": "r3c7",
+      "new_text": "23.62%"
+    },
+    {
+      "field": "end_date",
+      "old_block_id": "d44e95085_p001_b00015",
+      "new_block_id": "d44e95085_p001_b00031",
+      "overlap": 1493.2,
+      "old_region": [
+        423.95,
+        469.52,
+        466.25,
+        504.82
+      ],
+      "new_region": [
+        423.95,
+        469.52,
+        466.25,
+        504.82
+      ],
+      "new_source_type": "cell",
+      "new_cell_ref": "r2c9",
+      "new_text": "申请解除质押登记日"
+    },
+    {
+      "field": "purpose",
+      "old_block_id": "d44e95085_p001_b00017",
+      "new_block_id": "d44e95085_p001_b00033",
+      "overlap": 1349.5,
+      "old_region": [
+        519.85,
+        469.52,
+        558.08,
+        504.82
+      ],
+      "new_region": [
+        519.85,
+        469.52,
+        558.08,
+        504.82
+      ],
+      "new_source_type": "cell",
+      "new_cell_ref": "r2c11",
+      "new_text": "融资"
+    }
+  ],
+  "still_open_rows": [
+    {
+      "field": "pledged_shares_this_time",
+      "old_block_id": "d44e95085_p001_b00031",
+      "why": "旧版把多单元格文本拍平进一个块，该 quote 在新版任何单块里都不存在",
+      "action": "**必须重新从原文取 quote**，不能只改 block_id"
+    },
+    {
+      "field": "pledged_ratio_this_time_of_held",
+      "old_block_id": "d44e95085_p001_b00031",
+      "why": "旧版把多单元格文本拍平进一个块，该 quote 在新版任何单块里都不存在",
+      "action": "**必须重新从原文取 quote**，不能只改 block_id"
+    },
+    {
+      "field": "pledged_ratio_this_time_of_total",
+      "old_block_id": "d44e95085_p001_b00031",
+      "why": "旧版把多单元格文本拍平进一个块，该 quote 在新版任何单块里都不存在",
+      "action": "**必须重新从原文取 quote**，不能只改 block_id"
+    },
+    {
+      "field": "start_date",
+      "old_block_id": "d44e95085_p001_b00018",
+      "why": "旧版把多单元格文本拍平进一个块，该 quote 在新版任何单块里都不存在",
+      "action": "**必须重新从原文取 quote**，不能只改 block_id"
+    }
+  ],
+  "policy": "只给几何唯一且 quote 可在新块内定位的修正；其余标为待重取 quote，不硬塞。"
+}
