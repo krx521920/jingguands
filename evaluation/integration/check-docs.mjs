@@ -81,7 +81,13 @@ for(const d of docs){
       if(EXT_PREFIXES.some(x=>ref.startsWith(x))) continue;
       issues.push({rule:'C1_MISSING_FILE_REF',file:d,line:ln,token:ref,hint:'本仓评测树内未找到（相对文档目录与仓库根均已试）',text:line.trim().slice(0,90)});
     }
-    // ---- C3 近似枚举（疑似笔误）----
+    // ---- C4 引用不入库目录（tmp/）——2026-10-10 新增 ----
+    // 起因：single-doc-firsttest.md 引用了 `tmp/d11-single.mjs`；本机存在（未入库）→ 我的门误判为绿，
+    //       魏在干净克隆里才报出来。tmp/ 永不随包，引用它=文档坏味道，一律标出。
+    for(const m of line.matchAll(/`([^`]+)`/g)){
+      const ref=m[1].trim();
+      if(/^tmp\//.test(ref)) issues.push({rule:'C4_TMP_REF',file:d,line:ln,token:ref,hint:'引用了不入库目录 tmp/（干净克隆里不存在）——改为描述性文字或指向已入库文件',text:line.trim().slice(0,90)});
+    }    // ---- C3 近似枚举（疑似笔误）----
     for(const m of line.matchAll(/`([a-z][a-z0-9_]{3,})`/g)){
       const tok=m[1];
       if(!enumLike.test(tok)) continue;

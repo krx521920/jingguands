@@ -31,7 +31,7 @@
 
 - 原始输入：**权威 31 份**（30 核心 + 1 扫描降级）已落地 `evaluation/D11/firsttest-envelopes/`；目录内另有 1 份 `DEMO-EQC-HL-0930`（演示补料，不计入权威批次）
 - 原始输出：`evaluation/D11/results/single-doc-firsttest.json`
-- 评测脚本：`tmp/d11-single.mjs` 的逻辑已固化进本次结果；
+- 评测脚本：**一次性比对脚本（未入库）**，其逻辑已固化进本次结果的生成过程；正式评分器见 `evaluation/D8/score-pairs.mjs`、`evaluation/D9/score-rules.mjs`、`evaluation/D10/check-integration.mjs`；
 - 冻结版本：`5f25133a`（**注意：不是旧标签 `v0.6-d11-firsttest`，旧标签是修复前代码**）
 
 ## 四、下一步（并行包尚未出数）
