@@ -33,6 +33,21 @@ node server.js
 - **演示前必跑一遍 `node server.js`** 确认指标卡非 null：`/api/metrics` 的
   `summary.fields_total` 应为 **606**、`data_source.scope` 应为 `authoritative`、
   `data_source.primary_tag.anchor_matches` 应为 `true`。
+- **★ 解析快照不在库里，需现场取一次（仅当要跑 `evaluation/D18` 出处核验时）**：
+  快照是运行侧（魏文宇）的产物，按 sha 从封版分支取，**故不入库**。页面运行
+  **不依赖**它（`/api/result` 的 `evidences[]` 来自信封本身），但 D18 门带
+  `--materialized` 跑时目录必须存在，否则报 `materialized_bad: 34`（= 全部 MISSING，
+  **不是页面缺陷，是取件步骤没做**）。取件一条命令：
+
+  ```bash
+  node demo/_d13_snapshot_fetch.js --src delivery/v2.0 --out data_unified/_snapshots
+  # 期望输出：OK=31 MISMATCH=3 MISSING=0
+  # 3 条 MISMATCH 全是 DEMO 演示件（权威批无对应信封，已登记待裁定），
+  # 故 D18 门须带 --exclude DEMO-EQC-HL-0930 跑权威口径。
+  ```
+
+  门：`node evaluation/D18/check-snapshot-coverage.mjs --materialized workspace/cjh/page_prototype/data_unified/_snapshots --exclude DEMO-EQC-HL-0930`
+  ⇒ 应得 `covered_docs 31/31`｜`anchors 451/451`｜`materialized_bad 3`。
 
 完整玩法（含扩展演示）见 [demo/使用演示.md](demo/使用演示.md)；数据契约与对接要求见 [docs/API.md](docs/API.md)。
 
