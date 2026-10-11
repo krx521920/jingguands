@@ -60,3 +60,9 @@ node evaluation/D10/check-integration.mjs --self-check
 - First-test results are immutable after execution; fixes produce a separate regression result.
 - Every field value requires a document, page, and source excerpt unless its status is explicitly `not_mentioned`, `unreadable`, or `not_applicable`.
 - Every public fixture retains its source URL, source hash, publication date, and page-level extracted text. Synthetic fixtures may be used only for tooling development and must be labelled separately.
+## 5. 引用纪律（2026-10-11 增补）
+
+- **批次或码版本不同的两个比率不可并列**；跨版本对照必须写"测于 <批次>/<码版本>"；
+- 每个比率必须带**分子/分母**；分母口径不同就分列；
+- 报告头部按模板带"批次 id + code_version + 输入锚点 + 口径"（模板与生成器见 `2026-10-11-handoff/口径模板与用法.md` 与 `report-header.mjs`）；
+- 新批封存用 `2026-10-11-handoff/lock-new-batch.mjs`（自带自检；已用权威批交叉验证：重算锚点 = `381c760f…`）。
