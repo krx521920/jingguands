@@ -1,4 +1,4 @@
-// demo/_step6_check.js —— D25 步骤6 守卫：其余 4 个小项 + stale 检测（含反证）
+// demo/_step6_check.js —— 2026-10-10 步骤6 守卫：其余 4 个小项 + stale 检测（含反证）
 //
 // 宗清单步骤 6：
 //   | /api/result 无参返回 mock | 缺参 → 400 |
@@ -187,7 +187,7 @@ function cleanup(names) {
   }
 
   console.log("=".repeat(78));
-  console.log("D25 步骤6 守卫 · 其余 4 小项 + parity 报告过期检测");
+  console.log("2026-10-10 步骤6 守卫 · 其余 4 小项 + parity 报告过期检测");
   console.log("=".repeat(78));
   for (const [st, rule, name, detail] of rows) {
     console.log(`[${st}] ${rule} · ${name}`);

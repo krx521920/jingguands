@@ -288,7 +288,7 @@ function csvBytes(data) {
 }
 
 /**
- * ★ D25 步骤6-③：本地侧的 view —— **直接 require server.js 的 readDataset**，
+ * ★ 2026-10-10 步骤6-③：本地侧的 view —— **直接 require server.js 的 readDataset**，
  *   不在本文件里重写一份拼装逻辑。
  *   server.js 被 require 时不监听端口（require.main 守卫），所以这里拿到的
  *   就是 HTTP 导出链路上那**同一个函数**的输出 ⇒ 字节不同才是真的链路问题。
@@ -303,7 +303,7 @@ function localExportView(ds) {
 }
 
 /**
- * ★ D25 步骤6-③：本地侧的 CSV 字节也走 server.js 的**同一份**实现
+ * ★ 2026-10-10 步骤6-③：本地侧的 CSV 字节也走 server.js 的**同一份**实现
  *   （contractToCsvRows + csvEscape + BOM + CRLF），不在本文件重拼一遍。
  *   本文件原先的 csvBytes() 是手抄版 —— server 改一列/改一个转义规则，
  *   这里不会跟着改，L3 就常亮 divergent（假警报）。
@@ -330,7 +330,7 @@ function httpExport(dataset, format, port) {
 async function layer3_export(datasets, port) {
   const rows = [];
   for (const ds of datasets) {
-    // ★ D25 步骤6-③ 修：本地侧必须走**与导出链路口径完全相同**的那条路——
+    // ★ 2026-10-10 步骤6-③ 修：本地侧必须走**与导出链路口径完全相同**的那条路——
     //   原实现是 `toContract(readJson(path.join(DATA_DIR, ds + ".json")))`，
     //   而 HTTP 侧是 server.js 的 `readDataset`（数据源经 data_source 解析、
     //   返回 **view 投影**、并挂 extraction_engine）。两侧压根不是同一个对象，
@@ -360,7 +360,7 @@ async function layer3_export(datasets, port) {
     return { layer: "L3_export_idempotent", verdict: "not_covered", question: "导出字节是否稳定？",
       reason: "HTTP 导出全部失败，未取得任何对照字节—— 空跑不构成通过", rows };
   }
-  // ★ D25 步骤6-③：**两侧一致地拒绝**（本地取不到 + HTTP 404）不是导出链路走样，
+  // ★ 2026-10-10 步骤6-③：**两侧一致地拒绝**（本地取不到 + HTTP 404）不是导出链路走样，
   //   是该件本来就不在数据集清单内（`upstream_case` 是测试夹具，被 listFilesIn 排除）。
   //   把这类算进 divergent ⇒ verdict 永远是 divergent ⇒ **假警报比没有警报更糟**。
   //   它们单列（unavailable），不进分子也不进分母。
@@ -402,7 +402,7 @@ async function main() {
 
   let l3;
   try {
-    // ★ D25 步骤6-③：数据集选取**覆盖两批**（权威批 + 演示池各取几份）。
+    // ★ 2026-10-10 步骤6-③：数据集选取**覆盖两批**（权威批 + 演示池各取几份）。
     //   原先只取 listJson(DATA_DIR)（演示池）前 8 份 —— 换源后页面跑的是权威批，
     //   于是 L3 验的全是"页面不再使用的那批数据"，验了也白验（D19 铁律⑧）。
     const ds = [

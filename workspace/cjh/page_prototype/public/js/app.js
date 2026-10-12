@@ -83,7 +83,7 @@ async function loadDataset(name) {
     if (request !== loadRequest) return;
     currentDataset = name;
     setMode(data);
-    renderDatasetNotice(name, data);      // ★ D20：批次/角色/P0-01 标注常驻可见
+    renderDatasetNotice(name, data);      // ★ 2026-10-09：批次/角色/P0-01 标注常驻可见
     renderSourceFile($("fileList"), data.source_file);
     renderResults($("results"), data, focusEvidence);
     renderEvidences($("evidences"), data);
@@ -94,7 +94,7 @@ async function loadDataset(name) {
 }
 
 /**
- * ★ D20 / 宗 R4：数据集来源提示条。
+ * ★ 2026-10-09 / 宗 R4：数据集来源提示条。
  * 存在的理由：同一份公告的多次抽取（同一 file_sha256）在页面上必须显式说明关系，
  * 否则它们看起来就是几个毫不相干的 case，读者会把同源数据当成独立样本比较。
  *
@@ -315,7 +315,7 @@ function optionTitle(src) {
   return parts.join("\n");
 }
 
-/** 重建数据集下拉（保留当前选中项）。★ D20 起按批次分组显示。 */
+/** 重建数据集下拉（保留当前选中项）。★ 2026-10-09 起按批次分组显示。 */
 async function refreshDatasets() {
   const payload = await fetchDatasets();
   const { datasets, sources } = payload;
@@ -366,7 +366,7 @@ async function refreshDatasets() {
   else if (datasets.includes("D4-PLD-001")) sel.value = "D4-PLD-001";      // 权威批次首份
   else if (datasets.includes("wei_real_awd_001")) sel.value = "wei_real_awd_001";
 
-  // ★ D20：数据源徽标挂在下拉旁，页面任何位置都能看到"当前这批是什么"
+  // ★ 2026-10-09：数据源徽标挂在下拉旁，页面任何位置都能看到"当前这批是什么"
   renderSourceBadge(payload);
 }
 

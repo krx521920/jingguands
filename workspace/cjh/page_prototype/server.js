@@ -17,7 +17,7 @@ const { handleMetrics } = require("./bridge/metrics.js");      // D11：真实�
 const registry = require("./bridge/metrics_registry.js");      // D12：指标单一真源（页面/材料共用口径）
 const extractor = require("./bridge/extractor.js");            // D12：抽取引擎适配层（预留魏 CLI 入口）
 const parityReport = require("./bridge/parity_report.js");    // D12：实际对照报告读取（三层措辞单一真源）
-const dataSource = require("./bridge/data_source.js");        // D20：数据源单一真源（批次/口径/指纹）
+const dataSource = require("./bridge/data_source.js");        // 2026-10-09：数据源单一真源（批次/口径/指纹）
 
 const ROOT = __dirname;                       // 工程根（相对锚点）
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -147,7 +147,7 @@ async function handleParity(res, urlObj) {
 
   try {
     const r = await extractor.parity(caseIds, { a, b });
-    // ★ D31：未知引擎由 parity 自报 http_error=400（参数错），不是未覆盖。
+    // ★ 2026-10-11：未知引擎由 parity 自报 http_error=400（参数错），不是未覆盖。
     //   若一律回 200 + not_covered，调用方会把「引擎名打错」记成「能力未覆盖」。
     if (r && r.http_error) return sendJSON(res, r.http_error, r);
     sendJSON(res, 200, Object.assign({ checked_on: new Date().toISOString().slice(0, 10) }, r));
@@ -162,7 +162,7 @@ async function extractDataset(dataset, engineId) {
   const r = await extractor.extract(dataset, engineId);
   if (r.ok) return r;
   const err = new Error(r.reason);
-  // ★ D31：错误码优先用 extractor 自报的 code；只有在没有自报时才按 provider.kind 猜。
+  // ★ 2026-10-11：错误码优先用 extractor 自报的 code；只有在没有自报时才按 provider.kind 猜。
   //   原来只有 `PROVIDERS[r.engine]` 一个判据：未知引擎时 PROVIDERS[查不到] 是 undefined，
   //   整条判据退到else ⇒ 一律 ENGINE_UNAVAILABLE ⇒ HTTP 503。
   //   **把「引擎名写错了」报成「服务不可用」是误导** —— 调用方会一直等服务恢复，
@@ -170,7 +170,7 @@ async function extractDataset(dataset, engineId) {
   if (r.code) err.code = r.code;
   else err.code = extractor.PROVIDERS[r.engine] && extractor.PROVIDERS[r.engine].kind === "prebuilt" ? "NOT_FOUND" : "ENGINE_UNAVAILABLE";
   err.engine = r.engine;
-  // ★ D25 步骤6-②：provider 算出的候选名一路带到 HTTP 响应（不在 server 里重算一遍）。
+  // ★ 2026-10-10 步骤6-②：provider 算出的候选名一路带到 HTTP 响应（不在 server 里重算一遍）。
   err.suggestions = r.suggestions || [];
   throw err;
 }
@@ -188,7 +188,7 @@ function readDataset(dataset) {
     throw err;
   }
   const view = bridgeOf(r.envelope);
-  // ★ D25 步骤6-④：导出必须与页面所见**逐字段同源** ——
+  // ★ 2026-10-10 步骤6-④：导出必须与页面所见**逐字段同源** ——
   //   /api/result 挂了 extraction_engine（引擎来源/是否预生成/批次），
   //   而导出走的是readDataset → bridgeOf，原来不带 ⇒ 导出的 JSON 少了"这份数据哪来的"，
   //   拿着导出件的人无法判断它是独立抽取还是预生成信封。
@@ -238,7 +238,7 @@ function parseMultipart(buf, contentType) {
 
 /** 文件名 → 安全数据集名：非 [a-zA-Z0-9_-] 归一为 -，与 /api/result 的名称校验对齐。
  *
- * ★ D25 步骤6-⑤：**保留原名大小写**。
+ * ★ 2026-10-10 步骤6-⑤：**保留原名大小写**。
  *   原实现末尾有 `.toLowerCase()`，于是上传 `D5-EQC-007.json` 落盘成 `d5-eqc-007.json`
  *   —— 文件名与信封里`source.file_name` 对不上，下游按名字回查找不到、
  *   与权威批 `data_unified/D5-EQC-007.json` 成了两个"不同数据集"（实为同一份）。
@@ -249,7 +249,7 @@ function safeDatasetName(filename) {
 }
 
 /** 数据集名查重：data/ 下已存在则追加 -2、-3…，绝不静默覆盖既有数据集。
- *  ★ D25 步骤6-⑤：查重**大小写不敏感** —— 文件系统大小写不敏感时会直接覆盖，
+ *  ★ 2026-10-10 步骤6-⑤：查重**大小写不敏感** —— 文件系统大小写不敏感时会直接覆盖，
  *    读取侧又是大小写不敏感归一 ⇒ 不查就是静默覆盖既有数据集。 */
 function dedupeDatasetName(base) {
   const taken = new Set(
@@ -273,7 +273,7 @@ function processUploadFile(filename, data) {
       else if (!parsed.schema_version) entry.error = "缺少 schema_version";
       if (!entry.error) {
         const bridged = toContract(parsed);   // 过桥干跑：转换失败即上传失败（真实闭环的校验闸门）
-        // ★ D25 步骤5（宗审计 P1-2）：接契约机检。
+        // ★ 2026-10-10 步骤5（宗审计 P1-2）：接契约机检。
         //   原先只查 events 数组，于是 {"schema_version":"0.3","events":[]} 判ok:true 并落盘，
         //   而同一份数据在 /api/contract 是 ok:false（缺 run_id/is_mock/source/run_meta）
         //   —— 同一件东西两处结论相反，合规率就成了假数字。
@@ -292,7 +292,7 @@ function processUploadFile(filename, data) {
         } else {
           const dataset = dedupeDatasetName(safeDatasetName(filename));
           fs.writeFileSync(path.join(DATA_DIR, dataset + ".json"), JSON.stringify(parsed, null, 2) + "\n");
-          dataSource.resetCache();          // ★ D20：新增数据集后必须让批次清单重扫，否则下拉不更新
+          dataSource.resetCache();          // ★ 2026-10-09：新增数据集后必须让批次清单重扫，否则下拉不更新
           entry.ok = true;
           entry.dataset = dataset;
           entry.events = parsed.events.length;
@@ -303,7 +303,7 @@ function processUploadFile(filename, data) {
     entry.ok = false;
     entry.error = e instanceof SyntaxError ? "JSON 解析失败：" + e.message.slice(0, 160) : String(e.message || e).slice(0, 160);
   }
-  // ★ D25 步骤5：报告条目三态显式化 —— ok 必为 true/false之一（不留给undefined）。
+  // ★ 2026-10-10 步骤5：报告条目三态显式化 —— ok 必为 true/false之一（不留给undefined）。
   //   上传日志 JSONL 是给下游统计用的，字段缺失会被读成"这一项没结论"。
   if (entry.ok === undefined) entry.ok = false;
   appendUploadLog(entry);
@@ -808,7 +808,7 @@ function handleIntegration(res) {
 
 function handleApi(req, res, urlObj) {
   if (urlObj.pathname === "/api/datasets") {
-    // ★ D20：下拉清单带批次/角色标注（领导 10-09 裁定③「页面可以暴露信息源」）。
+    // ★ 2026-10-09：下拉清单带批次/角色标注（领导 10-09 裁定③「页面可以暴露信息源」）。
     //   datasets 仍是纯字符串数组（向后兼容，前端 62 项消费点不破）；
     //   sources 提供逐项的批次、角色、是否入权威口径、备注，供页面分组显示。
     dataSource.resetCache();                 // 上传后新增文件 ⇒ 强制重扫
@@ -824,7 +824,7 @@ function handleApi(req, res, urlObj) {
         //   下拉里必须显示为「同源变体」，不能当成两个独立 case。
         variant_label: e.variant_label || null,
         variant_group: e.variant_group || null,
-        // ★ D25 步骤5：契约状态（宗审计 P1-2：上传闸门与 /api/contract 必须同结论）。
+        // ★ 2026-10-10 步骤5：契约状态（宗审计 P1-2：上传闸门与 /api/contract 必须同结论）。
         //   如实上报不合规的件，不静默修好，也不把不合规说成合规。
         contract: e.contract || null,
       })),
@@ -843,7 +843,7 @@ function handleApi(req, res, urlObj) {
     return sendJSON(res, 200, parityReport.loadReport());
   }
   if (urlObj.pathname === "/api/result") {
-    // ★ D25 步骤6-①：缺 dataset 参数 ⇒ 400，不再静默回落到 "pledge"。
+    // ★ 2026-10-10 步骤6-①：缺 dataset 参数 ⇒ 400，不再静默回落到 "pledge"。
     //   原为 `|| "pledge"`，于是 `GET /api/result` 会**返回一份演示件当结果**，
     //   调用方（脚本/材料复核）拿到 200 + 有数据，却从未要求任何数据集
     //   —— 与 D10「未接通即回落」同款：没接通的通道看起来是通的。
@@ -865,11 +865,11 @@ function handleApi(req, res, urlObj) {
       return sendJSON(res, 200, payload);
     }).catch(e => {
       if (e.code === "NOT_FOUND") {
-        // ★ D25 步骤6-②：404 带候选数据集名，让"打错字"与"真不存在"在接口层也可区分。
+        // ★ 2026-10-10 步骤6-②：404 带候选数据集名，让"打错字"与"真不存在"在接口层也可区分。
         return sendJSON(res, 404, { error: e.message, suggestions: e.suggestions || dataSource.suggest(dataset) });
       }
       if (e.code === "ENGINE_UNAVAILABLE") return sendJSON(res, 503, { error: e.message, engine: e.engine });
-      // ★ D31：未知引擎＝请求参数写错 ⇒400（不是 503「服务不可用」）。
+      // ★ 2026-10-11：未知引擎＝请求参数写错 ⇒400（不是 503「服务不可用」）。
       //   回传可用引擎清单，让调用方能立刻改对，而不是干等服务恢复。
       if (e.code === "UNKNOWN_ENGINE") {
         return sendJSON(res, 400, {
@@ -900,7 +900,7 @@ function handleApi(req, res, urlObj) {
     return handleIntegration(res);                   // D10：多公告集成（10 组）+ 缓存三态 + 出处链
   }
   if (urlObj.pathname === "/api/metrics") {
-    // ★ D20：默认只跑权威批次；?batch=legacy|all 可查对照批，但响应里会显式警告不可与材料并列引用。
+    // ★ 2026-10-09：默认只跑权威批次；?batch=legacy|all 可查对照批，但响应里会显式警告不可与材料并列引用。
     //   未知批次名一律回落权威批并**在响应里标明**（不静默：响应含 scope 字段可核对）。
     const batch = urlObj.searchParams.get("batch") || dataSource.PRIMARY_ID;
     const known = batch === "all" || Object.prototype.hasOwnProperty.call(dataSource.BATCHES, batch);
@@ -970,7 +970,7 @@ const server = http.createServer((req, res) => {
   return handleStatic(res, urlObj);
 });
 
-// ★ D25 步骤6-③：导出 `readDataset`（视图投影的唯一生成函数）供 demo/_parity_real.js 复用。
+// ★ 2026-10-10 步骤6-③：导出 `readDataset`（视图投影的唯一生成函数）供 demo/_parity_real.js 复用。
 //   L3 导出对照需要"本地侧字节"与"HTTP 侧字节"来自**同一条链路**；
 //   若本地侧另写一份拼装逻辑，就是第二份真源，字段一改就常亮红灯。
 //   require 时**不监听端口**（见文件末 require.main 守卫），`node server.js` 行为不变。

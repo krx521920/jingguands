@@ -7,7 +7,7 @@
 //
 // 本层做的事：把「数据从哪来」抽象成 provider，页面/接口只认`extract(caseId)`。
 //   file  —— 读本地预生成信封（当前唯一可用，**不是独立抽取**）
-//           ★ D20 起经 data_source.js 解析：权威批 data_unified/ 优先，演示池 data/ 兜底，
+//           ★ 2026-10-09 起经 data_source.js 解析：权威批 data_unified/ 优先，演示池 data/ 兜底，
 //             run_meta.data_source 明示批次/角色/是否入权威口径
 //   cli   —— 接魏文宇抽取 CLI run_extract.mjs（EXTRACT_CLI_CMD / EXTRACT_CLI_PARSE_DIR / 密钥）
 //   http  —— 预留：HTTP 调魏的抽取服务（EXTRACT_HTTP_URL）
@@ -31,7 +31,7 @@ const criteria = require("./parity_criteria.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
-// ★ D20：数据源不再由单个目录决定，改由 data_source.js 单一真源登记（两批并存、按批次标注）。
+// ★ 2026-10-09：数据源不再由单个目录决定，改由 data_source.js 单一真源登记（两批并存、按批次标注）。
 //   领导 10-09 裁定的换源在这里落地：**权威口径只跑 data_unified/**，
 //   data/ 保留为演示与旧抽取池（含 P0-01 物证），不计入权威口径的分子分母。
 const dataSource = require("./data_source.js");
@@ -117,7 +117,7 @@ const fileProvider = {
     // ★ 先查权威批，再查演示池（同名以权威为准）——不静默按目录猜
     const info = dataSource.resolve(safe);
     if (!info) {
-      // ★ D25 步骤6-②：未命中时给候选提示 —— 让"大小写/打错字"与"真不存在"可区分。
+      // ★ 2026-10-10 步骤6-②：未命中时给候选提示 —— 让"大小写/打错字"与"真不存在"可区分。
       //   ★ 绝不因为名字相近就返回另一份数据：那是伪造"你查的就是这份"，比报错更坏。
       const sug = dataSource.suggest(safe);
       const base = `本地无此信封：data_unified/${safe}.json 与 data/${safe}.json 均不存在`;
@@ -136,7 +136,7 @@ const fileProvider = {
     catch (e) { return { ok: false, reason: "信封解析失败：" + e.message }; }
 
     // 方核验 sidecar：随数据集走，缺失不报错（D6 起沿用的口径）
-    // ★ D25 步骤6-②：sidecar 必须用**数据集的真实名**拼，不是调用方传进来的字符串 ——
+    // ★ 2026-10-10 步骤6-②：sidecar 必须用**数据集的真实名**拼，不是调用方传进来的字符串 ——
     //   否则大小写归一化命中（查d4-pld-001 拿到 D4-PLD-001）时 sidecar 会静默找不到，
     //   页面显示成"无核验报告"，看起来像"没做核验"，实为路径拼错。
     const realName = path.basename(info.file, ".json");
@@ -153,7 +153,7 @@ const fileProvider = {
         engine_owner: this.owner,
         reruns_extraction: false,
         source_path: info.rel_path,
-        //★ 数据源透明化（D20）：run_meta 带上批次/角色/计数资格，
+        //★ 数据源透明化（2026-10-09）：run_meta 带上批次/角色/计数资格，
         //   页面与守卫据此判定「这个数据集算不算进权威口径」，不靠猜目录名。
         data_source: {
           batch: info.batch,
@@ -171,7 +171,7 @@ const fileProvider = {
         },
         code_version: (raw.run_meta && raw.run_meta.code_version) || raw.code_version || null,
         upstream_run_id: raw.run_id || null,
-        // ★ D25 步骤6-②：大小写归一化命中时**如实告知实际取的是哪一份**。
+        // ★ 2026-10-10 步骤6-②：大小写归一化命中时**如实告知实际取的是哪一份**。
         //   静默改名＝读者以为查的是自己写的那份。
         resolved_name: realName,
         name_resolution: (realName !== safe)
@@ -516,7 +516,7 @@ function defaultEngine() {
  */
 async function extract(caseId, engineId) {
   const p = PROVIDERS[engineId || defaultEngine()];
-  // ★ D31：未知引擎是**请求参数错误**，必须自报 code="UNKNOWN_ENGINE"，
+  // ★ 2026-10-11：未知引擎是**请求参数错误**，必须自报 code="UNKNOWN_ENGINE"，
   //   不能混进 available() 失败那一类由 server 按 provider.kind 猜错误码 ——
   //   那样会落成 503「服务不可用」，把「你把引擎名写错了」说成「服务坏了」，
   //   调用方无法区分该改参数还是该等服务。且把可用清单一并带出，让调用方可执行。
@@ -529,7 +529,7 @@ async function extract(caseId, engineId) {
   if (!av.ok) return { ok: false, engine: p.id, reason: av.reason };
 
   const r = await p.run(caseId);
-  // ★ D25 步骤6-②：失败时**透传 suggestions**。原来只带 reason，
+  // ★ 2026-10-10 步骤6-②：失败时**透传 suggestions**。原来只带 reason，
   //   于是 provider 好不容易算出的候选名在这一层被丢掉，接口只能回一句
   //   "本地无此信封" —— 打错字与真不存在对调用方完全一样。
   if (!r.ok) return { ok: false, engine: p.id, reason: r.reason, suggestions: r.suggestions || [] };
@@ -598,7 +598,7 @@ function diffEnvelopes(a, b) {
  * ★ Web/CLI 对照。**同源即拒判**。
  * @returns {{verdict:"pass"|"mismatch"|"not_covered", ...} | {http_error:400, ...}}
  *   not_covered —— 两侧都是预生成信封（同一文件/同一抽取批），不构成对照，按 D10 决议标未覆盖。
- *   http_error  —— ★ D31：**引擎名写错**（参数错）必须与「引擎没接通」（覆盖缺口）分开。
+ *   http_error  —— ★ 2026-10-11：**引擎名写错**（参数错）必须与「引擎没接通」（覆盖缺口）分开。
  *     原来两者都返回 not_covered，于是把"少写一个字母"记成"该能力未覆盖"，
  *     会在未覆盖清单里凭空多一条，覆盖率被自己写错参数拉低。
  */
@@ -607,7 +607,7 @@ async function parity(caseIds, opts) {
   const bEngine = (opts && opts.b) || "cli";
 
   const A = PROVIDERS[aEngine], B = PROVIDERS[bEngine];
-  // ★ D31：未知引擎是参数错 ⇒ 400，不进 not_covered（那会虚增未覆盖项）。
+  // ★ 2026-10-11：未知引擎是参数错 ⇒ 400，不进 not_covered（那会虚增未覆盖项）。
   if (!A || !B) {
     const bad = !A ? aEngine : bEngine;
     return {

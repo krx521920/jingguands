@@ -1,4 +1,4 @@
-// demo/_engine400_check.js —— D31 守卫：未知引擎必须返 400（参数错），不是 503（服务不可用）
+// demo/_engine400_check.js —— 2026-10-11 守卫：未知引擎必须返 400（参数错），不是 503（服务不可用）
 //
 // 领导 10-11 遗留第 4 条：「未知引擎建议 400」。
 //
@@ -202,7 +202,7 @@ function restore(saved) {
   }
 
   console.log("=".repeat(78));
-  console.log("D31 守卫 · 未知引擎返 400（含反证）");
+  console.log("2026-10-11 守卫 · 未知引擎返 400（含反证）");
   console.log("=".repeat(78));
   for (const [st, rule, name, detail] of rows) {
     console.log(`[${st}] ${rule} · ${name}`);

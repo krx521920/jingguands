@@ -1,4 +1,4 @@
-// demo/_p1_2_check.js —— D25 步骤5 守卫：上传闸门必须接契约机检（宗审计 P1-2）
+// demo/_p1_2_check.js —— 2026-10-10 步骤5 守卫：上传闸门必须接契约机检（宗审计 P1-2）
 //
 // 缺陷原文（宗2026-10-10 收口清单步骤 5）：
 //   「上传 {"schema_version":"0.3","events":[]} 判 ok:true，而 /api/contract 机检是 ok:false」
@@ -215,7 +215,7 @@ async function startServer() {
   }
 
   console.log("=".repeat(78));
-  console.log("D25 步骤5 守卫 · 上传闸门接契约机检（宗审计 P1-2）");
+  console.log("2026-10-10 步骤5 守卫 · 上传闸门接契约机检（宗审计 P1-2）");
   console.log("=".repeat(78));
   for (const [st, rule, name, detail] of rows) {
     console.log(`[${st}] ${rule} · ${name}`);

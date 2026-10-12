@@ -29,7 +29,7 @@ const crypto = require("crypto");
 const ROOT = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data");
 const UNIFIED_DIR = path.join(ROOT, "data_unified");
-// ★ D20：批次/计数资格改由数据源单一真源提供，本文件不再自己判断哪批算数。
+// ★ 2026-10-09：批次/计数资格改由数据源单一真源提供，本文件不再自己判断哪批算数。
 const dataSource = require("./data_source.js");
 
 // ============================================================
@@ -97,14 +97,14 @@ function fingerprint() {
   return {
     generated_at: new Date().toISOString(),
     inputs: { page_data: page, unified_batch: unified },
-    // ★ D20：页面实算已换源到权威批次（领导 10-09 裁定「换源」），
+    // ★ 2026-10-09：页面实算已换源到权威批次（领导 10-09 裁定「换源」），
     //   故 primary 从 data/ 改为 data_unified/。
     //   此前 primary=page.sha256 会让指纹指向旧批次——口径已换，指纹必须跟着换，
     //   否则材料引用的指纹与页面实算的批次对不上（正是 D19 那类"数字对不上但看不出"的问题）。
     primary: unified.sha256,
     primary_batch: dataSource.PRIMARY_ID,
     primary_files: unified.files,
-    // ★ D21：权威批次的**唯一身份**是宗裁决的锚点，不是目录指纹。
+    // ★ 2026-10-09：权威批次的**唯一身份**是宗裁决的锚点，不是目录指纹。
     //   目录指纹含 1 份本地演示件（32 份），与权威口径的 31 份不是一回事；
     //   拿它当身份标识，等于用"目录里有什么"冒充"这批数据是什么"。
     anchor_sha256: dataSource.anchor().sha256,
@@ -155,7 +155,7 @@ function ratioScore(relPath, numKeys, denKeys) {
 }
 
 /**
- * ★ D31：按 rows[].expected 分组实算「相关/无关」两侧的通过数。
+ * ★ 2026-10-11：按 rows[].expected 分组实算「相关/无关」两侧的通过数。
  *   为什么不能用顶层字段：crossdoc 成绩单的顶层只有 same_event（只覆盖 related 侧），
  *   无关对照那一半**只存在于 rows 里**。读顶层不存在的字段会得到 undefined，
  *   模板串照样拼出一句看起来很像样的话 —— 数值可能碰巧对，依据是假的。
@@ -183,7 +183,7 @@ function splitByExpected(sheet) {
 }
 
 /**
- * ★ D31：从 D10 集成包实算关系分布。
+ * ★ 2026-10-11：从 D10 集成包实算关系分布。
  *   数据源＝ data/d10/integration_bundle.json 的 `results[].report.diffs.relation`。
  *   ★ 路径纪律：本文件 `ROOT = path.resolve(__dirname, "..")` 已经退到 page_prototype/，
  *     所以 `path.join(ROOT, "data", ...)` 就对 —— **再多退一级会静默读到不存在的路径，
@@ -224,7 +224,7 @@ const MEASURED = {
   },
 
   // ---- 覆盖率 ----
-  // ★ D17＋D20：分母收口到权威批 606（615 是含演示件的扩大口径，只作对照不计入）
+  // ★ D17＋2026-10-09：分母收口到权威批 606（615 是含演示件的扩大口径，只作对照不计入）
   field_coverage: {
     value: 72.11, unit: "%", num: 437, den: 606,
     source_script: "demo/_retest_unified.js",
@@ -241,7 +241,7 @@ const MEASURED = {
   // ---- 出处命中率 ----
   //★ 动态读实测结果，不硬编码：快照撤走或脚本没跑时自动退回「未测」，
   //   绝不在页面上留一个无来源的100%（换批即失效的反面：不能让旧数长期挂着）。
-  // ★ D31：evidence_hit 的**数值不再在这里产生** —— 原先读 _evidence_quote_real.json
+  // ★ 2026-10-11：evidence_hit 的**数值不再在这里产生** —— 原先读 _evidence_quote_real.json
   //   得 241（两批混合、10 份外部快照的可核子集），与卡片实算的 451 不同名不同值。
   //   改为运行时由 l3FromMetrics() 从权威批实算注入（见 list()）。
   //   这里**刻意留一个恒 null 的占位**：MEASURED 里没有这个 key 时，
@@ -290,7 +290,7 @@ const MEASURED = {
   //   取件：evaluation/{D11/results,D10/results}/（本机私有，不入库），由 demo/_fetch_eval_scores.js 按 sha 取。
 
 // ---- 跨文档配对准确率（D15 收口：20/20组） ----
-  // ★ D31 修正：原 note 拼的是 `r.different_event.clean / r.different_event.total`，
+  // ★ 2026-10-11 修正：原 note 拼的是 `r.different_event.clean / r.different_event.total`，
   //   但 crossdoc-firsttest-score.json **根本没有 different_event 这个字段** ——
   //   读出来是 undefined，模板串拼成 "16/16" 纯属碰巧对上（真实值确实 16/16）。
   //   ★ 这是最典型的**假依据**：数值对，但算出它的那个字段不存在，改了成绩单就会静默说谎。
@@ -328,7 +328,7 @@ multi_doc_conflict: (() => {
 // ---- D10 集成通过率（D15 收口：10/10，与页面集成视图同源，消除同页矛盾） ----
 integration_pass: (() => {
   const m = ratioScore("D10/results/score-weiwenyu-bundle.json", ["pass"], ["cases_total"]);
-  // ★ D31：unknown 关系**从集成包实算**，不再手写 "D10-INT-008" 硬编码 id。
+  // ★ 2026-10-11：unknown 关系**从集成包实算**，不再手写 "D10-INT-008" 硬编码 id。
   //   两个关键修正：
   //   ① 字段路径是 `results[].report.diffs.relation`——成绩单
   //      （score-weiwenyu-bundle.json）的 rows 里只有 case_id/status/notes，
@@ -452,7 +452,7 @@ const REGISTRY = [
   },
 
   // ---------- 出处命中率 ----------
-  // ★ D31 口径统一：本项原先记 241/241（两批混合、只靠魏侧 10 份外部快照的可核子集），
+  // ★ 2026-10-11 口径统一：本项原先记 241/241（两批混合、只靠魏侧 10 份外部快照的可核子集），
   //   而卡片已改读权威批实算的 451/451（30 份信封自带 blocks）——
   //   **同名「出处原文命中率」却有两个值同屏**，正是要根治的毛病。
   //   现在注册表与卡片同源：都读 bridge/metrics.js 的权威批实算值，
@@ -469,7 +469,7 @@ const REGISTRY = [
     evidence_kind: "quote_in_block_text",
     evidence_ref: "bridge/metrics.js computeMetrics()（各信封 source.parse_meta.blocks，按前缀分桶）",
     blocked_by: null,
-    note: "2026-10-11（D31）：覆盖面从 1 份扩到 30 份后，权威批 451 条 provenance 全部可核（451/451）。旧记的 241/241 是两批混合口径下只靠魏侧 10 份外部快照数出的可核子集（该脚本 prov_total=863 含演示池，622 条未核），已降为 legacy_evidence_hit 条目，两者不可混读",
+    note: "2026-10-11（2026-10-11）：覆盖面从 1 份扩到 30 份后，权威批 451 条 provenance 全部可核（451/451）。旧记的 241/241 是两批混合口径下只靠魏侧 10 份外部快照数出的可核子集（该脚本 prov_total=863 含演示池，622 条未核），已降为 legacy_evidence_hit 条目，两者不可混读",
   },
   // ---------- 旧出处口径（留档，不与主口径同名） ----------
   {
@@ -584,7 +584,7 @@ const REGISTRY = [
 // 组装
 // ============================================================
 /**
- * ★ D31：从 bridge/metrics.js 的权威批实算里取出「出处原文命中率」。
+ * ★ 2026-10-11：从 bridge/metrics.js 的权威批实算里取出「出处原文命中率」。
  *   返回 {value,num,den,note} 或 null（取不到 ⇒ 调用方落not_covered）。
  *   ★ 循环依赖防护：metrics.js 会 require 本注册表，本函数在**运行时**惰性 require，
  *     不在模块顶层 require —— 顶层就会与 metrics.js 互相等待。
@@ -614,7 +614,7 @@ function l3FromMetrics() {
 
 function list() {
   const fp = fingerprint();
-  // ★ D31：出处命中率的数值**运行时从权威批实算**注入，不硬编码。
+  // ★ 2026-10-11：出处命中率的数值**运行时从权威批实算**注入，不硬编码。
   //   取不到（metrics.js 读不出 / 0 条可核）⇒ value=null ⇒ 自动落not_covered，
   //   绝不按 100% 填充。这是「裁定给的数必须独立实算后才认」的落地形式。
   const evLive = l3FromMetrics();
@@ -632,7 +632,7 @@ function list() {
       status_label: (STATUS[(value === null && r.status === "measured" ? "not_covered" : r.status)] || {}).label,
       evidence_kind: m.evidence_kind || null,
       evidence_note: m.note || null,
-      // ★ D31：关系分布实算结果（unknown 不止 008，是 3 条）随条目下发。
+      // ★ 2026-10-11：关系分布实算结果（unknown 不止 008，是 3 条）随条目下发。
       //   不下发等于算了个数锁在文件里，页面上看不到 —— 结论不可见就等于没做。
       relation_breakdown: m.relation_breakdown || null,
       source_script: m.source_script || null,
@@ -664,7 +664,7 @@ function coverageStatement() {
     unverified: byStatus.unverified || 0,
     not_covered: byStatus.not_covered || 0,
     by_status: byStatus,
-    // ★ D21：primary 改用宗裁决的**锚点**（权威批次唯一身份，31 份口径）。
+    // ★ 2026-10-09：primary 改用宗裁决的**锚点**（权威批次唯一身份，31 份口径）。
     //   目录指纹含 1 份本地演示件（32 份），不能直接当权威批次的身份标识——
     //   宗的原话是「任何引用权威批次的地方都必须能对上这个值」，指的就是锚点。
     input_sha256: fp.primary,

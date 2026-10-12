@@ -155,7 +155,7 @@ console.log("\n【2】同源拒判（D10 造假的同款陷阱）");
   // ============================================================
   console.log("\n【3b】mock 产物必须被拒判（mock 不得顶替真跑）");
   const mockCli = path.join(os.tmpdir(), "cjh-mockcli-" + Date.now() + ".js");
-  // ★ D20：权威批次已搬到 data_unified/，这里**不能硬编码 data/**。
+  // ★ 2026-10-09：权威批次已搬到 data_unified/，这里**不能硬编码 data/**。
   //   曾写死 path.resolve(cwd,"data",base+".json")，而 cleanIds 取的是权威批数据集
   //   （D4-PLD-001 等，在 data_unified/），于是 mock CLI 自己 ENOENT 崩掉——
   //   报出来的是「CLI exit=1找不到文件」，把真正要验的 mock 守卫盖掉了。

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * D30 · 数据预置守卫（宗核对单第 8 项「展示层现场可跑」六条的机检版）
+ * 2026-10-11 · 数据预置守卫（宗核对单第 8 项「展示层现场可跑」六条的机检版）
  *
  * 领导问「页面数据预置完成没有」——口头说"完成了"就是自证。
  * 这道门把六条拆成可复算的断言，任何一条不成立就 FAIL。
@@ -58,7 +58,7 @@ async function waitUp(ms) {
 }
 
 (async function main() {
-  console.log("D30 · 数据预置守卫" + (PROVE ? "（含反证）" : ""));
+  console.log("2026-10-11 · 数据预置守卫" + (PROVE ? "（含反证）" : ""));
 
   // ── 导出纯净树：从 HEAD 树 archive，模拟"评委 clone 后拿到的东西" ──
   sec("纯净树导出（git archive HEAD，模拟 clone）");

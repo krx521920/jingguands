@@ -1,7 +1,7 @@
 /**
  * D11 首次封存测试 —— 真实结果统计（服务端聚合）
  *
- * ★ D20 起（领导 10-09 裁定的"换源"在本文件落地）：
+ * ★ 2026-10-09 起（领导 10-09 裁定的"换源"在本文件落地）：
  *   指标默认只跑**权威批次 `data_unified/`**（魏 D11 首测冻结批次）。
  *   原先只跑 `data/`（09-28~10-02 旧抽取，548 字段），导致页面的71.53% 与材料的
  *   72.52%（615 字段）出自两个不同样本却常被并列引用（D19 查出）。
@@ -21,7 +21,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const dataSource = require("./data_source.js");   // D20：数据源单一真源（批次/口径/指纹）
+const dataSource = require("./data_source.js");   // 2026-10-09：数据源单一真源（批次/口径/指纹）
 
 // __dirname = <工程根>/bridge，故 data / docs 各上退一级
 const LEGACY_DATA_DIR = path.join(__dirname, "..", "data");
@@ -41,7 +41,7 @@ function sendJSON(res, code, obj) {
 }
 
 /**
- * ★ D20：枚举参与本次实算的数据集。
+ * ★ 2026-10-09：枚举参与本次实算的数据集。
  *   batchId = "authoritative"（默认，权威口径，只跑入分子的批次）
  *   batchId = "legacy"（对照用，页面按需查演示池；**不进权威口径的分子分母**）
  *   batchId = "all"（两批都跑，仅用于对账展示，不得作为上屏口径）
@@ -65,7 +65,7 @@ function resolveDataFile(name) {
 /**
  * 载入 L3 出处核验用的原文block 索引。
  *
- * ★ D20 修正（换源暴露出的假失败）：
+ * ★ 2026-10-09 修正（换源暴露出的假失败）：
  *   本地唯一快照 `docs/_ref_zhang_D3_pledge.parse.json` 是 **parser 0.7.0**（09-29 解析），
  *   而权威批次 D4-PLD-001 是 **parser 0.9.0**。两者 block 编号体系不同（0.7.0 把
  *   「翟军」编为 b00023、0.9.0 编为 b00022…），block_id 前缀相同但**指向不同文本**。
@@ -118,7 +118,7 @@ function prefixOf(blockId) {
 }
 
 /**
- * ★ D31：从当前批次里**每一份**自带 blocks 的信封建一份索引（按文档前缀分桶）。
+ * ★ 2026-10-11：从当前批次里**每一份**自带 blocks 的信封建一份索引（按文档前缀分桶）。
  *
  *   原来只取**第一份**就 return（`for (...) { ...; return {...} }`），
  *   于是 L3 明明可以核 30 份信封，却只核了1 份 —— 领导的遗留第 1 条。
@@ -179,7 +179,7 @@ function parseSelfBlockIndex() {
 
 /** 从当前批次的信封里找唯一自带 blocks 的那一份，做同源自校验。
  *  ⚠本函数是**单份**视图，仅供只要一个 doc 的老调用方；
- *  多份核验请走 parseSelfBlockIndex()（D31 起 computeMetrics 已全量走分桶）。
+ *  多份核验请走 parseSelfBlockIndex()（2026-10-11 起 computeMetrics 已全量走分桶）。
  *  判「唯一」是刻意的：多份信封就必然有多套 block_id 体系，混起来是自欺。*/
 function parseSelfBlocks() {
   try {
@@ -250,7 +250,7 @@ function isField(v) {
  * 返回结构与 demo/_evidence_check.json 一致，供页面与脚本共用。
  */
 function computeMetrics(batchId) {
-  // ★ D31：从「单份索引」改为**按文档前缀分桶的多份索引**。
+  // ★ 2026-10-11：从「单份索引」改为**按文档前缀分桶的多份索引**。
   //   实测权威批 31 份里 30 份自带 blocks ⇒ L3 覆盖面从 1 份变 30 份。
   //   外部快照（parseSelfBlocks 的回退路径）仍保留：它是**单文档**索引，
   //   只在没有信封自带 blocks 时才顶上，此时覆盖面天然只有 1 份 —— 但那是事实，不假装。
@@ -312,13 +312,13 @@ function computeMetrics(batchId) {
           if (pv.table_id) agg.prov_table++;
           if (pv.cell_ref) agg.prov_cell_ref++;
 
-          //★ D20：核验前必须过两道闸，缺一不可——
+          //★ 2026-10-09：核验前必须过两道闸，缺一不可——
           //  ① block_id 前缀与本索引所属文档一致（否则是拿别的文档的 block 核）
           //  ② envelope 的 parser_version 与本索引的 parser_version 一致
           //     （0.7.0 与 0.9.0 的 block 编号体系不同，跨版本比对必然假失败）
           // 闸不过 ⇒ 不计入分母（判未核），而不是算出一个假的命中率。
           //
-          // ★ D31：闸①从「比对唯一索引的 doc_prefix」改为「**按前缀取对应那一份**」。
+          // ★ 2026-10-11：闸①从「比对唯一索引的 doc_prefix」改为「**按前缀取对应那一份**」。
           //   分桶后不同信封的 block 体系在结构上就隔离了 —— 拿 A 信封的 block_id
           //   去查 B 信封的桶，必然查不到（byBlockId.get 返回 null），
           //   于是它进不了分母，而不是拿别的文档的文本凑出一个假命中。
@@ -370,7 +370,7 @@ function computeMetrics(batchId) {
       extracted_pct: pct(agg.status_extracted, agg.status_extracted + agg.status_pending_review + agg.status_other),
     },
     l3: {
-      // ★ D31：覆盖从 1 份变 N 份，下列doc_* 单值字段已不再有单一文档可指，
+      // ★ 2026-10-11：覆盖从 1 份变 N 份，下列doc_* 单值字段已不再有单一文档可指，
       //   故**显式置 null**（不拿第一份冒充全体），改用 docs_* 系列表述。
       doc_id: null,
       doc_name: null,
@@ -435,15 +435,15 @@ function handleMetrics(res, batchId) {
     //  两处各算一次就会重演"同名两个值"。
     //  产物缺失 ⇒ target 仍挂、value 为 null（判未测），绝不按目标值填充。
     const std = readStandardized();
-    // ★ D31 出处命中率：**改为直接读权威批实算的 L3 结果**（30 份信封自带 blocks）。
+    // ★ 2026-10-11 出处命中率：**改为直接读权威批实算的 L3 结果**（30 份信封自带 blocks）。
     //
     //   为什么不再读注册表 evidence_hit（241）：
     //     241 是两批混合口径下、只靠魏的 10 份外部快照（.peersnap）数出来的子集，
     //     分母 863 里只有 241 条可核，另有 622 条未核。
-    //     D31 把 L3 从 1 份扩到 30 份后，权威批 451 条 provenance **全部可核**（451/451）——
+    //     2026-10-11 把 L3 从 1 份扩到 30 份后，权威批 451 条 provenance **全部可核**（451/451）——
     //     分母更大、证据来源同源（每份信封自带的解析产物），严格覆盖 241 那套。
     //   两者判据相同（quote ∈ block.text），但证据来源与口径都不同，
-    //     同时上屏就是「同页两个出处命中率」——正是 D31 要根治的毛病。
+    //     同时上屏就是「同页两个出处命中率」——正是 2026-10-11 要根治的毛病。
     //   ⇒ **卡片只上权威口径一个数**；241 那套降级为脚注里的历史对照，明确标注口径差异。
     const provCard = (() => {
       const num = l3.checked, den = agg.prov_total;
@@ -483,9 +483,9 @@ function handleMetrics(res, batchId) {
           : "非 text 有值且有 Gold 期望的字段中，value 与 Gold 规范值一致（未测）",
         coverage_note: "value 即规范化后的取值，值层一致即标准化正确（与标准化覆盖率分列，不得相加）" },
       { key: "provenance_hit", name: "出处命中率", target: 95, value: provCard.value, unit: "%",
-        // ★ D31：分母改为**权威批全部 provenance**（451），不再用可核子集（241）。
+        // ★ 2026-10-11：分母改为**权威批全部 provenance**（451），不再用可核子集（241）。
         //   以前写"可核子集 241 / 分母 241"看着漂亮，但 622 条未核的provenance 被藏起来了 ——
-        //   D31 把覆盖面从 10 份扩到 30 份后，451 条**全部可核**，没有子集了。
+        //   2026-10-11 把覆盖面从 10 份扩到 30 份后，451 条**全部可核**，没有子集了。
         caliber: "出处原文命中率＝quote 落在该信封自带的原始解析 block.text 内（分子 " +
           provCard.num + " / 分母 " + provCard.den + "）。" +
           "证据来源＝各信封 source.parse_meta.blocks（与 provenance 同一次解析产物），按 block_id 前缀分桶，" +
@@ -543,7 +543,7 @@ function handleMetrics(res, batchId) {
 
     return sendJSON(res, 200, {
       generated_at: new Date().toISOString(),
-      // ★ D21：数据源披露段（领导 10-09 裁定③「页面可以暴露信息源」；
+      // ★ 2026-10-09：数据源披露段（领导 10-09 裁定③「页面可以暴露信息源」；
       //   宗 10-09 裁决要求附批次标识与锚点，见 data_source.js 的 ANCHOR）。
       //   ★ 文案里禁用 markdown 标记——这些串会被 textContent 原样渲染到页面上。
       data_source: Object.assign({}, dataSource.disclose(), {
@@ -579,13 +579,13 @@ function handleMetrics(res, batchId) {
         ],
       } : null,
       caliber_discipline: [
-        "★ D20 起全部指标只跑权威批次 data_unified/（counts_for_primary），无示例值、无估算",
+        "★ 2026-10-09 起全部指标只跑权威批次 data_unified/（counts_for_primary），无示例值、无估算",
         "另一批 data/（演示与旧抽取池）仅供查看，不计入任何分子分母",
         "每项带分母 n；'未核'不计入命中分母",
         "L3 原文命中需原始解析快照，当前仅 1 份，覆盖范围如实标注",
         "目标值取自总规划验收指标，仅作对照，不参与计算；不达标即显示不达标",
         "字段抽取率与溯源存在率（L1）是两个不同指标，勿混用：前者看 status，后者看 provenance 是否存在",
-        "★ D20：引用任何数字须同时引用 data_source 段的批次、份数与目录指纹",
+        "★ 2026-10-09：引用任何数字须同时引用 data_source 段的批次、份数与目录指纹",
         "★ D12 起口径以顶层注册表为准，本节仅保留 D11 原始口径供对照",
       ],
       cards,
@@ -606,7 +606,7 @@ function handleMetrics(res, batchId) {
           source_ref: m.idx.source || null,
           source_kind: m.idx.self_from ? "self_blocks" : "external_snapshot",
           parser_version: m.idx.parser_version || null,
-          // ★ 跨 parser 版本不可比（D20 坐实：0.7.0 快照核 0.9.0 信封会假失败 7.69%）
+          // ★ 跨 parser 版本不可比（2026-10-09 坐实：0.7.0 快照核 0.9.0 信封会假失败 7.69%）
           parser_mismatch_warning: "解析产物跨 parser 版本 block 编号体系不同，版本不匹配的字段一律不计入分母（判未核），不折算成命中率",
         } : null,
         miss_samples: m.l3Miss.slice(0, 20),

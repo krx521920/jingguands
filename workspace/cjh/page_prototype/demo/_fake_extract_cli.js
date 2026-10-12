@@ -51,7 +51,7 @@ if (!hasKey && !a.mock) {
 
 // ---------- 出数 ----------
 const base = path.basename(src).replace(/\.(parse\.json|json|txt|md)$/i, "");
-// ★ D20：权威批次已搬到 data_unified/，**不能硬编码 data/**。
+// ★ 2026-10-09：权威批次已搬到 data_unified/，**不能硬编码 data/**。
 //   曾写死 path.resolve(__dirname,"..","data",base+".json")，权威批数据集（D4-PLD-001 等）
 //   于是全部 exit=4「无 xxx.json 作假实现源」——通道看着是通的，实际一个权威用例都没跑成，
 //   守卫还会因此报出"拒判总数不等于 mock+unsupported"这种看不懂的 FAIL。
