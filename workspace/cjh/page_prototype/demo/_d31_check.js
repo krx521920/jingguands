@@ -1,4 +1,4 @@
-// demo/_d31_check.js —— D31 守卫：四条遗留的落地验收（含反证）
+// demo/_d31_check.js —— 2026-10-11 守卫：四条遗留的落地验收（含反证）
 //
 // 领导 10-11 转达验收结论 + 4 条遗留：
 //   ① L3 只覆盖 1 份（实际 30/32 份信封自带 blocks，改索引即可覆盖 30 份；物化件作增强）
@@ -329,7 +329,7 @@ function sabotageBad() {
   }
 
   console.log("=".repeat(80));
-  console.log("D31 守卫 · 四条遗留落地验收（L3 覆盖面 / 同屏唯一数 / 三项销项 / 引擎 400）");
+  console.log("2026-10-11 守卫 · 四条遗留落地验收（L3 覆盖面 / 同屏唯一数 / 三项销项 / 引擎 400）");
   console.log("=".repeat(80));
   for (const [st, rule, name, detail] of rows) {
     console.log(`[${st}] ${rule} · ${name}`);
