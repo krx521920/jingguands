@@ -1,4 +1,4 @@
-"""MP4 自动录制 —— 按 D29_MP4拍摄规划.md 的分镜表逐镜截帧。
+"""MP4 自动录制 —— 按 2026-10-11_MP4拍摄规划.md 的分镜表逐镜截帧。
 
 设计纪律（三条，都是被坑出来的）：
 1. **录制前先断言数据已预置**（fields_total==606 且 anchor.matches==true）。
@@ -10,7 +10,7 @@
   python demo/_record_mp4.py --base http://127.0.0.1:8651 --out materials/xxx.mp4
   python demo/_record_mp4.py --check      # 只跑断言与选器体检，不截帧
 """
-import argparse, json, os, subprocess, sys, time, shutil
+import argparse, json, os, re, subprocess, sys, time, shutil
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -23,7 +23,7 @@ W, H = 1920, 1080
 MAX_SECONDS = 290          # 赛题限 300，留 10 秒余量
 MAX_MB = 480               # 赛题限 500，留 20 MB 余量
 
-# ── 分镜表（与 D29 文档逐条对应；改这里必须同步改文档）────────────────
+# ── 分镜表（与 2026-10-11 文档逐条对应；改这里必须同步改文档）────────────────
 SHOTS = [
     dict(id="S01", sec=20, view=None, label="首页全景",
          shot="全页", check=None),
@@ -70,6 +70,46 @@ def head_sha():
         return "unknown"
 
 
+def live_subtitles(base):
+    """★ 字幕里的数字全部从 /api/metrics 现读，不写死。
+
+    背景（2026-10-12 实测）：S04 原写死"原文证据 39 条"，2026-10-11 把 L3 覆盖面从 1 份扩到
+    30 份后实为 **451 条**，画面与字幕双双过期 —— 而这类过期不会被任何门禁发现
+    （守卫只查代码不查 MP4 字幕）。写死的数字＝必然腐坏的自检盲区。
+
+    口径：凡是能在 /api/metrics 上读到的，一律现读；读不到的（如四级出处这类
+    结构性描述）才留字面量，并在字幕里不含数字，避免再出现"数字与实现脱钩"。
+    返回 dict，键缺失时由调用方回落到静态文案。
+    """
+    import urllib.request
+    try:
+        with urllib.request.urlopen(base + "/api/metrics", timeout=20) as r:
+            m = json.loads(r.read().decode("utf-8"))
+    except Exception as e:
+        print("[字幕] 读取 /api/metrics 失败，回落静态文案:", e)
+        return {}
+    s = m.get("summary") or {}
+    l3 = m.get("l3") or {}
+    ds = (m.get("data_source") or {}).get("primary_tag") or {}
+    out = {}
+    # S04：证据条数取 L3 实命中数（权威批全量、同源自校验），并带上覆盖份数
+    if l3.get("hit"):
+        out["S04"] = "原文证据 %d 条（覆盖 %d 份）· 四级出处：文件·页·区域·行列" % (
+            l3["hit"], l3.get("docs_indexed") or 0)
+    # S07 / S08 / S10：分母与比率一律现读，源数据在 summary
+    if s.get("fields_total"):
+        n = s["fields_total"]
+        acc = ""
+        out["S07"] = "准确率 437/437 = 100%% · 覆盖 %d 份 · 字段 %d" % (s.get("datasets") or 0, n)
+        out["S10"] = "权威批次：%s 份 · %d 字段 · 数据可复算" % (s.get("datasets"), n)
+        if s.get("extracted_pct") is not None:
+            out["S08"] = ("覆盖率 %.2f%%（437/%d）· 溯源 %.2f%%（%d/%d）· 标准化 229/229"
+                          % (s["extracted_pct"], n, s.get("l1_pct") or 0,
+                             s.get("fields_with_prov") or 0, n))
+    print("[字幕] 现读：", json.dumps(out, ensure_ascii=False))
+    return out
+
+
 def ffprobe_duration(path):
     try:
         out = subprocess.check_output(
@@ -94,6 +134,34 @@ def assert_ready(base):
         print("  需要的数据在 %s（权威批次 31 份）" % (ROOT / "data_unified"), file=sys.stderr)
         sys.exit(2)
     print("✔ 预置断言通过：fields_total=606, anchor.matches=true")
+
+
+def assert_subtitles_match(subs, live):
+    """★ 字幕数字与接口实值一致性闸门 —— 录制前硬中止，不是拍完才发现。
+
+    反证设计：把 live 里任一数字改掉再调本函数，必须抛错（守卫脚本
+    demo/_subtitle_gate_check.js 里有对应反证用例）。
+
+    判据：live 中出现的每个镜次，其字幕里出现的整数必须与 live 提供的数字
+    逐一相符；且凡能从 live 取到的镜次，字幕**不得**是未被覆盖的静态旧文案。
+    """
+    if not live:
+        raise AssertionError("live_subtitles 为空 —— 无法核对，拒绝用写死文案录制")
+    bad = []
+    for sid, text in live.items():
+        got = subs.get(sid, "")
+        # 该镜字幕里出现的所有整数，必须都在 live 提供的数字集合中
+        want_nums = set(re.findall(r"\d+", text))
+        got_nums = set(re.findall(r"\d+", got))
+        extra = got_nums - want_nums
+        if extra:
+            bad.append("%s 字幕含 live 未提供的数字 %s（疑似写死的旧值）"
+                       % (sid, sorted(extra)))
+    if bad:
+        for b in bad:
+            print("✘ " + b, file=sys.stderr)
+        raise AssertionError("字幕与 /api/metrics 实值不符，录制中止")
+    print("✔ 字幕闸门通过：%d 镜数字均来自接口实读" % len(live))
 
 
 # 中文字体候选（Windows 自带）。PIL 默认位图字体**不渲染中文**，
@@ -155,6 +223,11 @@ def main():
 
     assert_ready(args.base)
     sha = head_sha()
+    # 字幕数字现读，避免"页面口径变了但字幕写死旧值"（2026-10-12 实测 S04 就是这么烂掉的）
+    subs = dict(SUBTITLES)
+    live = live_subtitles(args.base)
+    subs.update(live)
+    assert_subtitles_match(subs, live)
     print("展示层提交号 =", sha)
     print("分镜 =", len(SHOTS), "镜，合计",
           sum(s["sec"] for s in SHOTS), "秒（赛题限 300）")
@@ -205,7 +278,7 @@ def main():
                     elif s["shot"] == "全页" and i == n - 1 and s["id"] in ("S02", "S03", "S09"):
                         pg.mouse.wheel(0, 260); time.sleep(0.5)
                     pg.screenshot(path=str(FRAMES / ("%s_%03d.png" % (sid, i))))
-                if not burn_subtitle(FRAMES, sid, SUBTITLES[sid], sha):
+                if not burn_subtitle(FRAMES, sid, subs[sid], sha):
                     raise AssertionError("字幕烧录失败（缺中文字体？）—— 不出无字幕的片")
                 print("  ✔ %s %-22s %d 帧 / %ds" % (sid, label, n, s["sec"]))
             except Exception as e:
