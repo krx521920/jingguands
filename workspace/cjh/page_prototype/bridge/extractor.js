@@ -511,11 +511,20 @@ function defaultEngine() {
 
 /**
  * 抽取一个 case 的信封（过桥到契约 v0.3）。
- * @returns {{ok:true, data:object, engine:string, run_meta:object} | {ok:false, reason:string, engine:string}}
+ * @returns {{ok:true, data:object, engine:string, run_meta:object}
+ *          | {ok:false, reason:string, engine:string, code?:string, suggestions?:string[]}}
  */
 async function extract(caseId, engineId) {
   const p = PROVIDERS[engineId || defaultEngine()];
-  if (!p) return { ok: false, engine: engineId || null, reason: `未知引擎：${engineId}` };
+  // ★ D31：未知引擎是**请求参数错误**，必须自报 code="UNKNOWN_ENGINE"，
+  //   不能混进 available() 失败那一类由 server 按 provider.kind 猜错误码 ——
+  //   那样会落成 503「服务不可用」，把「你把引擎名写错了」说成「服务坏了」，
+  //   调用方无法区分该改参数还是该等服务。且把可用清单一并带出，让调用方可执行。
+  if (!p) return {
+    ok: false, engine: engineId || null, code: "UNKNOWN_ENGINE",
+    reason: `未知引擎：${engineId || "(空)"}`,
+    suggestions: Object.keys(PROVIDERS),
+  };
   const av = p.available();
   if (!av.ok) return { ok: false, engine: p.id, reason: av.reason };
 
@@ -587,15 +596,28 @@ function diffEnvelopes(a, b) {
 
 /**
  * ★ Web/CLI 对照。**同源即拒判**。
- * @returns {{verdict:"pass"|"mismatch"|"not_covered", ...}}
+ * @returns {{verdict:"pass"|"mismatch"|"not_covered", ...} | {http_error:400, ...}}
  *   not_covered —— 两侧都是预生成信封（同一文件/同一抽取批），不构成对照，按 D10 决议标未覆盖。
+ *   http_error  —— ★ D31：**引擎名写错**（参数错）必须与「引擎没接通」（覆盖缺口）分开。
+ *     原来两者都返回 not_covered，于是把"少写一个字母"记成"该能力未覆盖"，
+ *     会在未覆盖清单里凭空多一条，覆盖率被自己写错参数拉低。
  */
 async function parity(caseIds, opts) {
   const aEngine = (opts && opts.a) || "file";
   const bEngine = (opts && opts.b) || "cli";
 
   const A = PROVIDERS[aEngine], B = PROVIDERS[bEngine];
-  if (!A || !B) return { verdict: "not_covered", reason: `未知引擎：${!A ? aEngine : bEngine}` };
+  // ★ D31：未知引擎是参数错 ⇒ 400，不进 not_covered（那会虚增未覆盖项）。
+  if (!A || !B) {
+    const bad = !A ? aEngine : bEngine;
+    return {
+      http_error: 400,
+      verdict: "invalid_request",
+      reason: `未知引擎：${bad}`,
+      available_engines: Object.keys(PROVIDERS),
+      hint: "a/b 参数须取自 available_engines；引擎名拼错不等于该能力未覆盖",
+    };
+  }
 
   const avA = A.available(), avB = B.available();
   if (!avA.ok || !avB.ok) {

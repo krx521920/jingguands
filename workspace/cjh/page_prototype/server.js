@@ -147,6 +147,9 @@ async function handleParity(res, urlObj) {
 
   try {
     const r = await extractor.parity(caseIds, { a, b });
+    // ★ D31：未知引擎由 parity 自报 http_error=400（参数错），不是未覆盖。
+    //   若一律回 200 + not_covered，调用方会把「引擎名打错」记成「能力未覆盖」。
+    if (r && r.http_error) return sendJSON(res, r.http_error, r);
     sendJSON(res, 200, Object.assign({ checked_on: new Date().toISOString().slice(0, 10) }, r));
   } catch (e) {
     sendJSON(res, 500, { error: "对照执行失败: " + e.message });
@@ -159,7 +162,13 @@ async function extractDataset(dataset, engineId) {
   const r = await extractor.extract(dataset, engineId);
   if (r.ok) return r;
   const err = new Error(r.reason);
-  err.code = extractor.PROVIDERS[r.engine] && extractor.PROVIDERS[r.engine].kind === "prebuilt" ? "NOT_FOUND" : "ENGINE_UNAVAILABLE";
+  // ★ D31：错误码优先用 extractor 自报的 code；只有在没有自报时才按 provider.kind 猜。
+  //   原来只有 `PROVIDERS[r.engine]` 一个判据：未知引擎时 PROVIDERS[查不到] 是 undefined，
+  //   整条判据退到else ⇒ 一律 ENGINE_UNAVAILABLE ⇒ HTTP 503。
+  //   **把「引擎名写错了」报成「服务不可用」是误导** —— 调用方会一直等服务恢复，
+  //   而正确处置是改参数。故 UNKNOWN_ENGINE 单独走 400，并回传可用引擎清单。
+  if (r.code) err.code = r.code;
+  else err.code = extractor.PROVIDERS[r.engine] && extractor.PROVIDERS[r.engine].kind === "prebuilt" ? "NOT_FOUND" : "ENGINE_UNAVAILABLE";
   err.engine = r.engine;
   // ★ D25 步骤6-②：provider 算出的候选名一路带到 HTTP 响应（不在 server 里重算一遍）。
   err.suggestions = r.suggestions || [];
@@ -860,6 +869,15 @@ function handleApi(req, res, urlObj) {
         return sendJSON(res, 404, { error: e.message, suggestions: e.suggestions || dataSource.suggest(dataset) });
       }
       if (e.code === "ENGINE_UNAVAILABLE") return sendJSON(res, 503, { error: e.message, engine: e.engine });
+      // ★ D31：未知引擎＝请求参数写错 ⇒400（不是 503「服务不可用」）。
+      //   回传可用引擎清单，让调用方能立刻改对，而不是干等服务恢复。
+      if (e.code === "UNKNOWN_ENGINE") {
+        return sendJSON(res, 400, {
+          error: e.message, engine: e.engine,
+          available_engines: e.suggestions || [],
+          hint: "引擎名不在可用清单内；请用 available_engines 里的值重试",
+        });
+      }
       return sendJSON(res, 500, { error: "dataset parse failed: " + e.message });
     });
   }

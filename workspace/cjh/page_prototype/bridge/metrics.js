@@ -110,7 +110,76 @@ function loadParseIndex() {
     source: PARSE_SNAPSHOT };
 }
 
-/**从当前批次的信封里找唯一自带 blocks 的那一份，做同源自校验。
+/** 解析产物索引的键：文档前缀（block_id 的第一段，如 "d44e95085"）。
+ *  同一份信封里所有 block 共用一个前缀 ⇒ 用它做索引键，
+ *  核验时才知道「这条 provenance 的 block 该去哪份信封的 blocks 里找」。 */
+function prefixOf(blockId) {
+  return String(blockId || "").split("_")[0] || null;
+}
+
+/**
+ * ★ D31：从当前批次里**每一份**自带 blocks 的信封建一份索引（按文档前缀分桶）。
+ *
+ *   原来只取**第一份**就 return（`for (...) { ...; return {...} }`），
+ *   于是 L3 明明可以核 30 份信封，却只核了1 份 —— 领导的遗留第 1 条。
+ *   实测：权威批 31 份里 30 份自带 `source.parse_meta.blocks`（≥10 块），
+ *   只有 pledge-scan-degrade 没有。
+ *
+ *   为什么原来"只取一份"是刻意的、现在又必须放开：
+ *     旧设计的顾虑是「多份信封 ⇒ 多套 block_id 体系，混起来是自欺」——
+ *     这条顾虑**仍然成立**，但解法不是「只留一份」，而是**按前缀分桶**：
+ *     每份信封的 provenance 只会指向自己那份信封的 block，前缀不同就绝不会串。
+ *     分桶之后「混用」在结构上不可能发生，不需要靠"只用一份"来防。
+ */
+function parseSelfBlockIndex() {
+  const buckets = new Map();
+  const docInfo = new Map();
+  const skipped = [];
+  for (const e of dataSource.list().filter(x => x.counts_for_primary && x.readable)) {
+    let j = null;
+    try { j = JSON.parse(fs.readFileSync(e.file, "utf8")); }
+    catch (err) { skipped.push({ dataset: e.name, why: "读取失败: " + err.message }); continue; }
+    const blocks = j.source && j.source.parse_meta && j.source.parse_meta.blocks;
+    if (!Array.isArray(blocks) || blocks.length < 10) {
+      skipped.push({ dataset: e.name, why: blocks ? `blocks 仅 ${blocks.length} 块（<10，不足以作索引）` : "信封未自带 blocks" });
+      continue;
+    }
+    const byBlockId = new Map();
+    const tableCells = new Map();
+    const fullText = [];
+    let prefix = null;
+    for (const b of blocks) {
+      if (b && b.block_id) {
+        byBlockId.set(b.block_id, b);
+        if (!prefix) prefix = prefixOf(b.block_id);
+      }
+      if (b && b.text) fullText.push(b.text);
+      if (b && b.table_ref && b.table_ref.table_id) {
+        const arr = tableCells.get(b.table_ref.table_id) || [];
+        if (b.text) arr.push(String(b.text));
+        tableCells.set(b.table_ref.table_id, arr);
+      }
+    }
+    if (!prefix) { skipped.push({ dataset: e.name, why: "blocks 里没有 block_id，无法定前缀" }); continue; }
+    buckets.set(prefix, {
+      doc_id: (j.source && j.source.file_sha256 || "").slice(0, 8),
+      doc_name: (j.source && j.source.file_name) || e.name,
+      page_count: (j.source && j.source.parse_meta && j.source.parse_meta.page_count) || null,
+      block_count: byBlockId.size,
+      doc_prefix: prefix,
+      byBlockId, tableCells, fullText: fullText.join("\n"),
+      parser_version: (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null,
+      self_from: e.name,
+      source: e.rel_path,
+    });
+    docInfo.set(e.name, prefix);
+  }
+  return { buckets, docInfo, skipped };
+}
+
+/** 从当前批次的信封里找唯一自带 blocks 的那一份，做同源自校验。
+ *  ⚠本函数是**单份**视图，仅供只要一个 doc 的老调用方；
+ *  多份核验请走 parseSelfBlockIndex()（D31 起 computeMetrics 已全量走分桶）。
  *  判「唯一」是刻意的：多份信封就必然有多套 block_id 体系，混起来是自欺。*/
 function parseSelfBlocks() {
   try {
@@ -181,7 +250,12 @@ function isField(v) {
  * 返回结构与 demo/_evidence_check.json 一致，供页面与脚本共用。
  */
 function computeMetrics(batchId) {
-  const idx = loadParseIndex();
+  // ★ D31：从「单份索引」改为**按文档前缀分桶的多份索引**。
+  //   实测权威批 31 份里 30 份自带 blocks ⇒ L3 覆盖面从 1 份变 30 份。
+  //   外部快照（parseSelfBlocks 的回退路径）仍保留：它是**单文档**索引，
+  //   只在没有信封自带 blocks 时才顶上，此时覆盖面天然只有 1 份 —— 但那是事实，不假装。
+  const bucketIdx = parseSelfBlockIndex();
+  const fallback = bucketIdx.buckets.size ? null : loadParseIndex();
   const scope = batchId || dataSource.PRIMARY_ID;
   const agg = {
     datasets: 0, fields_total: 0, fields_with_prov: 0,
@@ -243,14 +317,25 @@ function computeMetrics(batchId) {
           //  ② envelope 的 parser_version 与本索引的 parser_version 一致
           //     （0.7.0 与 0.9.0 的 block 编号体系不同，跨版本比对必然假失败）
           // 闸不过 ⇒ 不计入分母（判未核），而不是算出一个假的命中率。
-          if (!idx || !pv.block_id) return;
-          if (String(pv.block_id).split("_")[0] !== idx.doc_prefix) return;
+          //
+          // ★ D31：闸①从「比对唯一索引的 doc_prefix」改为「**按前缀取对应那一份**」。
+          //   分桶后不同信封的 block 体系在结构上就隔离了 —— 拿 A 信封的 block_id
+          //   去查 B 信封的桶，必然查不到（byBlockId.get 返回 null），
+          //   于是它进不了分母，而不是拿别的文档的文本凑出一个假命中。
+          //   这比"只留一份索引"多核了 29 份，且没有引入串档风险。
+          if (!pv.block_id) return;
+          const prefix = prefixOf(pv.block_id);
+          const idx = (bucketIdx.buckets.size ? bucketIdx.buckets.get(prefix) : fallback);
+          // ★ 桶缺失/桶值为空 ⇒ 判「不可核」并跳过，**绝不让它一路 null 到 .get()/.byBlockId 抛错**
+          //   （反证实测：这里不判，一处坏桶能让整页指标 500）。
+          if (!idx || !idx.byBlockId) { d.l3_no_index = (d.l3_no_index || 0) + 1; return; }
           const envParser = (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null;
           if (idx.parser_version && envParser && idx.parser_version !== envParser) {
             d.l3_version_mismatch = (d.l3_version_mismatch || 0) + 1;
             return;
           }
           d.l3_eligible++; agg.l3_eligible++;
+          d.l3_doc = d.l3_doc || idx.doc_name;
           const blk = idx.byBlockId.get(pv.block_id) || null;
           d.l3_checked++; agg.l3_checked++;
           const m = matchQuote(pv.quote, blk, idx);
@@ -268,7 +353,7 @@ function computeMetrics(batchId) {
   }
 
   return {
-    idx, agg, l3Miss, perDataset, scope,   // agg 一并返回，供handleMetrics 构造口径说明
+    idx: fallback, agg, l3Miss, perDataset, scope,   // agg 一并返回，供handleMetrics 构造口径说明
     summary: {
       datasets: agg.datasets,
       fields_total: agg.fields_total,
@@ -285,16 +370,27 @@ function computeMetrics(batchId) {
       extracted_pct: pct(agg.status_extracted, agg.status_extracted + agg.status_pending_review + agg.status_other),
     },
     l3: {
-      doc_id: idx && idx.doc_id,
-      doc_name: idx && idx.doc_name,
+      // ★ D31：覆盖从 1 份变 N 份，下列doc_* 单值字段已不再有单一文档可指，
+      //   故**显式置 null**（不拿第一份冒充全体），改用 docs_* 系列表述。
+      doc_id: null,
+      doc_name: null,
+      docs_indexed: bucketIdx.buckets.size,
+      // ★ 桶值一律过滤 null 后再展开 —— 反证实测：桶里混进 null 会让 computeMetrics 直接抛异常，
+      //   整个 /api/metrics 500 ⇒ 上屏数字全丢。宁可少列一份，也必须返回可用结构。
+      docs_indexed_list: Array.from(bucketIdx.buckets.values()).filter(Boolean)
+        .map(x => ({ doc: x.doc_name, blocks: x.block_count, from: x.self_from })),
+      docs_skipped: bucketIdx.skipped,
       // ★ 核验依据（必须能看到，否则 100% 这个数无法追责）
-      source_kind: idx && idx.self_from ? "self_blocks" : (idx ? "external_snapshot" : "none"),
-      source_ref: idx && idx.source ? idx.source : null,
-      parser_version: idx && idx.parser_version ? idx.parser_version : null,
+      source_kind: bucketIdx.buckets.size ? "self_blocks_multi" : (fallback ? (fallback.self_from ? "self_blocks" : "external_snapshot") : "none"),
+      source_ref: bucketIdx.buckets.size ? "各信封自带 source.parse_meta.blocks（按 block_id 前缀分桶）" : (fallback && fallback.source ? fallback.source : null),
+      parser_version: null,
+      parser_versions: Array.from(new Set(Array.from(bucketIdx.buckets.values()).filter(Boolean).map(x => x.parser_version).filter(Boolean))),
       version_mismatch_skipped: perDataset.reduce((n, d) => n + (d.l3_version_mismatch || 0), 0),
-      coverage_note: idx && idx.self_from
-        ? "核验索引取自信封自带的 source.parse_meta.blocks（与 provenance 同一次解析产物，同parser 版本）"
-        : (idx ? "核验索引取自外部快照，parser 版本须与信封一致才计入分母" : "无可用解析产物，全部未核"),
+      coverage_note: bucketIdx.buckets.size
+        ? `核验索引取自各信封自带的 source.parse_meta.blocks（与 provenance 同一次解析产物、同 parser 版本），` +
+          `按 block_id 前缀分桶，每条 provenance 只在它自己那份信封的桶里查 —— 结构上不可能串档。` +
+          `已建索引 ${bucketIdx.buckets.size} 份，跳过 ${bucketIdx.skipped.length} 份（${bucketIdx.skipped.map(s => s.dataset + "：" + s.why).join("；") || "无"}）`
+        : (fallback ? "核验索引取自外部快照，parser 版本须与信封一致才计入分母" : "无可用解析产物，全部未核"),
       checked: agg.l3_checked, hit: agg.l3_hit, miss: l3Miss.length,
       hit_rate_pct: pct(agg.l3_hit, agg.l3_checked),
       datasets_checkable: perDataset.filter((d) => d.l3_eligible > 0).map((d) => d.dataset),
@@ -339,15 +435,28 @@ function handleMetrics(res, batchId) {
     //  两处各算一次就会重演"同名两个值"。
     //  产物缺失 ⇒ target 仍挂、value 为 null（判未测），绝不按目标值填充。
     const std = readStandardized();
-    // ★ 出处命中率：卡片与注册表必须同源，否则同屏出现两个分母（39/241）。
-    //   取注册表 evidence_hit 的实测值为准；L3 明细降级为口径说明里的补充视图。
+    // ★ D31 出处命中率：**改为直接读权威批实算的 L3 结果**（30 份信封自带 blocks）。
+    //
+    //   为什么不再读注册表 evidence_hit（241）：
+    //     241 是两批混合口径下、只靠魏的 10 份外部快照（.peersnap）数出来的子集，
+    //     分母 863 里只有 241 条可核，另有 622 条未核。
+    //     D31 把 L3 从 1 份扩到 30 份后，权威批 451 条 provenance **全部可核**（451/451）——
+    //     分母更大、证据来源同源（每份信封自带的解析产物），严格覆盖 241 那套。
+    //   两者判据相同（quote ∈ block.text），但证据来源与口径都不同，
+    //     同时上屏就是「同页两个出处命中率」——正是 D31 要根治的毛病。
+    //   ⇒ **卡片只上权威口径一个数**；241 那套降级为脚注里的历史对照，明确标注口径差异。
     const provCard = (() => {
-      let ev = null;
-      try { ev = require("./metrics_registry.js").get("evidence_hit"); } catch (e) { ev = null; }
-      const den = ev && ev.den != null ? ev.den : null;
-      const num = ev && ev.num != null ? ev.num : null;
-      const docs = (ev && ev.evidence_note && (/覆盖\s*(\d+)\s*份文档/.exec(ev.evidence_note) || [])[1]) || "0";
-      return { value: ev ? ev.value : null, num: num == null ? "—" : num, den: den == null ? "—" : den, docs: docs };
+      const num = l3.checked, den = agg.prov_total;
+      return {
+        value: pct(num, den),
+        num, den,
+        docs: l3.docs_indexed,
+        legacy_241: (() => {
+          let ev = null;
+          try { ev = require("./metrics_registry.js").get("evidence_hit"); } catch (e) { ev = null; }
+          return ev && ev.den != null ? { num: ev.num, den: ev.den } : null;
+        })(),
+      };
     })();
     // 目标值来自 cjh_workspace_00_总规划.md §验收指标（仅作对照，不参与计算）。
     // ★口径纪律（D15/D17 校准）：90% 是**准确率**目标、98% 是**标准化正确率**目标，
@@ -374,13 +483,22 @@ function handleMetrics(res, batchId) {
           : "非 text 有值且有 Gold 期望的字段中，value 与 Gold 规范值一致（未测）",
         coverage_note: "value 即规范化后的取值，值层一致即标准化正确（与标准化覆盖率分列，不得相加）" },
       { key: "provenance_hit", name: "出处命中率", target: 95, value: provCard.value, unit: "%",
-        caliber: "出处原文命中率＝quote 落在原始解析 block.text 内（分子 " +
-          provCard.num + " / 分母 " + provCard.den + "）。数据源＝指标注册表 evidence_hit" +
-          (provCard.value === null ? "（★ 未测：实算产物缺失，不得按 100% 填充）" : ""),
-        coverage_note: "★ 覆盖 " + provCard.docs + " 份文档（有原文快照），可核子集 " +
-          provCard.num + " 条 provenance；其余未覆盖文档的 provenance 未核，不计入分母。" +
+        // ★ D31：分母改为**权威批全部 provenance**（451），不再用可核子集（241）。
+        //   以前写"可核子集 241 / 分母 241"看着漂亮，但 622 条未核的provenance 被藏起来了 ——
+        //   D31 把覆盖面从 10 份扩到 30 份后，451 条**全部可核**，没有子集了。
+        caliber: "出处原文命中率＝quote 落在该信封自带的原始解析 block.text 内（分子 " +
+          provCard.num + " / 分母 " + provCard.den + "）。" +
+          "证据来源＝各信封 source.parse_meta.blocks（与 provenance 同一次解析产物），按 block_id 前缀分桶，" +
+          "每条 provenance 只查自己那份信封的块 —— 结构上不可能拿别的文档凑命中。" +
+          (provCard.value === null ? "（★ 未测：无 provenance 可核，不得按 100% 填充）" : ""),
+        coverage_note: "★ 权威批 " + provCard.den + " 条 provenance 全部可核，覆盖 " + provCard.docs + " 份文档" +
+          "（另有 " + (agg.datasets - provCard.docs) + " 份无自带 blocks，其 provenance 不计入分母，见 l3.docs_skipped）。" +
           "本卡是强判据（quote ∈ block.text），退化为整篇包含只记 weak 不计入分子。" +
-          (l3.checked ? " L3 明细（本页自校验，同源信封 blocks）：" + l3.hit + "/" + l3.checked + "，覆盖 " + l3.datasets_checkable.length + " 份文档。" : "") },
+          (provCard.legacy_241
+            ? "〔历史对照，不上屏〕注册表 evidence_hit 记的 " + provCard.legacy_241.num + "/" + provCard.legacy_241.den +
+              " 是两批混合口径下只靠魏侧10 份外部快照数出的子集（该脚本 prov_total=863 含演示池，622 条未核不计入），" +
+              "口径与本卡不同，两者不可混读；本卡口径严格覆盖它。"
+            : "") },
     ];
 
     const cards = TARGETS.map((t) => {

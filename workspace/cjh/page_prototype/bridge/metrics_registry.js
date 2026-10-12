@@ -154,6 +154,60 @@ function ratioScore(relPath, numKeys, denKeys) {
   };
 }
 
+/**
+ * ★ D31：按 rows[].expected 分组实算「相关/无关」两侧的通过数。
+ *   为什么不能用顶层字段：crossdoc 成绩单的顶层只有 same_event（只覆盖 related 侧），
+ *   无关对照那一半**只存在于 rows 里**。读顶层不存在的字段会得到 undefined，
+ *   模板串照样拼出一句看起来很像样的话 —— 数值可能碰巧对，依据是假的。
+ *
+ * 判定：分组和必须等于 rows.length，否则 {ok:false}（口径不可信就不出数字）。
+ */
+function splitByExpected(sheet) {
+  const rows = sheet && Array.isArray(sheet.rows) ? sheet.rows : [];
+  if (!rows.length) return { ok: false, why: "rows 为空" };
+  const rel = { total: 0, pass: 0 }, unrel = { total: 0, pass: 0 };
+  let other = 0;
+  for (const x of rows) {
+    const e = String((x && x.expected) || "").toLowerCase();
+    const bucket = /related/.test(e) && !/unrelated/.test(e) ? rel : /unrelated/.test(e) ? unrel : null;
+    if (!bucket) { other++; continue; }
+    bucket.total++;
+    if (x.status === "pass") bucket.pass++;
+  }
+  if (other) return { ok: false, why: `有 ${other} 条 expected 既非 related 也非 unrelated` };
+  if (rel.total + unrel.total !== rows.length) {
+    return { ok: false, why: `分组和 ${rel.total + unrel.total} ≠ rows.length ${rows.length}` };
+  }
+  if (!rel.total || !unrel.total) return { ok: false, why: "相关侧或无关对照侧为空，单侧无对照不能算准确率" };
+  return { ok: true, rel, unrel };
+}
+
+/**
+ * ★ D31：从 D10 集成包实算关系分布。
+ *   数据源＝ data/d10/integration_bundle.json 的 `results[].report.diffs.relation`。
+ *   ★ 路径纪律：本文件 `ROOT = path.resolve(__dirname, "..")` 已经退到 page_prototype/，
+ *     所以 `path.join(ROOT, "data", ...)` 就对 —— **再多退一级会静默读到不存在的路径，
+ *     返回空对象而不报错**，正是最骗人的那种失败（曾因此让 unknown 实算恒为 null）。
+ *   取不到时返回 unknown:-1 / breakdown:null，调用方据此判「不可考」而不是判 0。
+ */
+function d10Relations() {
+  const empty = { unknown: -1, unknownIds: [], breakdown: null };
+  let b = null;
+  try { b = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "d10", "integration_bundle.json"), "utf8")); }
+  catch (e) { return empty; }
+  if (!b || !Array.isArray(b.results) || !b.results.length) return empty;
+  const breakdown = {};
+  const unknownIds = [];
+  for (const r of b.results) {
+    const rel = String((r && r.report && r.report.diffs && r.report.diffs.relation) || "");
+    if (!rel) continue;
+    breakdown[rel] = (breakdown[rel] || 0) + 1;
+    if (rel === "unknown") unknownIds.push(r.case_id || "(未标id)");
+  }
+  if (!Object.keys(breakdown).length) return empty;
+  return { unknown: unknownIds.length, unknownIds, breakdown };
+}
+
 const MEASURED = {
   // ---- 准确率 ----
   field_accuracy: {
@@ -187,24 +241,29 @@ const MEASURED = {
   // ---- 出处命中率 ----
   //★ 动态读实测结果，不硬编码：快照撤走或脚本没跑时自动退回「未测」，
   //   绝不在页面上留一个无来源的100%（换批即失效的反面：不能让旧数长期挂着）。
-  evidence_hit: (() => {
+  // ★ D31：evidence_hit 的**数值不再在这里产生** —— 原先读 _evidence_quote_real.json
+  //   得 241（两批混合、10 份外部快照的可核子集），与卡片实算的 451 不同名不同值。
+  //   改为运行时由 l3FromMetrics() 从权威批实算注入（见 list()）。
+  //   这里**刻意留一个恒 null 的占位**：MEASURED 里没有这个 key 时，
+  //   list() 的注入逻辑仍会填上；一旦 l3FromMetrics() 取不到，
+  //   value=null ⇒ 自动落 not_covered，**绝不静默退回旧的 241**
+  //   ——那正是「换批即失效的旧数长期挂着」这条纪律要防的事。
+  evidence_hit: null,
+  // 旧口径留档：数值仍从 _evidence_quote_real.json **实算读取，不硬编码 241**，
+  // 产物缺失即 null ⇒ not_covered。
+  legacy_evidence_hit: (() => {
     const p = path.join(__dirname, "..", "demo", "_evidence_quote_real.json");
     let r = null;
     try { r = JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { r = null; }
     const usable = r && r.hit_rate_pct != null && r.block_id_resolved > 0;
-    return {
-      value: usable ? r.hit_rate_pct : null,
-      unit: "%",
-      num: usable ? r.quote_hit : null,
-      den: usable ? r.block_id_resolved : null,
+    return usable ? {
+      value: r.hit_rate_pct, unit: "%", num: r.quote_hit, den: r.block_id_resolved,
       source_script: "demo/_evidence_quote_real.js",
       evidence_kind: "quote_in_block_text",
-      note: usable
-        ? `实测 quote ∈ block.text 命中 ${r.quote_hit}/${r.block_id_resolved}；快照 ${r.snapshot_count} 份（${r.snapshot_blocks} blocks）｜★ 可核子集 ${r.prov_verifiable}/${r.prov_total} 条、覆盖 ${r.docs_covered} 份文档，其余 ${r.prov_unverifiable} 条未核不计入分母`
-        : "★ 未测：快照缺失或实测脚本未跑。判据为「quote ∈ block.text」，不退化为整篇全文包含",
-      measured_at: usable ? (r.generated_at || null) : null,
-      snapshot_source: usable ? r.snapshot_source : null,
-    };
+      note: `旧口径实算 ${r.quote_hit}/${r.block_id_resolved}（快照 ${r.snapshot_count} 份 / ${r.snapshot_blocks} blocks）；` +
+        `该脚本 prov_total=${r.prov_total} 含演示池，可核子集 ${r.prov_verifiable}、未核 ${r.prov_unverifiable} 不计入分母。` +
+        `★ 已被 evidence_hit（权威批全量）取代，两者不可混读`,
+    } : null;
   })(),
   anchor_presence: {
     value: 100, unit: "%", num: 460, den: 460,
@@ -230,15 +289,29 @@ const MEASURED = {
   //   成绩单缺失即自动退回未测，绝不把别人的结论抄成自己的测量。
   //   取件：evaluation/{D11/results,D10/results}/（本机私有，不入库），由 demo/_fetch_eval_scores.js 按 sha 取。
 
-  // ---- 跨文档配对准确率（D15 收口：20/20组） ----
-cross_doc_match: (() => {
+// ---- 跨文档配对准确率（D15 收口：20/20组） ----
+  // ★ D31 修正：原 note 拼的是 `r.different_event.clean / r.different_event.total`，
+  //   但 crossdoc-firsttest-score.json **根本没有 different_event 这个字段** ——
+  //   读出来是 undefined，模板串拼成 "16/16" 纯属碰巧对上（真实值确实 16/16）。
+  //   ★ 这是最典型的**假依据**：数值对，但算出它的那个字段不存在，改了成绩单就会静默说谎。
+  //   改为**从 rows 按 expected 分组实算**，并断言分组和 == rows.length，
+  //   对不上就不出 note（宁可不出，也不出一条依据不明的口径）。
+  cross_doc_match: (() => {
   const m = ratioScore("D11/results/crossdoc-firsttest-score.json", ["pass"], ["pairs_total"]);
   const r = readScore("D11/results/crossdoc-firsttest-score.json");
-  return m ? Object.assign(m, {
-    note: `宗侧实测 ${m.num}/${m.den} 组：同事件 ${r.same_event.hit}/${r.same_event.total}、无关对照 ${r.different_event.clean}/${r.different_event.total} 零误报。★ 分母按组计（与出处按条计不同，不可混读）`,
-  }) : { value: null, unit: "%", num: null, den: null,
+  const g = splitByExpected(r);
+  if (m && g.ok) {
+    const wrong = (r.rows || []).filter(x => x.expected !== x.predicted).length;
+    return Object.assign(m, {
+    note: `宗侧实测 ${m.num}/${m.den} 组（按 rows 实算分组）：同事件相关 ${g.rel.pass}/${g.rel.total}、` +
+      `无关对照零误报 ${g.unrel.pass}/${g.unrel.total}；expected≠predicted 实算 ${wrong} 条。` +
+      `★ 分母按组计（与出处按条计不同，不可混读）`,
+  });
+  }
+  return { value: null, unit: "%", num: null, den: null,
     source_script: "D11/results/crossdoc-firsttest-score.json",
-    note: "★ 未测：评测侧成绩单缺失（未取件），不按100% 填充" };
+    note: m ? "★ 未测：成绩单 rows 的 expected 分组和与总条数对不上，分组口径不可信，不出数字"
+            : "★ 未测：评测侧成绩单缺失（未取件），不按100% 填充" };
 })(),
 
 // ---- 数值矛盾判定准确率（D15 收口：20/20 条，误报漏报均 0） ----
@@ -255,8 +328,23 @@ multi_doc_conflict: (() => {
 // ---- D10 集成通过率（D15 收口：10/10，与页面集成视图同源，消除同页矛盾） ----
 integration_pass: (() => {
   const m = ratioScore("D10/results/score-weiwenyu-bundle.json", ["pass"], ["cases_total"]);
+  // ★ D31：unknown 关系**从集成包实算**，不再手写 "D10-INT-008" 硬编码 id。
+  //   两个关键修正：
+  //   ① 字段路径是 `results[].report.diffs.relation`——成绩单
+  //      （score-weiwenyu-bundle.json）的 rows 里只有 case_id/status/notes，
+  //      **没有关系字段**，从那里读必然读不到。
+  //   ② 实算结果是 **unknown 3 条**（006/008/010），不是原 note 写的 1 条。
+  //      只提 008 是**漏报**：006/010 同样是 unknown，边界原因都是
+  //      INSUFFICIENT_SIGNALS（006/010 还叠加 MEMBER_NO_USABLE_FIELDS）。
+  const rel = d10Relations();
   return m ? Object.assign(m, {
-    note: `宗侧 check-relation --strict 实测 ${m.num}/${m.den} 组结构通过。★ 注意两点：① D10-INT-008 关系判定为 unknown（与旧构建包的 unrelated 不同），该口径待魏确认，故本项只证明结构通过，不证明关系判定正确；② web_cli_same_result 证的是同源同函数幂等，不是独立抽取一致`,
+    note: `宗侧 check-relation --strict 实测 ${m.num}/${m.den} 组结构通过。★ 注意两点：① 关系判定非二值的实算 ` +
+      (rel.breakdown
+        ? `${rel.unknown} 条${rel.unknownIds.length ? `（${rel.unknownIds.join("、")}）` : ""}，边界原因均为证据不足（INSUFFICIENT_SIGNALS），口径待魏确认`
+        : `（★ 集成包不可考，未取到关系字段，不出数字）`) +
+      `，故本项只证明结构通过，不证明关系判定正确；` +
+      `② web_cli_same_result 证的是同源同函数幂等，不是独立抽取一致`,
+    relation_breakdown: rel.breakdown,
   }) : { value: null, unit: "%", num: null, den: null,
     source_script: "D10/results/score-weiwenyu-bundle.json",
     note: "★ 未测：评测侧成绩单缺失（未取件）" };
@@ -364,18 +452,37 @@ const REGISTRY = [
   },
 
   // ---------- 出处命中率 ----------
+  // ★ D31 口径统一：本项原先记 241/241（两批混合、只靠魏侧 10 份外部快照的可核子集），
+  //   而卡片已改读权威批实算的 451/451（30 份信封自带 blocks）——
+  //   **同名「出处原文命中率」却有两个值同屏**，正是要根治的毛病。
+  //   现在注册表与卡片同源：都读 bridge/metrics.js 的权威批实算值，
+  //   由 l3FromMetrics() 在运行时注入（见文件末尾），**不再硬编码 241**。
+  //   241 那套保留为 legacy_evidence_hit 子条目（category=legacy，不进分类面板），
+  //   需要追旧口径时仍查得到，但不会与主口径抢同一个名字。
   {
     key: "evidence_hit", category: "evidence", name: "出处原文命中率",
     target: 95,
-    numerator: "quote 能在原始解析 block 文本中定位到的字段数（241）",
-    denominator: "★ 可核子集 241 条 —— 所在 10 份文档有原文快照；不是全量 863 条 provenance",
-    value: 100,
+    numerator: "quote 能在该信封自带的原始解析 block 文本中定位到的 provenance 条数",
+    denominator: "★ 权威批全部 provenance 条数（不是可核子集）—— 权威批每份信封都自带 blocks",
     status: "measured",
-    caliber: "强判据：必须 quote 落在 block.text 内才算命中。退化为「整篇全文包含」只记 weak，不计入分子",
+    caliber: "强判据：必须 quote 落在 block.text 内才算命中。退化为「整篇全文包含」只记 weak，不计入分子。证据按 block_id 前缀分桶，每条 provenance 只查自己那份信封的块",
     evidence_kind: "quote_in_block_text",
-    evidence_ref: "demo/_evidence_quote_real.js（读魏分支 evaluation/D9/parses-blocks/ 10 份 D6 快照，432 blocks）",
-    blocked_by: "★ 覆盖仅 10/41 份文档、241/863 条 provenance；全量仍不可核 —— 快照由魏文宇交付，未覆盖文档需补",
-    note: "2026-10-08 更正：10-07 记为「未测·无原文快照」是错的——快照在魏分支 evaluation/D9/parses-blocks/，不在我的检索路径内。实测 241/241 = 100%，与宗侧「30 通过 0 反例」互证（分母口径不同：宗按文档侧计，我按 provenance 条数计）",
+    evidence_ref: "bridge/metrics.js computeMetrics()（各信封 source.parse_meta.blocks，按前缀分桶）",
+    blocked_by: null,
+    note: "2026-10-11（D31）：覆盖面从 1 份扩到 30 份后，权威批 451 条 provenance 全部可核（451/451）。旧记的 241/241 是两批混合口径下只靠魏侧 10 份外部快照数出的可核子集（该脚本 prov_total=863 含演示池，622 条未核），已降为 legacy_evidence_hit 条目，两者不可混读",
+  },
+  // ---------- 旧出处口径（留档，不与主口径同名） ----------
+  {
+    key: "legacy_evidence_hit", category: "legacy", name: "出处原文命中率（旧口径·可核子集）",
+    target: null,
+    numerator: "quote 能在原始解析 block 文本中定位到的字段数",
+    denominator: "可核子集 —— 所在 10 份文档有外部快照；不是全量 863 条 provenance",
+    status: "measured",
+    caliber: "强判据，同 evidence_hit。★ 仅留档：两批混合口径、依赖 .peersnap 外部快照",
+    evidence_kind: "quote_in_block_text",
+    evidence_ref: "demo/_evidence_quote_real.js（读魏分支 10 份 D6 快照，432 blocks）",
+    blocked_by: null,
+    note: "★ 已被 evidence_hit（权威批全量）取代。数值见 evidence_note（由 _evidence_quote_real.json 实算注入，产物缺失即判未测，不硬编码）",
   },
   {
     key: "anchor_presence", category: "evidence", name: "锚点存在率（block_id/page/quote）",
@@ -450,7 +557,7 @@ const REGISTRY = [
     numerator: "通过组数（宗侧 10）",
     denominator: "集成用例 10 组",
     status: "measured",
-    caliber: "★ 本项只证明**结构**通过（run_id / code_version / schema_version / records / diff_list / report 四段 / 缓存三态），不证明关系判定正确：D10-INT-008 关系为 unknown（与旧构建包的 unrelated 不同），口径待魏确认。另 web_cli_same_result 证的是同源同函数幂等，不是独立抽取一致。★ 数据源与页面集成视图同源，不再出现「同页两个数」",
+    caliber: "★ 本项只证明结构通过（run_id / code_version / schema_version / records / diff_list / report 四段 / 缓存三态），不证明关系判定正确：D10-INT-008 关系为 unknown（与旧构建包的 unrelated 不同），口径待魏确认。另 web_cli_same_result 证的是同源同函数幂等，不是独立抽取一致。★ 数据源与页面集成视图同源，不再出现「同页两个数」",
     blocked_by: null,
   },
   {
@@ -476,10 +583,44 @@ const REGISTRY = [
 // ============================================================
 // 组装
 // ============================================================
+/**
+ * ★ D31：从 bridge/metrics.js 的权威批实算里取出「出处原文命中率」。
+ *   返回 {value,num,den,note} 或 null（取不到 ⇒ 调用方落not_covered）。
+ *   ★ 循环依赖防护：metrics.js 会 require 本注册表，本函数在**运行时**惰性 require，
+ *     不在模块顶层 require —— 顶层就会与 metrics.js 互相等待。
+ */
+function l3FromMetrics() {
+  let r = null;
+  // ★ 路径纪律：本文件 ROOT 已退到 page_prototype/，metrics.js 与本文件**同目录**。
+  //   写成 path.join(ROOT, "metrics.js") 会去找 page_prototype/metrics.js（不存在），
+  //   try/catch 把它吞成 null ⇒ 注册表永远退回旧的硬编码 241 —— **静默失败最难查**。
+  try { r = require(path.join(ROOT, "bridge", "metrics.js")).computeMetrics(); }
+  catch (e) { return null; }
+  const l3 = r && r.l3;
+  if (!l3 || !l3.checked) return null;      // 0 条可核 ⇒ 不出数（空跑不构成通过）
+  const den = (r.agg && r.agg.prov_total) || 0;
+  if (!den) return null;
+  const num = l3.checked;                    // 分母口径：权威批全部 provenance
+  return {
+    value: +(num / den * 100).toFixed(2),
+    num, den,
+    evidence_kind: "quote_in_block_text_multi_envelope",
+    source_script: "bridge/metrics.js computeMetrics()",
+    note: `权威批实算：${num}/${den} 条 provenance 的 quote 落在其所属信封自带的 block.text 内` +
+      `（${l3.docs_indexed} 份信封按 block_id 前缀分桶，parser ${(l3.parser_versions || []).join("/") || "未知"}）` +
+      `。跳过 ${(l3.docs_skipped || []).length} 份无自带 blocks 的信封，其 provenance 不计入分母`,
+  };
+}
+
 function list() {
   const fp = fingerprint();
+  // ★ D31：出处命中率的数值**运行时从权威批实算**注入，不硬编码。
+  //   取不到（metrics.js 读不出 / 0 条可核）⇒ value=null ⇒ 自动落not_covered，
+  //   绝不按 100% 填充。这是「裁定给的数必须独立实算后才认」的落地形式。
+  const evLive = l3FromMetrics();
+  const injected = evLive ? { evidence_hit: evLive } : {};
   return REGISTRY.map(r => {
-    const m = MEASURED[r.key] || {};
+ const m = Object.assign({}, MEASURED[r.key] || {}, injected[r.key] || {});
     const value = m.value !== undefined ? m.value : null;
     return {
       ...r,
@@ -491,6 +632,9 @@ function list() {
       status_label: (STATUS[(value === null && r.status === "measured" ? "not_covered" : r.status)] || {}).label,
       evidence_kind: m.evidence_kind || null,
       evidence_note: m.note || null,
+      // ★ D31：关系分布实算结果（unknown 不止 008，是 3 条）随条目下发。
+      //   不下发等于算了个数锁在文件里，页面上看不到 —— 结论不可见就等于没做。
+      relation_breakdown: m.relation_breakdown || null,
       source_script: m.source_script || null,
       // ★ 每项指标自带数据指纹 —— 材料引用时连同指纹一起引，否则不可复现
       input_fingerprint: m.source_script === "demo/_retest_unified.js"

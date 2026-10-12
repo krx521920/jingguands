@@ -1,9 +1,19 @@
 "use strict";
-// 一次性排查脚本：扫 API 响应里会 textContent 上屏的字符串是否残留 markdown 标记。
-// 用法：node demo/_scan_markdown.js <url>
+// 守卫：扫 API 响应里会 textContent 上屏的字符串是否残留 markdown 标记（textContent 不解析 markdown，`**x**` 会原样显示）。
+// 用法：node demo/_scan_markdown.js [url]   —— 缺省取 server.js 的默认端口 PORT（=8642）。
+//   ★ 原先这里写死 8652，而 server.js 实际监听 8642 ⇒ 默认调用永远连不上，
+//     这道守卫等于形同虚设（静默 0 命中的老毛病）。改为与 server 同源取端口，
+//     显式传参仍可覆盖。
 const http = require("http");
+const path = require("path");
 
-const url = process.argv[2] || "http://127.0.0.1:8652/api/metrics";
+const DEFAULT_PORT = (() => {
+  // 直接读 server.js 导出的 PORT，保证与服务同步（不另抄一份数字）
+  try { return require(path.join(__dirname, "..", "server.js")).PORT || 8642; }
+  catch (e) { return 8642; }
+})();
+
+const url = process.argv[2] || ("http://127.0.0.1:" + (process.env.PORT || DEFAULT_PORT) + "/api/metrics");
 
 function get(u) {
   return new Promise((res, rej) => {
