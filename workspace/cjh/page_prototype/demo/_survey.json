@@ -1,0 +1,1010 @@
+{
+  "generated_at": "2026-10-07T15:01:27.294Z",
+  "base": "http://127.0.0.1:8643",
+  "dataset_count": 30,
+  "result_summary": {
+    "ok": 30,
+    "fail": 0
+  },
+  "findings": [],
+  "perf_worst": [
+    {
+      "path": "/api/verify",
+      "ms": 176,
+      "bytes": 14012
+    },
+    {
+      "path": "/api/export?dataset=wei_real_eqc_002&format=json",
+      "ms": 71,
+      "bytes": 1319838
+    },
+    {
+      "path": "/api/pairs",
+      "ms": 64,
+      "bytes": 35298
+    },
+    {
+      "path": "/api/result?dataset=wei_real_eqc_002",
+      "ms": 63,
+      "bytes": 1320143
+    },
+    {
+      "path": "/api/export?dataset=wei_real_eqc_001&format=json",
+      "ms": 54,
+      "bytes": 813778
+    },
+    {
+      "path": "/api/result?dataset=wei_real_eqc_001",
+      "ms": 43,
+      "bytes": 814083
+    },
+    {
+      "path": "/api/export?dataset=wei_real_eqc_003&format=json",
+      "ms": 38,
+      "bytes": 635971
+    },
+    {
+      "path": "/api/result?dataset=wei_real_eqc_003",
+      "ms": 36,
+      "bytes": 636276
+    },
+    {
+      "path": "/api/export?dataset=wei_real_eqc_010&format=json",
+      "ms": 36,
+      "bytes": 378573
+    },
+    {
+      "path": "/api/export?dataset=wei_real_eqc_004&format=json",
+      "ms": 31,
+      "bytes": 288341
+    },
+    {
+      "path": "/api/result?dataset=wei_real_eqc_004",
+      "ms": 26,
+      "bytes": 288646
+    },
+    {
+      "path": "/api/result?dataset=wei_real_eqc_010",
+      "ms": 26,
+      "bytes": 378878
+    },
+    {
+      "path": "/api/export?dataset=wei_real_eqc_005&format=json",
+      "ms": 25,
+      "bytes": 314848
+    },
+    {
+      "path": "/api/integration",
+      "ms": 25,
+      "bytes": 128139
+    },
+    {
+      "path": "/api/export?dataset=wei_real_eqc_002&format=csv",
+      "ms": 16,
+      "bytes": 5214
+    }
+  ],
+  "perf_over_2s": [],
+  "perf_over_5MB": [],
+  "robustness": [
+    {
+      "path": "/api/result?dataset=__not_exist__",
+      "status": 404,
+      "bytes": 61
+    },
+    {
+      "path": "/api/export?dataset=__not_exist__&format=json",
+      "status": 404,
+      "bytes": 49
+    },
+    {
+      "path": "/api/export?dataset=pledge.json&format=xml",
+      "status": 400,
+      "bytes": 37
+    },
+    {
+      "path": "/api/result",
+      "status": 200,
+      "bytes": 2500
+    }
+  ],
+  "view_stats": [
+    {
+      "view": "配对",
+      "path": "/api/pairs",
+      "total": 13,
+      "missing_keys": 0,
+      "provenance_null": 0
+    },
+    {
+      "view": "核验",
+      "path": "/api/verify",
+      "total": 10,
+      "missing_keys": 0,
+      "provenance_null": 2
+    },
+    {
+      "view": "集成",
+      "path": "/api/integration",
+      "total": 10,
+      "missing_keys": 0,
+      "provenance_null": 0
+    }
+  ],
+  "dangling_refs": [
+    {
+      "dataset": "bank_guarantee",
+      "ref_total": 6,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "pledge",
+      "ref_total": 7,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "share_change",
+      "ref_total": 27,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_multi_event_test",
+      "ref_total": 15,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_D4_scan",
+      "ref_total": 0,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_PLD001_3ev",
+      "ref_total": 39,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_PLD005_release",
+      "ref_total": 25,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_001",
+      "ref_total": 5,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_002",
+      "ref_total": 24,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_003",
+      "ref_total": 21,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_004",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_005",
+      "ref_total": 11,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_006",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_007",
+      "ref_total": 5,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_008",
+      "ref_total": 8,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_009",
+      "ref_total": 21,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_awd_010",
+      "ref_total": 6,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_001",
+      "ref_total": 45,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_002",
+      "ref_total": 27,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_003",
+      "ref_total": 5,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_004",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_005",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_006",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_007",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_008",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_009",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_eqc_010",
+      "ref_total": 9,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_pledge_0197",
+      "ref_total": 12,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "ref_total": 12,
+      "dangling_count": 0,
+      "samples": []
+    },
+    {
+      "dataset": "wei_run_pledge",
+      "ref_total": 12,
+      "dangling_count": 0,
+      "samples": []
+    }
+  ],
+  "export_checks": [
+    {
+      "dataset": "bank_guarantee",
+      "format": "json",
+      "status": 200,
+      "bytes": 2014,
+      "ms": 1
+    },
+    {
+      "dataset": "bank_guarantee",
+      "format": "csv",
+      "status": 200,
+      "bytes": 1839,
+      "ms": 2
+    },
+    {
+      "dataset": "pledge",
+      "format": "json",
+      "status": 200,
+      "bytes": 2232,
+      "ms": 1
+    },
+    {
+      "dataset": "pledge",
+      "format": "csv",
+      "status": 200,
+      "bytes": 1572,
+      "ms": 1
+    },
+    {
+      "dataset": "share_change",
+      "format": "json",
+      "status": 200,
+      "bytes": 19118,
+      "ms": 2
+    },
+    {
+      "dataset": "share_change",
+      "format": "csv",
+      "status": 200,
+      "bytes": 5593,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_multi_event_test",
+      "format": "json",
+      "status": 200,
+      "bytes": 11847,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_multi_event_test",
+      "format": "csv",
+      "status": 200,
+      "bytes": 3301,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_D4_scan",
+      "format": "json",
+      "status": 200,
+      "bytes": 5238,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_D4_scan",
+      "format": "csv",
+      "status": 200,
+      "bytes": 1531,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_PLD001_3ev",
+      "format": "json",
+      "status": 200,
+      "bytes": 27086,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_PLD001_3ev",
+      "format": "csv",
+      "status": 200,
+      "bytes": 6055,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_PLD005_release",
+      "format": "json",
+      "status": 200,
+      "bytes": 17950,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_PLD005_release",
+      "format": "csv",
+      "status": 200,
+      "bytes": 4077,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_001",
+      "format": "json",
+      "status": 200,
+      "bytes": 19205,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_awd_001",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2636,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_002",
+      "format": "json",
+      "status": 200,
+      "bytes": 49558,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_002",
+      "format": "csv",
+      "status": 200,
+      "bytes": 10552,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_awd_003",
+      "format": "json",
+      "status": 200,
+      "bytes": 57882,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_awd_003",
+      "format": "csv",
+      "status": 200,
+      "bytes": 9949,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_awd_004",
+      "format": "json",
+      "status": 200,
+      "bytes": 42567,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_004",
+      "format": "csv",
+      "status": 200,
+      "bytes": 3281,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_005",
+      "format": "json",
+      "status": 200,
+      "bytes": 46623,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_awd_005",
+      "format": "csv",
+      "status": 200,
+      "bytes": 3989,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_006",
+      "format": "json",
+      "status": 200,
+      "bytes": 16040,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_006",
+      "format": "csv",
+      "status": 200,
+      "bytes": 3112,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_awd_007",
+      "format": "json",
+      "status": 200,
+      "bytes": 12852,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_awd_007",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2775,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_008",
+      "format": "json",
+      "status": 200,
+      "bytes": 19613,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_awd_008",
+      "format": "csv",
+      "status": 200,
+      "bytes": 3193,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_awd_009",
+      "format": "json",
+      "status": 200,
+      "bytes": 39573,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_awd_009",
+      "format": "csv",
+      "status": 200,
+      "bytes": 7960,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_awd_010",
+      "format": "json",
+      "status": 200,
+      "bytes": 21590,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_real_awd_010",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2460,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_eqc_001",
+      "format": "json",
+      "status": 200,
+      "bytes": 813778,
+      "ms": 54
+    },
+    {
+      "dataset": "wei_real_eqc_001",
+      "format": "csv",
+      "status": 200,
+      "bytes": 9501,
+      "ms": 13
+    },
+    {
+      "dataset": "wei_real_eqc_002",
+      "format": "json",
+      "status": 200,
+      "bytes": 1319838,
+      "ms": 71
+    },
+    {
+      "dataset": "wei_real_eqc_002",
+      "format": "csv",
+      "status": 200,
+      "bytes": 5214,
+      "ms": 16
+    },
+    {
+      "dataset": "wei_real_eqc_003",
+      "format": "json",
+      "status": 200,
+      "bytes": 635971,
+      "ms": 38
+    },
+    {
+      "dataset": "wei_real_eqc_003",
+      "format": "csv",
+      "status": 200,
+      "bytes": 3121,
+      "ms": 11
+    },
+    {
+      "dataset": "wei_real_eqc_004",
+      "format": "json",
+      "status": 200,
+      "bytes": 288341,
+      "ms": 31
+    },
+    {
+      "dataset": "wei_real_eqc_004",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2307,
+      "ms": 5
+    },
+    {
+      "dataset": "wei_real_eqc_005",
+      "format": "json",
+      "status": 200,
+      "bytes": 314848,
+      "ms": 25
+    },
+    {
+      "dataset": "wei_real_eqc_005",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2182,
+      "ms": 6
+    },
+    {
+      "dataset": "wei_real_eqc_006",
+      "format": "json",
+      "status": 200,
+      "bytes": 108800,
+      "ms": 6
+    },
+    {
+      "dataset": "wei_real_eqc_006",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2247,
+      "ms": 4
+    },
+    {
+      "dataset": "wei_real_eqc_007",
+      "format": "json",
+      "status": 200,
+      "bytes": 311613,
+      "ms": 15
+    },
+    {
+      "dataset": "wei_real_eqc_007",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2630,
+      "ms": 4
+    },
+    {
+      "dataset": "wei_real_eqc_008",
+      "format": "json",
+      "status": 200,
+      "bytes": 210083,
+      "ms": 8
+    },
+    {
+      "dataset": "wei_real_eqc_008",
+      "format": "csv",
+      "status": 200,
+      "bytes": 1889,
+      "ms": 5
+    },
+    {
+      "dataset": "wei_real_eqc_009",
+      "format": "json",
+      "status": 200,
+      "bytes": 181149,
+      "ms": 6
+    },
+    {
+      "dataset": "wei_real_eqc_009",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2061,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_eqc_010",
+      "format": "json",
+      "status": 200,
+      "bytes": 378573,
+      "ms": 36
+    },
+    {
+      "dataset": "wei_real_eqc_010",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2487,
+      "ms": 6
+    },
+    {
+      "dataset": "wei_real_pledge_0197",
+      "format": "json",
+      "status": 200,
+      "bytes": 53051,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_pledge_0197",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2590,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "format": "json",
+      "status": 200,
+      "bytes": 44725,
+      "ms": 3
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2614,
+      "ms": 2
+    },
+    {
+      "dataset": "wei_run_pledge",
+      "format": "json",
+      "status": 200,
+      "bytes": 9300,
+      "ms": 1
+    },
+    {
+      "dataset": "wei_run_pledge",
+      "format": "csv",
+      "status": 200,
+      "bytes": 2322,
+      "ms": 2
+    }
+  ],
+  "result_stats": [
+    {
+      "dataset": "bank_guarantee",
+      "bytes": 2290,
+      "ms": 3,
+      "data_mode": "simulated",
+      "run_id": "mock-run-0003",
+      "events": 1,
+      "evidences": 3
+    },
+    {
+      "dataset": "pledge",
+      "bytes": 2500,
+      "ms": 2,
+      "data_mode": "simulated",
+      "run_id": "mock-run-0001",
+      "events": 2,
+      "evidences": 3
+    },
+    {
+      "dataset": "share_change",
+      "bytes": 19397,
+      "ms": 4,
+      "data_mode": "simulated",
+      "run_id": "mock-eqc-demo-0001",
+      "events": 3,
+      "evidences": 27
+    },
+    {
+      "dataset": "wei_multi_event_test",
+      "bytes": 12149,
+      "ms": 3,
+      "data_mode": "simulated",
+      "run_id": "20260929T000000-pledge-multi-test",
+      "events": 3,
+      "evidences": 15
+    },
+    {
+      "dataset": "wei_real_D4_scan",
+      "bytes": 5530,
+      "ms": 2,
+      "data_mode": "real",
+      "run_id": "20260930T093845-pledge-scan",
+      "events": 1,
+      "evidences": 0
+    },
+    {
+      "dataset": "wei_real_PLD001_3ev",
+      "bytes": 27381,
+      "ms": 3,
+      "data_mode": "real",
+      "run_id": "20260929T152309-pledge-b12e",
+      "events": 3,
+      "evidences": 39
+    },
+    {
+      "dataset": "wei_real_PLD005_release",
+      "bytes": 18249,
+      "ms": 3,
+      "data_mode": "real",
+      "run_id": "20260929T152335-pledge-d337",
+      "events": 2,
+      "evidences": 25
+    },
+    {
+      "dataset": "wei_real_awd_001",
+      "bytes": 19511,
+      "ms": 4,
+      "data_mode": "real",
+      "run_id": "20261002T121106-award_contract-7bfe",
+      "events": 1,
+      "evidences": 5
+    },
+    {
+      "dataset": "wei_real_awd_002",
+      "bytes": 49864,
+      "ms": 5,
+      "data_mode": "real",
+      "run_id": "20261002T121109-award_contract-b51b",
+      "events": 4,
+      "evidences": 24
+    },
+    {
+      "dataset": "wei_real_awd_003",
+      "bytes": 58188,
+      "ms": 3,
+      "data_mode": "real",
+      "run_id": "20261002T121121-award_contract-35f9",
+      "events": 3,
+      "evidences": 21
+    },
+    {
+      "dataset": "wei_real_awd_004",
+      "bytes": 42873,
+      "ms": 3,
+      "data_mode": "real",
+      "run_id": "20261002T121131-award_contract-c5ab",
+      "events": 1,
+      "evidences": 9
+    },
+    {
+      "dataset": "wei_real_awd_005",
+      "bytes": 46929,
+      "ms": 2,
+      "data_mode": "real",
+      "run_id": "20261002T121135-award_contract-ace9",
+      "events": 1,
+      "evidences": 11
+    },
+    {
+      "dataset": "wei_real_awd_006",
+      "bytes": 16346,
+      "ms": 2,
+      "data_mode": "real",
+      "run_id": "20261002T121139-award_contract-f0c3",
+      "events": 1,
+      "evidences": 9
+    },
+    {
+      "dataset": "wei_real_awd_007",
+      "bytes": 13158,
+      "ms": 2,
+      "data_mode": "real",
+      "run_id": "20261002T121143-award_contract-ba62",
+      "events": 1,
+      "evidences": 6
+    },
+    {
+      "dataset": "wei_real_awd_008",
+      "bytes": 19919,
+      "ms": 2,
+      "data_mode": "real",
+      "run_id": "20261002T121147-award_contract-a2c8",
+      "events": 1,
+      "evidences": 8
+    },
+    {
+      "dataset": "wei_real_awd_009",
+      "bytes": 39879,
+      "ms": 3,
+      "data_mode": "real",
+      "run_id": "20261002T121151-award_contract-7852",
+      "events": 3,
+      "evidences": 21
+    },
+    {
+      "dataset": "wei_real_awd_010",
+      "bytes": 21896,
+      "ms": 2,
+      "data_mode": "real",
+      "run_id": "20261002T121159-award_contract-ffb9",
+      "events": 1,
+      "evidences": 6
+    },
+    {
+      "dataset": "wei_real_eqc_001",
+      "bytes": 814083,
+      "ms": 43,
+      "data_mode": "real",
+      "run_id": "20261002T121003-equity_change-20d2",
+      "events": 5,
+      "evidences": 45
+    },
+    {
+      "dataset": "wei_real_eqc_002",
+      "bytes": 1320143,
+      "ms": 63,
+      "data_mode": "real",
+      "run_id": "20261002T121016-equity_change-8f54",
+      "events": 3,
+      "evidences": 27
+    },
+    {
+      "dataset": "wei_real_eqc_003",
+      "bytes": 636276,
+      "ms": 36,
+      "data_mode": "real",
+      "run_id": "20261002T121035-equity_change-abca",
+      "events": 1,
+      "evidences": 5
+    },
+    {
+      "dataset": "wei_real_eqc_004",
+      "bytes": 288646,
+      "ms": 26,
+      "data_mode": "real",
+      "run_id": "20261002T121038-equity_change-e850",
+      "events": 1,
+      "evidences": 9
+    },
+    {
+      "dataset": "wei_real_eqc_005",
+      "bytes": 315153,
+      "ms": 11,
+      "data_mode": "real",
+      "run_id": "20261002T121042-equity_change-fd9a",
+      "events": 1,
+      "evidences": 9
+    },
+    {
+      "dataset": "wei_real_eqc_006",
+      "bytes": 109105,
+      "ms": 6,
+      "data_mode": "real",
+      "run_id": "20261002T121045-equity_change-0ae0",
+      "events": 1,
+      "evidences": 9
+    },
+    {
+      "dataset": "wei_real_eqc_007",
+      "bytes": 311918,
+      "ms": 13,
+      "data_mode": "real",
+      "run_id": "20261002T121049-equity_change-1e8d",
+      "events": 1,
+      "evidences": 10
+    },
+    {
+      "dataset": "wei_real_eqc_008",
+      "bytes": 210388,
+      "ms": 8,
+      "data_mode": "real",
+      "run_id": "20261002T121053-equity_change-7083",
+      "events": 1,
+      "evidences": 9
+    },
+    {
+      "dataset": "wei_real_eqc_009",
+      "bytes": 181454,
+      "ms": 9,
+      "data_mode": "real",
+      "run_id": "20261002T121057-equity_change-1041",
+      "events": 1,
+      "evidences": 9
+    },
+    {
+      "dataset": "wei_real_eqc_010",
+      "bytes": 378878,
+      "ms": 26,
+      "data_mode": "real",
+      "run_id": "20261002T121100-equity_change-25f7",
+      "events": 1,
+      "evidences": 9
+    },
+    {
+      "dataset": "wei_real_pledge_0197",
+      "bytes": 53347,
+      "ms": 3,
+      "data_mode": "real",
+      "run_id": "20260929T025658-pledge-0197",
+      "events": 1,
+      "evidences": 12
+    },
+    {
+      "dataset": "wei_real_pledge_ce37",
+      "bytes": 45021,
+      "ms": 3,
+      "data_mode": "real",
+      "run_id": "20260929T014901-pledge-ce37",
+      "events": 1,
+      "evidences": 12
+    },
+    {
+      "dataset": "wei_run_pledge",
+      "bytes": 9590,
+      "ms": 2,
+      "data_mode": "real",
+      "run_id": "20260928T061450-pledge-3506",
+      "events": 1,
+      "evidences": 12
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "tool": "equity_check_D5",
+  "version": "0.5.0",
+  "input_schema_version": "0.3",
+  "run_id": "synthetic-fang-D5",
+  "source": {
+    "file_name": "synthetic_D5.txt",
+    "file_id": "synthetic-D5",
+    "file_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "parse_meta": null
+  },
+  "status": "verified",
+  "findings": [],
+  "events": [
+    {
+      "event_index": 0,
+      "event_id": "E01",
+      "holder": "合成股东甲",
+      "status": "verified",
+      "findings": [],
+      "observed": {
+        "holder": {
+          "raw_value": "合成股东甲",
+          "value": "合成股东甲",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-0",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c1",
+              "region": [
+                0,
+                10,
+                19,
+                20
+              ],
+              "quote": "合成测试字段 holder: 合成股东甲"
+            }
+          ]
+        },
+        "direction": {
+          "raw_value": "decrease",
+          "value": "decrease",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-1",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c2",
+              "region": [
+                20,
+                10,
+                39,
+                20
+              ],
+              "quote": "合成测试字段 direction: decrease"
+            }
+          ]
+        },
+        "shares_before": {
+          "raw_value": "1000000",
+          "value": "1000000",
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-2",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c3",
+              "region": [
+                40,
+                10,
+                59,
+                20
+              ],
+              "quote": "合成测试字段 shares_before: 1000000"
+            }
+          ]
+        },
+        "shares_after": {
+          "raw_value": "800000",
+          "value": "800000",
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-3",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c4",
+              "region": [
+                60,
+                10,
+                79,
+                20
+              ],
+              "quote": "合成测试字段 shares_after: 800000"
+            }
+          ]
+        },
+        "ratio_before": {
+          "raw_value": "10",
+          "value": "10",
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": "total_share_capital",
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-4",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c5",
+              "region": [
+                80,
+                10,
+                99,
+                20
+              ],
+              "quote": "合成测试字段 ratio_before: 10"
+            }
+          ]
+        },
+        "ratio_after": {
+          "raw_value": "8",
+          "value": "8",
+          "unit": "percent",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": "total_share_capital",
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-5",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c6",
+              "region": [
+                100,
+                10,
+                119,
+                20
+              ],
+              "quote": "合成测试字段 ratio_after: 8"
+            }
+          ]
+        },
+        "change_shares": {
+          "raw_value": "200000",
+          "value": "200000",
+          "unit": "shares",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-6",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c7",
+              "region": [
+                120,
+                10,
+                139,
+                20
+              ],
+              "quote": "合成测试字段 change_shares: 200000"
+            }
+          ]
+        },
+        "method": {
+          "raw_value": "合成减持测试",
+          "value": "合成减持测试",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-7",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c8",
+              "region": [
+                140,
+                10,
+                159,
+                20
+              ],
+              "quote": "合成测试字段 method: 合成减持测试"
+            }
+          ]
+        },
+        "change_date": {
+          "raw_value": "2026-09-20/2026-09-24",
+          "value": "2026-09-20/2026-09-24",
+          "unit": "date_range",
+          "standardized": true,
+          "status": "extracted",
+          "denominator": null,
+          "note": null,
+          "provenance": [
+            {
+              "page": 1,
+              "block_id": "synthetic-8",
+              "source_type": "cell",
+              "table_id": "synthetic-table",
+              "cell_ref": "r2c9",
+              "region": [
+                160,
+                10,
+                179,
+                20
+              ],
+              "quote": "合成测试字段 change_date: 2026-09-20/2026-09-24"
+            }
+          ]
+        }
+      },
+      "calculations": {
+        "shares_delta": "-200000",
+        "ratio_delta_pp": "-2",
+        "inferred_share_direction": "decrease",
+        "reported_direction": "decrease",
+        "change_shares_matches": true,
+        "ratio_arithmetic": "not_checked_no_denominator_values"
+      }
+    }
+  ],
+  "audit": {
+    "evidenceMode": "synthetic_test",
+    "sourceContentsVerified": false,
+    "fullEnvelopeSchemaValidated": false,
+    "inputMutated": false,
+    "legalJudgment": false,
+    "thresholdPolicy": "no_registered_threshold_fields"
+  },
+  "execution": {
+    "started_at": "2026-10-01T13:58:49.734Z",
+    "node": "v24.21.0",
+    "input_sha256": "96928da19ed475104ab399b89e396459363d488e0f2ae328e1105f3191cc2396",
+    "implementation_sha256": {
+      "equity_check_D5.ts": "1191ade46427dde677021123014d7b0429262726749851b0ea6ae0494833ac7b",
+      "cli_D5.ts": "e4008cca62ee5014e56463d8e4720f917d2f71ad478e0692fbd545fe49c8d88e"
+    }
+  }
+}
