@@ -1,0 +1,3190 @@
+{
+  "schema_version": "fang.d14-defense/1.0",
+  "business_date": "2026-10-10",
+  "executed_at": "2026-10-10T10:02:58.077Z",
+  "node": "v24.21.0",
+  "source_pins": {
+    "fang": "8982141d824cd154aeaa43de032457e071f559aa",
+    "wei": "2cf52956248244571c1f622fad7e17b302b70778",
+    "release": "036a2662a83f6fd9023ece684aa323211120f8b7",
+    "chen": "9d731f1b3bc036a38cd0e60d14a9af20ba77f15a"
+  },
+  "pin_note": "以上为交付时固定提交参照；实际目录内容以 sources 哈希为证，复跑更换检出版本须重审。",
+  "versions": {
+    "alignment": "D8.2",
+    "attribution": "D12.1",
+    "report": "D10.1",
+    "contract": "0.3"
+  },
+  "version_files": [
+    {
+      "fang": "src_D9/attribution_D9.mjs",
+      "release": "tools/fang-attribution/src_D9/attribution_D9.mjs",
+      "bytes_identical": false,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D9/exact_D9.mjs",
+      "release": "tools/fang-attribution/src_D9/exact_D9.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D9/run_D9.mjs",
+      "release": "tools/fang-attribution/src_D9/run_D9.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D9/vendor_D9/decimal_D9.mts",
+      "release": "tools/fang-attribution/src_D9/vendor_D9/decimal_D9.mts",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D9/wei_adapter_D9.mjs",
+      "release": "tools/fang-attribution/src_D9/wei_adapter_D9.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "vendor_D8/src_D8/matching_D8.mjs",
+      "release": "tools/fang-attribution/vendor_D8/src_D8/matching_D8.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D8/adapters_D8.mjs",
+      "release": "tools/fang-matching/src_D8/adapters_D8.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D8/alignment_D8.mjs",
+      "release": "tools/fang-matching/src_D8/alignment_D8.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D8/cli_D8.mjs",
+      "release": "tools/fang-matching/src_D8/cli_D8.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D8/matching_D8.mjs",
+      "release": "tools/fang-matching/src_D8/matching_D8.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D8/run_public_D8.mjs",
+      "release": "tools/fang-matching/src_D8/run_public_D8.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D10/build_D10.mjs",
+      "release": "tools/fang-report/src_D10/build_D10.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D10/report_D10.mjs",
+      "release": "tools/fang-report/src_D10/report_D10.mjs",
+      "bytes_identical": false,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D10/schema_validator_D10.mjs",
+      "release": "tools/fang-report/src_D10/schema_validator_D10.mjs",
+      "bytes_identical": true,
+      "LF_content_identical": true
+    },
+    {
+      "fang": "src_D10/validate_D10.mjs",
+      "release": "tools/fang-report/src_D10/validate_D10.mjs",
+      "bytes_identical": false,
+      "LF_content_identical": true
+    }
+  ],
+  "summary": {
+    "main_cases_pass": 3,
+    "counterexamples_pass": 7,
+    "wei_plugin_pass": 10,
+    "unique_A_schema_registry_and_chen_preservation": 15,
+    "D12_regression_pass": 24,
+    "exact_arithmetic_pass": 18,
+    "runtime_files_LF_identical": 15,
+    "runtime_files_bytes_identical": 12
+  },
+  "demo_cases": [
+    {
+      "case_id": "D14-DEMO-01",
+      "title": "真矛盾类型：精确股数相差一股",
+      "source_kind": "controlled_D12-Q04",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "input": {
+        "case_id": "D14-DEMO-01",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "entity": "甲主体",
+            "field": "shares_after",
+            "value": "1000",
+            "raw_value": "1000股",
+            "unit": "shares",
+            "block_id": "control-0",
+            "quote": "甲主体 shares_after 1000股  ",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N0",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "CONTROL-1",
+            "entity": "甲主体",
+            "field": "shares_after",
+            "value": "1001",
+            "raw_value": "1001股",
+            "unit": "shares",
+            "block_id": "control-1",
+            "quote": "甲主体 shares_after 1001股  ",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N1",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "case_id": "D14-DEMO-01",
+        "rule_version": "D12.1",
+        "verdict": "conflict",
+        "attribution_code": "SAME_BASIS_CONFLICT",
+        "attribution": "双侧原文、同一原子事件/观察时点和全部适用口径均成立，精确值仍不一致；作为有证据的矛盾提交人工终审。",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "field": "shares_after",
+            "entity": "甲主体",
+            "original_value": "1000",
+            "raw_value": "1000股",
+            "normalized_value": "1000",
+            "unit": "shares",
+            "block_id": "control-0",
+            "quote": "甲主体 shares_after 1000股  ",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-0",
+                "page": 1,
+                "quote": "甲主体 shares_after 1000股  ",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          },
+          {
+            "case_id": "CONTROL-1",
+            "field": "shares_after",
+            "entity": "甲主体",
+            "original_value": "1001",
+            "raw_value": "1001股",
+            "normalized_value": "1001",
+            "unit": "shares",
+            "block_id": "control-1",
+            "quote": "甲主体 shares_after 1001股  ",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-1",
+                "page": 1,
+                "quote": "甲主体 shares_after 1001股  ",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 2
+          },
+          {
+            "rule_id": "SAME_BASIS_CONFLICT",
+            "matched": true,
+            "verdict": "conflict"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": true,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "alignment": {
+          "same_transaction": true,
+          "atomic": true,
+          "method": "scoped_event_key"
+        },
+        "resolution": "conflict_candidate"
+      }
+    },
+    {
+      "case_id": "D14-DEMO-02",
+      "title": "口径差异：个人份额与四人合计",
+      "source_kind": "public_D9-RULE-005",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "AGGREGATE_DETAIL_RECONCILED"
+      },
+      "input": {
+        "sides": [
+          {
+            "case_id": "D5-EQC-001",
+            "entity": "蔚文绪",
+            "field": "change_shares",
+            "value": 3680700,
+            "raw_value": "-3,680,700",
+            "unit": "shares",
+            "quote": "-3,680,700",
+            "block_id": "d9d5be14f_p010_b00004"
+          },
+          {
+            "case_id": "D5-EQC-002",
+            "entity": "于春生",
+            "field": "change_shares",
+            "value": 8427900,
+            "raw_value": "8,427,900股",
+            "unit": "shares",
+            "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+            "block_id": "d46bc2ef0_p017_b00011"
+          }
+        ],
+        "case_id": "D14-DEMO-02"
+      },
+      "result": {
+        "case_id": "D14-DEMO-02",
+        "rule_version": "D12.1",
+        "verdict": "explainable_difference",
+        "attribution_code": "AGGREGATE_DETAIL_RECONCILED",
+        "attribution": "完整且不重复的转让方分项经精确求和与总额一致；合计不拆记个人。",
+        "sides": [
+          {
+            "case_id": "D5-EQC-001",
+            "field": "change_shares",
+            "entity": "蔚文绪",
+            "original_value": 3680700,
+            "raw_value": "-3,680,700",
+            "normalized_value": "3680700",
+            "unit": "shares",
+            "block_id": "d9d5be14f_p010_b00004",
+            "quote": "-3,680,700",
+            "block_verified": true,
+            "page": 10,
+            "region": [
+              268.78,
+              72.77,
+              325.92,
+              93.6
+            ],
+            "source_type": "cell",
+            "table_id": "d9d5be14f_p010_t001",
+            "cell_ref": "r1c4",
+            "header_path": null,
+            "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+            "a_run_id": "20261005T064044-equity_change-0236",
+            "code_version": "468b5041",
+            "is_mock": false,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "d9d5be14f_p010_b00004",
+                "page": 10,
+                "region": [
+                  268.78,
+                  72.77,
+                  325.92,
+                  93.6
+                ],
+                "table_id": "d9d5be14f_p010_t001",
+                "cell_ref": "r1c4",
+                "source_type": "cell",
+                "quote": "-3,680,700"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          },
+          {
+            "case_id": "D5-EQC-002",
+            "field": "change_shares",
+            "entity": "于春生",
+            "original_value": 8427900,
+            "raw_value": "8,427,900股",
+            "normalized_value": "8427900",
+            "unit": "shares",
+            "block_id": "d46bc2ef0_p017_b00011",
+            "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+            "block_verified": true,
+            "page": 17,
+            "region": [
+              90.02,
+              411.78,
+              517.46,
+              704.81
+            ],
+            "source_type": "paragraph",
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+            "a_run_id": "20261005T064056-equity_change-18f6",
+            "code_version": "468b5041",
+            "is_mock": false,
+            "a_event_ids": [
+              "E03"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "d46bc2ef0_p018_b00034",
+                "page": 18,
+                "region": [
+                  267.44,
+                  378.41,
+                  332.21,
+                  398.81
+                ],
+                "table_id": "d46bc2ef0_p018_t001",
+                "cell_ref": "r5c4",
+                "source_type": "cell",
+                "quote": "8,427,900"
+              }
+            ],
+            "binding_method": "independently_verified_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [
+          {
+            "name": "share_sum",
+            "used_source": "D8_verified_transaction_seller_fields",
+            "operands": [
+              {
+                "entity": "蔚文绪",
+                "value": "3680700"
+              },
+              {
+                "entity": "马军强",
+                "value": "2975600"
+              },
+              {
+                "entity": "杨占坡",
+                "value": "430000"
+              },
+              {
+                "entity": "蔚文举",
+                "value": "1341600"
+              }
+            ],
+            "result": "8427900",
+            "evidence": [
+              {
+                "case_id": "D5-EQC-001",
+                "field": "change_shares",
+                "entity": "蔚文绪",
+                "original_value": 3680700,
+                "raw_value": "-3,680,700",
+                "normalized_value": "3680700",
+                "unit": "shares",
+                "block_id": "d9d5be14f_p010_b00004",
+                "quote": "-3,680,700",
+                "block_verified": true,
+                "page": 10,
+                "region": [
+                  268.78,
+                  72.77,
+                  325.92,
+                  93.6
+                ],
+                "source_type": "cell",
+                "table_id": "d9d5be14f_p010_t001",
+                "cell_ref": "r1c4",
+                "header_path": null,
+                "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+                "a_run_id": "20261005T064044-equity_change-0236",
+                "code_version": "468b5041",
+                "is_mock": false,
+                "a_event_ids": [
+                  "E01"
+                ],
+                "a_field_provenance": [
+                  {
+                    "block_id": "d9d5be14f_p010_b00004",
+                    "page": 10,
+                    "region": [
+                      268.78,
+                      72.77,
+                      325.92,
+                      93.6
+                    ],
+                    "table_id": "d9d5be14f_p010_t001",
+                    "cell_ref": "r1c4",
+                    "source_type": "cell",
+                    "quote": "-3,680,700"
+                  }
+                ],
+                "binding_method": "same_block_A_field",
+                "issues": []
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "field": "change_shares",
+                "entity": "马军强",
+                "original_value": 2975600,
+                "raw_value": "-2,975,600",
+                "normalized_value": "2975600",
+                "unit": "shares",
+                "block_id": "d9d5be14f_p010_b00011",
+                "quote": "-2,975,600",
+                "block_verified": true,
+                "page": 10,
+                "region": [
+                  268.78,
+                  93.6,
+                  325.92,
+                  114.02
+                ],
+                "source_type": "cell",
+                "table_id": "d9d5be14f_p010_t001",
+                "cell_ref": "r2c4",
+                "header_path": null,
+                "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+                "a_run_id": "20261005T064044-equity_change-0236",
+                "code_version": "468b5041",
+                "is_mock": false,
+                "a_event_ids": [
+                  "E02"
+                ],
+                "a_field_provenance": [
+                  {
+                    "block_id": "d9d5be14f_p010_b00011",
+                    "page": 10,
+                    "region": [
+                      268.78,
+                      93.6,
+                      325.92,
+                      114.02
+                    ],
+                    "table_id": "d9d5be14f_p010_t001",
+                    "cell_ref": "r2c4",
+                    "source_type": "cell",
+                    "quote": "-2,975,600"
+                  }
+                ],
+                "binding_method": "same_block_A_field",
+                "issues": []
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "field": "change_shares",
+                "entity": "杨占坡",
+                "original_value": 430000,
+                "raw_value": "-430,000",
+                "normalized_value": "430000",
+                "unit": "shares",
+                "block_id": "d9d5be14f_p010_b00025",
+                "quote": "-430,000",
+                "block_verified": true,
+                "page": 10,
+                "region": [
+                  268.78,
+                  134.3,
+                  325.92,
+                  154.7
+                ],
+                "source_type": "cell",
+                "table_id": "d9d5be14f_p010_t001",
+                "cell_ref": "r4c4",
+                "header_path": null,
+                "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+                "a_run_id": "20261005T064044-equity_change-0236",
+                "code_version": "468b5041",
+                "is_mock": false,
+                "a_event_ids": [
+                  "E03"
+                ],
+                "a_field_provenance": [
+                  {
+                    "block_id": "d9d5be14f_p010_b00025",
+                    "page": 10,
+                    "region": [
+                      268.78,
+                      134.3,
+                      325.92,
+                      154.7
+                    ],
+                    "table_id": "d9d5be14f_p010_t001",
+                    "cell_ref": "r4c4",
+                    "source_type": "cell",
+                    "quote": "-430,000"
+                  }
+                ],
+                "binding_method": "same_block_A_field",
+                "issues": []
+              },
+              {
+                "case_id": "D5-EQC-001",
+                "field": "change_shares",
+                "entity": "蔚文举",
+                "original_value": 1341600,
+                "raw_value": "-1,341,600",
+                "normalized_value": "1341600",
+                "unit": "shares",
+                "block_id": "d9d5be14f_p010_b00032",
+                "quote": "-1,341,600",
+                "block_verified": true,
+                "page": 10,
+                "region": [
+                  268.78,
+                  154.7,
+                  325.92,
+                  174.98
+                ],
+                "source_type": "cell",
+                "table_id": "d9d5be14f_p010_t001",
+                "cell_ref": "r5c4",
+                "header_path": null,
+                "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+                "a_run_id": "20261005T064044-equity_change-0236",
+                "code_version": "468b5041",
+                "is_mock": false,
+                "a_event_ids": [
+                  "E04"
+                ],
+                "a_field_provenance": [
+                  {
+                    "block_id": "d9d5be14f_p010_b00032",
+                    "page": 10,
+                    "region": [
+                      268.78,
+                      154.7,
+                      325.92,
+                      174.98
+                    ],
+                    "table_id": "d9d5be14f_p010_t001",
+                    "cell_ref": "r5c4",
+                    "source_type": "cell",
+                    "quote": "-1,341,600"
+                  }
+                ],
+                "binding_method": "same_block_A_field",
+                "issues": []
+              }
+            ],
+            "allocation_performed": false
+          }
+        ],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 2
+          },
+          {
+            "rule_id": "AGGREGATE_DETAIL_RECONCILED",
+            "matched": true,
+            "verdict": "explainable_difference"
+          }
+        ],
+        "requires_review": false,
+        "comparison_performed": true,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "alignment": {
+          "same_transaction": true,
+          "atomic": false,
+          "method": "D8.2"
+        },
+        "resolution": "numerically_checked"
+      }
+    },
+    {
+      "case_id": "D14-DEMO-03",
+      "title": "未知：可读金额缺少比较对象",
+      "source_kind": "public_D9-RULE-018",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "NO_COMPARISON_CONTEXT"
+      },
+      "input": {
+        "sides": [
+          {
+            "case_id": "D6-AWD-005",
+            "entity": null,
+            "field": "bid_amount",
+            "value": 148882000,
+            "raw_value": "人民币14,888.20万元",
+            "unit": "cny",
+            "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+            "block_id": "ddd80cf89_p001_b00008"
+          }
+        ],
+        "case_id": "D14-DEMO-03"
+      },
+      "result": {
+        "case_id": "D14-DEMO-03",
+        "rule_version": "D12.1",
+        "verdict": "insufficient",
+        "attribution_code": "NO_COMPARISON_CONTEXT",
+        "attribution": "单侧输入且主体/比较对象未建立；即使正文金额可读，也不能判断跨文档关系。",
+        "sides": [
+          {
+            "case_id": "D6-AWD-005",
+            "field": "bid_amount",
+            "entity": null,
+            "original_value": 148882000,
+            "raw_value": "人民币14,888.20万元",
+            "normalized_value": "148882000",
+            "unit": "cny",
+            "block_id": "ddd80cf89_p001_b00008",
+            "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+            "block_verified": true,
+            "page": 1,
+            "region": [
+              90,
+              438.05,
+              505.32,
+              496.85
+            ],
+            "source_type": "paragraph",
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "dd80cf896b9c5318761d8ed0e0e25b692e366dc249f73fd2e824b924535a9eee",
+            "a_run_id": "20261005T064213-award_contract-94e2",
+            "code_version": "468b5041",
+            "is_mock": false,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "ddd80cf89_p001_b00008",
+                "page": 1,
+                "region": [
+                  90,
+                  438.05,
+                  505.32,
+                  496.85
+                ],
+                "table_id": null,
+                "cell_ref": null,
+                "source_type": "paragraph",
+                "quote": "合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 1
+          },
+          {
+            "rule_id": "NO_COMPARISON_CONTEXT",
+            "matched": true,
+            "verdict": "insufficient"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": false,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "resolution": "unresolved"
+      }
+    }
+  ],
+  "counterexamples": [
+    {
+      "case_id": "D14-NEG-01",
+      "title": "同公司同主体，但事件键不同",
+      "source_kind": "controlled_event_change",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "EVENT_IDENTITY_UNPROVEN"
+      },
+      "input": {
+        "case_id": "D14-NEG-01",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "entity": "甲主体",
+            "field": "shares_after",
+            "value": "1000",
+            "raw_value": "1000股",
+            "unit": "shares",
+            "block_id": "control-0",
+            "quote": "甲主体 shares_after 1000股  ",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N0",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "CONTROL-1",
+            "entity": "甲主体",
+            "field": "shares_after",
+            "value": "1001",
+            "raw_value": "1001股",
+            "unit": "shares",
+            "block_id": "control-1",
+            "quote": "甲主体 shares_after 1001股  ",
+            "caliber": {
+              "event_key": {
+                "value": "TX-02",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-02；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-02；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-02；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N1",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-02；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "case_id": "D14-NEG-01",
+        "rule_version": "D12.1",
+        "verdict": "insufficient",
+        "attribution_code": "EVENT_IDENTITY_UNPROVEN",
+        "attribution": "尚未证明同一交易/标的观察；同公司、同主体、同数字都不能替代事件对齐。",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "field": "shares_after",
+            "entity": "甲主体",
+            "original_value": "1000",
+            "raw_value": "1000股",
+            "normalized_value": "1000",
+            "unit": "shares",
+            "block_id": "control-0",
+            "quote": "甲主体 shares_after 1000股  ",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-0",
+                "page": 1,
+                "quote": "甲主体 shares_after 1000股  ",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          },
+          {
+            "case_id": "CONTROL-1",
+            "field": "shares_after",
+            "entity": "甲主体",
+            "original_value": "1001",
+            "raw_value": "1001股",
+            "normalized_value": "1001",
+            "unit": "shares",
+            "block_id": "control-1",
+            "quote": "甲主体 shares_after 1001股  ",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-1",
+                "page": 1,
+                "quote": "甲主体 shares_after 1001股  ",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 2
+          },
+          {
+            "rule_id": "EVENT_IDENTITY_UNPROVEN",
+            "matched": true,
+            "verdict": "insufficient"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": false,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "alignment": {
+          "same_transaction": false,
+          "atomic": false,
+          "method": "D8.2"
+        },
+        "resolution": "unresolved"
+      }
+    },
+    {
+      "case_id": "D14-NEG-02",
+      "title": "坏引文不能维持矛盾结论",
+      "source_kind": "controlled_bad_quote",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "EVIDENCE_NOT_VERIFIED"
+      },
+      "input": {
+        "case_id": "D14-NEG-02",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "entity": "甲主体",
+            "field": "shares_after",
+            "value": "1000",
+            "raw_value": "1000股",
+            "unit": "shares",
+            "block_id": "control-0",
+            "quote": "甲主体 shares_after 1000股  原文不存在的文字",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N0",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "CONTROL-1",
+            "entity": "甲主体",
+            "field": "shares_after",
+            "value": "1001",
+            "raw_value": "1001股",
+            "unit": "shares",
+            "block_id": "control-1",
+            "quote": "甲主体 shares_after 1001股  ",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N1",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "case_id": "D14-NEG-02",
+        "rule_version": "D12.1",
+        "verdict": "insufficient",
+        "attribution_code": "EVIDENCE_NOT_VERIFIED",
+        "attribution": "至少一侧缺少可核验的源文档、页块或引文；不能以期望说明补足事实。",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "field": "shares_after",
+            "entity": "甲主体",
+            "original_value": "1000",
+            "raw_value": "1000股",
+            "normalized_value": null,
+            "unit": "shares",
+            "block_id": "control-0",
+            "quote": "甲主体 shares_after 1000股  原文不存在的文字",
+            "block_verified": false,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [],
+            "a_field_provenance": [],
+            "binding_method": null,
+            "issues": [
+              "QUOTE_NOT_VERIFIED"
+            ]
+          },
+          {
+            "case_id": "CONTROL-1",
+            "field": "shares_after",
+            "entity": "甲主体",
+            "original_value": "1001",
+            "raw_value": "1001股",
+            "normalized_value": "1001",
+            "unit": "shares",
+            "block_id": "control-1",
+            "quote": "甲主体 shares_after 1001股  ",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-1",
+                "page": 1,
+                "quote": "甲主体 shares_after 1001股  ",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_NOT_VERIFIED",
+            "matched": true,
+            "verdict": "insufficient"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": false,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "resolution": "unresolved"
+      }
+    },
+    {
+      "case_id": "D14-NEG-03",
+      "title": "缺一位出让人的份额",
+      "source_kind": "public_snapshot_controlled_missing_field",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "AGGREGATE_PARTIAL_COVERAGE"
+      },
+      "input": {
+        "sides": [
+          {
+            "case_id": "D5-EQC-001",
+            "entity": "蔚文绪",
+            "field": "change_shares",
+            "value": 3680700,
+            "raw_value": "-3,680,700",
+            "unit": "shares",
+            "quote": "-3,680,700",
+            "block_id": "d9d5be14f_p010_b00004"
+          },
+          {
+            "case_id": "D5-EQC-002",
+            "entity": "于春生",
+            "field": "change_shares",
+            "value": 8427900,
+            "raw_value": "8,427,900股",
+            "unit": "shares",
+            "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+            "block_id": "d46bc2ef0_p017_b00011"
+          }
+        ],
+        "case_id": "D14-NEG-03"
+      },
+      "result": {
+        "case_id": "D14-NEG-03",
+        "rule_version": "D12.1",
+        "verdict": "explainable_difference",
+        "attribution_code": "AGGREGATE_PARTIAL_COVERAGE",
+        "attribution": "已识别合计与明细口径，完整分项不足，尚未完成数值勾稽；保留未解释部分。",
+        "sides": [
+          {
+            "case_id": "D5-EQC-001",
+            "field": "change_shares",
+            "entity": "蔚文绪",
+            "original_value": 3680700,
+            "raw_value": "-3,680,700",
+            "normalized_value": "3680700",
+            "unit": "shares",
+            "block_id": "d9d5be14f_p010_b00004",
+            "quote": "-3,680,700",
+            "block_verified": true,
+            "page": 10,
+            "region": [
+              268.78,
+              72.77,
+              325.92,
+              93.6
+            ],
+            "source_type": "cell",
+            "table_id": "d9d5be14f_p010_t001",
+            "cell_ref": "r1c4",
+            "header_path": null,
+            "file_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+            "a_run_id": "20261005T064044-equity_change-0236",
+            "code_version": "468b5041",
+            "is_mock": false,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "d9d5be14f_p010_b00004",
+                "page": 10,
+                "region": [
+                  268.78,
+                  72.77,
+                  325.92,
+                  93.6
+                ],
+                "table_id": "d9d5be14f_p010_t001",
+                "cell_ref": "r1c4",
+                "source_type": "cell",
+                "quote": "-3,680,700"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          },
+          {
+            "case_id": "D5-EQC-002",
+            "field": "change_shares",
+            "entity": "于春生",
+            "original_value": 8427900,
+            "raw_value": "8,427,900股",
+            "normalized_value": "8427900",
+            "unit": "shares",
+            "block_id": "d46bc2ef0_p017_b00011",
+            "quote": "蔚文绪、马军强、杨占坡和蔚文举将其合计持有的科创新材8,427,900股股份（占科创新材总股本的9.80%，且均为无限售流通股）转让给信息披露义务人于春生",
+            "block_verified": true,
+            "page": 17,
+            "region": [
+              90.02,
+              411.78,
+              517.46,
+              704.81
+            ],
+            "source_type": "paragraph",
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+            "a_run_id": "20261005T064056-equity_change-18f6",
+            "code_version": "468b5041",
+            "is_mock": false,
+            "a_event_ids": [
+              "E03"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "d46bc2ef0_p018_b00034",
+                "page": 18,
+                "region": [
+                  267.44,
+                  378.41,
+                  332.21,
+                  398.81
+                ],
+                "table_id": "d46bc2ef0_p018_t001",
+                "cell_ref": "r5c4",
+                "source_type": "cell",
+                "quote": "8,427,900"
+              }
+            ],
+            "binding_method": "independently_verified_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [
+          "PARTIAL_AGGREGATE_COVERAGE"
+        ],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 2
+          },
+          {
+            "rule_id": "AGGREGATE_PARTIAL_COVERAGE",
+            "matched": true,
+            "verdict": "explainable_difference"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": false,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "alignment": {
+          "same_transaction": true,
+          "atomic": false,
+          "method": "D8.2"
+        },
+        "resolution": "caliber_identified_only"
+      }
+    },
+    {
+      "case_id": "D14-NEG-04",
+      "title": "16% 不能证明 6%",
+      "source_kind": "controlled_D12-T01",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING"
+      },
+      "input": {
+        "case_id": "D14-NEG-04",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "entity": "甲主体",
+            "field": "bid_amount",
+            "value": "100",
+            "raw_value": "100元",
+            "unit": "cny",
+            "block_id": "control-0",
+            "quote": "甲主体 bid_amount 100元 CNY 不含税",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率16%",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率16%",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率16%",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N0",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率16%",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "currency": {
+                "value": "CNY",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "甲主体 bid_amount 100元 CNY 不含税",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "tax_rate": {
+                "value": "6",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率16%",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "CONTROL-1",
+            "entity": "甲主体",
+            "field": "bid_amount",
+            "value": "106",
+            "raw_value": "106元",
+            "unit": "cny",
+            "block_id": "control-1",
+            "quote": "甲主体 bid_amount 106元 CNY 含税",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N1",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "currency": {
+                "value": "CNY",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "甲主体 bid_amount 106元 CNY 含税",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "case_id": "D14-NEG-04",
+        "rule_version": "D12.1",
+        "verdict": "insufficient",
+        "attribution_code": "TAX_RATE_MISSING",
+        "attribution": "已识别含税与未税口径不同，但没有可适用税率，差额仍待解释。",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "field": "bid_amount",
+            "entity": "甲主体",
+            "original_value": "100",
+            "raw_value": "100元",
+            "normalized_value": "100",
+            "unit": "cny",
+            "block_id": "control-0",
+            "quote": "甲主体 bid_amount 100元 CNY 不含税",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-0",
+                "page": 1,
+                "quote": "甲主体 bid_amount 100元 CNY 不含税",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          },
+          {
+            "case_id": "CONTROL-1",
+            "field": "bid_amount",
+            "entity": "甲主体",
+            "original_value": "106",
+            "raw_value": "106元",
+            "normalized_value": "106",
+            "unit": "cny",
+            "block_id": "control-1",
+            "quote": "甲主体 bid_amount 106元 CNY 含税",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-1",
+                "page": 1,
+                "quote": "甲主体 bid_amount 106元 CNY 含税",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 2
+          },
+          {
+            "rule_id": "TAX_RATE_MISSING",
+            "matched": true,
+            "verdict": "insufficient"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": false,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "alignment": {
+          "same_transaction": true,
+          "atomic": true,
+          "method": "scoped_event_key"
+        },
+        "resolution": "unresolved"
+      }
+    },
+    {
+      "case_id": "D14-NEG-05",
+      "title": "11 AED 不能截成 1 AED",
+      "source_kind": "controlled_D12-F01",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING"
+      },
+      "input": {
+        "case_id": "D14-NEG-05",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "entity": "甲主体",
+            "field": "bid_amount",
+            "value": "100",
+            "raw_value": "100元",
+            "unit": "cny",
+            "block_id": "control-0",
+            "quote": "甲主体 bid_amount 100元 AED 含税",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，11 AED = 2 CNY",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，11 AED = 2 CNY",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，11 AED = 2 CNY",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N0",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，11 AED = 2 CNY",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "currency": {
+                "value": "AED",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "甲主体 bid_amount 100元 AED 含税",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "fx": {
+                "value": "2",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，11 AED = 2 CNY",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ],
+                "from": "AED",
+                "to": "CNY",
+                "date": "2026-10-05"
+              }
+            }
+          },
+          {
+            "case_id": "CONTROL-1",
+            "entity": "甲主体",
+            "field": "bid_amount",
+            "value": "200",
+            "raw_value": "200元",
+            "unit": "cny",
+            "block_id": "control-1",
+            "quote": "甲主体 bid_amount 200元 CNY 含税",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N1",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "currency": {
+                "value": "CNY",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "甲主体 bid_amount 200元 CNY 含税",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "case_id": "D14-NEG-05",
+        "rule_version": "D12.1",
+        "verdict": "insufficient",
+        "attribution_code": "FX_BASIS_MISSING",
+        "attribution": "币种不同，但缺适用日期/方向/汇率或明示折合依据；不自行换算。",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "field": "bid_amount",
+            "entity": "甲主体",
+            "original_value": "100",
+            "raw_value": "100元",
+            "normalized_value": "100",
+            "unit": "cny",
+            "block_id": "control-0",
+            "quote": "甲主体 bid_amount 100元 AED 含税",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-0",
+                "page": 1,
+                "quote": "甲主体 bid_amount 100元 AED 含税",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          },
+          {
+            "case_id": "CONTROL-1",
+            "field": "bid_amount",
+            "entity": "甲主体",
+            "original_value": "200",
+            "raw_value": "200元",
+            "normalized_value": "200",
+            "unit": "cny",
+            "block_id": "control-1",
+            "quote": "甲主体 bid_amount 200元 CNY 含税",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-1",
+                "page": 1,
+                "quote": "甲主体 bid_amount 200元 CNY 含税",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 2
+          },
+          {
+            "rule_id": "FX_BASIS_MISSING",
+            "matched": true,
+            "verdict": "insufficient"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": false,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "alignment": {
+          "same_transaction": true,
+          "atomic": true,
+          "method": "scoped_event_key"
+        },
+        "resolution": "unresolved"
+      }
+    },
+    {
+      "case_id": "D14-NEG-06",
+      "title": "舍入半值越界必须保留矛盾",
+      "source_kind": "controlled_D12-R05",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "input": {
+        "case_id": "D14-NEG-06",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "entity": "甲主体",
+            "field": "bid_amount",
+            "value": "12300",
+            "raw_value": "1.23万元",
+            "unit": "cny",
+            "block_id": "control-0",
+            "quote": "甲主体 bid_amount 1.23万元 CNY 含税",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以万元四舍五入保留2位小数",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以万元四舍五入保留2位小数",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以万元四舍五入保留2位小数",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N0",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以万元四舍五入保留2位小数",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "currency": {
+                "value": "CNY",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "甲主体 bid_amount 1.23万元 CNY 含税",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "rounding": {
+                "value": 2,
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以万元四舍五入保留2位小数",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "CONTROL-1",
+            "entity": "甲主体",
+            "field": "bid_amount",
+            "value": "12350",
+            "raw_value": "12350元",
+            "unit": "cny",
+            "block_id": "control-1",
+            "quote": "甲主体 bid_amount 12350元 CNY 含税",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N1",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "currency": {
+                "value": "CNY",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "甲主体 bid_amount 12350元 CNY 含税",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "case_id": "D14-NEG-06",
+        "rule_version": "D12.1",
+        "verdict": "conflict",
+        "attribution_code": "SAME_BASIS_CONFLICT",
+        "attribution": "双侧原文、同一原子事件/观察时点和全部适用口径均成立，精确值仍不一致；作为有证据的矛盾提交人工终审。",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "field": "bid_amount",
+            "entity": "甲主体",
+            "original_value": "12300",
+            "raw_value": "1.23万元",
+            "normalized_value": "12300",
+            "unit": "cny",
+            "block_id": "control-0",
+            "quote": "甲主体 bid_amount 1.23万元 CNY 含税",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-0",
+                "page": 1,
+                "quote": "甲主体 bid_amount 1.23万元 CNY 含税",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          },
+          {
+            "case_id": "CONTROL-1",
+            "field": "bid_amount",
+            "entity": "甲主体",
+            "original_value": "12350",
+            "raw_value": "12350元",
+            "normalized_value": "12350",
+            "unit": "cny",
+            "block_id": "control-1",
+            "quote": "甲主体 bid_amount 12350元 CNY 含税",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-1",
+                "page": 1,
+                "quote": "甲主体 bid_amount 12350元 CNY 含税",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 2
+          },
+          {
+            "rule_id": "SAME_BASIS_CONFLICT",
+            "matched": true,
+            "verdict": "conflict"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": true,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "alignment": {
+          "same_transaction": true,
+          "atomic": true,
+          "method": "scoped_event_key"
+        },
+        "resolution": "conflict_candidate"
+      }
+    },
+    {
+      "case_id": "D14-NEG-07",
+      "title": "超出安全整数范围仍保留一股差异",
+      "source_kind": "controlled_D12-N01",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "input": {
+        "case_id": "D14-NEG-07",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "entity": "甲主体",
+            "field": "shares_after",
+            "value": "9007199254740993",
+            "raw_value": "9007199254740993股",
+            "unit": "shares",
+            "block_id": "control-0",
+            "quote": "甲主体 shares_after 9007199254740993股  ",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N0",
+                "provenance": [
+                  {
+                    "block_id": "control-0",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；",
+                    "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "CONTROL-1",
+            "entity": "甲主体",
+            "field": "shares_after",
+            "value": "9007199254740994",
+            "raw_value": "9007199254740994股",
+            "unit": "shares",
+            "block_id": "control-1",
+            "quote": "甲主体 shares_after 9007199254740994股  ",
+            "caliber": {
+              "event_key": {
+                "value": "TX-01",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "issuer_code": {
+                "value": "600001",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              },
+              "time": {
+                "value": "2026-10-05",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ],
+                "role": "as_of"
+              },
+              "notice_number": {
+                "value": "N1",
+                "provenance": [
+                  {
+                    "block_id": "control-1",
+                    "page": 1,
+                    "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N1；",
+                    "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "case_id": "D14-NEG-07",
+        "rule_version": "D12.1",
+        "verdict": "conflict",
+        "attribution_code": "SAME_BASIS_CONFLICT",
+        "attribution": "双侧原文、同一原子事件/观察时点和全部适用口径均成立，精确值仍不一致；作为有证据的矛盾提交人工终审。",
+        "sides": [
+          {
+            "case_id": "CONTROL-0",
+            "field": "shares_after",
+            "entity": "甲主体",
+            "original_value": "9007199254740993",
+            "raw_value": "9007199254740993股",
+            "normalized_value": "9007199254740993",
+            "unit": "shares",
+            "block_id": "control-0",
+            "quote": "甲主体 shares_after 9007199254740993股  ",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-0",
+                "page": 1,
+                "quote": "甲主体 shares_after 9007199254740993股  ",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          },
+          {
+            "case_id": "CONTROL-1",
+            "field": "shares_after",
+            "entity": "甲主体",
+            "original_value": "9007199254740994",
+            "raw_value": "9007199254740994股",
+            "normalized_value": "9007199254740994",
+            "unit": "shares",
+            "block_id": "control-1",
+            "quote": "甲主体 shares_after 9007199254740994股  ",
+            "block_verified": true,
+            "page": 1,
+            "region": null,
+            "source_type": null,
+            "table_id": null,
+            "cell_ref": null,
+            "header_path": null,
+            "file_sha256": "1c25e7b56ab113db74f3479d5b9c9764dcc722338a2ebf7175f9153783d5baf3",
+            "a_run_id": "CONTROL-D9",
+            "code_version": null,
+            "is_mock": true,
+            "a_event_ids": [
+              "E01"
+            ],
+            "a_field_provenance": [
+              {
+                "block_id": "control-1",
+                "page": 1,
+                "quote": "甲主体 shares_after 9007199254740994股  ",
+                "source_type": "paragraph"
+              }
+            ],
+            "binding_method": "same_block_A_field",
+            "issues": []
+          }
+        ],
+        "computed": [],
+        "findings": [],
+        "trace": [
+          {
+            "rule_id": "EVIDENCE_GATE",
+            "matched": true,
+            "verified_sides": 2
+          },
+          {
+            "rule_id": "SAME_BASIS_CONFLICT",
+            "matched": true,
+            "verdict": "conflict"
+          }
+        ],
+        "requires_review": true,
+        "comparison_performed": true,
+        "model_explanation": null,
+        "audit": {
+          "input_mutated": false,
+          "expected_labels_used": false,
+          "exchange_rate_inferred": false,
+          "tax_rate_inferred": false,
+          "amount_allocation_performed": false
+        },
+        "alignment": {
+          "same_transaction": true,
+          "atomic": true,
+          "method": "scoped_event_key"
+        },
+        "resolution": "conflict_candidate"
+      }
+    }
+  ],
+  "interface_checks": [
+    {
+      "case_id": "D14-DEMO-01",
+      "verdict": "conflict",
+      "attribution_code": "plugin:SAME_BASIS_CONFLICT",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-DEMO-02",
+      "verdict": "explainable_difference",
+      "attribution_code": "plugin:AGGREGATE_DETAIL_RECONCILED",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-DEMO-03",
+      "verdict": "insufficient",
+      "attribution_code": "plugin:NO_COMPARISON_CONTEXT",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-NEG-01",
+      "verdict": "insufficient",
+      "attribution_code": "plugin:EVENT_IDENTITY_UNPROVEN",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-NEG-02",
+      "verdict": "insufficient",
+      "attribution_code": "plugin:EVIDENCE_NOT_VERIFIED",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-NEG-03",
+      "verdict": "explainable_difference",
+      "attribution_code": "plugin:AGGREGATE_PARTIAL_COVERAGE",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-NEG-04",
+      "verdict": "insufficient",
+      "attribution_code": "plugin:TAX_RATE_MISSING",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-NEG-05",
+      "verdict": "insufficient",
+      "attribution_code": "plugin:FX_BASIS_MISSING",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-NEG-06",
+      "verdict": "conflict",
+      "attribution_code": "plugin:SAME_BASIS_CONFLICT",
+      "computed_preserved": true
+    },
+    {
+      "case_id": "D14-NEG-07",
+      "verdict": "conflict",
+      "attribution_code": "plugin:SAME_BASIS_CONFLICT",
+      "computed_preserved": true
+    }
+  ],
+  "regression": [
+    {
+      "id": "D12-T01",
+      "verdict": "insufficient",
+      "code": "TAX_RATE_MISSING",
+      "pass": true
+    },
+    {
+      "id": "D12-T02",
+      "verdict": "insufficient",
+      "code": "TAX_RATE_MISSING",
+      "pass": true
+    },
+    {
+      "id": "D12-T03",
+      "verdict": "explainable_difference",
+      "code": "EXPLICIT_TAX_RECONCILED",
+      "pass": true
+    },
+    {
+      "id": "D12-T04",
+      "verdict": "explainable_difference",
+      "code": "EXPLICIT_TAX_RECONCILED",
+      "pass": true
+    },
+    {
+      "id": "D12-T05",
+      "verdict": "insufficient",
+      "code": "TAX_RATE_MISSING",
+      "pass": true
+    },
+    {
+      "id": "D12-T06",
+      "verdict": "insufficient",
+      "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+      "pass": true
+    },
+    {
+      "id": "D12-F01",
+      "verdict": "insufficient",
+      "code": "FX_BASIS_MISSING",
+      "pass": true
+    },
+    {
+      "id": "D12-F02",
+      "verdict": "insufficient",
+      "code": "FX_BASIS_MISSING",
+      "pass": true
+    },
+    {
+      "id": "D12-F03",
+      "verdict": "explainable_difference",
+      "code": "EXPLICIT_FX_RECONCILED",
+      "pass": true
+    },
+    {
+      "id": "D12-F04",
+      "verdict": "insufficient",
+      "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+      "pass": true
+    },
+    {
+      "id": "D12-Q01",
+      "verdict": "insufficient",
+      "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+      "pass": true
+    },
+    {
+      "id": "D12-Q02",
+      "verdict": "insufficient",
+      "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+      "pass": true
+    },
+    {
+      "id": "D12-Q03",
+      "verdict": "corroborated",
+      "code": "SAME_OBSERVATION_EQUAL",
+      "pass": true
+    },
+    {
+      "id": "D12-Q04",
+      "verdict": "conflict",
+      "code": "SAME_BASIS_CONFLICT",
+      "pass": true
+    },
+    {
+      "id": "D12-R01",
+      "verdict": "explainable_difference",
+      "code": "EXPLICIT_ROUNDING",
+      "pass": true
+    },
+    {
+      "id": "D12-R02",
+      "verdict": "explainable_difference",
+      "code": "EXPLICIT_ROUNDING",
+      "pass": true
+    },
+    {
+      "id": "D12-R03",
+      "verdict": "explainable_difference",
+      "code": "EXPLICIT_ROUNDING",
+      "pass": true
+    },
+    {
+      "id": "D12-R04",
+      "verdict": "explainable_difference",
+      "code": "EXPLICIT_ROUNDING",
+      "pass": true
+    },
+    {
+      "id": "D12-R05",
+      "verdict": "conflict",
+      "code": "SAME_BASIS_CONFLICT",
+      "pass": true
+    },
+    {
+      "id": "D12-R06",
+      "verdict": "conflict",
+      "code": "SAME_BASIS_CONFLICT",
+      "pass": true
+    },
+    {
+      "id": "D12-R07",
+      "verdict": "explainable_difference",
+      "code": "EXPLICIT_ROUNDING",
+      "pass": true
+    },
+    {
+      "id": "D12-N01",
+      "verdict": "conflict",
+      "code": "SAME_BASIS_CONFLICT",
+      "pass": true
+    },
+    {
+      "id": "D12-N02",
+      "verdict": "corroborated",
+      "code": "SAME_OBSERVATION_EQUAL",
+      "pass": true
+    },
+    {
+      "id": "D12-N03",
+      "verdict": "conflict",
+      "code": "SAME_BASIS_CONFLICT",
+      "pass": true
+    }
+  ],
+  "arithmetic": [
+    {
+      "id": "NUM-01",
+      "operation": "sum",
+      "actual": "0.3",
+      "pass": true
+    },
+    {
+      "id": "NUM-02",
+      "operation": "sum",
+      "actual": "9007199254740994",
+      "pass": true
+    },
+    {
+      "id": "NUM-03",
+      "operation": "sum",
+      "actual": "0.000000000000000000000001",
+      "pass": true
+    },
+    {
+      "id": "NUM-04",
+      "operation": "multiply",
+      "actual": "0.02",
+      "pass": true
+    },
+    {
+      "id": "NUM-05",
+      "operation": "multiply",
+      "actual": "-0.1",
+      "pass": true
+    },
+    {
+      "id": "NUM-06",
+      "operation": "roundHalfUp",
+      "actual": "1.24",
+      "pass": true
+    },
+    {
+      "id": "NUM-07",
+      "operation": "roundHalfUp",
+      "actual": "-1.24",
+      "pass": true
+    },
+    {
+      "id": "NUM-08",
+      "operation": "roundHalfUp",
+      "actual": "12300",
+      "pass": true
+    },
+    {
+      "id": "NUM-09",
+      "operation": "roundHalfUp",
+      "actual": "12400",
+      "pass": true
+    },
+    {
+      "id": "NUM-10",
+      "operation": "roundHalfUp",
+      "actual": "-12400",
+      "pass": true
+    },
+    {
+      "id": "NUM-11",
+      "operation": "roundHalfUp",
+      "actual": "200000000",
+      "pass": true
+    },
+    {
+      "id": "NUM-12",
+      "operation": "decimal",
+      "actual": null,
+      "pass": true
+    },
+    {
+      "id": "NUM-13",
+      "operation": "decimal",
+      "actual": null,
+      "pass": true
+    },
+    {
+      "id": "NUM-14",
+      "operation": "decimal",
+      "actual": "0",
+      "pass": true
+    },
+    {
+      "id": "NUM-15",
+      "operation": "multiply",
+      "actual": null,
+      "pass": true
+    },
+    {
+      "id": "NUM-16",
+      "operation": "roundHalfUp",
+      "actual": "0",
+      "pass": true
+    },
+    {
+      "id": "NUM-17",
+      "operation": "roundHalfUp",
+      "actual": null,
+      "pass": true
+    },
+    {
+      "id": "NUM-18",
+      "operation": "compare",
+      "actual": 1,
+      "pass": true
+    }
+  ],
+  "anchor_summary": {
+    "source": "方已上传的三键审计记录_20261010.json（本轮读取，未重新执行该脚本）",
+    "historical": {
+      "historical_summary": {
+        "changes_total": 181,
+        "by_code": {
+          "UNIT_MISSING": 76,
+          "NORMALIZED": 103,
+          "UNIT_CONFLICT": 2
+        },
+        "type_only": 103,
+        "status_downgrades": 78,
+        "value_semantic_changes": 0
+      },
+      "old_batch": "runs/batch-20261005T063943/envelopes",
+      "old_missing_count": 76,
+      "after_anchor_strength": {
+        "strong": 71,
+        "none": 5
+      },
+      "corrected_no_anchor_assessments": 71,
+      "after_unit_codes": {
+        "NORMALIZED": 38,
+        "UNIT_MISSING": 38
+      },
+      "note": "锚点定位与单位数值复算分开；strong 不等于已完成独立换算，原信封状态保持。"
+    },
+    "new_batch_summary": {
+      "numeric_observations": 181,
+      "without_headers": {
+        "UNIT_MISSING": 76,
+        "NORMALIZED": 105
+      },
+      "with_headers": {
+        "NORMALIZED": 143,
+        "UNIT_MISSING": 38
+      },
+      "strength": {
+        "strong": 176,
+        "none": 5
+      },
+      "unit_basis": {
+        "cell_header": 71,
+        "quote_internal": 105,
+        "none": 5
+      },
+      "normalization_verified": 143,
+      "verified_value_mismatches": 0,
+      "excluded_from_numeric_comparison": 38
+    }
+  },
+  "sources": [
+    {
+      "owner": "fang",
+      "path": "src_D9/attribution_D9.mjs",
+      "sha256": "708afe55fa3776eee66a73523d4b6d57a8e63c84c17932c40559d3917252e581"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-attribution/src_D9/attribution_D9.mjs",
+      "sha256": "f02cf22483868bae4d8486d0066c2686a799f35c5cd4f9d1de9f2225644a6644"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-attribution/src_D9/exact_D9.mjs",
+      "sha256": "9e3679e2c9bfd4e628bb60704220e5e04d9685299c6acbdaf45dce426b5dcd7a"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-matching/src_D8/matching_D8.mjs",
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-report/src_D10/report_D10.mjs",
+      "sha256": "2c3dd04e3a86f0aca401906429c3a910d1ecc1f02d606dec6ac89e96219d538a"
+    },
+    {
+      "owner": "fang",
+      "path": "tests_D9/fixtures_D9.mjs",
+      "sha256": "cf53383c11ad1ce7adb8f776bd44df013a20f591657b1c9b72f8f3af77774166"
+    },
+    {
+      "owner": "fang",
+      "path": "回归用例_D12.mjs",
+      "sha256": "abd03131a5450af1a43654d37029115fcee05f02b2460a73404019f4ab3ac40f"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/lib/schema_validator.mjs",
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/lib/registry.mjs",
+      "sha256": "6f51fc415664dd9bf483b7bfb6ee9ef1c33a0ac164f71fa31024a8c1d231fa66"
+    },
+    {
+      "owner": "wei",
+      "path": "interface/event-envelope.schema.json",
+      "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96"
+    },
+    {
+      "owner": "chen",
+      "path": "workspace/cjh/page_prototype/bridge/upstream_bridge.js",
+      "sha256": "bc9fcbfa80e843ef25f845d050767fea3c68b53889ced345a78f45994660b23f"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D9/exact_D9.mjs",
+      "sha256": "9e3679e2c9bfd4e628bb60704220e5e04d9685299c6acbdaf45dce426b5dcd7a"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D9/run_D9.mjs",
+      "sha256": "44e87f9da83d504ec979e9cccb9475e447ecde18844f92c3aecfbf4c7ed85ab1"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-attribution/src_D9/run_D9.mjs",
+      "sha256": "44e87f9da83d504ec979e9cccb9475e447ecde18844f92c3aecfbf4c7ed85ab1"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D9/vendor_D9/decimal_D9.mts",
+      "sha256": "e20400dd6d17d93c5fc2382a7468b726fac3fd2f3fea19ef2905a4ee77c6e8c5"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-attribution/src_D9/vendor_D9/decimal_D9.mts",
+      "sha256": "e20400dd6d17d93c5fc2382a7468b726fac3fd2f3fea19ef2905a4ee77c6e8c5"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D9/wei_adapter_D9.mjs",
+      "sha256": "60cff95937fa3cc04198bf6d01435db7473fddd964237151eeabb9ad113942b8"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-attribution/src_D9/wei_adapter_D9.mjs",
+      "sha256": "60cff95937fa3cc04198bf6d01435db7473fddd964237151eeabb9ad113942b8"
+    },
+    {
+      "owner": "fang",
+      "path": "vendor_D8/src_D8/matching_D8.mjs",
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-attribution/vendor_D8/src_D8/matching_D8.mjs",
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D8/adapters_D8.mjs",
+      "sha256": "0109c1715640235ea7884baad6111a7d8f79d0e93ae6f7ef1bd5dc5467b9a34a"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-matching/src_D8/adapters_D8.mjs",
+      "sha256": "0109c1715640235ea7884baad6111a7d8f79d0e93ae6f7ef1bd5dc5467b9a34a"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D8/alignment_D8.mjs",
+      "sha256": "7392f34fa7a0e8ad4fcb14deaebc214708c0f6bdc5f830794ea63a14037472a6"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-matching/src_D8/alignment_D8.mjs",
+      "sha256": "7392f34fa7a0e8ad4fcb14deaebc214708c0f6bdc5f830794ea63a14037472a6"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D8/cli_D8.mjs",
+      "sha256": "04109b705b61962dfcded045a9811de9b0554c9e153afb441bccd176b3073d7b"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-matching/src_D8/cli_D8.mjs",
+      "sha256": "04109b705b61962dfcded045a9811de9b0554c9e153afb441bccd176b3073d7b"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D8/matching_D8.mjs",
+      "sha256": "8e9975b43d4d98c32078318a54cc8fa5530f98e2d47dc43e1ca8bae49538717d"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D8/run_public_D8.mjs",
+      "sha256": "d6adac42b0470c02ecec694a13d641cddcafd4b42f87a53c1f8dfd4e7f39d690"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-matching/src_D8/run_public_D8.mjs",
+      "sha256": "d6adac42b0470c02ecec694a13d641cddcafd4b42f87a53c1f8dfd4e7f39d690"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D10/build_D10.mjs",
+      "sha256": "936dfe5ad30494272bbd3b07805c981d5d8a2f361ec832698228b872fb6c3cc3"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-report/src_D10/build_D10.mjs",
+      "sha256": "936dfe5ad30494272bbd3b07805c981d5d8a2f361ec832698228b872fb6c3cc3"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D10/report_D10.mjs",
+      "sha256": "fd3367f05900f442a7bd2fc9a1942258cfefa760d3a7f32faae5473948552bea"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D10/schema_validator_D10.mjs",
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-report/src_D10/schema_validator_D10.mjs",
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D10/validate_D10.mjs",
+      "sha256": "8e8511350b55d791d5f642f8ae3b615436cdb8fdbd6d5b84f2e457f7d5b39a6b"
+    },
+    {
+      "owner": "release",
+      "path": "tools/fang-report/src_D10/validate_D10.mjs",
+      "sha256": "0d98cb917dbbb70a1828acf7cb5a80a3b95a023507b885cf6e072863745a1268"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D9/inputs_D9.json",
+      "sha256": "36b3d00d93ef5dfa44d0c74bb1c1ea829bb6fb87353e00699c858b97cc99d34e"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D9/rules-cases.dev_D9.json",
+      "sha256": "d7bba2774262a1bec2a31fbc494fa50c2ffd57c918deb534e3f1c6a38f05a27b"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D9/envelopes_D9/D5-EQC-001_D9.json",
+      "sha256": "8efe93eb9836fbe0e334c5cb3ed49b282e550ef41bea18a3690561d4e65876fc"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D9/parse_D9/D5-EQC-001_D9.json",
+      "sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D9/envelopes_D9/D5-EQC-002_D9.json",
+      "sha256": "b5b20d8a4bdb22a3c2844348687e08dd87ccd22bf704fb0ded6338b480908c5f"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D9/parse_D9/D5-EQC-002_D9.json",
+      "sha256": "3060a015349ff01ba2840c4049b96bb8aaed36cd41d7dfde0d3905f49c928dc6"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D9/envelopes_D9/D6-AWD-005_D9.json",
+      "sha256": "a394ad95b1d0aaed960b09a99c0194e8121edda868b6199a5d73a1fa02475f7d"
+    },
+    {
+      "owner": "fang",
+      "path": "public_dev_D9/parse_D9/D6-AWD-005_D9.json",
+      "sha256": "00d031c9a9f95bf21ebc307ee4a5dd00aa359ffdbc5523b0415d5eb44f5c6a74"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/run_d9_rules.mjs",
+      "sha256": "dd917106ef004a38fc34c02948f7df2e1c1209688aa8065d4e7ab341efe04917"
+    },
+    {
+      "owner": "fang",
+      "path": "三键审计记录_20261010.json",
+      "sha256": "f71d49bd480c5ff4622c766c554f062f0421ce47cacf0561eb4cf71d88f1d424"
+    },
+    {
+      "owner": "release",
+      "path": "docs/release-d14.md",
+      "sha256": "2f9ae47e8f54e0365255f3344a677cc3350c863c6e8c7c3eaa3fbe2c5d068a9c"
+    },
+    {
+      "owner": "release",
+      "path": "docs/adjudication/D14-INT008判定口径-魏文宇.md",
+      "sha256": "911461f23e7ae165a562c200824105fa1caccfd0bf72884ea539b16fe7ec435a"
+    },
+    {
+      "owner": "chen",
+      "path": "workspace/cjh/docs/D14_L4评判标准与本地验证报告.md",
+      "sha256": "dc60374655faae5e780f5b94601e45c12b015fd1d6a373f667a08cc4d6767d53"
+    },
+    {
+      "owner": "chen",
+      "path": "workspace/cjh/page_prototype/bridge/contract_validate.js",
+      "sha256": "c8e06b2baac7f8528c55ae49ca76128a2f94257d74b8799f3d929c598fce89f6"
+    },
+    {
+      "owner": "chen",
+      "path": "workspace/cjh/spec/v0.3/event-envelope.schema.json",
+      "sha256": "bf5beb17ea3edecb1edf7ca902f6eca4eed0531b516d7facc4121698dcd1d5a9"
+    },
+    {
+      "owner": "chen",
+      "path": "workspace/cjh/spec/v0.3/registry.mjs",
+      "sha256": "45bbffee1a2879643a820206a35003d202ad1069f220d89122b6228f3b1a7fcf"
+    },
+    {
+      "owner": "delivery",
+      "path": "演示复核_D14.mjs",
+      "sha256": "c516bc66e75c07a7a84b63252f604d3e0a9b1b034432308c4469163d87b79ae5"
+    },
+    {
+      "owner": "delivery",
+      "path": "核验演示与反例说明_D14.md",
+      "sha256": "30eee2105419271676542fcdf874fd092074c02ffa66f1918caae57c63494d58"
+    },
+    {
+      "owner": "delivery",
+      "path": "版本与交接说明_D14.md",
+      "sha256": "c2dd1366a1e60a4839c541ceca51882636d51240bd0b052e43fecfc50eb423f4"
+    }
+  ],
+  "boundaries": {
+    "model_calls": 0,
+    "held_out_inputs_used": false,
+    "full_harness_run": false,
+    "web_browser_rehearsal": false,
+    "team_two_rehearsals_completed": false,
+    "web_sidecars_generated": false,
+    "own_rule_source_changed": false,
+    "three_key_audit_rerun": false
+  }
+}

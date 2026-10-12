@@ -1,0 +1,2418 @@
+{
+  "schema_version": "fang.tolerance-regression/1.0",
+  "checked_on": "2026-10-12T13:48:30.604Z",
+  "version": "D12.2",
+  "node": "v24.19.0",
+  "source_kind": "synthetic_public_controls",
+  "wei_reference_commit": "dc4080ac43b09255b18209894b28a9fa76822d71",
+  "rows": [
+    {
+      "case_id": "D12-T01",
+      "reason": "16% 不能充当 6% 的依据",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-T02",
+      "reason": "6.5% 不能充当 0.5% 的依据",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-T03",
+      "reason": "明确 6% 的正例",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_TAX_RECONCILED",
+        "result": "106"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_TAX_RECONCILED",
+        "result": "106"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_TAX_RECONCILED",
+        "result": "106"
+      },
+      "computed": [
+        {
+          "name": "tax_rate",
+          "used_source": "explicit_same_event_tax_rate",
+          "rate_percent": "6",
+          "input": "100",
+          "result": "106",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率6%",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-T04",
+      "reason": "明确零税率，不把零当缺失",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_TAX_RECONCILED",
+        "result": "100"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_TAX_RECONCILED",
+        "result": "100"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_TAX_RECONCILED",
+        "result": "100"
+      },
+      "computed": [
+        {
+          "name": "tax_rate",
+          "used_source": "explicit_same_event_tax_rate",
+          "rate_percent": "0",
+          "input": "100",
+          "result": "100",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；本项目税率0%",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-T05",
+      "reason": "同引文多个税率不能任选",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-T06",
+      "reason": "近似未税金额不得闭合成精确换税",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-F01",
+      "reason": "11 AED = 2 CNY 不得被截成 1 AED = 2 CNY",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-F02",
+      "reason": "负的基数不能被截成 1",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-F03",
+      "reason": "合法汇率正例",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_FX_RECONCILED",
+        "result": "200"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_FX_RECONCILED",
+        "result": "200"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_FX_RECONCILED",
+        "result": "200"
+      },
+      "computed": [
+        {
+          "name": "exchange_rate",
+          "used_source": "explicit_scoped_rate",
+          "rate": "2",
+          "from": "AED",
+          "to": "CNY",
+          "date": "2026-10-05",
+          "input": "100",
+          "result": "200",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；2026-10-05，1 AED = 2 CNY",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-F04",
+      "reason": "原始约数不能提前走汇率成功分支",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-Q01",
+      "reason": "raw 丢失约字时仍检查正文",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-Q02",
+      "reason": "正文上界不是精确值",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-Q03",
+      "reason": "合约一词不能触发约数误报",
+      "expected": {
+        "verdict": "corroborated",
+        "code": "SAME_OBSERVATION_EQUAL",
+        "result": null
+      },
+      "before": {
+        "verdict": "corroborated",
+        "code": "SAME_OBSERVATION_EQUAL",
+        "result": null
+      },
+      "after": {
+        "verdict": "corroborated",
+        "code": "SAME_OBSERVATION_EQUAL",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-Q04",
+      "reason": "精确小差异仍报冲突候选",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-R01",
+      "reason": "1.23 万元表示按百元精度舍入",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12300"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12300"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12300"
+      },
+      "computed": [
+        {
+          "name": "rounding",
+          "used_source": "explicit_rounding_precision",
+          "places": 2,
+          "source_unit": "万元",
+          "normalized_places": -2,
+          "input": "12345",
+          "result": "12300",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以万元四舍五入保留2位小数",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-R02",
+      "reason": "万元半值进位",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12400"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12400"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12400"
+      },
+      "computed": [
+        {
+          "name": "rounding",
+          "used_source": "explicit_rounding_precision",
+          "places": 2,
+          "source_unit": "万元",
+          "normalized_places": -2,
+          "input": "12350",
+          "result": "12400",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以万元四舍五入保留2位小数",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-R03",
+      "reason": "亿元两位小数为百万元精度",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "123000000"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "123000000"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "123000000"
+      },
+      "computed": [
+        {
+          "name": "rounding",
+          "used_source": "explicit_rounding_precision",
+          "places": 2,
+          "source_unit": "亿元",
+          "normalized_places": -6,
+          "input": "123450000",
+          "result": "123000000",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以亿元四舍五入保留2位小数",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-R04",
+      "reason": "亿元零位小数",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "200000000"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "200000000"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "200000000"
+      },
+      "computed": [
+        {
+          "name": "rounding",
+          "used_source": "explicit_rounding_precision",
+          "places": 0,
+          "source_unit": "亿元",
+          "normalized_places": -8,
+          "input": "150000000",
+          "result": "200000000",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以亿元四舍五入保留0位小数",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-R05",
+      "reason": "舍入越界不得用宽泛容差闭合",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-R06",
+      "reason": "缺舍入声明不能猜披露精度",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-R07",
+      "reason": "元小数精度保持原行为",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "1.23"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "1.23"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "1.23"
+      },
+      "computed": [
+        {
+          "name": "rounding",
+          "used_source": "explicit_rounding_precision",
+          "places": 2,
+          "source_unit": "元",
+          "normalized_places": 2,
+          "input": "1.234",
+          "result": "1.23",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；以元四舍五入保留2位小数",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-N01",
+      "reason": "超过 2^53 的整数只差一股不得抹平",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-N02",
+      "reason": "长小数相等",
+      "expected": {
+        "verdict": "corroborated",
+        "code": "SAME_OBSERVATION_EQUAL",
+        "result": null
+      },
+      "before": {
+        "verdict": "corroborated",
+        "code": "SAME_OBSERVATION_EQUAL",
+        "result": null
+      },
+      "after": {
+        "verdict": "corroborated",
+        "code": "SAME_OBSERVATION_EQUAL",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "D12-N03",
+      "reason": "长小数最末位差异不能误互证",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-01",
+      "reason": "exact shares +1",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-02",
+      "reason": "large shares +10000000 within 0.5 percent",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-03",
+      "reason": "large shares +1",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-04",
+      "reason": "amount +0.01",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-05",
+      "reason": "amount below one cent still exact",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-06",
+      "reason": "percent uses percentage points, no relative tolerance",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-07",
+      "reason": "zero versus nonzero",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-08",
+      "reason": "positive lower midpoint included",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12300"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12300"
+      },
+      "computed": [
+        {
+          "name": "rounding",
+          "used_source": "explicit_rounding_precision",
+          "places": 2,
+          "source_unit": "万元",
+          "normalized_places": -2,
+          "input": "12250",
+          "result": "12300",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；四舍五入保留2位小数；",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-09",
+      "reason": "positive upper midpoint excluded",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-10",
+      "reason": "positive upper interior",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12300"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12300"
+      },
+      "computed": [
+        {
+          "name": "rounding",
+          "used_source": "explicit_rounding_precision",
+          "places": 2,
+          "source_unit": "万元",
+          "normalized_places": -2,
+          "input": "12349.999999999999999999",
+          "result": "12300",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；四舍五入保留2位小数；",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-11",
+      "reason": "negative lower midpoint excluded",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-12",
+      "reason": "negative upper midpoint included",
+      "expected": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "-12300"
+      },
+      "after": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "-12300"
+      },
+      "computed": [
+        {
+          "name": "rounding",
+          "used_source": "explicit_rounding_precision",
+          "places": 2,
+          "source_unit": "万元",
+          "normalized_places": -2,
+          "input": "-12250",
+          "result": "-12300",
+          "evidence": [
+            {
+              "block_id": "control-0",
+              "page": 1,
+              "quote": "证券代码：600001；事件编号：TX-01；观察日：2026-10-05；公告编号：N0；四舍五入保留2位小数；",
+              "file_sha256": "33596c6c3de14bc4d4cf952a46f321e7f4fd69e010a300ccff727947969602cf"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-13",
+      "reason": "both sides rounded: cannot treat one as exact",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BOTH_SIDES_UNRESOLVED"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "1.2"
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BOTH_SIDES_UNRESOLVED",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-14",
+      "reason": "missing disclosure unit",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BASIS_UNPROVEN"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "1.23"
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BASIS_UNPROVEN",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-15",
+      "reason": "competing precision statements",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BASIS_UNPROVEN"
+      },
+      "before": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "1.23"
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BASIS_UNPROVEN",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-16",
+      "reason": "undeclared precision cannot be guessed",
+      "expected": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT"
+      },
+      "before": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "after": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-17",
+      "reason": "same company insufficient event identity",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "EVENT_IDENTITY_UNPROVEN"
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "EVENT_IDENTITY_UNPROVEN",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "EVENT_IDENTITY_UNPROVEN",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    },
+    {
+      "case_id": "F1-18",
+      "reason": "qualified approximate is not exact",
+      "expected": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT"
+      },
+      "before": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "after": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "computed": [],
+      "pass": true,
+      "symmetric": true,
+      "immutable": true,
+      "labelsIgnored": true
+    }
+  ],
+  "arithmetic": [
+    {
+      "id": "NUM-01",
+      "op": "sum",
+      "args": [
+        [
+          "0.1",
+          "0.2"
+        ]
+      ],
+      "expected": "0.3",
+      "actual": "0.3",
+      "pass": true
+    },
+    {
+      "id": "NUM-02",
+      "op": "sum",
+      "args": [
+        [
+          "9007199254740993",
+          "1"
+        ]
+      ],
+      "expected": "9007199254740994",
+      "actual": "9007199254740994",
+      "pass": true
+    },
+    {
+      "id": "NUM-03",
+      "op": "sum",
+      "args": [
+        [
+          "9007199254740993",
+          "-9007199254740993",
+          "0.000000000000000000000001"
+        ]
+      ],
+      "expected": "0.000000000000000000000001",
+      "actual": "0.000000000000000000000001",
+      "pass": true
+    },
+    {
+      "id": "NUM-04",
+      "op": "multiply",
+      "args": [
+        "0.1",
+        "0.2"
+      ],
+      "expected": "0.02",
+      "actual": "0.02",
+      "pass": true
+    },
+    {
+      "id": "NUM-05",
+      "op": "multiply",
+      "args": [
+        "-0.5",
+        "0.2"
+      ],
+      "expected": "-0.1",
+      "actual": "-0.1",
+      "pass": true
+    },
+    {
+      "id": "NUM-06",
+      "op": "roundHalfUp",
+      "args": [
+        "1.235",
+        2
+      ],
+      "expected": "1.24",
+      "actual": "1.24",
+      "pass": true
+    },
+    {
+      "id": "NUM-07",
+      "op": "roundHalfUp",
+      "args": [
+        "-1.235",
+        2
+      ],
+      "expected": "-1.24",
+      "actual": "-1.24",
+      "pass": true
+    },
+    {
+      "id": "NUM-08",
+      "op": "roundHalfUp",
+      "args": [
+        "12349.999999999999999999",
+        -2
+      ],
+      "expected": "12300",
+      "actual": "12300",
+      "pass": true
+    },
+    {
+      "id": "NUM-09",
+      "op": "roundHalfUp",
+      "args": [
+        "12350",
+        -2
+      ],
+      "expected": "12400",
+      "actual": "12400",
+      "pass": true
+    },
+    {
+      "id": "NUM-10",
+      "op": "roundHalfUp",
+      "args": [
+        "-12350",
+        -2
+      ],
+      "expected": "-12400",
+      "actual": "-12400",
+      "pass": true
+    },
+    {
+      "id": "NUM-11",
+      "op": "roundHalfUp",
+      "args": [
+        "150000000",
+        -8
+      ],
+      "expected": "200000000",
+      "actual": "200000000",
+      "pass": true
+    },
+    {
+      "id": "NUM-12",
+      "op": "decimal",
+      "args": [
+        9007199254740992
+      ],
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "id": "NUM-13",
+      "op": "decimal",
+      "args": [
+        "1e309"
+      ],
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "id": "NUM-14",
+      "op": "decimal",
+      "args": [
+        "-0.000"
+      ],
+      "expected": "0",
+      "actual": "0",
+      "pass": true
+    },
+    {
+      "id": "NUM-15",
+      "op": "multiply",
+      "args": [
+        "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "10"
+      ],
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "id": "NUM-16",
+      "op": "roundHalfUp",
+      "args": [
+        "0",
+        -8
+      ],
+      "expected": "0",
+      "actual": "0",
+      "pass": true
+    },
+    {
+      "id": "NUM-17",
+      "op": "roundHalfUp",
+      "args": [
+        "12",
+        -9
+      ],
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "id": "NUM-18",
+      "op": "compare",
+      "args": [
+        "1.000000000000000000000000001",
+        "1"
+      ],
+      "expected": 1,
+      "actual": 1,
+      "pass": true
+    }
+  ],
+  "cli": [
+    {
+      "case_id": "D12-T01",
+      "pass": true
+    },
+    {
+      "case_id": "D12-T02",
+      "pass": true
+    },
+    {
+      "case_id": "D12-T03",
+      "pass": true
+    },
+    {
+      "case_id": "D12-T04",
+      "pass": true
+    },
+    {
+      "case_id": "D12-T05",
+      "pass": true
+    },
+    {
+      "case_id": "D12-T06",
+      "pass": true
+    },
+    {
+      "case_id": "D12-F01",
+      "pass": true
+    },
+    {
+      "case_id": "D12-F02",
+      "pass": true
+    },
+    {
+      "case_id": "D12-F03",
+      "pass": true
+    },
+    {
+      "case_id": "D12-F04",
+      "pass": true
+    },
+    {
+      "case_id": "D12-Q01",
+      "pass": true
+    },
+    {
+      "case_id": "D12-Q02",
+      "pass": true
+    },
+    {
+      "case_id": "D12-Q03",
+      "pass": true
+    },
+    {
+      "case_id": "D12-Q04",
+      "pass": true
+    },
+    {
+      "case_id": "D12-R01",
+      "pass": true
+    },
+    {
+      "case_id": "D12-R02",
+      "pass": true
+    },
+    {
+      "case_id": "D12-R03",
+      "pass": true
+    },
+    {
+      "case_id": "D12-R04",
+      "pass": true
+    },
+    {
+      "case_id": "D12-R05",
+      "pass": true
+    },
+    {
+      "case_id": "D12-R06",
+      "pass": true
+    },
+    {
+      "case_id": "D12-R07",
+      "pass": true
+    },
+    {
+      "case_id": "D12-N01",
+      "pass": true
+    },
+    {
+      "case_id": "D12-N02",
+      "pass": true
+    },
+    {
+      "case_id": "D12-N03",
+      "pass": true
+    },
+    {
+      "case_id": "F1-01",
+      "pass": true
+    },
+    {
+      "case_id": "F1-02",
+      "pass": true
+    },
+    {
+      "case_id": "F1-03",
+      "pass": true
+    },
+    {
+      "case_id": "F1-04",
+      "pass": true
+    },
+    {
+      "case_id": "F1-05",
+      "pass": true
+    },
+    {
+      "case_id": "F1-06",
+      "pass": true
+    },
+    {
+      "case_id": "F1-07",
+      "pass": true
+    },
+    {
+      "case_id": "F1-08",
+      "pass": true
+    },
+    {
+      "case_id": "F1-09",
+      "pass": true
+    },
+    {
+      "case_id": "F1-10",
+      "pass": true
+    },
+    {
+      "case_id": "F1-11",
+      "pass": true
+    },
+    {
+      "case_id": "F1-12",
+      "pass": true
+    },
+    {
+      "case_id": "F1-13",
+      "pass": true
+    },
+    {
+      "case_id": "F1-14",
+      "pass": true
+    },
+    {
+      "case_id": "F1-15",
+      "pass": true
+    },
+    {
+      "case_id": "F1-16",
+      "pass": true
+    },
+    {
+      "case_id": "F1-17",
+      "pass": true
+    },
+    {
+      "case_id": "F1-18",
+      "pass": true
+    }
+  ],
+  "adapter": [
+    {
+      "case_id": "F1-01",
+      "attribution": "true_conflict",
+      "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST",
+      "pass": true
+    },
+    {
+      "case_id": "F1-02",
+      "attribution": "true_conflict",
+      "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST",
+      "pass": true
+    },
+    {
+      "case_id": "F1-04",
+      "attribution": "true_conflict",
+      "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST",
+      "pass": true
+    },
+    {
+      "case_id": "F1-06",
+      "attribution": "true_conflict",
+      "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST",
+      "pass": true
+    },
+    {
+      "case_id": "F1-13",
+      "attribution": "insufficient_evidence",
+      "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST",
+      "pass": true
+    },
+    {
+      "case_id": "F1-14",
+      "attribution": "insufficient_evidence",
+      "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST",
+      "pass": true
+    },
+    {
+      "case_id": "F1-NO-CONTEXT",
+      "attribution": "insufficient_evidence",
+      "decided_by": "plugin:FANG_D9_EVIDENCE_FIRST",
+      "pass": true
+    }
+  ],
+  "default_path_differences": [
+    {
+      "case_id": "D12-T01",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-T02",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "D12-T03",
+      "plugin": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_TAX_RECONCILED",
+        "result": "106"
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-T04",
+      "plugin": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_TAX_RECONCILED",
+        "result": "100"
+      },
+      "default": {
+        "verdict": "corroborated",
+        "code": "SAME_ENTITY_EQUAL"
+      }
+    },
+    {
+      "case_id": "D12-T05",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "TAX_RATE_MISSING",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-T06",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-F01",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-F02",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "FX_BASIS_MISSING",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-F03",
+      "plugin": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_FX_RECONCILED",
+        "result": "200"
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-F04",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-Q01",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-Q02",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-Q04",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "D12-R04",
+      "plugin": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "200000000"
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "D12-R05",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "D12-R06",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "D12-N02",
+      "plugin": {
+        "verdict": "corroborated",
+        "code": "SAME_OBSERVATION_EQUAL",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "F1-01",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-02",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-03",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "corroborated",
+        "code": "SAME_ENTITY_EQUAL"
+      }
+    },
+    {
+      "case_id": "F1-04",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-05",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-06",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-09",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-10",
+      "plugin": {
+        "verdict": "explainable_difference",
+        "code": "EXPLICIT_ROUNDING",
+        "result": "12300"
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "F1-11",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-13",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BOTH_SIDES_UNRESOLVED",
+        "result": null
+      },
+      "default": {
+        "verdict": "conflict",
+        "code": "TRUE_CONFLICT"
+      }
+    },
+    {
+      "case_id": "F1-14",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BASIS_UNPROVEN",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-15",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "ROUNDING_BASIS_UNPROVEN",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-16",
+      "plugin": {
+        "verdict": "conflict",
+        "code": "SAME_BASIS_CONFLICT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-17",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "EVENT_IDENTITY_UNPROVEN",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    },
+    {
+      "case_id": "F1-18",
+      "plugin": {
+        "verdict": "insufficient",
+        "code": "QUALIFIED_AMOUNT_NOT_EXACT",
+        "result": null
+      },
+      "default": {
+        "verdict": "explainable_difference",
+        "code": "ROUNDING"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "owner": "fang",
+      "path": "src_D9/attribution_D9.mjs",
+      "sha256": "f7ba9a1577972d7020b41d989f2356f364da68e3ac9af457b40b0c9671fd09bc"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D9/exact_D9.mjs",
+      "sha256": "9e3679e2c9bfd4e628bb60704220e5e04d9685299c6acbdaf45dce426b5dcd7a"
+    },
+    {
+      "owner": "fang",
+      "path": "src_D9/wei_adapter_D9.mjs",
+      "sha256": "60cff95937fa3cc04198bf6d01435db7473fddd964237151eeabb9ad113942b8"
+    },
+    {
+      "owner": "fang",
+      "path": "tests_D9/fixtures_D9.mjs",
+      "sha256": "cf53383c11ad1ce7adb8f776bd44df013a20f591657b1c9b72f8f3af77774166"
+    },
+    {
+      "owner": "fang",
+      "path": "回归用例_D12.mjs",
+      "sha256": "abd03131a5450af1a43654d37029115fcee05f02b2460a73404019f4ab3ac40f"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/run_d9_rules.mjs",
+      "sha256": "dd917106ef004a38fc34c02948f7df2e1c1209688aa8065d4e7ab341efe04917"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/attribute_b.mjs",
+      "sha256": "4cd2250f3b889796002b5c3c1ba04746d728abccd1b27ce17e2cbba4516750ec"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/lib/eval_side.mjs",
+      "sha256": "630f5954e320b77cbbd7a8111ffe52f049929a3ddf314941ca2ec131affb6058"
+    },
+    {
+      "owner": "wei",
+      "path": "interface/event-envelope.schema.json",
+      "sha256": "0f75cfcb26025a8e6b5815ad73bb513a4c0a03fe00de9ced73a3681424634b96"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/lib/schema_validator.mjs",
+      "sha256": "1d758ad99b7833b6ade064be8527188d311bf7a04b4a8f59099bb94d9c7ae315"
+    },
+    {
+      "owner": "wei",
+      "path": "scripts/jingguan/lib/registry.mjs",
+      "sha256": "6f51fc415664dd9bf483b7bfb6ee9ef1c33a0ac164f71fa31024a8c1d231fa66"
+    },
+    {
+      "owner": "delivery",
+      "path": "tolerance_regression_20261012.mjs",
+      "sha256": "d1e50b751a225ece67d8c7aed6f9aab9f8238957979bd1e4245c83406cf3c41e"
+    }
+  ],
+  "summary": {
+    "pass": true,
+    "rules_passed": 42,
+    "rules_total": 42,
+    "arithmetic_passed": 18,
+    "cli_passed": 42,
+    "adapter_passed": 7
+  },
+  "boundaries": {
+    "web_tested": false,
+    "model_calls": 0,
+    "sealed_inputs_read": false,
+    "default_engine_modified": false
+  },
+  "schema_checks": [
+    {
+      "case_id": "D12-T01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T04",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T04",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T05",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T05",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T06",
+      "errors": []
+    },
+    {
+      "case_id": "D12-T06",
+      "errors": []
+    },
+    {
+      "case_id": "D12-F01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-F01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-F02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-F02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-F03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-F03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-F04",
+      "errors": []
+    },
+    {
+      "case_id": "D12-F04",
+      "errors": []
+    },
+    {
+      "case_id": "D12-Q01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-Q01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-Q02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-Q02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-Q03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-Q03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-Q04",
+      "errors": []
+    },
+    {
+      "case_id": "D12-Q04",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R04",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R04",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R05",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R05",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R06",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R06",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R07",
+      "errors": []
+    },
+    {
+      "case_id": "D12-R07",
+      "errors": []
+    },
+    {
+      "case_id": "D12-N01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-N01",
+      "errors": []
+    },
+    {
+      "case_id": "D12-N02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-N02",
+      "errors": []
+    },
+    {
+      "case_id": "D12-N03",
+      "errors": []
+    },
+    {
+      "case_id": "D12-N03",
+      "errors": []
+    },
+    {
+      "case_id": "F1-01",
+      "errors": []
+    },
+    {
+      "case_id": "F1-01",
+      "errors": []
+    },
+    {
+      "case_id": "F1-02",
+      "errors": []
+    },
+    {
+      "case_id": "F1-02",
+      "errors": []
+    },
+    {
+      "case_id": "F1-03",
+      "errors": []
+    },
+    {
+      "case_id": "F1-03",
+      "errors": []
+    },
+    {
+      "case_id": "F1-04",
+      "errors": []
+    },
+    {
+      "case_id": "F1-04",
+      "errors": []
+    },
+    {
+      "case_id": "F1-05",
+      "errors": []
+    },
+    {
+      "case_id": "F1-05",
+      "errors": []
+    },
+    {
+      "case_id": "F1-06",
+      "errors": []
+    },
+    {
+      "case_id": "F1-06",
+      "errors": []
+    },
+    {
+      "case_id": "F1-07",
+      "errors": []
+    },
+    {
+      "case_id": "F1-07",
+      "errors": []
+    },
+    {
+      "case_id": "F1-08",
+      "errors": []
+    },
+    {
+      "case_id": "F1-08",
+      "errors": []
+    },
+    {
+      "case_id": "F1-09",
+      "errors": []
+    },
+    {
+      "case_id": "F1-09",
+      "errors": []
+    },
+    {
+      "case_id": "F1-10",
+      "errors": []
+    },
+    {
+      "case_id": "F1-10",
+      "errors": []
+    },
+    {
+      "case_id": "F1-11",
+      "errors": []
+    },
+    {
+      "case_id": "F1-11",
+      "errors": []
+    },
+    {
+      "case_id": "F1-12",
+      "errors": []
+    },
+    {
+      "case_id": "F1-12",
+      "errors": []
+    },
+    {
+      "case_id": "F1-13",
+      "errors": []
+    },
+    {
+      "case_id": "F1-13",
+      "errors": []
+    },
+    {
+      "case_id": "F1-14",
+      "errors": []
+    },
+    {
+      "case_id": "F1-14",
+      "errors": []
+    },
+    {
+      "case_id": "F1-15",
+      "errors": []
+    },
+    {
+      "case_id": "F1-15",
+      "errors": []
+    },
+    {
+      "case_id": "F1-16",
+      "errors": []
+    },
+    {
+      "case_id": "F1-16",
+      "errors": []
+    },
+    {
+      "case_id": "F1-17",
+      "errors": []
+    },
+    {
+      "case_id": "F1-17",
+      "errors": []
+    },
+    {
+      "case_id": "F1-18",
+      "errors": []
+    },
+    {
+      "case_id": "F1-18",
+      "errors": []
+    }
+  ],
+  "existing_regression": {
+    "exit_code": 0,
+    "stdout": "✔ 精确小数和大整数、负数及零 (1.9539ms)\n✔ 同一观察的相等值互证 (5.0282ms)\n✔ 同公司缺事件锚点不能互证 (1.165ms)\n✔ 同一交易缺观察日不能直接比较 (0.463ms)\n✔ 不同事件编号不能比 (0.3768ms)\n✔ 已证明同口径仍不同是矛盾候选 (0.6426ms)\n✔ 小于0.5%差异不自动舍入 (0.7092ms)\n✔ 零不是缺失 (0.7162ms)\n✔ 明确万元与元精确归一 (1.3503ms)\n✔ 万元单位没有原文尺度不猜 (0.4391ms)\n✔ 一万倍数字关系不能自行改已知单位 (0.3139ms)\n✔ 不同物理单位不可比 (0.2637ms)\n✔ 原文值与输入值冲突保留抽取疑点 (0.3436ms)\n✔ 无币种的元不能默认人民币 (0.4903ms)\n✔ 税口径未披露不能默认含税 (0.3363ms)\n✔ 是否含税未知不能按含税处理 (0.2421ms)\n✔ 同段同时说含税与未税不能猜绑定 (0.244ms)\n✔ 原文未披露万倍不能从raw伪造尺度 (0.1583ms)\n✔ 外币出现不等于汇率明确 (0.2253ms)\n✔ 汇率方向日期来源齐全才换算 (0.4442ms)\n✔ 交换左右输入仍按声明汇率方向计算 (0.5756ms)\n✔ 汇率与观察日不匹配不能使用 (0.2665ms)\n✔ 只填汇率字段没有方向原文不够 (0.2561ms)\n✔ 汇率也不能补足不同税口径 (0.22ms)\n✔ 不倒算税率 (0.6634ms)\n✔ 明确同事件税率复算 (0.5079ms)\n✔ 有税率也不强凑差额 (0.4399ms)\n✔ 百分比分母未知不能比 (0.3474ms)\n✔ 分数单位不冒充百分点 (0.1635ms)\n✔ 明确不同分母只说明不可比 (0.2729ms)\n✔ 本次与累计相等仍不互证 (0.2343ms)\n✔ 观察日不同只识别时间差异不猜变化原因 (0.2217ms)\n✔ 发布日期不能冒充持股观察日 (0.1956ms)\n✔ 时间角色不同即使同日也不足以互证 (0.1588ms)\n✔ 原文数字巧合不是时间依据 (0.1576ms)\n✔ 近似值不能视为精确矛盾 (0.1632ms)\n✔ 明确舍入规则才接受舍入 (0.5492ms)\n✔ 仅说更正但无替代关联不覆盖 (0.2406ms)\n✔ 明确公告目标与先后才更正 (0.2259ms)\n✔ 更正指针错误不覆盖 (0.3713ms)\n✔ 坏页块不自动移动到邻块 (0.4284ms)\n✔ 引文伪造不通过 (0.2032ms)\n✔ 混合受控和真实证据拒绝互证 (0.331ms)\n✔ 规则不修改输入A (0.3911ms)\n✔ A待复核状态不能因数字相同升级 (0.2621ms)\n✔ A未标准化字段不能直接比较 (0.497ms)\n✔ 真实公开18例按预期；原受控2例缺据保留疑点 (55.1981ms)\n✔ 修改公开集标签不改变判定 (49.7892ms)\n✔ 合计4人与总額精确勾稽且不按个人分摊 (15.6492ms)\n✔ 明示AED/RMB折合不反推汇率 (0.2942ms)\n✔ 018是单侧无主体，不伪称header缺失 (0.1421ms)\n✔ 魏接口增强事实可接通 (0.7666ms)\n✔ 魏接口缺少元数据不落回倍率猜测 (0.1525ms)\n✔ 魏接口补充事实篡改不能套用 (0.0899ms)\n✔ 魏接口多个同形冲突不能按序号套用 (0.1108ms)\n✔ 魏unknown不得因归因升级 (0.0723ms)\n✔ 畸形接口输入被收敛为疑点而不是抛错 (0.1423ms)\nℹ tests 57\nℹ suites 0\nℹ pass 57\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 406.3163\n",
+    "stderr": ""
+  }
+}
