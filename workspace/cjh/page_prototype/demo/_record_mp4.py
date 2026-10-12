@@ -51,7 +51,7 @@ SUBTITLES = {
     "S01": "可信公告事件提取与跨文档核验智能体",
     "S02": "A 流：单份公告 → 3 个结构化事件",
     "S03": "点任意数字 → 右侧原文高亮",
-    "S04": "原文证据 39 条 · 四级出处：文件·页·区域·行列",
+    "S04": "四级出处：文件·页·区域·行列（逐字段回溯到原文坐标）",
     "S05": "待复核 / 未提及：不猜不填零",
     "S06": "B 流：跨文档核对 · 13/13 · 4/4 · 8/8 · 1/1",
     "S07": "准确率 437/437 = 100% · 覆盖 31/31 份",
@@ -92,10 +92,23 @@ def live_subtitles(base):
     l3 = m.get("l3") or {}
     ds = (m.get("data_source") or {}).get("primary_tag") or {}
     out = {}
-    # S04：证据条数取 L3 实命中数（权威批全量、同源自校验），并带上覆盖份数
-    if l3.get("hit"):
-        out["S04"] = "原文证据 %d 条（覆盖 %d 份）· 四级出处：文件·页·区域·行列" % (
-            l3["hit"], l3.get("docs_indexed") or 0)
+    # ★ 2026-10-12 二次修正：S04 的数字必须与**同屏画面**同口径。
+    #   上一版取 l3.hit（权威批全量 451），而 S04 画面是「当前数据集」的证据栏，
+    #   首页卡片显示 39 —— 同一屏出现两个数，正是 2026-10-11 要消灭的"同屏两套数"。
+    #   抽帧实看实录：画面 39 / 字幕 451。本镜讲的是"这一份怎么回溯到原文"，
+    #   因此取单份的 evidences.length；权威批全量由 S08/S09 的质量报告页承担。
+    try:
+        with urllib.request.urlopen(base + "/api/datasets", timeout=20) as r:
+            first = (json.loads(r.read().decode("utf-8")).get("datasets") or [None])[0]
+        if first:
+            with urllib.request.urlopen(
+                    base + "/api/result?dataset=" + first, timeout=60) as r:
+                one = json.loads(r.read().decode("utf-8"))
+            if (one.get("evidences") or None):
+                out["S04"] = "原文证据 %d 条（当前数据集 %s）· 四级出处：文件·页·区域·行列" % (
+                    len(one["evidences"]), first)
+    except Exception as e:
+        print("[字幕] 读取单份证据数失败，S04 回落无数字文案:", e)
     # S07 / S08 / S10：分母与比率一律现读，源数据在 summary
     if s.get("fields_total"):
         n = s["fields_total"]
