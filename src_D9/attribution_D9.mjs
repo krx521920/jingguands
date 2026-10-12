@@ -1,7 +1,7 @@
 /** D9 确定性归因：只读事实与出处；expected_verdict/category/attribution_basis 不参与判定。 */
 import {decimal,compare,multiply,sum,normalizeStated,roundHalfUp} from './exact_D9.mjs';
 import {alignDocuments} from '../vendor_D8/src_D8/matching_D8.mjs';
-export const VERSION='D12.1';
+export const VERSION='D12.2';
 const clone=x=>structuredClone(x),obj=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
 const norm=x=>String(x??'').normalize('NFKC').replace(/\s+/gu,'');
@@ -297,8 +297,18 @@ export function attributeCase(input,options={}){
     if(a.sourceUnit&&b.sourceUnit&&a.sourceUnit!==b.sourceUnit){r.computed.push({name:'unit_scale',used_source:'explicit_raw_units',left:a.normalized,right:b.normalized});return done('explainable_difference','EXPLICIT_UNIT_RECONCILED','原文单位明确且精确归一后相等；不是仅凭一万倍关系猜单位。');}
     return done('corroborated','SAME_OBSERVATION_EQUAL','事件、主体、字段和适用口径一致，精确十进制数值相同。');
   }
-  const rounding=a.input.caliber?.rounding??b.input.caliber?.rounding,s=a.input.caliber?.rounding?a:b;
-  if(rounding&&fact(s,rounding)&&Number.isInteger(rounding.value)&&rounding.value>=0&&rounding.value<=30&&qtext(rounding).includes(`四舍五入保留${rounding.value}位小数`)){
+  const roundedSides=ss.filter(s=>s.input.caliber?.rounding!=null);
+  for(const s of roundedSides){
+    const f=s.input.caliber.rounding;
+    const precisions=[...new Set([...qtext(f).matchAll(/四舍五入保留(\d+)位小数/gu)].map(m=>Number(m[1])))];
+    const supportedUnit={shares:['股','万股','亿股'],amount:['元','万元','亿元'],ratio:['%']}[s.unitKind]??[];
+    if(!fact(s,f)||!Number.isInteger(f.value)||f.value<0||f.value>30||precisions.length!==1||precisions[0]!==f.value||!supportedUnit.includes(s.sourceUnit))
+      return done('insufficient','ROUNDING_BASIS_UNPROVEN','舍入声明缺少明确披露单位、唯一精度或可核验证据；不默认基准单位，也不任选精度。');
+  }
+  // 两侧都为舍入披露时，不能把任意一侧当精确原值再舍入；当前不做区间反推。
+  if(roundedSides.length>1)return done('insufficient','ROUNDING_BOTH_SIDES_UNRESOLVED','两侧均声明舍入且披露值不同；缺少精确底数，保留疑点，不用输入顺序决定归因。');
+  const s=roundedSides[0],rounding=s?.input.caliber.rounding;
+  if(rounding){
     const scalePlaces=/^万[元股]$/.test(s.sourceUnit)?4:/^亿[元股]$/.test(s.sourceUnit)?8:0;
     const normalizedPlaces=rounding.value-scalePlaces;
     const rounded=roundHalfUp((s===a?b:a).normalized,normalizedPlaces);
