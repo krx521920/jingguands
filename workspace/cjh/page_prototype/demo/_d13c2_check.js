@@ -83,6 +83,31 @@ for (const [key, r] of [["standardized_rate", rate], ["standardized_accuracy", a
   }
 }
 
+// ---------- A2b：/api/metrics 的 summary.standardized_pct 必须与实算产物同源 ----------
+// 2026-10-13 实测：summary.standardized_pct 旧写法把全部 606 字段算进分母
+//（含 unit:text 208 条与弃权 169 条），得 434/606 = 71.62% —— 而上面的 A2 只查了
+// 注册表，没有任何门禁覆盖这个字段，假缺陷 D11-P1-01 由此产生。
+// 本断言补上这个盲区：产物存在时，summary 的值必须等于实算产物的覆盖率（同源）；
+// 为 null 或与产物不符都算 FAIL（绝不静默接受旧口径残值）。
+try {
+  const metricsMod = require(path.join(BR, "metrics.js"));
+  const m2 = metricsMod.computeMetrics();
+  const sp = m2.summary.standardized_pct;
+  if (sp === null || sp === undefined) {
+    bad("A2B_SUMMARY_SAME_SOURCE", "summary.standardized_pct 为空",
+      "实算产物存在时必须同源取值；null 只允许产物缺失时出现");
+  } else if (sp === std.coverage.pct) {
+    ok("A2B_SUMMARY_SAME_SOURCE", "summary.standardized_pct 与实算产物同源",
+      "summary=" + sp + "% == 产物 " + std.coverage.num + "/" + std.coverage.den +
+      "（434/606 的 text 噪声口径已清除）");
+  } else {
+    bad("A2B_SUMMARY_SAME_SOURCE", "summary.standardized_pct 与卡片不同源",
+      "summary=" + sp + "%，产物 " + std.coverage.pct + "% —— 同屏两套数复发");
+  }
+} catch (e) {
+  bad("A2B_SUMMARY_SAME_SOURCE", "computeMetrics 调用失败", e.message);
+}
+
 // ---------- A3：前端不得渲染 text 的标准化状态 ----------
 // 判据：前端源码里不得出现把 standardized 与 text 组合展示的写法。
 // 这里查两类真违规：

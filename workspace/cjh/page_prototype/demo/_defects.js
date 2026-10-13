@@ -73,34 +73,33 @@ if (evCheck && evCheck.l3_scope && evCheck.l3_scope.checked > 0) {
   }
 }
 
-// ---------- P0/P1：字段抽取率、标准化率不达标 ----------
+// ---------- P0/P1：指标类判据（★ 2026-10-13 按 D17 裁定重写，防"挂错目标"） ----------
+// 总规划 §5 验收指标：「字段抽取 ≥90%｜标准化 ≥98%｜…｜出处命中 ≥95%」。
+// D17（evaluation/D17/裁定-standardized判据-20261010.md）裁定目标挂载：
+//   ·「字段抽取 ≥90%」挂**准确率**（437/437＝100%），不挂覆盖率（437/606，无目标）；
+//   ·「标准化 ≥98%」挂**正确率**（229/229＝100%），不挂覆盖率；
+//   · 覆盖率/出处类指标一律不挂目标（页面显式标"无对标目标"）。
+// 旧判据两处挂错目标，产出过假缺陷（已在 demo/_defects.json 的 corrections 段勘误）：
+//   · D11-P0-02：拿溯源存在率 L1（出处类，无目标）对比 90% —— L1 缺口改为事实披露（见 limits）；
+//   · D11-P1-01：拿分母含 text 与弃权的 standardized_pct（434/606＝71.62%）对比 98%
+//     —— 该口径已于 2026-10-13 在 bridge/metrics.js 修为与卡片同源的 229/229。
 if (metrics) {
   const s = metrics.summary;
-  if (s.l1_pct !== null && s.l1_pct < 90) {
-    add({
-      sev: "P0",
-      area: "溯源完整性",
-      title: "溯源存在率（L1）" + s.l1_pct + "% ，147 个字段无任何 provenance",
-      repro: "curl http://127.0.0.1:8643/api/metrics → l1_provenance（或 summary.l1_pct）",
-      expect: "≥90%（与总规划『字段抽取率』不同：抽取率看 status=extracted，本项看有无溯源；" +
-        "当前字段抽取率 " + s.extracted_pct + "%，两者都未达标）",
-      actual: s.l1_pct + "%（" + s.fields_with_prov + "/" + s.fields_total +
-        " 字段带 provenance）；缺口 " + (s.fields_total - s.fields_with_prov) +
-        " 个字段无溯源，页面无法回跳定位",
-      owner: "魏文宇（抽取）+ 张智博（出处）",
-      evidence: "GET /api/metrics → l1_provenance / summary",
-    });
-  }
-  if (s.standardized_pct !== null && s.standardized_pct < 98) {
+  // 标准化正确率（98% 目标的正确挂载点）：读实算产物，不重算（与指标卡同源）
+  const stdReal = readJson(path.join(__dirname, "_standardized_real.json"), null);
+  const acc = stdReal && stdReal.accuracy ? stdReal.accuracy : null;
+  if (acc && acc.pct < 98) {
     add({
       sev: "P1",
       area: "标准化",
-      title: "标准化率 " + s.standardized_pct + "% ，低于目标 98%",
-      repro: "curl http://127.0.0.1:8643/api/metrics → cards[标准化率]",
-      expect: "≥98%",
-      actual: s.standardized_pct + "%（standardized=true 占 true/false 之比，未标注不计入分母）",
+      title: "标准化正确率 " + acc.pct + "% ，低于目标 98%",
+      repro: "node demo/_standardized_real.js → accuracy 段；或 curl /api/metrics → cards[标准化正确率]",
+      expect: "≥98%（总规划 §5「标准化 ≥98%」，依 D17 裁定挂正确率，不挂覆盖率）",
+      actual: acc.pct + "%（" + acc.num + "/" + acc.den + "，非 text 有值且有 Gold 期望的字段中 value 与 Gold 规范值一致）；" +
+        "同批标准化覆盖率 " + (stdReal.coverage ? stdReal.coverage.pct + "%（" + stdReal.coverage.num + "/" + stdReal.coverage.den + "）" : "未测") +
+        "（覆盖率不挂目标，仅披露）",
       owner: "魏文宇",
-      evidence: "GET /api/metrics → summary.standardized_pct",
+      evidence: "demo/_standardized_real.json → accuracy；GET /api/metrics → cards",
     });
   }
   if (s.block_id_pct !== null && s.block_id_pct < 100) {
@@ -171,6 +170,15 @@ const limits = [
   "矛盾召回 / 矛盾误报 / 重复运行一致率 / 20 页 ≤90 秒 四项未测：需封存集与引擎侧运行数据，属宗与魏职责范围。",
   "接口层与页面层巡检均为 0 缺陷，但0 缺陷不等于验收通过——验收需封存集首测成绩。",
 ];
+// ★ 2026-10-13：溯源存在率 L1 是**事实披露**，不是未达标项 —— 总规划 §5 无 L1 目标，
+//   D17 裁定出处类不挂目标（90% 挂在字段抽取准确率 437/437＝100%，已达标）。
+//   旧判据（D11-P0-02）拿 L1 对比 90% 属挂错目标，已勘误；缺口本身仍须披露。
+if (metrics && metrics.summary.l1_pct !== null) {
+  limits.push("溯源存在率（L1，字段有无 provenance）＝" + metrics.summary.l1_pct + "%（" +
+    metrics.summary.fields_with_prov + "/" + metrics.summary.fields_total + "）：按总规划 §5 与 D17 裁定该类指标不挂目标；" +
+    "缺口 " + (metrics.summary.fields_total - metrics.summary.fields_with_prov) +
+    " 个字段无溯源（页面无法回跳定位）是事实披露，不作为未达标项，归属魏文宇（抽取）+ 张智博（出处）。");
+}
 
 // ---------- 输出机读版 ----------
 fs.writeFileSync(OUT_JSON, JSON.stringify({

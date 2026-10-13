@@ -1,0 +1,157 @@
+{
+  "generated_on": "2026-10-12",
+  "by": "宗（评测侧）",
+  "purpose": "评测侧成绩单（唯一真源）：供展示层注册表/材料直接消费；每项带分子分母、批次、code_version、出处",
+  "batch": {
+    "id": "权威批（D11 首测冻结）",
+    "docs": 31,
+    "fields": 606,
+    "excluded": [
+      "DEMO-EQC-HL-0930.json"
+    ],
+    "anchor_sha256": "381c760fa07b2dc3a8256282e23009bce4b79445fdc7f4f4280168af6c90cef0",
+    "anchor_note": "本脚本按「文件名升序 → 逐份 LF 归一 sha256 → '名:哈希' 行 → \\n 连接 → 再 sha256」实算，应与登记锚点一致"
+  },
+  "scores": [
+    {
+      "key": "field_accuracy",
+      "name": "字段抽取准确率",
+      "value": 100,
+      "num": 437,
+      "den": 437,
+      "unit": "%",
+      "batch": "权威批（D11 首测冻结）",
+      "code_version": "weiwenyu@5f25133a",
+      "evidence": "evaluation/D11/results/single-doc-firsttest.json",
+      "note": "逐字段与 Gold 严格比对；错填 0；格式合规 30/30"
+    },
+    {
+      "key": "field_coverage",
+      "name": "字段抽取覆盖率",
+      "value": 72.11,
+      "num": 437,
+      "den": 606,
+      "unit": "%",
+      "batch": "权威批 31 份",
+      "code_version": "（实算：本脚本）",
+      "evidence": "evaluation/D11/firsttest-envelopes（31 份）",
+      "note": "分母 606 含弃权 169 条（未提及/不适用/待复核/未披露/无法读取）——弃权是正确行为但仍是未覆盖"
+    },
+    {
+      "key": "evidence_hit",
+      "name": "出处原文命中率",
+      "value": 100,
+      "num": 451,
+      "den": 451,
+      "unit": "%",
+      "batch": "权威批 31 份",
+      "code_version": "（实算：本脚本）",
+      "evidence": "evaluation/D11/firsttest-envelopes（信封自带 blocks）",
+      "note": "覆盖面：30/31 份有块；悬空 block_id 0；quote 空白归一后计入命中"
+    },
+    {
+      "key": "standardized_rate",
+      "name": "标准化覆盖率",
+      "value": 100,
+      "num": 229,
+      "den": 229,
+      "unit": "%",
+      "batch": "权威批 31 份",
+      "code_version": "（实算：本脚本）",
+      "evidence": "evaluation/D17/裁定-standardized判据-20261010.md",
+      "note": "主口径：非 text 有值字段；含演示件口径为 235/235（口径不同不可并列）"
+    },
+    {
+      "key": "cross_doc_match",
+      "name": "跨文档配对准确率",
+      "value": 100,
+      "num": 20,
+      "den": 20,
+      "unit": "%",
+      "batch": "封存跨文档 20 组",
+      "code_version": "weiwenyu@5f25133a",
+      "evidence": "evaluation/D11/results/crossdoc-firsttest-score.json",
+      "extra": {
+        "d8": "13/13（4/4 相关 + 8/8 无关对照 + 证据不足 1/1）"
+      },
+      "note": "相关 4/4、无关对照 16/16 零误报"
+    },
+    {
+      "key": "multi_doc_conflict",
+      "name": "数值矛盾判定准确率",
+      "value": 100,
+      "num": 20,
+      "den": 20,
+      "unit": "%",
+      "batch": "D9 规则用例 20 条",
+      "code_version": "weiwenyu@5f25133a",
+      "evidence": "evaluation/D11/results/d9-v02-score.json",
+      "note": "误报 0 / 漏报 0"
+    },
+    {
+      "key": "integration_pass",
+      "name": "D10 集成通过率",
+      "value": 100,
+      "num": 10,
+      "den": 10,
+      "unit": "%",
+      "batch": "D10 集成 10 组",
+      "code_version": "weiwenyu@5f25133a",
+      "evidence": "evaluation/D10/results/score-weiwenyu-bundle.json",
+      "note": "结构 + 缓存纪律（--strict）；关系层另有 check-relation 门 10/10"
+    },
+    {
+      "key": "value_layer_regression",
+      "name": "修后回归（值层）",
+      "value": 100,
+      "num": 606,
+      "den": 606,
+      "unit": "%",
+      "batch": "D12-A vs 首测冻结",
+      "code_version": "D12-A（batch-20261008T005756）",
+      "evidence": "evaluation/D12/results-zong-independent.json",
+      "note": "非空值槽 0 差异；状态翻正 1 处（D6-AWD-002.json  formal_award_notice_received not_disclosed<->not_mentioned）"
+    },
+    {
+      "key": "replay_byte_identical",
+      "name": "缓存重放逐字节一致",
+      "value": 100,
+      "num": 31,
+      "den": 31,
+      "unit": "%",
+      "batch": "D12-C vs D12-A",
+      "code_version": "batch-20261010T010943",
+      "evidence": "evaluation/D12/results-C-byte-verification.json",
+      "note": "★ 口径：D12 时点 31/31 逐字节；施加 D17 不变量后为 28/31＋4 处无值翻正（值层 31/31）——两者不可并列"
+    },
+    {
+      "key": "perf_20page",
+      "name": "20 页耗时（最大样本）",
+      "value": 19.99,
+      "num": 19.99,
+      "den": 90,
+      "unit": "s",
+      "batch": "D12 性能专项",
+      "code_version": "D12",
+      "evidence": "evaluation/D12/D12回归一致性性能报告.md",
+      "note": "4 样本 3.57/12.75/19.99/19.34s（34/35/20合成/64 页），门槛 90s；人工登记（该报告未出 JSON）"
+    }
+  ],
+  "not_covered": [
+    {
+      "key": "abstain_correct",
+      "reason": "Gold 无「原文是否提及」逐条标注 ⇒ 不可核",
+      "owner": "宗（需补 Gold 维度）"
+    },
+    {
+      "key": "scan_degrade",
+      "reason": "扫描件无独立分母",
+      "owner": "全员"
+    },
+    {
+      "key": "web_cli_independent",
+      "reason": "页面无 PDF、抽取管线在魏分支 ⇒ 未测",
+      "owner": "魏（提供入口）＋宗（判据）"
+    }
+  ]
+}
