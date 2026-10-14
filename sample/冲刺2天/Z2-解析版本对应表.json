@@ -1,0 +1,104 @@
+{
+  "built_by": "张智博",
+  "day": "Z2",
+  "date": "2026-10-14",
+  "purpose": "固定解析版本：PDF / parse / 源码 SHA 对应表 ＋ 依赖 ＋ 启动自检",
+  "source_sha": {
+    "zhangzhibo": "b529d835",
+    "sample_branch": "b529d835"
+  },
+  "dry_run_sha": {
+    "sample": "b529d835"
+  },
+  "correspondence": [
+    {
+      "case_id": "D3-PLD-001",
+      "pdf": "sample/D3/raw/D3-PLD-001.pdf",
+      "pdf_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "parse": "sample/D3/parse/D3-PLD-001.parse.json",
+      "parse_sha256": "44f869143ef8fc606c86562bf8c603d05d41b4f46c83dfc1a3e04462aef42d80",
+      "doc_id": "d44e95085",
+      "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "parser_version": "0.9.0",
+      "pages": 2,
+      "blocks": 128
+    },
+    {
+      "case_id": "D4-PLD-001",
+      "pdf": "sample/D4/raw/D4-PLD-001.pdf",
+      "pdf_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "parse": "sample/D4/parse/D4-PLD-001.parse.json",
+      "parse_sha256": "8d7ba5f04cf6e3f26498da6b5cd643feaa37b99910579dcfecf1ae3029a348c3",
+      "doc_id": "d44e95085",
+      "file_id": "sha256:44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+      "parser_version": "0.9.0",
+      "pages": 2,
+      "blocks": 128
+    },
+    {
+      "case_id": "D5-EQC-001",
+      "pdf": "sample/D5/raw/D5-EQC-001.pdf",
+      "pdf_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+      "parse": "sample/D5/parse/D5-EQC-001.parse.json",
+      "parse_sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597",
+      "doc_id": "d9d5be14f",
+      "file_id": "sha256:9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+      "parser_version": "0.9.0",
+      "pages": 35,
+      "blocks": 861
+    },
+    {
+      "case_id": "D6-AWD-001",
+      "pdf": "sample/D6/raw/D6-AWD-001.pdf",
+      "pdf_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+      "parse": "sample/D6/parse/D6-AWD-001.parse.json",
+      "parse_sha256": "75cfa4ae01d799a4ddafd247b97c91f0bc3051f000a4c773ebfa25800b6653f8",
+      "doc_id": "dc1c912b9",
+      "file_id": "sha256:c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+      "parser_version": "0.9.0",
+      "pages": 2,
+      "blocks": 27
+    }
+  ],
+  "recording_inputs_Z3": [
+    {
+      "case_id": "D5-EQC-001",
+      "pages": 35,
+      "pdf_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+      "parse_sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597",
+      "doc_id": "d9d5be14f"
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "pages": 64,
+      "pdf_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+      "parse_sha256": "3060a015349ff01ba2840c4049b96bb8aaed36cd41d7dfde0d3905f49c928dc6",
+      "doc_id": "d46bc2ef0"
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "pages": 34,
+      "pdf_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+      "parse_sha256": "214bee892670158a6916dab6df63fdacae2a2ecf79415df609646bb1e09a60a2",
+      "doc_id": "d173fee90"
+    }
+  ],
+  "dependencies": {
+    "python": ">=3.11",
+    "packages": [
+      "pdfplumber",
+      "pypdfium2",
+      "Pillow"
+    ],
+    "note": "解析为纯本地计算，不联网、不需要密钥；密钥类引用 0 处"
+  },
+  "startup_selfcheck": [
+    "python -m pytest tests -q  → 89 条",
+    "python tools/check_evidence.py <parse> <pdf>"
+  ],
+  "version_note": "**入库产物的 parser 版本是 0.9.0，当前源码是 0.9.1** —— 两者不同是**有意为之**：D14 给 PARSER_VERSION 加了「规则指纹」并把版本从 0.9.0 升到 0.9.1，目的正是让「这份 parse 是哪个版本产的」可分辨。**产物不重生成**（方案 A 不动交付树），故交付物仍是 0.9.0 产出；重跑会得到 0.9.1 输出，块分组可能不同 —— 这是 D13-B1 登记的已知边界。",
+  "dry_run_expected": {
+    "products": "finstruct.parse/0.9.0",
+    "source_if_rerun": "finstruct.parse/0.9.1"
+  }
+}
