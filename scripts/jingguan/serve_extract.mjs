@@ -30,6 +30,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node
 import { spawnSync } from 'node:child_process'
 import { resolve, dirname, join, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { sideResolve } from './lib/side_paths.mjs'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const RUNNER = join(REPO_ROOT, 'scripts/jingguan/run_extract.mjs')
@@ -61,6 +62,7 @@ function runExtraction(body, reqId) {
   }
   mkdirSync(TMP_DIR, { recursive: true })
   const tag = `${reqId}-${event_type}`
+  let tmpTextPath = null // 本请求的 text 临时输入（finally 统一清理）
   const cli = ['run_extract.mjs', '--event-type', event_type]
   try {
     if (typeof parse_path === 'string' && parse_path.trim()) {
@@ -80,15 +82,28 @@ function runExtraction(body, reqId) {
       writeFileSync(tmp, JSON.stringify(parse), 'utf8')
       cli.push('--parse', tmp)
     } else if (typeof text === 'string' && text.trim()) {
-      const tmp = join(TMP_DIR, `${tag}-${file_name ?? 'input.txt'}`)
-      writeFileSync(tmp, text, 'utf8')
-      cli.push('--input', tmp)
+      // W1（两天冲刺）：file_name 客户端可控——只取 basename 并做字符白名单，
+      // 杜绝 ../../ 或绝对路径把 text 写到临时目录之外（写入越界）
+      const safeName = String(file_name ?? 'input.txt').replaceAll('\\', '/').split('/').pop()
+        .replace(/[^\w.\-\u4e00-\u9fff]/g, '_') || 'input.txt'
+      tmpTextPath = join(TMP_DIR, `${tag}-${safeName}`)
+      writeFileSync(tmpTextPath, text, 'utf8')
+      cli.push('--input', tmpTextPath)
     } else {
       return { status: 400, error: '三选一：parse_path（仓库相对路径）/ parse（对象）/ text＋file_name' }
     }
     cli.push('--out-dir', TMP_DIR)
     if (args.noCache || cache_dir === 'none') cli.push('--no-cache')
-    else cli.push('--cache-dir', resolve(REPO_ROOT, cache_dir ?? args.cacheDir ?? DEFAULT_CACHE))
+    else {
+      // W1：cache_dir 同样客户端可控——与 parse_path 同一守卫（仓库内相对路径），
+      // 防止绝对路径把缓存未命中时的写入引到仓库之外；sideResolve 兼容并包树镜像（原址缺失自动落 run-side）
+      const rel = String(cache_dir ?? args.cacheDir ?? DEFAULT_CACHE).replace(/^\/+/, '').replaceAll('\\', '/')
+      const norm = resolve(REPO_ROOT, rel)
+      if (!norm.startsWith(REPO_ROOT + sep) || rel.split('/').includes('..')) {
+        return { status: 400, error: 'cache_dir 只接受仓库内相对路径（禁止绝对路径或 .. 穿越）' }
+      }
+      cli.push('--cache-dir', sideResolve(REPO_ROOT, rel, false))
+    }
 
     const proc = spawnSync(process.execPath, [RUNNER, ...cli.slice(1)], { cwd: REPO_ROOT, encoding: 'utf8', timeout: 200_000, env: process.env })
     if (proc.status !== 0) {
@@ -104,8 +119,9 @@ function runExtraction(body, reqId) {
     try { call_log = JSON.parse(readFileSync(eventsPath.replace(/events\.json$/, 'call_log.json'), 'utf8')) } catch { /* 降级路径无 call_log 结构差异时容忍 */ }
     return { status: 200, envelope, call_log, stdout_tail: out.slice(-400) }
   } finally {
-    // 清理本请求的临时输入；个体运行产物按仓库惯例不落库，由调用方留存返回值即可
+    // 清理本请求的临时输入（parse 件与 text 件都清）；个体运行产物按仓库惯例不落库，由调用方留存返回值即可
     rmSync(join(TMP_DIR, `${tag}.parse.json`), { force: true })
+    if (tmpTextPath) rmSync(tmpTextPath, { force: true })
   }
 }
 
@@ -137,8 +153,9 @@ createServer((req, res) => {
     return
   }
   json(404, { ok: false, error: 'GET /health | POST /extract' })
-}).listen(args.port, () => {
-  console.log(`[N09 抽取入口] http://127.0.0.1:${args.port}/extract`)
+// W1（两天冲刺）：显式仅本机监听——不绑 0.0.0.0，抽取入口不接受局域网直连
+}).listen(args.port, '127.0.0.1', () => {
+  console.log(`[N09 抽取入口] http://127.0.0.1:${args.port}/extract（仅本机监听）`)
   console.log(`  缓存：${args.noCache ? '禁用（每次真实调用）' : (args.cacheDir ?? DEFAULT_CACHE)}`)
   console.log('  陈侧接入：server.js 代理 /api/extract → POST http://127.0.0.1:' + args.port + '/extract')
 })
