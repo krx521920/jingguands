@@ -275,6 +275,31 @@ export function renderDataSource(ds) {
       prim.counts_for_primary + " 份为准。"));
   }
 
+  // ---- ★ 2026-10-14：指标 → 背后信封直达入口（领导 10-14 裁定「直达补上」）----
+  //   此前本页只有数字：读者要核对 437/437、72.11%、229/229 背后是哪份信封，
+  //   必须自行切回研读视图、在 62 项里翻找 ——「点不开背后的文档」即此。
+  //   名单取后端 primary_dataset_names（单一真源＝counts_for_primary 的入口径份，
+  //   演示性 demo 不算入内、不进名单），前端不另持名单、不硬编码任何数据集名。
+  const primaryNames = prim.primary_dataset_names || [];
+  if (primaryNames.length) {
+    const ob = el("div", "mx-ds-open");
+    ob.appendChild(el("div", "mx-ds-open-title",
+      "打开背后信封 · " + primaryNames.length + " 份（点任意一份，回到公告研读并加载该信封）"));
+    const chips = el("div", "mx-ds-open-chips");
+    for (const name of primaryNames) {
+      const b = el("button", "mx-ds-chip", name);
+      b.type = "button";
+      b.title = "在公告研读视图打开 " + name;
+      b.addEventListener("click", () => {
+        // 自定义事件：app.js 统一接住后切视图+加载（渲染模块不碰 app 闭包）
+        window.dispatchEvent(new CustomEvent("open-dataset", { detail: name }));
+      });
+      chips.appendChild(b);
+    }
+    ob.appendChild(chips);
+    wrap.appendChild(ob);
+  }
+
   // ---- 已裁决的分母口径（不再是"待裁决"，按裁决口径陈述）----
   const cs = prim.caliber_split;
   if (cs) {

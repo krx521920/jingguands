@@ -39,6 +39,14 @@ main{display:block;height:auto;padding:0}.document-toolbar{display:flex;align-it
 .mx-ds-split-title{font-size:12px;font-weight:600;color:#8a6a45;margin-bottom:7px}
 .mx-ds-split ul{margin:0;padding-left:19px;font-size:11.5px;line-height:1.85;color:#7d6a52}
 .mx-ds-split .mx-muted{color:#9d8f80}
+/* ★ 2026-10-14：指标 → 背后信封直达入口（领导裁定「直达补上」）。
+   名单＝后端 primary_dataset_names（入口径 31 份，演示性 demo 不算入内）。 */
+.mx-ds-open{background:#f2f6fb;border:1px solid #d5e0ee;border-radius:9px;padding:12px 15px;margin-bottom:13px}
+.mx-ds-open-title{font-size:12px;font-weight:600;color:#3f5a78;margin-bottom:9px}
+.mx-ds-open-chips{display:flex;flex-wrap:wrap;gap:7px}
+.mx-ds-chip{font:inherit;font-size:11px;font-family:Consolas,monospace;color:#33506e;background:#fff;border:1px solid #c8d6e6;border-radius:6px;padding:4px 10px;cursor:pointer;transition:border-color .15s,background .15s}
+.mx-ds-chip:hover{border-color:#7fa3cc;background:#eaf2fb}
+.mx-ds-chip:active{background:#dce9f7}
 .mx-ds-compare{font-size:12px;color:#7c7080}
 .mx-ds-compare>summary{cursor:pointer;color:#8d7b90;list-style:none;padding:6px 0}
 .mx-ds-compare>summary:after{content:' ＋';float:right}

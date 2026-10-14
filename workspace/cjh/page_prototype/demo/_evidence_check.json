@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T10:36:22.250Z",
+  "generated_at": "2026-10-14T10:32:09.383Z",
   "caliber": {
     "L1": "溯源存在性：抽取字段带非空 provenance[] 的比例",
     "L2": "锚点完备性：provenance 中 block_id / page / region / quote 各自的覆盖率",

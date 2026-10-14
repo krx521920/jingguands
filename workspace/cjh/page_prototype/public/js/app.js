@@ -210,6 +210,20 @@ async function boot() {
     window.scrollTo({ top: 0, behavior: "instant" });
   };
   $("mainBtn").addEventListener("click", () => showView("main"));
+  // ★ 2026-10-14：质量报告页「打开背后信封」直达入口（领导 10-14 裁定）。
+  //   指标页只给数字、读者要点开背后信封时原本必须自行切回研读视图再在 62 项里
+  //   翻找——体验断裂即"点不开背后的文档"。render/metrics.js 的数据源卡片派发
+  //   本事件（detail=数据集名），此处统一接住：切回研读视图并加载该信封。
+  //   用自定义事件而非全局函数暴露：渲染模块与 app 闭包解耦，不添 window 污染。
+  window.addEventListener("open-dataset", async (ev) => {
+    const name = ev && ev.detail;
+    if (!name) return;
+    showView("main");
+    const sel = $("datasetSel");
+    if ([...sel.options].some(o => o.value === name)) sel.value = name;
+    await loadDataset(name);
+  });
+
   const loadInto = async (btn, listId, url, renderFn, clearFn, loadedFlag) => {
     if (loadedFlag.v) return true;
     try {
@@ -315,7 +329,14 @@ function optionTitle(src) {
   return parts.join("\n");
 }
 
-/** 重建数据集下拉（保留当前选中项）。★ 2026-10-09 起按批次分组显示。 */
+/** 重建数据集下拉（保留当前选中项）。★ 2026-10-09 起按批次分组显示。
+ *  ★ 2026-10-14：领导裁定「只显示 31 份」——「权威批次（当前指标口径）」组只收
+ *    counts_for_primary=true 的件。DEMO-EQC-HL-0930 虽物理在权威目录 data_unified/，
+ *    但 role=demo（DEMO- 前缀，见 data_source.roleInAuthoritative），按宗 2026-10-09
+ *    裁决不计入指标口径：**演示性 demo 不算入内**，故移入「可打开示例」组与演示池
+ *    同列（仍可点开查看，只是不再挂在权威口径名下）。
+ *    名单真源在接口的 sources[].counts_for_primary（= data_source.disclose() 的
+ *    primary_dataset_names），前端不另行硬编码任何数据集名。 */
 async function refreshDatasets() {
   const payload = await fetchDatasets();
   const { datasets, sources } = payload;
@@ -323,26 +344,27 @@ async function refreshDatasets() {
   const prev = sel.value;
   sel.replaceChildren();
 
-  //★ 批次顺序＝data_source.BATCHES 的登记顺序（权威在前），不在前端另立顺序
+  //★ 分组顺序＝口径在前、示例在后（data_source 的 primary 标记），不在前端另立顺序
   const byName = new Map((sources || []).map(s => [s.name, s]));
-  const groups = new Map();               // batch → option[]
+  const groups = new Map();               // "primary" | "examples" → option[]
   for (const d of datasets) {
     const src = byName.get(d);
-    const b = (src && src.batch) || "legacy";
-    if (!groups.has(b)) groups.set(b, []);
-    groups.get(b).push({ name: d, src });
+    const key = src && src.counts_for_primary ? "primary" : "examples";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push({ name: d, src });
   }
 
-  for (const [batch, items] of groups) {
-    const src0 = items[0] && items[0].src;
+  // 口径组份数实算自 sources（含后端只认 31 的口径），不写死数字
+  const primaryCount = (sources || []).filter(s => s.counts_for_primary).length;
+  for (const [key, items] of groups) {
     // ★ R3：每一批都必须显式命名分组。
     //   原来权威批不加标题（靠"它在最上面"隐含），但同屏出现两组数字时
     //   读者无法分辨哪组是当前口径 —— 显式标题是R3 的最低要求。
     if (groups.size > 1) {
       const og = document.createElement("optgroup");
-      og.label = src0 && src0.counts_for_primary
-        ? (src0.batch_label || batch) + "（当前指标口径）"
-        : (src0 ? src0.batch_label || batch : batch) + "（不计入指标口径）";
+      og.label = key === "primary"
+        ? "权威批次（当前指标口径 · " + primaryCount + " 份）"
+        : "可打开示例（演示/旧抽取 · 不计入指标口径）";
       for (const it of items) {
         const opt = document.createElement("option");
         opt.value = it.name;
