@@ -1,0 +1,121 @@
+{
+  "built_by": "张智博",
+  "task": "Z3",
+  "date": "2026-10-14",
+  "purpose": "提供 3 份真实 20 页文本 PDF（含来源/哈希）＋ 录制用三组输入",
+  "deliverable_note": "PDF 与 parse 均在 zhangzhibo 分支（sample/*/raw 与 sample/*/parse）；魏侧 corpus 无 PDF，故此处是唯一位置",
+  "twenty_page_pdfs": [
+    {
+      "case_id": "D5-EQC-001",
+      "pdf": "sample/D5/raw/D5-EQC-001.pdf",
+      "pdf_sha256": "9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51",
+      "parse": "sample/D5/parse/D5-EQC-001.parse.json",
+      "parse_sha256": "1e3dc990d296719d8cbd7de73fc3b37906793f7ab6394968443dddd6d5c57597",
+      "pages": 35,
+      "blocks": 861,
+      "form": "TEXT",
+      "source": "巨潮资讯(cninfo) 公开公告",
+      "retrieved_via": "fetch_samples.py（浏览器 UA）"
+    },
+    {
+      "case_id": "D5-EQC-002",
+      "pdf": "sample/D5/raw/D5-EQC-002.pdf",
+      "pdf_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+      "parse": "sample/D5/parse/D5-EQC-002.parse.json",
+      "parse_sha256": "3060a015349ff01ba2840c4049b96bb8aaed36cd41d7dfde0d3905f49c928dc6",
+      "pages": 64,
+      "blocks": 1395,
+      "form": "TEXT",
+      "source": "巨潮资讯(cninfo) 公开公告",
+      "retrieved_via": "fetch_samples.py（浏览器 UA）"
+    },
+    {
+      "case_id": "D5-EQC-003",
+      "pdf": "sample/D5/raw/D5-EQC-003.pdf",
+      "pdf_sha256": "173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e",
+      "parse": "sample/D5/parse/D5-EQC-003.parse.json",
+      "parse_sha256": "214bee892670158a6916dab6df63fdacae2a2ecf79415df609646bb1e09a60a2",
+      "pages": 34,
+      "blocks": 621,
+      "form": "TEXT",
+      "source": "巨潮资讯(cninfo) 公开公告",
+      "retrieved_via": "fetch_samples.py（浏览器 UA）"
+    }
+  ],
+  "recording_inputs": {
+    "单文档": {
+      "选": "wei_real_pledge_0197（= D4-PLD-001 同源）",
+      "做": "下拉选中 → 加载 → 看字段与出处",
+      "why": "质押事件，字段全（股东/数量/比例/日期），适合展示字段级出处",
+      "分镜": "00:20–01:35"
+    },
+    "跨文档": {
+      "选": [
+        "wei_real_eqc_001",
+        "wei_real_eqc_002"
+      ],
+      "做": "分别加载 → 走到跨文档核验视图",
+      "why": "同发行主体（科创新材）的简式×详式，可展示一个可解释差异",
+      "分镜": "02:15–03:20",
+      "纪律": "受控样本须标注受控，不得说成真实矛盾"
+    },
+    "扫描降级": {
+      "选": "wei_real_D4_scan",
+      "做": "加载 → 看 scan_region 与 unreadable",
+      "分镜": "03:20–03:50",
+      "纪律": "未实现的 OCR 不作已实现展示；说明扫描降级边界"
+    }
+  },
+  "performance_inputs": {
+    "how": "3 份各自计时：python -m finstruct.parse.parse_pdf <pdf> -o <out>",
+    "expected": "20 页级解析约 1 秒（见 sample/D12/stage_timing.json）；纯本地计算、不联网"
+  },
+  "verify": [
+    "python -m pytest tests -q  # 89 条",
+    "python tools/check_evidence.py <parse> <pdf>",
+    "curl 'http://127.0.0.1:8642/api/result?dataset=wei_real_eqc_001'  # 录前逐个验可加载"
+  ],
+  "twenty_page_pdfs_note": "计划写「3 份真实 20 页文本 PDF」。实测三份为 35 / 64 / 34 页，均 ≥20 页，满足「20 页级」性能测试规模；此处如实标实际页数，不写成「20 页」。",
+  "page_loadability_finding": {
+    "问题": "data_unified/ 的 32 份权威信封**不在页面下拉框里**（下拉只列 data/ 的 30 个）。用户能看到指标（字段抽取率 71.53% 等），却无法按权威名打开其背后的全部文档。",
+    "实测": "按 source.file_id 比对：32 份中 21 份可由 data/ 的 wei_real_* 别名打开，11 份打不开。",
+    "例证": "D5-EQC-001 与 wei_real_eqc_001 的 file_id 完全相同（sha256:9d5be14f…）——同一份文档两个名字。",
+    "录制对策": "**录制一律用下拉框里能选的 wei_real_* 名**，不用 D*-* 名，否则现场会打不开。",
+    "别名映射": {
+      "D5-EQC-001": "wei_real_eqc_001",
+      "D6-AWD-001": "wei_real_awd_001",
+      "D5-EQC-006": "wei_real_eqc_006",
+      "D5-EQC-010": "wei_real_eqc_010",
+      "D4-PLD-001": "wei_real_pledge_ce37",
+      "D6-AWD-010": "wei_real_awd_010",
+      "D6-AWD-006": "wei_real_awd_006",
+      "D6-AWD-007": "wei_real_awd_007",
+      "D5-EQC-007": "wei_real_eqc_007",
+      "D6-AWD-008": "wei_real_awd_008",
+      "D5-EQC-004": "wei_real_eqc_004",
+      "D6-AWD-004": "wei_real_awd_004",
+      "D5-EQC-008": "wei_real_eqc_008",
+      "D5-EQC-009": "wei_real_eqc_009",
+      "D6-AWD-005": "wei_real_awd_005",
+      "D5-EQC-005": "wei_real_eqc_005",
+      "D6-AWD-009": "wei_real_awd_009",
+      "D6-AWD-002": "wei_real_awd_002",
+      "D5-EQC-002": "wei_real_eqc_002",
+      "D5-EQC-003": "wei_real_eqc_003",
+      "D6-AWD-003": "wei_real_awd_003"
+    },
+    "打不开的 11 份": [
+      "D4-PLD-002",
+      "D4-PLD-003",
+      "D4-PLD-004",
+      "D4-PLD-005",
+      "D4-PLD-006",
+      "D4-PLD-007",
+      "D4-PLD-008",
+      "D4-PLD-009",
+      "D4-PLD-010",
+      "DEMO-EQC-HL-0930",
+      "pledge-scan-degrade"
+    ]
+  }
+}
