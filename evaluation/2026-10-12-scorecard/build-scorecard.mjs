@@ -51,10 +51,10 @@ const byt=J("evaluation/D12/results-C-byte-verification.json");
 
 const F=(o)=>o;
 const scores=[
- F({key:"field_accuracy",name:"字段抽取准确率",value:100,num:single.value_hit,den:single.gold_extracted_fields,unit:"%",
+ F({key:"field_accuracy",name:"字段抽取准确率",value:+(100*single.value_hit/single.gold_extracted_fields).toFixed(2),num:single.value_hit,den:single.gold_extracted_fields,unit:"%",
     batch:"权威批（D11 首测冻结）",code_version:"weiwenyu@"+single.frozen_source.commit,
     evidence:"evaluation/D11/results/single-doc-firsttest.json",note:"逐字段与 Gold 严格比对；错填 0；格式合规 30/30"}),
- F({key:"field_coverage",name:"字段抽取覆盖率",value:+(100*valued/fields).toFixed(2),num:valued,den:fields,unit:"%",
+ F({key:"field_coverage",name:"契约字段全集槽位有值率",value:+(100*valued/fields).toFixed(2),num:valued,den:fields,unit:"%",
     batch:"权威批 31 份",code_version:"（实算：本脚本）",evidence:"evaluation/D11/firsttest-envelopes（31 份）",
     note:`分母 606 含弃权 ${abstain} 条（未提及/不适用/待复核/未披露/无法读取）——弃权是正确行为但仍是未覆盖`}),
  F({key:"evidence_hit",name:"出处原文命中率",value:+(100*anchorHit/anchors).toFixed(2),num:anchorHit,den:anchors,unit:"%",
@@ -84,7 +84,9 @@ const scores=[
     note:"★ 口径：D12 时点 31/31 逐字节；施加 D17 不变量后为 28/31＋4 处无值翻正（值层 31/31）——两者不可并列"}),
  F({key:"perf_20page",name:"20 页耗时（最大样本）",value:19.99,num:19.99,den:90,unit:"s",
     batch:"D12 性能专项",code_version:"D12",evidence:"evaluation/D12/D12回归一致性性能报告.md",
-    note:"4 样本 3.57/12.75/19.99/19.34s（34/35/20合成/64 页），门槛 90s；人工登记（该报告未出 JSON）"})
+    note:"4 样本 3.57/12.75/19.99/19.34s（34/35/20合成/64 页），门槛 90s；人工登记（该报告未出 JSON）"}),F({key:"gold_expected_field_recall",name:"Gold 期望字段召回率（相对当前 Gold）",value:+(100*single.value_hit/single.gold_extracted_fields).toFixed(2),num:single.value_hit,den:single.gold_extracted_fields,unit:"%",
+    batch:"权威批（D11 首测冻结）",code_version:"weiwenyu@"+single.frozen_source.commit,evidence:"evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
+    note:"★ 限定：相对**当前 Gold** 的应有值字段；本批为公开语料冻结回放，**不外推泛化**"})
 ];
 const out={generated_on:new Date().toISOString().slice(0,10),by:"宗（评测侧）",
   purpose:"评测侧成绩单（唯一真源）：供展示层注册表/材料直接消费；每项带分子分母、批次、code_version、出处",
@@ -95,6 +97,17 @@ const out={generated_on:new Date().toISOString().slice(0,10),by:"宗（评测侧
     {key:"scan_degrade",reason:"扫描件无独立分母",owner:"全员"},
     {key:"web_cli_independent",reason:"页面无 PDF、抽取管线在魏分支 ⇒ 未测",owner:"魏（提供入口）＋宗（判据）"}
   ]};
+out.caliber={version:"coverage-caliber/2026-10-15",
+  decided_by:"宗（评测侧）",decision:"evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
+  coverage_caliber:[
+    {key:"slot_value_rate",name:"契约字段全集槽位有值率",num:valued,den:fields,pct:+(100*valued/fields).toFixed(2),disclaimer:"分母含弃权槽位；**不可**对 90% 目标"},
+    {key:"core_slot_value_rate",name:"核心文本件槽位有值率",num:valued,den:592,pct:+(100*valued/592).toFixed(2),disclaimer:"排除扫描降级 14 槽位（范围拆分视图）"},
+    {key:"gold_expected_field_recall",name:"Gold 期望字段召回率（相对当前 Gold）",num:single.value_hit,den:single.gold_extracted_fields,pct:+(100*single.value_hit/single.gold_extracted_fields).toFixed(2),disclaimer:"分母＝当前 Gold 标注应有值；须带「相对当前 Gold」限定"}
+  ],
+  pending:{gold_needs_review:11,note:"单列 pending，不进双方任一分子/分母（含 v1.1 校正：D4-PLD-009 E03 end_date 由 needs_review 校正为 not_mentioned）"},
+  no_gold:{fields:14,note:"pledge-scan-degrade 原文缺陷件，无 Gold，单列"},
+  gold_corrections:"evaluation/2026-10-15-caliber/gold-corrections-v1.1.json",
+  target_mapping:{"90":"字段抽取准确率（不挂覆盖率）","98":"标准化正确率","95":"出处命中率"}};
 const OUTJ=arg("--json",null), OUTM=arg("--md",null);
 if(OUTJ) fs.writeFileSync(OUTJ, JSON.stringify(out,null,2)+"\n","utf8");
 if(OUTM){
