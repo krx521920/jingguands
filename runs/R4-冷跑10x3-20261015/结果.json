@@ -1,0 +1,287 @@
+{
+ "ran_on": "2026-10-15T14:55:32.065Z",
+ "criterion": "R2 锁定：轮间无缓存，比对＝值层＋code_version 逐字节；10 份×3 轮",
+ "all_pass": false,
+ "results": [
+  {
+   "doc": "D4-PLD-001",
+   "type": "pledge",
+   "byte_identical_3rounds": true,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 12491,
+     "run_id": "20261015T145035-pledge-d3c2",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 12773,
+     "run_id": "20261015T145048-pledge-12c3",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 13059,
+     "run_id": "20261015T145101-pledge-e9b1",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D4-PLD-002",
+   "type": "pledge",
+   "byte_identical_3rounds": true,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 5410,
+     "run_id": "20261015T145114-pledge-f8ab",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 5261,
+     "run_id": "20261015T145119-pledge-9339",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 5267,
+     "run_id": "20261015T145124-pledge-6931",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D4-PLD-003",
+   "type": "pledge",
+   "byte_identical_3rounds": true,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 4819,
+     "run_id": "20261015T145130-pledge-6821",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 4977,
+     "run_id": "20261015T145134-pledge-12c3",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 5012,
+     "run_id": "20261015T145139-pledge-9c96",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D4-PLD-004",
+   "type": "pledge",
+   "byte_identical_3rounds": true,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 5414,
+     "run_id": "20261015T145144-pledge-cdc8",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 4792,
+     "run_id": "20261015T145150-pledge-0326",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 4757,
+     "run_id": "20261015T145155-pledge-8169",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D5-EQC-001",
+   "type": "equity_change",
+   "byte_identical_3rounds": false,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 14630,
+     "run_id": "20261015T145159-equity_change-5717",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 14247,
+     "run_id": "20261015T145214-equity_change-5e43",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 14433,
+     "run_id": "20261015T145228-equity_change-f5ed",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D5-EQC-002",
+   "type": "equity_change",
+   "byte_identical_3rounds": true,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 21908,
+     "run_id": "20261015T145243-equity_change-7d44",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 22165,
+     "run_id": "20261015T145305-equity_change-a563",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 22469,
+     "run_id": "20261015T145327-equity_change-a179",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D5-EQC-003",
+   "type": "equity_change",
+   "byte_identical_3rounds": true,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 4185,
+     "run_id": "20261015T145349-equity_change-d4ab",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 4269,
+     "run_id": "20261015T145354-equity_change-6464",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 4314,
+     "run_id": "20261015T145358-equity_change-ea1f",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D6-AWD-001",
+   "type": "award_contract",
+   "byte_identical_3rounds": true,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 4436,
+     "run_id": "20261015T145402-award_contract-75a5",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 4275,
+     "run_id": "20261015T145407-award_contract-fe1d",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 3955,
+     "run_id": "20261015T145411-award_contract-82bc",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D6-AWD-002",
+   "type": "award_contract",
+   "byte_identical_3rounds": false,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 14435,
+     "run_id": "20261015T145415-award_contract-718d",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 14031,
+     "run_id": "20261015T145429-award_contract-7615",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 13291,
+     "run_id": "20261015T145443-award_contract-4811",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  },
+  {
+   "doc": "D6-AWD-003",
+   "type": "award_contract",
+   "byte_identical_3rounds": true,
+   "rounds": [
+    {
+     "round": 1,
+     "ms": 11753,
+     "run_id": "20261015T145457-award_contract-edc6",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 2,
+     "ms": 11642,
+     "run_id": "20261015T145508-award_contract-75a3",
+     "errors": 0,
+     "error": null
+    },
+    {
+     "round": 3,
+     "ms": 11741,
+     "run_id": "20261015T145520-award_contract-ef3b",
+     "errors": 0,
+     "error": null
+    }
+   ]
+  }
+ ]
+}
