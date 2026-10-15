@@ -1,0 +1,38 @@
+{
+ "checked_on": "2026-10-15",
+ "envelopes_dir": "workspace/cjh/page_prototype/data_unified",
+ "both_extracted": 437,
+ "miss_candidates": [],
+ "extra_candidates": [],
+ "not_compared": [
+  "DEMO-EQC-HL-0930",
+  "pledge-scan-degrade"
+ ],
+ "cross_table": {
+  "extracted→extracted": 437,
+  "not_mentioned→not_mentioned": 107,
+  "needs_review→needs_review": 11,
+  "not_mentioned→needs_review": 1,
+  "not_applicable→not_applicable": 30,
+  "not_disclosed→not_disclosed": 4,
+  "not_disclosed→not_mentioned": 2
+ },
+ "judgment_diffs": [
+  {
+   "field": "D4-PLD-009:2:end_date",
+   "envelope": "not_mentioned",
+   "gold": "needs_review"
+  },
+  {
+   "field": "D6-AWD-002:2:formal_award_notice_received",
+   "envelope": "not_disclosed",
+   "gold": "not_mentioned"
+  },
+  {
+   "field": "D6-AWD-002:3:formal_award_notice_received",
+   "envelope": "not_disclosed",
+   "gold": "not_mentioned"
+  }
+ ],
+ "basis_note": "Gold＝corpus/zongbowen/*/gold（宗独立维护，开发不可改）；独立性来源＝分工规则 §六.8"
+}
