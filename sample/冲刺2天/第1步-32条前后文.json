@@ -1,0 +1,2776 @@
+{
+  "built_by": "张智博",
+  "date": "2026-10-15",
+  "purpose": "72 条中 32 条「原文提到相关概念」的逐条前后文，供人工判定是否应抽未抽",
+  "how_to_read": "每条给出命中块前后各 4 块（含 page/source_type/cell_ref/header_path/text）；is_hit=true 是关键词所在块",
+  "count": 32,
+  "rows": [
+    {
+      "case": "D4-PLD-002",
+      "event": "E01",
+      "field": "pledge_amount",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "质押融资",
+      "hit_page": 1,
+      "hit_block": "d16c6a948_p001_b00022",
+      "neighbourhood": [
+        {
+          "block_id": "d16c6a948_p001_b00018",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c7",
+          "header_path": "质押到期日",
+          "text": "质押到期日",
+          "is_hit": false
+        },
+        {
+          "block_id": "d16c6a948_p001_b00019",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c8",
+          "header_path": "质权人",
+          "text": "质权人",
+          "is_hit": false
+        },
+        {
+          "block_id": "d16c6a948_p001_b00020",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c9",
+          "header_path": "占其所持股份比例（%）",
+          "text": "占其所持股份比例（%）",
+          "is_hit": false
+        },
+        {
+          "block_id": "d16c6a948_p001_b00021",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c10",
+          "header_path": "占公司总股本比例（%）",
+          "text": "占公司总股本比例（%）",
+          "is_hit": false
+        },
+        {
+          "block_id": "d16c6a948_p001_b00022",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c11",
+          "header_path": "质押融资资金用途",
+          "text": "质押融资资金用途",
+          "is_hit": true
+        },
+        {
+          "block_id": "d16c6a948_p001_b00023",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c1",
+          "header_path": "股东名称",
+          "text": "兰石集团",
+          "is_hit": false
+        },
+        {
+          "block_id": "d16c6a948_p001_b00024",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东",
+          "text": "是",
+          "is_hit": false
+        },
+        {
+          "block_id": "d16c6a948_p001_b00025",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押股数（股）",
+          "text": "40,000,000",
+          "is_hit": false
+        },
+        {
+          "block_id": "d16c6a948_p001_b00026",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c4",
+          "header_path": "是否为限售股",
+          "text": "否",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-003",
+      "event": "E01",
+      "field": "pledge_amount",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "质押融资",
+      "hit_page": 2,
+      "hit_block": "d36105cfd_p002_b00061",
+      "neighbourhood": [
+        {
+          "block_id": "d36105cfd_p002_b00057",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r6c11",
+          "header_path": "未质押股份情况/占未质押股份比例（%）",
+          "text": "58.81",
+          "is_hit": false
+        },
+        {
+          "block_id": "d36105cfd_p002_b00058",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "注：韩盛龙先生、曾吉勇先生“未质押股份限售和冻结数量”的限售股份为高管锁定",
+          "is_hit": false
+        },
+        {
+          "block_id": "d36105cfd_p002_b00059",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "股。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d36105cfd_p002_b00060",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、其他说明",
+          "is_hit": false
+        },
+        {
+          "block_id": "d36105cfd_p002_b00061",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、江西鑫盛本次股份质押融资不涉及用于满足公司生产经营相关需求；2、江西鑫盛未来半年内到期的质押股份数量为5,500万股，占其所持股份",
+          "is_hit": true
+        },
+        {
+          "block_id": "d36105cfd_p002_b00062",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "比例60.05%，占公司总股本比例为5.20%，对应的融资额为28,808.00万元；未来一年内（不含半年内）到期的质押股份数量为1,700万股，占其所持股份比例18.56%，占公司总股本比例为1.61%，对应的融资额为5,540.00万元",
+          "is_hit": false
+        },
+        {
+          "block_id": "d36105cfd_p002_b00063",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "3、江西鑫盛质押融资的主要还款资金来源包括其经营性现金流、收回投资",
+          "is_hit": false
+        },
+        {
+          "block_id": "d36105cfd_p002_b00064",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "收益、自筹资金等，资金偿付能力能够得到保障；",
+          "is_hit": false
+        },
+        {
+          "block_id": "d36105cfd_p002_b00065",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "4、江西鑫盛不存在最近一年又一期与公司资金往来、关联交易、担保等重",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-006",
+      "event": "E01",
+      "field": "pledge_amount",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "质押融资",
+      "hit_page": 1,
+      "hit_block": "d3fbd8497_p001_b00023",
+      "neighbourhood": [
+        {
+          "block_id": "d3fbd8497_p001_b00019",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c7",
+          "header_path": "质 押 到期日",
+          "text": "质押到期日",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00020",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c8",
+          "header_path": "质权人",
+          "text": "质权人",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00021",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c9",
+          "header_path": "占其所持股份比例",
+          "text": "占其所持股份比例",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00022",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c10",
+          "header_path": "占公司总股本比例",
+          "text": "占公司总股本比例",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00023",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c11",
+          "header_path": "质押融资资金用途",
+          "text": "质押融资资金用途",
+          "is_hit": true
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00024",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c1",
+          "header_path": "股 东名称",
+          "text": "西藏荣恩",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00025",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东",
+          "text": "是",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00026",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押股数",
+          "text": "375万股",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3fbd8497_p001_b00027",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c4",
+          "header_path": "是 否 为限售股",
+          "text": "否",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-007",
+      "event": "E01",
+      "field": "pledge_amount",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "质押融资",
+      "hit_page": 1,
+      "hit_block": "da204c717_p001_b00029",
+      "neighbourhood": [
+        {
+          "block_id": "da204c717_p001_b00025",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c7",
+          "header_path": "质押到期日",
+          "text": "质押到期日",
+          "is_hit": false
+        },
+        {
+          "block_id": "da204c717_p001_b00026",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c8",
+          "header_path": "质权人",
+          "text": "质权人",
+          "is_hit": false
+        },
+        {
+          "block_id": "da204c717_p001_b00027",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c9",
+          "header_path": "占其所持股份比例",
+          "text": "占其所持股份比例",
+          "is_hit": false
+        },
+        {
+          "block_id": "da204c717_p001_b00028",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c10",
+          "header_path": "占公司总股本比例",
+          "text": "占公司总股本比例",
+          "is_hit": false
+        },
+        {
+          "block_id": "da204c717_p001_b00029",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r1c11",
+          "header_path": "质押融资资金用途",
+          "text": "质押融资资金用途",
+          "is_hit": true
+        },
+        {
+          "block_id": "da204c717_p001_b00030",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c1",
+          "header_path": "股东名称",
+          "text": "谢秉昆",
+          "is_hit": false
+        },
+        {
+          "block_id": "da204c717_p001_b00031",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东",
+          "text": "是",
+          "is_hit": false
+        },
+        {
+          "block_id": "da204c717_p001_b00032",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押股数（股）",
+          "text": "15,050,000",
+          "is_hit": false
+        },
+        {
+          "block_id": "da204c717_p001_b00033",
+          "page": 1,
+          "source_type": "cell",
+          "cell_ref": "r2c4",
+          "header_path": "是否为限售股",
+          "text": "否",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-008",
+      "event": "E01",
+      "field": "pledge_amount",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "质押融资",
+      "hit_page": 2,
+      "hit_block": "d74b527f3_p002_b00011",
+      "neighbourhood": [
+        {
+          "block_id": "d74b527f3_p002_b00007",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c7",
+          "header_path": "质押到期日",
+          "text": "质押到期日",
+          "is_hit": false
+        },
+        {
+          "block_id": "d74b527f3_p002_b00008",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c8",
+          "header_path": "质权人",
+          "text": "质权人",
+          "is_hit": false
+        },
+        {
+          "block_id": "d74b527f3_p002_b00009",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c9",
+          "header_path": "占其所持股份比例",
+          "text": "占其所持股份比例",
+          "is_hit": false
+        },
+        {
+          "block_id": "d74b527f3_p002_b00010",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c10",
+          "header_path": "占公司总股本比例",
+          "text": "占公司总股本比例",
+          "is_hit": false
+        },
+        {
+          "block_id": "d74b527f3_p002_b00011",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c11",
+          "header_path": "质押融资资金用途",
+          "text": "质押融资资金用途",
+          "is_hit": true
+        },
+        {
+          "block_id": "d74b527f3_p002_b00012",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c1",
+          "header_path": "股东名称",
+          "text": "刘随阳",
+          "is_hit": false
+        },
+        {
+          "block_id": "d74b527f3_p002_b00013",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东",
+          "text": "是",
+          "is_hit": false
+        },
+        {
+          "block_id": "d74b527f3_p002_b00014",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押股数（股）",
+          "text": "3,875,260",
+          "is_hit": false
+        },
+        {
+          "block_id": "d74b527f3_p002_b00015",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c4",
+          "header_path": "是否为限售股",
+          "text": "否",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E01",
+      "field": "pledge_amount",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "质押融资",
+      "hit_page": 2,
+      "hit_block": "d1320340e_p002_b00011",
+      "neighbourhood": [
+        {
+          "block_id": "d1320340e_p002_b00007",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c7",
+          "header_path": "质押/展期到期日",
+          "text": "质押/展期到期日",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00008",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c8",
+          "header_path": "质权人",
+          "text": "质权人",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00009",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c9",
+          "header_path": "占其所持股份比例(%)",
+          "text": "占其所持股份比例(%)",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00010",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c10",
+          "header_path": "占公司总股本比例(%)",
+          "text": "占公司总股本比例(%)",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00011",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c11",
+          "header_path": "质押融资资金用途",
+          "text": "质押融资资金用途",
+          "is_hit": true
+        },
+        {
+          "block_id": "d1320340e_p002_b00012",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c1",
+          "header_path": "股东名称",
+          "text": "有格投资",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00013",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东",
+          "text": "是",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00014",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押/展期股数（股）",
+          "text": "11,750,000",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00015",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c4",
+          "header_path": "是否为限售股",
+          "text": "否",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E02",
+      "field": "pledge_amount",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "质押融资",
+      "hit_page": 2,
+      "hit_block": "d1320340e_p002_b00011",
+      "neighbourhood": [
+        {
+          "block_id": "d1320340e_p002_b00007",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c7",
+          "header_path": "质押/展期到期日",
+          "text": "质押/展期到期日",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00008",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c8",
+          "header_path": "质权人",
+          "text": "质权人",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00009",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c9",
+          "header_path": "占其所持股份比例(%)",
+          "text": "占其所持股份比例(%)",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00010",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c10",
+          "header_path": "占公司总股本比例(%)",
+          "text": "占公司总股本比例(%)",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00011",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c11",
+          "header_path": "质押融资资金用途",
+          "text": "质押融资资金用途",
+          "is_hit": true
+        },
+        {
+          "block_id": "d1320340e_p002_b00012",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c1",
+          "header_path": "股东名称",
+          "text": "有格投资",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00013",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东",
+          "text": "是",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00014",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押/展期股数（股）",
+          "text": "11,750,000",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00015",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c4",
+          "header_path": "是否为限售股",
+          "text": "否",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E03",
+      "field": "pledge_amount",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "质押融资",
+      "hit_page": 2,
+      "hit_block": "d1320340e_p002_b00011",
+      "neighbourhood": [
+        {
+          "block_id": "d1320340e_p002_b00007",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c7",
+          "header_path": "质押/展期到期日",
+          "text": "质押/展期到期日",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00008",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c8",
+          "header_path": "质权人",
+          "text": "质权人",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00009",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c9",
+          "header_path": "占其所持股份比例(%)",
+          "text": "占其所持股份比例(%)",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00010",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c10",
+          "header_path": "占公司总股本比例(%)",
+          "text": "占公司总股本比例(%)",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00011",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c11",
+          "header_path": "质押融资资金用途",
+          "text": "质押融资资金用途",
+          "is_hit": true
+        },
+        {
+          "block_id": "d1320340e_p002_b00012",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c1",
+          "header_path": "股东名称",
+          "text": "有格投资",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00013",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东",
+          "text": "是",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00014",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押/展期股数（股）",
+          "text": "11,750,000",
+          "is_hit": false
+        },
+        {
+          "block_id": "d1320340e_p002_b00015",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c4",
+          "header_path": "是否为限售股",
+          "text": "否",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D4-PLD-010",
+      "event": "E01",
+      "field": "pledge_amount",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "质押融资",
+      "hit_page": 2,
+      "hit_block": "db2351d0b_p002_b00011",
+      "neighbourhood": [
+        {
+          "block_id": "db2351d0b_p002_b00007",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c7",
+          "header_path": "质押到期日",
+          "text": "质押到期日",
+          "is_hit": false
+        },
+        {
+          "block_id": "db2351d0b_p002_b00008",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c8",
+          "header_path": "质权人",
+          "text": "质权人",
+          "is_hit": false
+        },
+        {
+          "block_id": "db2351d0b_p002_b00009",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c9",
+          "header_path": "占其所持股份比例",
+          "text": "占其所持股份比例",
+          "is_hit": false
+        },
+        {
+          "block_id": "db2351d0b_p002_b00010",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c10",
+          "header_path": "占公司总股本比例",
+          "text": "占公司总股本比例",
+          "is_hit": false
+        },
+        {
+          "block_id": "db2351d0b_p002_b00011",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r1c11",
+          "header_path": "质押融资资金用途",
+          "text": "质押融资资金用途",
+          "is_hit": true
+        },
+        {
+          "block_id": "db2351d0b_p002_b00012",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c1",
+          "header_path": "股东名称",
+          "text": "广弘元",
+          "is_hit": false
+        },
+        {
+          "block_id": "db2351d0b_p002_b00013",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c2",
+          "header_path": "是否为控股股东",
+          "text": "是",
+          "is_hit": false
+        },
+        {
+          "block_id": "db2351d0b_p002_b00014",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c3",
+          "header_path": "本次质押股数（股）",
+          "text": "5,200,000",
+          "is_hit": false
+        },
+        {
+          "block_id": "db2351d0b_p002_b00015",
+          "page": 2,
+          "source_type": "cell",
+          "cell_ref": "r2c4",
+          "header_path": "是否为限售股",
+          "text": "否",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E01",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 2,
+      "hit_block": "dc0a3d5fb_p002_b00022",
+      "neighbourhood": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00021",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "截至本公告披露日，中标项目中，沈阳地铁9号线二期工程、沈阳地铁十号",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00022",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书，",
+          "is_hit": true
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00023",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "四、备查文件",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00024",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、《中标通知书》",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00025",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、《中标候选人公示》",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "营业收入",
+      "hit_page": 2,
+      "hit_block": "dc0a3d5fb_p002_b00016",
+      "neighbourhood": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00012",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00013",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "3、中标单位：浙江金盾风机股份有限公司",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00014",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "4、中标金额：14,850,116.40元",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00015",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、中标对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00016",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+          "is_hit": true
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00017",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "的23.4%。上述项目签订正式合同并顺利实施后，预计对公司未来的经营业绩和市场开拓产生积极的影响，有利于进一步提升公司在地铁领域的影响力。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E02",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 2,
+      "hit_block": "dc0a3d5fb_p002_b00022",
+      "neighbourhood": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00021",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "截至本公告披露日，中标项目中，沈阳地铁9号线二期工程、沈阳地铁十号",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00022",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书，",
+          "is_hit": true
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00023",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "四、备查文件",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00024",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、《中标通知书》",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00025",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、《中标候选人公示》",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E02",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "营业收入",
+      "hit_page": 2,
+      "hit_block": "dc0a3d5fb_p002_b00016",
+      "neighbourhood": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00012",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00013",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "3、中标单位：浙江金盾风机股份有限公司",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00014",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "4、中标金额：14,850,116.40元",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00015",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、中标对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00016",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+          "is_hit": true
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00017",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "的23.4%。上述项目签订正式合同并顺利实施后，预计对公司未来的经营业绩和市场开拓产生积极的影响，有利于进一步提升公司在地铁领域的影响力。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E03",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 2,
+      "hit_block": "dc0a3d5fb_p002_b00022",
+      "neighbourhood": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00021",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "截至本公告披露日，中标项目中，沈阳地铁9号线二期工程、沈阳地铁十号",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00022",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书，",
+          "is_hit": true
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00023",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "四、备查文件",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00024",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、《中标通知书》",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00025",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、《中标候选人公示》",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E03",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "营业收入",
+      "hit_page": 2,
+      "hit_block": "dc0a3d5fb_p002_b00016",
+      "neighbourhood": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00012",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00013",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "3、中标单位：浙江金盾风机股份有限公司",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00014",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "4、中标金额：14,850,116.40元",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00015",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、中标对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00016",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+          "is_hit": true
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00017",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "的23.4%。上述项目签订正式合同并顺利实施后，预计对公司未来的经营业绩和市场开拓产生积极的影响，有利于进一步提升公司在地铁领域的影响力。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E04",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 2,
+      "hit_block": "dc0a3d5fb_p002_b00022",
+      "neighbourhood": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00021",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "截至本公告披露日，中标项目中，沈阳地铁9号线二期工程、沈阳地铁十号",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00022",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书，",
+          "is_hit": true
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00023",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "四、备查文件",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00024",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、《中标通知书》",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00025",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、《中标候选人公示》",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E04",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "营业收入",
+      "hit_page": 2,
+      "hit_block": "dc0a3d5fb_p002_b00016",
+      "neighbourhood": [
+        {
+          "block_id": "dc0a3d5fb_p002_b00012",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00013",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "3、中标单位：浙江金盾风机股份有限公司",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00014",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "4、中标金额：14,850,116.40元",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00015",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、中标对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00016",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+          "is_hit": true
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00017",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "的23.4%。上述项目签订正式合同并顺利实施后，预计对公司未来的经营业绩和市场开拓产生积极的影响，有利于进一步提升公司在地铁领域的影响力。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00018",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的履行不影响公司业务的独立性，公司主要业务不会因为履行上述",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00019",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dc0a3d5fb_p002_b00020",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "营业总收入",
+      "hit_page": 3,
+      "hit_block": "d0b56135e_p003_b00026",
+      "neighbourhood": [
+        {
+          "block_id": "d0b56135e_p003_b00022",
+          "page": 3,
+          "source_type": "cell",
+          "cell_ref": "r13c1",
+          "header_path": null,
+          "text": "6.合同签署地点",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00023",
+          "page": 3,
+          "source_type": "cell",
+          "cell_ref": "r13c2",
+          "header_path": null,
+          "text": "达州市",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00024",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00025",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1.以上项目中标金额总计约为人民币9.76亿元，约占本公司中国会计准则下",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00026",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2025年经审计营业总收入的2.81%。因为上述项目跨年分期实施，对当期业绩影响有不确定性；如以上项目签订正式合同并顺利实施，在项目执行期间预计对本",
+          "is_hit": true
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E02",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "营业总收入",
+      "hit_page": 3,
+      "hit_block": "d0b56135e_p003_b00026",
+      "neighbourhood": [
+        {
+          "block_id": "d0b56135e_p003_b00022",
+          "page": 3,
+          "source_type": "cell",
+          "cell_ref": "r13c1",
+          "header_path": null,
+          "text": "6.合同签署地点",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00023",
+          "page": 3,
+          "source_type": "cell",
+          "cell_ref": "r13c2",
+          "header_path": null,
+          "text": "达州市",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00024",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00025",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1.以上项目中标金额总计约为人民币9.76亿元，约占本公司中国会计准则下",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00026",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2025年经审计营业总收入的2.81%。因为上述项目跨年分期实施，对当期业绩影响有不确定性；如以上项目签订正式合同并顺利实施，在项目执行期间预计对本",
+          "is_hit": true
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E03",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "营业总收入",
+      "hit_page": 3,
+      "hit_block": "d0b56135e_p003_b00026",
+      "neighbourhood": [
+        {
+          "block_id": "d0b56135e_p003_b00022",
+          "page": 3,
+          "source_type": "cell",
+          "cell_ref": "r13c1",
+          "header_path": null,
+          "text": "6.合同签署地点",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00023",
+          "page": 3,
+          "source_type": "cell",
+          "cell_ref": "r13c2",
+          "header_path": null,
+          "text": "达州市",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00024",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00025",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1.以上项目中标金额总计约为人民币9.76亿元，约占本公司中国会计准则下",
+          "is_hit": false
+        },
+        {
+          "block_id": "d0b56135e_p003_b00026",
+          "page": 3,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2025年经审计营业总收入的2.81%。因为上述项目跨年分期实施，对当期业绩影响有不确定性；如以上项目签订正式合同并顺利实施，在项目执行期间预计对本",
+          "is_hit": true
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-005",
+      "event": "E01",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 1,
+      "hit_block": "ddd80cf89_p001_b00006",
+      "neighbourhood": [
+        {
+          "block_id": "ddd80cf89_p001_b00002",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "吉峰三农科技服务股份有限公司关于中标项目签订合同的公告",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p001_b00003",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "本公司及董事会全体成员保证公告内容真实、准确和完整，并对公告中的虚假记载、误导性陈述或者重大遗漏承担责任。",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p001_b00004",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "一、交易概述",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p001_b00005",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "吉峰三农科技服务股份有限公司（以下简称“公司”）于2026年8月28日披",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p001_b00006",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "露了《关于项目中标结果公示并收到中标通知书的公告》（公告编号：2026-076）。公司作为联合体牵头人，与南京莱斯信息技术股份有限公司、中国铁塔股份有限公司江苏省分公司组成的联合体中标“宿城区低空全域智慧运营体系设备采购及配套服务项目”（以",
+          "is_hit": true
+        },
+        {
+          "block_id": "ddd80cf89_p001_b00007",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "近日，公司（联合体牵头人）与南京莱斯信息技术股份有限公司、中国铁塔",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p001_b00008",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "股份有限公司江苏省分公司组成的联合体与发包人江苏众安建设投资（集团）有限公司正式签署了《采购合同》，合同约定总金额为人民币14,888.20万元（含税），与中标金额一致。",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p001_b00009",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二、交易对手方情况",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p001_b00010",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、基本情况",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-005",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "营业收入",
+      "hit_page": 4,
+      "hit_block": "ddd80cf89_p004_b00001",
+      "neighbourhood": [
+        {
+          "block_id": "ddd80cf89_p004_b00001",
+          "page": 4,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "本次合同顺利实施后，预计将对公司营业收入和营业利润产生积极影响，履",
+          "is_hit": true
+        },
+        {
+          "block_id": "ddd80cf89_p004_b00002",
+          "page": 4,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "行上述合同不会影响公司业务的独立性，也不会导致公司对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p004_b00003",
+          "page": 4,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "本项目落地实施，是公司“低空经济+农业”双轮驱动战略的关键落地举措，",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p004_b00004",
+          "page": 4,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "本项目将推动公司低空生态能力建设及运营业务在江苏省内的区域化落地，并将有利于进一步提升公司在低空经济领域的影响力和市场竞争力，对公司后续在全国拓展同类业务具有积极的示范效应。",
+          "is_hit": false
+        },
+        {
+          "block_id": "ddd80cf89_p004_b00005",
+          "page": 4,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "五、风险提示",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-006",
+      "event": "E01",
+      "field": "bid_date",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "中标通知书",
+      "hit_page": 1,
+      "hit_block": "dfc6c3d84_p001_b00005",
+      "neighbourhood": [
+        {
+          "block_id": "dfc6c3d84_p001_b00001",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "证券代码：600846股票名称：同济科技公告编号：2026-041",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00002",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上海同济科技实业股份有限公司关于全资子公司项目中标的公告特别提示本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈述或者",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00003",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00004",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "公司全资子公司上海同济建设有限公司收到上海金滨海房地产开发有限公",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00005",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "司发出的中标通知书，上海同济建设有限公司与上海天华建筑设计有限公司联合",
+          "is_hit": true
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00006",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "中标金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00007",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "该项目位于上海市金山区山阳镇，东至蒙山北路，西至卫零北路，南至南阳",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00008",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "湾路，北至龙山路。该项目为新建商品房项目，总建筑面积约123,234.21平方米，其中地上总建筑面积82,034.21平方米，地下总建筑面积41,200平方米；包括新建6栋7-9层洋房住宅及2栋5-7层洋房住宅、9栋叠墅住宅、20栋联排住宅",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00009",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "截至本公告披露日，上海同济建设有限公司已完成合同签署。项目工期较长，",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-006",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "tier": "弱命中（表头或无数值）",
+      "hit_kw": "营业收入",
+      "hit_page": 1,
+      "hit_block": "dfc6c3d84_p001_b00010",
+      "neighbourhood": [
+        {
+          "block_id": "dfc6c3d84_p001_b00006",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "中标金山新城JSC1-0403单元3-02-01地块商品房项目-工程总承包项目。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00007",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "该项目位于上海市金山区山阳镇，东至蒙山北路，西至卫零北路，南至南阳",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00008",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "湾路，北至龙山路。该项目为新建商品房项目，总建筑面积约123,234.21平方米，其中地上总建筑面积82,034.21平方米，地下总建筑面积41,200平方米；包括新建6栋7-9层洋房住宅及2栋5-7层洋房住宅、9栋叠墅住宅、20栋联排住宅",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00009",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "截至本公告披露日，上海同济建设有限公司已完成合同签署。项目工期较长，",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00010",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "预计对公司当期营业收入、利润影响有限。敬请广大投资者注意投资风险。",
+          "is_hit": true
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00011",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "特此公告。",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00012",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上海同济科技实业股份有限公司董事会",
+          "is_hit": false
+        },
+        {
+          "block_id": "dfc6c3d84_p001_b00013",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "二〇二六年九月二十四日",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-007",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "营业收入",
+      "hit_page": 1,
+      "hit_block": "d3a6938fe_p001_b00005",
+      "neighbourhood": [
+        {
+          "block_id": "d3a6938fe_p001_b00001",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "股票代码：601886股票简称：江河集团公告编号：临2026-048",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00002",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "江河创建集团股份有限公司关于全资子公司签署重大工程合同的公告本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00003",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00004",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "江河创建集团股份有限公司(下称“公司”)全资子公司江河幕墙中东工程",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00005",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "有限公司近日在中东迪拜中标WResidences幕墙工程，中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元），约占公司2025年度营业收入的1.46%，该项目位于迪拜，建成后将成为当地的高端公寓项目。",
+          "is_hit": true
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00006",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "风险提示：截至本公告披露日，公司尚未完成与相关方签订正式合同，合同",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00007",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "的签订与履行均存在不确定性，敬请广大投资者注意投资风险。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00008",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "特此公告。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3a6938fe_p001_b00009",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "江河创建集团股份有限公司董事会",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-008",
+      "event": "E01",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 1,
+      "hit_block": "daa9b83fa_p001_b00005",
+      "neighbourhood": [
+        {
+          "block_id": "daa9b83fa_p001_b00001",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "证券代码：300355证券简称：蒙草生态公告编号：2026-056",
+          "is_hit": false
+        },
+        {
+          "block_id": "daa9b83fa_p001_b00002",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "蒙草生态环境（集团）股份有限公司关于子公司收到中标通知书的公告本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假",
+          "is_hit": false
+        },
+        {
+          "block_id": "daa9b83fa_p001_b00003",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "记载、误导性陈述或重大遗漏。",
+          "is_hit": false
+        },
+        {
+          "block_id": "daa9b83fa_p001_b00004",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "近日，蒙草生态环境（集团）股份有限公司（简称“公司”）子公司快乐小",
+          "is_hit": false
+        },
+        {
+          "block_id": "daa9b83fa_p001_b00005",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "草运动草（内蒙古）科技有限公司（简称“快乐小草公司”）收到《中标通知书》，快乐小草公司为“内蒙古自治区巴彦淖尔市乌拉特后旗三北工程林草湿荒一体化保护修复项目（2026年度）施工二标段”的中标人，项目中标金额为141,640,735元。公司已",
+          "is_hit": true
+        },
+        {
+          "block_id": "daa9b83fa_p001_b00006",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "一、中标项目主要内容",
+          "is_hit": false
+        },
+        {
+          "block_id": "daa9b83fa_p001_b00007",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "（一）项目名称：内蒙古自治区巴彦淖尔市乌拉特后旗三北工程林草湿荒一",
+          "is_hit": false
+        },
+        {
+          "block_id": "daa9b83fa_p001_b00008",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "体化保护修复项目（2026年度）施工二标段",
+          "is_hit": false
+        },
+        {
+          "block_id": "daa9b83fa_p001_b00009",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "（二）中标金额：141,640,735元",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E01",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 1,
+      "hit_block": "d3aa23f9a_p001_b00006",
+      "neighbourhood": [
+        {
+          "block_id": "d3aa23f9a_p001_b00002",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "浙江大丰实业股份有限公司关于项目中标的公告",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00003",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00004",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00005",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "浙江大丰实业股份有限公司（以下简称“公司”）于本月陆续收到相关项目",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00006",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目—曹娥江文化艺术中心产业综合体舞台工艺设备采购项目”及“大亚湾综合文化创意园项目—大亚湾综合文化创意",
+          "is_hit": true
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00007",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "一、中标项目概况",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00008",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "（一）深圳歌剧院项目舞台机械设备工程I标",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00009",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、项目名称：深圳歌剧院项目舞台机械设备工程I标",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00010",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、招标人：深圳市建筑工务署工程管理中心",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "收入",
+      "hit_page": 2,
+      "hit_block": "d3aa23f9a_p002_b00009",
+      "neighbourhood": [
+        {
+          "block_id": "d3aa23f9a_p002_b00005",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、招标人：惠州大亚湾润华旅游开发有限公司",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00006",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "室内装修施工",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00007",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的中标总金额约为36,992.4746万元，占公司2025年度经审计营",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00008",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "3、中标人：浙江大丰实业股份有限公司4、中标金额：人民币6,577.2673万元5、项目地址：惠州市二、此次中标对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00009",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+          "is_hit": true
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00010",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "经营业绩产生长期积极的影响。上述项目的履行不会影响公司业务的独立性，公",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00011",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "司不会因为履行上述项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00012",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "公司将按照招标文件要求办理合同签订事宜，具体细节以最终签署的正式合",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00013",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E02",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 1,
+      "hit_block": "d3aa23f9a_p001_b00006",
+      "neighbourhood": [
+        {
+          "block_id": "d3aa23f9a_p001_b00002",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "浙江大丰实业股份有限公司关于项目中标的公告",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00003",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00004",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00005",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "浙江大丰实业股份有限公司（以下简称“公司”）于本月陆续收到相关项目",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00006",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目—曹娥江文化艺术中心产业综合体舞台工艺设备采购项目”及“大亚湾综合文化创意园项目—大亚湾综合文化创意",
+          "is_hit": true
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00007",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "一、中标项目概况",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00008",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "（一）深圳歌剧院项目舞台机械设备工程I标",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00009",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、项目名称：深圳歌剧院项目舞台机械设备工程I标",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00010",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、招标人：深圳市建筑工务署工程管理中心",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E02",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "收入",
+      "hit_page": 2,
+      "hit_block": "d3aa23f9a_p002_b00009",
+      "neighbourhood": [
+        {
+          "block_id": "d3aa23f9a_p002_b00005",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、招标人：惠州大亚湾润华旅游开发有限公司",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00006",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "室内装修施工",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00007",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的中标总金额约为36,992.4746万元，占公司2025年度经审计营",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00008",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "3、中标人：浙江大丰实业股份有限公司4、中标金额：人民币6,577.2673万元5、项目地址：惠州市二、此次中标对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00009",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+          "is_hit": true
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00010",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "经营业绩产生长期积极的影响。上述项目的履行不会影响公司业务的独立性，公",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00011",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "司不会因为履行上述项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00012",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "公司将按照招标文件要求办理合同签订事宜，具体细节以最终签署的正式合",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00013",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E03",
+      "field": "bid_date",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "中标通知书",
+      "hit_page": 1,
+      "hit_block": "d3aa23f9a_p001_b00006",
+      "neighbourhood": [
+        {
+          "block_id": "d3aa23f9a_p001_b00002",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "浙江大丰实业股份有限公司关于项目中标的公告",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00003",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "本公司董事会及全体董事保证本公告内容不存在任何虚假记载、误导性陈",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00004",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "述或者重大遗漏，并对其内容的真实性、准确性和完整性承担法律责任。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00005",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "浙江大丰实业股份有限公司（以下简称“公司”）于本月陆续收到相关项目",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00006",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目—曹娥江文化艺术中心产业综合体舞台工艺设备采购项目”及“大亚湾综合文化创意园项目—大亚湾综合文化创意",
+          "is_hit": true
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00007",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "一、中标项目概况",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00008",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "（一）深圳歌剧院项目舞台机械设备工程I标",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00009",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "1、项目名称：深圳歌剧院项目舞台机械设备工程I标",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p001_b00010",
+          "page": 1,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、招标人：深圳市建筑工务署工程管理中心",
+          "is_hit": false
+        }
+      ]
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E03",
+      "field": "recognized_revenue",
+      "tier": "强命中（带值、非表头）",
+      "hit_kw": "收入",
+      "hit_page": 2,
+      "hit_block": "d3aa23f9a_p002_b00009",
+      "neighbourhood": [
+        {
+          "block_id": "d3aa23f9a_p002_b00005",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "2、招标人：惠州大亚湾润华旅游开发有限公司",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00006",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "室内装修施工",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00007",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "上述项目的中标总金额约为36,992.4746万元，占公司2025年度经审计营",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00008",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "3、中标人：浙江大丰实业股份有限公司4、中标金额：人民币6,577.2673万元5、项目地址：惠州市二、此次中标对公司的影响",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00009",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+          "is_hit": true
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00010",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "经营业绩产生长期积极的影响。上述项目的履行不会影响公司业务的独立性，公",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00011",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "司不会因为履行上述项目对业主方形成依赖。",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00012",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "公司将按照招标文件要求办理合同签订事宜，具体细节以最终签署的正式合",
+          "is_hit": false
+        },
+        {
+          "block_id": "d3aa23f9a_p002_b00013",
+          "page": 2,
+          "source_type": "paragraph",
+          "cell_ref": null,
+          "header_path": null,
+          "text": "三、风险提示",
+          "is_hit": false
+        }
+      ]
+    }
+  ],
+  "reading_guide": {
+    "命中块性质分布": {
+      "表格表头格": 8,
+      "正文段落": 24
+    },
+    "判定要点": [
+      "命中块是「表格表头格」→ 看同列的数据格有没有值；有值则说明原文有该字段信息",
+      "命中块是「表格数据格」→ 直接看它是否就是该字段的值",
+      "命中块是「正文段落」→ 看段落里是否给出该字段的数值，而非仅提及概念"
+    ],
+    "结论用法": "这 32 条逐条判定后，与「40 条确认原文无」合并，才是完整的分母裁剪依据"
+  }
+}
