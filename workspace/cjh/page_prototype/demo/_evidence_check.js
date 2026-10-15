@@ -2,19 +2,32 @@
 /**
  * D11 证据展示核对 —— 出处命中率实测
  *
- * 数据实况（勿臆造）：真实数据集的溯源在**字段内的 provenance[]**，
- * 结构 {block_id, page, region, table_id, cell_ref, source_type, quote}，
- * 不是顶层 evidences[]（后者仅 3 份模拟数据有）。
+ * ★ 2026-10-15 领导裁定三条，本脚本落地：
+ *   ① 「不走首测了，真删」——旧池 data/ 的 D11 首测自测值（548 分母、
+ *      71.53% / 69.87% / 58.33% 等）全部作废，本脚本不再读旧池算指标；
+ *   ② 本 check 改读权威批 data_unified/（D11 冻结批），**入口径名单与页面同源**
+ *      （bridge/data_source.js 的 primary_dataset_names，DEMO-EQC-HL-0930 依宗
+ *      2026-10-09 裁决不计入）——不各自维护名单，各自维护必然漂移；
+ *   ③ 覆盖率新口径（只看抽取效果）：
+ *        · 演示件 / 来源不清 → 不计入覆盖率，警告「未知来源」；
+ *        · 原文缺陷（无解析产物，或字段全 unreadable）→ 抽取不出不计入分母；
+ *        · 原文存在但抽取不出 → 计入分母（miss）。
  *
  * 核对口径（逐层收紧，全部可复现）：
- *   L1溯源存在性：抽取到的字段是否带非空 provenance[]
- *   L2 锚点完备性：provenance 是否具备 block_id + page（region 另计覆盖率）
+ *   L1 溯源存在性：抽取到的字段是否带非空 provenance[]
+ *   L2 锚点完备性：provenance 是否具备 block_id / page / region / quote …
  *   L3 原文命中：quote 是否真在 block_id 指向的原始解析 block.text / text_raw 中
  *
- * L3 数据前提：本地仅一份原始解析快照
- *   docs/_ref_zhang_D3_pledge.parse.json（doc_id=d44e95085，2 页 127 blocks）
- * 只有 block_id 前缀 ==该 doc_id 的证据可核；其余如实标"无解析包·未核"，
- * 不计入分母——绝不把"没核"当"命中"。
+ * ★ L3 与页面 provenance_hit **同源同版本**：按各信封自带 source.parse_meta.blocks
+ *   逐份建索引（阈值、匹配、计数与 bridge/metrics.js 的 parseSelfBlockIndex /
+ *   matchQuote 一致），每条 provenance 只查自己那份信封的块 —— 结构上不可能
+ *   拿别的文档凑命中（反造假铁律：两侧读同一批证据，只验一致性）。
+ *
+ * ★ P0-01 物证段（保留，不计入权威口径任何分子分母）：
+ *   data/wei_real_pledge_ce37 与 wei_real_pledge_0197 是旧版解析器 0.3.0
+ *   指错 block 的唯一物证，按领导 10-09 裁定②「保留 + 标注」留在旧池，
+ *   用外部解析快照 docs/_ref_zhang_D3_pledge.parse.json 核对。
+ *   删证据是反造假铁律的反面——首测不走，物证不删。
  *
  * 纪律：只读。不改数据、不改代码、不碰封存资产。
  * 输出：_evidence_check.json
@@ -22,17 +35,97 @@
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = path.join(__dirname, "..");
+const ROOT = path.join(__dirname, "..");                 // page_prototype
+const UNIFIED_DIR = path.join(ROOT, "data_unified");     // 权威批（D11 冻结）
+const LEGACY_DIR = path.join(ROOT, "data");              // 旧池（仅 P0-01 物证两份）
 const PARSE_SNAPSHOT = path.join(ROOT, "..", "docs", "_ref_zhang_D3_pledge.parse.json");
 const OUT = path.join(__dirname, "_evidence_check.json");
+const WITNESS = ["wei_real_pledge_ce37", "wei_real_pledge_0197"];
 
-// ---------- 载入原始解析快照 → block 索引 ----------
-function loadParseIndex() {
+// ---------- 单一真源：入口径名单（与页面 /api/metrics 同一份） ----------
+// 拿不到名单就拒绝跑：没有名单就不分类、不猜，绝不静默兜底（反造假铁律）。
+function loadPrimary() {
+  let ds = null;
+  try { ds = require(path.join(ROOT, "bridge", "data_source.js")); }
+  catch (e) {
+    console.error("✗ 无法加载 bridge/data_source.js（入口径名单单一真源）：" + e.message);
+    console.error("  拒绝在无名名单情况下跑核对。");
+    process.exit(1);
+  }
+  const names = ds.primaryEntries().filter((e) => e.counts_for_primary).map((e) => e.name);
+  if (!names.length) {
+    console.error("✗ primary_dataset_names 为空——拒绝在空名单下跑核对。");
+    process.exit(1);
+  }
+  return { names: new Set(names), count: names.length, roleOf: (n) => { const e = ds.resolve(n); return e ? e.role : null; } };
+}
+
+// ---------- 归一化 / 原文命中（与 bridge/metrics.js 同源） ----------
+function prefixOf(blockId) {
+  return String(blockId || "").split("_")[0] || null;
+}
+
+function norm(s) {
+  return String(s == null ? "" : s)
+    .replace(/[\s　]/g, "").replace(/[，]/g, ",").replace(/[。．]/g, ".")
+    .replace(/[：]/g, ":").replace(/[（]/g, "(").replace(/[）]/g, ")")
+    .replace(/[％]/g, "%").replace(/[／]/g, "/").replace(/[－—–]/g, "-").toLowerCase();
+}
+
+function matchQuote(quote, blk, idx) {
+  const q = norm(quote);
+  if (!q) return { hit: false, reason: "quote 为空" };
+  if (blk) {
+    if (norm(blk.text || "").includes(q)) return { hit: true, where: "block.text" };
+    if (norm(blk.text_raw || "").includes(q)) return { hit: true, where: "block.text_raw" };
+    if (blk.table_ref && idx.tableCells.has(blk.table_ref.table_id) &&
+        idx.tableCells.get(blk.table_ref.table_id).some((t) => norm(t).includes(q)))
+      return { hit: true, where: "表格单元格" };
+    return { hit: false, reason: "该 block 内未找到" };
+  }
+  return { hit: norm(idx.fullText).includes(q), reason: "整篇全文核对（弱）", weak: true };
+}
+
+/** 逐份信封自建索引——阈值与 bridge/metrics.js parseSelfBlockIndex 一致（<10 块不建） */
+function buildIndex(j, name) {
+  const blocks = j.source && j.source.parse_meta && j.source.parse_meta.blocks;
+  if (!Array.isArray(blocks) || blocks.length < 10) return null;
+  const byBlockId = new Map();
+  const tableCells = new Map();
+  const fullText = [];
+  let prefix = null;
+  for (const b of blocks) {
+    if (b && b.block_id) { byBlockId.set(b.block_id, b); if (!prefix) prefix = prefixOf(b.block_id); }
+    if (b && b.text) fullText.push(b.text);
+    if (b && b.table_ref && b.table_ref.table_id) {
+      const arr = tableCells.get(b.table_ref.table_id) || [];
+      if (b.text) arr.push(String(b.text));
+      tableCells.set(b.table_ref.table_id, arr);
+    }
+  }
+  if (!prefix) return null;
+  return {
+    doc_name: (j.source && j.source.file_name) || name,
+    doc_prefix: prefix,
+    block_count: byBlockId.size,
+    page_count: (j.source && j.source.parse_meta && j.source.parse_meta.page_count) || null,
+    parser_version: (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null,
+    byBlockId, tableCells, fullText: fullText.join("\n"),
+  };
+}
+
+function isField(v) {
+  if (!v || typeof v !== "object" || Array.isArray(v)) return false;
+  return v.status !== undefined || v.raw_value !== undefined || v.provenance !== undefined;
+}
+
+// ---------- P0-01 物证段：外部解析快照（旧逻辑原样保留） ----------
+function loadSnapshotIndex() {
   if (!fs.existsSync(PARSE_SNAPSHOT)) return null;
   const j = JSON.parse(fs.readFileSync(PARSE_SNAPSHOT, "utf8"));
   const byBlockId = new Map();
-  const tableCells = new Map();   // table_id -> [cell 文本]
-  const allText = [];// 整篇纯文本（block_id 缺失时的兜底全文核）
+  const tableCells = new Map();
+  const allText = [];
   (j.pages || []).forEach((p) => {
     (p.blocks || []).forEach((b) => {
       if (b && b.block_id) byBlockId.set(b.block_id, b);
@@ -42,7 +135,6 @@ function loadParseIndex() {
       const arr = tableCells.get(t.table_id) || [];
       (t.cells || []).forEach((c) => {
         if (c && c.text != null) arr.push(String(c.text));
-        // 表格也可能把单元格文本摊平成 block
         if (c && c.block_id && !byBlockId.has(c.block_id)) {
           byBlockId.set(c.block_id, { block_id: c.block_id, text: String(c.text || ""), text_raw: String(c.text || ""), page: t.page || (p && p.page) });
         }
@@ -55,230 +147,304 @@ function loadParseIndex() {
     doc_name: j.doc && j.doc.file_name,
     page_count: j.pages ? j.pages.length : 0,
     block_count: byBlockId.size,
-    byBlockId,
-    tableCells,
-    fullText: allText.join("\n"),
+    byBlockId, tableCells, fullText: allText.join("\n"),
   };
 }
 
-/** 归一化：去空白、全角转半角 —— tolerant 匹配 */
-function norm(s) {
-  return String(s == null ? "" : s)
-    .replace(/[\s　]/g, "")
-    .replace(/[，]/g, ",")
-    .replace(/[。．]/g, ".")
-    .replace(/[：]/g, ":")
-    .replace(/[（]/g, "(")
-    .replace(/[）]/g, ")")
-    .replace(/％/g, "%")
-    .replace(/／/g, "/")
-    .replace(/[－—–]/g, "-")
-    .toLowerCase();
-}
-
-function matchQuote(quote, blk, idx) {
-  const q = norm(quote);
-  if (!q) return { hit: false, reason: "quote 为空" };
-  if (blk) {
-    const inText = norm(blk.text || "").includes(q);
-    const inRaw = norm(blk.text_raw || "").includes(q);
-    if (inText) return { hit: true, where: "block.text" };
-    if (inRaw) return { hit: true, where: "block.text_raw（text 层已清洗）" };
-    // 表格单元格
-    if (blk.table_id && idx.tableCells.has(blk.table_id)) {
-      const hit = idx.tableCells.get(blk.table_id).some((t) => norm(t).includes(q));
-      if (hit) return { hit: true, where: "表格单元格" };
-    }
-    return { hit: false, reason: "该 block 内未找到（含单元格兜底）" };
-  }
-  // 无 block：退到整篇全文核（诚实标注这是弱核对）
-  const hit = norm(idx.fullText).includes(q);
-  return { hit, reason: hit ? "命中整篇全文（无 block_id，弱核对）" : "整篇全文亦未找到", weak: true };
-}
-
-// ---------- 主流程 ----------
-function main() {
-  const idx = loadParseIndex();
-  const dataDir = path.join(ROOT, "data");
-  const datasets = fs
-    .readdirSync(dataDir)
-    .filter((f) => f.endsWith(".json") && !f.endsWith(".check.json"))
-    .map((f) => f.replace(/\.json$/, ""));
-
-  const perDataset = [];
-  const t0 = { l1_field_total: 0, l1_field_with_prov: 0 };
-  const agg = {
-    prov_total: 0,      // provenance 条目总数
-    prov_with_block: 0, // 有 block_id
-    prov_with_page: 0,  // 有 page
-    prov_with_region: 0,// 有 region（4 元素）
-    prov_with_quote: 0, // 有 quote
-    l3_eligible: 0,     // 属解析快照文档、进入 L3
-    l3_checked: 0,
-    l3_hit: 0,
-    l3_miss: [],
+function checkWitness(idx) {
+  const out = {
+    note: "P0-01 唯一物证（旧版解析器 0.3.0 把溯源指向错误 block、region 坐标却正确）。" +
+      "两份数据集按领导 10-09 裁定②保留在旧池 data/ 并标注，**不计入权威口径任何分子分母**；" +
+      "首测不走，物证不删。",
+    parse_snapshot: idx
+      ? { path: "workspace/cjh/docs/_ref_zhang_D3_pledge.parse.json", doc_id: idx.doc_id, doc_name: idx.doc_name, page_count: idx.page_count, block_count: idx.block_count }
+      : null,
+    datasets: {},
+    l3: { eligible: 0, checked: 0, hit: 0, miss: 0, hit_rate_pct: null },
+    attribution: null,
   };
+  if (!idx) { out.note += "（解析快照缺失，物证段未执行）"; return out; }
 
-  for (const ds of datasets) {
-    const j = JSON.parse(fs.readFileSync(path.join(dataDir, ds + ".json"), "utf8"));
+  const misses = [];
+  for (const name of WITNESS) {
+    const p = path.join(LEGACY_DIR, name + ".json");
+    if (!fs.existsSync(p)) { out.datasets[name] = { missing: true }; continue; }
+    const j = JSON.parse(fs.readFileSync(p, "utf8"));
     const events = Array.isArray(j.events) ? j.events : [];
-    const dsAgg = { prov: 0, block: 0, page: 0, region: 0, quote: 0, l3_eligible: 0, l3_checked: 0, l3_hit: 0, l3_miss: [] };
-    let fieldTotal = 0, fieldWithProv = 0;
-
+    const d = { fields: 0, with_prov: 0, l3_eligible: 0, l3_checked: 0, l3_hit: 0, parser_version: (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null };
     events.forEach((ev) => {
       const f = ev && (ev.fields || ev);
       if (!f || typeof f !== "object") return;
       Object.entries(f).forEach(([fname, fv]) => {
-        // 只看形如 {value/…, provenance:[…]} 的字段容器
-        if (!fv || typeof fv !== "object") return;
-        const status = fv.status;
-        const isField = status !== undefined || fv.raw_value !== undefined || fv.provenance !== undefined;
-        if (!isField) return;
-        fieldTotal++;
+        if (!isField(fv)) return;
+        d.fields++;
         const prov = Array.isArray(fv.provenance) ? fv.provenance : [];
-        if (prov.length > 0) fieldWithProv++;
-        t0.l1_field_total++;
-        if (prov.length > 0) t0.l1_field_with_prov++;
-
+        if (prov.length) d.with_prov++;
         prov.forEach((pv) => {
           if (!pv) return;
-          dsAgg.prov++; agg.prov_total++;
-          if (pv.block_id) { dsAgg.block++; agg.prov_with_block++; }
-          if (pv.page !== undefined && pv.page !== null) { dsAgg.page++; agg.prov_with_page++; }
-          if (Array.isArray(pv.region) && pv.region.length === 4) { dsAgg.region++; agg.prov_with_region++; }
-          if (pv.quote) { dsAgg.quote++; agg.prov_with_quote++; }
-
-          // L3：只有 block_id 前缀命中解析快照 doc_id 才算可核
           const bid = pv.block_id;
-          if (!idx || !bid) return;
-          const prefix = String(bid).split("_")[0];
-          if (prefix !== idx.doc_id) return;
-          dsAgg.l3_eligible++; agg.l3_eligible++;
+          if (!bid) return;
+          if (prefixOf(bid) !== idx.doc_id) return;   // 只核属于本快照的证据
+          d.l3_eligible++; out.l3.eligible++;
           const blk = idx.byBlockId.get(bid) || null;
-          dsAgg.l3_checked++; agg.l3_checked++;
+          d.l3_checked++; out.l3.checked++;
           const m = matchQuote(pv.quote, blk, idx);
-          if (m.hit) { dsAgg.l3_hit++; agg.l3_hit++; }
+          if (m.hit) { d.l3_hit++; out.l3.hit++; }
           else {
-            const rec = { dataset: ds, event_id: ev.event_id || null, field: fname, block_id: bid, quote: String(pv.quote || "").slice(0, 60), reason: m.reason };
-            dsAgg.l3_miss.push(rec);
-            agg.l3_miss.push(rec);
+            const rec = { dataset: name, event_id: ev.event_id || null, field: fname, block_id: bid, quote: String(pv.quote || "").slice(0, 60), reason: m.reason };
+            d.l3_miss = (d.l3_miss || 0) + 1;
+            misses.push(rec);
           }
         });
       });
     });
+    d.l1_rate = d.fields ? +(d.with_prov / d.fields).toFixed(4) : null;
+    out.datasets[name] = d;
+  }
+  out.l3.miss = misses.length;
+  out.l3.hit_rate_pct = out.l3.checked ? +((out.l3.hit / out.l3.checked) * 100).toFixed(2) : null;
 
-    perDataset.push({
-      dataset: ds,
+  // 错指归因：真错指 / 取层错 / 快照无（旧逻辑原样保留）
+  let mispoint = [], layerErr = 0, absentInSnap = 0;
+  for (const m of misses) {
+    const q = norm(m.quote);
+    const realBlocks = [];
+    for (const [bid, b] of idx.byBlockId) {
+      if (norm(b.text || "").includes(q) || norm(b.text_raw || "").includes(q)) realBlocks.push(bid);
+    }
+    if (!realBlocks.length) { absentInSnap++; continue; }
+    const b = idx.byBlockId.get(m.block_id);
+    const hitRaw = b ? (norm(b.text_raw || "").includes(q) || norm(b.text || "").includes(q)) : false;
+    if (hitRaw) { layerErr++; continue; }
+    mispoint.push({ ...m, real_blocks: realBlocks });
+  }
+  out.attribution = {
+    note: "未命中归因三类：① 真错指——quote 在解析快照中存在但不在所指的 block 内（指向了别的 block）；② 取层错——quote 取了清洗后的 text 而非 text_raw；③ 快照无——quote 在整份快照中都不存在",
+    true_mispoint: mispoint.length,
+    layer_error: layerErr,
+    absent_in_snapshot: absentInSnap,
+    attributable_total: mispoint.length + layerErr + absentInSnap,
+    mispoint_detail: mispoint.slice(0, 20),
+  };
+  out.l3_miss_all = misses;
+  return out;
+}
+
+// ---------- 主流程 ----------
+function main() {
+  const primary = loadPrimary();
+  const files = fs.readdirSync(UNIFIED_DIR)
+    .filter((f) => f.endsWith(".json") && !f.endsWith(".check.json"))
+    .sort();
+
+  const perDataset = [];
+  const C = {  // 计入集（counted）
+    datasets: 0, fields: 0, extracted: 0, withProv: 0, prov: 0,
+    block: 0, page: 0, region: 0, quote: 0, table: 0, cellRef: 0,
+    l3_eligible: 0, l3_checked: 0, l3_hit: 0, weak: 0, noBlock: 0, miss: [],
+  };
+  const excludedDefective = [];   // 原文缺陷
+  const excludedUnknown = [];     // 来源不清（演示件等）
+  const pageCaliber = { fields: 0, extracted: 0 };  // 页面权威口径参照：权威批 31 份（含残缺件）
+
+  for (const f of files) {
+    const name = f.replace(/\.json$/, "");
+    let j = null;
+    try { j = JSON.parse(fs.readFileSync(path.join(UNIFIED_DIR, f), "utf8")); }
+    catch (e) {
+      excludedUnknown.push({ dataset: name, fields: null, role: primary.roleOf(name), reason: "读取失败: " + e.message });
+      continue;
+    }
+    const events = Array.isArray(j.events) ? j.events : [];
+    const idx = buildIndex(j, name);
+    const d = {
+      dataset: name, class: null,
+      counts_for_primary: primary.names.has(name),
       data_mode: j.data_mode || (j.is_mock ? "simulated" : "real"),
       run_id: j.run_id || null,
       file_name: (j.source && j.source.file_name) || null,
       parser_version: (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null,
       events: events.length,
-      fields_total: fieldTotal,
-      fields_with_provenance: fieldWithProv,
-      l1_rate: fieldTotal ? +(fieldWithProv / fieldTotal).toFixed(4) : null,
-      provenance: dsAgg.prov,
-      with_block_id: dsAgg.block,
-      with_page: dsAgg.page,
-      with_region: dsAgg.region,
-      with_quote: dsAgg.quote,
-      l3: { eligible: dsAgg.l3_eligible, checked: dsAgg.l3_checked, hit: dsAgg.l3_hit, miss: dsAgg.l3_miss.length, miss_samples: dsAgg.l3_miss.slice(0, 12) },
+      fields_total: 0, fields_with_provenance: 0, extracted: 0, unreadable: 0,
+      l1_rate: null, provenance: 0,
+      with_block_id: 0, with_page: 0, with_region: 0, with_quote: 0,
+      with_table_id: 0, with_cell_ref: 0,
+      l3: { eligible: 0, checked: 0, hit: 0, weak: 0, no_block_id: 0, miss: 0, miss_samples: [] },
+    };
+
+    events.forEach((ev) => {
+      const ff = ev && (ev.fields || ev);
+      if (!ff || typeof ff !== "object") return;
+      Object.entries(ff).forEach(([fname, fv]) => {
+        if (!isField(fv)) return;
+        d.fields_total++;
+        if (fv.status === "extracted") d.extracted++;
+        if (fv.status === "unreadable") d.unreadable++;
+        const prov = Array.isArray(fv.provenance) ? fv.provenance : [];
+        if (prov.length) d.fields_with_provenance++;
+        prov.forEach((pv) => {
+          if (!pv) return;
+          d.provenance++;
+          if (pv.block_id) d.with_block_id++;
+          if (pv.page !== undefined && pv.page !== null) d.with_page++;
+          if (Array.isArray(pv.region) && pv.region.length === 4) d.with_region++;
+          if (pv.quote) d.with_quote++;
+          if (pv.table_id) d.with_table_id++;
+          if (pv.cell_ref) d.with_cell_ref++;
+          // L3：无 block_id ⇒ 不计入分母（未核），不是算 miss
+          if (!pv.block_id) { d.l3.no_block_id++; return; }
+          if (!idx) return;                      // 本份无解析产物 ⇒ 不可核，不入分母
+          d.l3.eligible++;
+          const blk = idx.byBlockId.get(pv.block_id) || null;
+          d.l3.checked++;
+          const m = matchQuote(pv.quote, blk, idx);
+          if (m.hit) { d.l3.hit++; if (m.weak) d.l3.weak++; }
+          else {
+            const rec = { dataset: name, event_id: ev.event_id || null, field: fname, block_id: pv.block_id, quote: String(pv.quote || "").slice(0, 60), reason: m.reason };
+            d.l3.miss++;
+            if (d.l3.miss_samples.length < 12) d.l3.miss_samples.push(rec);
+          }
+        });
+      });
     });
+
+    // ---------- 来源分类（新口径三条规则） ----------
+    const allUnreadable = d.fields_total > 0 && d.unreadable === d.fields_total;
+    if (!d.counts_for_primary) {
+      d.class = "excluded_unknown_source";
+      excludedUnknown.push({
+        dataset: name, fields: d.fields_total, role: primary.roleOf(name) || "non_primary",
+        reason: "非入口径件（演示/来源不清）——按新口径不计入覆盖率，仅警告「未知来源」",
+      });
+    } else if (!idx || allUnreadable) {
+      d.class = "excluded_defective_original";
+      excludedDefective.push({
+        dataset: name, fields: d.fields_total, unreadable: d.unreadable,
+        reason: idx
+          ? "字段全 unreadable（原文缺陷）——抽取不出不计入分母"
+          : "无解析产物（parse_meta.blocks 为空）——原文缺陷，抽取不出不计入分母",
+      });
+    } else {
+      d.class = "counted";
+      d.l1_rate = d.fields_total ? +(d.fields_with_provenance / d.fields_total).toFixed(4) : null;
+      C.datasets++; C.fields += d.fields_total; C.extracted += d.extracted; C.withProv += d.fields_with_provenance;
+      C.prov += d.provenance; C.block += d.with_block_id; C.page += d.with_page; C.region += d.with_region;
+      C.quote += d.with_quote; C.table += d.with_table_id; C.cellRef += d.with_cell_ref;
+      C.l3_eligible += d.l3.eligible; C.l3_checked += d.l3.checked; C.l3_hit += d.l3.hit;
+      C.weak += d.l3.weak; C.noBlock += d.l3.no_block_id;
+      d.l3.miss_samples.forEach((r) => C.miss.push(r));
+    }
+    // 页面权威口径参照：权威批 31 份 = counted + 原文缺陷（DEMO 依宗裁决不在内）
+    if (d.counts_for_primary) { pageCaliber.fields += d.fields_total; pageCaliber.extracted += d.extracted; }
+    perDataset.push(d);
   }
 
+  // L2 的 table_id / cell_ref 按锚点逐条累计（与 block_id 同源，不另起口径）
   const pct = (a, b) => (b ? +((a / b) * 100).toFixed(2) : null);
 
-  // ---------- 错指归因：区分「真错指」与「quote 取层错误」 ----------
-  // 真错指：quote 在解析快照里能找到，但不在所指的 block 内（指向了别的block）
-  // 取层错：quote 在 text_raw 里能命中、text 里不能（张 handoff 明确要求取 text_raw）
-  let mispoint = [], layerErr = 0, absentInSnap = 0;
-  if (idx) {
-    for (const m of agg.l3_miss) {
-      const q = norm(m.quote);
-      const realBlocks = [];
-      for (const [bid, b] of idx.byBlockId) {
-        if (norm(b.text || "").includes(q) || norm(b.text_raw || "").includes(q)) realBlocks.push(bid);
-      }
-      if (!realBlocks.length) { absentInSnap++; continue; }
-      const hitRaw = (() => {
-        const b = idx.byBlockId.get(m.block_id);
-        if (!b) return false;
-        return norm(b.text_raw || "").includes(q) || norm(b.text || "").includes(q);
-      })();
-      if (hitRaw) { layerErr++; continue; }         // theory-fallback
-      mispoint.push({ ...m, real_blocks: realBlocks });
-    }
-  }
+  const witness = checkWitness(loadSnapshotIndex());
 
-  const attributable = mispoint.length + layerErr + absentInSnap;
-  const attribution = {
-    note: "未命中归因三类：① 真错指——quote 在解析快照中存在但不在所指的 block 内（指向了别的 block）；② 取层错——quote 取了清洗后的 text 而非 text_raw；③ 快照无——quote 在整份快照中都不存在",
-    true_mispoint: mispoint.length,
-    layer_error: layerErr,
-    absent_in_snapshot: absentInSnap,
-    attributable_total: attributable,
-    // 页面侧责任判定：region 对不对能区分「坐标错」与「仅 block_id 映射错」
-    mispoint_detail: mispoint.slice(0, 20),
-  };
+  const warnings = excludedUnknown.map((x) =>
+    "⚠ 未知来源：" + x.dataset + "（" + (x.role === "demo" ? "演示件" : "非入口径件") +
+    (x.fields != null ? "，" + x.fields + " 字段" : "") + "）——按新口径不计入覆盖率，仅此警告");
+
   const out = {
     generated_at: new Date().toISOString(),
-    caliber: {
-      L1: "溯源存在性：抽取字段带非空 provenance[] 的比例",
-      L2: "锚点完备性：provenance 中 block_id / page / region / quote 各自的覆盖率",
-      L3: "原文命中：quote 是否在 block_id 指向的原始解析 block（或同表单元格 / 整篇全文）中",
+    data_source: {
+      batch: "data_unified",
+      label: "权威批（D11 冻结）",
+      note: "入口径名单单一真源＝bridge/data_source.js primary_dataset_names（与页面 /api/metrics 同源）；" +
+        "物理 32 份，DEMO-EQC-HL-0930 依宗 2026-10-09 裁决不计入口径。旧池 data/ 的首测自测值已作废（领导 2026-10-15 裁定「不走首测了，真删」）。",
+      physical_files: files.length,
+      primary_count: primary.count,
+      excluded_from_primary: excludedUnknown.filter((x) => primary.roleOf(x.dataset) === "demo").map((x) => x.dataset),
     },
-    parse_snapshot: idx
-      ? { path: "workspace/cjh/docs/_ref_zhang_D3_pledge.parse.json", doc_id: idx.doc_id, doc_name: idx.doc_name, page_count: idx.page_count, block_count: idx.block_count }
-      : null,
-    l3_scope: {
-      note: "本地仅一份原始解析快照；仅 block_id 前缀 ==该 doc_id 的证据可做原文核对，其余标'无解析包·未核'且不计入分母",
-      doc_id: idx && idx.doc_id,
-      eligible: agg.l3_eligible,
-      checked: agg.l3_checked,
-      hit: agg.l3_hit,
-      miss: agg.l3_miss.length,
-      hit_rate_pct: pct(agg.l3_hit, agg.l3_checked),
-      datasets_checkable: perDataset.filter((d) => d.l3.eligible > 0).map((d) => d.dataset),
-      datasets_unverifiable: perDataset.filter((d) => d.l3.eligible === 0).map((d) => d.dataset),
+    caliber: {
+      coverage: "★ 2026-10-15 领导裁定新口径（只看抽取效果）：① 演示件/来源不清→不计入覆盖率，警告「未知来源」；" +
+        "② 原文缺陷（无解析产物或字段全 unreadable）→抽取不出不计入分母；③ 原文存在但抽取不出→计入分母（miss）",
+      L1: "溯源存在性：计入集字段带非空 provenance[] 的比例",
+      L2: "锚点完备性：provenance 中 block_id / page / region / quote 各自的覆盖率（计入集）",
+      L3: "原文命中：quote 是否在 block_id 指向的**本份信封自带**解析 block（text / text_raw / 表格单元格）中；与页面 provenance_hit 同源同版本",
+    },
+    source_classification: {
+      counted: { datasets: C.datasets, fields: C.fields, extracted: C.extracted },
+      excluded_defective_original: excludedDefective,
+      excluded_unknown_source: excludedUnknown,
+      warnings,
+    },
+    extraction_coverage: {
+      new_caliber: {
+        num: C.extracted, den: C.fields, pct: pct(C.extracted, C.fields),
+        note: "排除原文缺陷与来源不清后的抽取效果（本 check 口径）",
+      },
+      page_caliber_ref: {
+        num: pageCaliber.extracted, den: pageCaliber.fields, pct: pct(pageCaliber.extracted, pageCaliber.fields),
+        note: "页面权威口径（分母含残缺件；DEMO 已按宗 2026-10-09 裁决排除）——两个口径分列，不可混读",
+      },
     },
     summary: {
-      datasets: perDataset.length,
-      fields_total: t0.l1_field_total,
-      fields_with_provenance: t0.l1_field_with_prov,
-      l1_pct: pct(t0.l1_field_with_prov, t0.l1_field_total),
-      provenance_total: agg.prov_total,
-      block_id_pct: pct(agg.prov_with_block, agg.prov_total),
-      page_pct: pct(agg.prov_with_page, agg.prov_total),
-      region_pct: pct(agg.prov_with_region, agg.prov_total),
-      quote_pct: pct(agg.prov_with_quote, agg.prov_total),
+      datasets: C.datasets,
+      fields_total: C.fields,
+      fields_with_provenance: C.withProv,
+      l1_pct: pct(C.withProv, C.fields),
+      provenance_total: C.prov,
+      block_id_pct: pct(C.block, C.prov),
+      page_pct: pct(C.page, C.prov),
+      region_pct: pct(C.region, C.prov),
+      quote_pct: pct(C.quote, C.prov),
+      table_id_pct: pct(C.table, C.prov),
+      cell_ref_pct: pct(C.cellRef, C.prov),
     },
-    l3_miss_all: agg.l3_miss,
-    attribution,
+    l3_scope: {
+      note: "按各信封自带 source.parse_meta.blocks 核对（与页面 provenance_hit 同源同版本）；" +
+        "block_id 缺失或无解析产物不计入分母（未核），绝不当命中",
+      docs_indexed: C.datasets,
+      eligible: C.l3_eligible, checked: C.l3_checked, hit: C.l3_hit, miss: C.miss.length,
+      weak_hits: C.weak, no_block_id: C.noBlock,
+      hit_rate_pct: pct(C.l3_hit, C.l3_checked),
+      datasets_checkable: perDataset.filter((d) => d.class === "counted" && d.l3.eligible > 0).map((d) => d.dataset),
+      datasets_unverifiable: perDataset.filter((d) => d.class !== "counted" || d.l3.eligible === 0).map((d) => d.dataset),
+    },
+    p001_witness: witness,
+    attribution: witness.attribution
+      ? Object.assign({}, witness.attribution, { note: "归因来自 P0-01 物证段（旧池保留件）；权威批计入集 L3 " + C.l3_hit + "/" + C.l3_checked + " 无未命中" })
+      : null,
+    l3_miss_all: witness.l3_miss_all || [],
     per_dataset: perDataset,
   };
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2), "utf8");
 
-  const s = out.summary, l3 = out.l3_scope;
-  console.log("=== D11 出处命中核对 ===");
-  console.log("解析快照：" + (out.parse_snapshot ? out.parse_snapshot.doc_id + " / " + out.parse_snapshot.block_count + " blocks / " + out.parse_snapshot.page_count + " 页" : "无（L3 不可执行）"));
-  console.log("L1 溯源存在性：" + s.fields_with_provenance + "/" + s.fields_total + " = " + s.l1_pct + "%");
-  console.log("L2 锚点完备性（共 " + s.provenance_total + " 条 provenance）：block_id " + s.block_id_pct + "% / page " + s.page_pct + "% / region " + s.region_pct + "% / quote " + s.quote_pct + "%");
-  console.log("L3 原文命中：" + l3.hit + "/" + l3.checked + " = " + (l3.hit_rate_pct === null ? "N/A" : l3.hit_rate_pct + "%"));
-  console.log("  可核数据集（" + l3.datasets_checkable.length + "）：" + (l3.datasets_checkable.join(", ") || "无"));
-  console.log("  无解析包未核（" + l3.datasets_unverifiable.length + "）—— 如实不计入分母");
-  if (l3.miss) {
-    console.log("\nL3 未命中归因（" + attributable + " 条可归因）：");
-    console.log("  ① 真错指（quote 存在但不在所指 block 内）：" + attribution.true_mispoint);
-    console.log("  ② 取层错（应取 text_raw）：" + attribution.layer_error);
-    console.log("  ③ 快照中不存在：" + attribution.absent_in_snapshot);
-    if (mispoint.length) {
-      console.log("\n  真错指样例（前 6）：");
-      mispoint.slice(0, 6).forEach((m) =>
-        console.log("   " + m.dataset + " " + (m.event_id || "?") + "." + m.field +
-          "\n     指向 " + m.block_id + "（原文实际在 " + m.real_blocks.join(", ") + "）" +
-          "\n     quote「" + m.quote + "」")
-      );
+  // ---------- 控制台 ----------
+  const s = out.summary, l3 = out.l3_scope, ec = out.extraction_coverage;
+  console.log("=== D11 证据展示核对（权威批 data_unified/，覆盖率新口径） ===");
+  console.log("入口径名单：bridge/data_source.js → " + primary.count + " 份（物理 " + files.length + "，DEMO-EQC-HL-0930 按宗 2026-10-09 裁决排除）");
+  console.log("\n【来源分类 · 只看抽取效果】");
+  console.log("  计入：" + C.datasets + " 份 / " + C.fields + " 字段 / extracted " + C.extracted);
+  excludedDefective.forEach((x) =>
+    console.log("  排除·原文缺陷：" + x.dataset + "（" + x.fields + " 字段" + (x.unreadable ? "，全 unreadable" : "") + "，无解析产物）→ 不计入分母"));
+  excludedUnknown.forEach((x) =>
+    console.log("  排除·来源不清：" + x.dataset + "（" + (x.role || "non_primary") + (x.fields != null ? "，" + x.fields + " 字段" : "") + "）→ 不计入分母"));
+  warnings.forEach((w) => console.log("  " + w));
+  console.log("\n【抽取覆盖率 · 两个口径分列】");
+  console.log("  新口径（排除原文缺陷/来源不清）：" + ec.new_caliber.num + "/" + ec.new_caliber.den + " = " + ec.new_caliber.pct + "%");
+  console.log("  页面权威口径参照（含残缺件分母）：" + ec.page_caliber_ref.num + "/" + ec.page_caliber_ref.den + " = " + ec.page_caliber_ref.pct + "%");
+  console.log("\n【L1 溯源存在性（计入集）】" + s.fields_with_provenance + "/" + s.fields_total + " = " + s.l1_pct + "%");
+  console.log("【L2 锚点完备性（共 " + s.provenance_total + " 条 provenance）】block_id " + s.block_id_pct +
+    "% / page " + s.page_pct + "% / region " + s.region_pct + "% / quote " + s.quote_pct +
+    "% / table_id " + s.table_id_pct + "% / cell_ref " + s.cell_ref_pct + "%");
+  console.log("【L3 原文命中（各信封自带 blocks，与页面同源）】" + l3.hit + "/" + l3.checked + " = " + l3.hit_rate_pct + "%");
+  console.log("  可核 " + l3.datasets_checkable.length + " 份；不可核 " + l3.datasets_unverifiable.length +
+    " 份（" + (l3.datasets_unverifiable.join(", ") || "无") + "）—— 不计入分母");
+  if (witness && witness.l3 && witness.l3.checked) {
+    console.log("\n【P0-01 物证（旧池保留件，不计入权威口径）】");
+    for (const [k, v] of Object.entries(witness.datasets)) {
+      if (v && v.l3_checked != null) {
+        console.log("  " + k + "：" + v.l3_hit + "/" + v.l3_checked + " = " +
+          (v.l3_checked ? ((v.l3_hit / v.l3_checked) * 100).toFixed(2) : "N/A") + "%（parser " + (v.parser_version || "?") + "）");
+      }
     }
+    const a = witness.attribution;
+    if (a) console.log("  归因：真错指 " + a.true_mispoint + " / 取层错 " + a.layer_error + " / 快照不存在 " + a.absent_in_snapshot);
   }
   console.log("\n→ " + OUT);
 }

@@ -593,7 +593,7 @@ function handleMetrics(res, batchId) {
         "★ 2026-10-09 起全部指标只跑权威批次 data_unified/（counts_for_primary），无示例值、无估算",
         "另一批 data/（演示与旧抽取池）仅供查看，不计入任何分子分母",
         "每项带分母 n；'未核'不计入命中分母",
-        "L3 原文命中需原始解析快照，当前仅 1 份，覆盖范围如实标注",
+        "L3 原文命中按各信封自带 source.parse_meta.blocks 核对，覆盖面以实算 l3.docs_indexed 为准；无解析产物或 block_id 缺失不计入分母",
         "目标值取自总规划验收指标，仅作对照，不参与计算；不达标即显示不达标",
         "字段抽取率与溯源存在率（L1）是两个不同指标，勿混用：前者看 status，后者看 provenance 是否存在",
         "★ 2026-10-09：引用任何数字须同时引用 data_source 段的批次、份数与目录指纹",

@@ -1,7 +1,12 @@
-// demo/_retest_unified.js —— D11 统一基线重测（唯一输入＝宗冻结的 31 份信封@292d252b）
-// 目的：① 与 D11 首测（旧基线 4a8d0c33＋37afd2e3 信封）逐项对比，看指标有无变化
-//       ② 与宗侧成绩（437/437）用同一批输入对账，定位口径差异来源
-// 口径纪律：未核/无 Gold 标注的字段绝不计入任何命中率分母（首测守则③）
+// demo/_retest_unified.js —— D11 统一基线重测（输入＝宗冻结信封；入口径 31 份）
+// 目的：① 以权威批独立复算页面原始计数（437/606、449/606、锚点），与宗侧成绩单对账
+//       ② 标准化与出处命中两项**不在本脚本重算**——旧口径（std 只对 extracted 计 /
+//          L3 只查有无锚点）与现行裁定（D17 / 强判据 quote∈block.text）不同，
+//          重算即产「同名两个数」；权威值分别读 demo/_standardized_real.json 与
+//          demo/_evidence_check.json（与页面卡片同源）。
+// ★ 2026-10-15 领导裁定「不走首测了，真删」：D11 首测旧基线（548 分母、71.53% 等）
+//   已全部作废，本脚本不再做任何首测对比。
+// 口径纪律：未核/无 Gold 标注的字段绝不计入任何命中率分母
 // 用法：node demo/_retest_unified.js   （在 page_prototype/ 下运行）
 const fs = require("fs");
 const path = require("path");
@@ -20,16 +25,25 @@ try {
   process.exit(2);
 }
 
-// D11 首测基线（2026-10-07 19:42，commit 9240bd7b，冻结标签 v0.6-d11-firsttest@4a8d0c33）
-const BASELINE = {
-  extracted_pct: 71.53, extracted_n: 392, extracted_d: 548,
-  standardized_pct: 69.87, std_n: 364, std_d: 521,
-  prov_l1_pct: 73.18, l1_n: 401, l1_d: 548,
-  anchor_n: 403, block_id_pct: 81.14, region_pct: 70.72, table_id_pct: 30.77, cell_ref_pct: 28.29
-};
+// ★ 2026-10-15：D11 首测基线常量已随「不走首测了，真删」裁定整体删除——
+//   旧值（71.53% / 69.87% / 73.18% / 58.33%、548 分母、锚点 81.14% 等）不再作为
+//   任何对照；本脚本只报权威批实算值。物证不删：P0-01 两份数据集按领导 10-09
+//   裁定②留在旧池 data/ 并标注，核对走 demo/_evidence_check.js → p001_witness 段。
 
-// ---------- 1. 读入信封 ----------
-const envFiles = fs.readdirSync(ENV_DIR).filter(f => f.endsWith(".json")).sort();
+// ---------- 1. 读入信封（★入口径过滤：与页面 /api/metrics 同一份名单） ----------
+// 物理目录可能有 32 份（含演示件 DEMO-EQC-HL-0930 与原文缺陷件 pledge-scan-degrade），
+// 口径只算 31 份——名单单一真源取 bridge/data_source.js，不在此另维护一套。
+let primaryNames = new Set();
+try {
+  const ds = require(path.join(ROOT, "bridge", "data_source.js"));
+  primaryNames = new Set(ds.primaryEntries().filter(e => e.counts_for_primary).map(e => e.name));
+} catch (e) {
+  console.error("[中止] 无法加载 bridge/data_source.js（入口径名单单一真源）：" + e.message);
+  process.exit(2);
+}
+const envFilesAll = fs.readdirSync(ENV_DIR).filter(f => f.endsWith(".json")).sort();
+const envFiles = envFilesAll.filter(f => primaryNames.has(f.replace(/\.json$/, "")));
+const excludedFiles = envFilesAll.filter(f => !primaryNames.has(f.replace(/\.json$/, "")));
 const envelopes = [];
 for (const f of envFiles) {
   const j = JSON.parse(fs.readFileSync(path.join(ENV_DIR, f), "utf8"));
@@ -128,7 +142,8 @@ for (const { id, json: j } of envelopes) {
           if (p.cell_ref) R.anchor.cell_ref++;
           if (p.source_type) R.anchor.source_type++;
         }
-        // L3 出处命中：有解析包来源 才算分母（有出处但来源不可核=不计）
+        // L3 弱计数（只统计「有锚点」，**不作命中率上屏**——强判据 quote∈block.text
+        // 见 demo/_evidence_check.js → l3_scope，与页面出处命中率同源）
         const parsed = j.source && j.source.parse_meta && j.source.parse_meta.page_count;
         if (parsed) { R.l3_den++; if (provs.some(p => p.block_id || (p.page && p.quote))) R.l3_hit++; }
       }
@@ -197,11 +212,13 @@ function gvIsRatio(f) { return /ratio|percent|rate|ratio_before|ratio_after/.tes
 const pct = (a, b) => b ? (a / b * 100) : null;
 const fmt = v => v === null ? "—" : v.toFixed(2);
 console.log("╔══════════════════════════════════════════════════════════════════╗");
-console.log("║D11 统一基线重测 · 输入＝宗冻结 31 份信封 @292d252b                    ║");
+console.log("║D11 统一基线重测 · 输入＝宗冻结信封（入口径 31 份）                   ║");
 console.log("╚══════════════════════════════════════════════════════════════════╝\n");
 
 console.log("【输入】");
-console.log(`  信封份数${R.files}（is_mock=${R.is_mock}）  事件 ${R.events_total}  字段 ${R.fields_total}`);
+console.log(`  信封：物理 ${envFilesAll.length} 份 → 入口径 ${R.files} 份` +
+  (excludedFiles.length ? `（排除 ${excludedFiles.map(f => f.replace(/\.json$/, "")).join("、")}——演示件/原文缺陷件，按 2026-10-15 口径不计；名单取 bridge/data_source.js）` : ""));
+console.log(`  事件 ${R.events_total}  字段 ${R.fields_total}（is_mock=${R.is_mock}）`);
 console.log(`  Gold 配对：成功 ${R.gold_pairs} 组 / 无Gold ${R.gold_no_gold} 份 / Gold 有但信封无 ${R.gold_no_env} 组`);
 if (R.unknown_status.length) console.log(`  ⚠ 未知 status ${R.unknown_status.length} 处：${R.unknown_status.slice(0, 3).join("; ")}`);
 
@@ -211,29 +228,33 @@ for (const k of ["extracted", "not_disclosed", "not_applicable", "not_mentioned"
   console.log(`  ${k.padEnd(18)} ${String(R[k]).padStart(4)}  ${fmt(p)}%`);
 }
 
-console.log("\n【核心指标 · 新 vs D11 首测旧基线】");
+console.log("\n【核心指标（权威批实算，与页面同口径；首测基线已作废）】");
 const rows = [
-  ["字段抽取率", pct(R.extracted, R.fields_total), BASELINE.extracted_pct, `${R.extracted}/${R.fields_total}`, `${BASELINE.extracted_n}/${BASELINE.extracted_d}`],
-  ["标准化率", pct(R.std_yes, R.std_na), BASELINE.standardized_pct, `${R.std_yes}/${R.std_na}`, `${BASELINE.std_n}/${BASELINE.std_d}`],
-  ["溯源存在率 L1", pct(R.prov_l1_hit, R.prov_l1_den), BASELINE.prov_l1_pct, `${R.prov_l1_hit}/${R.prov_l1_den}`, `${BASELINE.l1_n}/${BASELINE.l1_d}`],
-  ["出处命中率 L3", pct(R.l3_hit, R.l3_den), null, `${R.l3_hit}/${R.l3_den}`, "14/24"]
+  ["字段抽取覆盖率", pct(R.extracted, R.fields_total), `${R.extracted}/${R.fields_total}`],
+  ["溯源存在率 L1", pct(R.prov_l1_hit, R.prov_l1_den), `${R.prov_l1_hit}/${R.prov_l1_den}`],
 ];
-console.log("  指标名".padEnd(20) + "本次".padStart(9) + "首测".padStart(9) + "   变化" + "     本次分子/分母vs 首测");
-for (const [name, nv, ov, nf, of] of rows) {
-  const delta = (ov !== null && nv !== null) ? (nv - ov) : null;
-  const ds = delta === null ? "—" : (delta >= 0 ? `+${delta.toFixed(2)}` : delta.toFixed(2));
-  console.log("  " + name.padEnd(18) + fmt(nv).padStart(9) + (ov === null ? "—" : ov.toFixed(2)).padStart(9) + ds.padStart(9) + "   " + nf + " vs " + of);
+console.log("  指标名".padEnd(20) + "本次".padStart(9) + "   分子/分母");
+for (const [name, nv, nf] of rows) {
+  console.log("  " + name.padEnd(18) + fmt(nv).padStart(9) + "   " + nf);
 }
+// 标准化 / 出处命中：本脚本不重算（旧口径与现行裁定不同，重算即同名两个数）——读同源产物
+const stdReal = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "_standardized_real.json"), "utf8")); } catch (e) { return null; } })();
+const evChk = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "_evidence_check.json"), "utf8")); } catch (e) { return null; } })();
+const refRow = (name, obj) => {
+  const v = obj && obj.pct !== undefined ? fmt(obj.pct) : "未测";
+  const f = obj && obj.num !== undefined ? `${obj.num}/${obj.den}` : "缺档";
+  console.log("  " + name.padEnd(18) + String(v).padStart(9) + "   " + f);
+};
+if (stdReal && stdReal.accuracy) refRow("标准化正确率", stdReal.accuracy);
+else console.log("  标准化正确率" + " ".repeat(8) + "未测（demo/_standardized_real.json 缺档；D17 口径，不在此重算）");
+if (evChk && evChk.l3_scope) refRow("出处命中率 L3", { pct: evChk.l3_scope.hit_rate_pct, num: evChk.l3_scope.hit, den: evChk.l3_scope.checked });
+else console.log("  出处命中率 L3" + " ".repeat(6) + "未测（demo/_evidence_check.json 缺档；强判据，不在此重算）");
 
 console.log("\n【锚点完备性】");
 const a = R.anchor;
-console.log(`  n=${a.n}（首测 n=${BASELINE.anchor_n}）`);
-const baseKeys = { block_id: "block_id_pct", page: "page_pct", quote: "quote_pct", region: "region_pct", table_id: "table_id_pct", cell_ref: "cell_ref_pct", source_type: null };
+console.log(`  n=${a.n}`);
 for (const [k, label] of [["block_id", "block_id"], ["page", "page"], ["quote", "quote"], ["region", "region"], ["table_id", "table_id"], ["cell_ref", "cell_ref"], ["source_type", "source_type"]]) {
-  const ov = BASELINE[baseKeys[k]];
-  const nv = pct(a[k], a.n);
-  const ds = (ov !== null && ov !== undefined && nv !== null) ? ((nv - ov >= 0 ? "+" : "") + (nv - ov).toFixed(2)) : "—（首测无此项）";
-  console.log(`  ${label.padEnd(14)} ${fmt(nv)}%${ov != null ? "   首测 " + ov.toFixed(2) + "%  变化 " + ds : "   " + ds}`);
+  console.log(`  ${label.padEnd(14)} ${fmt(pct(a[k], a.n))}%`);
 }
 
 console.log("\n【与 Gold 对账（★按 file_id 配对 · 自然键配事件 · 布尔归一）】");
@@ -249,6 +270,6 @@ console.log(`  ${R.false_fill} / ${R.false_fill_den}  = ${fmt(pct(R.false_fill, 
 R.false_fill_list.slice(0, 10).forEach(m => console.log("  · " + m));
 
 // 落盘
-const out = { meta: { input_dir: ENV_DIR, input: "宗冻结31 份信封（D11 firsttest-envelopes），信封内 code_version=292d252b", gold_dirs: GOLD_DIRS, gold_pair_key: "source.file_id（★不能用 file_name：Gold 沿用旧批次文件名）", rule: "未核/无 Gold 标注字段不计入任何命中率分母" }, baseline: BASELINE, current: R, pct: { extracted: pct(R.extracted, R.fields_total), standardized: pct(R.std_yes, R.std_na), prov_l1: pct(R.prov_l1_hit, R.prov_l1_den), l3: pct(R.l3_hit, R.l3_den), gold_acc: pct(R.gold_match, R.gold_fields_total), false_fill: pct(R.false_fill, R.false_fill_den) } };
+const out = { meta: { input_dir: ENV_DIR, input: "宗冻结信封（D11 firsttest-envelopes），入口径 31 份（名单取 bridge/data_source.js）", gold_dirs: GOLD_DIRS, gold_pair_key: "source.file_id（★不能用 file_name：Gold 沿用旧批次文件名）", rule: "未核/无 Gold 标注字段不计入任何命中率分母", note: "2026-10-15 领导裁定「不走首测了，真删」：首测基线常量已删除；标准化/出处命中不在此重算（口径与现行裁定不同），权威值读 demo/_standardized_real.json 与 demo/_evidence_check.json" }, primary_filter: { physical: envFilesAll.length, primary: envFiles.length, excluded: excludedFiles.map(f => f.replace(/\.json$/, "")) }, current: R, pct: { extracted: pct(R.extracted, R.fields_total), prov_l1: pct(R.prov_l1_hit, R.prov_l1_den), gold_acc: pct(R.gold_match, R.gold_fields_total), false_fill: pct(R.false_fill, R.false_fill_den) } };
 fs.writeFileSync(path.join(__dirname, "_retest_unified.json"), JSON.stringify(out, null, 2), "utf8");
 console.log("\n→ " + path.join(__dirname, "_retest_unified.json"));

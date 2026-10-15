@@ -633,7 +633,7 @@ export function renderMetrics(root, data) {
   cal.appendChild(stamp);
   root.appendChild(cal);
 
-  // ---- 指标卡三枚----
+  // ---- 指标卡（数据驱动，当前四枚：抽取覆盖率/标准化覆盖率/标准化正确率/出处命中率）----
   const cards = el("div", "mx-cards");
   (data.cards || []).forEach((c) => {
     const card = el("div", "mx-card st-" + c.status);

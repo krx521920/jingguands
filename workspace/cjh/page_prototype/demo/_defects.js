@@ -60,7 +60,7 @@ if (evCheck && evCheck.l3_scope && evCheck.l3_scope.checked > 0) {
       sev: "P0",
       area: "证据链 / 解析-抽取衔接",
       title: "旧版解析器（0.3.0）把字段溯源指向错误的 block，region 坐标却正确",
-      repro: "node demo/_evidence_check.js  → 观察 L3 未命中清单；\n" +
+      repro: "node demo/_evidence_check.js  → p001_witness 段（P0-01 物证核对）；\n" +
         "手工核对：wei_real_pledge_ce37 的 E01.pledgee 指向 d44e95085_p001_b00016（表头「是否为限售股」），\n" +
         "而 quote「建德市新安小额贷款股份有限公司」实际在 d44e95085_p001_b00031",
       expect: "provenance.block_id 指向的 block 内应包含 provenance.quote",
@@ -164,11 +164,18 @@ defects.forEach((d) => {
 });
 
 // ---------- 已知限制（非缺陷，但必须写进清单）----------
+const ec0 = evCheck && evCheck.extraction_coverage;
 const limits = [
-  "本次只跑现有 31 份真实数据集；宗博文保管的 30 份单文档 + 20 组跨文档封存集未交付（按规则首测前不交开发），故本次成绩为「开发侧自测」，不得写成独立首测成绩。",
-  "L3 原文命中仅覆盖 2 个数据集（本地仅 1 份原始解析快照 doc_id=d44e95085），其余 29 份未核，未计入任何命中率分母。",
-  "矛盾召回 / 矛盾误报 / 重复运行一致率 / 20 页 ≤90 秒 四项未测：需封存集与引擎侧运行数据，属宗与魏职责范围。",
-  "接口层与页面层巡检均为 0 缺陷，但0 缺陷不等于验收通过——验收需封存集首测成绩。",
+  "指标只跑权威批 data_unified/（D11 冻结批，宗 2026-10-09 裁决入口径）；旧池 data/ 的 D11 首测自测值已作废（2026-10-15 领导裁定「不走首测了，真删」），不再作为任何对照。",
+  "L3 原文命中按各信封自带 parse_meta.blocks 核对，可核 " + (evCheck && evCheck.l3_scope ? evCheck.l3_scope.docs_indexed : "?") +
+    " 份（" + (evCheck && evCheck.l3_scope ? evCheck.l3_scope.hit + "/" + evCheck.l3_scope.checked : "?") +
+    "，见 demo/_evidence_check.json → l3_scope）；无解析产物或 block_id 缺失不可核、不计入分母。",
+  "覆盖率按 2026-10-15 新口径分列（demo/_evidence_check.json → extraction_coverage）：只看抽取效果 " +
+    (ec0 ? ec0.new_caliber.num + "/" + ec0.new_caliber.den + " = " + ec0.new_caliber.pct + "%" : "未测") +
+    "（排除原文缺陷 pledge-scan-degrade 与来源不清 DEMO-EQC-HL-0930，后者警告「未知来源」）；页面权威口径 " +
+    (ec0 ? ec0.page_caliber_ref.num + "/" + ec0.page_caliber_ref.den + " = " + ec0.page_caliber_ref.pct + "%" : "未测") + " 不变（弃权计入分母，与宗成绩单同口径）。",
+  "评测侧成绩单（evaluation/2026-10-12-scorecard）未覆盖 3 项：abstain_correct / scan_degrade / web_cli_independent——分属宗与魏职责，我方不硬凑。",
+  "接口层与页面层巡检均为 0 缺陷，但 0 缺陷不等于验收通过——验收以评测侧成绩单为准。",
 ];
 // ★ 2026-10-13：溯源存在率 L1 是**事实披露**，不是未达标项 —— 总规划 §5 无 L1 目标，
 //   D17 裁定出处类不挂目标（90% 挂在字段抽取准确率 437/437＝100%，已达标）。
@@ -193,18 +200,18 @@ fs.writeFileSync(OUT_JSON, JSON.stringify({
 
 // ---------- 输出人读版 ----------
 let md = "";
-md += "# D11（10-07）首次封存测试 · 页面/报告缺陷清单\n\n";
-md += "> 生成：`node demo/_defects.js`（数据源为 D11 当日实跑产出，可一键复现）\n";
+md += "# D11 页面/报告缺陷清单（权威批 data_unified 实算）\n\n";
+md += "> 生成：`node demo/_defects.js`（数据源：bridge/metrics.js 实算 + demo/_evidence_check.json + 巡检产物，可一键复现）\n";
 md += "> 生成时间：" + new Date().toISOString().replace("T", " ").slice(0, 19) + "\n";
 md += "> 分级口径：P0 阻塞验收（功能不可用/数据误导/证据链断裂）｜P1 影响可信度｜P2 体验与可读性\n\n";
 
 md += "## 0. 结论摘要\n\n";
 md += "| 级别 | 条数 | 说明 |\n|---|---|---|\n";
-md += "| **P0** | **" + n.P0 + "** | 必须 D12 前修复，否则首测无法判定 |\n";
+md += "| **P0** | **" + n.P0 + "** | 必须 D12 前修复，否则验收无法判定 |\n";
 md += "| **P1** | **" + n.P1 + "** | 影响指标可信度，需修复或明确书面豁免 |\n";
 md += "| **P2** | **" + n.P2 + "** | 体验项，可排入 D12 长尾 |\n\n";
 if (n.P0 === 0) md += "> 本次未发现 P0。\n\n";
-else md += "> **存在 " + n.P0 + " 条 P0，其中 1 条为证据链断裂（溯源指向错误），属 D11 首测核心发现。**\n\n";
+else md += "> **存在 " + n.P0 + " 条 P0，其中 1 条为证据链断裂（溯源指向错误），属 D11 核心发现（P0-01 物证，仍在裁决中）。**\n\n";
 
 md += "## 1. 缺陷明细\n\n";
 ["P0", "P1", "P2"].forEach((sev) => {
