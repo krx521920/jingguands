@@ -1,0 +1,29 @@
+{
+  "schema": "gold-corrections/1",
+  "version": "v1.1",
+  "issued_on": "2026-10-15",
+  "issued_by": "宗（评测侧 = Gold 责任方）",
+  "basis": "evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
+  "discipline": "不改冻结 Gold 文件、不改密链、不回填历史首测结果；本文件为可消费的覆盖层（overlay）",
+  "corrections": [
+    {
+      "case_id": "D4-PLD-009",
+      "event_id": "E03",
+      "field": "end_date",
+      "from": "needs_review",
+      "to": "not_mentioned",
+      "reason": "原文 d1320340e_p001_b00015 的「质押到期日2028年9月21日」属 E01 新质押（E01.end_date 已正确抽取 2028-09-21）；E03 为解除质押，原文未给其到期日",
+      "evidence_block": "d1320340e_p001_b00015"
+    }
+  ],
+  "effect": {
+    "needs_review": 12,
+    "not_mentioned": 109,
+    "->": {
+      "needs_review": 11,
+      "not_mentioned": 110
+    },
+    "numerator_unchanged": true,
+    "frozen_artifacts_untouched": true
+  }
+}

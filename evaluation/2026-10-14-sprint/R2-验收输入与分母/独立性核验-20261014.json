@@ -1,0 +1,114 @@
+{
+  "checked_on": "2026-10-14",
+  "purpose": "R2：核清 30 单文档 + 20 跨文档的独立性；同 id 或同 raw 哈希＝同一份语料（非独立样本）",
+  "sets": {
+    "A_sealed_single": {
+      "what": "封存单文档 30",
+      "cases": 30,
+      "raw_hashes": 30
+    },
+    "B_sealed_crossdoc": {
+      "what": "封存跨文档 20 组",
+      "groups": 20,
+      "member_ids": 30,
+      "member_raw_hashes": 30
+    },
+    "C_dev30": {
+      "what": "开发集 30",
+      "cases": 30,
+      "raw_hashes": 0
+    },
+    "D_authoritative_envelopes": {
+      "what": "权威批首测信封",
+      "files": 32,
+      "distinct_source_sha256": 32
+    },
+    "E_strange_samples": {
+      "what": "陌生样例（cninfo 公开＋哈希锁）",
+      "samples": 3
+    }
+  },
+  "overlap": {
+    "A_case_ids_∩_C_case_ids": [
+      "D4-PLD-001",
+      "D4-PLD-002",
+      "D4-PLD-003",
+      "D4-PLD-004",
+      "D4-PLD-005",
+      "D4-PLD-006",
+      "D4-PLD-007",
+      "D4-PLD-008",
+      "D4-PLD-009",
+      "D4-PLD-010",
+      "D5-EQC-001",
+      "D5-EQC-002",
+      "D5-EQC-003",
+      "D5-EQC-004",
+      "D5-EQC-005",
+      "D5-EQC-006",
+      "D5-EQC-007",
+      "D5-EQC-008",
+      "D5-EQC-009",
+      "D5-EQC-010",
+      "D6-AWD-001",
+      "D6-AWD-002",
+      "D6-AWD-003",
+      "D6-AWD-004",
+      "D6-AWD-005",
+      "D6-AWD-006",
+      "D6-AWD-007",
+      "D6-AWD-008",
+      "D6-AWD-009",
+      "D6-AWD-010"
+    ],
+    "A_raw_∩_C_raw": 0,
+    "A_case_ids_∩_D_envelope_ids": [
+      "D4-PLD-001",
+      "D4-PLD-002",
+      "D4-PLD-003",
+      "D4-PLD-004",
+      "D4-PLD-005",
+      "D4-PLD-006",
+      "D4-PLD-007",
+      "D4-PLD-008",
+      "D4-PLD-009",
+      "D4-PLD-010",
+      "D5-EQC-001",
+      "D5-EQC-002",
+      "D5-EQC-003",
+      "D5-EQC-004",
+      "D5-EQC-005",
+      "D5-EQC-006",
+      "D5-EQC-007",
+      "D5-EQC-008",
+      "D5-EQC-009",
+      "D5-EQC-010",
+      "D6-AWD-001",
+      "D6-AWD-002",
+      "D6-AWD-003",
+      "D6-AWD-004",
+      "D6-AWD-005",
+      "D6-AWD-006",
+      "D6-AWD-007",
+      "D6-AWD-008",
+      "D6-AWD-009",
+      "D6-AWD-010"
+    ],
+    "A_raw_∩_D_source_sha256": 0,
+    "B_member_ids_not_in_A": [],
+    "B_raw_∩_D_source_sha256": 0,
+    "E_hashes_∩_(A∪B∪D)": []
+  },
+  "verdict": {
+    "判据用结构不变量（case_id / 来源清单），不用 raw 哈希跨件比较": "封存 raw 是 .raw.json、信封 source.file_sha256 是源 PDF —— 二者本就不同物，故 0 交集**不**等于不同源",
+    "A 与 C 同源": "是——A 的 30 个 case_id 全落在开发集 C（30/30）",
+    "A 与 D 同源": "是——首测信封 31 个正式 case 与 A 完全同名（DEMO-EQC-HL-0930 为本地演示件）",
+    "B 取自 A": "是——20 组的全部成员都来自 A 的 30 份，无外部文档",
+    "A/C 的来源清单": [
+      "evaluation/D4/dev/manifest.json",
+      "evaluation/D5/dev/manifest.json",
+      "evaluation/D6/dev/manifest.json"
+    ],
+    "结论": "A（封存单文档）/ B（封存跨文档）/ C（开发集）/ D（首测信封）**是同一批公开 30 份语料**，封存集自述为 frozen replay ⇒ **对开发过程不独立**；E（陌生样例 3 份）**独立**（哈希与 A/B/D 零交集＋cninfo 公开来源留痕）。"
+  }
+}
