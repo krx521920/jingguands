@@ -37,6 +37,8 @@ const results = [
   runGate('Gold 一致性机检', ['scripts/jingguan/check_gold.mjs']),
   runGate('抽取行为回归', ['scripts/jingguan/test_regression.mjs']),
   runGate('批量分母回归', ['scripts/jingguan/test_batch_denominator.mjs']),
+  // 第18道（2026-10-15，方F1审计采纳）：口径核对器负例回归——v1 多抽死循环 bug 的防复发门
+  runGate('口径核对负例回归', ['scripts/jingguan/test_coverage_sets.mjs']),
   runGate('跨文档核验回放', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', 'runs/batch-20261003T160213/envelopes', '--manifest', 'corpus/zongbowen/sealed/cross-doc-manifest.json', '--expect']),
   runGate('宗D8配对严格评分', ['scripts/jingguan/test_d8_pairing.mjs']),
   runGate('B归因引擎单测', ['scripts/jingguan/test_attribution.mjs']),
