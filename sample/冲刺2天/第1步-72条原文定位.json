@@ -1,0 +1,782 @@
+{
+  "built_by": "张智博",
+  "task": "第1步收窄核验",
+  "date": "2026-10-15",
+  "scope": "陈报 not_mentioned 最集中的 5 个命中字段，共 72 条（魏收窄口径）",
+  "method": "对每条，在该文档的解析输出里搜该字段信息的关键词，命中即给出 page/block_id/quote",
+  "caveat": "**本表不是最终判定。** 强命中≠该字段可抽（值可能属于别的主体/事件）；弱命中≠原文没有（可能值在邻近块、或被拆分）。**它只把「原文是否存在」变成可复核的位置证据**，最终分类仍需逐条人工/宗背书。",
+  "summary": {
+    "total": 72,
+    "original_present": 38,
+    "no_keyword": 34,
+    "no_parse": 0
+  },
+  "rows": [
+    {
+      "case": "D4-PLD-001",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E02",
+      "field": "pledge_amount",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D4-PLD-001",
+      "event": "E03",
+      "field": "pledge_amount",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D4-PLD-002",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 1,
+        "block_id": "d16c6a948_p001_b00022",
+        "kw": "质押融资",
+        "quote": "质押融资资金用途",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D4-PLD-003",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "d36105cfd_p002_b00061",
+        "kw": "质押融资",
+        "quote": "1、江西鑫盛本次股份质押融资不涉及用于满足公司生产经营相关需求；2、江西鑫盛未来半年内到期的质押股份数量为5,500万股，占其所持股份",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D4-PLD-004",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D4-PLD-005",
+      "event": "E02",
+      "field": "pledge_amount",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D4-PLD-006",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 1,
+        "block_id": "d3fbd8497_p001_b00023",
+        "kw": "质押融资",
+        "quote": "质押融资资金用途",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D4-PLD-007",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 1,
+        "block_id": "da204c717_p001_b00029",
+        "kw": "质押融资",
+        "quote": "质押融资资金用途",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D4-PLD-008",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 2,
+        "block_id": "d74b527f3_p002_b00011",
+        "kw": "质押融资",
+        "quote": "质押融资资金用途",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 2,
+        "block_id": "d1320340e_p002_b00011",
+        "kw": "质押融资",
+        "quote": "质押融资资金用途",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E02",
+      "field": "pledge_amount",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 2,
+        "block_id": "d1320340e_p002_b00011",
+        "kw": "质押融资",
+        "quote": "质押融资资金用途",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D4-PLD-009",
+      "event": "E03",
+      "field": "pledge_amount",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 2,
+        "block_id": "d1320340e_p002_b00011",
+        "kw": "质押融资",
+        "quote": "质押融资资金用途",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D4-PLD-010",
+      "event": "E01",
+      "field": "pledge_amount",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 2,
+        "block_id": "db2351d0b_p002_b00011",
+        "kw": "质押融资",
+        "quote": "质押融资资金用途",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D6-AWD-001",
+      "event": "E01",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-001",
+      "event": "E01",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-001",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E01",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E01",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "dc0a3d5fb_p002_b00022",
+        "kw": "中标通知书",
+        "quote": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "dc0a3d5fb_p002_b00016",
+        "kw": "营业收入",
+        "quote": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E02",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E02",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E02",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "dc0a3d5fb_p002_b00022",
+        "kw": "中标通知书",
+        "quote": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E02",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "dc0a3d5fb_p002_b00016",
+        "kw": "营业收入",
+        "quote": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E03",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E03",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E03",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "dc0a3d5fb_p002_b00022",
+        "kw": "中标通知书",
+        "quote": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E03",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "dc0a3d5fb_p002_b00016",
+        "kw": "营业收入",
+        "quote": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E04",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E04",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E04",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "dc0a3d5fb_p002_b00022",
+        "kw": "中标通知书",
+        "quote": "线（张沙布-丁香街）风水电工程暖通专业甲供设备项目部分已签订合同，合同金额9,083,925.5元，其他尚未签订正式合同，深圳市城市轨道交通",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-002",
+      "event": "E04",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "dc0a3d5fb_p002_b00016",
+        "kw": "营业收入",
+        "quote": "上述中标项目累计金额为8,063.39万元，占公司2025年度经审计营业收入",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E01",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 3,
+        "block_id": "d0b56135e_p003_b00026",
+        "kw": "营业总收入",
+        "quote": "2025年经审计营业总收入的2.81%。因为上述项目跨年分期实施，对当期业绩影响有不确定性；如以上项目签订正式合同并顺利实施，在项目执行期间",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E02",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E02",
+      "field": "bid_date",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E02",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 3,
+        "block_id": "d0b56135e_p003_b00026",
+        "kw": "营业总收入",
+        "quote": "2025年经审计营业总收入的2.81%。因为上述项目跨年分期实施，对当期业绩影响有不确定性；如以上项目签订正式合同并顺利实施，在项目执行期间",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E03",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E03",
+      "field": "bid_date",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-003",
+      "event": "E03",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 3,
+        "block_id": "d0b56135e_p003_b00026",
+        "kw": "营业总收入",
+        "quote": "2025年经审计营业总收入的2.81%。因为上述项目跨年分期实施，对当期业绩影响有不确定性；如以上项目签订正式合同并顺利实施，在项目执行期间",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-004",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-004",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-005",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 1,
+        "block_id": "ddd80cf89_p001_b00006",
+        "kw": "中标通知书",
+        "quote": "露了《关于项目中标结果公示并收到中标通知书的公告》（公告编号：2026-076）。公司作为联合体牵头人，与南京莱斯信息技术股份有限公司、中国",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-005",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 4,
+        "block_id": "ddd80cf89_p004_b00001",
+        "kw": "营业收入",
+        "quote": "本次合同顺利实施后，预计将对公司营业收入和营业利润产生积极影响，履",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D6-AWD-006",
+      "event": "E01",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-006",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 1,
+        "block_id": "dfc6c3d84_p001_b00005",
+        "kw": "中标通知书",
+        "quote": "司发出的中标通知书，上海同济建设有限公司与上海天华建筑设计有限公司联合",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D6-AWD-006",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "弱命中（表头或无数值）",
+      "where": {
+        "page": 1,
+        "block_id": "dfc6c3d84_p001_b00010",
+        "kw": "营业收入",
+        "quote": "预计对公司当期营业收入、利润影响有限。敬请广大投资者注意投资风险。",
+        "looks_header": false,
+        "has_number": false,
+        "strong": false
+      }
+    },
+    {
+      "case": "D6-AWD-007",
+      "event": "E01",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-007",
+      "event": "E01",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-007",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-007",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 1,
+        "block_id": "d3a6938fe_p001_b00005",
+        "kw": "营业收入",
+        "quote": "有限公司近日在中东迪拜中标WResidences幕墙工程，中标金额为173,800,000阿联酋迪拉姆（折合人民币317,915,000元）",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-008",
+      "event": "E01",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-008",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 1,
+        "block_id": "daa9b83fa_p001_b00005",
+        "kw": "中标通知书",
+        "quote": "草运动草（内蒙古）科技有限公司（简称“快乐小草公司”）收到《中标通知书》，快乐小草公司为“内蒙古自治区巴彦淖尔市乌拉特后旗三北工程林草湿荒一",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-008",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E01",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E01",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 1,
+        "block_id": "d3aa23f9a_p001_b00006",
+        "kw": "中标通知书",
+        "quote": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "d3aa23f9a_p002_b00009",
+        "kw": "收入",
+        "quote": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E02",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E02",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E02",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 1,
+        "block_id": "d3aa23f9a_p001_b00006",
+        "kw": "中标通知书",
+        "quote": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E02",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "d3aa23f9a_p002_b00009",
+        "kw": "收入",
+        "quote": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E03",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E03",
+      "field": "duration",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E03",
+      "field": "bid_date",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 1,
+        "block_id": "d3aa23f9a_p001_b00006",
+        "kw": "中标通知书",
+        "quote": "招标方发来的《中标通知书》。根据上述《中标通知书》的内容，公司分别被确定为“深圳歌剧院项目舞台机械设备工程I标”“水韵‘青春之城’EOD项目",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-009",
+      "event": "E03",
+      "field": "recognized_revenue",
+      "verdict": "强命中（带值、非表头）",
+      "where": {
+        "page": 2,
+        "block_id": "d3aa23f9a_p002_b00009",
+        "kw": "收入",
+        "quote": "业收入比重为15.52%。如上述项目签订正式合同并顺利实施，将对公司未来的",
+        "looks_header": false,
+        "has_number": true,
+        "strong": true
+      }
+    },
+    {
+      "case": "D6-AWD-010",
+      "event": "E01",
+      "field": "tax_included",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-010",
+      "event": "E01",
+      "field": "bid_date",
+      "verdict": "原文无关键词命中",
+      "where": null
+    },
+    {
+      "case": "D6-AWD-010",
+      "event": "E01",
+      "field": "recognized_revenue",
+      "verdict": "原文无关键词命中",
+      "where": null
+    }
+  ],
+  "refined": {
+    "strong": 21,
+    "weak": 11,
+    "none": 40,
+    "note": "强命中＝关键词所在块既非表头形态又带数值；弱命中＝表头（如「本次质押前质押股份数量（股）」）或纯文字；无命中＝原文未出现该字段相关词"
+  }
+}
