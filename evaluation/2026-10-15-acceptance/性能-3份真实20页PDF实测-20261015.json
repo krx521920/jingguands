@@ -1,0 +1,26 @@
+{
+  "checked_on": "2026-10-15",
+  "by": "宗（评测侧）",
+  "purpose": "R4：3 份真实 20 页 PDF 的解析段全程计时 + 可复现性核验（本地独立重跑，不联网）",
+  "env": {"python": "codex-primary-runtime bundled 3.12.14", "pdfplumber": "0.11.9", "pypdfium2": "present", "parser_source": "zhangzhibo@197612be src/finstruct/parse (PARSER_VERSION 0.9.1)"},
+  "command": "PYTHONPATH=<repo>/src python -B -m finstruct.parse.parse_pdf <pdf> -o <out>",
+  "cases": [
+    {"case_id":"D5-EQC-001","pdf":"sample/D5/raw/D5-EQC-001.pdf","pdf_sha256":"9d5be14fba15325471dbff7acc98f32155a00d5fb7023739d9780c544f715d51","pages":35,"blocks":861,"self_check":"通过","runs_seconds":[1.81,1.78,1.88],"max_seconds":1.88,"form":"TEXT×35"},
+    {"case_id":"D5-EQC-002","pdf":"sample/D5/raw/D5-EQC-002.pdf","pdf_sha256":"46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1","pages":64,"blocks":1395,"self_check":"通过","runs_seconds":[2.99,2.99,2.98],"max_seconds":2.99,"form":"TEXT×64"},
+    {"case_id":"D5-EQC-003","pdf":"sample/D5/raw/D5-EQC-003.pdf","pdf_sha256":"173fee90d5647970a9ddec6c9f6d62d4b0f488c154427527450d2637f566063e","pages":34,"blocks":621,"self_check":"通过","runs_seconds":[2.34,2.33,2.32],"max_seconds":2.34,"form":"MIXED×1 + TEXT×32 + SCANNED×1"}
+  ],
+  "totals": {"cases":3, "pages":133, "blocks":2877, "max_seconds":2.99, "threshold_seconds":90},
+  "vs_delivered": {
+    "zhang_z3_published": {"pages":[35,64,34],"blocks":[861,1395,621],"parse_sha256":["1e3dc990…","3060a015…","214bee89…"]},
+    "my_reproduction": "页数 / 块数 / 自查通过 三项与 Z3 公布值逐条一致（3/3）",
+    "delivered_hash_check": "张仓内 sample/D5/parse/D5-EQC-001.parse.json 逐字节 sha256 = 1e3dc990… ✓ 与其公布值一致（他的哈希是对仓内文件算的，不是重跑算的）"
+  },
+  "reproducibility": {
+    "content_layer": "剔除 doc.parsed_at 后三轮逐字节一致 ✓",
+    "timestamp_layer": "唯一非确定源 ＝ doc.parsed_at（wall clock，timespec=seconds）",
+    "vs_delivered_doc_fields": ["parsed_at", "parser.version: 0.9.0(交付件) vs 0.9.1(当前源码)"],
+    "pages_identical_to_delivered": true,
+    "verdict": "整文件 sha256 **不可**跨环境重跑复现；公布哈希应改用『剔除 parsed_at 的内容哈希』口径，或去掉该字段"
+  },
+  "boundary": "本次只测**解析段**（纯本地、不联网）；端到端含模型抽取的计时不在本件范围（需引擎侧密钥，见《R4-验收成绩与失败清单-20261015.md》失败清单）"
+}
