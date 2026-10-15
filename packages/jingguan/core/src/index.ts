@@ -58,12 +58,13 @@ async function extractViaCli(documentText: string, eventType: EventType, runId: 
       child.on('close', (code) => {
         clearTimeout(timer)
         const m = [...stdout.matchAll(/runs[\\/](\S+?)[\\/]events\.json/g)].pop()
-        if (code !== 0 || m === undefined) {
+        const runDir = m?.[1] // noUncheckedIndexedAccess：下标访问显式兜底
+        if (code !== 0 || runDir === undefined) {
           rejectPromise(new Error(`抽取 CLI 失败（exit=${code}）：${(stderr || stdout).split('\n').filter(Boolean).slice(-3).join(' | ').slice(0, 300)}`))
           return
         }
         try {
-          resolvePromise(JSON.parse(readFileSync(join(tmpDir, 'runs', m[1], 'events.json'), 'utf8')) as EventEnvelope)
+          resolvePromise(JSON.parse(readFileSync(join(tmpDir, 'runs', runDir, 'events.json'), 'utf8')) as EventEnvelope)
         } catch (err) {
           rejectPromise(new Error(`信封产物不可读：${String(err)}`))
         }
@@ -84,8 +85,8 @@ export interface Config {
   strict: boolean
 }
 
-/** Validated config. */
-export const Config: z<Config> = z.object({
+/** Validated config（z.object 的实例即 schemastery Schema；不再以值 z 作类型标注——那是 D1 期笔误，TS 报错源之一）。 */
+export const Config = z.object({
   strict: z.boolean().default(true),
 })
 
@@ -201,16 +202,19 @@ export interface EventEnvelope {
 export function skeletonFields(eventType: EventType): Record<string, FieldValue> {
   const fields: Record<string, FieldValue> = {}
   for (const [fieldName, spec] of Object.entries(FIELD_REGISTRY[eventType])) {
-    fields[fieldName] = {
+    const skeleton: FieldValue = {
       raw_value: null,
       value: null,
       unit: spec.unit,
       standardized: false,
       status: 'not_mentioned',
       provenance: [],
-      denominator: spec.fixedDenominator ?? (spec.requiresDenominator === true ? null : undefined),
       note: null,
     }
+    // exactOptionalPropertyTypes：可选键不落 undefined，按注册表条件赋键（JSON 形态不变）
+    if (spec.fixedDenominator) skeleton.denominator = spec.fixedDenominator
+    else if (spec.requiresDenominator === true) skeleton.denominator = null
+    fields[fieldName] = skeleton
   }
   return fields
 }
@@ -246,8 +250,8 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
         else if (!value.provenance.some((p) => p.quote.trim().length > 0)) issues.push(`${fieldWhere} 出处缺 quote`)
       }
       for (const [j, p] of value.provenance.entries()) {
-        if (p.region === null || p.region === undefined) continue
-        const [left, top, right, bottom] = p.region
+        if (p.region === null || p.region === undefined || p.region.length < 4) continue
+        const [left = 0, top = 0, right = 0, bottom = 0] = p.region // noUncheckedIndexedAccess：解构显式兜底
         const regionWhere = `${fieldWhere}.provenance[${j}].region`
         if (left < 0 || top < 0) issues.push(`${regionWhere} 坐标为负`)
         if (left >= right) issues.push(`${regionWhere} left(${left}) ≥ right(${right})`)
@@ -281,14 +285,19 @@ export function apply(ctx: Context, config: Config): void {
       schema: {
         type: 'object', additionalProperties: false,
         properties: {
-          envelope: { type: 'object', description: 'v0.3 事件信封（is_mock 标注数据来源）' },
+          envelope: { type: 'object', additionalProperties: true, description: 'v0.3 事件信封（is_mock 标注数据来源）' },
           issues: { type: 'array', items: { type: 'string' }, description: '结构校验＋管线运行问题清单' },
         },
       },
-      render: (_args, value) => [{
-        type: 'text',
-        text: `v0.3 信封已生成（${value.envelope.is_mock ? 'mock 骨架' : '真实抽取'}）：${value.envelope.events.length} 个事件，问题 ${value.issues.length} 条`,
-      }],
+      render: (_args, value) => {
+        // output.schema 为运行时 JSON Schema 声明，InferValue 对 {type:'object'} 裸节点推不出成员——
+        // 这里按 execute 的实际返回结构收窄（值类型问题不改变运行时行为）
+        const v = value as { envelope: EventEnvelope, issues: string[] }
+        return [{
+          type: 'text',
+          text: `v0.3 信封已生成（${v.envelope.is_mock ? 'mock 骨架' : '真实抽取'}）：${v.envelope.events.length} 个事件，问题 ${v.issues.length} 条`,
+        }]
+      },
     },
     async execute(args) {
       const eventTypes = Object.keys(FIELD_REGISTRY) as EventType[]
