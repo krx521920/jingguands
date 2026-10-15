@@ -1,10 +1,13 @@
 {
  "checked_on": "2026-10-15",
  "envelopes_dir": "workspace/cjh/page_prototype/data_unified",
+ "gold_docs": 30,
  "both_extracted": 437,
  "miss_candidates": [],
  "extra_candidates": [],
- "not_compared": [
+ "align_conflicts": [],
+ "no_gold": [],
+ "out_of_scope": [
   "DEMO-EQC-HL-0930",
   "pledge-scan-degrade"
  ],
@@ -17,22 +20,6 @@
   "not_disclosed→not_disclosed": 4,
   "not_disclosed→not_mentioned": 2
  },
- "judgment_diffs": [
-  {
-   "field": "D4-PLD-009:2:end_date",
-   "envelope": "not_mentioned",
-   "gold": "needs_review"
-  },
-  {
-   "field": "D6-AWD-002:2:formal_award_notice_received",
-   "envelope": "not_disclosed",
-   "gold": "not_mentioned"
-  },
-  {
-   "field": "D6-AWD-002:3:formal_award_notice_received",
-   "envelope": "not_disclosed",
-   "gold": "not_mentioned"
-  }
- ],
- "basis_note": "Gold＝corpus/zongbowen/*/gold（宗独立维护，开发不可改）；独立性来源＝分工规则 §六.8"
+ "alignment": "业务自然键（类型+主体+对手方/项目+方向）；禁数组序号",
+ "basis_note": "Gold＝corpus/zongbowen/*/gold（宗独立维护，开发不可改）；外层遍历 manifest，缺整信封保留 Gold 分母"
 }
