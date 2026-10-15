@@ -503,6 +503,14 @@ function disclose() {
       files: fp[id].files,
       sha256: fp[id].sha256,
       dataset_names: es.map(e => e.name),
+      // ★ 2026-10-14：领导裁定「只显示 31 份」——入口径名单（单一真源）。
+      //   权威目录物理有 32 份，但 DEMO-EQC-HL-0930（DEMO- 前缀 ⇒ role=demo，
+      //   见 roleInAuthoritative）按宗 2026-10-09 裁决**不计入指标口径**：
+      //   演示性 demo 不算入内，故不进这份名单。
+      //   前端下拉「权威批次」组与质量报告页「打开背后信封」区都只消费本字段，
+      //   不各自维护名单（各自维护必然漂移）。
+      //   dataset_names 保留全量（含 DEMO）＝目录事实，两份并列不混。
+      primary_dataset_names: es.filter(e => e.counts_for_primary).map(e => e.name),
     };
   }
 

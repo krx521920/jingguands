@@ -352,6 +352,17 @@ function computeMetrics(batchId) {
     perDataset.push(d);
   }
 
+  // ★ 2026-10-13：summary.standardized_pct 改为与指标卡/注册表**同源** ——
+  //   只读 demo/_standardized_real.json 实算产物，不在此处重算（两处各算一次
+  //   必然重演"同名两个值"，与 readStandardized() 处注释同一纪律）。
+  //   旧写法 pct(true, true+false) 把全部 606 字段算进分母：混入 unit:text 208 条
+  //   （D13-C2 明令不入分母）与弃权 169 条，得 434/606 = 71.62% ——
+  //   ① 与同屏卡片 229/229 = 100% 同屏两套数；
+  //   ② demo/_defects.js 又拿它对比 98% 目标，产出假缺陷 D11-P1-01
+  //      （记在魏文宇名下，已被 D17 裁定与宗 2026-10-12 成绩单 229/229 推翻）。
+  //   正确口径依 evaluation/D17/裁定-standardized判据-20261010.md：分母＝非 text 有值字段。
+  //   产物缺失 ⇒ null（判未测），绝不按目标值或经验值填充。
+  const stdCoverage = readStandardized().coverage;
   return {
     idx: fallback, agg, l3Miss, perDataset, scope,   // agg 一并返回，供handleMetrics 构造口径说明
     summary: {
@@ -366,7 +377,7 @@ function computeMetrics(batchId) {
       quote_pct: pct(agg.prov_quote, agg.prov_total),
       table_id_pct: pct(agg.prov_table, agg.prov_total),
       cell_ref_pct: pct(agg.prov_cell_ref, agg.prov_total),
-      standardized_pct: pct(agg.standardized_true, agg.standardized_true + agg.standardized_false),
+      standardized_pct: stdCoverage ? stdCoverage.pct : null,
       extracted_pct: pct(agg.status_extracted, agg.status_extracted + agg.status_pending_review + agg.status_other),
     },
     l3: {

@@ -93,5 +93,41 @@
       "D4-PLD-001"
     ],
     "datasets_unverifiable": 30
-  }
+  },
+  "corrections": [
+    {
+      "added_at": "2026-10-13",
+      "added_by": "陈家浩（页面侧）",
+      "note": "手动勘误：不改动上方 D11 当日原始记录（历史留痕）。D11 当日两条指标判据踩了「挂错目标」——总规划 §5 的「字段抽取 ≥90%」经 D17 裁定挂准确率（437/437＝100%，已达标），「标准化 ≥98%」挂标准化正确率（229/229＝100%，已达标）；覆盖率/出处类指标不挂目标。",
+      "items": [
+        {
+          "id": "D11-P1-01",
+          "verdict": "误报·已推翻",
+          "basis": "该条把 standardized=true 占全部 606 字段之比（434/606＝71.62%，分母混入 unit:text 208 条与弃权 169 条，违反 D13-C2）与「标准化 ≥98%」对比。正确口径：标准化覆盖率＝非 text 有值字段 229/229＝100%（demo/_standardized_real.js 实算，与指标卡/注册表同源）；98% 目标对应标准化正确率＝229/229＝100%，已达标。2026-10-13 已修 bridge/metrics.js（summary.standardized_pct 改读实算产物）与 demo/_defects.js 判据（98% 改挂正确率），并新增守卫 _d13c2_check.js A2B 防复发。",
+          "superseded_by": [
+            "evaluation/D17/裁定-standardized判据-20261010.md",
+            "evaluation/2026-10-12-scorecard/评分成绩单-20261012.json（standardized_rate 229/229、standardized_accuracy 229/229）"
+          ]
+        },
+        {
+          "id": "D11-P0-02",
+          "verdict": "目标挂错·结论部分推翻",
+          "basis": "「≥90%」是字段抽取准确率的目标（437/437＝100%，已达标），不是溯源存在率 L1 的目标——总规划 §5 无 L1 项，D17 裁定出处类不挂目标。L1＝449/606＝74.09%（157 个字段无 provenance）是事实披露，不是未达标；已从缺陷判据移入 limits 披露（demo/_defects.js 2026-10-13 改）。",
+          "superseded_by": [
+            "evaluation/D17/裁定-standardized判据-20261010.md",
+            "evaluation/2026-10-12-scorecard/评分成绩单-20261012.json（field_accuracy 437/437）"
+          ]
+        },
+        {
+          "id": "D11-P0-01",
+          "verdict": "已修复",
+          "basis": "parser 0.3.0 的 block 错指问题已随解析器升级消除：现权威批 31 份中 30 份信封自带 blocks，L3 原文命中 451/451（parser finstruct.parse/0.9.0），不再存在 0.3.0 时代的错指。",
+          "superseded_by": [
+            "demo/_d31_check.js（L3 覆盖面 30 份 / 451 条判据）",
+            "GET /api/metrics → l3（docs_indexed=30, hit=451）"
+          ]
+        }
+      ]
+    }
+  ]
 }
