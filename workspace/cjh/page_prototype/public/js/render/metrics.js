@@ -355,6 +355,40 @@ export function renderDataSource(ds) {
     wrap.appendChild(vbox);
   }
 
+  // ---- ★ 2026-10-15：覆盖率三档范围（互不替换，并列展示）----
+  //   方轩诚反馈 + 领导「动手修复并在页面侧落地」：606 / 592 / 437 各带语义，
+  //   绝不能互相替换，也绝不能只留一个。数值来自 /api/metrics 的实算段（bridge/caliber.js）。
+  const mn = ds.measured_now || {};
+  const rg = mn.ranges;
+  if (rg) {
+    const rbox = el("div", "mx-ds-split");
+    rbox.appendChild(el("div", "mx-ds-split-title", "覆盖率三档范围 · 三数并列，语义不同，互不替换"));
+    const rul = el("ul");
+    const fs1 = rg.frozen_slot || {}, ct = rg.core_text || {}, ge = rg.gold_expected || {};
+    rul.appendChild(el("li", null,
+      "范围 A｜冻结批槽位 " + (fs1.datasets || 0) + " 份：" + (fs1.extracted || 0) + "/" + (fs1.fields || 0) +
+      " = " + ((fs1.fields ? +((fs1.extracted / fs1.fields) * 100).toFixed(2) : null) || "—") +
+      "%（全字段槽位有值率，历史口径；含弃权字段，不等于抽取准确率）"));
+    rul.appendChild(el("li", null,
+      "范围 B｜有 Gold 的核心文本 " + (ct.datasets || 0) + " 份：" + (ct.extracted || 0) + "/" + (ct.fields || 0) +
+      " = " + ((ct.fields ? +((ct.extracted / ct.fields) * 100).toFixed(2) : null) || "—") +
+      "%（排除原文缺陷件 " + ((rg.scanned_degrade || {}).fields || 0) + " 字段；范围拆分展示，不是删件美化成功率）"));
+    const er = mn.expected_field_recall || {};
+    rul.appendChild(el("li", null,
+      "范围 C｜Gold 期望字段全集 " + (ge.fields == null ? "（未测）" : ge.fields + " 字段（" + (ge.datasets || 0) + " 份有 Gold）") +
+      "：" + (er.num == null ? "未测" : er.num + "/" + er.den + " = " + er.pct + "%") +
+      "（" + (er.name || "Gold 期望字段召回率") + "；分母只由 Gold 清单决定，不由引擎 status 反推）"));
+    if (er.qualification) rul.appendChild(el("li", "mx-muted", "★ 范围 C 限定语（必须同引）：" + er.qualification));
+    const pd = mn.pending || {};
+    if (pd.gold != null) rul.appendChild(el("li", "mx-muted",
+      "未裁定 pending：Gold " + pd.gold + " 项 / 引擎 needs_review " + pd.engine + " 项（单列；不得记「正确弃权」或「通过」）"));
+    const uv = mn.unverifiable || {};
+    if (uv.no_gold_fields) rul.appendChild(el("li", "mx-muted",
+      "不可核（无 Gold）：" + uv.no_gold_fields + " 字段（" + (uv.datasets || []).join("、") + "）——不计入任何分母"));
+    rbox.appendChild(rul);
+    wrap.appendChild(rbox);
+  }
+
   // ---- 其他批次：★ R3 要求显式命名 + 默认折叠，不得与上数同屏并列 ----
   if (others.length) {
     const cmp = el("details", "mx-ds-compare");
@@ -633,7 +667,8 @@ export function renderMetrics(root, data) {
   cal.appendChild(stamp);
   root.appendChild(cal);
 
-  // ---- 指标卡（数据驱动，当前四枚：抽取覆盖率/标准化覆盖率/标准化正确率/出处命中率）----
+  // ---- 指标卡（数据驱动；2026-10-15 起为五枚：全字段槽位有值率/Gold 期望字段召回率/
+  //      标准化覆盖率/标准化正确率/出处命中率）----
   const cards = el("div", "mx-cards");
   (data.cards || []).forEach((c) => {
     const card = el("div", "mx-card st-" + c.status);
@@ -647,6 +682,14 @@ export function renderMetrics(root, data) {
     if (c.value !== null) big.appendChild(el("span", "mx-u", c.unit));
     card.appendChild(big);
 
+    // ★ 2026-10-15：只给百分数＝把口径藏起来。分子分母 + 范围必须与数值同屏。
+    if (c.num !== null && c.num !== undefined && c.den !== null && c.den !== undefined) {
+      card.appendChild(el("div", "mx-card-numden",
+        "分子/分母 " + c.num + " / " + c.den + (c.scope ? "　范围 " + c.scope : "")));
+    } else if (c.scope) {
+      card.appendChild(el("div", "mx-card-numden", "范围 " + c.scope));
+    }
+
     // ★ 无目标项不得显示「目标 null%　差距 NaN」——那等于把"没目标"渲染成一个
     //   看起来像目标的假数字。改为说明为何无目标，并指向真正挂目标的指标。
     const noTarget = c.target === null || c.target === undefined;
@@ -657,6 +700,16 @@ export function renderMetrics(root, data) {
     if (noTarget && c.value !== null) tg.classList.add("is-no-target");
     card.appendChild(tg);
     card.appendChild(el("div", "mx-card-cal", c.caliber));
+    // ★ 2026-10-15：范围拆分行与待复核行（Gold 条件口径必须能看到限定语）
+    if (Array.isArray(c.lines)) {
+      const ul2 = el("ul", "mx-card-lines");
+      c.lines.forEach((t) => ul2.appendChild(el("li", null, t)));
+      card.appendChild(ul2);
+    }
+    if (c.pending !== null && c.pending !== undefined) {
+      card.appendChild(el("div", "mx-card-cov",
+        "⚠ 未裁定 pending " + c.pending + " 项未闭环——不得作为「原文全覆盖」头条"));
+    }
     if (c.coverage_note) card.appendChild(el("div", "mx-card-cov", "⚠ " + c.coverage_note));
     cards.appendChild(card);
   });

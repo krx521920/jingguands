@@ -5,7 +5,7 @@
  *   指标默认只跑**权威批次 `data_unified/`**（魏 D11 首测冻结批次）。
  *   原先只跑 `data/`（09-28~10-02 旧抽取，548 字段），导致页面的71.53% 与材料的
  *   72.52%（615 字段）出自两个不同样本却常被并列引用（D19 查出）。
- *   演示池 `data/` 仍可在下拉里查看，但**不计入任何分子分母**。
+ *   演示池 `data/` 仍可在下拉里查看，但「不计入任何分子分母」。
  *   数据源批次、份数、指纹由 bridge/data_source.js 单一真源提供，随 /api/metrics 一起下发。
  *
  * 口径纪律（关键）：
@@ -22,6 +22,7 @@ const fs = require("fs");
 const path = require("path");
 
 const dataSource = require("./data_source.js");   // 2026-10-09：数据源单一真源（批次/口径/指纹）
+const caliber = require("./caliber.js");          // ★ 2026-10-15：覆盖率口径单一真源（Gold 期望全集/三档范围）
 
 // __dirname = <工程根>/bridge，故 data / docs 各上退一级
 const LEGACY_DATA_DIR = path.join(__dirname, "..", "data");
@@ -43,7 +44,7 @@ function sendJSON(res, code, obj) {
 /**
  * ★ 2026-10-09：枚举参与本次实算的数据集。
  *   batchId = "authoritative"（默认，权威口径，只跑入分子的批次）
- *   batchId = "legacy"（对照用，页面按需查演示池；**不进权威口径的分子分母**）
+ *   batchId = "legacy"（对照用，页面按需查演示池；「不进权威口径的分子分母」）
  *   batchId = "all"（两批都跑，仅用于对账展示，不得作为上屏口径）
  */
 function listDataFiles(batchId) {
@@ -74,7 +75,7 @@ function resolveDataFile(name) {
  *   不是抽取变差了。
  *   实测证明：用该信封自带的 `source.parse_meta.blocks`（同一parser 版本）自校验 = 39/39 = 100%。
  *
- *   ⇒ 铁律：**解析产物跨parser 版本不可比对**。版本不匹配时必须判「快照不适用·未核」，
+ *   ⇒ 铁律：「解析产物跨parser 版本不可比对」。版本不匹配时必须判「快照不适用·未核」，
  *     绝不能拿旧快照算出一个看起来像成绩的百分比。反过来，若信封自带 blocks，
  *     优先用它自校验（同一份解析产物，可信度最高）。
  */
@@ -120,14 +121,14 @@ function prefixOf(blockId) {
 /**
  * ★ 2026-10-11：从当前批次里**每一份**自带 blocks 的信封建一份索引（按文档前缀分桶）。
  *
- *   原来只取**第一份**就 return（`for (...) { ...; return {...} }`），
+ *   原来只取「第一份」就 return（`for (...) { ...; return {...} }`），
  *   于是 L3 明明可以核 30 份信封，却只核了1 份 —— 领导的遗留第 1 条。
  *   实测：权威批 31 份里 30 份自带 `source.parse_meta.blocks`（≥10 块），
  *   只有 pledge-scan-degrade 没有。
  *
  *   为什么原来"只取一份"是刻意的、现在又必须放开：
  *     旧设计的顾虑是「多份信封 ⇒ 多套 block_id 体系，混起来是自欺」——
- *     这条顾虑**仍然成立**，但解法不是「只留一份」，而是**按前缀分桶**：
+ *     这条顾虑**仍然成立**，但解法不是「只留一份」，而是「按前缀分桶」：
  *     每份信封的 provenance 只会指向自己那份信封的 block，前缀不同就绝不会串。
  *     分桶之后「混用」在结构上不可能发生，不需要靠"只用一份"来防。
  */
@@ -178,7 +179,7 @@ function parseSelfBlockIndex() {
 }
 
 /** 从当前批次的信封里找唯一自带 blocks 的那一份，做同源自校验。
- *  ⚠本函数是**单份**视图，仅供只要一个 doc 的老调用方；
+ *  ⚠本函数是「单份」视图，仅供只要一个 doc 的老调用方；
  *  多份核验请走 parseSelfBlockIndex()（2026-10-11 起 computeMetrics 已全量走分桶）。
  *  判「唯一」是刻意的：多份信封就必然有多套 block_id 体系，混起来是自欺。*/
 function parseSelfBlocks() {
@@ -252,7 +253,7 @@ function isField(v) {
 function computeMetrics(batchId) {
   // ★ 2026-10-11：从「单份索引」改为**按文档前缀分桶的多份索引**。
   //   实测权威批 31 份里 30 份自带 blocks ⇒ L3 覆盖面从 1 份变 30 份。
-  //   外部快照（parseSelfBlocks 的回退路径）仍保留：它是**单文档**索引，
+  //   外部快照（parseSelfBlocks 的回退路径）仍保留：它是「单文档」索引，
   //   只在没有信封自带 blocks 时才顶上，此时覆盖面天然只有 1 份 —— 但那是事实，不假装。
   const bucketIdx = parseSelfBlockIndex();
   const fallback = bucketIdx.buckets.size ? null : loadParseIndex();
@@ -266,9 +267,11 @@ function computeMetrics(batchId) {
   };
   const l3Miss = [];
   const perDataset = [];
+  const envelopes = [];   // ★ 2026-10-15：同时收齐信封，供 bridge/caliber.js 建 Gold 期望全集
 
   for (const ds of listDataFiles(scope)) {
     const j = JSON.parse(fs.readFileSync(resolveDataFile(ds), "utf8"));
+    envelopes.push({ id: ds, json: j });
     const events = Array.isArray(j.events) ? j.events : [];
     const src = dataSource.resolve(ds);
     const d = { dataset: ds, file_name: (j.source && j.source.file_name) || null,
@@ -318,7 +321,7 @@ function computeMetrics(batchId) {
           //     （0.7.0 与 0.9.0 的 block 编号体系不同，跨版本比对必然假失败）
           // 闸不过 ⇒ 不计入分母（判未核），而不是算出一个假的命中率。
           //
-          // ★ 2026-10-11：闸①从「比对唯一索引的 doc_prefix」改为「**按前缀取对应那一份**」。
+          // ★ 2026-10-11：闸①从「比对唯一索引的 doc_prefix」改为「「按前缀取对应那一份」」。
           //   分桶后不同信封的 block 体系在结构上就隔离了 —— 拿 A 信封的 block_id
           //   去查 B 信封的桶，必然查不到（byBlockId.get 返回 null），
           //   于是它进不了分母，而不是拿别的文档的文本凑出一个假命中。
@@ -326,7 +329,7 @@ function computeMetrics(batchId) {
           if (!pv.block_id) return;
           const prefix = prefixOf(pv.block_id);
           const idx = (bucketIdx.buckets.size ? bucketIdx.buckets.get(prefix) : fallback);
-          // ★ 桶缺失/桶值为空 ⇒ 判「不可核」并跳过，**绝不让它一路 null 到 .get()/.byBlockId 抛错**
+          // ★ 桶缺失/桶值为空 ⇒ 判「不可核」并跳过，「绝不让它一路 null 到 .get()/.byBlockId 抛错」
           //   （反证实测：这里不判，一处坏桶能让整页指标 500）。
           if (!idx || !idx.byBlockId) { d.l3_no_index = (d.l3_no_index || 0) + 1; return; }
           const envParser = (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null;
@@ -352,7 +355,7 @@ function computeMetrics(batchId) {
     perDataset.push(d);
   }
 
-  // ★ 2026-10-13：summary.standardized_pct 改为与指标卡/注册表**同源** ——
+  // ★ 2026-10-13：summary.standardized_pct 改为与指标卡/注册表「同源」 ——
   //   只读 demo/_standardized_real.json 实算产物，不在此处重算（两处各算一次
   //   必然重演"同名两个值"，与 readStandardized() 处注释同一纪律）。
   //   旧写法 pct(true, true+false) 把全部 606 字段算进分母：混入 unit:text 208 条
@@ -363,8 +366,21 @@ function computeMetrics(batchId) {
   //   正确口径依 evaluation/D17/裁定-standardized判据-20261010.md：分母＝非 text 有值字段。
   //   产物缺失 ⇒ null（判未测），绝不按目标值或经验值填充。
   const stdCoverage = readStandardized().coverage;
+
+  // ★ 2026-10-15（方轩诚反馈 + 领导「动手修复并在页面侧落地」）：
+  //   覆盖率不再只有一个数。三档范围与「Gold 期望字段召回率」全部由 bridge/caliber.js
+  //   实算（口径单一真源），本文件只取用、不重算：
+  //     ① 全字段槽位有值率（历史口径）＝437/606＝72.11%，保留原数值语义（key 仍叫 extracted_pct）
+  //     ② 核心文本槽位有值率＝437/592＝73.82%（排除原文缺陷件 pledge-scan-degrade 的 14 字段）
+  //     ③ Gold 期望字段召回率＝437/437＝100%（**分母只由 Gold 清单决定，不由引擎 status 反推**）
+  //   ③ 号数必须带限定语（当前 Gold 条件口径 / 公开语料冻结回放 / 不外推泛化 / 原文推导复核未完成），
+  //   且不得据此把「该批原文应抽字段全部抽到」当成原文全覆盖头条。
+  //   ★ 纪律：禁止通过修改引擎 status（如把字段改成 not_mentioned）来缩小分母。
+  const cal = caliber.computeCaliber(envelopes);
+  const recall = cal.gold.recall, vmatch = cal.gold.value_match;
+
   return {
-    idx: fallback, agg, l3Miss, perDataset, scope,   // agg 一并返回，供handleMetrics 构造口径说明
+    idx: fallback, agg, l3Miss, perDataset, scope, caliber: cal,   // agg/caliber 供 handleMetrics 构造口径说明
     summary: {
       datasets: agg.datasets,
       fields_total: agg.fields_total,
@@ -378,11 +394,31 @@ function computeMetrics(batchId) {
       table_id_pct: pct(agg.prov_table, agg.prov_total),
       cell_ref_pct: pct(agg.prov_cell_ref, agg.prov_total),
       standardized_pct: stdCoverage ? stdCoverage.pct : null,
+      // ① 历史口径（键名保留兼容）：全字段槽位有值率
       extracted_pct: pct(agg.status_extracted, agg.status_extracted + agg.status_pending_review + agg.status_other),
+      slot_value_rate_pct: cal.slot.pct,
+      slot_value_num: cal.slot.num,
+      slot_value_den: cal.slot.den,
+      // ② 核心文本件槽位口径（排除原文缺陷件）
+      core_text_slot_pct: cal.ranges.core_text.fields ? pct(cal.ranges.core_text.extracted, cal.ranges.core_text.fields) : null,
+      core_text_slot_num: cal.ranges.core_text.extracted,
+      core_text_slot_den: cal.ranges.core_text.fields,
+      // ③ Gold 期望字段召回率 / 值一致率（条件口径）
+      expected_field_recall_pct: recall.pct,
+      expected_field_recall_num: recall.num,
+      expected_field_recall_den: recall.den,
+      gold_value_match_pct: vmatch.pct,
+      gold_value_match_num: vmatch.num,
+      gold_value_match_den: vmatch.den,
+      gold_available: cal.gold.available,
+      gold_pending_fields: cal.gold.pending.gold,
+      engine_pending_fields: cal.gold.pending.engine,
+      no_gold_fields: cal.gold.no_gold_fields,
+      gold_expected_scopes: cal.ranges,
     },
     l3: {
       // ★ 2026-10-11：覆盖从 1 份变 N 份，下列doc_* 单值字段已不再有单一文档可指，
-      //   故**显式置 null**（不拿第一份冒充全体），改用 docs_* 系列表述。
+      //   故「显式置 null」（不拿第一份冒充全体），改用 docs_* 系列表述。
       doc_id: null,
       doc_name: null,
       docs_indexed: bucketIdx.buckets.size,
@@ -425,7 +461,7 @@ function readStandardized() {
 
 /**
  * 组装 /api/metrics 响应。
- * 指标卡按总规划 §验收指标给出目标值，但**达标与否由实算数决定**，
+ * 指标卡按总规划 §验收指标给出目标值，但「达标与否由实算数决定」，
  * 未覆盖的指标显式标"未核"，绝不按目标值填充。
  */
 function handleMetrics(res, batchId) {
@@ -433,6 +469,10 @@ function handleMetrics(res, batchId) {
     const scope = batchId || dataSource.PRIMARY_ID;
     const m = computeMetrics(scope);
     const s = m.summary, l3 = m.l3, agg = m.agg;
+    // ★ 2026-10-15：口径对象（三档范围 / Gold 期望召回率）由 computeMetrics 一并返回，
+    //   本处只取用、绝不重算 —— 卡片与注册表必须同源，两处各算一次就会重演「同名两个值」。
+    const cal = m.caliber;
+    const recall = cal.gold.recall, vmatch = cal.gold.value_match;
 
     // D12：把指标注册表一并下发，让页面顶层的口径面板与下方旧图表读同一份真源。
     // 不这么做就会出现「上屏口径」与「图表数值」两套定义，正是要根治的毛病。
@@ -441,7 +481,7 @@ function handleMetrics(res, batchId) {
     catch (e) { registryPayload = null; }
 
     // D17：标准化判据已由评测侧裁定（evaluation/D17/裁定-standardized判据-20261010.md）。
-    //  两个指标必须分列，且**数值不在此处重算**——由 demo/_standardized_real.js 实算后
+    //  两个指标必须分列，且「数值不在此处重算」——由 demo/_standardized_real.js 实算后
     //  写 demo/_standardized_real.json，本处只读产物。理由：卡片与注册表必须同源，
     //  两处各算一次就会重演"同名两个值"。
     //  产物缺失 ⇒ target 仍挂、value 为 null（判未测），绝不按目标值填充。
@@ -455,7 +495,7 @@ function handleMetrics(res, batchId) {
     //     分母更大、证据来源同源（每份信封自带的解析产物），严格覆盖 241 那套。
     //   两者判据相同（quote ∈ block.text），但证据来源与口径都不同，
     //     同时上屏就是「同页两个出处命中率」——正是 2026-10-11 要根治的毛病。
-    //   ⇒ **卡片只上权威口径一个数**；241 那套降级为脚注里的历史对照，明确标注口径差异。
+    //   ⇒ 「卡片只上权威口径一个数」；241 那套降级为脚注里的历史对照，明确标注口径差异。
     const provCard = (() => {
       const num = l3.checked, den = agg.prov_total;
       return {
@@ -470,14 +510,41 @@ function handleMetrics(res, batchId) {
       };
     })();
     // 目标值来自 cjh_workspace_00_总规划.md §验收指标（仅作对照，不参与计算）。
-    // ★口径纪律（D15/D17 校准）：90% 是**准确率**目标、98% 是**标准化正确率**目标，
+    // ★口径纪律（D15/D17 校准）：90% 是**准确率**目标、98% 是「标准化正确率」目标，
     //   二者都不得挂在覆盖率/出处这类"分母含弃权"的口径上——挂错等于用错口径宣布未达标。
     const TARGETS = [
-      { key: "extracted_pct", name: "字段抽取覆盖率", target: null, value: s.extracted_pct, unit: "%",
-        caliber: "status=extracted 占已判定状态字段的比例（分子 " + agg.status_extracted +
-          " / 分母 " + (agg.status_extracted + agg.status_pending_review + agg.status_other) +
-          "）；弃权字段计入分母。权威分母 606",
-        coverage_note: "★ 准确率目标 90% 对应的是另一个指标（字段抽取准确率 437/437），不挂本项" },
+      // ① 历史口径（数值语义不变，展示名改为「全字段槽位有值率」——方轩诚 2026-10-15）
+      { key: "extracted_pct", name: cal.labels.slot_value_rate, target: null, value: s.slot_value_rate_pct, unit: "%",
+        num: cal.slot.num, den: cal.slot.den, scope: cal.labels.scope_31,
+        caliber: "status=extracted 占全部产出字段（槽位）的比例（分子 " + agg.status_extracted +
+          " / 分母 " + s.fields_total +
+          "）。槽位口径含弃权字段，衡量的是「信息填充比例」，不等于抽取准确率，也不回答「该抽的抽到了没有」。",
+        lines: [
+          "范围 A｜" + cal.labels.scope_31 + "（含扫描降级件）：" + cal.ranges.frozen_slot.extracted + "/" + cal.ranges.frozen_slot.fields +
+            " = " + (cal.ranges.frozen_slot.fields ? pct(cal.ranges.frozen_slot.extracted, cal.ranges.frozen_slot.fields) : null) + "%" +
+            "（" + cal.ranges.frozen_slot.datasets + " 份）",
+          "范围 B｜" + cal.labels.scope_30 + "：" + cal.ranges.core_text.extracted + "/" + cal.ranges.core_text.fields +
+            " = " + (cal.ranges.core_text.fields ? pct(cal.ranges.core_text.extracted, cal.ranges.core_text.fields) : null) + "%" +
+            "（" + cal.ranges.core_text.datasets + " 份；排除原文缺陷件 " + (dataSource.SCOPE_FRAMES.scanned_degrade_datasets || []).join("、") +
+            " 的 " + cal.ranges.scanned_degrade.fields + " 字段）",
+          "范围 C｜" + cal.labels.scope_gold + "：见下一张「Gold 期望字段召回率」卡",
+        ],
+        coverage_note: "★ 三个覆盖率数不可互相替换：槽位口径含弃权字段，Gold 期望口径只含应抽字段。准确率目标 90% 挂在另一个指标（字段抽取准确率），不挂本项" },
+      // ② ★ 2026-10-15 新增：Gold 期望字段召回率（分母只由 Gold 清单决定）
+      { key: "expected_field_recall", name: cal.labels.expected_recall, target: null,
+        value: recall.den > 0 ? recall.pct : null, unit: "%",
+        num: recall.num, den: recall.den, scope: cal.labels.scope_gold,
+        pending: cal.gold.pending.gold, unverified_fields: cal.gold.no_gold_fields,
+        caliber: recall.caliber + "（当前 " + recall.num + "/" + recall.den + "）",
+        lines: [
+          "期望全集 " + recall.den + " 字段来自 Gold 清单（" + cal.gold.pairs + " 组事件配对 / " + cal.ranges.gold_expected.datasets + " 份有 Gold），「不由引擎 status 反推」",
+          "原文存在却抽不出（miss）已计入分母：" + cal.gold.recall_miss.length + " 项；多抽候选：" + cal.gold.extra_candidates.length + " 处",
+          "未裁定 pending：Gold " + cal.gold.pending.gold + " 项 / 引擎 needs_review " + cal.gold.pending.engine + " 项（单列，不作头条）",
+          "不可核（无 Gold）：" + cal.gold.no_gold_fields + " 字段（" + cal.gold.no_gold.map(x => x.dataset).join("、") + "）——不计入本项任何分子分母",
+          "值一致率（分子条件不同、当前恰好同值，不得合并）：" + vmatch.num + "/" + vmatch.den + " = " + vmatch.pct + "%",
+        ],
+        coverage_note: "★ 名称只能叫「相对当前 Gold 的期望字段召回率」，且必须同带限定语：" + cal.gold.qualification +
+          "。★ 禁止通过修改引擎 status（如把字段改判 not_mentioned）来缩小分母" },
       { key: "standardized_pct", name: "标准化覆盖率", target: null,
         value: std.coverage ? std.coverage.pct : null, unit: "%",
         caliber: std.coverage
@@ -494,9 +561,9 @@ function handleMetrics(res, batchId) {
           : "非 text 有值且有 Gold 期望的字段中，value 与 Gold 规范值一致（未测）",
         coverage_note: "value 即规范化后的取值，值层一致即标准化正确（与标准化覆盖率分列，不得相加）" },
       { key: "provenance_hit", name: "出处命中率", target: 95, value: provCard.value, unit: "%",
-        // ★ 2026-10-11：分母改为**权威批全部 provenance**（451），不再用可核子集（241）。
+        // ★ 2026-10-11：分母改为「权威批全部 provenance」（451），不再用可核子集（241）。
         //   以前写"可核子集 241 / 分母 241"看着漂亮，但 622 条未核的provenance 被藏起来了 ——
-        //   2026-10-11 把覆盖面从 10 份扩到 30 份后，451 条**全部可核**，没有子集了。
+        //   2026-10-11 把覆盖面从 10 份扩到 30 份后，451 条「全部可核」，没有子集了。
         caliber: "出处原文命中率＝quote 落在该信封自带的原始解析 block.text 内（分子 " +
           provCard.num + " / 分母 " + provCard.den + "）。" +
           "证据来源＝各信封 source.parse_meta.blocks（与 provenance 同一次解析产物），按 block_id 前缀分桶，" +
@@ -516,6 +583,13 @@ function handleMetrics(res, batchId) {
       const measured = t.value !== null && t.value !== undefined;
       return {
         key: t.key, name: t.name, target: t.target, value: t.value, unit: t.unit,
+        // ★ 2026-10-15：卡片必须自带分子分母/范围/待复核——只给百分数等于把口径藏起来
+        num: t.num === undefined ? null : t.num,
+        den: t.den === undefined ? null : t.den,
+        scope: t.scope || null,
+        lines: t.lines || null,
+        pending: t.pending === undefined ? null : t.pending,
+        unverified_fields: t.unverified_fields === undefined ? null : t.unverified_fields,
         caliber: t.caliber, coverage_note: t.coverage_note || null,
         // ★ 无目标项不得判pass：`value >= null` 恒为 true，会把「覆盖率」这类
         //   自建口径的指标谎报成达标。target 为 null 时只报实测值，不报达标与否。
@@ -571,6 +645,17 @@ function handleMetrics(res, batchId) {
           extracted_n: agg.status_extracted,
           extracted_d: agg.status_extracted + agg.status_pending_review + agg.status_other,
           extracted_pct: s.extracted_pct,
+          // ★ 2026-10-15：三档范围 + Gold 期望口径随响应下发（读者必须能看出每个数跑在哪个范围上）
+          ranges: s.gold_expected_scopes,
+          expected_field_recall: {
+            num: s.expected_field_recall_num, den: s.expected_field_recall_den, pct: s.expected_field_recall_pct,
+            name: cal.labels.expected_recall, qualification: cal.gold.qualification,
+          },
+          gold_value_match: { num: s.gold_value_match_num, den: s.gold_value_match_den, pct: s.gold_value_match_pct },
+          pending: { gold: s.gold_pending_fields, engine: s.engine_pending_fields,
+            note: "未裁定项单列；不得记「正确弃权」或「通过」" },
+          unverifiable: { no_gold_fields: s.no_gold_fields, datasets: cal.gold.no_gold.map(x => x.dataset) },
+          caliber_source: "bridge/caliber.js（口径单一真源，卡片/注册表/重测脚本共用）",
         },
       }),
       // ★ D12：口径注册表（单一真源）。页面顶层按三类分列渲染，下方旧图表保留对照。
@@ -598,6 +683,11 @@ function handleMetrics(res, batchId) {
         "字段抽取率与溯源存在率（L1）是两个不同指标，勿混用：前者看 status，后者看 provenance 是否存在",
         "★ 2026-10-09：引用任何数字须同时引用 data_source 段的批次、份数与目录指纹",
         "★ D12 起口径以顶层注册表为准，本节仅保留 D11 原始口径供对照",
+        "★ 2026-10-15 覆盖率三档范围并列，互不替换：①31 份冻结批槽位 606（全字段槽位有值率）②30 份有 Gold 核心文本 592 ③Gold 期望字段全集 437（期望字段召回率）",
+        "★ 2026-10-15 Gold 期望字段召回率的分母「只来自 Gold 清单」，不由引擎 status 反推；原文存在却抽不出（miss）计入分母，弃权不计入",
+        "★ 2026-10-15 该召回率必须带限定语：当前 Gold 条件口径 + 公开语料冻结回放 + 不外推泛化 + Gold 原文推导复核未完成（72 项重点复核 / 12 项 Gold 待复核 / 3 处状态分歧未闭环）——未闭环前不得作为「原文全覆盖」头条",
+        "★ 2026-10-15 未裁定项（Gold needs_review / 双方状态分歧）单列 pending：既不记「正确弃权」，也不记「通过」，也不自动判失败",
+        "★ 2026-10-15 禁止通过修改引擎 status（如把字段改判 not_mentioned）来缩小分母——分母只能由 Gold 清单决定",
       ],
       cards,
       anchors,

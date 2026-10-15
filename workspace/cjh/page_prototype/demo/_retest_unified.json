@@ -8,7 +8,14 @@
       "D:\\chenjh\\code\\program\\jingguanpluge\\jingguands\\evaluation\\D6\\dev\\gold"
     ],
     "gold_pair_key": "source.file_id（★不能用 file_name：Gold 沿用旧批次文件名）",
-    "rule": "未核/无 Gold 标注字段不计入任何命中率分母",
+    "rule": "未核/无 Gold 标注字段不计入任何命中率分母；Gold 期望全集分母只由 Gold 决定，不由引擎 status 反推",
+    "caliber_source": "bridge/caliber.js（口径单一真源：卡片 / 注册表 / 本脚本 / _evidence_check 共用）",
+    "qualification": {
+      "conditional": "当前 Gold 条件口径",
+      "frozen_replay": "公开语料冻结回放",
+      "no_generalization": "不外推泛化",
+      "pending_note": "Gold 原文推导复核未完成（72 项重点复核 + 12 项 Gold 待复核 + 3 处状态分歧未闭环）"
+    },
     "note": "2026-10-15 领导裁定「不走首测了，真删」：首测基线常量已删除；标准化/出处命中不在此重算（口径与现行裁定不同），权威值读 demo/_standardized_real.json 与 demo/_evidence_check.json"
   },
   "primary_filter": {
@@ -17,6 +24,37 @@
     "excluded": [
       "DEMO-EQC-HL-0930"
     ]
+  },
+  "ranges": {
+    "frozen_slot": {
+      "datasets": 31,
+      "fields": 606,
+      "extracted": 437
+    },
+    "core_text": {
+      "datasets": 30,
+      "fields": 592,
+      "extracted": 437
+    },
+    "gold_expected": {
+      "datasets": 30,
+      "fields": 437,
+      "note": "Gold 期望字段全集：分母只由 Gold 清单决定，不由引擎 status 反推"
+    },
+    "excluded_unknown_source": {
+      "datasets": 0,
+      "fields": 0,
+      "note": "来源不清/演示件（不计入任何分母，仅警告）"
+    },
+    "scanned_degrade": {
+      "datasets": 1,
+      "fields": 14
+    },
+    "local_demo": {
+      "datasets": 0,
+      "fields_total": 0,
+      "present": false
+    }
   },
   "current": {
     "files": 31,
@@ -47,6 +85,7 @@
     "l3_hit": 449,
     "l3_den": 449,
     "gold_pairs": 48,
+    "gold_paired_datasets": 30,
     "gold_no_env": 0,
     "gold_no_gold": 1,
     "gold_no_gold_ids": [
@@ -89,15 +128,29 @@
     "gold_match": 437,
     "gold_mismatch": [],
     "gold_missing": [],
+    "recall_num": 437,
+    "recall_miss_n": 0,
+    "extra_candidates": [],
+    "pending_gold": 12,
+    "pending_engine": 11,
+    "status_diff": [
+      "D4-PLD-009.E03.end_date: 信封=not_mentioned vs Gold=needs_review",
+      "D6-AWD-002.E03.formal_award_notice_received: 信封=not_disclosed vs Gold=not_mentioned",
+      "D6-AWD-002.E04.formal_award_notice_received: 信封=not_disclosed vs Gold=not_mentioned"
+    ],
+    "gold_bad": [],
+    "unpairable": [],
+    "no_gold_fields": 14,
     "false_fill": 0,
     "false_fill_den": 0,
     "false_fill_list": [],
     "unknown_status": []
   },
   "pct": {
-    "extracted": 72.11221122112211,
+    "slot_value_rate": 72.11221122112211,
     "prov_l1": 74.0924092409241,
-    "gold_acc": 100,
+    "expected_field_recall": 100,
+    "gold_value_match": 100,
     "false_fill": null
   }
 }

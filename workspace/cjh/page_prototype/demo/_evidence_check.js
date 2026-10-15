@@ -41,6 +41,8 @@ const LEGACY_DIR = path.join(ROOT, "data");              // 旧池（仅 P0-01 �
 const PARSE_SNAPSHOT = path.join(ROOT, "..", "docs", "_ref_zhang_D3_pledge.parse.json");
 const OUT = path.join(__dirname, "_evidence_check.json");
 const WITNESS = ["wei_real_pledge_ce37", "wei_real_pledge_0197"];
+// ★ 2026-10-15：口径单一真源（P0-01 改锚要按 source.file_sha256 在权威批里找同一份文档）
+const caliber = require(path.join(__dirname, "..", "bridge", "caliber.js"));
 
 // ---------- 单一真源：入口径名单（与页面 /api/metrics 同一份） ----------
 // 拿不到名单就拒绝跑：没有名单就不分类、不猜，绝不静默兜底（反造假铁律）。
@@ -114,6 +116,94 @@ function buildIndex(j, name) {
   };
 }
 
+/**
+ * ★ 2026-10-15 新增：P0-01 物证的**权威批改锚**（方轩诚反馈第④条）。
+ *
+ * 方原文：「ce37 指向权威批同名文档即复活（我核过同一 sha256，且旧件 7,800,000＝三笔之和）」。
+ * 本函数把这句话落成可复算的证据，而不是抄结论：
+ *   ① 按 **source.file_sha256** 在权威批里找同一份文档（不是按文件名、不是按 case_id）；
+ *   ② 报两侧 parser 版本与事件数（旧 0.3.0/0.7.0 各 1 事件 vs 权威批 3 事件）；
+ *   ③ 做**算术正反证**：在原文 block 文本里找「三笔之和＝合计」这一关系（正证），
+ *      并显式声明找不到时 holds=false（反证：不当成通过）。
+ *
+ * ★ 纪律：物证不计入权威口径任何分子分母；旧物证的「2/12 / 12/12」是**当时快照口径**，
+ *   与权威批 3 事件口径不可混算，引用必须带「当时快照口径」限定。
+ */
+function witnessAuthoritativeAnchor() {
+  const out = {
+    enabled: true,
+    rule: "按 source.file_sha256 匹配权威批同一份文档（同一文档 ≠ 同名文件；旧件 file_name 为 pledge.pdf）",
+    by_witness: {},
+    arithmetic_proof: null,
+    discipline: "旧物证数值（ce37 2/12、0197 12/12）出自当时快照口径，与权威批 3 事件口径不可混算；引用须带「当时快照口径」限定",
+  };
+  let auth = [];
+  try { auth = caliber.primaryEnvelopes(); }
+  catch (e) { out.enabled = false; out.why = "读不到权威批信封：" + e.message; return out; }
+
+  const bySha = new Map();
+  for (const { id, json } of auth) {
+    const sha = json.source && json.source.file_sha256;
+    if (sha) bySha.set(sha, { dataset: id, json });
+  }
+
+  for (const name of WITNESS) {
+    const p = path.join(LEGACY_DIR, name + ".json");
+    if (!fs.existsSync(p)) { out.by_witness[name] = { missing: true }; continue; }
+    const j = JSON.parse(fs.readFileSync(p, "utf8"));
+    const sha = (j.source && j.source.file_sha256) || null;
+    const hit = sha ? bySha.get(sha) : null;
+    const rec = {
+      file_sha256: sha,
+      parser_version: (j.source && j.source.parse_meta && j.source.parse_meta.parser_version) || null,
+      events: (j.events || []).length,
+      file_name: (j.source && j.source.file_name) || null,
+      authoritative_match: hit ? {
+        dataset: hit.dataset,
+        revives: true,     // 「指向权威批同名（同 sha256）文档即复活」
+        parser_version: (hit.json.source && hit.json.source.parse_meta && hit.json.source.parse_meta.parser_version) || null,
+        events: (hit.json.events || []).length,
+        sha256_match: true,
+        note: "物证文档本身就在权威批内 ⇒ P0-01 可从死池改锚到权威批，跨版本对照链（0.3.0→0.7.0→0.9.0）在同一份文档上成立",
+      } : { revives: false, note: "权威批内未找到同 sha256 文档（不得声称可改锚）" },
+    };
+    out.by_witness[name] = rec;
+    if (hit && !out.arithmetic_proof) {
+      // ③ 算术正反证：取权威批该份信封自带的 blocks 文本找「三笔之和＝合计」
+      const blocks = (hit.json.source && hit.json.source.parse_meta && hit.json.source.parse_meta.blocks) || [];
+      const text = blocks.map(b => String(b.text || "") + " " + String(b.text_raw || "")).join("\n");
+      out.arithmetic_proof = Object.assign({ for_witness: name, authoritative_dataset: hit.dataset }, threeEntrySumProof(text));
+    }
+  }
+  return out;
+}
+
+/** 在文本里找「三个数之和 = 另一个数」（三笔质押份数相加＝合计行）——正证/反证都出结论 */
+function threeEntrySumProof(text) {
+  const nums = [...String(text).matchAll(/\d{1,3}(?:,\d{3})+/g)]
+    .map(m => Number(m[0].replace(/,/g, "")))
+    .filter(n => Number.isFinite(n) && n > 0);
+  const uniq = [...new Set(nums)].sort((a, b) => b - a);
+  for (const total of uniq) {
+    for (let i = 0; i < uniq.length; i++) {
+      for (let j = i + 1; j < uniq.length; j++) {
+        for (let k = j + 1; k < uniq.length; k++) {
+          if (uniq[i] + uniq[j] + uniq[k] === total) {
+            return {
+              holds: true,
+              total,
+              parts: [uniq[i], uniq[j], uniq[k]],
+              expr: `${uniq[i]} + ${uniq[j]} + ${uniq[k]} = ${total}`,
+              note: "原文表内「分项之和＝合计」成立（算术自洽性，不等于字段抽取正确性）",
+            };
+          }
+        }
+      }
+    }
+  }
+  return { holds: false, total: null, parts: [], note: "未在原文中找到「三数之和＝另一数」关系 —— 不得据此声称已证（反证不通过）" };
+}
+
 function isField(v) {
   if (!v || typeof v !== "object" || Array.isArray(v)) return false;
   return v.status !== undefined || v.raw_value !== undefined || v.provenance !== undefined;
@@ -162,6 +252,8 @@ function checkWitness(idx) {
     datasets: {},
     l3: { eligible: 0, checked: 0, hit: 0, miss: 0, hit_rate_pct: null },
     attribution: null,
+    // ★ 2026-10-15：权威批改锚 + 三笔之和算术正反证（先算，快照缺失也要出）
+    authoritative_anchor: witnessAuthoritativeAnchor(),
   };
   if (!idx) { out.note += "（解析快照缺失，物证段未执行）"; return out; }
 
@@ -445,6 +537,23 @@ function main() {
     }
     const a = witness.attribution;
     if (a) console.log("  归因：真错指 " + a.true_mispoint + " / 取层错 " + a.layer_error + " / 快照不存在 " + a.absent_in_snapshot);
+  }
+  // ★ 2026-10-15：P0-01 权威批改锚 + 算术正反证（方轩诚反馈第④条落地）
+  const wa = witness.authoritative_anchor;
+  if (wa && wa.enabled) {
+    console.log("\n【P0-01 改锚：按 source.file_sha256 在权威批找同一份文档】");
+    for (const [k, v] of Object.entries(wa.by_witness)) {
+      if (!v || v.missing) { console.log("  " + k + "：旧件缺失"); continue; }
+      const m = v.authoritative_match || {};
+      console.log("  " + k + "（parser " + (v.parser_version || "?") + "，" + v.events + " 事件，sha256 " +
+        String(v.file_sha256 || "").slice(0, 12) + "…）→ 权威批 " + (m.revives ? m.dataset + "（parser " + m.parser_version + "，" + m.events + " 事件，同 sha256 ✓）" : "未找到同 sha256 文档 ✗"));
+    }
+    const ap = wa.arithmetic_proof;
+    if (ap) {
+      console.log("  算术正反证（" + ap.for_witness + " 对应权威批 " + ap.authoritative_dataset + "）：" +
+        (ap.holds ? "成立 " + ap.expr + "　— " + ap.note : "不成立　— " + ap.note));
+    }
+    console.log("  纪律：" + wa.discipline);
   }
   console.log("\n→ " + OUT);
 }

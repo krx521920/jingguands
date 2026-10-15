@@ -63,3 +63,9 @@ corpus/**/raw/**/*.pdf
 runs/.model-cache*/
 runs/.tmp-eval/
 runs/_serve_tmp/
+
+# git 临时辅助文件（commit -F 用的 msg、对账草稿等，勿入库）
+.git_*.txt
+.git_*.json
+.git_*.md
+.git_*.py

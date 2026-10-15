@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T06:15:57.747Z",
+  "generated_at": "2026-10-15T11:18:40.421Z",
   "data_source": {
     "batch": "data_unified",
     "label": "权威批（D11 冻结）",
@@ -236,6 +236,54 @@
           ]
         }
       ]
+    },
+    "authoritative_anchor": {
+      "enabled": true,
+      "rule": "按 source.file_sha256 匹配权威批同一份文档（同一文档 ≠ 同名文件；旧件 file_name 为 pledge.pdf）",
+      "by_witness": {
+        "wei_real_pledge_ce37": {
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "parser_version": "finstruct.parse/0.3.0",
+          "events": 1,
+          "file_name": "pledge.pdf",
+          "authoritative_match": {
+            "dataset": "D4-PLD-001",
+            "revives": true,
+            "parser_version": "finstruct.parse/0.9.0",
+            "events": 3,
+            "sha256_match": true,
+            "note": "物证文档本身就在权威批内 ⇒ P0-01 可从死池改锚到权威批，跨版本对照链（0.3.0→0.7.0→0.9.0）在同一份文档上成立"
+          }
+        },
+        "wei_real_pledge_0197": {
+          "file_sha256": "44e9508596f93a4a3107ca42012660b64c111f88ed8c887351fce7e21ea4338a",
+          "parser_version": "finstruct.parse/0.7.0",
+          "events": 1,
+          "file_name": "pledge.pdf",
+          "authoritative_match": {
+            "dataset": "D4-PLD-001",
+            "revives": true,
+            "parser_version": "finstruct.parse/0.9.0",
+            "events": 3,
+            "sha256_match": true,
+            "note": "物证文档本身就在权威批内 ⇒ P0-01 可从死池改锚到权威批，跨版本对照链（0.3.0→0.7.0→0.9.0）在同一份文档上成立"
+          }
+        }
+      },
+      "arithmetic_proof": {
+        "for_witness": "wei_real_pledge_ce37",
+        "authoritative_dataset": "D4-PLD-001",
+        "holds": true,
+        "total": 7800000,
+        "parts": [
+          3050000,
+          2650000,
+          2100000
+        ],
+        "expr": "3050000 + 2650000 + 2100000 = 7800000",
+        "note": "原文表内「分项之和＝合计」成立（算术自洽性，不等于字段抽取正确性）"
+      },
+      "discipline": "旧物证数值（ce37 2/12、0197 12/12）出自当时快照口径，与权威批 3 事件口径不可混算；引用须带「当时快照口径」限定"
     },
     "l3_miss_all": [
       {

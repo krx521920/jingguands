@@ -7,9 +7,9 @@
  *   不是数错了，是同一个数在不同材料里对不上，且没人能说清哪个是真数。
  *
  * 新标准（三条硬规矩）：
- *   ① 准确率 / 覆盖率 / 出处命中率**分列**，各带自己的分子分母，永不合并成一个"综合分"。
+ *   ① 准确率 / 覆盖率 / 出处命中率「分列」，各带自己的分子分母，永不合并成一个"综合分"。
  *   ② 每项指标带 `status`：measured（实测出数）/ unverified（有分母但无可核证据）/
- *      not_covered（分母都不存在，**未测**）。未测项不得按目标值或经验值填充。
+ *      not_covered（分母都不存在，「未测」）。未测项不得按目标值或经验值填充。
  *   ③ 每项指标带 `provenance`：算出它的脚本 + 输入数据的指纹（SHA-256）。
  *      材料引用成绩时必须同时引用这两个字段，否则数字不可复现、不可追责。
  *
@@ -31,6 +31,20 @@ const DATA_DIR = path.join(ROOT, "data");
 const UNIFIED_DIR = path.join(ROOT, "data_unified");
 // ★ 2026-10-09：批次/计数资格改由数据源单一真源提供，本文件不再自己判断哪批算数。
 const dataSource = require("./data_source.js");
+// ★ 2026-10-15：覆盖率类数值「不再硬编码」——一律由 bridge/caliber.js 现算（口径单一真源）。
+//   硬编码 100/437 的问题：数据一变数字不动，页面照样显示 100%，属于"改数不改口径"的同款病。
+const caliber = require("./caliber.js");
+
+/** 覆盖率类实算值（进程内缓存一次：同一进程里 registry 会被 metrics.js 反复 require） */
+let _calCache = null;
+function caliberValues() {
+  if (_calCache) return _calCache;
+  let c = null;
+  try { c = caliber.computeCaliber(caliber.primaryEnvelopes()); }
+  catch (e) { c = null; }
+  _calCache = c;
+  return c;
+}
 
 // ============================================================
 // 指标类别定义 —— 三类不可互溶
@@ -104,13 +118,22 @@ function fingerprint() {
     primary: unified.sha256,
     primary_batch: dataSource.PRIMARY_ID,
     primary_files: unified.files,
-    // ★ 2026-10-09：权威批次的**唯一身份**是宗裁决的锚点，不是目录指纹。
+    // ★ 2026-10-09：权威批次的「唯一身份」是宗裁决的锚点，不是目录指纹。
     //   目录指纹含 1 份本地演示件（32 份），与权威口径的 31 份不是一回事；
     //   拿它当身份标识，等于用"目录里有什么"冒充"这批数据是什么"。
     anchor_sha256: dataSource.anchor().sha256,
     anchor_matches: dataSource.anchor().matches,
     // 权威批内部的分母口径（已裁决：606 为权威分母），见 data_source.caliber_split
     caliber_split: dataSource.BATCHES[dataSource.PRIMARY_ID].caliber_split || null,
+    // ★ 2026-10-15：三档范围 + Gold 期望口径（口径单一真源＝bridge/caliber.js 实算）
+    caliber_ranges: (() => {
+      const c = caliberValues();
+      return c ? c.ranges : null;
+    })(),
+    gold_expected_total: (() => {
+      const c = caliberValues();
+      return c && c.gold && c.gold.is_measured ? c.gold.expected_total : null;
+    })(),
     combined_sha256: crypto.createHash("sha256")
       .update(`${page.sha256}|${unified.sha256}`).digest("hex"),
   };
@@ -157,7 +180,7 @@ function ratioScore(relPath, numKeys, denKeys) {
 /**
  * ★ 2026-10-11：按 rows[].expected 分组实算「相关/无关」两侧的通过数。
  *   为什么不能用顶层字段：crossdoc 成绩单的顶层只有 same_event（只覆盖 related 侧），
- *   无关对照那一半**只存在于 rows 里**。读顶层不存在的字段会得到 undefined，
+ *   无关对照那一半「只存在于 rows 里」。读顶层不存在的字段会得到 undefined，
  *   模板串照样拼出一句看起来很像样的话 —— 数值可能碰巧对，依据是假的。
  *
  * 判定：分组和必须等于 rows.length，否则 {ok:false}（口径不可信就不出数字）。
@@ -208,14 +231,50 @@ function d10Relations() {
   return { unknown: unknownIds.length, unknownIds, breakdown };
 }
 
+/** ★ 2026-10-15：锚点完备性实算段（读 demo/_retest_unified.js 产物）。
+ *  不硬编码（旧写 460/460 早已与权威批实算的 451 条 provenance 不一致）；
+ *  产物缺失 ⇒ null ⇒ 调用方落 not_covered。 */
+function anchorsFromArtifact() {
+  let r = null;
+  try { r = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "demo", "_retest_unified.json"), "utf8")); }
+  catch (e) { return null; }
+  const a = r && r.current && r.current.anchor;
+  if (!a || !a.n) return null;
+  return a;
+}
+
 const MEASURED = {
   // ---- 准确率 ----
-  field_accuracy: {
-    value: 100, unit: "%", num: 437, den: 437,
-    source_script: "demo/_retest_unified.js",
-    evidence_kind: "field_by_field_vs_gold",
-    note: "按 source.file_id 配对文件 + 业务键配对事件，逐字段与 Gold 比对；撞键 0/48",
-  },
+  // ★ 2026-10-15：不再硬编码 100/437 —— 现读 bridge/caliber.js 的 Gold 值一致率实算。
+  //   取不到（本机无 Gold / 分母 0）⇒ value=null ⇒ 自动落 not_covered（未测），绝不按 100% 填充。
+  field_accuracy: (() => {
+    const c = caliberValues();
+    const vm = c && c.gold && c.gold.is_measured ? c.gold.value_match : null;
+    return {
+      value: vm ? vm.pct : null, unit: "%", num: vm ? vm.num : null, den: vm ? vm.den : null,
+      source_script: "bridge/caliber.js（demo/_retest_unified.js 同源调它）",
+      evidence_kind: vm ? "field_by_field_vs_gold" : null,
+      note: vm
+        ? `Gold 期望字段中值与单位都一致的字段数 = ${vm.num}/${vm.den}（按 source.file_id 配对文件 + 业务键配对事件）。`
+          + `★ 与「Gold 期望字段召回率」分子条件不同（值一致 vs 抽得到），当前恰好同值，不得合并成一项`
+        : "★ 未测：本机无 Gold（evaluation/D4|D5|D6/dev/gold）或分母为 0 —— 不得按 100% 或目标值填充",
+    };
+  })(),
+  // ★ 2026-10-15 新增：Gold 期望字段召回率（分母只来自 Gold 清单，不由引擎 status 反推）
+  expected_field_recall: (() => {
+    const c = caliberValues();
+    const rc = c && c.gold && c.gold.is_measured ? c.gold.recall : null;
+    return {
+      value: rc ? rc.pct : null, unit: "%", num: rc ? rc.num : null, den: rc ? rc.den : null,
+      source_script: "bridge/caliber.js",
+      evidence_kind: rc ? "gold_expected_field_recall" : null,
+      note: rc
+        ? `Gold 期望字段中引擎有效抽出（status=extracted 且有有效取值，0/false 亦算有值）= ${rc.num}/${rc.den}。`
+          + `未抽到 ${c.gold.recall_miss.length} 项已计入分母；多抽候选 ${c.gold.extra_candidates.length} 处。`
+          + `限定语：${c.gold.qualification}`
+        : "★ 未测：本机无 Gold 或期望全集为 0 —— 不得按 100% 或目标值填充",
+    };
+  })(),
   wrong_fill_rate: {
     value: 0, unit: "%", num: 0, den: 0,
     source_script: "demo/_retest_unified.js",
@@ -225,17 +284,33 @@ const MEASURED = {
 
   // ---- 覆盖率 ----
   // ★ D17＋2026-10-09：分母收口到权威批 606（615 是含演示件的扩大口径，只作对照不计入）
-  field_coverage: {
-    value: 72.11, unit: "%", num: 437, den: 606,
-    source_script: "demo/_retest_unified.js",
-    evidence_kind: "hash_verified_input",
-    note: "弃权 169 条（未提及 108 / 不适用 30 / 待复核 11 / 未披露 6 / 无法读取 14）计入分母——弃权是正确行为但仍是未覆盖。★ 权威分母 606（2026-10-09 裁决）；615 为含演示件 DEMO-EQC-HL-0930 的扩大口径，只作对照",
-  },
+  // ★ 2026-10-15：不再硬编码 72.11/437/606 —— 现读 caliber.js 实算（口径单一真源）。
+  field_coverage: (() => {
+    const c = caliberValues();
+    const s = c ? c.slot : null;
+    return {
+      value: s ? s.pct : null, unit: "%", num: s ? s.num : null, den: s ? s.den : null,
+      source_script: "bridge/caliber.js",
+      evidence_kind: s ? "hash_verified_input" : null,
+      note: s
+        ? `槽位口径：分母＝全部产出字段（${s.den}）+ 弃权字段计入分母。`
+          + `弃权构成（按引擎 status）＝未提及 ${s.by_status.not_mentioned || 0} / 不适用 ${s.by_status.not_applicable || 0} /`
+          + ` 待复核 ${s.by_status.needs_review || 0} / 未披露 ${s.by_status.not_disclosed || 0} / 无法读取 ${s.by_status.unreadable || 0}。`
+          + `★ 这是"信息填充比例"，不等于抽取准确率，也不回答"该抽的抽到了没有"（后者见 expected_field_recall）。`
+          + `★ 按 Gold 分类统计同一批 169 项时各类数会不同（Gold 侧：未提及 109 / 不适用 30 / 待复核 12 / 未披露 4），`
+          + `引用时必须写明「按引擎 status 分类」还是「按 Gold 分类」。`
+          + `★ 权威分母 606（2026-10-09 裁决）；615 为含演示件 DEMO-EQC-HL-0930 的扩大口径，只作对照`
+        : "★ 未测：读不到权威批信封 —— 不得按目标值填充",
+    };
+  })(),
   abstain_correct: {
     value: null, unit: "%", num: null, den: null,
     source_script: "demo/_retest_unified.js",
-    evidence_kind: "field_by_field_vs_gold",
-    note: "弃权是否「正确」需 Gold 逐条标注是否提及，Gold 未标注该维度 ⇒ 不可核",
+    evidence_kind: null,
+    note: "★ 未测且不得凑数：弃权是否「正确」需 Gold 逐条标注「原文是否提及」，现有 Gold 无该维度。" +
+      "另须注意：169 个非 extracted 中双方状态一致的 152 项「并不都是已证正确弃权」 —— 其中 141 项是明确无值类别" +
+      "（未提及/不适用/未披露，双方一致），另 11 项是「双方共同的 needs_review（未裁定）」，未裁定既不能记「正确弃权」" +
+      "也不能记「通过」，更不能自动判失败。故本项维持未测，不由页面填入任何数。",
   },
 
   // ---- 出处命中率 ----
@@ -249,7 +324,7 @@ const MEASURED = {
   //   value=null ⇒ 自动落 not_covered，**绝不静默退回旧的 241**
   //   ——那正是「换批即失效的旧数长期挂着」这条纪律要防的事。
   evidence_hit: null,
-  // 旧口径留档：数值仍从 _evidence_quote_real.json **实算读取，不硬编码 241**，
+  // 旧口径留档：数值仍从 _evidence_quote_real.json 「实算读取，不硬编码 241」，
   // 产物缺失即 null ⇒ not_covered。
   legacy_evidence_hit: (() => {
     const p = path.join(__dirname, "..", "demo", "_evidence_quote_real.json");
@@ -265,18 +340,27 @@ const MEASURED = {
         `★ 已被 evidence_hit（权威批全量）取代，两者不可混读`,
     } : null;
   })(),
-  anchor_presence: {
-    value: 100, unit: "%", num: 460, den: 460,
-    source_script: "demo/_retest_unified.js",
-    evidence_kind: "hash_verified_input",
-    note: "block_id / page / quote 三项均 100%。★ 这是「有出处」不是「出处对得上原文」",
-  },
-  anchor_table_ref: {
-    value: 51.09, unit: "%", num: 235, den: 460,
-    source_script: "demo/_retest_unified.js",
-    evidence_kind: "hash_verified_input",
-    note: "table_id / cell_ref 同为 51.09%，表类字段无法定位到具体单元格——当前唯一明显短板",
-  },
+  anchor_presence: (() => {
+    // ★ 2026-10-15：原为硬编码 460/460 —— 权威批实算已变（provenance 451 条），
+    //   硬编码会长期挂着一个不存在的分母。改为读 demo/_retest_unified.json 的实算段；
+    //   产物缺失即判未测（不按 100% 填充）。
+    const a = anchorsFromArtifact();
+    return a ? {
+      value: a.n ? +((a.block_id / a.n) * 100).toFixed(2) : null, unit: "%", num: a.block_id, den: a.n,
+      source_script: "demo/_retest_unified.js", evidence_kind: "hash_verified_input",
+      note: `block_id / page / quote 三项齐全的 provenance = ${a.block_id}/${a.n}。★ 这是「有出处」不是「出处对得上原文」（后者见出处原文命中率）`,
+    } : { value: null, unit: "%", num: null, den: null, source_script: "demo/_retest_unified.js", evidence_kind: null,
+      note: "★ 未测：demo/_retest_unified.json 缺档 —— 不得按 100% 填充" };
+  })(),
+  anchor_table_ref: (() => {
+    const a = anchorsFromArtifact();
+    return a ? {
+      value: a.n ? +((a.table_id / a.n) * 100).toFixed(2) : null, unit: "%", num: a.table_id, den: a.n,
+      source_script: "demo/_retest_unified.js", evidence_kind: "hash_verified_input",
+      note: `table_id / cell_ref 同为 ${a.table_id}/${a.n}，表类字段无法定位到具体单元格——当前唯一明显短板`,
+    } : { value: null, unit: "%", num: null, den: null, source_script: "demo/_retest_unified.js", evidence_kind: null,
+      note: "★ 未测：demo/_retest_unified.json 缺档" };
+  })(),
   block_region_selfconsistency: {
     value: 100, unit: "%", num: 353, den: 353,
     source_script: "demo/_pairdiff3.js",
@@ -291,10 +375,10 @@ const MEASURED = {
 
 // ---- 跨文档配对准确率（D15 收口：20/20组） ----
   // ★ 2026-10-11 修正：原 note 拼的是 `r.different_event.clean / r.different_event.total`，
-  //   但 crossdoc-firsttest-score.json **根本没有 different_event 这个字段** ——
+  //   但 crossdoc-firsttest-score.json 「根本没有 different_event 这个字段」 ——
   //   读出来是 undefined，模板串拼成 "16/16" 纯属碰巧对上（真实值确实 16/16）。
   //   ★ 这是最典型的**假依据**：数值对，但算出它的那个字段不存在，改了成绩单就会静默说谎。
-  //   改为**从 rows 按 expected 分组实算**，并断言分组和 == rows.length，
+  //   改为「从 rows 按 expected 分组实算」，并断言分组和 == rows.length，
   //   对不上就不出 note（宁可不出，也不出一条依据不明的口径）。
   cross_doc_match: (() => {
   const m = ratioScore("D11/results/crossdoc-firsttest-score.json", ["pass"], ["pairs_total"]);
@@ -328,13 +412,13 @@ multi_doc_conflict: (() => {
 // ---- D10 集成通过率（D15 收口：10/10，与页面集成视图同源，消除同页矛盾） ----
 integration_pass: (() => {
   const m = ratioScore("D10/results/score-weiwenyu-bundle.json", ["pass"], ["cases_total"]);
-  // ★ 2026-10-11：unknown 关系**从集成包实算**，不再手写 "D10-INT-008" 硬编码 id。
+  // ★ 2026-10-11：unknown 关系「从集成包实算」，不再手写 "D10-INT-008" 硬编码 id。
   //   两个关键修正：
   //   ① 字段路径是 `results[].report.diffs.relation`——成绩单
   //      （score-weiwenyu-bundle.json）的 rows 里只有 case_id/status/notes，
   //      **没有关系字段**，从那里读必然读不到。
   //   ② 实算结果是 **unknown 3 条**（006/008/010），不是原 note 写的 1 条。
-  //      只提 008 是**漏报**：006/010 同样是 unknown，边界原因都是
+  //      只提 008 是「漏报」：006/010 同样是 unknown，边界原因都是
   //      INSUFFICIENT_SIGNALS（006/010 还叠加 MEMBER_NO_USABLE_FIELDS）。
   const rel = d10Relations();
   return m ? Object.assign(m, {
@@ -364,7 +448,7 @@ perf_20page: (() => {
 // ---- 格式合规 ----
   // ★ D17：判据已由评测侧裁定（evaluation/D17/裁定-standardized判据-20261010.md），
   //   本项从"未测·待统一判据"转为实测。动态读 demo/_standardized_real.js 的产物，
-  //   **不硬编码数值** —— 换批即失效的旧数不能长期挂在页面上。
+  //   「不硬编码数值」 —— 换批即失效的旧数不能长期挂在页面上。
   //   脚本产物缺失 ⇒ 自动退回未测，绝不按 100% 填充。
   standardized_rate: (() => {
     const p = path.join(__dirname, "..", "demo", "_standardized_real.json");
@@ -384,7 +468,7 @@ perf_20page: (() => {
       measured_at: usable ? (r.meta && r.meta.generated_at) || null : null,
     };
   })(),
-  // ★ D17 新增：正确率（值层承载），总规划 98% 目标**只挂这一项**。
+  // ★ D17 新增：正确率（值层承载），总规划 98% 目标「只挂这一项」。
   //   与standardized_rate 分列，不得相加、不得互相替代。
   standardized_accuracy: (() => {
     const p = path.join(__dirname, "..", "demo", "_standardized_real.json");
@@ -432,14 +516,34 @@ const REGISTRY = [
   },
 
   // ---------- 覆盖率 ----------
+  // ★ 2026-10-15：键名与数值语义保持兼容（field_coverage＝槽位口径），但「展示名」
+  //   改为「全字段槽位有值率（历史口径）」——它衡量信息填充比例，不是"该抽的抽到了没有"。
   {
-    key: "field_coverage", category: "coverage", name: "字段抽取覆盖率",
+    key: "field_coverage", category: "coverage", name: "全字段槽位有值率（历史口径）",
     target: null,
-    numerator: "实际产出取值的字段数（437）",
-    denominator: "契约注册表要求抽取的字段全集（权威口径 606）",
+    numerator: "实际产出取值的字段数（槽位有值）",
+    denominator: "契约注册表要求抽取的字段全集（权威口径 606；31 份冻结批槽位）",
     status: "measured",
-    caliber: "弃权字段计入分母（弃权是正确行为，但仍是未覆盖）。★ 准确率 90% 是另一个指标（field_accuracy），不得挂在本项上",
+    caliber: "槽位口径：分母含全部弃权字段（未提及/不适用/未披露/依据不足），是「信息填充比例」。" +
+      "★ 它既不等于抽取准确率（field_accuracy），也不等于「Gold 期望字段召回率」（expected_field_recall）；" +
+      "★ 准确率 90% 目标属 field_accuracy，不得挂在本项上。" +
+      "★ 同批还有 592 口径（30 份有 Gold 核心文本，排除原文缺陷件）——范围拆分展示，不是替换",
     blocked_by: null,
+  },
+  // ★ 2026-10-15 新增（方轩诚反馈采纳项）：Gold 期望字段召回率。
+  //   分母「只来自 Gold 清单」，不由引擎 status 反推；miss 计入分母、弃权不计入。
+  {
+    key: "expected_field_recall", category: "coverage", name: "Gold 期望字段召回率（当前 Gold 条件口径）",
+    target: null,
+    numerator: "Gold 期望字段中引擎有效抽出的字段数（status=extracted 且有有效取值；0/false 算有值）",
+    denominator: "Gold 期望字段全集（Gold 判 extracted 的字段；当前 437）——只由 Gold 清单决定",
+    status: "measured",
+    caliber: "分母只由 Gold 清单决定，「禁止用引擎 status 反推分母」（否则少抽一个字段分母就缩一格，永远 100%）。" +
+      "原文存在却抽不出（miss）计入分母并扣分；公告未提及/不适用/未披露/未裁定不计入。",
+    evidence_kind: "gold_expected_field_recall",
+    evidence_ref: "bridge/caliber.js（buildGoldExpected → computeCaliber）",
+    blocked_by: "宗博文（Gold 原文推导复核闭环：72 项重点复核 / 12 项 Gold 待复核 / 3 处状态分歧）",
+    note: "★ 引用必须同带限定语：「当前 Gold 条件口径 + 公开语料冻结回放 + 不外推泛化 + Gold 原文推导复核未完成」。★ 复核未闭环前不得作为「原文全覆盖」头条。★ 与 field_accuracy（值一致率）分子条件不同，当前恰好同值，不得合并",
   },
   {
     key: "abstain_correct", category: "coverage", name: "弃权正确率",
@@ -447,7 +551,8 @@ const REGISTRY = [
     numerator: "Gold 标注为「确实未提及/不适用」的弃权字段数",
     denominator: "全部弃权字段数（169）",
     status: "not_covered",
-    caliber: "需 Gold 逐条标注「原文是否提及」，现有 Gold 无此维度",
+    caliber: "需 Gold 逐条标注「原文是否提及」，现有 Gold 无此维度。" +
+      "★ 未裁定项（needs_review）不得算作已正确弃权：152 项双方一致里含 11 项双方共同 needs_review，扣除后只有 141 项明确无值类别",
     blocked_by: "宗博文（评测侧补 Gold 维度）",
   },
 
@@ -456,7 +561,7 @@ const REGISTRY = [
   //   而卡片已改读权威批实算的 451/451（30 份信封自带 blocks）——
   //   **同名「出处原文命中率」却有两个值同屏**，正是要根治的毛病。
   //   现在注册表与卡片同源：都读 bridge/metrics.js 的权威批实算值，
-  //   由 l3FromMetrics() 在运行时注入（见文件末尾），**不再硬编码 241**。
+  //   由 l3FromMetrics() 在运行时注入（见文件末尾），「不再硬编码 241」。
   //   241 那套保留为 legacy_evidence_hit 子条目（category=legacy，不进分类面板），
   //   需要追旧口径时仍查得到，但不会与主口径抢同一个名字。
   {
@@ -591,9 +696,9 @@ const REGISTRY = [
  */
 function l3FromMetrics() {
   let r = null;
-  // ★ 路径纪律：本文件 ROOT 已退到 page_prototype/，metrics.js 与本文件**同目录**。
+  // ★ 路径纪律：本文件 ROOT 已退到 page_prototype/，metrics.js 与本文件「同目录」。
   //   写成 path.join(ROOT, "metrics.js") 会去找 page_prototype/metrics.js（不存在），
-  //   try/catch 把它吞成 null ⇒ 注册表永远退回旧的硬编码 241 —— **静默失败最难查**。
+  //   try/catch 把它吞成 null ⇒ 注册表永远退回旧的硬编码 241 —— 「静默失败最难查」。
   try { r = require(path.join(ROOT, "bridge", "metrics.js")).computeMetrics(); }
   catch (e) { return null; }
   const l3 = r && r.l3;
@@ -614,7 +719,7 @@ function l3FromMetrics() {
 
 function list() {
   const fp = fingerprint();
-  // ★ 2026-10-11：出处命中率的数值**运行时从权威批实算**注入，不硬编码。
+  // ★ 2026-10-11：出处命中率的数值「运行时从权威批实算」注入，不硬编码。
   //   取不到（metrics.js 读不出 / 0 条可核）⇒ value=null ⇒ 自动落not_covered，
   //   绝不按 100% 填充。这是「裁定给的数必须独立实算后才认」的落地形式。
   const evLive = l3FromMetrics();
@@ -664,7 +769,7 @@ function coverageStatement() {
     unverified: byStatus.unverified || 0,
     not_covered: byStatus.not_covered || 0,
     by_status: byStatus,
-    // ★ 2026-10-09：primary 改用宗裁决的**锚点**（权威批次唯一身份，31 份口径）。
+    // ★ 2026-10-09：primary 改用宗裁决的「锚点」（权威批次唯一身份，31 份口径）。
     //   目录指纹含 1 份本地演示件（32 份），不能直接当权威批次的身份标识——
     //   宗的原话是「任何引用权威批次的地方都必须能对上这个值」，指的就是锚点。
     input_sha256: fp.primary,
@@ -678,6 +783,16 @@ function coverageStatement() {
       `★ 页面实算口径＝权威批次「${dataSource.primary().label}」` +
       `（锚点 ${String(fp.anchor_sha256 || "").slice(0, 12)}…${fp.anchor_matches === false ? "，⚠已偏离登记值" : "，与宗登记锚点一致"}；` +
       `入口径 31 份 / 分母 606，DEMO-EQC-HL-0930 不计入——详见 data_source.caliber_split）。` +
+      (() => {
+        const c = caliberValues();
+        if (!c) return "★ 覆盖率三档范围（606/592/437）当前读不到实算值（bridge/caliber.js 未产出），相关项判未测。";
+        return `★ 覆盖率三档范围并列（互不替换）：①31 份冻结批槽位 ${c.ranges.frozen_slot.fields} 字段 ↔ 全字段槽位有值率 ` +
+          `${c.slot.pct}%（${c.slot.num}/${c.slot.den}）；②30 份有 Gold 核心文本 ${c.ranges.core_text.fields} 字段` +
+          `（排除原文缺陷件 ${c.ranges.scanned_degrade.fields} 字段）；③Gold 期望字段全集 ${c.ranges.gold_expected.fields} 字段 ↔ ` +
+          `Gold 期望字段召回率 ${c.gold.is_measured ? c.gold.recall.pct + "%（" + c.gold.recall.num + "/" + c.gold.recall.den + "）" : "未测"}` +
+          `。★ 第三项限定语：${c.gold.qualification}。` +
+          `未裁定 pending：Gold ${c.gold.pending.gold} 项 / 引擎 needs_review ${c.gold.pending.engine} 项（单列，不得记「正确弃权」）。`;
+      })() +
       `另一批演示池仅供查看，不计入任何分子分母。` +
       `材料引用任何一项成绩时须同时引用该指纹与生成脚本，否则数字不可复现。`,
   };

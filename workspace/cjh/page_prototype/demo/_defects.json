@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T06:28:53.323Z",
+  "generated_at": "2026-10-15T10:36:03.293Z",
   "counts": {
     "P0": 1,
     "P1": 1,
@@ -53,7 +53,50 @@
     "table_id_pct": 52.11,
     "cell_ref_pct": 52.11,
     "standardized_pct": 100,
-    "extracted_pct": 72.11
+    "extracted_pct": 72.11,
+    "slot_value_rate_pct": 72.11,
+    "core_text_slot_pct": 73.82,
+    "expected_field_recall_pct": 100,
+    "expected_field_recall_num": 437,
+    "expected_field_recall_den": 437,
+    "gold_value_match_pct": 100,
+    "gold_value_match_num": 437,
+    "gold_value_match_den": 437,
+    "gold_available": true,
+    "gold_pending_fields": 12,
+    "engine_pending_fields": 11,
+    "no_gold_fields": 14,
+    "gold_expected_scopes": {
+      "frozen_slot": {
+        "datasets": 31,
+        "fields": 606,
+        "extracted": 437
+      },
+      "core_text": {
+        "datasets": 30,
+        "fields": 592,
+        "extracted": 437
+      },
+      "gold_expected": {
+        "datasets": 30,
+        "fields": 437,
+        "note": "Gold 期望字段全集：分母只由 Gold 清单决定，不由引擎 status 反推"
+      },
+      "excluded_unknown_source": {
+        "datasets": 0,
+        "fields": 0,
+        "note": "来源不清/演示件（不计入任何分母，仅警告）"
+      },
+      "scanned_degrade": {
+        "datasets": 1,
+        "fields": 14
+      },
+      "local_demo": {
+        "datasets": 0,
+        "fields_total": 0,
+        "present": false
+      }
+    }
   },
   "l3": {
     "doc_id": null,
