@@ -1,8 +1,8 @@
 {
   "sealed_set_id": "financial-events-d7-cross-doc-freeze-v0.3",
   "created_on": "2026-10-02",
-  "revised_on": "2026-10-04",
-  "revision_note": "v0.3: D6-AWD-007 Gold bid_amount/currency aligned to fang proposed_fields (value 317915000, raw_value 317,915,000 CNY substring, currency CNY) per joint ruling; raw corpus and cross-doc grouping unchanged.",
+  "revised_on": "2026-10-16",
+  "revision_note": "v0.3: D6-AWD-007 Gold bid_amount/currency aligned to fang proposed_fields (value 317915000, raw_value 317,915,000 CNY substring, currency CNY) per joint ruling; raw corpus and cross-doc grouping unchanged.\n2026-10-16：member_hashes 同步重锁至 LF 基准。",
   "mode": "relation_and_negative_control_manifest",
   "total": 20,
   "groups": [
@@ -108,7 +108,7 @@
         {
           "case_id": "D4-PLD-001",
           "raw_sha256": "33704718a19181c4ce83389548b1bba0e70e9cb5a1d19da822b8fe53d2ec2222",
-          "gold_sha256": "44a2d8fa093c108f5131768cb4d178eb79658eb08168ac55b3921ebf70d3ce4b"
+          "gold_sha256": "4bc91236816bc17322ec75c81ec40e2f7c91e98f1e301adcd2b230fe96c0ec1e"
         },
         {
           "case_id": "D5-EQC-001",
@@ -136,7 +136,7 @@
         {
           "case_id": "D4-PLD-003",
           "raw_sha256": "b5dcef8ba6dff1e68b2c6d558da6917948fc1c1f2ec1897e5193718d46a3b6a5",
-          "gold_sha256": "47c7a449d2dc0679af4573db4cd8ecad9641c949576a219920d96e90236b36d7"
+          "gold_sha256": "78c81cab360d38b741c88b871dfad154dd9d564f67e977f0863b708a9db8ce6a"
         },
         {
           "case_id": "D5-EQC-004",
@@ -164,7 +164,7 @@
         {
           "case_id": "D4-PLD-005",
           "raw_sha256": "26d253e8a53789be18c1828c10d5eb81cb3590b8b59ded8818911187394741f7",
-          "gold_sha256": "4ef7c56e10f3cf6a5ab4fa7bef4c6201d46cff97742885a7d19bf942cd73d34e"
+          "gold_sha256": "aa323c2f6cac78d63e3d6ff8b941e2cbd18c7d0af8a2a237fae31e3e3830fc38"
         },
         {
           "case_id": "D5-EQC-006",
@@ -191,12 +191,12 @@
       "member_hashes": [
         {
           "case_id": "D4-PLD-007",
-          "raw_sha256": "ba0386cae83947779b7db31d74c9e62268038a7eadcacd6c98fa16b45cbe0ff7",
-          "gold_sha256": "6588e0a88cb50e60633907e2dd9c36b772f88e1b288f5dda81b8a4758d275cc4"
+          "raw_sha256": "d0c37c1f7a3ea7ec0a97b5f692549a0d2e8391b04814172518ba2cafde8bacb3",
+          "gold_sha256": "509dcf05fa3e1fa4797001b016579e31d19a5ce683d2bf28edd61b54a1c98ced"
         },
         {
           "case_id": "D5-EQC-008",
-          "raw_sha256": "d943a66f36dbb4b5802013c406985669702e4a975ff9ec46da9ca31db7b4e5ce",
+          "raw_sha256": "57ae61fe9aeb497b151b012ca717cd2997f89634061366c98a68710e487d9dde",
           "gold_sha256": "adce0e490e510ef5ab20b80d1d6cf7e43c0dcc32c341b0b2b55c62f998c59f8a"
         },
         {
@@ -219,12 +219,12 @@
       "member_hashes": [
         {
           "case_id": "D4-PLD-009",
-          "raw_sha256": "0dbaf3da187e478c567add83e1ce770db4a8dedfc56fd309df159eaf3ab34cdf",
-          "gold_sha256": "2c4af9d97fa5d403463fbba482d65ee0b97a633807cd4fbe1c13aeb6df831d0c"
+          "raw_sha256": "71dc602fd7c53eccaa5508a50ee9f9bc17e41cd1572a5cc4f30cde7c1ded372e",
+          "gold_sha256": "c92b75302809a18d03bb197872f07e19ce1908836486ca8dd6175bc9b4925016"
         },
         {
           "case_id": "D5-EQC-010",
-          "raw_sha256": "2c9cb1cff270009d9f52f45ace4b3c6f51626c6c8628d71703b1b59d7274a032",
+          "raw_sha256": "e94b938ebe60704b268f08be3fab0ef5052485c32d8d148beb761f65610fe6ab",
           "gold_sha256": "b197ee240fb8f7617f75e85c70f9a61f1905a788a67c91f6b7dd10740d803fc8"
         },
         {
@@ -247,12 +247,12 @@
         {
           "case_id": "D4-PLD-001",
           "raw_sha256": "33704718a19181c4ce83389548b1bba0e70e9cb5a1d19da822b8fe53d2ec2222",
-          "gold_sha256": "44a2d8fa093c108f5131768cb4d178eb79658eb08168ac55b3921ebf70d3ce4b"
+          "gold_sha256": "4bc91236816bc17322ec75c81ec40e2f7c91e98f1e301adcd2b230fe96c0ec1e"
         },
         {
           "case_id": "D4-PLD-002",
           "raw_sha256": "d1b875d750834d240b13eac54a8c9281289ed9a6e6a9ba0d6c620002439f0936",
-          "gold_sha256": "a59ff6ddb5434c60e87c6af06d6ac5470bfd90f8b2ee846e0f44a21dc8de5caf"
+          "gold_sha256": "292dfa88fdc95ce455e2986708bd45ab72fbf2efc4a501e3945eb1d396073851"
         }
       ]
     },
@@ -269,12 +269,12 @@
         {
           "case_id": "D4-PLD-003",
           "raw_sha256": "b5dcef8ba6dff1e68b2c6d558da6917948fc1c1f2ec1897e5193718d46a3b6a5",
-          "gold_sha256": "47c7a449d2dc0679af4573db4cd8ecad9641c949576a219920d96e90236b36d7"
+          "gold_sha256": "78c81cab360d38b741c88b871dfad154dd9d564f67e977f0863b708a9db8ce6a"
         },
         {
           "case_id": "D4-PLD-004",
           "raw_sha256": "897b745b5f417545f24fa3cae8a7c09c253f930e679a18ef458d01fee316c037",
-          "gold_sha256": "33ecc0645b51494bd7934b1370db6f69e27e5db9d7ddf2a8aa7598fbd0db3b6d"
+          "gold_sha256": "58d82582bae321fca08c6377d6deaeb7df626e7de2800f2c8ded99503927a88e"
         }
       ]
     },
@@ -295,7 +295,7 @@
         },
         {
           "case_id": "D5-EQC-007",
-          "raw_sha256": "00f1d750855ce4ce537246d68ea049f35df6a94da9d7683de84cfab0afc683c7",
+          "raw_sha256": "b4ea61da7f345227e100fd12dacef2a9232ceacd40934d658c595d23b37f2727",
           "gold_sha256": "d53e92fb2a287f6c742881cf9f2217bfd697918d90292b69a04e03e2ba45d162"
         }
       ]
@@ -356,8 +356,8 @@
       "member_hashes": [
         {
           "case_id": "D4-PLD-006",
-          "raw_sha256": "1677e4713c5c3296ce113151da11abd938767e3c4ad5cfb1689703e845b83aa9",
-          "gold_sha256": "7463e3f13568ac8203bd60b4fc8d1f06d895c4b6a3d98d75764329a145fd243e"
+          "raw_sha256": "6eb958b6b622f2b844b2a702943eda52166a7d27ea216985373d13fcb13d9996",
+          "gold_sha256": "2025f7545f6c449a818415968e53f114f848ad860b4bfaead56e5067c19dc020"
         },
         {
           "case_id": "D5-EQC-006",
@@ -378,8 +378,8 @@
       "member_hashes": [
         {
           "case_id": "D4-PLD-008",
-          "raw_sha256": "91f94ce84092e5b3ee287f310977f0f118c5f0d4b8b943575b01fb7f26c5254a",
-          "gold_sha256": "c2dd8346749ea666d5fd24a6de6ee3c7d52e4ab12c66249bd6fa71a015ee6791"
+          "raw_sha256": "f284c2df4390e90ae14189949a39b5d05dee059121f8cac165a32cb5fa5bb111",
+          "gold_sha256": "980193088c882cdd8fe3476dd33eccf76ee7dc1e42ba6a21a51b2be33b7c8a52"
         },
         {
           "case_id": "D6-AWD-007",
@@ -400,7 +400,7 @@
       "member_hashes": [
         {
           "case_id": "D5-EQC-009",
-          "raw_sha256": "361d25fd1b58c01e3724148d5c5b8d2b91779db877fc7b6b0581ebcf0bfd872e",
+          "raw_sha256": "e2fde4cdd8a9aeedb57548f3b0a5cd9dd3d18c44c51f69da267147be5c08504a",
           "gold_sha256": "e0bae7486761b7087110a1e541d9dde7fa2622c9bf8c53cb8e48c54b0677bb10"
         },
         {
@@ -422,8 +422,8 @@
       "member_hashes": [
         {
           "case_id": "D4-PLD-010",
-          "raw_sha256": "17efdd0cb86db7fc1562728a14f0bcaff0716e63325ed46809a1354b9fa3e442",
-          "gold_sha256": "78252c088fca8308a4f2b77d2e1f43ec895ee06de088ac278c44edb52f7686aa"
+          "raw_sha256": "9462b79ca32bf1c8a7893ba7c8133be2a3b86ff0ad00b6b9ffa2515c5074790d",
+          "gold_sha256": "186ffae7bc2da5f2e787eb5eb3855c4605e5cd4b8338e43bcfc2c081ccc1965b"
         },
         {
           "case_id": "D5-EQC-004",
@@ -467,7 +467,7 @@
         {
           "case_id": "D4-PLD-002",
           "raw_sha256": "d1b875d750834d240b13eac54a8c9281289ed9a6e6a9ba0d6c620002439f0936",
-          "gold_sha256": "a59ff6ddb5434c60e87c6af06d6ac5470bfd90f8b2ee846e0f44a21dc8de5caf"
+          "gold_sha256": "292dfa88fdc95ce455e2986708bd45ab72fbf2efc4a501e3945eb1d396073851"
         },
         {
           "case_id": "D6-AWD-010",
