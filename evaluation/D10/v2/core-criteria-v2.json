@@ -1,0 +1,31 @@
+{
+  "version": "d10-v2/2026-10-16",
+  "decided_by": "宗（评测侧）",
+  "basis": "2026-10-15 裁定 C-1（陈登记）；全文见 evaluation/2026-10-15-acceptance/口径与记载核对-20261015.md §三",
+  "rename": {
+    "from": "web_cli_same_result",
+    "to": "same_source_same_result",
+    "why": "该判据证的是「同源同函数幂等」（同一次结果在 Web 与 CLI 两侧一致），**不是**「Web/CLI 独立抽取一致」。名字误导消费方按关键词把它读成独立一致性证据。"
+  },
+  "core_fields_per_case": ["input_sha256[]", "run_id", "code_version", "schema_version", "records", "diff_list", "report{events,diffs,attribution,boundaries}"],
+  "cache_tests_v2": ["replay_business_fields_identical", "cold_cache_new_call_log", "same_source_same_result"],
+  "moved_out_of_core": [
+    {
+      "key": "same_source_same_result",
+      "why": "同源幂等是**工程卫生**（同代码同输入不该有差异），不是抽取能力的独立证据；列为伴随项，不作为核心通过条件。"
+    }
+  ],
+  "not_covered": [
+    {
+      "key": "web_cli_independent",
+      "status": "not_covered",
+      "reason": "页面无 PDF 抽取入口、抽取管线在魏分支；同源不构成对照",
+      "note": "★ 必须显式标未测，**不得**用 same_source_same_result 顶替"
+    }
+  ],
+  "legacy": {
+    "frozen_assets_untouched": true,
+    "files": ["evaluation/D10/cases/integration-cases.json", "evaluation/D10/check-integration.mjs", "evaluation/D10/reference/adversarial-bundle.json"],
+    "note": "集内仍写 web_cli_same_result——**不改**（已冻结受测对象）。新校验器把它当作 deprecated 别名接受并告警；新 bundle 必须写 same_source_same_result。"
+  }
+}

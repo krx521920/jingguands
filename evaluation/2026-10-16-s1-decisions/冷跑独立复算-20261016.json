@@ -1,0 +1,150 @@
+{
+  "checked_on": "2026-10-16",
+  "dir": "tmp/wei-runs/R4-冷跑10x3-20261015",
+  "cases": 10,
+  "official_caliber": "value_order (值层·保序)",
+  "calibers": {
+    "full_file": "5/10",
+    "value_order": "8/10",
+    "value_natural_key": "9/10"
+  },
+  "total_errors": 0,
+  "max_duration_ms": 22256,
+  "rows": [
+    {
+      "case": "D4-PLD-001",
+      "full_file_same": false,
+      "value_layer_order_same": true,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        12341,
+        12632,
+        12915
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    },
+    {
+      "case": "D4-PLD-002",
+      "full_file_same": false,
+      "value_layer_order_same": true,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        5247,
+        5094,
+        5128
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    },
+    {
+      "case": "D4-PLD-003",
+      "full_file_same": true,
+      "value_layer_order_same": true,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        4684,
+        4816,
+        4862
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    },
+    {
+      "case": "D4-PLD-004",
+      "full_file_same": true,
+      "value_layer_order_same": true,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        5263,
+        4645,
+        4628
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    },
+    {
+      "case": "D5-EQC-001",
+      "full_file_same": false,
+      "value_layer_order_same": false,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        14470,
+        14079,
+        14285
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    },
+    {
+      "case": "D5-EQC-002",
+      "full_file_same": true,
+      "value_layer_order_same": true,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        21729,
+        21976,
+        22256
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    },
+    {
+      "case": "D5-EQC-003",
+      "full_file_same": false,
+      "value_layer_order_same": true,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        4014,
+        4114,
+        4149
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    },
+    {
+      "case": "D6-AWD-001",
+      "full_file_same": true,
+      "value_layer_order_same": true,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        4288,
+        4127,
+        3819
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    },
+    {
+      "case": "D6-AWD-002",
+      "full_file_same": false,
+      "value_layer_order_same": false,
+      "value_layer_natural_key_same": false,
+      "durations_ms": [
+        14273,
+        13858,
+        13138
+      ],
+      "errors": 0,
+      "natural_diffs": [
+        "深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风阀设备及服务采购项目|浙江金盾风机股份有限公司.formal_award_notice_received",
+        "深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目|浙江金盾风机股份有限公司.formal_award_notice_received",
+        "沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目|浙江金盾风机股份有限公司.formal_award_notice_received",
+        "沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目|浙江金盾风机股份有限公司.formal_award_notice_received"
+      ]
+    },
+    {
+      "case": "D6-AWD-003",
+      "full_file_same": true,
+      "value_layer_order_same": true,
+      "value_layer_natural_key_same": true,
+      "durations_ms": [
+        11590,
+        11485,
+        11585
+      ],
+      "errors": 0,
+      "natural_diffs": []
+    }
+  ]
+}

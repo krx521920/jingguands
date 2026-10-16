@@ -1,0 +1,172 @@
+{
+  "result": "PASS",
+  "cases": 10,
+  "issues": [],
+  "warnings": [
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-001",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-001",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-002",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-002",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-003",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-003",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-004",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-004",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-005",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-005",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-006",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-006",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-007",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-007",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-008",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-008",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-009",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-009",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    },
+    {
+      "rule": "DEPRECATED_KEY",
+      "case": "D10-INT-010",
+      "detail": "用了旧名 web_cli_same_result，新 bundle 必须写 same_source_same_result"
+    },
+    {
+      "rule": "NOT_COVERED_UNMARKED",
+      "case": "D10-INT-010",
+      "detail": "web_cli_independent 未显式标未测（不得用 same_source_same_result 顶替）"
+    }
+  ],
+  "rows": [
+    {
+      "case": "D10-INT-001",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-002",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-003",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-004",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-005",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-006",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-007",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-008",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-009",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    },
+    {
+      "case": "D10-INT-010",
+      "key": "web_cli_same_result",
+      "value": true,
+      "name_status": "deprecated_alias"
+    }
+  ],
+  "not_covered_declared": [
+    "web_cli_independent"
+  ]
+}
