@@ -1,32 +1,18 @@
 {
-  "result": "FAIL",
-  "checked_on": "2026-10-04",
+  "result": "PASS",
+  "checked_on": "2026-10-16",
+  "hash_basis": "LF 归一字节（读文件后 CRLF→LF 再 sha256）＝仓库 blob 字节，跨主机可复现",
   "single_cases": 30,
   "cross_doc_groups": 20,
   "related_groups": 4,
   "unrelated_control_groups": 16,
-  "single_manifest_sha256": "b5e4f35253f9ab9af1bce6a239ca9df7990a3de1f8318ec8ad7ec22a4249aae9",
-  "cross_doc_manifest_sha256": "da70dd239f1e2d26c688400847daff482bfc41d4cab7a44311341f32489a7e14",
-  "hash_lock_manifest_sha256": "8f1de002686b22b1a404ec0e0c2e66b64a7d37f995a3ca315fe82e713deb494a",
-  "issues": [
-    "D7-SEALED-001 gold hash",
-    "D7-SEALED-002 gold hash",
-    "D7-SEALED-003 gold hash",
-    "D7-SEALED-004 gold hash",
-    "D7-SEALED-005 gold hash",
-    "D7-SEALED-006 raw hash",
-    "D7-SEALED-006 gold hash",
-    "D7-SEALED-007 raw hash",
-    "D7-SEALED-007 gold hash",
-    "D7-SEALED-008 raw hash",
-    "D7-SEALED-008 gold hash",
-    "D7-SEALED-009 raw hash",
-    "D7-SEALED-009 gold hash",
-    "D7-SEALED-010 raw hash",
-    "D7-SEALED-010 gold hash",
-    "D7-SEALED-017 raw hash",
-    "D7-SEALED-018 raw hash",
-    "D7-SEALED-019 raw hash",
-    "D7-SEALED-020 raw hash"
-  ]
+  "single_manifest_sha256": "614195c85969aafe0a0d27b9e143e0d75634e8618e75b2b5896408907a50dd4d",
+  "cross_doc_manifest_sha256": "b34c90da9d2d0eac5c866228908586af18cef35205136c0d7c28b64b4cef8071",
+  "hash_lock_manifest_sha256": "da90f7f4c29dada964c354851c74872cf68d140e58ee2b3339c31468eeeb9a32",
+  "info": {
+    "referenced_files": 60,
+    "crlf_on_disk": 0,
+    "note": "crlf_on_disk 只作信息项——基准已归一，行尾不再影响判定"
+  },
+  "issues": []
 }
