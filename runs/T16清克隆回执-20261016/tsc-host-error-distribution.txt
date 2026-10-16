@@ -1,0 +1,112 @@
+== 命令2错误码分布（tsc -p tsconfig.host.json --noEmit，无安装环境；重产于 c6ecfaab 克隆，与首产逐字节同尺寸）==
+   7967 error TS2339
+   6811 error TS7006
+   3754 error TS6305
+   2160 error TS2307
+    765 error TS2345
+    591 error TS2551
+    569 error TS7031
+    315 error TS2367
+    178 error TS4112
+    166 error TS2347
+    116 error TS2322
+     85 error TS7053
+     58 error TS2554
+     39 error TS2769
+     31 error TS7019
+     28 error TS18046
+     25 error TS2454
+     25 error TS2353
+     17 error TS2352
+     11 error TS2698
+     10 error TS2344
+      8 error TS2556
+      5 error TS18048
+      4 error TS2503
+      4 error TS2305
+      3 error TS2678
+      3 error TS2571
+      3 error TS2542
+      3 error TS2531
+      2 error TS2820
+      2 error TS2683
+      2 error TS2578
+      2 error TS18047
+      2 error TS1064
+      1 error TS4113
+      1 error TS2677
+      1 error TS2664
+      1 error TS2493
+      1 error TS2379
+      1 error TS2375
+      1 error TS2349
+
+== TS2352/TS2322 全部 133 处的文件分布（均为上游包测试文件，缺依赖连锁）==
+      9 packages/subagent/subagent/tests/catalog.spec.ts
+      7 packages/experimental/agent-team/tests/team.spec.ts
+      7 packages/context/agent-instructions/tests/agent-instructions.spec.ts
+      6 packages/skill/tool-skill/tests/tool-skill.spec.ts
+      6 benchmarks/agent-continuation/child-catalog.worker.ts
+      5 packages/test-support/llm-replay/tests/llm-replay.spec.ts
+      5 packages/session-query/session-query/tests/session-query.spec.ts
+      5 packages/goal/tool-goal/tests/tool-goal.spec.ts
+      4 packages/schedule/schedule/tests/plugin.spec.ts
+      4 packages/experimental/auto-review/tests/auto-review.spec.ts
+      3 packages/jobs/jobs/tests/service.spec.ts
+      3 packages/goal/goal-round-driver/tests/goal-round-driver.spec.ts
+      3 packages/client/ui-deliverables/tests/present-open.host.spec.ts
+      3 packages/api/session-controller/tests/session-cold.host.spec.ts
+      3 apps/desktop-host/tests/quit-inspection.spec.ts
+      2 packages/todo/tool-todo/tests/invariant.spec.ts
+      2 packages/session/session-log-deepseek/tests/upload.spec.ts
+      2 packages/session/session-log-deepseek/tests/invariant.spec.ts
+      2 packages/goal/goal/tests/invariant.spec.ts
+      2 packages/goal/goal/tests/goal.spec.ts
+      2 packages/goal/goal-round-driver/tests/invariant.spec.ts
+      2 packages/fs/fs-observation-policy/tests/policy.spec.ts
+      2 packages/experimental/agent-team/tests/persistence.spec.ts
+      2 packages/core/agent-loop/tests/loop.spec.ts
+      2 packages/context/tmux-context/tests/tmux-context.spec.ts
+      2 packages/api/session-controller/tests/subagent-catalog.host.spec.ts
+      2 apps/web/tests/seeded-history.e2e.ts
+      2 apps/cli/tests/profiles/headless/tests/subagent-diagnostic.expected.e2e.ts
+      1 scripts/verify-v3-event-vocabulary.ts
+      1 scripts/verify-package-dependencies.ts
+      1 scripts/gen-translation-brief.ts
+      1 packages/webhook/webhook/tests/invariant.spec.ts
+      1 packages/util/http-proxy/tests/install.spec.ts
+      1 packages/subagent/subagent/tests/continuation.spec.ts
+      1 packages/session/session-title/tests/session-title.spec.ts
+      1 packages/session-query/session-query/tests/search-helpers.spec.ts
+      1 packages/schedule/schedule/tests/weekly.spec.ts
+      1 packages/schedule/schedule/tests/recurrence.spec.ts
+      1 packages/schedule/schedule/tests/legacy-history-invariant.spec.ts
+      1 packages/schedule/schedule/tests/invariant.spec.ts
+      1 packages/schedule/schedule/tests/domain.spec.ts
+      1 packages/schedule/schedule/tests/daily.spec.ts
+      1 packages/schedule/schedule/tests/cron.spec.ts
+      1 packages/preset/agent-preset-registry/tests/session.spec.ts
+      1 packages/plan/plan-mode/tests/invariant.spec.ts
+      1 packages/jobs/tool-jobs/tests/tool-jobs.spec.ts
+      1 packages/interaction/permission-presets/tests/invariant.spec.ts
+      1 packages/experimental/webworker-runtime/tests/node/process-shim.spec.ts
+      1 packages/core/session/tests/surface.spec.ts
+      1 packages/core/session/tests/session.spec.ts
+      1 packages/core/session/tests/fork.spec.ts
+      1 packages/core/session/tests/derived-cache.spec.ts
+      1 packages/core/agent-loop/tests/runtime-context.spec.ts
+      1 packages/context/time-context/tests/invariant.spec.ts
+      1 packages/context/session-reference/tests/session-reference.spec.ts
+      1 packages/context/session-reference/tests/fixtures/source-session.ts
+      1 packages/compaction/compaction-image-offload/tests/projection.spec.ts
+      1 packages/api/session-controller/tests/session-history-journal.host.spec.ts
+      1 packages/api/session-controller/tests/agent.host.spec.ts
+      1 apps/web/tests/subagent-conversation.e2e.ts
+      1 apps/web/tests/reference-composer.e2e.ts
+      1 apps/cli/tests/profiles/headless/tests/workspace-context-resume.expected.e2e.ts
+
+== jingguan 定位 ==
+jingguan/core/src 错误数: 0
+输出行数: 24116
+输出首行: apps/cli/tests/agent-team-headless.e2e.ts(5,23): error TS2307: Cannot find module 'execa' or its corresponding type decl
+输出末行: website/tests/raw-markdown.spec.ts(72,87): error TS7006: Parameter 'url' implicitly has an 'any' type.
