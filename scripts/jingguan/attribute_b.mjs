@@ -11,11 +11,14 @@
  *   export const attributeRules = [{ id, label, applies(ctx), decide(ctx) }]
  *   ctx = { group, kind, entry, values, quotes }；插件规则先于内置链执行，
  *   返回 { attribution, confidence, evidence } 或 null（落到内置链）。
+ * 摘要输入没有已核验的披露精度，内置链不凭数值接近或“约”字解释舍入；
+ * 有原文精度与出处的舍入复算使用 run_d9_rules 的方规则库完整入口。
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
+import { decimal, sum as sumDecimal } from '../../tools/fang-attribution/src_D9/exact_D9.mjs'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 
@@ -44,7 +47,7 @@ const close = (a, b, tol = 1e-6) => Math.abs(a - b) <= Math.max(Math.abs(a), Mat
 
 // ---------- 内置归因链（确定性；顺序即优先级，先命中先归因） ----------
 // 顺序原则：可解释口径（单位/累计/币种）最优先——同句不同数若属量级错配仍归口径；
-// 其后同句不同数（真矛盾）＞时点衔接＞舍入＞保留疑点。
+// 其后同句不同数（真矛盾）＞时点衔接＞保留疑点。
 const BUILTIN_RULES = [
   {
     id: 'INSUFFICIENT_EVIDENCE',
@@ -69,12 +72,13 @@ const BUILTIN_RULES = [
   {
     id: 'CUMULATIVE_VS_INCREMENTAL',
     label: '口径差异·累计 vs 单次',
-    applies: (ctx) => ctx.values.length >= 2 && ctx.values.every((v) => v !== null),
+    applies: (ctx) => ctx.values.length >= 3 && ctx.values.every((v) => v !== null),
     decide: (ctx) => {
       const vs = [...ctx.values]
       for (let i = 0; i < vs.length; i++) {
-        const rest = vs.filter((_, j) => j !== i).reduce((n, x) => n + x, 0)
-        if (vs.length >= 2 && close(vs[i], rest)) {
+        const rest = sumDecimal(vs.filter((_, j) => j !== i))
+        const total = decimal(vs[i])
+        if (total !== null && rest !== null && total === rest) {
           return { attribution: 'caliber_cumulative_vs_incremental', confidence: 'high', evidence: `${vs[i]} == 其余值之和 ${rest}——合计口径 vs 分项口径` }
         }
       }
@@ -123,26 +127,13 @@ const BUILTIN_RULES = [
     },
   },
   {
-    id: 'ROUNDING_TOLERANCE',
-    label: '口径差异·约数/舍入',
-    applies: (ctx) => ctx.values.length === 2 && ctx.values.every((v) => v !== null) && ctx.values.some((v) => v !== 0),
-    decide: (ctx) => {
-      const [a, b] = ctx.values
-      const rel = Math.abs(a - b) / Math.max(Math.abs(a), Math.abs(b))
-      if (rel > 0 && rel <= 0.005) {
-        return { attribution: 'caliber_rounding', confidence: 'medium', evidence: `相对差 ${(rel * 100).toFixed(3)}% ≤ 0.5%——约数/舍入口径（"约""大约"披露），非实质矛盾` }
-      }
-      return null
-    },
-  },
-  {
     id: 'UNEXPLAINED_DISCREPANCY',
     label: '无法解释·保留疑点（待人工/更正线索）',
     applies: () => true,
     decide: (ctx) => ({
       attribution: 'unexplained_needs_review',
       confidence: 'low',
-      evidence: `数值 ${ctx.values.join(' vs ')} 无单位/币种/累计/舍入/时点规律可解释——按"不能解释则保留疑点"不自动定矛盾，标记疑似更正或录入差异，待人工复核`,
+      evidence: `数值 ${ctx.values.join(' vs ')} 未被已有规则解释；数值接近或约数字样不足以证明舍入，须核对原文披露精度与出处——保留疑点，不自动定矛盾，待人工复核`,
     }),
   },
 ]

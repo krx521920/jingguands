@@ -17,7 +17,7 @@
  * 规则：无密钥必须显式 --mock；模拟输出全程 is_mock=true，不得计入真实抽取成绩。
  */
 import { createHash } from 'node:crypto'
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, mkdtempSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { execSync } from 'node:child_process'
 import { validateAgainstSchema } from './lib/schema_validator.mjs'
@@ -1384,7 +1384,11 @@ async function main() {
   const READABLE_MIN = 20
   if (parseDoc !== null && parseDoc.joinedRaw.trim().length < READABLE_MIN) {
     const stamp0 = new Date().toISOString().replace(/[-:]/g, '').replace(/\..+/, '')
-    const runId0 = `${stamp0}-${eventType}-scan`
+    // 每次运行原子分配目录；相同输入、相同秒或多个 CLI 进程不能复用已有产物。
+    const outputRoot0 = resolve(REPO_ROOT, args.outDir)
+    mkdirSync(outputRoot0, { recursive: true })
+    const outDir0 = mkdtempSync(resolve(outputRoot0, `${stamp0}-${eventType}-scan-`))
+    const runId0 = basename(outDir0)
     // 降级件哈希：无可读文本时对 joinedRaw 取哈希会得到"空串的 sha256"（语义错误）。
     // 正确口径＝输入解析文件字节哈希（真实产物、张的链检可复核）；解析声明有合法 64 位 sha 时优先。
     const declaredSha = parseDoc.doc.handoff?.source?.file_sha256
@@ -1430,8 +1434,6 @@ async function main() {
         errors: [`[降级] 文档为扫描件/无可读文本（可读字符 ${parseDoc.joinedRaw.trim().length} < ${READABLE_MIN}），跳过模型调用，未产出任何字段值`],
       },
     }
-    const outDir0 = resolve(REPO_ROOT, args.outDir, runId0)
-    mkdirSync(outDir0, { recursive: true })
     writeFileSync(resolve(outDir0, 'events.json'), JSON.stringify(envelope0, null, 2), 'utf8')
     writeFileSync(resolve(outDir0, 'call_log.json'), JSON.stringify({
       run_id: runId0, is_mock: isMock, endpoint: 'none（扫描降级，未调用模型）', model: null,

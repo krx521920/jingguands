@@ -1,5 +1,5 @@
 /**
- * B 归因引擎单测（D9）——8 类内置规则＋插件链优先＋不足证据组。
+ * B 归因引擎单测（D9）——7 类内置规则＋插件链优先＋不足证据组。
  * 用法：node scripts/jingguan/test_attribution.mjs（全过退出 0）
  * 材料说明：合成冲突形状与 verifyGroup 输出逐字段一致（values[] 与 aggregate/parts 两种）；
  * 币种用例取自 D6-AWD-007 真实数字；累计用例取自科创新材勾稽真实数字；时点用例取自鸿路演示真实数字。
@@ -52,9 +52,9 @@ assert.equal(at(out).attribution, 'true_conflict'); assert.equal(at(out).decided
 out = attribute([conflictGroup([744970839, 753463864], ['公司总股本为744,970,839股', '公司总股本由744,970,839股增加至753,463,864股'], 'total_shares_before')])
 assert.equal(at(out).attribution, 'temporal_progression')
 
-// 6. 舍入/约数（相对差 0.45%）
+// 6. 约数未给出披露精度，不凭相对差消除疑点
 out = attribute([conflictGroup([1000000, 1004500], ['约1,000,000元', '1,004,500元'], 'bid_amount')])
-assert.equal(at(out).attribution, 'caliber_rounding')
+assert.equal(at(out).attribution, 'unexplained_needs_review')
 
 // 7. 无法解释 → 保留疑点（不自动定矛盾）
 out = attribute([conflictGroup([123456, 654321], ['质押123,456股', '质押654,321股'])])
@@ -104,4 +104,4 @@ assert.equal(at(out).attribution, 'insufficient_evidence')
 out = attribute([{ group_id: 'T11', predicted_relation: 'related', reasons: [], consistency: { conflicts: [], corroborations: [], complementaries: [] } }])
 assert.equal(out.attributions.length, 0)
 
-console.log('✓ B 归因引擎单测：11 组用例全部通过（内置 8 规则＋插件优先＋异常隔离＋不足证据不猜）')
+console.log('✓ B 归因引擎单测：11 组用例全部通过（内置 7 规则＋插件优先＋异常隔离＋不足证据不猜）')
