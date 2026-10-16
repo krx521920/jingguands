@@ -25,6 +25,15 @@ node server.js
   再由魏文宇的抽取管线产出信封；页面只消费信封。上传时经`bridge/contract_validate.js`
   **机检**：缺 `run_id`/`is_mock`/`source`/`run_meta` 的件判 `ok:false` 且**不落盘**，
   报告逐条列出缺哪个字段（不做静默补齐——补齐等于伪造"这份数据本来合规"）。
+- **★ 导出↔导入回环自洽（2026-10-17 修复）**：`GET /api/export?format=json` 导的是
+  **契约本体 envelope（v0.3）**，与导入契约同形状 ⇒ **导出件可直接重新上传导入**
+  （端到端实测：导出 D4-PLD-001 → POST 回 `/api/upload` → `ok=true`、3 事件入账）。
+  此前导出的是 view 投影层（含 `data_mode`/`evidences`/`bridge`、缺顶层 `is_mock`/`source`），
+  因契约 `additionalProperties=false` 被导入闸门拒（56 条契约错误）⇒ 导出的件导不回去。
+  `format=csv` 仍走 view 投影（CSV 列需要 `data_mode`），与 `/api/result` 同源。
+  来源披露走响应头 `X-Export-Contract` / `X-Extraction-Engine`（**不进 JSON 体**：
+  塞进 envelope 即违反契约；响应头值禁中文，已 encodeURIComponent）。
+  防复发守卫：`demo/_roundtrip_check.js`（8 断言，含 3 条反证）。
 - **`GET /api/result` 必须带 `dataset` 参数**，无参返 400（不静默回落演示件）。
   数据集名**大小写不敏感**（`d4-pld-001` 命中 `D4-PLD-001`，响应里带
   `extraction_engine.name_resolution` 如实告知归一化方式）；未命中返回 `suggestions[]` 候选提示。
@@ -168,16 +177,15 @@ page_prototype/
     │
     │   ── 演示素材与实跑产物 ──
     ├── 使用演示.md             # 完整使用 demo（15 个演示）：统一样例全链路/异常汇总条/导出/扫描降级/扩展/remote/自检/股权变动对比页/配对 D8/核验 D9/缓存三态 D10/10 组集成/方报告五段+出处链
-    ├── D10演示图集.pdf         # 5.9 MB 演示图集
-    ├── D10演示操作.mp4         # 4.1 MB 演示录像
-    ├── D10演示产物说明.md      # 上两项的说明
+    ├── D10演示图集.pdf         # 5.9 MB 演示图集（★ 10-10 时点材料：图中数字以现行接口为准）
+    ├── D10演示操作.mp4         # 4.1 MB 演示录像（★ 10-10 时点材料：操作与数字以现行接口为准）
+    ├── D10演示产物说明.md      # 上两项的说明（已含 10-10 时点限定）
     ├── 演示2_上传样例_质押公告.txt / 演示3_新数据集_担保公告.txt  # 上传演示素材
     ├── screenshots/ video/ _frames/     # 截图/录像/帧序列
     ├── _retest_unified.json / _evidence_check.json / _standardized_real.json  # ★ 组2 产物（守卫与注册表回读）
     ├── _defects.json / _defect_owners.json / _parity_real.json / _survey.json
     ├── _p001_recheck.json / _p001_offset.json / _evidence_quote_real.json
-    ├── _criteria_verify_local.json / _ui_survey.json / _mock_datasets.json
-    └── __pycache__/            # Python 缓存（可再生）
+    └── _criteria_verify_local.json / _ui_survey.json / _mock_datasets.json
 ├── runs/                  # L4 真双路对照跑批产物（62 files / 1.9 MB）：cjh-l4/<数据集>/events.json
 ├── logs/                  # upload_log.jsonl（D6 上传日志）
 └── tmp_d14/ tmp_d15/      # ⚠ 临时草稿目录（16 + 11 files，.git/info/exclude 已忽略，不入库；待清理）

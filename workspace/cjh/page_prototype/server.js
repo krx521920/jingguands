@@ -99,10 +99,30 @@ function handleExport(res, urlObj, readDataset) {
   }
 
   if (format === "json") {
-    const body = JSON.stringify(data, null, 2);
+    // ★ 2026-10-17 回环修复（导出件无法重新导入）：
+    //   原实现导 readDataset 的 view 投影层——view 顶层带 data_mode/source_file/evidences/
+    //   bridge 等投影字段（契约 additionalProperties=false 不允许），且缺顶层 is_mock/source
+    //   ⇒ 喂回 /api/upload 必被契约闸门拒（实测 56 个 contract error，_roundtrip_probe 实证）。
+    //   修法＝与导入契约对齐：导 **契约本体 envelope**（同 CLI events.json 形状），
+    //   view 投影仍是 /api/result 的唯一出口（页面零改动）。
+    //   「这份数据哪来的」披露不丢：走响应头 X-Extraction-Engine（不进 JSON 体——
+    //   塞进 envelope 即违反 additionalProperties=false；响应头值经 encodeURIComponent
+    //   保证 ASCII 安全，中文批次标签不会打坏头）。
+    const run = extractor.PROVIDERS.file.run(dataset);
+    if (!run.ok) return sendJSON(res, 404, { error: "dataset not found: " + dataset });
+    const engineMeta = {
+      engine: run.run_meta && run.run_meta.engine,
+      reruns_extraction: run.run_meta && run.run_meta.reruns_extraction,
+      code_version: (run.run_meta && run.run_meta.code_version) || null,
+      upstream_run_id: (run.run_meta && run.run_meta.upstream_run_id) || null,
+      source_path: (run.run_meta && run.run_meta.source_path) || null
+    };
+    const body = JSON.stringify(run.envelope, null, 2);
     res.writeHead(200, {
       "Content-Type": "application/json; charset=utf-8",
-      "Content-Disposition": `attachment; filename="${dataset}.json"`
+      "Content-Disposition": `attachment; filename="${dataset}.json"`,
+      "X-Export-Contract": "v0.3-envelope",
+      "X-Extraction-Engine": encodeURIComponent(JSON.stringify(engineMeta))
     });
     return res.end(body);
   }
@@ -198,12 +218,21 @@ function readDataset(dataset) {
 }
 
 /** 过桥并取视图投影（页面/导出的唯一入口）。
- *  契约本体单独挂view._contract_envelope 引用（只读，不序列化），
- *  便于 /api/contract 类接口取本体而不必二次转换。 */
+ *  契约本体单独挂 view._contract_envelope 引用（只读，不序列化），
+ *  便于 /api/contract 类接口取本体而不必二次转换。
+ *  ★ 2026-10-17：补上漏写的实现——原先注释承诺挂载但代码没有，
+ *    导致「取契约本体」只能二次过桥。/api/export（10-17 回环修复）改为
+ *    直接走 file.run 的 envelope，此引用供 /api/result 消费方按需取本体。 */
 function bridgeOf(envelope) {
   const out = toContract(envelope);
   const view = out.view || out;                 // 兼容旧结构（已是契约对象时 view===envelope）
   view.contract_validation = out.contract_validation || null;
+  Object.defineProperty(view, "_contract_envelope", {
+    value: out.envelope || envelope,
+    enumerable: false,                           // 不序列化：JSON.stringify 不含它
+    writable: false,
+    configurable: true
+  });
   return view;
 }
 
