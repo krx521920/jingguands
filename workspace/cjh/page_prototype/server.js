@@ -982,7 +982,18 @@ function handleApi(req, res, urlObj) {
 
 // ---- 静态资源 ----
 function handleStatic(res, urlObj) {
-  let rel = decodeURIComponent(urlObj.pathname);
+  // ★ 2026-10-17 M-10：非法 percent-encoding（`/%`、`/%zz`、`/%E4%` 截断的中文编码…）
+  //   会让 decodeURIComponent 抛 `URIError: URI malformed` —— 原先无捕获，
+  //   **单个畸形请求就能顶穿进程**（实测：GET /% 后服务崩溃退出，端口立即无监听）。
+  //   修法：解码失败即回 400。**绝不静默当 `/` 处理**——把畸形请求伪装成正常首页
+  //   就是造假入口（看着"通了"，实则走的是另一条路径）。
+  let rel;
+  try {
+    rel = decodeURIComponent(urlObj.pathname);
+  } catch (e) {
+    res.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" });
+    return res.end("400 Bad Request: malformed URI (bad percent-encoding)");
+  }
   if (rel === "/" || rel === "") rel = "/index.html";
   const file = path.join(PUBLIC_DIR, rel);
   if (!file.startsWith(PUBLIC_DIR) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
@@ -994,9 +1005,19 @@ function handleStatic(res, urlObj) {
 }
 
 const server = http.createServer((req, res) => {
-  const urlObj = new URL(req.url, "http://127.0.0.1");
-  if (urlObj.pathname.startsWith("/api/")) return handleApi(req, res, urlObj);
-  return handleStatic(res, urlObj);
+  // ★ 2026-10-17 M-10：进程级兜底。原先 handler 抛异常就直接顶穿进程
+  //   （一个畸形 URL 就能让服务退出，评审现场直接中断）。
+  //   修法：请求入口整体 try/catch，异常如实 **打印 + 回 500**，绝不静默吞掉
+  //   ——静默吞＝问题消失在日志里，下次照样崩。
+  try {
+    const urlObj = new URL(req.url, "http://127.0.0.1");   // 畸形 req.url 也会抛，故一并包进
+    if (urlObj.pathname.startsWith("/api/")) return handleApi(req, res, urlObj);
+    return handleStatic(res, urlObj);
+  } catch (e) {
+    console.error("[server] unhandled error on " + req.url + ": " + ((e && e.stack) || e));
+    if (!res.headersSent) res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+    return res.end("500 Internal Server Error");
+  }
 });
 
 // ★ 2026-10-10 步骤6-③：导出 `readDataset`（视图投影的唯一生成函数）供 demo/_parity_real.js 复用。
