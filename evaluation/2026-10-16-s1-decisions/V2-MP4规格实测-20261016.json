@@ -1,0 +1,25 @@
+{
+  "checked_on": "2026-10-16",
+  "by": "宗（评测侧）",
+  "object": "tag v2.0-delivery → commit 97a0dda0 内的演示视频",
+  "path": "materials/项目演示-可信公告事件提取与跨文档核验.mp4",
+  "measured": {
+    "bytes": 6791589,
+    "megabytes": 6.48,
+    "sha256": "16f18549bc70c61dfb06a405d27be3cfb7fe3f2fc586c3679c4977409e403dd6",
+    "duration_seconds": 275.43,
+    "duration_minutes": 4.59,
+    "method": "本机无 ffmpeg，直接解析 MP4 atom（moov→mvhd：timescale 与 duration）取时长；体积与哈希按下载字节实算"
+  },
+  "verdict": {
+    "same_as_chen_material": true,
+    "same_note": "sha256 与陈材料所引逐字一致（10-13 与 10-15 两次独立复核均为该值）",
+    "duration_le_5min": true,
+    "size_le_500mb": true
+  },
+  "v2_status": {
+    "done_by_evaluator": ["规格（时长/体积/哈希）", "讲解稿（docs/V1-讲解稿-20261015.md）数字黑名单审计：命中 0 条"],
+    "not_done_by_evaluator": "逐帧 / 字幕轨 / 声音 / 无秘密信息 —— 本机无 ffmpeg，需在有 ffmpeg 的机器执行（命令与核对表见 V2-审片核对表-20261015.md）",
+    "checklist": "evaluation/2026-10-15-acceptance/V2-审片核对表-20261015.md"
+  }
+}
