@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-10-09T04:13:30.017Z",
+  "generated_at": "2026-10-16T03:12:56.646Z",
   "counts": {
-    "P0": 2,
-    "P1": 2,
+    "P0": 1,
+    "P1": 1,
     "P2": 0
   },
-  "total": 4,
+  "total": 2,
   "defects": [
     {
       "id": "D11-P0-01",
       "sev": "P0",
       "title": "旧版解析器（0.3.0）把字段溯源指向错误的 block，region 坐标却正确",
       "area": "证据链 / 解析-抽取衔接",
-      "repro": "node demo/_evidence_check.js  → 观察 L3 未命中清单；\n手工核对：wei_real_pledge_ce37 的 E01.pledgee 指向 d44e95085_p001_b00016（表头「是否为限售股」），\n而 quote「建德市新安小额贷款股份有限公司」实际在 d44e95085_p001_b00031",
+      "repro": "node demo/_evidence_check.js  → p001_witness 段（P0-01 物证核对）；\n手工核对：wei_real_pledge_ce37 的 E01.pledgee 指向 d44e95085_p001_b00016（表头「是否为限售股」），\n而 quote「建德市新安小额贷款股份有限公司」实际在 d44e95085_p001_b00031",
       "expect": "provenance.block_id 指向的 block 内应包含 provenance.quote",
       "actual": "parser 0.3.0 命中率 16.67%（2/12），parser 0.7.0 命中率 100%（12/12）；同文档同 region，差异只在 block_id 映射 —— 即坐标对、映射错。真错指 6 条，另 4 条 quote 在整份解析快照中都不存在",
       "owner": "张智博（block 映射口径）+ 魏文宇（抽取侧 provenance 生成）",
@@ -20,31 +20,7 @@
       "day": "D11"
     },
     {
-      "id": "D11-P0-02",
-      "sev": "P0",
-      "title": "溯源存在率（L1）74.09% ，147 个字段无任何 provenance",
-      "area": "溯源完整性",
-      "repro": "curl http://127.0.0.1:8643/api/metrics → l1_provenance（或 summary.l1_pct）",
-      "expect": "≥90%（与总规划『字段抽取率』不同：抽取率看 status=extracted，本项看有无溯源；当前字段抽取率 72.11%，两者都未达标）",
-      "actual": "74.09%（449/606 字段带 provenance）；缺口 157 个字段无溯源，页面无法回跳定位",
-      "owner": "魏文宇（抽取）+ 张智博（出处）",
-      "evidence": "GET /api/metrics → l1_provenance / summary",
-      "day": "D11"
-    },
-    {
       "id": "D11-P1-01",
-      "sev": "P1",
-      "title": "标准化率 71.62% ，低于目标 98%",
-      "area": "标准化",
-      "repro": "curl http://127.0.0.1:8643/api/metrics → cards[标准化率]",
-      "expect": "≥98%",
-      "actual": "71.62%（standardized=true 占 true/false 之比，未标注不计入分母）",
-      "owner": "魏文宇",
-      "evidence": "GET /api/metrics → summary.standardized_pct",
-      "day": "D11"
-    },
-    {
-      "id": "D11-P1-02",
       "sev": "P1",
       "title": "核验清单中 2 条 finding 的 provenance 为 null",
       "area": "核验视图",
@@ -57,10 +33,12 @@
     }
   ],
   "limits": [
-    "本次只跑现有 31 份真实数据集；宗博文保管的 30 份单文档 + 20 组跨文档封存集未交付（按规则首测前不交开发），故本次成绩为「开发侧自测」，不得写成独立首测成绩。",
-    "L3 原文命中仅覆盖 2 个数据集（本地仅 1 份原始解析快照 doc_id=d44e95085），其余 29 份未核，未计入任何命中率分母。",
-    "矛盾召回 / 矛盾误报 / 重复运行一致率 / 20 页 ≤90 秒 四项未测：需封存集与引擎侧运行数据，属宗与魏职责范围。",
-    "接口层与页面层巡检均为 0 缺陷，但0 缺陷不等于验收通过——验收需封存集首测成绩。"
+    "指标只跑权威批 data_unified/（D11 冻结批，宗 2026-10-09 裁决入口径）；旧池 data/ 的 D11 首测自测值已作废（2026-10-15 领导裁定「不走首测了，真删」），不再作为任何对照。",
+    "L3 原文命中按各信封自带 parse_meta.blocks 核对，可核 30 份（451/451，见 demo/_evidence_check.json → l3_scope）；无解析产物或 block_id 缺失不可核、不计入分母。",
+    "覆盖率按 2026-10-15 新口径分列（demo/_evidence_check.json → extraction_coverage）：只看抽取效果 437/592 = 73.82%（排除原文缺陷 pledge-scan-degrade 与来源不清 DEMO-EQC-HL-0930，后者警告「未知来源」）；页面权威口径 437/606 = 72.11% 不变（弃权计入分母，与宗成绩单同口径）。",
+    "评测侧成绩单（evaluation/2026-10-12-scorecard）未覆盖 3 项：abstain_correct / scan_degrade / web_cli_independent——分属宗与魏职责，我方不硬凑。",
+    "接口层与页面层巡检均为 0 缺陷，但 0 缺陷不等于验收通过——验收以评测侧成绩单为准。",
+    "溯源存在率（L1，字段有无 provenance）＝74.09%（449/606）：按总规划 §5 与 D17 裁定该类指标不挂目标；缺口 157 个字段无溯源（页面无法回跳定位）是事实披露，不作为未达标项，归属魏文宇（抽取）+ 张智博（出处）。"
   ],
   "metrics_summary": {
     "datasets": 31,
@@ -74,60 +52,262 @@
     "quote_pct": 100,
     "table_id_pct": 52.11,
     "cell_ref_pct": 52.11,
-    "standardized_pct": 71.62,
-    "extracted_pct": 72.11
+    "standardized_pct": 100,
+    "extracted_pct": 72.11,
+    "slot_value_rate_pct": 72.11,
+    "slot_value_num": 437,
+    "slot_value_den": 606,
+    "core_text_slot_pct": 73.82,
+    "core_text_slot_num": 437,
+    "core_text_slot_den": 592,
+    "expected_field_recall_pct": 100,
+    "expected_field_recall_num": 437,
+    "expected_field_recall_den": 437,
+    "gold_value_match_pct": 100,
+    "gold_value_match_num": 437,
+    "gold_value_match_den": 437,
+    "gold_available": true,
+    "gold_pending_fields": 11,
+    "engine_pending_fields": 11,
+    "no_gold_fields": 14,
+    "gold_expected_scopes": {
+      "frozen_slot": {
+        "datasets": 31,
+        "fields": 606,
+        "extracted": 437
+      },
+      "core_text": {
+        "datasets": 30,
+        "fields": 592,
+        "extracted": 437
+      },
+      "gold_expected": {
+        "datasets": 30,
+        "fields": 437,
+        "note": "Gold 期望字段全集：分母只由 Gold 清单决定，不由引擎 status 反推"
+      },
+      "excluded_unknown_source": {
+        "datasets": 0,
+        "fields": 0,
+        "note": "来源不清/演示件（不计入任何分母，仅警告）"
+      },
+      "scanned_degrade": {
+        "datasets": 1,
+        "fields": 14
+      },
+      "local_demo": {
+        "datasets": 0,
+        "fields_total": 0,
+        "present": false
+      }
+    }
   },
   "l3": {
-    "doc_id": "44e95085",
-    "doc_name": "D4-PLD-001.pdf",
-    "source_kind": "self_blocks",
-    "source_ref": "data_unified/D4-PLD-001.json",
-    "parser_version": "finstruct.parse/0.9.0",
+    "doc_id": null,
+    "doc_name": null,
+    "docs_indexed": 30,
+    "docs_indexed_list": [
+      {
+        "doc": "D4-PLD-001.pdf",
+        "blocks": 128,
+        "from": "D4-PLD-001"
+      },
+      {
+        "doc": "D4-PLD-002.pdf",
+        "blocks": 88,
+        "from": "D4-PLD-002"
+      },
+      {
+        "doc": "D4-PLD-003.pdf",
+        "blocks": 111,
+        "from": "D4-PLD-003"
+      },
+      {
+        "doc": "D4-PLD-004.pdf",
+        "blocks": 105,
+        "from": "D4-PLD-004"
+      },
+      {
+        "doc": "D4-PLD-005.pdf",
+        "blocks": 79,
+        "from": "D4-PLD-005"
+      },
+      {
+        "doc": "D4-PLD-006.pdf",
+        "blocks": 95,
+        "from": "D4-PLD-006"
+      },
+      {
+        "doc": "D4-PLD-007.pdf",
+        "blocks": 187,
+        "from": "D4-PLD-007"
+      },
+      {
+        "doc": "D4-PLD-008.pdf",
+        "blocks": 93,
+        "from": "D4-PLD-008"
+      },
+      {
+        "doc": "D4-PLD-009.pdf",
+        "blocks": 96,
+        "from": "D4-PLD-009"
+      },
+      {
+        "doc": "D4-PLD-010.pdf",
+        "blocks": 104,
+        "from": "D4-PLD-010"
+      },
+      {
+        "doc": "D5-EQC-001.pdf",
+        "blocks": 861,
+        "from": "D5-EQC-001"
+      },
+      {
+        "doc": "D5-EQC-002.pdf",
+        "blocks": 1395,
+        "from": "D5-EQC-002"
+      },
+      {
+        "doc": "D5-EQC-003.pdf",
+        "blocks": 621,
+        "from": "D5-EQC-003"
+      },
+      {
+        "doc": "D5-EQC-004.pdf",
+        "blocks": 333,
+        "from": "D5-EQC-004"
+      },
+      {
+        "doc": "D5-EQC-005.pdf",
+        "blocks": 375,
+        "from": "D5-EQC-005"
+      },
+      {
+        "doc": "D5-EQC-006.pdf",
+        "blocks": 126,
+        "from": "D5-EQC-006"
+      },
+      {
+        "doc": "D5-EQC-007.pdf",
+        "blocks": 364,
+        "from": "D5-EQC-007"
+      },
+      {
+        "doc": "D5-EQC-008.pdf",
+        "blocks": 249,
+        "from": "D5-EQC-008"
+      },
+      {
+        "doc": "D5-EQC-009.pdf",
+        "blocks": 194,
+        "from": "D5-EQC-009"
+      },
+      {
+        "doc": "D5-EQC-010.pdf",
+        "blocks": 438,
+        "from": "D5-EQC-010"
+      },
+      {
+        "doc": "bid-001.pdf",
+        "blocks": 27,
+        "from": "D6-AWD-001"
+      },
+      {
+        "doc": "bid-002.pdf",
+        "blocks": 47,
+        "from": "D6-AWD-002"
+      },
+      {
+        "doc": "bid-003.pdf",
+        "blocks": 82,
+        "from": "D6-AWD-003"
+      },
+      {
+        "doc": "bid-004.pdf",
+        "blocks": 78,
+        "from": "D6-AWD-004"
+      },
+      {
+        "doc": "bid-005.pdf",
+        "blocks": 80,
+        "from": "D6-AWD-005"
+      },
+      {
+        "doc": "bid-006.pdf",
+        "blocks": 13,
+        "from": "D6-AWD-006"
+      },
+      {
+        "doc": "bid-007.pdf",
+        "blocks": 10,
+        "from": "D6-AWD-007"
+      },
+      {
+        "doc": "bid-008.pdf",
+        "blocks": 24,
+        "from": "D6-AWD-008"
+      },
+      {
+        "doc": "bid-009.pdf",
+        "blocks": 40,
+        "from": "D6-AWD-009"
+      },
+      {
+        "doc": "bid-010.pdf",
+        "blocks": 31,
+        "from": "D6-AWD-010"
+      }
+    ],
+    "docs_skipped": [
+      {
+        "dataset": "pledge-scan-degrade",
+        "why": "信封未自带 blocks"
+      }
+    ],
+    "source_kind": "self_blocks_multi",
+    "source_ref": "各信封自带 source.parse_meta.blocks（按 block_id 前缀分桶）",
+    "parser_version": null,
+    "parser_versions": [
+      "finstruct.parse/0.9.0"
+    ],
     "version_mismatch_skipped": 0,
-    "coverage_note": "核验索引取自信封自带的 source.parse_meta.blocks（与 provenance 同一次解析产物，同parser 版本）",
-    "checked": 39,
-    "hit": 39,
+    "coverage_note": "核验索引取自各信封自带的 source.parse_meta.blocks（与 provenance 同一次解析产物、同 parser 版本），按 block_id 前缀分桶，每条 provenance 只在它自己那份信封的桶里查 —— 结构上不可能串档。已建索引 30 份，跳过 1 份（pledge-scan-degrade：信封未自带 blocks）",
+    "checked": 451,
+    "hit": 451,
     "miss": 0,
     "hit_rate_pct": 100,
     "datasets_checkable": [
-      "D4-PLD-001"
+      "D4-PLD-001",
+      "D4-PLD-002",
+      "D4-PLD-003",
+      "D4-PLD-004",
+      "D4-PLD-005",
+      "D4-PLD-006",
+      "D4-PLD-007",
+      "D4-PLD-008",
+      "D4-PLD-009",
+      "D4-PLD-010",
+      "D5-EQC-001",
+      "D5-EQC-002",
+      "D5-EQC-003",
+      "D5-EQC-004",
+      "D5-EQC-005",
+      "D5-EQC-006",
+      "D5-EQC-007",
+      "D5-EQC-008",
+      "D5-EQC-009",
+      "D5-EQC-010",
+      "D6-AWD-001",
+      "D6-AWD-002",
+      "D6-AWD-003",
+      "D6-AWD-004",
+      "D6-AWD-005",
+      "D6-AWD-006",
+      "D6-AWD-007",
+      "D6-AWD-008",
+      "D6-AWD-009",
+      "D6-AWD-010"
     ],
-    "datasets_unverifiable": 30
-  },
-  "corrections": [
-    {
-      "added_at": "2026-10-13",
-      "added_by": "陈家浩（页面侧）",
-      "note": "手动勘误：不改动上方 D11 当日原始记录（历史留痕）。D11 当日两条指标判据踩了「挂错目标」——总规划 §5 的「字段抽取 ≥90%」经 D17 裁定挂准确率（437/437＝100%，已达标），「标准化 ≥98%」挂标准化正确率（229/229＝100%，已达标）；覆盖率/出处类指标不挂目标。",
-      "items": [
-        {
-          "id": "D11-P1-01",
-          "verdict": "误报·已推翻",
-          "basis": "该条把 standardized=true 占全部 606 字段之比（434/606＝71.62%，分母混入 unit:text 208 条与弃权 169 条，违反 D13-C2）与「标准化 ≥98%」对比。正确口径：标准化覆盖率＝非 text 有值字段 229/229＝100%（demo/_standardized_real.js 实算，与指标卡/注册表同源）；98% 目标对应标准化正确率＝229/229＝100%，已达标。2026-10-13 已修 bridge/metrics.js（summary.standardized_pct 改读实算产物）与 demo/_defects.js 判据（98% 改挂正确率），并新增守卫 _d13c2_check.js A2B 防复发。",
-          "superseded_by": [
-            "evaluation/D17/裁定-standardized判据-20261010.md",
-            "evaluation/2026-10-12-scorecard/评分成绩单-20261012.json（standardized_rate 229/229、standardized_accuracy 229/229）"
-          ]
-        },
-        {
-          "id": "D11-P0-02",
-          "verdict": "目标挂错·结论部分推翻",
-          "basis": "「≥90%」是字段抽取准确率的目标（437/437＝100%，已达标），不是溯源存在率 L1 的目标——总规划 §5 无 L1 项，D17 裁定出处类不挂目标。L1＝449/606＝74.09%（157 个字段无 provenance）是事实披露，不是未达标；已从缺陷判据移入 limits 披露（demo/_defects.js 2026-10-13 改）。",
-          "superseded_by": [
-            "evaluation/D17/裁定-standardized判据-20261010.md",
-            "evaluation/2026-10-12-scorecard/评分成绩单-20261012.json（field_accuracy 437/437）"
-          ]
-        },
-        {
-          "id": "D11-P0-01",
-          "verdict": "已修复",
-          "basis": "parser 0.3.0 的 block 错指问题已随解析器升级消除：现权威批 31 份中 30 份信封自带 blocks，L3 原文命中 451/451（parser finstruct.parse/0.9.0），不再存在 0.3.0 时代的错指。",
-          "superseded_by": [
-            "demo/_d31_check.js（L3 覆盖面 30 份 / 451 条判据）",
-            "GET /api/metrics → l3（docs_indexed=30, hit=451）"
-          ]
-        }
-      ]
-    }
-  ]
+    "datasets_unverifiable": 1
+  }
 }

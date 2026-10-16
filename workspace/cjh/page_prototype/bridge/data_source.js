@@ -105,6 +105,30 @@ const BATCHES = {
   },
 };
 
+/**
+ * ★ 指标**范围名单**（2026-10-15 新增）——口径范围是「数据源的属性」，
+ *   所以名单放这里；算法在 bridge/caliber.js，不得两处各维护一份。
+ *
+ * 三档范围互不替换、必须并列引用：
+ *   ① frozen_slot   31 份冻结批槽位（＝权威分母 606，含扫描降级件）
+ *   ② core_text     30 份有 Gold 的核心文本件（＝606 − 扫描降级 14 字段 ＝ 592）
+ *   ③ gold_expected Gold 期望字段全集（由 Gold 清单决定，当前 437）
+ *
+ * ★ 排除扫描降级件**只用于「范围拆分展示」**：
+ *   绝不删扫描件、绝不改冻结锚点、绝不把它的 unreadable 算成抽取失败来「美化」成功率。
+ *   （方轩诚 2026-10-15 明确：不能全局删除扫描件来美化处理成功率。）
+ */
+const SCOPE_FRAMES = {
+  // 来源不清 / 本地演示补料：不计入任何分母，仅警告「未知来源」
+  local_demo_datasets: ["DEMO-EQC-HL-0930"],
+  // 原文缺陷件（D13 scan_degrade）：无解析产物、字段全 unreadable ⇒ 不计入覆盖率分母；
+  // 但它在 D13「扫描件降级明确率」里仍占独立分母（该指标分母待宗建立，见注册表 scan_degrade）。
+  scanned_degrade_datasets: ["pledge-scan-degrade"],
+  note:
+    "三档范围：31 份槽位（606）／30 份有 Gold 核心文本（592）／Gold 期望全集（437）。" +
+    "排除只用于范围拆分展示，不改冻结锚点、不删件。算法与实算见 bridge/caliber.js。",
+};
+
 const PRIMARY_ID = "authoritative";
 
 // ============================================================
@@ -480,6 +504,40 @@ function dirFingerprint(dirName) {
 }
 
 /**
+ * ★ 2026-10-15：三档覆盖率范围（A 全字段槽位 606 / B 核心文本件 592 / C Gold 期望 437）
+ *   的统一取数口，供 `disclose()` 与 `compare()` 共用。
+ *
+ * 为什么要有这个口子：铁律「上屏三处披露必须同步」——下拉旁批次徽标、质量报告页数据源卡片、
+ *   以及两处 data_source 段（`/api/metrics` 与 `/api/datasets`）必须是同一份口径。
+ *   此处直接向口径单一真源 `bridge/caliber.js` 取实算结果，**本文件不另抄任何数字**
+ *   （抄一份就是第二个真源，早晚不同步，正是「同名两个值」的老毛病）。
+ *
+ * 注意：惰性 require —— caliber.js 需要本文件的 SCOPE_FRAMES，模块顶层相互 require 会成环。
+ *   产物/模块不可用 ⇒ 返回 null 并标明原因（判「未测」），绝不按经验值或目标值填充。
+ */
+function caliberRangeBlock() {
+  try {
+    const cal = require("./caliber.js");
+    // 取 `computeCaliber().ranges`（与页面卡片 / 注册表 / 重测脚本**同一份形状**：
+    // frozen_slot / core_text / gold_expected / scanned_degrade / local_demo）。
+    // 不用低层的 `slotScope()` —— 那个不含 Gold 档，上屏会少一档。
+    return {
+      caliber_ranges: cal.computeCaliber(cal.primaryEnvelopes()).ranges,
+      caliber_note:
+        "覆盖率不是单一数字，三档分母不同、禁止合并或互推：" +
+        "①A 全字段槽位口径（含扫描降级件）；②B 核心文本件口径（排除原文缺陷件）；" +
+        "③C 相对当前 Gold 的期望字段召回率（Gold 条件口径：公开语料冻结回放、不外推泛化、" +
+        "Gold 原文推导复核未完成）。另「含演示件的 615 / 446」是扩大口径，非权威分母。",
+    };
+  } catch (e) {
+    return {
+      caliber_ranges: null,
+      caliber_note: "（口径模块不可用，三档范围判未测：" + (e && e.message) + "）",
+    };
+  }
+}
+
+/**
  * 数据源披露对象 —— `/api/metrics` 与 `/api/datasets` 顶层下发（领导 10-09 裁定③：页面可以暴露信息源）。
  * 字段刻意做得很"啰嗦"：读者在页面上必须能一眼看出「这个数字跑在哪批数据上、有几份、指纹是多少」。
  */
@@ -512,6 +570,8 @@ function disclose() {
       //   dataset_names 保留全量（含 DEMO）＝目录事实，两份并列不混。
       primary_dataset_names: es.filter(e => e.counts_for_primary).map(e => e.name),
     };
+    // ★ 2026-10-15：权威批额外挂「三档覆盖率范围」——两处 data_source 段与页面披露同源。
+    if (id === PRIMARY_ID) Object.assign(byBatch[id], caliberRangeBlock());
   }
 
   const overlap = (() => {
@@ -610,12 +670,15 @@ function compare() {
       }
       entry.frozen_only = { files: fFiles, events: fEvents, fields: fFields };
       entry.caliber_split = BATCHES[id].caliber_split;
+      // ★ 2026-10-15：三档覆盖率范围走同一个取数口（见 caliberRangeBlock），不在此另算。
+      Object.assign(entry, caliberRangeBlock());
     }
     out[id] = entry;
   }
   out.note =
     "★ 引用任何字段规模/比率必须带所属批次。权威批次与材料成绩（437/437、分母 615）同源；" +
-    "演示池的数字出自不同样本，两者不可比。★ 权威批内部还有 615 / 606 两种分母口径，见 authoritative.caliber_split。";
+    "演示池的数字出自不同样本，两者不可比。★ 权威批内部还有 615 / 606 两种分母口径，见 authoritative.caliber_split；" +
+    "★ 2026-10-15 起覆盖率另有三档范围（606 全字段槽位 / 592 核心文本件 / 437 Gold 期望），见 authoritative.caliber_ranges 与 caliber_note。";
   return out;
 }
 
@@ -670,7 +733,7 @@ function variantGroups() {
 }
 
 module.exports = {
-  BATCHES, PRIMARY_ID, ROLE_LABEL, ANCHOR,
+  BATCHES, PRIMARY_ID, ROLE_LABEL, ANCHOR, SCOPE_FRAMES,
   list: all, names, resolve, suggest, resetCache,
   primaryEntries, primary, rolesInBatch,
   disclose, compare, dirFingerprint, sha256File, isMockEnvelope,

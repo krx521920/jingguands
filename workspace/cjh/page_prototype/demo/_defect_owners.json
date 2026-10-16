@@ -1,12 +1,18 @@
 {
-  "generated_at": "2026-10-09T04:13:25.593Z",
+  "generated_at": "2026-10-16T03:12:56.050Z",
+  "data_sources": {
+    "metrics": "bridge/metrics.js computeMetrics()（权威批 data_unified）",
+    "standardized": "demo/_standardized_real.json",
+    "scorecard": "evaluation/2026-10-12-scorecard/评分成绩单-20261015.json",
+    "evidence_check": "demo/_evidence_check.json"
+  },
   "counts": {
-    "P0": 3,
-    "P1": 4,
+    "P0": 2,
+    "P1": 5,
     "P2": 1,
     "total": 8,
-    "fixed": 0,
-    "unfixed": 7,
+    "fixed": 4,
+    "unfixed": 3,
     "untested": 1
   },
   "owners": {
@@ -14,14 +20,14 @@
       "D11-P0-01",
       "D11-P1-02"
     ],
-    "魏文宇 / 方轩诚": [
-      "D11-P0-02",
-      "D11-P1-01",
-      "D11-P1-04"
-    ],
     "宗博文": [
       "D11-P0-03",
       "D11-P2-01"
+    ],
+    "魏文宇 / 方轩诚": [
+      "D11-P1-01",
+      "D11-P1-04",
+      "D11-P1-05"
     ],
     "方轩诚（核验报告）+ 张智博（出处）": [
       "D11-P1-03"
@@ -44,31 +50,10 @@
         "note": "跨版本漂移，需张提供修正后 block 映射（对方重锚定）"
       },
       "status": "未修复 · 已建框架待接",
-      "statusNote": "张 10-07 11:06 的《解析错误分类与最小复现》已建A5/B3 分类框架并明写「首测未出数，不预判」；其文档早于我 19:42 的提交，未见我的实测证据（16.67% vs 100%、region 相同、cell_ref 差异）",
+      "statusNote": "张 10-07 11:06 的《解析错误分类与最小复现》已建A5/B3 分类框架并明写「首测未出数，不预判」；其文档早于我 19:42 的提交，未见我的实测证据（16.67% vs 100%、region 相同、cell_ref 差异）。★ 2026-10-15 注：16.67% 是首测对 0.3.0 解析器的历史发现；wei_real_pledge_ce37 不在权威批 31 份内，按领导 10-09 裁定②该数据集连同 0197 留在旧池 data/ 并标注（首测不走，物证不删），复现路径：node demo/_evidence_check.js → p001_witness 段",
       "action": "张提供修正后的 block 映射（重锚定），并按最小复现法固化回归用例",
-      "verify": "重跑 demo/_evidence_check.js，该数据集 L3 命中率应达 100%",
+      "verify": "重跑 demo/_evidence_check.js，p001_witness 段该数据集 L3 命中率应达 100%",
       "due": "D12 首周"
-    },
-    {
-      "id": "D11-P0-02",
-      "sev": "P0",
-      "title": "溯源存在率 L1 = 73.18%（401/548），147 个字段无溯源无法回跳定位",
-      "symptom": "A4 出处缺失（provenance 为空或 null）",
-      "cause": "B5 抽取侧（主）+ B2 解析侧（次）",
-      "scope": "C2 高影响（覆盖全部 31 份数据集）",
-      "known": "D2 新发现（我方 D11 首测实算）",
-      "metric": "L1 = 73.18%（401/548）；注意此指标 ≠ 字段抽取率 71.53%（status=extracted）",
-      "evidence": "GET /api/metrics → summary.l1_pct = 73.18；逐数据集 l1_rate 见 demo/_evidence_check.json → per_dataset[].l1_rate",
-      "owner": {
-        "name": "魏文宇 / 方轩诚",
-        "role": "抽取 / 规则",
-        "note": "出处对、值错"
-      },
-      "status": "未修复 · 数据已换但无法复算",
-      "statusNote": "魏 10-07 19:42 交付「31 份修复后信封」，但该批信封未入库（魏分支 runs/ 最新仍是 09-29 归档），我本地 data/ 仍是 D2 时期拷贝，**无法复算验证修复声明**",
-      "action": "魏将 31 份修复后信封入库 develop；我收到后重跑 _evidence_check.js 复算 L1",
-      "verify": "L1 ≥ 90%（总规划目标），并给出修复前后对比",
-      "due": "信封入库后 1 日内"
     },
     {
       "id": "D11-P0-03",
@@ -94,41 +79,41 @@
     {
       "id": "D11-P1-01",
       "sev": "P1",
-      "title": "标准化率 69.87%（364/521），低于目标 98%",
+      "title": "标准化正确率 100%（229/229），目标 98%",
       "symptom": "值未标准化（standardized ≠ true）",
-      "cause": "待定（需宗侧首测成绩归因后才能定性）",
+      "cause": "已定位：旧口径把 unit:text 208 条与弃权 169 条混入分母（434/606＝71.62%），产出假缺陷",
       "scope": "C2 高影响",
-      "known": "D1 已知边界",
-      "metric": "364/521 = 69.87%，未标注 27 个不入分母",
-      "evidence": "GET /api/metrics → cards[标准化率]",
+      "known": "D1 已知边界 → D13-C2 / D17 裁定后闭环",
+      "metric": "229/229 = 100%（判据 D17 / D13-C2：分母＝非 text 有值字段；364/521 为不可核历史数，禁引）。同批标准化覆盖率 100%（229/229）（不挂目标，仅披露）",
+      "evidence": "demo/_standardized_real.json → accuracy；GET /api/metrics → cards[标准化正确率]；宗 2026-10-12 成绩单 standardized_rate 229/229 = 100%",
       "owner": {
         "name": "魏文宇 / 方轩诚",
         "role": "抽取 / 规则",
         "note": "出处对、值错"
       },
-      "status": "未修复 · 魏定位的两条均非本项",
-      "statusNote": "魏 10-07 的 d11-defect-localization.md 定位两条缺陷（PLD-009 E03 模型方差、AWD-002 跨块 quote），**均属 B5 抽取侧但都不是标准化率本身**；本项根因尚无人认领",
-      "action": "待宗侧首测成绩下发后按链路归因；魏/方确认是否与已定位两条同源",
-      "verify": "标准化率 ≥ 98%",
-      "due": "首测成绩下发后 2 日内"
+      "status": "已修复 · 口径已正",
+      "statusNote": "魏 10-07 交付的新信封 standardized 字段已被正确填写；2026-10-13 bridge/metrics.js 旧写法（434/606=71.62%）修为与指标卡同源的 229/229，消除同屏两套数；宗成绩单同数互相印证。旧标题「标准化率 69.87%（364/521）低于目标 98%」是挂错口径的假缺陷，已按 D17 裁定作废。",
+      "action": "无需进一步动作",
+      "verify": "标准化正确率 ≥ 98%（现 100%）",
+      "due": "已闭环"
     },
     {
       "id": "D11-P1-02",
       "sev": "P1",
-      "title": "溯源带 block_id 仅 81.14%，约 19% 只有页级锚点",
+      "title": "溯源带 block_id 100%（权威批实测）；无框表格列语义丢失仍是已登记能力边界",
       "symptom": "A4 出处缺失（缺 block_id，region/table_id/cell_ref 更缺）",
       "cause": "B1 源 PDF 版面（无框表tables=0、列语义丢）",
       "scope": "C3 局部 + C4 边界",
       "known": "D1 已在能力边界表登记",
-      "metric": "锚点完备性 n=403：page/quote 100%、block_id 81.14%、region 70.72%、table_id 30.77%、cell_ref 28.29%",
+      "metric": "锚点完备性 n=451：page 100%｜quote 100%｜block_id 100%｜region 100%｜table_id 52.11%｜cell_ref 52.11%",
       "evidence": "GET /api/metrics → anchors[]；张《解析能力边界表》登记无框表格 tables=0、内容不丢、列语义丢",
       "owner": {
         "name": "张智博",
         "role": "解析层",
         "note": "源 PDF 版面问题，登记能力边界"
       },
-      "status": "未修复 · 已登记为能力边界",
-      "statusNote": "张已如实登记为能力边界（对应症状 A6列语义丢失 / A7 表格未检出），但**未承诺修复时间**",
+      "status": "已修复 · 能力边界仍登记",
+      "statusNote": "2026-10-15 权威批实算 block_id 100%（旧池首测值 81.14% 已随首测作废）；张已如实登记无框表格 tables=0、列语义丢失为能力边界——table_id/cell_ref 现 52.11% 即该边界现状，**未承诺修复时间**，维持登记不催。",
       "action": "张给出边界升级计划（何种版面能支持 block_id / cell_ref）；或明确接受该边界并在页面标注",
       "verify": "锚点完备性提升，或能力边界表给出明确时间表",
       "due": "待张排期"
@@ -139,10 +124,10 @@
       "title": "核验清单中 2 条 finding 的 provenance 为 null",
       "symptom": "A4 出处缺失（核验视图侧）",
       "cause": "B5 抽取侧 / 规则侧",
-      "scope": "C3 局部（2 条 finding）",
+      "scope": "C3 局部（finding 级）",
       "known": "D2 新发现（我方 D11 首测巡检）",
-      "metric": "2/7 条 finding 的 provenance 为 null",
-      "evidence": "demo/_ui_survey.json → views[核验] 的 provenance_null 统计",
+      "metric": "2/10 条 finding 的 provenance 为 null",
+      "evidence": "demo/_survey.json → view_stats[核验] 的 provenance_null 统计",
       "owner": {
         "name": "方轩诚（核验报告）+ 张智博（出处）",
         "role": "规则 / 解析",
@@ -157,44 +142,65 @@
     {
       "id": "D11-P1-04",
       "sev": "P1",
-      "title": "字段抽取率 71.53%（392/548），低于目标 90%",
+      "title": "字段抽取覆盖率 72.11%（437/606）；准确率 100%（437/437）达标（目标 90）",
       "symptom": "status ≠ extracted",
-      "cause": "待定",
+      "cause": "覆盖率含弃权 169 条（未提及/不适用/待复核/未披露/无法读取）——弃权是正确行为但仍是未覆盖",
       "scope": "C2 高影响",
-      "known": "D2 新发现（我方 D11 首测实算）",
-      "metric": "392/548 = 71.53%（口径：status=extracted 占已判定状态字段的比例）",
-      "evidence": "GET /api/metrics → cards[字段抽取率]；demo/_evidence_check.json → per_dataset",
+      "known": "D2 新发现（我方 D11 首测实算）→ 2026-10-15 按权威批复算",
+      "metric": "覆盖率 437/606 = 72.11%（无对标目标，D17：覆盖率类不挂目标）；准确率 437/437 = 100%（目标 90 达标）",
+      "evidence": "GET /api/metrics → cards[字段抽取覆盖率] 及 coverage_note；宗 2026-10-12 成绩单 field_coverage 437/606 = 72.11%、field_accuracy 437/437 = 100%",
       "owner": {
         "name": "魏文宇 / 方轩诚",
         "role": "抽取 / 规则",
         "note": "出处对、值错"
       },
-      "status": "未修复 · 需宗侧首测归因",
-      "statusNote": "此项与 P0-02 是**两个不同指标**（本项看 status=extracted，P0-02 看有无 provenance），不可混用；我方已犯过一次混用错误并修正",
-      "action": "待宗侧首测成绩下发后归因",
-      "verify": "字段抽取率 ≥ 90%",
-      "due": "首测成绩下发后 2 日内"
+      "status": "已复算 · 准确率达标",
+      "statusNote": "两个指标分列：覆盖率看全部产出字段（含弃权），准确率只看 Gold 期望字段（宗口径，与我方页面互证）。旧池首测值 392/548=71.53% 已作废；总规划 90% 目标按 D17 挂准确率、不挂覆盖率。★ 2026-10-15 新口径（demo 显示层，只看抽取效果）：排除原文缺陷 pledge-scan-degrade（14 字段全 unreadable、无解析产物）与来源不清 DEMO-EQC-HL-0930（演示件，警告「未知来源」）后 437/592 = 73.82%，见 demo/_evidence_check.json → extraction_coverage。",
+      "action": "无需修复动作；覆盖率维持事实披露",
+      "verify": "字段抽取准确率 ≥ 90%（现 100%）",
+      "due": "已闭环"
+    },
+    {
+      "id": "D11-P1-05",
+      "sev": "P1",
+      "title": "溯源存在率 L1 = 74.09%（449/606），157 个字段无溯源无法回跳定位",
+      "symptom": "A4 出处缺失（provenance 为空或 null）",
+      "cause": "B5 抽取侧（主）+ B2 解析侧（次）",
+      "scope": "C2 高影响（覆盖全部 31 份数据集）",
+      "known": "D2 新发现（我方 D11 首测实算）→ 2026-10-15 复算并降级",
+      "metric": "L1 = 74.09%（449/606）；注意此指标 ≠ 字段抽取覆盖率 72.11%（437/606）≠ 字段抽取准确率 437/437，三个指标分列不可混用",
+      "evidence": "GET /api/metrics → summary.l1_pct = 74.09；逐数据集 l1_rate 见 demo/_evidence_check.json → per_dataset[].l1_rate",
+      "owner": {
+        "name": "魏文宇 / 方轩诚",
+        "role": "抽取 / 规则",
+        "note": "出处对、值错"
+      },
+      "status": "已复算 · 降级为口径披露（原 D11-P0-02）",
+      "statusNote": "2026-10-15 按权威批 data_unified 实算 L1 449/606。按《D11_旧问题清单_新标准复核裁定》既有裁定由 P0 降级为 P1：Gold 期望的 437 个字段 100% 有溯源，缺的 157 条全是 Gold 未标注字段——性质是分母定义，不是抽取侧漏产出。总规划 §5 无 L1 目标，D17 裁定出处类不挂目标，故不作未达标项。魏 10-07 19:42 交付的 31 份修复信封已入库为 data_unified（D11 冻结批），复算验证完成。",
+      "action": "无需修复动作；维持口径披露（缺口字段见 demo/_evidence_check.json → per_dataset）",
+      "verify": "L1 维持事实披露；宗若补 Gold「原文是否提及」维度（abstain_correct），按新分母复算",
+      "due": "已闭环（口径问题）"
     },
     {
       "id": "D11-P2-01",
       "sev": "P2",
-      "title": "矛盾召回率 / 误报率 / 重复一致率 / 20 页 ≤90 秒 四项指标未测",
+      "title": "评测成绩单未覆盖 3 项：abstain_correct / scan_degrade / web_cli_independent",
       "symptom": "无数据（缺输入）",
-      "cause": "非缺陷（缺封存集与引擎数据）",
+      "cause": "非缺陷（缺 Gold 维度 / 缺扫描件独立分母 / 缺 Web-CLI 独立入口）",
       "scope": "C1 阻断（验收所需但当前不可测）",
-      "known": "D1 已知",
-      "metric": "四项均无实算值",
-      "evidence": "docs/cjh_workspace_10_D11首测议程与验收.md §未测项",
+      "known": "D1 已知 → 2026-10-12 成绩单明确列出",
+      "metric": "10-12 成绩单 scores 已覆盖 10 项（含跨文档矛盾 20/20 = 100%、重放一致 31/31 = 100%、20 页耗时 19.99/90 = 19.99s）；not_covered 3 项",
+      "evidence": "evaluation/2026-10-12-scorecard 成绩单（-20261015 优先，回退 -20261012）→ scores / not_covered",
       "owner": {
         "name": "宗博文",
         "role": "评测侧",
         "note": "评测资产与自校验流程"
       },
-      "status": "未测 · 缺输入",
-      "statusNote": "封存集已在宗/魏分支交付但**未合流 develop**（develop 仍停 477b4f42/ 09-24）；引擎侧数据未到位。四项指标是验收必需项，当前**无法判定**",
-      "action": "封存集合流 develop + 引擎数据到位后重跑首测，四项指标补测",
-      "verify": "四项均有实算值与目标对比",
-      "due": "封存集合流后"
+      "status": "未测 · 余 3 项未覆盖（非我方职责）",
+      "statusNote": "原「矛盾召回 / 误报 / 重复一致 / 20 页 ≤90 秒 四项未测」已由 10-12 成绩单覆盖并全部达标；剩余未覆盖项分属：abstain_correct（宗，需补 Gold 维度）、web_cli_independent（魏提供入口＋宗给判据）、scan_degenerate（需扫描件独立分母）。按「不揽活」只登记不代答。",
+      "action": "宗补 Gold「原文是否提及」维度；魏提供 Web/CLI 独立入口；扫描件分母由全员议定",
+      "verify": "三项均有实算值与目标对比，或书面明确豁免",
+      "due": "待评测侧排期"
     }
   ]
 }

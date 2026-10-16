@@ -57,6 +57,11 @@ node server.js
 page_prototype/
 ├── server.js               # 零依赖本地服务器：静态资源 + /api 数据接口（mock/remote 双模式，读数自动过转接口）+ /api/export（D3：JSON/CSV 导出）+ /api/upload（D6：批量上传，坏文件进失败列表）+ /api/upload/log（D6：上传日志下载）+ /api/pairs（D8：跨文档配对三态视图）+ /api/verify（D9：核验清单先归因 + 双侧证据）+ /api/integration（D10：五份队友产物服务端合并）+ /api/contract（D15：契约本体出口，供入库/评测方）
 ├── bridge/
+│   ├── caliber.js          # ★★★ 2026-10-15 口径单一真源：三档覆盖率（606/592/437）唯一算处；buildGoldExpected 分母只由 Gold 清单决定；TARGETS/卡片/注册表全部从这里取，禁止另抄一份
+│   ├── metrics.js          # 指标计算（/api/metrics 数据源）；★10-15 改为向 caliber.js 取三档口径，删硬编码 100/437/72.11
+│   ├── metrics_registry.js # 指标注册表（MEASURED/anchors 现算，删硬编码 460）
+│   ├── extractor.js        # 抽取引擎适配层（Web/CLI 对照入口，读 .env；EXTRACT_CLI_CMD / EXTRACT_CLI_PDF_DIR）
+│   ├── parity_report.js    # parity 报告生成（含 stale 检测）
 │   ├── upstream_bridge.js  # 转接口（D2/D3，★D15 改契约优先）：上游格式（方口径记录 / 魏事件信封 v0.3）→ **envelope（严格符合 schema v0.3，可入库）+ view（页面投影）两层分离**；完整性断链检查；错误填充审计；未知格式透传留痕
 │   ├── contract_validate.js # ★D15 新增：v0.3 契约零依赖机器校验器（JSON Schema 层 + 字段注册表层，注册表直读 registry.mjs 不手抄）
 │   ├── parity_criteria.js  # L4 Web/CLI 一致性判据单一真源（D14）：五级 S0–S4 + 9 条归一化，双向反例守卫
@@ -108,15 +113,74 @@ page_prototype/
 │           ├── pairs.js      # D8 配对视图：双栏成员对比（双侧 issuer_code/notice_number/哈希 + 本地原文锚点）+ 三态徽章（unknown→「证据不足」，绝不渲染为「不同事件」）
 │           ├── verify.js     # D9 核验清单视图：先归因再判矛盾（方的 message 文案在前、判定码在后 + 张的 provenance 出处）+ 双侧证据视图（互证点 A|B 并排 + 合计勾稽形态）
 │           └── integration.js # D10 集成视图：10 组「预期→实判」并排 + 缓存三态面板 + 方报告五段折叠区（差异明细/计算/边界/逐成员缓存核对）+ 出处链面板
-└── demo/
-    └── 使用演示.md          # 完整使用 demo（15 个演示）：统一样例全链路/异常汇总条/导出/扫描降级/扩展/remote/自检/股权变动对比页/配对 D8/核验 D9/缓存三态 D10/10 组集成/方报告五段+出处链
-    _engine_check.js         # D12：抽取引擎适配层自检 56 项（机制诚实性，不发模型请求）
-    _secret_guard.js         # D14：密钥泄漏守卫 7 项（.env 是否被忽略 + 已跟踪/未跟踪文件有无密钥）★ 提交前必跑
-    _l4_preflight.js         # D12：Web/CLI 真跑前置体检（不发请求，只查输入资产/入口/密钥）
-    _data_source_check.js    # 2026-10-09/2026-10-09：数据源对账 22 项（批次结构/逐字节对比 --wei <sha>；换源后验收）
-    _r_requirements_check.js # ★2026-10-09：宗博文「指标单一真源裁决」R1–R4 验收 27 项（R1–R4 判 FAIL、R5–R6 判 WARN，--strict 收紧）
-    _shot_r_requirements.py  # ★2026-10-09：R1–R4 上屏验收 21 项（Playwright，断言批次标识/同源变体真的渲染了）
-    _scan_markdown.js        # 2026-10-09：扫 API 响应里会 textContent 上屏的字符串是否残留 markdown 标记
+└── demo/                     # 自检脚本 + 演示素材 + 实跑产物（61 个脚本，按用途分七组）
+    │
+    │   ── 组1 · 提交前必跑 ──
+    ├── _secret_guard.js        # ★ 密钥泄漏守卫 7 项（.env 是否被忽略 + 已跟踪/未跟踪文件有无密钥）★ 提交前必跑
+    │
+    │   ── 组2 · 口径与指标（10-15 核心，全部走 bridge/caliber.js）──
+    ├── _retest_unified.js      # 统一重测：产出三档口径 606/592/437 + ranges + pending（权威批 data_unified）
+    ├── _recall_source_check.js # ★10-15 新增：Gold 期望召回率「分母来源」守卫（正 2 + 反 3）
+    ├── _standardized_real.js   # 标准化同源产物（229/229，分母不含弃权 169 与 unit:text 208）
+    ├── _evidence_check.js      # 出处核对 + P0-01 改锚权威批 D4-PLD-001（同 sha256）+ 三笔之和正反证
+    ├── _evidence_quote_real.js # 出处原文命中率实测（SNAP_DIR 环境变量可覆盖快照来源）
+    ├── _r_requirements_check.js# 宗「指标单一真源裁决」R1–R4 验收 27 项（R1–R4 判 FAIL，--strict 收紧）
+    ├── _scan_markdown.js       # 扫 API 响应里会 textContent 上屏的字符串是否残留 markdown 标记
+    │
+    │   ── 组3 · 数据源与批次 ──
+    ├── _data_source_check.js   # 数据源对账 22 项（批次结构/逐字节对比 --wei <sha>）
+    ├── _d13_hash_gate.js       # D13 哈希闸门（陌生样例拦停）
+    ├── _d13_snapshot_fetch.js  # D13 快照拉取
+    ├── _d13c2_check.js         # D13-C2 标准化口径核对
+    ├── _v03_gap_check.js       # v0.3 契约缺口核对
+    ├── _legacy_compat_check.js # 旧格式兼容性
+    │
+    │   ── 组4 · 缺陷与责任 ──
+    ├── _defects.js / _defects_v2.js   # 缺陷清单（新标准）
+    ├── _defect_owners.js               # 缺陷责任表（四维框架归属）
+    │
+    │   ── 组5 · 评测与封存 ──
+    ├── _fetch_eval_scores.js   # 拉评测成绩单（动态读，缺档判未测）
+    ├── _evals_paths.js         # 评测资产路径
+    ├── _sealed_diag.js / _sealed_diag2.js / _sealed_diag3.js  # 封存集 hash-lock 诊断
+    ├── _fetch_peer_inputs.js / _fetch_wei_cli.js               # 拉队友输入/魏 CLI 产物
+    │
+    │   ── 组6 · P0-01 溯源专项 ──
+    ├── _p001_offset.js / _p001_recheck.js   # block↔region 自洽 + Gold blocks 空数组核对
+    ├── _pairdiff.js / _pairdiff3.js         # 跨文档配对差异
+    │
+    │   ── 组7 · Web/CLI 与 L4 对照 ──
+    ├── _engine_check.js        # 抽取引擎适配层自检 56 项（机制诚实性，不发模型请求）
+    ├── _l4_preflight.js        # Web/CLI 真跑前置体检（不发请求，只查输入资产/入口/密钥）
+    ├── _fake_extract_cli.js    # 假 CLI 入口（仅测试适配层用，成绩不计入）
+    ├── _criteria_check.js / _criteria_verify_local.js / _parity_real.js
+    │
+    │   ── 组8 · 页面巡检与截图验收 ──
+    ├── _survey.js              # 页面巡检（★ 需 node server.js 在跑，打 127.0.0.1:18777）
+    ├── _d31_check.js           # D31 项页面断言
+    ├── _subtitle_gate_check.js # 字幕数字现读闸门
+    ├── _engine400_check.js     # 400 异常路径
+    ├── _view_field_check.js / _scenario_owner_check.js / _step6_check.js
+    ├── _p1_2_check.js / _contract_check.js / _validator_not_constant.js
+    ├── _shot_caliber.py / _shot_contract.py / _shot_datasource.py / _shot_metrics.py
+    ├── _shot_parity.py / _shot_parity3.py / _shot_r_requirements.py / _shot_registry.py  # Playwright 截图验收
+    ├── _ui_survey.py / _capture.py / _record.py / _record_mp4.py / _make_pdf.py          # UI 巡检与 MP4 录制
+    │
+    │   ── 演示素材与实跑产物 ──
+    ├── 使用演示.md             # 完整使用 demo（15 个演示）：统一样例全链路/异常汇总条/导出/扫描降级/扩展/remote/自检/股权变动对比页/配对 D8/核验 D9/缓存三态 D10/10 组集成/方报告五段+出处链
+    ├── D10演示图集.pdf         # 5.9 MB 演示图集
+    ├── D10演示操作.mp4         # 4.1 MB 演示录像
+    ├── D10演示产物说明.md      # 上两项的说明
+    ├── 演示2_上传样例_质押公告.txt / 演示3_新数据集_担保公告.txt  # 上传演示素材
+    ├── screenshots/ video/ _frames/     # 截图/录像/帧序列
+    ├── _retest_unified.json / _evidence_check.json / _standardized_real.json  # ★ 组2 产物（守卫与注册表回读）
+    ├── _defects.json / _defect_owners.json / _parity_real.json / _survey.json
+    ├── _p001_recheck.json / _p001_offset.json / _evidence_quote_real.json
+    ├── _criteria_verify_local.json / _ui_survey.json / _mock_datasets.json
+    └── __pycache__/            # Python 缓存（可再生）
+├── runs/                  # L4 真双路对照跑批产物（62 files / 1.9 MB）：cjh-l4/<数据集>/events.json
+├── logs/                  # upload_log.jsonl（D6 上传日志）
+└── tmp_d14/ tmp_d15/      # ⚠ 临时草稿目录（16 + 11 files，.git/info/exclude 已忽略，不入库；待清理）
 ```
 
 ## 架构（三条缝，扩展不动骨架）

@@ -6,9 +6,19 @@
 //   ③ 注册表 cross_doc_match(20/20)、multi_doc_conflict(20/20)、integration_pass(10/10) 三项该销
 //   ④ 未知引擎建议400
 //
+// ★ 2026-10-15 修订（10-15 裁定 + R4/V2 白名单）：出处命中率改**双口径分列**——
+//   卡片主数值挂**严格原文口径**（quote 原子串命中，95 目标挂它，432/451 = 95.79%），
+//   页面实算的空白归一辅助口径（451/451）降为 lines 分列并带标注。
+//   故原 B_SAME（卡片必须等于 L3 实算）前提已变，拆为：
+//     B_STRICT  卡片主数值必须 == 注册表严格口径项（同源，防"卡片与其声明口径的源不符"）
+//     B_AUX     辅助口径必须出现在 lines、数值与 L3 实算一致、且带分列标注（防"两个无标注同名数"）
+//   B_CALIBER / B_LEGACY / B_REG / B_REG_SAME 判据不变。
+//
 // 四段：
 //   A段 L3 覆盖面：docs_indexed ≥ 30、可核数据集数 ≥ 30、命中率 100%、且断言 cases_ran > 0
-//   B 段 同屏唯一数：卡片 provenance_hit 的分子分母 == L3 的 hit/checked == 注册表 evidence_hit
+//   B 段 双口径分列（2026-10-15 起，10-15 裁定 + R4/V2 白名单）：卡片主数值 == 注册表
+//       evidence_hit_strict（严格口径，95 目标挂它）；辅助口径（L3 实算 451/451）在 lines
+//       分列且带标注；注册表严格/辅助两项不同名
 //   C 段 三项销项：value 非空 + **note/evidence_note 必须是实算文本**（不能是空串/undefined），
 //       且 integration_pass 的 unknown 条数必须是从集成包实算来的（不写死 1）
 //   D 段 引擎 400：未知引擎 400、已知未接通仍 503
@@ -202,12 +212,31 @@ function sabotageBad() {
       const api = j.l3 || {};
       const regList = (j.registry && j.registry.metrics) || [];
       const regEv = regList.find(x => x.key === "evidence_hit");
+      const regStrict = regList.find(x => x.key === "evidence_hit_strict");
 
       if (card) {
         ok("B_CARD", "出处命中率卡片存在", `value=${card.value}%`);
-        const same = card.value === api.hit_rate_pct;
-        if (same) ok("B_SAME", "卡片值 == L3 命中率（同屏一套数）", `${card.value}% == ${api.hit_rate_pct}%`);
-        else bad("B_SAME", `卡片 ${card.value}% 与 L3 ${api.hit_rate_pct}% 不一致`, "同屏两个数，正是要根治的毛病");
+        // ★ 2026-10-15：双口径分列设计（见文件头修订说明）。卡片主数值 = 严格原文口径，
+        //   必须与注册表 evidence_hit_strict 同源；L3 实算（451/451）是辅助口径，在 lines 分列。
+        const strictFromReg = regStrict && regStrict.value != null ? regStrict : null;
+        if (strictFromReg && card.value === strictFromReg.value
+            && String(card.num) === String(strictFromReg.num) && String(card.den) === String(strictFromReg.den)) {
+          ok("B_STRICT", "卡片主数值 == 注册表严格口径项（同源）",
+            `${card.value}% == ${strictFromReg.value}%（${card.num}/${card.den}）`);
+        } else {
+          bad("B_STRICT", `卡片 ${card.value}%（${card.num}/${card.den}）与注册表严格口径不同源`,
+            `reg=${strictFromReg ? strictFromReg.value + "%（" + strictFromReg.num + "/" + strictFromReg.den + "）" : "null"}——卡片必须等于其声明口径的源`);
+        }
+        // 辅助口径：必须在 lines 分列、数值与 L3 实算一致、带分列标注
+        const lines = Array.isArray(card.lines) ? card.lines.join("\n") : "";
+        const auxNum = `${api.hit}/${api.checked}`;
+        if (/辅助口径/.test(lines) && lines.includes(auxNum) && /分列|不得混读/.test(lines)) {
+          ok("B_AUX", "辅助口径（页面实算 L3）在 lines 分列且数值同源",
+            `${auxNum} = ${api.hit_rate_pct}%（与严格口径分列，不并入主数值）`);
+        } else {
+          bad("B_AUX", "辅助口径缺失、未与 L3 实算对齐或未带分列标注",
+            `lines=${lines.slice(0, 120)}；L3 实算=${auxNum}`);
+        }
 
         // 卡片分子分母必须就是权威批实算的那一对
         if (/45\d/.test(String(card.caliber))) ok("B_CALIBER", "卡片口径写明权威批实算分母", String(card.caliber).slice(0, 70));
@@ -229,6 +258,19 @@ function sabotageBad() {
             "同名指标两个值同屏");
         }
       } else bad("B_REG", "注册表缺 evidence_hit", "");
+
+      // ★ 2026-10-15：双口径分列——注册表必须有严格口径项（95 目标挂它），且与辅助项分列不同名
+      if (regStrict && regStrict.value != null) {
+        ok("B_REG_STRICT", "注册表严格口径项存在且已实测", `${regStrict.value}% （${regStrict.num}/${regStrict.den}）`);
+      } else {
+        bad("B_REG_STRICT", "注册表缺 evidence_hit_strict 或其值为空", "双口径分列的严格侧未登记");
+      }
+      if (regEv && regStrict && regEv.name === regStrict.name) {
+        bad("B_REG_NONAME", "严格/辅助两个口径同名——同屏两个同名数", `${regEv.name}`);
+      } else {
+        ok("B_REG_NONAME", "严格/辅助口径不同名（分列可辨）",
+          `严格「${regStrict && regStrict.name}」／辅助「${regEv && regEv.name}」`);
+      }
     }
 
     // ---- D 段：未知引擎 400 ----

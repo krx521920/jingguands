@@ -18,7 +18,7 @@
  *   本脚本自己起纯净树、自己起服务、自己打真 HTTP。
  *   反证：--prove 会在纯净树里删掉一份权威信封，必须让第 ① 条 FAIL。
  */
-const { execFileSync, spawn } = require("child_process");
+const { execFileSync, spawn, spawnSync } = require("child_process");
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
@@ -27,7 +27,8 @@ const PAGE = path.resolve(__dirname, "..");
 const REPO = path.resolve(PAGE, "..", "..", "..");
 const PORT = Number(process.env.PRECHECK_PORT || 8673);
 const PROVE = process.argv.includes("--prove");
-const TMP = path.join(REPO, "..", "tmp_precheck");
+const TMP0 = path.join(REPO, "..", "tmp_precheck");
+let TMP = TMP0;
 
 let pass = 0, fail = 0;
 const ok = (name, cond, detail) => {
@@ -62,7 +63,13 @@ async function waitUp(ms) {
 
   // ── 导出纯净树：从 HEAD 树 archive，模拟"评委 clone 后拿到的东西" ──
   sec("纯净树导出（git archive HEAD，模拟 clone）");
-  fs.rmSync(TMP, { recursive: true, force: true });
+  // ★ 2026-10-15：残留临时树若被上一轮挂死进程占着（Windows 里它曾以该树为 cwd），
+  //   同步删会卡住 ⇒ 删不动就换一个带时间戳的新目录，绝不因此拖死整道门。
+  try { fs.rmSync(TMP, { recursive: true, force: true }); }
+  catch (e) {
+    TMP = TMP + "-" + Date.now();
+    console.log("（提示：旧临时树删不动（" + (e.code || e.message) + "），改用新目录：" + TMP + "）");
+  }
   fs.mkdirSync(TMP, { recursive: true });
   // ★ Windows 的 tar 把 "D:\..." 一律当成远程主机（"Cannot connect to D: resolve failed"），
   //   所以路径只能靠 cwd 传，不能出现在参数里；archive 走 stdin 管道。
@@ -196,8 +203,34 @@ async function waitUp(ms) {
       ok("反证：复归后 ① 回到 PASS（" + auth3.length + " 份）", auth3.length >= 31);
     }
   } finally {
-    srv.kill();
-    fs.rmSync(TMP, { recursive: true, force: true });
+    // ★ 2026-10-15 实测定位（探针法）：本门收尾曾挂死在**清临时树**这一步 ——
+    //   被杀的演示服务曾以该树为 cwd，Windows 下最后一级空目录删不掉，
+    //   同步 rmSync 卡在那里 ⇒ 断言全过、进程不退出、批跑被拖成假 RED（本门曾两次被误判）。
+    //   修法：① 停服务后短等其退出；② 删除交给**独立进程**收尾，主进程一律不等。
+    //   清理失败只影响磁盘占用（可再生中间产物），绝不影响任何判据。
+    console.log("（收尾 1/3：停演示服务 pid=" + srv.pid + "）");
+    try { srv.kill(); console.log("  已发 kill"); }
+    catch (e) { console.log("  kill 异常 " + e.message); }
+    await new Promise(resolve => {
+      let done = false;
+      const t = setTimeout(() => { if (!done) { done = true; resolve(); } }, 3000);
+      srv.once("exit", () => { if (!done) { done = true; clearTimeout(t); resolve(); } });
+    });
+    console.log("（收尾 2/3：删临时树 " + TMP + "）");
+    // ★ 2026-10-15：删除必须有界 —— 原写法 `fs.rmSync` 在本机曾**无界挂起**
+    //   （探针定位：文件已删净、最后一级空目录删不掉、进程不退出、批跑被拖成假 RED）。
+    //   改用 spawnSync 调系统 rmdir 并**带超时**：能删就删，删不掉/超时也必返回，
+    //   清理失败的后果只是磁盘上留一份可再生中间产物，绝不影响任何判据。
+    try {
+      const isWin = process.platform === "win32";
+      const r = isWin
+        ? spawnSync("cmd", ["/c", "rmdir", "/s", "/q", TMP], { timeout: 20000, stdio: "ignore" })
+        : spawnSync("rm", ["-rf", TMP], { timeout: 20000, stdio: "ignore" });
+      console.log(r && r.status === 0 ? "  已删除" : "  未删净（rc=" + (r && r.status) + "，可再生中间产物，不影响结论）");
+    } catch (e) {
+      console.log("  未删净 " + (e.code || e.message) + "（可再生中间产物，不影响结论）");
+    }
+    console.log("（收尾 3/3：完成）");
   }
 
   console.log("\n" + "─".repeat(52));
