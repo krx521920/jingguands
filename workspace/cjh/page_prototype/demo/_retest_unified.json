@@ -12,9 +12,9 @@
     "caliber_source": "bridge/caliber.js（口径单一真源：卡片 / 注册表 / 本脚本 / _evidence_check 共用）",
     "qualification": {
       "conditional": "当前 Gold 条件口径",
-      "frozen_replay": "公开语料冻结回放",
+      "frozen_replay": "本批为公开语料冻结回放（非未见样本）",
       "no_generalization": "不外推泛化",
-      "pending_note": "Gold 原文推导复核未完成（72 项重点复核 + 12 项 Gold 待复核 + 3 处状态分歧未闭环）"
+      "pending_note": "Gold 待复核 11 项单列 pending（v1.1 校正后：D4-PLD-009 E03 end_date 由 needs_review 校正为 not_mentioned）；3 处状态差异已裁定（D6-AWD-002 E03/E04 信封 not_disclosed 待魏/张校正为 not_mentioned，两者都无值、不影响成绩）"
     },
     "note": "2026-10-15 领导裁定「不走首测了，真删」：首测基线常量已删除；标准化/出处命中不在此重算（口径与现行裁定不同），权威值读 demo/_standardized_real.json 与 demo/_evidence_check.json"
   },
@@ -131,10 +131,9 @@
     "recall_num": 437,
     "recall_miss_n": 0,
     "extra_candidates": [],
-    "pending_gold": 12,
+    "pending_gold": 11,
     "pending_engine": 11,
     "status_diff": [
-      "D4-PLD-009.E03.end_date: 信封=not_mentioned vs Gold=needs_review",
       "D6-AWD-002.E03.formal_award_notice_received: 信封=not_disclosed vs Gold=not_mentioned",
       "D6-AWD-002.E04.formal_award_notice_received: 信封=not_disclosed vs Gold=not_mentioned"
     ],

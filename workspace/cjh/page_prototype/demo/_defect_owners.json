@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-15T10:36:02.663Z",
+  "generated_at": "2026-10-16T03:12:56.050Z",
   "data_sources": {
     "metrics": "bridge/metrics.js computeMetrics()（权威批 data_unified）",
     "standardized": "demo/_standardized_real.json",
-    "scorecard": "evaluation/2026-10-12-scorecard/评分成绩单-20261012.json",
+    "scorecard": "evaluation/2026-10-12-scorecard/评分成绩单-20261015.json",
     "evidence_check": "demo/_evidence_check.json"
   },
   "counts": {
@@ -190,7 +190,7 @@
       "scope": "C1 阻断（验收所需但当前不可测）",
       "known": "D1 已知 → 2026-10-12 成绩单明确列出",
       "metric": "10-12 成绩单 scores 已覆盖 10 项（含跨文档矛盾 20/20 = 100%、重放一致 31/31 = 100%、20 页耗时 19.99/90 = 19.99s）；not_covered 3 项",
-      "evidence": "evaluation/2026-10-12-scorecard/评分成绩单-20261012.json → scores / not_covered",
+      "evidence": "evaluation/2026-10-12-scorecard 成绩单（-20261015 优先，回退 -20261012）→ scores / not_covered",
       "owner": {
         "name": "宗博文",
         "role": "评测侧",

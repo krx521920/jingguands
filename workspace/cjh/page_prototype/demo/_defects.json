@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T10:36:03.293Z",
+  "generated_at": "2026-10-16T03:12:56.646Z",
   "counts": {
     "P0": 1,
     "P1": 1,
@@ -55,7 +55,11 @@
     "standardized_pct": 100,
     "extracted_pct": 72.11,
     "slot_value_rate_pct": 72.11,
+    "slot_value_num": 437,
+    "slot_value_den": 606,
     "core_text_slot_pct": 73.82,
+    "core_text_slot_num": 437,
+    "core_text_slot_den": 592,
     "expected_field_recall_pct": 100,
     "expected_field_recall_num": 437,
     "expected_field_recall_den": 437,
@@ -63,7 +67,7 @@
     "gold_value_match_num": 437,
     "gold_value_match_den": 437,
     "gold_available": true,
-    "gold_pending_fields": 12,
+    "gold_pending_fields": 11,
     "engine_pending_fields": 11,
     "no_gold_fields": 14,
     "gold_expected_scopes": {

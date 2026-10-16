@@ -509,6 +509,14 @@ function handleMetrics(res, batchId) {
         })(),
       };
     })();
+    // ★ 2026-10-15：95 目标改挂**严格原文口径**（评测侧 R1 严格评分器 432/451 = 95.79%，
+    //   R4/V2 白名单判定）；空白归一辅助口径（页面实算 451/451）降为分列 lines，不得顶替主数值。
+    const provStrict = (() => {
+      try {
+        const m = require("./metrics_registry.js").get("evidence_hit_strict");
+        return m && m.value != null ? m : null;
+      } catch (e) { return null; }
+    })();
     // 目标值来自 cjh_workspace_00_总规划.md §验收指标（仅作对照，不参与计算）。
     // ★口径纪律（D15/D17 校准）：90% 是**准确率**目标、98% 是「标准化正确率」目标，
     //   二者都不得挂在覆盖率/出处这类"分母含弃权"的口径上——挂错等于用错口径宣布未达标。
@@ -523,7 +531,7 @@ function handleMetrics(res, batchId) {
           "范围 A｜" + cal.labels.scope_31 + "（含扫描降级件）：" + cal.ranges.frozen_slot.extracted + "/" + cal.ranges.frozen_slot.fields +
             " = " + (cal.ranges.frozen_slot.fields ? pct(cal.ranges.frozen_slot.extracted, cal.ranges.frozen_slot.fields) : null) + "%" +
             "（" + cal.ranges.frozen_slot.datasets + " 份）",
-          "范围 B｜" + cal.labels.scope_30 + "：" + cal.ranges.core_text.extracted + "/" + cal.ranges.core_text.fields +
+          "范围 B｜" + cal.labels.core_text_rate + "（" + cal.labels.scope_30 + "）：" + cal.ranges.core_text.extracted + "/" + cal.ranges.core_text.fields +
             " = " + (cal.ranges.core_text.fields ? pct(cal.ranges.core_text.extracted, cal.ranges.core_text.fields) : null) + "%" +
             "（" + cal.ranges.core_text.datasets + " 份；排除原文缺陷件 " + (dataSource.SCOPE_FRAMES.scanned_degrade_datasets || []).join("、") +
             " 的 " + cal.ranges.scanned_degrade.fields + " 字段）",
@@ -540,6 +548,10 @@ function handleMetrics(res, batchId) {
           "期望全集 " + recall.den + " 字段来自 Gold 清单（" + cal.gold.pairs + " 组事件配对 / " + cal.ranges.gold_expected.datasets + " 份有 Gold），「不由引擎 status 反推」",
           "原文存在却抽不出（miss）已计入分母：" + cal.gold.recall_miss.length + " 项；多抽候选：" + cal.gold.extra_candidates.length + " 处",
           "未裁定 pending：Gold " + cal.gold.pending.gold + " 项 / 引擎 needs_review " + cal.gold.pending.engine + " 项（单列，不作头条）",
+          cal.gold.overlay && cal.gold.overlay.available
+            ? "Gold v1.1 覆盖层已应用 " + cal.gold.overlay.applied + " 项（D4-PLD-009 E03 end_date needs_review→not_mentioned）" +
+              (cal.gold.overlay.errors.length ? "；错误 " + cal.gold.overlay.errors.length + " 条" : "；无错误")
+            : "Gold v1.1 覆盖层未取件（pending 按无校正口径统计）",
           "不可核（无 Gold）：" + cal.gold.no_gold_fields + " 字段（" + cal.gold.no_gold.map(x => x.dataset).join("、") + "）——不计入本项任何分子分母",
           "值一致率（分子条件不同、当前恰好同值，不得合并）：" + vmatch.num + "/" + vmatch.den + " = " + vmatch.pct + "%",
         ],
@@ -560,18 +572,28 @@ function handleMetrics(res, batchId) {
             std.accuracy.num + " / 分母 " + std.accuracy.den + "）"
           : "非 text 有值且有 Gold 期望的字段中，value 与 Gold 规范值一致（未测）",
         coverage_note: "value 即规范化后的取值，值层一致即标准化正确（与标准化覆盖率分列，不得相加）" },
-      { key: "provenance_hit", name: "出处命中率", target: 95, value: provCard.value, unit: "%",
+      { key: "provenance_hit", name: "出处命中率", target: 95,
+        // ★ 2026-10-15：主数值改挂**严格原文口径**（95 目标按 R4 判定挂它，432/451 = 95.79% 贴线）；
+        //   页面实算的空白归一辅助口径 451/451 降为 lines 分列，不得顶替主数值。
+        value: provStrict ? provStrict.value : null, unit: "%",
+        num: provStrict ? provStrict.num : null, den: provStrict ? provStrict.den : null,
         // ★ 2026-10-11：分母改为「权威批全部 provenance」（451），不再用可核子集（241）。
         //   以前写"可核子集 241 / 分母 241"看着漂亮，但 622 条未核的provenance 被藏起来了 ——
         //   2026-10-11 把覆盖面从 10 份扩到 30 份后，451 条「全部可核」，没有子集了。
-        caliber: "出处原文命中率＝quote 落在该信封自带的原始解析 block.text 内（分子 " +
-          provCard.num + " / 分母 " + provCard.den + "）。" +
-          "证据来源＝各信封 source.parse_meta.blocks（与 provenance 同一次解析产物），按 block_id 前缀分桶，" +
-          "每条 provenance 只查自己那份信封的块 —— 结构上不可能拿别的文档凑命中。" +
-          (provCard.value === null ? "（★ 未测：无 provenance 可核，不得按 100% 填充）" : ""),
-        coverage_note: "★ 权威批 " + provCard.den + " 条 provenance 全部可核，覆盖 " + provCard.docs + " 份文档" +
-          "（另有 " + (agg.datasets - provCard.docs) + " 份无自带 blocks，其 provenance 不计入分母，见 l3.docs_skipped）。" +
-          "本卡是强判据（quote ∈ block.text），退化为整篇包含只记 weak 不计入分子。" +
+        caliber: provStrict
+          ? "严格原文口径（95 目标挂本项）：quote 作为原子串命中该信封自带的原始解析 block 文本 = " +
+            provStrict.num + " / " + provStrict.den + "。空白归一后才命中的 " + provStrict.hit_ws_only +
+            " 条单列不并入严格分子；miss " + provStrict.miss + "、臆造 block " + provStrict.fabricated_block +
+            "。证据源＝评测侧 R1 严格评分器实测（2026-10-14，宗），非本页实测。"
+          : "★ 未测：R1 严格评分实测缺失（跑 demo/_fetch_eval_scores.js --src delivery/v2.0 取件）—— 不得按辅助口径 100% 填充",
+        lines: [
+          "严格口径（quote 原文子串命中，95 目标挂本项）：" +
+            (provStrict ? provStrict.num + "/" + provStrict.den + " = " + provStrict.value + "%（miss " + provStrict.miss + "）" : "未测"),
+          "辅助口径（空白归一后计入，页面实算）：" + provCard.num + "/" + provCard.den + " = " + provCard.value +
+            "%（覆盖 " + provCard.docs + " 份）——与上一行分列，不得混读",
+          "每条 provenance 只查自己那份信封的块（按 block_id 前缀分桶）——结构上不可能拿别的文档凑命中",
+        ],
+        coverage_note: "★ 两口径分列：严格 432/451（贴 95 线达标）／辅助 451/451（页面实算）。目标 95% 按 R4 判定挂严格口径；辅助口径不得顶替主数值。" +
           (provCard.legacy_241
             ? "〔历史对照，不上屏〕注册表 evidence_hit 记的 " + provCard.legacy_241.num + "/" + provCard.legacy_241.den +
               " 是两批混合口径下只靠魏侧10 份外部快照数出的子集（该脚本 prov_total=863 含演示池，622 条未核不计入），" +

@@ -2,11 +2,13 @@
 // 数据源（2026-10-15 起，全部现读不手抄）：
 //   bridge/metrics.js computeMetrics()   —— 页面同款实算（权威批 data_unified）
 //   demo/_standardized_real.json        —— 标准化两项实算产物（与指标卡同源）
-//   evaluation/2026-10-12-scorecard/    —— 宗侧成绩单（缺档即退「未测」）
+//   evaluation/2026-10-12-scorecard/    —— 宗侧成绩单（-20261015 优先、回退 -20261012；缺档即退「未测」）
 //   demo/_evidence_check.json           —— 出处核对（含 P0-01 物证段）
 //   demo/_survey.json                   —— 接口层巡检
-// ★ 领导 2026-10-15 裁定「不走首测了，真删」：旧池 data/ 的首测自测值
-//   （548 分母、71.53%/69.87%/73.18%/58.33% 等）全部作废，本表只引权威批实算值。
+// ★ 领导 2026-10-15 裁定「不走首测了，真删」：旧池 data/ 的首测自测值（548 分母系列）
+//   全部作废，本表只引权威批实算值。
+//   注：缺陷登记项里引用的首测旧值是**历史问题描述**（说明该缺陷当年长什么样），
+//   不是现行结论；现行数一律取上方五个数据源现读。
 const fs = require("fs");
 const path = require("path");
 
@@ -38,7 +40,14 @@ try { metrics = require(path.join(PP, "bridge", "metrics.js")).computeMetrics();
 catch (e) { console.log("⚠ metrics 实算失败（bridge 加载异常）：" + e.message); }
 
 const stdReal = readJsonSafe(path.join(__dirname_fixed, "_standardized_real.json"));
-const scorecard = readJsonSafe(path.join(WS, "..", "..", "evaluation", "2026-10-12-scorecard", "评分成绩单-20261012.json"));
+// ★ 2026-10-15：宗在正典子树（delivery/v2.0）新增 -20261015 版成绩单（含 gold_expected_field_recall、
+//   pending/无 Gold 分列、口径版本号）；读取优先级 20261015 → 20261012，两版都缺 ⇒ 退「未测」。
+const SCORECARD_DIR = path.join(WS, "..", "..", "evaluation", "2026-10-12-scorecard");
+const SC_1015 = path.join(SCORECARD_DIR, "评分成绩单-20261015.json");
+const SC_1012 = path.join(SCORECARD_DIR, "评分成绩单-20261012.json");
+const scorecard = readJsonSafe(SC_1015) || readJsonSafe(SC_1012);
+const scorecardVersion = fs.existsSync(SC_1015) ? "评分成绩单-20261015.json"
+  : (fs.existsSync(SC_1012) ? "评分成绩单-20261012.json" : null);
 const evCheck = readJsonSafe(path.join(__dirname_fixed, "_evidence_check.json"));
 const survey = readJsonSafe(path.join(__dirname_fixed, "_survey.json"));
 
@@ -248,7 +257,7 @@ const defects = [
     metric: "10-12 成绩单 scores 已覆盖 10 项（含跨文档矛盾 " + scStr("multi_doc_conflict") +
       "、重放一致 " + scStr("replay_byte_identical") + "、20 页耗时 " + scStr("perf_20page") +
       "）；not_covered " + notCovered.length + " 项",
-    evidence: "evaluation/2026-10-12-scorecard/评分成绩单-20261012.json → scores / not_covered",
+    evidence: "evaluation/2026-10-12-scorecard 成绩单（-20261015 优先，回退 -20261012）→ scores / not_covered",
     owner: OWNERS.E,
     status: "未测 · 余 " + notCovered.length + " 项未覆盖（非我方职责）",
     statusNote:
@@ -269,7 +278,7 @@ let md = "";
 md += "# D11 缺陷责任表\n\n";
 md += "> 生成人：陈家浩（页面侧）　日期：2026-10-15（按权威批实算重写；首测值已作废）\n";
 md += "> 数据源：`bridge/metrics.js` 实算（权威批 data_unified）+ `demo/_standardized_real.json` + " +
-  "`evaluation/2026-10-12-scorecard` 成绩单 + `demo/_evidence_check.json`\n";
+  "`evaluation/2026-10-12-scorecard` 成绩单（-20261015 优先，回退 -20261012） + `demo/_evidence_check.json`\n";
 md += "> 分级口径：P0 阻断首测/验收 · P1 影响指标达标 · P2 待补测\n";
 md += "> 责任归属按张智博《解析错误分类与最小复现》四维框架（A 症状 / B 成因 / C 影响面 / D 已知）判定\n\n";
 
@@ -336,10 +345,10 @@ md += "\n## 三、逐条明细\n\n";
 md += "## 四、口径纪律\n\n";
 md += "1. **已修复 / 已闭环条目是事实陈述**，不含催促评价；责任归属照张的四维框架（B2 张修 / B5 魏修 / B3 张给重锚定 / E 宗维护评测资产）。\n";
 md += "2. **巡检「0 缺陷」≠ 验收通过**：接口层 31/31、页面层 console 错误 0，只说明页面实现无缺陷，不等于链路指标达标。\n";
-md += "3. **首测已不走（2026-10-15 领导裁定「真删」）**：旧池 data/ 的首测自测值（548 分母、71.53% / 69.87% / 73.18% / 58.33%）全部作废；本表只引权威批 data_unified 实算值与宗 2026-10-12 成绩单，任何数字可回到上述数据源复现。\n";
+md += "3. **首测已不走（2026-10-15 领导裁定「真删」）**：旧池 data/ 的首测自测值（548 分母系列）全部作废，本表不再列举旧值；只引权威批 data_unified 实算值与宗 2026-10-12 成绩单，任何数字可回到上述数据源复现。缺陷登记项里出现的首测旧值是**历史问题描述**（说明该缺陷当年长什么样），不是现行结论。\n";
 md += "4. **「未核」绝不计入任何命中率分母**：无解析产物或 block_id 缺失的 provenance 不入 L3 分母（权威批 30/31 份信封自带 blocks；pledge-scan-degrade 无解析产物，已按 2026-10-15 新口径作「原文缺陷」排除，仅警告不计入）。\n";
 md += "5. **三个指标分列，不可混用**：字段抽取覆盖率（437/606，全部产出字段，含弃权）｜字段抽取准确率（437/437，Gold 期望字段，宗口径）｜溯源存在率 L1（449/606，有无 provenance）。\n";
-md += "6. **评测侧数字一律动态读成绩单**（evaluation/2026-10-12-scorecard），缺档即退「未测」，绝不按目标值填充。\n";
+md += "6. **评测侧数字一律动态读成绩单**（evaluation/2026-10-12-scorecard，-20261015 优先、回退 -20261012），缺档即退「未测」，绝不按目标值填充。\n";
 md += "7. 本表由脚本生成，数据源可复现：`node demo/_evidence_check.js` + `node demo/_defects.js` + `node demo/_defect_owners.js` + `node demo/_sealed_diag3.js`。\n";
 
 fs.writeFileSync(OUT_MD, md, "utf8");
@@ -359,7 +368,9 @@ fs.writeFileSync(OUT_JSON, JSON.stringify({
   data_sources: {
     metrics: "bridge/metrics.js computeMetrics()（权威批 data_unified）",
     standardized: "demo/_standardized_real.json",
-    scorecard: "evaluation/2026-10-12-scorecard/评分成绩单-20261012.json",
+    scorecard: scorecardVersion
+      ? "evaluation/2026-10-12-scorecard/" + scorecardVersion
+      : "evaluation/2026-10-12-scorecard/（-20261015 与 -20261012 均缺档，相关项退未测）",
     evidence_check: "demo/_evidence_check.json",
   },
   counts: {

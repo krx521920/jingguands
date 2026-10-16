@@ -10,6 +10,11 @@
  *      引擎少抽一个字段，分母就自己缩一格 ⇒ 永远 100%）。
  *   3. 两个数必须**分列并存**（页面权威槽位口径 606 ／ Gold 期望口径），
  *      所以本模块只算数、不决定谁上屏，展示口径由调用方按注册表纪律决定。
+ *   4. **Gold v1.1 覆盖层**（2026-10-15 宗裁定，evaluation/2026-10-15-caliber/
+ *      gold-corrections-v1.1.json）：按纪律**不改冻结 Gold 文件**，改为读 overlay
+ *      应用（当前 1 项：D4-PLD-009 E03 end_date 由 needs_review 校正为
+ *      not_mentioned）。overlay 缺失即退回无覆盖层行为，pending 单列不补数；
+ *      overlay 与 Gold 现状不符（from 对不上）记 errors，绝不静默跳过。
  *
  * 纪律（与全项目一致）：
  *   · 口径只有一个真源：本文件。metrics.js（卡片）、metrics_registry（注册表）、
@@ -29,23 +34,72 @@ const REPO = path.resolve(ROOT, "..", "..", "..");            // jingguands/
 const EVAL = path.join(REPO, "evaluation");
 const GOLD_CASES = ["D4", "D5", "D6"];
 
-/** 口径语义标签（上屏文案与材料引用共用，防止同一个数被叫成两个名字） */
+/**
+ * 口径语义标签（上屏文案与材料引用共用，防止同一个数被叫成两个名字）
+ * ★ 2026-10-15：三个名字按宗《裁定-覆盖率分母口径-20261015.md》§二**法定命名**对齐——
+ *   ①「契约字段全集槽位有值率」②「相对当前 Gold 的期望字段召回率」③「核心文本件槽位有值率」。
+ *   裁定硬性要求：三数不得同名、不得互相替换、② 必须带「相对当前 Gold」字样。
+ */
 const LABELS = {
-  slot_value_rate: "全字段槽位有值率（历史口径）",
-  expected_recall: "Gold 期望字段召回率（当前 Gold 条件口径）",
+  slot_value_rate: "契约字段全集槽位有值率",
+  expected_recall: "相对当前 Gold 的期望字段召回率",
+  core_text_rate: "核心文本件槽位有值率",
   gold_value_match: "Gold 期望字段值一致率（当前 Gold 条件口径）",
   scope_31: "31 份冻结批槽位",
   scope_30: "30 份有 Gold 的核心文本件",
   scope_gold: "Gold 期望字段全集",
 };
 
-/** 限定语：③ 号数（100%）**必须**带这两句同行出现，缺一即为夸大 */
+/** 限定语：② 号数（100%）**必须**带「相对当前 Gold」＋「本批为公开语料冻结回放，非未见样本」
+ *  两句同行出现，缺一即为夸大（裁定 §二 硬性要求）。 */
 const QUALIFIER = {
   conditional: "当前 Gold 条件口径",
-  frozen_replay: "公开语料冻结回放",
+  frozen_replay: "本批为公开语料冻结回放（非未见样本）",
   no_generalization: "不外推泛化",
-  pending_note: "Gold 原文推导复核未完成（72 项重点复核 + 12 项 Gold 待复核 + 3 处状态分歧未闭环）",
+  pending_note: "Gold 待复核 11 项单列 pending（v1.1 校正后：D4-PLD-009 E03 end_date 由 needs_review 校正为 not_mentioned）；3 处状态差异已裁定（D6-AWD-002 E03/E04 信封 not_disclosed 待魏/张校正为 not_mentioned，两者都无值、不影响成绩）",
 };
+
+/** Gold v1.1 覆盖层路径（C2 规则下本机私有检出，由 demo/_fetch_eval_scores.js 按 sha 取件） */
+const GOLD_OVERLAY_REL = path.join("2026-10-15-caliber", "gold-corrections-v1.1.json");
+
+/** 读 Gold v1.1 覆盖层；缺失/损坏 ⇒ available:false（调用方据此退回无覆盖层行为） */
+function readGoldOverlay() {
+  const p = path.join(EVAL, GOLD_OVERLAY_REL);
+  try {
+    const j = JSON.parse(fs.readFileSync(p, "utf8"));
+    if (!j || !Array.isArray(j.corrections)) return { available: false, why: "overlay 无 corrections 数组", applied: 0, errors: [] };
+    return { available: true, version: j.version || null, issued_by: j.issued_by || null,
+      path: GOLD_OVERLAY_REL, corrections: j.corrections, applied: 0, errors: [] };
+  } catch (e) {
+    return { available: false, why: "overlay 缺失或不可解析（未取件）——退回无覆盖层行为", applied: 0, errors: [] };
+  }
+}
+
+/**
+ * 把覆盖层应用到一个 Gold 信封对象（就地改 status，绝不新建/替换 Gold 文件）。
+ * 每条 correction 断言 from 与现状一致；对不上记 error 不静默跳过。
+ */
+function applyGoldOverlay(gj, caseId, overlay) {
+  if (!overlay || !overlay.available) return { applied: 0, errors: [] };
+  let applied = 0;
+  const errors = [];
+  for (const c of overlay.corrections) {
+    if (c.case_id !== caseId) continue;
+    const ev = (gj.events || []).find(e => e.event_id === c.event_id);
+    if (!ev) { errors.push(`${caseId} ${c.event_id}: Gold 无该事件，校正未应用`); continue; }
+    const fv = ev.fields && ev.fields[c.field];
+    if (!fv) { errors.push(`${caseId} ${c.event_id}.${c.field}: Gold 无该字段，校正未应用`); continue; }
+    if (fv.status !== c.from) {
+      errors.push(`${caseId} ${c.event_id}.${c.field}: 现状 ${fv.status} ≠ overlay.from ${c.from}，校正未应用`);
+      continue;
+    }
+    fv.status = c.to;
+    applied++;
+  }
+  overlay.applied += applied;
+  overlay.errors.push(...errors);
+  return { applied, errors };
+}
 
 /** Gold 目录（缺失即返回空数组——调用方据此判「未测」，绝不抛到页面 500） */
 function goldDirs() {
@@ -68,11 +122,13 @@ function primaryEnvelopes() {
   return out;
 }
 
-/** Gold 索引：按 source.file_id 配对（★不能用 file_name，Gold 沿用旧批次文件名） */
+/** Gold 索引：按 source.file_id 配对（★不能用 file_name，Gold 沿用旧批次文件名）
+ *  ★ 2026-10-15：读入后就地应用 Gold v1.1 覆盖层（overlay 与 Gold 现状不符记 error 不静默跳过）。 */
 function loadGoldIndex() {
   const byFileId = new Map();
   const byCaseId = new Map();
   const bad = [];
+  const overlay = readGoldOverlay();
   for (const dir of goldDirs()) {
     let files = [];
     try { files = fs.readdirSync(dir).filter(f => f.endsWith(".envelope.json")).sort(); }
@@ -82,13 +138,14 @@ function loadGoldIndex() {
       let gj = null;
       try { gj = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")); }
       catch (e) { bad.push({ dataset: caseId, why: "Gold 读取失败: " + e.message }); continue; }
+      applyGoldOverlay(gj, caseId, overlay);
       const fid = gj.source && gj.source.file_id;
       if (!fid) { bad.push({ dataset: caseId, why: "Gold 缺 source.file_id，无法配对" }); continue; }
       if (!byFileId.has(fid)) byFileId.set(fid, { gold: gj, gold_case_id: caseId, dir });
       byCaseId.set(caseId, gj);
     }
   }
-  return { byFileId, byCaseId, bad };
+  return { byFileId, byCaseId, bad, overlay };
 }
 
 // ---------- 归一（与 demo/_retest_unified.js 原实现一致，全项目只此一份） ----------
@@ -171,6 +228,7 @@ function buildGoldExpected(envelopes, goldIndex) {
     unpairable: [],             // 缺身份/对齐歧义 —— 阻断正式统计
     gold_bad: gi.bad || [],
     gold_dirs: goldDirs(),
+    overlay: gi.overlay || { available: false, applied: 0, errors: [] },
     pair_key: "source.file_id（★不能用 file_name：Gold 沿用旧批次文件名）",
     event_key: "业务键（pledge: pledgor+pledgee+direction / equity_change: holder+direction / award_contract: bidder+project_name）",
   };
@@ -390,6 +448,8 @@ function computeCaliber(envelopes, opts) {
     gold: {
       available: gold.available,
       gold_dirs: gold.gold_dirs,
+      // ★ Gold v1.1 覆盖层状态（应用条数/错误清单）——缺失即 available:false，pending 单列不补数
+      overlay: gold.overlay,
       pair_key: gold.pair_key,
       event_key: gold.event_key,
       pairs: gold.pairs,
@@ -422,8 +482,9 @@ function computeCaliber(envelopes, opts) {
 
 module.exports = {
   LABELS, QUALIFIER,
-  ROOT, REPO, EVAL, GOLD_CASES,
+  ROOT, REPO, EVAL, GOLD_CASES, GOLD_OVERLAY_REL,
   goldDirs, loadGoldIndex, defaultFrames, primaryEnvelopes,
+  readGoldOverlay, applyGoldOverlay,
   norm, normRatio, isRatioField, hasEffectiveValue, pickVal,
   evKey, isField,
   buildGoldExpected, slotScope, computeCaliber,
