@@ -80,7 +80,11 @@ test('controlled fixtures reject changed inputs and reports instead of serving s
   try {
     const files = ['evaluation/2026-10-17-delivery-metrics/metrics.json', 'evaluation/2026-10-17-delivery-metrics/d9-report.json', 'evaluation/D9/cases/rules-cases.dev.json'];
     for (const file of files) { const dest = path.join(temp, file); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.copyFileSync(path.join(root, file), dest); }
-    assert.equal(controlledCases(temp)[0].difference, 200000);
+    const sealed = controlledCases(temp);
+    // 2026-10-17 受控段为全集（019 restated＋020 conflict）——按 case_id 取数，不依赖顺序
+    assert.equal(sealed.length, 2);
+    assert.equal(sealed.find(c => c.case_id === 'D9-RULE-019').verdict, 'restated');
+    assert.equal(sealed.find(c => c.case_id === 'D9-RULE-020').difference, 200000);
     for (const file of files.slice(1)) {
       fs.appendFileSync(path.join(temp, file), ' ');
       assert.throws(() => controlledCases(temp), /已变化/);

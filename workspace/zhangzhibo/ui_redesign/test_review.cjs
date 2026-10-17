@@ -57,11 +57,15 @@ test('ordinary corroboration sources preserve the selected holder, field and exa
 });
 test('controlled conflict is separate from the thirteen real pair groups', () => {
   assert.equal(pairs.groups.length, 13); assert.equal(verify.pairs.length, 13);
+  // 2026-10-17 陈 M-12 语义（宗验收口径）：受控段为全集（019 restated＋020 conflict），独立成段不混入 13 组
+  assert.equal(verify.controlled_cases.length, 2);
+  const c19 = verify.controlled_cases.find(c => c.case_id === 'D9-RULE-019');
+  assert.equal(c19.expected_verdict, 'restated'); assert.equal(c19.verdict, 'restated'); assert.equal(c19.no_real_pdf, true);
   const c = verify.controlled_cases.find(c => c.case_id === 'D9-RULE-020');
   assert.equal(c.synthetic_controlled, true); assert.equal(c.verdict, 'conflict');
   assert.equal(c.difference, 200000); assert.equal(c.pairing_tested, false);
   assert.deepEqual(c.sides.map(s => s.value), [5000000, 5200000]);
-  for (const side of c.sides) { assert.equal(side.page, null); assert.equal(side.block_verified, null); assert.match(side.quote, /受控构造/); }
+  for (const cs of verify.controlled_cases) for (const side of cs.sides) { assert.equal(side.page, null); assert.equal(side.block_verified, null); assert.match(side.quote, /受控构造/); }
 });
 test('pair sources reference field evidence and unreadable member remains unavailable', () => {
   const known = pairs.groups.find(g => g.group_id === 'D8-PAIR-001');
