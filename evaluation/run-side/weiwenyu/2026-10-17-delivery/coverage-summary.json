@@ -1,0 +1,135 @@
+{
+  "scope": "server.js changed non-comment lines only; not repository-wide coverage",
+  "executed": 32,
+  "total": 32,
+  "lines": [
+    {
+      "line": 111,
+      "executed": true
+    },
+    {
+      "line": 112,
+      "executed": true
+    },
+    {
+      "line": 113,
+      "executed": true
+    },
+    {
+      "line": 114,
+      "executed": true
+    },
+    {
+      "line": 115,
+      "executed": true
+    },
+    {
+      "line": 116,
+      "executed": true
+    },
+    {
+      "line": 117,
+      "executed": true
+    },
+    {
+      "line": 118,
+      "executed": true
+    },
+    {
+      "line": 119,
+      "executed": true
+    },
+    {
+      "line": 120,
+      "executed": true
+    },
+    {
+      "line": 123,
+      "executed": true
+    },
+    {
+      "line": 124,
+      "executed": true
+    },
+    {
+      "line": 125,
+      "executed": true
+    },
+    {
+      "line": 230,
+      "executed": true
+    },
+    {
+      "line": 231,
+      "executed": true
+    },
+    {
+      "line": 232,
+      "executed": true
+    },
+    {
+      "line": 233,
+      "executed": true
+    },
+    {
+      "line": 234,
+      "executed": true
+    },
+    {
+      "line": 990,
+      "executed": true
+    },
+    {
+      "line": 991,
+      "executed": true
+    },
+    {
+      "line": 992,
+      "executed": true
+    },
+    {
+      "line": 993,
+      "executed": true
+    },
+    {
+      "line": 994,
+      "executed": true
+    },
+    {
+      "line": 995,
+      "executed": true
+    },
+    {
+      "line": 1012,
+      "executed": true
+    },
+    {
+      "line": 1013,
+      "executed": true
+    },
+    {
+      "line": 1014,
+      "executed": true
+    },
+    {
+      "line": 1015,
+      "executed": true
+    },
+    {
+      "line": 1016,
+      "executed": true
+    },
+    {
+      "line": 1017,
+      "executed": true
+    },
+    {
+      "line": 1018,
+      "executed": true
+    },
+    {
+      "line": 1019,
+      "executed": true
+    }
+  ]
+}

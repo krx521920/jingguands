@@ -1,0 +1,16 @@
+[
+  {
+    "id": "D5-EQC-002",
+    "dataset": "acceptance1017-D5-EQC-002",
+    "run_id": "20261017T023720-equity_change-4a90",
+    "events": 3,
+    "json_roundtrip_equal": true
+  },
+  {
+    "id": "D6-AWD-001",
+    "dataset": "acceptance1017-D6-AWD-001",
+    "run_id": "20261017T023720-award_contract-4318",
+    "events": 1,
+    "json_roundtrip_equal": true
+  }
+]

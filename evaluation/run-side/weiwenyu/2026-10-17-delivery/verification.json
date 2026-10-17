@@ -1,0 +1,137 @@
+{
+  "cases": [
+    {
+      "case": "D5-EQC-002",
+      "run_id": "20261017T023720-equity_change-4a90",
+      "checks": [
+        {
+          "name": "schema",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "name": "real_model",
+          "passed": true
+        },
+        {
+          "name": "cache_disabled_success",
+          "passed": true,
+          "run_errors": []
+        },
+        {
+          "name": "pdf_sha256",
+          "passed": true
+        },
+        {
+          "name": "json_export_exact",
+          "passed": true
+        },
+        {
+          "name": "anchors_exact_in_fresh_parse",
+          "passed": true,
+          "anchors": 27,
+          "errors": []
+        },
+        {
+          "name": "null_status_semantics",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "name": "page_fields_and_evidence",
+          "passed": true,
+          "fields": 27,
+          "errors": []
+        },
+        {
+          "name": "csv_fields_and_evidence",
+          "passed": true,
+          "rows": 27,
+          "errors": []
+        }
+      ],
+      "events": 3,
+      "fields": 27,
+      "pages": 64,
+      "blocks": 1395,
+      "statuses": {
+        "extracted": 27
+      },
+      "duration_ms": 18977,
+      "input_sha256": "46bc2ef0ca5fd8407bed6454c82551d926256422d181adaf3b013151e49062a1",
+      "parse_sha256": "00bc3306c6c9c22e803bb84345f37a7fb99ca692569c6bd83c4cdb67fe42757f",
+      "events_sha256": "84104d5b2c33d371d284ce5fdfe135bdd9c20982f8be7d665b0465c8aa4edb7e",
+      "call_log_sha256": "722ae294ebc8a317a2fd8ac82a9732b81afe4fd63c5b2741a1ae02664e8871a7",
+      "original_events_sha256": "941ba2ee26291ceb0d3294f83382bdeb5b8878d1b4efe9dac42e06577ddf4e09"
+    },
+    {
+      "case": "D6-AWD-001",
+      "run_id": "20261017T023720-award_contract-4318",
+      "checks": [
+        {
+          "name": "schema",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "name": "real_model",
+          "passed": true
+        },
+        {
+          "name": "cache_disabled_success",
+          "passed": true,
+          "run_errors": []
+        },
+        {
+          "name": "pdf_sha256",
+          "passed": true
+        },
+        {
+          "name": "json_export_exact",
+          "passed": true
+        },
+        {
+          "name": "anchors_exact_in_fresh_parse",
+          "passed": true,
+          "anchors": 5,
+          "errors": []
+        },
+        {
+          "name": "null_status_semantics",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "name": "page_fields_and_evidence",
+          "passed": true,
+          "fields": 14,
+          "errors": []
+        },
+        {
+          "name": "csv_fields_and_evidence",
+          "passed": true,
+          "rows": 14,
+          "errors": []
+        }
+      ],
+      "events": 1,
+      "fields": 14,
+      "pages": 2,
+      "blocks": 27,
+      "statuses": {
+        "extracted": 5,
+        "not_mentioned": 7,
+        "not_applicable": 2
+      },
+      "duration_ms": 3130,
+      "input_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+      "parse_sha256": "423d375df68fbf85506286b41b5371853f77acdbf98666bbf209f6635966e66e",
+      "events_sha256": "59a684e56206d65be77beef92061814df8bc9b0e28ddb9863a5390640b4d0704",
+      "call_log_sha256": "258018c63574a314f2b57457a3c9951410a0c308f0ee5c075d1219defb55bca9",
+      "original_events_sha256": "b399ecdbce7e9fb8e4b3c13ad9557da789f37f50f600f507b34de113b9f71149"
+    }
+  ],
+  "passed": 18,
+  "total": 18,
+  "scope": "Two public corpus samples freshly parsed and extracted without cache; not an independent Web/CLI or generalization evaluation."
+}

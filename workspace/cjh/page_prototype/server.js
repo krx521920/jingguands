@@ -99,10 +99,30 @@ function handleExport(res, urlObj, readDataset) {
   }
 
   if (format === "json") {
-    const body = JSON.stringify(data, null, 2);
+    // ★ 2026-10-17 回环修复（导出件无法重新导入）：
+    //   原实现导 readDataset 的 view 投影层——view 顶层带 data_mode/source_file/evidences/
+    //   bridge 等投影字段（契约 additionalProperties=false 不允许），且缺顶层 is_mock/source
+    //   ⇒ 喂回 /api/upload 必被契约闸门拒（实测 56 个 contract error，_roundtrip_probe 实证）。
+    //   修法＝与导入契约对齐：导 **契约本体 envelope**（同 CLI events.json 形状），
+    //   view 投影仍是 /api/result 的唯一出口（页面零改动）。
+    //   「这份数据哪来的」披露不丢：走响应头 X-Extraction-Engine（不进 JSON 体——
+    //   塞进 envelope 即违反 additionalProperties=false；响应头值经 encodeURIComponent
+    //   保证 ASCII 安全，中文批次标签不会打坏头）。
+    const run = extractor.PROVIDERS.file.run(dataset);
+    if (!run.ok) return sendJSON(res, 404, { error: "dataset not found: " + dataset });
+    const engineMeta = {
+      engine: run.run_meta && run.run_meta.engine,
+      reruns_extraction: run.run_meta && run.run_meta.reruns_extraction,
+      code_version: (run.run_meta && run.run_meta.code_version) || null,
+      upstream_run_id: (run.run_meta && run.run_meta.upstream_run_id) || null,
+      source_path: (run.run_meta && run.run_meta.source_path) || null
+    };
+    const body = JSON.stringify(run.envelope, null, 2);
     res.writeHead(200, {
       "Content-Type": "application/json; charset=utf-8",
-      "Content-Disposition": `attachment; filename="${dataset}.json"`
+      "Content-Disposition": `attachment; filename="${dataset}.json"`,
+      "X-Export-Contract": "v0.3-envelope",
+      "X-Extraction-Engine": encodeURIComponent(JSON.stringify(engineMeta))
     });
     return res.end(body);
   }
@@ -198,12 +218,21 @@ function readDataset(dataset) {
 }
 
 /** 过桥并取视图投影（页面/导出的唯一入口）。
- *  契约本体单独挂view._contract_envelope 引用（只读，不序列化），
- *  便于 /api/contract 类接口取本体而不必二次转换。 */
+ *  契约本体单独挂 view._contract_envelope 引用（只读，不序列化），
+ *  便于 /api/contract 类接口取本体而不必二次转换。
+ *  ★ 2026-10-17：补上漏写的实现——原先注释承诺挂载但代码没有，
+ *    导致「取契约本体」只能二次过桥。/api/export（10-17 回环修复）改为
+ *    直接走 file.run 的 envelope，此引用供 /api/result 消费方按需取本体。 */
 function bridgeOf(envelope) {
   const out = toContract(envelope);
   const view = out.view || out;                 // 兼容旧结构（已是契约对象时 view===envelope）
   view.contract_validation = out.contract_validation || null;
+  Object.defineProperty(view, "_contract_envelope", {
+    value: out.envelope || envelope,
+    enumerable: false,                           // 不序列化：JSON.stringify 不含它
+    writable: false,
+    configurable: true
+  });
   return view;
 }
 
@@ -953,7 +982,18 @@ function handleApi(req, res, urlObj) {
 
 // ---- 静态资源 ----
 function handleStatic(res, urlObj) {
-  let rel = decodeURIComponent(urlObj.pathname);
+  // ★ 2026-10-17 M-10：非法 percent-encoding（`/%`、`/%zz`、`/%E4%` 截断的中文编码…）
+  //   会让 decodeURIComponent 抛 `URIError: URI malformed` —— 原先无捕获，
+  //   **单个畸形请求就能顶穿进程**（实测：GET /% 后服务崩溃退出，端口立即无监听）。
+  //   修法：解码失败即回 400。**绝不静默当 `/` 处理**——把畸形请求伪装成正常首页
+  //   就是造假入口（看着"通了"，实则走的是另一条路径）。
+  let rel;
+  try {
+    rel = decodeURIComponent(urlObj.pathname);
+  } catch (e) {
+    res.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" });
+    return res.end("400 Bad Request: malformed URI (bad percent-encoding)");
+  }
   if (rel === "/" || rel === "") rel = "/index.html";
   const file = path.join(PUBLIC_DIR, rel);
   if (!file.startsWith(PUBLIC_DIR) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
@@ -965,9 +1005,19 @@ function handleStatic(res, urlObj) {
 }
 
 const server = http.createServer((req, res) => {
-  const urlObj = new URL(req.url, "http://127.0.0.1");
-  if (urlObj.pathname.startsWith("/api/")) return handleApi(req, res, urlObj);
-  return handleStatic(res, urlObj);
+  // ★ 2026-10-17 M-10：进程级兜底。原先 handler 抛异常就直接顶穿进程
+  //   （一个畸形 URL 就能让服务退出，评审现场直接中断）。
+  //   修法：请求入口整体 try/catch，异常如实 **打印 + 回 500**，绝不静默吞掉
+  //   ——静默吞＝问题消失在日志里，下次照样崩。
+  try {
+    const urlObj = new URL(req.url, "http://127.0.0.1");   // 畸形 req.url 也会抛，故一并包进
+    if (urlObj.pathname.startsWith("/api/")) return handleApi(req, res, urlObj);
+    return handleStatic(res, urlObj);
+  } catch (e) {
+    console.error("[server] unhandled error on " + req.url + ": " + ((e && e.stack) || e));
+    if (!res.headersSent) res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+    return res.end("500 Internal Server Error");
+  }
 });
 
 // ★ 2026-10-10 步骤6-③：导出 `readDataset`（视图投影的唯一生成函数）供 demo/_parity_real.js 复用。

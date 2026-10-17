@@ -1,0 +1,34 @@
+{
+  "run_id": "20261017T023720-equity_change-4a90",
+  "is_mock": false,
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "model": "deepseek-chat",
+  "request_mode": "parse-blocks-chunked",
+  "cache": {
+    "enabled": false,
+    "hit": null,
+    "key": null,
+    "hits": 0,
+    "misses": 0,
+    "writes": 0
+  },
+  "http_status": 200,
+  "error": null,
+  "run_errors": [],
+  "timing": {
+    "total_ms": 18977,
+    "call_ms": 352,
+    "real_call_ms": 352
+  },
+  "repairs": [
+    "[出处修复] events[0].fields.method.provenance[0]: quote 未命中引用块 d46bc2ef0_p017_b00010，按前缀唯一命中重锚至 d46bc2ef0_p017_b00011（签署了《股份转让协议》…）",
+    "[出处修复] events[1].fields.method.provenance[0]: quote 未命中引用块 d46bc2ef0_p017_b00010，按前缀唯一命中重锚至 d46bc2ef0_p017_b00011（签署了《股份转让协议》…）",
+    "[出处修复] events[2].fields.method.provenance[0]: quote 未命中引用块 d46bc2ef0_p017_b00010，按前缀唯一命中重锚至 d46bc2ef0_p017_b00011（签署了《股份转让协议》…）",
+    "[出处修复] events[3].fields.method.provenance[0]: quote 未命中引用块 d46bc2ef0_p017_b00010，按前缀唯一命中重锚至 d46bc2ef0_p017_b00011（签署了《股份转让协议》…）",
+    "[出处修复] events[4].fields.method.provenance[0]: quote 未命中引用块 d46bc2ef0_p017_b00010，按前缀唯一命中重锚至 d46bc2ef0_p017_b00011（签署了《股份转让协议》…）",
+    "［口径过滤］剔除非信息披露义务人/一致行动人的转让方事件：holder=杨占坡（D5-GOLD-001，名单=于春生/蔚文绪/蔚文举）",
+    "［口径过滤］剔除非信息披露义务人/一致行动人的转让方事件：holder=马军强（D5-GOLD-001，名单=于春生/蔚文绪/蔚文举）"
+  ],
+  "original_call_log_sha256": "722ae294ebc8a317a2fd8ac82a9732b81afe4fd63c5b2741a1ae02664e8871a7",
+  "note": "股权长文档为 2 块聚合响应，http_status 为聚合上报；运行错误为空。code_version 是本地验证提交，源码对应关系见 README。"
+}

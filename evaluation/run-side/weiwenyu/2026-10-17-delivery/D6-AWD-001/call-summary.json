@@ -1,0 +1,26 @@
+{
+  "run_id": "20261017T023720-award_contract-4318",
+  "is_mock": false,
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "model": "deepseek-chat",
+  "request_mode": "parse-blocks",
+  "cache": {
+    "enabled": false,
+    "hit": null,
+    "key": null,
+    "hits": 0,
+    "misses": 0,
+    "writes": 0
+  },
+  "http_status": 200,
+  "error": null,
+  "run_errors": [],
+  "timing": {
+    "total_ms": 3130,
+    "call_ms": 147,
+    "real_call_ms": 147
+  },
+  "repairs": [],
+  "original_call_log_sha256": "258018c63574a314f2b57457a3c9951410a0c308f0ee5c075d1219defb55bca9",
+  "note": "股权长文档为 2 块聚合响应，http_status 为聚合上报；运行错误为空。code_version 是本地验证提交，源码对应关系见 README。"
+}

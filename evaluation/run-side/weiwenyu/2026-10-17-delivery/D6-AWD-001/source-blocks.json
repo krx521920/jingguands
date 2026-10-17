@@ -1,0 +1,94 @@
+{
+  "input_sha256": "c1c912b983001b77b5aff70d3807229887e1546cc796bcb9ad4b1833267e1f63",
+  "parse_sha256": "423d375df68fbf85506286b41b5371853f77acdbf98666bbf209f6635966e66e",
+  "blocks": [
+    {
+      "block_id": "dc1c912b9_p001_b00006",
+      "doc_id": "dc1c912b9",
+      "page": 1,
+      "type": "TEXT",
+      "source_type": "paragraph",
+      "role": "BODY",
+      "text": "司”）尚未取得中标通知书，签约等后续工作尚具有一定不确定性，敬请广大投资者注意投资风险。公司将根据相关事项后续进展情况履行相应的信息披露义务。",
+      "text_raw": "司”）尚未取得中标通知书，签约等后续工作尚具有一定不确定性，敬请广大投资者注意投资风险。公司将根据相关事项后续进展情况履行相应的信息披露义务。",
+      "region": [
+        90.0,
+        315.41,
+        517.32,
+        350.81
+      ],
+      "table_ref": null,
+      "font_size": 12.0,
+      "source": "TEXT_LAYER",
+      "ocr_confidence": null,
+      "degraded": false,
+      "missing_reason": null
+    },
+    {
+      "block_id": "dc1c912b9_p001_b00009",
+      "doc_id": "dc1c912b9",
+      "page": 1,
+      "type": "TEXT",
+      "source_type": "paragraph",
+      "role": "BODY",
+      "text": "《关于项目中标的提示性公告》（公告编号：2026-043），公司参与了“新纶化纤年产30万吨涤纶化纤项目”的投标，招标单位为图木舒克新纶化纤有限责任公司。2026 年 8 月 21 日，全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）发布了相关中标结果公告。",
+      "text_raw": "《关于项目中标的提示性公告》（公告编号：2026-043），公司参与了“新纶化纤年产30万吨涤纶化纤项目”的投标，招标单位为图木舒克新纶化纤有限责任公司。2026年8月21日，全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）发布了相关中标结果公告。",
+      "region": [
+        90.0,
+        432.41,
+        517.32,
+        516.6
+      ],
+      "table_ref": null,
+      "font_size": 12.0,
+      "source": "TEXT_LAYER",
+      "ocr_confidence": null,
+      "degraded": false,
+      "missing_reason": null
+    },
+    {
+      "block_id": "dc1c912b9_p001_b00012",
+      "doc_id": "dc1c912b9",
+      "page": 1,
+      "type": "TEXT",
+      "source_type": "paragraph",
+      "role": "BODY",
+      "text": "2026年9月26日，在全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）重新发布了相关中标结果公告。",
+      "text_raw": "2026年9月26日，在全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）重新发布了相关中标结果公告。",
+      "region": [
+        90.0,
+        572.81,
+        505.31,
+        610.2
+      ],
+      "table_ref": null,
+      "font_size": 12.0,
+      "source": "TEXT_LAYER",
+      "ocr_confidence": null,
+      "degraded": false,
+      "missing_reason": null
+    },
+    {
+      "block_id": "dc1c912b9_p001_b00013",
+      "doc_id": "dc1c912b9",
+      "page": 1,
+      "type": "TEXT",
+      "source_type": "paragraph",
+      "role": "BODY",
+      "text": "本次重新评标后，中标单位仍为本公司，招标单位名称、招标代理机构名称、",
+      "text_raw": "本次重新评标后，中标单位仍为本公司，招标单位名称、招标代理机构名称、",
+      "region": [
+        114.0,
+        619.61,
+        511.32,
+        631.61
+      ],
+      "table_ref": null,
+      "font_size": 12.0,
+      "source": "TEXT_LAYER",
+      "ocr_confidence": null,
+      "degraded": false,
+      "missing_reason": null
+    }
+  ]
+}
