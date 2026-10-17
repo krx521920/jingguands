@@ -17,8 +17,8 @@
       "key": "field_accuracy",
       "name": "字段抽取准确率",
       "value": 100,
-      "num": 437,
-      "den": 437,
+      "num": 436,
+      "den": 436,
       "unit": "%",
       "batch": "权威批（D11 首测冻结）",
       "code_version": "weiwenyu@5f25133a",
@@ -137,11 +137,23 @@
       "note": "4 样本 3.57/12.75/19.99/19.34s（34/35/20合成/64 页），门槛 90s；人工登记（该报告未出 JSON）"
     },
     {
+      "key": "field_value_agreement",
+      "name": "字段值一致率（分母＝信封填值数）",
+      "value": 99.77,
+      "num": 436,
+      "den": 437,
+      "unit": "%",
+      "batch": "权威批（D11 首测冻结）",
+      "code_version": "weiwenyu@5f25133a",
+      "evidence": "evaluation/2026-10-17-gold-review/gold-corrections-v1.2.json",
+      "note": "分母＝信封填值数 437；与金标一致 436；**多填 1**。与『期望召回率』分母不同，不可互替"
+    },
+    {
       "key": "gold_expected_field_recall",
       "name": "Gold 期望字段召回率（相对当前 Gold）",
       "value": 100,
-      "num": 437,
-      "den": 437,
+      "num": 436,
+      "den": 436,
       "unit": "%",
       "batch": "权威批（D11 首测冻结）",
       "code_version": "weiwenyu@5f25133a",
@@ -190,8 +202,8 @@
       {
         "key": "gold_expected_field_recall",
         "name": "Gold 期望字段召回率（相对当前 Gold）",
-        "num": 437,
-        "den": 437,
+        "num": 436,
+        "den": 436,
         "pct": 100,
         "disclaimer": "分母＝当前 Gold 标注应有值；须带「相对当前 Gold」限定"
       }
@@ -204,7 +216,14 @@
       "fields": 14,
       "note": "pledge-scan-degrade 原文缺陷件，无 Gold，单列"
     },
-    "gold_corrections": "evaluation/2026-10-15-caliber/gold-corrections-v1.1.json",
+    "gold_corrections": [
+      "evaluation/2026-10-15-caliber/gold-corrections-v1.1.json",
+      "evaluation/2026-10-17-gold-review/gold-corrections-v1.2.json"
+    ],
+    "gold_corrections_applied": {
+      "count": 1,
+      "note": "已从金标期望中扣除；信封多填数见 field_value_agreement"
+    },
     "target_mapping": {
       "90": "字段抽取准确率（不挂覆盖率）",
       "95": "出处命中率",
