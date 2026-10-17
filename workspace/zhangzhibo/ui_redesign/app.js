@@ -586,6 +586,69 @@ function renderIntegration(d) {
 }
 
 /* ═══════════ 05 图表 ═══════════ */
+/* ═══ 补充口径：竞争字段口径（页面从全部数据集实时计算，非 registry） ═══ */
+let calibersCache = null;
+async function deriveCalibers() {
+  if (calibersCache) return calibersCache;
+  const norm = v => String(v ?? "").replace(/[\s,，%％]/g, "");
+  let items = [];
+  if (window.__LIVE_API) {
+    try {
+      const ds = await getJSON("/api/datasets");
+      const rs = await Promise.all((ds.datasets || []).map(async n => {
+        try { const r = await fetch(`/api/result?dataset=${encodeURIComponent(n)}`); return r.ok ? [n, await r.json()] : null; } catch (e) { return null; }
+      }));
+      items = rs.filter(Boolean);
+    } catch (e) {}
+  }
+  if (!items.length && window.__FS_SNAPSHOT && window.__FS_SNAPSHOT.results) {
+    items = Object.entries(window.__FS_SNAPSHOT.results);
+  }
+  let ext = 0, all = 0, soft = 0, stdT = 0, stdF = 0, hit = 0, miss = 0;
+  for (const [name, r] of items) {
+    const real = name.startsWith("wei_real");
+    const evmap = {};
+    (r.evidences || []).forEach(e => evmap[e.evidence_id] = e);
+    for (const ev of (r.events || [])) {
+      for (const [, f] of Object.entries(ev.fields || {})) {
+        const st = f.status_raw || (f.value != null ? "extracted" : "unknown");
+        all++; if (st === "extracted") ext++;
+        if (["not_mentioned", "not_applicable", "not_disclosed"].includes(st)) soft++;
+        if (real && f.value != null) {
+          if (f.normalized != null) stdT++; else stdF++;
+          const ids = f.evidence_ids || (f.evidence_id ? [f.evidence_id] : []);
+          const v = norm(f.value);
+          if (ids.length && v.length > 1) {
+            if (ids.some(id => norm((evmap[id] || {}).quote || "").includes(v))) hit++; else miss++;
+          }
+        }
+      }
+    }
+  }
+  const pct = (x, y) => y ? +(x / y * 100).toFixed(2) : null;
+  calibersCache = {
+    extPct: pct(ext, all - soft), ext, contestable: all - soft, soft,
+    stdPct: pct(stdT, stdT + stdF), stdT, stdAll: stdT + stdF,
+    l3Pct: pct(hit, hit + miss), hit, l3All: hit + miss,
+  };
+  return calibersCache;
+}
+function renderSupplement(c) {
+  if (!c || c.extPct == null) return;
+  const bars = [
+    { n: "抽取率 · 有值字段口径", v: c.extPct, t: 90, meta: `${c.ext}/${c.contestable} · 剔除非竞争字段 ${c.soft}` },
+    { n: "标准化率 · 有值字段口径", v: c.stdPct, t: 98, meta: `${c.stdT}/${c.stdAll} · normalized / 有值字段` },
+    { n: "出处命中率 · 轻量核验（真实数据集）", v: c.l3Pct, t: 95, meta: `${c.hit}/${c.l3All} · 字段值 ∈ 证据引文` },
+  ].map(b => `
+    <div class="bg"><div class="bt" title="${esc(b.meta)}"><span class="nm">${esc(b.n)}</span><span class="num">${b.v}% / 目标 ${b.t}%</span></div>
+      <div class="track"><div class="fill${b.v >= b.t ? "" : " dim"}" style="width:${Math.min(b.v, 100)}%"></div><div class="goal" style="left:${b.t}%"></div></div></div>`).join("");
+  $("#mBody").insertAdjacentHTML("beforeend", `
+    <hr class="sect-line"><div class="sect-title">补充口径 · 竞争字段<span class="meta">页面实时计算</span></div>
+    <div class="charts"><div>${bars}
+      <div class="coverage" style="margin-top:32px">主口径把「未提及 / 不适用 / 未披露」等诚实弃权字段计入分母；补充口径仅计有值字段——两口径并列呈现，弃权正确率另行评测。</div>
+    </div></div>`);
+}
+
 function renderMetrics(d) {
   const cards = d.cards || [];
   $("#mStats").innerHTML = cards.map(c => `<div class="stat"><div class="n">${esc(c.value)}<span class="u">${esc(c.unit || "")}</span></div><div class="l">${esc(c.name)} · 目标 ${esc(c.target)}${esc(c.unit || "")} · ${c.status === "ok" ? "达标" : "未达"}</div></div>`).join("")
@@ -648,7 +711,10 @@ async function renderHomeStats() {
 ensure.pairs = () => getJSON("/api/pairs").then(renderPairs).catch(e => { $("#pairsList").innerHTML = errHTML(e); });
 ensure.verify = () => getJSON("/api/verify").then(renderVerify).catch(e => { $("#verifyList").innerHTML = errHTML(e); });
 ensure.integration = () => getJSON("/api/integration").then(renderIntegration).catch(e => { $("#intBody").innerHTML = errHTML(e); });
-ensure.metrics = () => getJSON("/api/metrics").then(renderMetrics).catch(e => { $("#mBody").innerHTML = errHTML(e); });
+ensure.metrics = () => getJSON("/api/metrics").then(async d => {
+  renderMetrics(d);
+  renderSupplement(await deriveCalibers());
+}).catch(e => { $("#mBody").innerHTML = errHTML(e); });
 ensure.pairs();   // 预热配对章
 
 $("#ledger").innerHTML = `<div class="err" style="color:var(--ink-3)">连接真实接口…</div>`;
