@@ -7,7 +7,13 @@ const root = resolve(import.meta.dirname, '../../../..')
 const read = name => JSON.parse(readFileSync(resolve(import.meta.dirname, name), 'utf8'))
 const manifest = read('manifest.json'), ids = new Set(), records = []
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
-for (const [file, expected] of Object.entries(manifest.source_hashes)) assert.equal(hash(readFileSync(resolve(root, file))), expected)
+// The manifest identifies the implementation used by the eight original calls.
+// Preserve its exact source while separately replaying today's postprocessor below.
+for (const [file, expected] of Object.entries(manifest.source_hashes)) {
+  const historical = file === 'scripts/jingguan/lib/notice_status.mjs'
+    ? resolve(import.meta.dirname, 'source-snapshots/notice_status.mjs') : resolve(root, file)
+  assert.equal(hash(readFileSync(historical)), expected, 'historical extraction source changed: ' + file)
+}
 function key(e) {
   const fields = { pledge: ['pledgor', 'pledgee', 'direction'], equity_change: ['holder', 'direction'], award_contract: ['bidder', 'project_name'] }[e.event_type]
   return [e.event_type, ...fields.map(n => e.fields[n]?.value)].join('|')

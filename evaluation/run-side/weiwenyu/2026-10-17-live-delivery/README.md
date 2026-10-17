@@ -10,6 +10,8 @@
 
 ## 原文判定依据
 
+后续规则维护：同一项目同时出现肯定和否定的通知书叙述时，标 needs_review/null 并保留双方出处，不凭块顺序推断时点。八次原始调用使用的旧通知书规则逐字节保存在 `evaluation/run-side/weiwenyu/2026-10-17-live-delivery/source-snapshots/notice_status.mjs`；verify.mjs 按原 manifest 验证历史源码和日志，再单独重放当前规则。日志和 manifest 不改写，本轮只是离线兼容性验证，不是重新进行八次模型调用。
+
 `corpus/zhangzhibo/d6/parse-official/D6-AWD-002.parse.json` 第 2 页块 `dc0a3d5fb_p002_b00022` 明确将“尚未取得最终的中标通知书”归于“风机设备及服务采购项目”。不能套给名称相近的风阀项目。第 2 页块 `dc0a3d5fb_p002_b00024` 仅列出备查《中标通知书》，不能推出其余项目的收取状态；这些项目也没有“不予披露”的表述，因此标 not_mentioned。规则按项目名称与原文句子定位，不按 case_id 或 E01/E02 编号硬编码；同块出现另一个项目已取得通知书时保留肯定证据。
 
 冻结 `workspace/cjh/page_prototype/data_unified/D6-AWD-002.json` 的旧字段及历史成绩单未修改；其风阀项目曾沿用风机项目的否定证据，须评测方独立复核金标。新口径和实测证据单独留在本目录，不声称旧金标仍逐字段全匹配。

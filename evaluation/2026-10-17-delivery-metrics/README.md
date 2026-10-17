@@ -1,22 +1,22 @@
 # 评分器修复与指标口径统一验收
 
-2026-10-17，魏文宇整合宗博文 `zongbowen@e4eed7dd48eef29637c2e4704716c214f0a6fc2f` 的两项修复，基于交付分支 `dd04024ebb6154f2e6585a9c9d72e4422842f401` 验证。没有再调用模型，没有修改冻结信封、Gold 或历史评分记录。本目录是新生成的复算结果，不覆盖此前批次。
+2026-10-17，魏文宇整合宗博文 `zongbowen@e4eed7dd48eef29637c2e4704716c214f0a6fc2f` 的两项修复，随后基于交付分支 `2606dc67ce867ffa41521341d4af8f70366dac11` 补齐输入完整性校验与通知书肯否冲突处理。没有再调用模型，没有修改冻结信封、Gold 或八份原始抽取记录。本目录为当前共用成绩单，历史版本由 Git 保留。
 
 ## 已完成
 
 | 工作 | 验收结果 |
 |---|---|
-| D9 引文与算式校验 | 宗的评分器原样整合；正常报告 20/20，伪造引文、错误合计、悬空 block_id 均拒绝 |
+| D9 引文与算式校验 | 宗的评分器基础上补齐必需证据侧、非空引文、有限数值、明细及合计出处校验；正常报告 20/20；缺失/伪造证据和不完整/错误计算均拒绝 |
 | 百分比计算 | 根据分子、分母计算；19/20 为 95%，分母为 0 时为未测，不能残留 100% |
 | 统一成绩单 | 页面首页、图表页与旧指标注册表读取 metrics.json；metrics.md 同次生成，讲解稿与录屏清单指向本批 |
-| 防止过期指标 | 53 个输入文件与 3 个 D9 产物校验 SHA256；文本 CRLF 归一为 LF，兼容 Windows 克隆；变化后显示成绩单不可用，不沿用旧百分比 |
+| 防止过期指标 | 55 个输入文件与 3 个 D9 产物校验 SHA256；文本 CRLF 归一为 LF，兼容 Windows 克隆；变化后显示成绩单不可用，不沿用旧百分比 |
 | 口径标注 | 每项注明批次、分子/分母、目标及范围；无目标显示实测值，无分母显示未测；耗时目标按越低越好判断 |
 
 ## 交付读数
 
 完整 17 项见 [共用成绩单](metrics.md)，数据源为 [metrics.json](metrics.json)。冻结批严格原文命中 432/451（95.79%），空白归一辅助 451/451（100%）；本轮三份公告页面与 CLI 独立抽取 125/125 字段一致，8 次日志内严格出处 240/240。两批分母不能混算，字段一致率也不能代替独立 Gold 准确率。
 
-D9 的 20/20 包含 18 条真实、2 条受控开发用例；评分器仅在记录提供 terms 时验算。受控侧缺少信封会告警，不能将 anchors_checked 全部宣称为严格原文已验证。负例拒绝记录见 [d9-negative-controls.json](d9-negative-controls.json)。
+D9 的 20/20 包含 18 条真实、2 条受控开发用例；要求程序求和的用例必须提供非空 terms、有限数值、合计侧及可回查出处，否则判失败。严格模式遇到漏跑判整批失败，但漏跑与执行失败分别计数。受控侧缺少信封会告警，不能将 anchors_checked 全部宣称为严格原文已验证。原负例拒绝记录见 [d9-negative-controls.json](d9-negative-controls.json)，新增边界验证见 `.github/tdd/wei-code-gap-fixes-20261017.md`。
 
 ## 复算与验证
 
@@ -26,6 +26,8 @@ D9 的 20/20 包含 18 条真实、2 条受控开发用例；评分器仅在记�
 node scripts/jingguan/build_delivery_metrics.mjs
 node scripts/jingguan/test_delivery_metrics.mjs
 node scripts/jingguan/test_delivery_publication.mjs
+node scripts/jingguan/test_review_gaps.mjs
+node scripts/jingguan/test_live_receipt_history.mjs
 node workspace/cjh/page_prototype/demo/_delivery_check.js
 node evaluation/integration/check-lock.mjs
 node evaluation/integration/check-docs.mjs

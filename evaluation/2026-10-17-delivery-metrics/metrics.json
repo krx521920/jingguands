@@ -3,7 +3,7 @@
   "generated_on": "2026-10-17",
   "generator": "scripts/jingguan/build_delivery_metrics.mjs",
   "integrated_from": "zongbowen@e4eed7dd48eef29637c2e4704716c214f0a6fc2f",
-  "base_commit": "dd04024ebb6154f2e6585a9c9d72e4422842f401",
+  "base_commit": "2606dc67ce867ffa41521341d4af8f70366dac11",
   "batch": {
     "id": "权威批（D11 首测冻结）",
     "docs": 31,
@@ -116,9 +116,9 @@
       "den": 20,
       "unit": "%",
       "batch": "D9 开发用例 20 条（真实 18 / 受控 2）",
-      "code_version": "宗 e4eed7dd 评分器 · 本次离线重算",
+      "code_version": "宗 e4eed7dd 基础＋输入完整性修复；实现哈希见本成绩单",
       "evidence": "evaluation/2026-10-17-delivery-metrics/d9-score.json",
-      "note": "误报 0 / 漏报 0；伪出处、错算负例须失败。有 terms 的计算才可验算；无信封受控侧告警，不计作严格原文已验证。",
+      "note": "误报 0 / 漏报 0；必需证据侧、非空引文及求和明细/合计均校验，漏跑单列。无信封受控侧告警，不计作严格原文已验证。",
       "group": "历史冻结批与专项结果",
       "target": null,
       "status": "measured"
@@ -322,17 +322,19 @@
     "evaluation/run-side/weiwenyu/2026-10-17-live-delivery/web-ca936c9c-9df6-4629-b789-b5aa40fd0962.json": "6ec3f3c49f74e92537afc144d68b0a6a1d321a38c76ce4a463d7c20913aec478",
     "evaluation/run-side/weiwenyu/2026-10-17-live-delivery/web-e271bb61-dc66-4acc-91e0-f7ad16c44775.json": "6402adcdc411b4116837e77c438044eaabcc2c8368e255b0608ea4d758a2da6b",
     "scripts/jingguan/run_extract.mjs": "6f2e705b336a1618ee60c9d2cc97258e47857e4ab5b1a7bc4b5a6d24e81cd015",
-    "scripts/jingguan/lib/notice_status.mjs": "26a651994532688d4d445dca0520272e9d022014e772b6cabe4238f733ca995d",
-    "evaluation/D9/score-rules.mjs": "1f6a5a6eabde3e1278b6041b6300081638e8e47a21946e41c33ac668a86eedb4",
+    "scripts/jingguan/lib/notice_status.mjs": "88f46a1d928c5abf29d2c040aa3fcf2a4d5ac9b32db51b08872d56bc187e5dee",
+    "evaluation/run-side/weiwenyu/2026-10-17-live-delivery/verify.mjs": "cca2e2cbfef23a256f82c254bf91b8ed975e7d36bde4ccc1169dd03cc85b4832",
+    "evaluation/run-side/weiwenyu/2026-10-17-live-delivery/source-snapshots/notice_status.mjs": "26a651994532688d4d445dca0520272e9d022014e772b6cabe4238f733ca995d",
+    "evaluation/D9/score-rules.mjs": "2494b8bcda36a47672220408702adfba2147822c7bcb704724d6fead72932e2e",
     "evaluation/2026-10-12-scorecard/build-scorecard.mjs": "edd1c54bf817c022f22daf063e8844eda1e5b55de1a5df0430453e6464b354ce",
     "scripts/jingguan/run_d9_rules.mjs": "dd917106ef004a38fc34c02948f7df2e1c1209688aa8065d4e7ab341efe04917",
-    "scripts/jingguan/build_delivery_metrics.mjs": "acf6eee3ad685485ed1407e8550819f3b8fcf1b7ba8b5ec2544a6a5251a40f73"
+    "scripts/jingguan/build_delivery_metrics.mjs": "de2c9fb85224a859c6c5d88e088dd94b67b86a83e67e08d553185344f8b950ee"
   },
   "limitations": "历史冻结批、本轮三份样例和 D9 开发用例分别统计。任何 100% 只覆盖对应批次与分母；Gold 独立复核、弃权正确率和陌生样例泛化未因此完成。旧 MP4 仍需重录。",
   "hash_normalization": "UTF-8 text with CRLF normalized to LF",
   "artifact_hashes": {
     "d9-report.json": "434e3df15bccfe89e48c7648d3108cfa7f191b15217fd7a338e567b8ba62fcc9",
     "d9-score.json": "820481ed5ce89a86f17b24c59a62c519b0e53f832201d87f5b465fdbec060930",
-    "d9-negative-controls.json": "70d8499ef747a5470f80dd0a8b3abd343a8180cbc49a317bf9d91f158c57ae35"
+    "d9-negative-controls.json": "20750aced2ba3df62666d3e534b2805de9597457c74d161b13e942101b4d1a0a"
   }
 }

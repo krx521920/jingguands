@@ -18,6 +18,9 @@ const ENVD=arg('--envelope-dir','evaluation/D11/firsttest-envelopes');
 const ds=JSON.parse(fs.readFileSync(CASES,'utf8'));
 const FMT=new Set(ds.expectation_values);
 const norm=s=>String(s==null?'':s).replace(/\s+/g,'');
+const nonempty=s=>typeof s==='string'&&norm(s)!=='';
+const finite=n=>typeof n==='number'&&Number.isFinite(n);
+const sideKey=s=>JSON.stringify([s?.case_id??null,s?.block_id??null]);
 const envCache=new Map();
 function blocksOf(doc){
   if(envCache.has(doc)) return envCache.get(doc);
@@ -36,29 +39,35 @@ function anchor(doc,block_id,quote){
   const raw=m.get(block_id);
   if(raw===undefined) return 'dangling';
   const q=String(quote==null?'':quote);
+  if(!nonempty(quote)) return 'miss';
   if(q!=='' && raw.includes(q)) return 'raw';
   if(q!=='' && norm(raw).includes(norm(q))) return 'ws';
   return 'miss';
 }
 function score(rep){
-  const byId=new Map((rep.cases||[]).map(r=>[r.case_id,r]));
+  const byId=new Map((Array.isArray(rep.cases)?rep.cases:[]).filter(r=>r&&typeof r==='object').map(r=>[r.case_id,r]));
   const rows=[]; let pass=0,fail=0,notRun=0; const fp=[],fn=[]; let evChecked=0, evBad=0, cmpChecked=0, cmpBad=0;
   for(const c of ds.cases){
     const r=byId.get(c.case_id);
-    if(!r){rows.push({case_id:c.case_id,expected:c.expected_verdict,status:'not_run'}); STRICT?fail++:notRun++; continue;}
+    if(!r){rows.push({case_id:c.case_id,category:c.category,expected:c.expected_verdict,status:'not_run'}); notRun++; continue;}
     const v=r.verdict; const notes=[];
+    const sides=Array.isArray(r.sides)?r.sides:[], computations=Array.isArray(r.computed)?r.computed:[];
     let ok=(v===c.expected_verdict);
+    // Match the case's evidence-side multiset: a duplicate cannot replace a missing side.
+    if(JSON.stringify(sides.map(sideKey).sort())!==JSON.stringify(c.sides.map(sideKey).sort())){
+      ok=false;notes.push('EVIDENCE_SIDES_MISMATCH');
+    }
     if(v!=='insufficient'){
-      const badSides=(r.sides||[]).filter(x=>!x.block_id||!x.quote);
+      const badSides=sides.filter(x=>!nonempty(x?.case_id)||!nonempty(x?.block_id)||!nonempty(x?.quote));
       if(badSides.length){ok=false;notes.push('INVALID_EVIDENCE:'+badSides.length);}
     }
     if(c.requires_programmatic_sum){
-      const cmp=(r.computed||[]).filter(x=>/sum|total|合计|勾稽/i.test(String(x.name||'')));
+      const cmp=computations.filter(x=>x&&/sum|total|合计|勾稽/i.test(String(x.name||'')));
       if(cmp.length===0){ok=false;notes.push('MISSING_REQUIRED_COMPUTATION');}
     }
     // ③ 伪造出处：引文必须真的落在所引块
-    for(const s of (r.sides||[])){
-      if(!s.block_id||!s.quote) continue;
+    for(const s of sides){
+      if(!s||!s.block_id||!s.quote) continue;
       evChecked++;
       const st=anchor(s.case_id,s.block_id,s.quote);
       if(st==='miss'){evBad++;ok=false;notes.push('QUOTE_NOT_IN_BLOCK:'+s.case_id+'/'+s.block_id);}
@@ -69,26 +78,41 @@ function score(rep){
       }
     }
     // ④ 错误计算：terms 求和＝sum；sum＝合计侧取值；term 引文也要可回锚
-    for(const cm of (r.computed||[])){
+    for(const cm of computations){
+      if(!cm||typeof cm!=='object'){ok=false;cmpBad++;notes.push('INVALID_COMPUTATION');continue;}
+      const isSum=/sum|total|合计|勾稽/i.test(String(cm.name||''));
+      if(isSum&&(!Array.isArray(cm.terms)||cm.terms.length===0)){
+        ok=false;cmpBad++;notes.push('MISSING_COMPUTATION_TERMS');continue;
+      }
       if(Array.isArray(cm.terms)&&cm.terms.length){
         cmpChecked++;
-        const s2=cm.terms.reduce((a,t)=>a+Number(t.value||0),0);
-        if(Number.isFinite(Number(cm.sum))&&s2!==Number(cm.sum)){cmpBad++;ok=false;notes.push('COMPUTED_SUM_MISMATCH:'+(cm.name||'?')+' '+s2+'≠'+cm.sum);}
-        if(cm.aggregate_side&&Number.isFinite(Number(cm.aggregate_side.value))&&Number.isFinite(Number(cm.sum))&&Number(cm.sum)!==Number(cm.aggregate_side.value)){cmpBad++;ok=false;notes.push('COMPUTED_VS_AGGREGATE_MISMATCH:'+(cm.name||'?'));}
+        const validNumbers=finite(cm.sum)&&cm.terms.every(t=>t&&finite(t.value));
+        if(!validNumbers){cmpBad++;ok=false;notes.push('INVALID_COMPUTATION_NUMBER');}
+        const s2=validNumbers?cm.terms.reduce((a,t)=>a+t.value,0):null;
+        if(validNumbers&&(!finite(s2)||s2!==cm.sum)){cmpBad++;ok=false;notes.push('COMPUTED_SUM_MISMATCH:'+(cm.name||'?'));}
+        const aggregate=cm.aggregate_side;
+        if(!aggregate||!finite(aggregate.value)) {cmpBad++;ok=false;notes.push('INVALID_AGGREGATE_VALUE');}
+        else {
+          if(finite(cm.sum)&&cm.sum!==aggregate.value){cmpBad++;ok=false;notes.push('COMPUTED_VS_AGGREGATE_MISMATCH:'+(cm.name||'?'));}
+          const st=anchor(aggregate.case_id,aggregate.block_id,aggregate.quote);
+          if(!nonempty(aggregate.case_id)||!nonempty(aggregate.block_id)||!nonempty(aggregate.quote)||!['raw','ws'].includes(st)||!sides.some(s=>sideKey(s)===sideKey(aggregate))){cmpBad++;ok=false;notes.push('COMPUTED_AGGREGATE_EVIDENCE_BAD');}
+        }
         for(const t of cm.terms){
-          if(t.block_id&&t.quote){ const st=anchor(t.doc,t.block_id,t.quote);
-            if(st==='miss'||st==='dangling'){cmpBad++;ok=false;notes.push('COMPUTED_TERM_QUOTE_BAD:'+(t.entity||'?')+'/'+t.block_id);} }
+          const st=t?anchor(t.doc,t.block_id,t.quote):'miss';
+          if(!t||!nonempty(t.doc)||!nonempty(t.block_id)||!nonempty(t.quote)||!['raw','ws'].includes(st)||!c.sides.some(s=>s.case_id===t.doc)){
+            cmpBad++;ok=false;notes.push('COMPUTED_TERM_QUOTE_BAD:'+(t?.entity||'?'));
+          }
         }
       }
     }
     if(c.expected_verdict!=='conflict'&&v==='conflict'){ok=false;notes.push('FALSE_POSITIVE_CONFLICT');fp.push(c.case_id);}
     if(c.expected_verdict==='conflict'&&v!=='conflict'){ok=false;notes.push('FALSE_NEGATIVE_CONFLICT');fn.push(c.case_id);}
     if(v==='conflict'){
-      const withEv=(r.sides||[]).filter(s=>s.block_id&&s.quote);
+      const withEv=sides.filter(s=>nonempty(s?.block_id)&&nonempty(s?.quote));
       if(withEv.length<2){ok=false;notes.push('CONFLICT_WITHOUT_DUAL_EVIDENCE');}
     }
     for(const cmp of (c.must_not_compute||[])){
-      const hit=(r.computed||[]).find(x=>x.name===cmp&&!x.used_source);
+      const hit=computations.find(x=>x?.name===cmp&&!x.used_source);
       if(hit){ok=false;notes.push('FORCED_COMPUTATION:'+cmp);}
     }
     if(c.must_not_conclude==='conflict'&&v==='conflict'){ok=false;notes.push('CONCLUDED_CONFLICT_FORBIDDEN');}
@@ -129,7 +153,7 @@ if(has('--neg-test')){
   t1.computed[0].sum=Number(t1.computed[0].sum)+1;
   const rB=score(base), rQ=score(fakeQuote), rS=score(badSum);
   const res={
-    clean_must_pass: rB.fail===0,
+    clean_must_pass: rB.fail===0&&rB.notRun===0,
     fabricated_quote_must_fail: rQ.fail>0 && rQ.rows.find(x=>x.case_id==='D9-RULE-005'&&x.status==='fail'),
     wrong_sum_must_fail: rS.fail>0 && rS.rows.find(x=>x.case_id==='D9-RULE-005'&&x.status==='fail'),
     detail:{
