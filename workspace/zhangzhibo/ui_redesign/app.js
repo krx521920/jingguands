@@ -628,37 +628,18 @@ function renderIntegration(d) {
 
 /* ═══════════ 05 图表 ═══════════ */
 function renderMetrics(d) {
-  const cards = d.cards || [];
-  $("#mStats").innerHTML = cards.map(c => `<div class="stat"><div class="n">${esc(c.value)}<span class="u">${esc(c.unit || "")}</span></div><div class="l">${esc(c.name)} · 目标 ${esc(c.target)}${esc(c.unit || "")} · ${c.status === "ok" ? "达标" : "未达"}</div></div>`).join("")
-    + (d.l1_provenance ? `<div class="stat"><div class="n">${esc(d.l1_provenance.value)}<span class="u">${esc(d.l1_provenance.unit || "")}</span></div><div class="l">${esc(d.l1_provenance.name)}</div></div>` : "");
-
-  const cardBars = cards.map(c => `
-    <div class="bg"><div class="bt" title="${esc(c.caliber || "")}"><span class="nm">${esc(c.name)}${c.status === "ok" ? "" : " · 未达标"}</span><span class="num">${esc(c.value)}${esc(c.unit || "")} / 目标 ${esc(c.target)}</span></div>
-      <div class="track"><div class="fill${c.status === "ok" ? "" : " dim"}" style="width:${Math.min(c.value, 100)}%"></div><div class="goal" style="left:${Math.min(c.target, 100)}%"></div></div>
-    </div>`).join("");
-  const parsers = (d.parser_compare || []).map(p => `
-    <div class="bg"><div class="bt"><span class="nm">${esc(p.parser)}</span><span class="num">${esc(p.hit_rate_pct)}%</span></div>
-      <div class="track"><div class="fill${p.hit_rate_pct >= 90 ? "" : " dim"}" style="width:${Math.min(p.hit_rate_pct, 100)}%"></div></div></div>`).join("");
-  const l3 = d.l3 ? `
-    <div class="bg"><div class="bt"><span class="nm">L3 区域重建 · ${esc(d.l3.doc_name || "")}</span><span class="num">${esc(d.l3.hit_rate_pct)}%</span></div>
-      <div class="track"><div class="fill" style="width:${Math.min(d.l3.hit_rate_pct, 100)}%"></div><div class="goal" style="left:90%"></div></div></div>` : "";
-  $("#mStats").innerHTML && countUps(document.getElementById("mStats"));
-  $("#mBody").innerHTML = `
-    <div class="charts">
-      <div>${cardBars}</div>
-      <div><div style="font-size:12px;font-weight:650;letter-spacing:2px;margin-bottom:14px">解析器版本 · 溯源命中率演进</div>${parsers}${l3}
-</div>
-    </div>
-    <div class="coverage">${esc(d.registry?.coverage_statement?.statement || "覆盖范围声明缺失")}</div>`;
+  const view = MetricsView.render(d);
+  $("#mStats").innerHTML = view.stats;
+  $("#mBody").innerHTML = view.body;
 }
 
 /* ═══════════ 序章数字（真实接口） ═══════════ */
 function renderMarquee(real, l3pct) {
   const items = [
     "<b>质押</b>", "<b>股权变动</b>", "<b>中标合同</b>", "担保",
-    `<b>${real ?? 25}</b> 份真实公告`, "每个字段挂 evidence_id",
+    `<b>${real ?? "—"}</b> 份冻结批文档`, "每个字段挂 evidence_id",
     `<b>三态判定</b> · 绝不臆断`, "出处坐标可回原文",
-    `区域重建 <b>${l3pct ?? "—"}</b>`, "页面所见即导出所得",
+    "严格命中与空白归一辅助口径分列", "页面所见即导出所得",
   ];
   const half = items.map(t => `<span>${t}</span>`).join("");
   document.getElementById("mqTrack").innerHTML = `<div class="mq-half">${half}</div><div class="mq-half">${half}</div>`;
@@ -666,22 +647,15 @@ function renderMarquee(real, l3pct) {
 
 async function renderHomeStats() {
   try {
-    const [ds, m] = await Promise.all([getJSON("/api/datasets"), getJSON("/api/metrics")]);
-    const real = (ds.datasets || []).filter(n => n.startsWith("wei_real")).length;
-    const c0 = (m.cards || [])[0] || {};
-    const l3 = m.l3 || {};
-    const parsers = m.parser_compare || [];
-    const pLast = parsers[parsers.length - 1] || {};
-    $("#homeStats").innerHTML = `
-      <div class="stat"><div class="n">${real}<span class="u">份</span></div><div class="l">真实公告实测（非模拟）</div></div>
-      <div class="stat"><div class="n">${esc(c0.value ?? "—")}<span class="u">${esc(c0.unit || "")}</span></div><div class="l">${esc(c0.name || "字段抽取率")} · 目标 ${esc(c0.target ?? "—")}${esc(c0.unit || "")}</div></div>
-      <div class="stat"><div class="n">${esc(l3.hit_rate_pct ?? "—")}<span class="u">%</span></div><div class="l">区域重建一致率 · ${esc(l3.doc_name || "L3 抽检")}</div></div>
-      <div class="stat"><div class="n">${esc(pLast.hit_rate_pct ?? "—")}<span class="u">%</span></div><div class="l">溯源命中 · ${esc(pLast.parser || "最新解析器")}</div></div>`;
-    renderMarquee(real, l3.hit_rate_pct);
-    countUps(document.getElementById("homeStats"));
+    const m = await getJSON("/api/metrics");
+    const sheet = m.delivery_metrics;
+    if (!sheet || sheet.error) throw new Error(sheet?.error || "交付成绩单未生成");
+    const keys = ["field_coverage", "evidence_hit_strict", "evidence_hit", "web_cli_independent"];
+    $("#homeStats").innerHTML = keys.map(key => sheet.scores.find(s => s.key === key)).filter(Boolean).map(MetricsView.summary).join("");
+    renderMarquee(sheet.batch.docs, null);
   } catch (e) {
-    $("#homeStats").innerHTML = `<div class="stat"><div class="n">—</div><div class="l">真实接口不可达：${esc(e.message || e)}</div></div>`;
-    renderMarquee(25, "—");
+    $("#homeStats").innerHTML = `<div class="stat"><div class="n">—</div><div class="l">成绩单不可用：${esc(e.message || e)}</div></div>`;
+    renderMarquee(null, null);
   }
 }
 

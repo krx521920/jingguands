@@ -50,6 +50,7 @@ function caliberValues() {
 // 指标类别定义 —— 三类不可互溶
 // ============================================================
 const CATEGORIES = {
+  delivery: { name: "本轮真实抽取验收", question: "页面与 CLI 能否独立复现？", denominator_rule: "分母仅为本轮三份公告的对照字段或重复运行次数", must_not_mix: "不与历史冻结批或 Gold 准确率混读" },
   accuracy: {
     name: "准确率",
     question: "抽出来的东西对不对？",
@@ -769,7 +770,7 @@ function list() {
   //   绝不按 100% 填充。这是「裁定给的数必须独立实算后才认」的落地形式。
   const evLive = l3FromMetrics();
   const injected = evLive ? { evidence_hit: evLive } : {};
-  return REGISTRY.map(r => {
+  const entries = REGISTRY.map(r => {
  const m = Object.assign({}, MEASURED[r.key] || {}, injected[r.key] || {});
     const value = m.value !== undefined ? m.value : null;
     return {
@@ -794,6 +795,8 @@ function list() {
       meets_target: (r.target != null && value != null) ? value >= r.target : null,
     };
   });
+  const { readDeliveryMetrics, overlayDeliveryMetrics } = require('./delivery_metrics.js');
+  return overlayDeliveryMetrics(entries, readDeliveryMetrics());
 }
 
 function get(key) { return list().find(r => r.key === key) || null; }

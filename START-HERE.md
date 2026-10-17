@@ -21,3 +21,5 @@
 运行记录在 `runs/web-live/`，页面下载日志包含输入、原始信封和独立调用记录；JSON 入库在 `workspace/cjh/page_prototype/data/`。这些是本地运行数据，不用于覆盖冻结评测数据。上传自己的保密材料前请确认允许发送至模型服务。
 
 本轮验收与复算入口见 [三项任务回执](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md)。录制顺序与视频核对项见 [录屏交接表](DEMO-CHECKLIST.md)。运行包中的 `DELIVERY-VERSION.json` 和 `MANIFEST.sha256` 给出实际发布提交与文件校验值；它们由打包过程生成，不把历史 `v2.0-delivery` 标签当作新版提交。
+
+首页和图表采用[交付成绩单](evaluation/2026-10-17-delivery-metrics/metrics.md)，与答辩材料共用分子、分母和批次。若提示“输入已变化”，运行 `node scripts/jingguan/build_delivery_metrics.mjs` 离线重建后刷新；此命令不调用模型。历史 31 份冻结批、本轮三份公告、D9 开发用例分别统计，不能合并成“全库 100%”。

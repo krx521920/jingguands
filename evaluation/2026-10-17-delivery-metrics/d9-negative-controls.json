@@ -1,0 +1,44 @@
+{
+  "neg_test": "PASS",
+  "clean_must_pass": true,
+  "fabricated_quote_must_fail": {
+    "case_id": "D9-RULE-005",
+    "category": "aggregate_detail",
+    "expected": "explainable_difference",
+    "reported": "explainable_difference",
+    "synthetic_controlled": false,
+    "status": "fail",
+    "notes": [
+      "QUOTE_NOT_IN_BLOCK:D5-EQC-001/d9d5be14f_p010_b00004"
+    ]
+  },
+  "wrong_sum_must_fail": {
+    "case_id": "D9-RULE-005",
+    "category": "aggregate_detail",
+    "expected": "explainable_difference",
+    "reported": "explainable_difference",
+    "synthetic_controlled": false,
+    "status": "fail",
+    "notes": [
+      "COMPUTED_SUM_MISMATCH:group_sum_reconciliation 8427900≠8427901",
+      "COMPUTED_VS_AGGREGATE_MISMATCH:group_sum_reconciliation"
+    ]
+  },
+  "detail": {
+    "clean": {
+      "pass": 20,
+      "fail": 0,
+      "anchors": 34,
+      "bad_anchors": 0,
+      "computations": 1,
+      "bad_computations": 0
+    },
+    "fabricated_quote_notes": [
+      "QUOTE_NOT_IN_BLOCK:D5-EQC-001/d9d5be14f_p010_b00004"
+    ],
+    "wrong_sum_notes": [
+      "COMPUTED_SUM_MISMATCH:group_sum_reconciliation 8427900≠8427901",
+      "COMPUTED_VS_AGGREGATE_MISMATCH:group_sum_reconciliation"
+    ]
+  }
+}

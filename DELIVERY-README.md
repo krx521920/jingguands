@@ -1,8 +1,8 @@
 # DELIVERY-README · 当前交付包入口
 
-新版演示优先按 [START-HERE.md](START-HERE.md) 启动：张智博新版 UI + 陈的数据服务 + 魏的真实抽取。三项收口结果见 [10-17 真实页面验收](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md)，录屏交接见 [DEMO-CHECKLIST.md](DEMO-CHECKLIST.md)。以下旧冻结数据保持其原口径。
+新版演示优先按 [START-HERE.md](START-HERE.md) 启动：张智博新版 UI + 陈的数据服务 + 魏的真实抽取。三项收口结果见 [10-17 真实页面验收](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md)，录屏交接见 [DEMO-CHECKLIST.md](DEMO-CHECKLIST.md)。当前指标与答辩引用统一采用[交付成绩单](evaluation/2026-10-17-delivery-metrics/metrics.md)，由同目录 metrics.json 驱动页面；以下旧冻结数据保持其原口径。
 
-> 本包 = **运行侧封版树**（魏 `delivery/v2.0` 线，当前分支包含冻结标签之后的修复）＋ **展示层**（陈 `a4174c56` 基础展示层＋`cf0c2b4c` 的导出回导及畸形 URL 修复）＋ **评测侧正典**（宗 `zongbowen@b41ee5a5`，S1 四项裁定＋F4 重锁＋F1 剥离）＋ **运行侧证据**（`evaluation/run-side/weiwenyu/`，217 份字节不动）＋ **交付材料**（`materials/`：计划书 PDF ＋ 演示 MP4）。
+> 本包 = **运行侧封版树**（魏 `delivery/v2.0` 线，当前分支包含冻结标签之后的修复）＋ **展示层**（陈 `a4174c56` 基础展示层＋`cf0c2b4c` 的导出回导及畸形 URL 修复）＋ **评测侧正典**（宗 `zongbowen@b41ee5a5` 基础，定向整合 `e4eed7dd` 的评分器与成绩单生成器）＋ **运行侧证据**（`evaluation/run-side/weiwenyu/`，217 份字节不动）＋ **交付材料**（`materials/`：计划书 PDF ＋ 演示 MP4）。
 > 合包依据：裁决 A（以评测正典为主）＋ D32 陈的合并提交（把页面与封版线并到一起）。**这是"评测入口＋演示入口"都在一个树里的版本。**
 
 ---
@@ -24,7 +24,7 @@
 
 ## 二、两个入口
 
-**评测入口**：`evaluation/README.md`（编号说明、目录索引、引用纪律）；成绩单：`evaluation/2026-10-12-scorecard/评分成绩单-20261016.json`（11 项＋caliber 段，每项带分子/分母、批次、code_version、出处）。
+**评测入口**：`evaluation/README.md`（编号说明、目录索引、引用纪律）；当前成绩单：`evaluation/2026-10-17-delivery-metrics/metrics.json` / `metrics.md`（历史冻结批、本轮真实抽取、未测项分列）。`评分成绩单-20261016.json` 保留为历史记录。
 **演示入口**：
 ```bash
 cd workspace/cjh/page_prototype && node server.js   # → http://127.0.0.1:8642
@@ -39,7 +39,7 @@ node evaluation/integration/check-docs.mjs          # 文档引用/枚举，期�
 node evaluation/D10/check-relation.mjs --bundle evaluation/D10/results/weiwenyu-bundle.json   # 关系层 10/10
 node evaluation/D17/check-standardized.mjs --dir evaluation/D11/firsttest-envelopes --exclude DEMO-EQC-HL-0930
 node evaluation/D18/check-snapshot-coverage.mjs --exclude DEMO-EQC-HL-0930                    # 快照覆盖 31/31、451/451
-node evaluation/2026-10-12-scorecard/build-scorecard.mjs                                       # 成绩单（自校验：重算锚点＝381c760f…）
+node scripts/jingguan/build_delivery_metrics.mjs  # 离线重算 D9、负例、严格/辅助出处和本轮 Web/CLI，生成页面与材料共用成绩单
 ```
 
 **口径注记（材料随包声明，S1 裁定 2026-10-16；10-16 晚宗复核补两行）**：
@@ -55,7 +55,7 @@ node evaluation/2026-10-12-scorecard/build-scorecard.mjs                        
 |---|---|
 | 运行侧封版树 | `delivery/v2.0`（T-16 类型修复、S1 合入、扫描并发和归因修复、10-17 页面修复与三类流程验收） |
 | 展示层 | `a4174c56` 基础＋`cf0c2b4c` 两项修复；交付侧同步更新 L3 导出对照 |
-| 评测侧正典 | `zongbowen@b41ee5a5`（S1 四项裁定／F4 封存锁重锁 LF 基准／F1 六 PDF 剥离改索引／成绩单 20261016） |
+| 评测侧正典 | `b41ee5a5` 基础＋宗 `e4eed7dd` 评分修复；当前成绩单见 `evaluation/2026-10-17-delivery-metrics/`，历史冻结产物保留 |
 | 交付材料 | 计划书 PDF（5 页）＋ 演示 MP4（6.79 MB / 4 分 35 秒） |
 | 交付标签 | `v2.0-delivery` 固定在 `97a0dda0`，属于 10-16 冻结版本；当前分支包含后续修复，不能用旧标签代替。交付时记录 `git rev-parse HEAD`。 |
 
@@ -63,4 +63,4 @@ node evaluation/2026-10-12-scorecard/build-scorecard.mjs                        
 
 10-17 合入、真实抽取和导出回导证据见[本轮验收记录](evaluation/run-side/weiwenyu/2026-10-17-delivery/README.md)。扫描并发和无依据舍入修复见[前轮回执](.github/tdd/wei-release-fixes.md)。本轮不改写冻结成绩单，不将已复现流程推算为项目全部指标达标。
 
-剩余项：宗博文补评分器伪出处/错误算式反例及成绩单实算；陈家浩完成 MP4 整片复核并对齐最终版本；三类样例的独立 Web/CLI 对照已完成（125/125 字段一致，见本轮回执）；全量泛化与弃权正确率仍由宗博文复核。扫描 OCR 与陌生样本泛化仍按已声明范围说明。旧收口表仅作历史记录，以本轮回执明确关闭的项目为准。
+评分器已定向整合宗博文 e4eed7dd 修复，并复验伪引文、悬空块和错误求和反例；成绩单百分比按分子分母实算，分母为零标未测。整合记录见 [评测与指标回执](evaluation/2026-10-17-delivery-metrics/README.md)。剩余项：陈家浩重录新版 UI 的 MP4 并完整复核；三类样例的独立 Web/CLI 对照已完成（125/125 字段一致，见本轮回执）；全量泛化与弃权正确率仍由宗博文复核。扫描 OCR 与陌生样本泛化仍按已声明范围说明。旧收口表仅作历史记录，以本轮回执明确关闭的项目为准。

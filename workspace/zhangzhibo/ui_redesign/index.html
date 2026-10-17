@@ -685,7 +685,7 @@ table.cases td.mono { font-family: var(--mono); font-size: 11.5px; color: var(--
 <section class="chapter" id="view-metrics">
   <div class="chap-head">
     <h1 class="chap-title">结果图表：实算，而非宣称。</h1>
-    <p class="chap-desc">统一基线实测（非模拟）；金线为目标，紫线为实测。</p>
+    <p class="chap-desc">按批次、分子和分母查看结果；真实样例与受控用例均标明范围，金线仅表示已设目标。</p>
 </div>
 
   <div class="stats" id="mStats"></div>
@@ -753,6 +753,7 @@ table.cases td.mono { font-family: var(--mono); font-size: 11.5px; color: var(--
 <div class="toast" id="toast"><span id="toastMsg"></span></div>
 
 <script src="./snapshot.js"></script>
+<script src="./metrics_view.js"></script>
 <script type="module" src="./app.js"></script>
 </body>
 </html>

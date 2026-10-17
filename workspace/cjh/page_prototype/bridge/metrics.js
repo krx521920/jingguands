@@ -649,6 +649,7 @@ function handleMetrics(res, batchId) {
     })).sort((a, b) => (a.parser < b.parser ? -1 : 1));
 
     return sendJSON(res, 200, {
+      delivery_metrics: require("./delivery_metrics.js").readDeliveryMetrics(),
       generated_at: new Date().toISOString(),
       // ★ 2026-10-09：数据源披露段（领导 10-09 裁定③「页面可以暴露信息源」；
       //   宗 10-09 裁决要求附批次标识与锚点，见 data_source.js 的 ANCHOR）。

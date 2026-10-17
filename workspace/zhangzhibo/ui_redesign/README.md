@@ -11,3 +11,5 @@
 HTTP 运行时任何 API 失败都明确报错，不偷偷展示快照；仅直接打开静态文件时允许快照回放。snapshot.js 为历史演示资料，不代表当前冷跑结果。浅色默认为白纸、紫金；深色采用暖炭灰与梅紫。
 
 接口回归：`node workspace/zhangzhibo/ui_redesign/test_live.cjs`。真实运行证据见 [交付回执](../../../evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md)。
+
+首页和图表读取 `/api/metrics` 的 `delivery_metrics`，与[交付成绩单](../../../evaluation/2026-10-17-delivery-metrics/metrics.md)同源。每项显示分子、分母和批次；严格原文与空白归一辅助口径分列，无目标值不判达标，缺失数据标未测。运行 `node scripts/jingguan/build_delivery_metrics.mjs` 离线重建 JSON 与 Markdown；输入或验收产物哈希变化后，页面拒绝继续展示旧成绩。
