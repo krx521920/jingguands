@@ -10,6 +10,8 @@ Status: implemented
 
 ## 决策
 
+[FinStruct 兼容决定](2026-10-17-finstruct-document-compatibility.zh.md)为已发布事件标识符、审计版本和原语言团队记录规定了绑定内容的例外；本通用规则继续有效。
+
 历史证据使用发行 tag 以及 PR、运行或 job 标识，当前仓库文件使用相对链接。[引用检查](../../../../scripts/verify-repository-references.ts)扫描已跟踪文件和未被忽略的新文件。Vendor 源码与冻结的 Agent Note 保留既有排除规则；活跃笔记和历史发行记录仍参与检查。
 
 检查器针对本地 Git 对象库解析十六进制候选值，仅拒绝能明确标识提交的值。标识 blob 的配对哈希、schema 摘要、无关十六进制值，以及解析到不同对象标识的十六进制分支名仍然有效。组织 URL 检测与既有仓库链接策略共享解码和规范化逻辑。

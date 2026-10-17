@@ -41,6 +41,7 @@ const results = [
   // 第18道（2026-10-15，方F1审计采纳）：口径核对器负例回归——v1 多抽死循环 bug 的防复发门
   runGate('口径核对负例回归', ['scripts/jingguan/test_coverage_sets.mjs']),
   runGate('跨文档核验回放', ['scripts/jingguan/verify_crossdoc.mjs', '--envelopes-dir', 'runs/batch-20261003T160213/envelopes', '--manifest', 'corpus/zongbowen/sealed/cross-doc-manifest.json', '--expect']),
+  runGate('页面核验与出处回跳', ['--test', 'workspace/zhangzhibo/ui_redesign/test_review.cjs', 'workspace/zhangzhibo/ui_redesign/test_review_guards.cjs']),
   runGate('宗D8配对严格评分', ['scripts/jingguan/test_d8_pairing.mjs']),
   runGate('B归因引擎单测', ['scripts/jingguan/test_attribution.mjs']),
   runGate('方D8完整入口单测', ['scripts/jingguan/test_group_matcher.mjs']),

@@ -1,25 +1,27 @@
-# FinStruct 演示启动教程
+# FinStruct demo startup guide
 
-这份运行包包含张智博新版 UI、陈家浩的数据与导出服务、魏文宇的真实抽取入口，以及三类公告的解析样例。无需安装 npm 依赖。请先安装 Node.js 24 LTS，并把压缩包完整解压到本地可写目录。
+English | [中文](START-HERE.zh.md)
 
-1. 打开包内终端，运行 `node scripts/jingguan/start_demo.mjs --check`，确认 Node 与样例文件齐备。
-2. 需要真实抽取时，将 `.env.example` 复制为 `.env`，在本机编辑其中的 `JINGGUAN_LLM_API_KEY`。密钥用于 DeepSeek 官方接口；不要提交、截图或发给队友。已有 `JINGGUAN_LLM_API_KEY` / `DEEPSEEK_API_KEY` 环境变量也可使用。包内不含密钥。
-3. Windows 双击 `START-DEMO.cmd`，或运行 `node scripts/jingguan/start_demo.mjs`。保持终端打开，在浏览器访问 http://127.0.0.1:8762/ 。三个本机端口分别是 UI 8762、数据服务 8642、抽取服务 8788。全部停止用 Ctrl+C。
-4. 点击“进入 → 工作台”，选择内置质押、股权变动或多项目中标样例，点击“开始真实抽取”。每次会调用模型并产生费用；不读本地模型响应缓存。完成后自动加载新结果，可下载本次独立日志。
-5. 关闭工作台，在“解析”查看字段、页码、表格单元格及原文引文。重新打开工作台导出 JSON / CSV；JSON 可从“导入已有事件信封 JSON”原样回导。
+This delivery includes Zhang Zhibo's new UI, Chen Jiahao's data and export service, Wei Wenyu's real extraction entry point, and parsed samples for three announcement types. No npm dependencies are required. Install Node.js 24 LTS and fully unpack the archive into a writable local directory.
 
-没有密钥也能启动：此时只能查看、导入和导出已有结果，页面明确显示抽取服务未就绪。不要把这种查看过程写成“重新抽取”。显式离线启动使用 `node scripts/jingguan/start_demo.mjs --offline`。
+1. Open a terminal in the delivery folder and run `node scripts/jingguan/start_demo.mjs --check` to check Node and the sample files.
+2. For real extraction, copy `.env.example` to `.env` and edit `JINGGUAN_LLM_API_KEY` locally. The key authenticates requests to the official DeepSeek API; do not commit it, capture it in screenshots, or send it to teammates. Existing `JINGGUAN_LLM_API_KEY` / `DEEPSEEK_API_KEY` environment variables also work. The delivery contains no key.
+3. On Windows, double-click `START-DEMO.cmd`, or run `node scripts/jingguan/start_demo.mjs`. Keep the terminal open and visit http://127.0.0.1:8762/ . The local ports are UI 8762, data service 8642 and extraction service 8788. Press Ctrl+C to stop all three.
+4. Click “进入 → 工作台”, choose a built-in pledge, equity-change or multi-project award sample, and click “开始真实抽取”. Each extraction invokes the model and incurs a charge; it does not read the local model-response cache. New results load automatically, and the independent run log is available for download.
+5. Close the workbench and use “解析” to view fields, page numbers, table cells and source quotes. Reopen the workbench to export JSON / CSV; use “导入已有事件信封 JSON” to import the exported JSON unchanged.
 
-自己的输入可以是公告全文或解析器的 evidence JSON，二者择一；三种事件类型需手动选择。页面不接受原始 PDF 直接抽取。PDF 须先由张的解析器处理，或使用包内解析样例；纯文本输入没有 PDF 坐标。事件信封 JSON 是已有输出，使用单独的导入区。
+The app also starts without a key: it can only view, import and export existing results, and the page explicitly reports that extraction is unavailable. Do not describe this viewing flow as a new extraction. Use `node scripts/jingguan/start_demo.mjs --offline` for explicit offline mode.
 
-## 故障与验收
+Custom input can be either announcement text or the parser's evidence JSON; choose one and manually select one of the three event types. The page does not extract directly from raw PDFs. Parse PDFs with Zhang's parser first, or use the bundled parsed samples; plain text has no PDF coordinates. An event envelope JSON is an existing output and belongs in the separate import area.
 
-端口被占用时，启动器会报错并清理本次创建的子进程，不会关闭别人的服务。可改为 `node scripts/jingguan/start_demo.mjs --ui-port 18762 --api-port 18642 --extract-port 18788`，然后打开相应 UI 端口。不要只启动新 UI 而漏掉另两个服务。
+## Troubleshooting and acceptance
 
-鉴权失败先检查本机密钥及账户余额；服务不可达先看启动终端。真实抽取失败会明确显示原因并保留失败日志，不会回落到静态快照或模拟输出。较长公告会分块请求，因此“一次抽取”可能包含多个模型请求。
+When a port is occupied, the launcher reports the error and cleans up its own child processes without closing other services. You can run `node scripts/jingguan/start_demo.mjs --ui-port 18762 --api-port 18642 --extract-port 18788` and open the corresponding UI port. Start all three services together.
 
-运行记录在 `runs/web-live/`，页面下载日志包含输入、原始信封和独立调用记录；JSON 入库在 `workspace/cjh/page_prototype/data/`。这些是本地运行数据，不用于覆盖冻结评测数据。上传自己的保密材料前请确认允许发送至模型服务。
+For authentication failures, check the local key and account balance; for connection failures, inspect the startup terminal. Failed extractions display a reason and retain failure logs without falling back to static snapshots or mock output. Long announcements are chunked, so one extraction may involve several model requests.
 
-本轮验收与复算入口见 [三项任务回执](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md)。录制顺序与视频核对项见 [录屏交接表](DEMO-CHECKLIST.md)。运行包中的 `DELIVERY-VERSION.json` 和 `MANIFEST.sha256` 给出实际发布提交与文件校验值；它们由打包过程生成，不把历史 `v2.0-delivery` 标签当作新版提交。
+Runs are stored in `runs/web-live/`; downloaded logs contain input, the original envelope and independent call records. Imported JSON is stored in `workspace/cjh/page_prototype/data/`. These local outputs do not overwrite frozen evaluation data. Confirm that your confidential material may be sent to the model service before uploading it.
 
-首页和图表采用[交付成绩单](evaluation/2026-10-17-delivery-metrics/metrics.md)，与答辩材料共用分子、分母和批次。若提示“输入已变化”，运行 `node scripts/jingguan/build_delivery_metrics.mjs` 离线重建后刷新；此命令不调用模型。历史 31 份冻结批、本轮三份公告、D9 开发用例分别统计，不能合并成“全库 100%”。
+See the [three-task acceptance receipt](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md) for this round's validation and recalculation entry points. The [recording handoff](DEMO-CHECKLIST.md) specifies recording order and video checks. In a packaged delivery, `DELIVERY-VERSION.json` and `MANIFEST.sha256` identify the actual published commit and file digests; packaging generates them, and the historical `v2.0-delivery` tag does not identify the new version.
+
+The home page and charts use the [delivery scorecard](evaluation/2026-10-17-delivery-metrics/metrics.md), sharing numerators, denominators and batches with presentation materials. If the page reports changed inputs, run `node scripts/jingguan/build_delivery_metrics.mjs` offline and refresh; it does not call the model. The historical 31-envelope batch, this round's three announcements and the D9 development cases are reported separately and cannot be combined as “100% across the corpus”.

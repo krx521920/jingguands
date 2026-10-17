@@ -1,98 +1,33 @@
-# DeepSeek Harness
+# FinStruct 信证公告审阅台
 
 [English](README.md) | 中文
 
-DeepSeek Harness（`dsh`）是由 [DeepSeek AI](https://deepseek.com) 开发的开源 agent harness（智能体框架）。
+FinStruct 从公开公告提取质押、股权变动和中标合同事件，为字段关联原文证据，并以 related / unrelated / unknown 三态比较多份公告。事件接口为 v0.3，三类事件共注册 37 个字段。
 
-它构建于**一切皆插件**的架构之上，由 [Cordis](https://github.com/cordiverse/cordis) 驱动，其设计参见论文 [_A Programming Paradigm for Spatiotemporal Composability_](https://arxiv.org/abs/2608.25512)。
+## 本地启动演示
 
-文档：[https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
-
-## 开发者预览
-
-DeepSeek Harness 处于 _开发者预览_ 阶段，正在快速迭代。**未来将出现破坏兼容性的变更。**
-
-运行本项目前，请阅读[安全说明](SAFETY.zh.md)。
-
-<a id="run"></a>
-
-## 运行
-
-### 通过 `npm` 运行
-
-安装 `Node.js`，然后运行：
+安装 Node.js 24，使用可写的仓库目录或完整解压的交付目录。独立演示使用 Node 内置模块，无需安装 Harness 工作区依赖。
 
 ```sh
-npx @deepseek-ai/dsh web
+node scripts/jingguan/start_demo.mjs --check
+node scripts/jingguan/start_demo.mjs --offline
 ```
 
-该命令默认会在 `http://127.0.0.1:3080` 启动 Web UI，本机启动时还会用默认浏览器打开页面。通过 SSH 启动时只打印宿主机 URL，因为本地转发地址由 SSH 客户端或编辑器持有。传入 `--no-open` 可仅运行服务器而不打开浏览器。详见 [Web UI 指南](docs/user/guide/index.zh.md)。
+启动器报告就绪后，打开 http://127.0.0.1:8762/ 。离线模式可查看、导入和导出已有结果。需要新的模型抽取时，在本机配置密钥并按[启动教程](START-HERE.zh.md)操作。页面接收解析后的 evidence JSON 或公告全文；原始 PDF 须先解析。
 
-<a id="run-from-source"></a>
+## 证据与成绩
 
-### 从源码运行
+实测分子、分母和批次以[交付成绩单](evaluation/2026-10-17-delivery-metrics/metrics.md)为准，三次页面、五次 CLI 验证见[独立运行回执](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md)。历史缓存批次不等于新的抽取，也不能证明陌生文档的准确率。不同批次不能合并成一个准确率结论。
 
-如需从仓库源码运行：
+工作台支持导入事件 JSON、查看字段证据，以及导出 JSON / CSV。原文引文和页码、单元格引用依赖输入的解析结果。缺少可读文本和证据不足会明确保留为失败或弃权。
 
-```sh
-git clone https://github.com/deepseek-ai/deepseek-harness.git
-cd deepseek-harness
-pnpm install
-pnpm run build
-pnpm dsh web
-```
+## 项目文档
 
-`pnpm run build` 会准备仓库产物。`pnpm dsh web` 会直接使用这些已构建产物，不会重新构建。
+- [启动与故障排查](START-HERE.zh.md)
+- [录屏核对清单](DEMO-CHECKLIST.md)
+- [事件接口 v0.3](interface/README.md)
+- [公告抽取插件](packages/jingguan/core/README.zh.md)
+- [UI 服务](workspace/zhangzhibo/ui_redesign/README.zh.md)
+- [D13 历史复现记录](docs/d13-reproduction.md)
 
-## 社区与支持
-
-- 通过 [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions) 提交反馈或 bug 报告。
-- 为你的插件仓库添加 [`dsh-plugin`](https://github.com/topics/dsh-plugin) 话题，便于被发现。
-- 欢迎加入 DeepSeek Harness 企微群：扫码添加企微小助手并填写入群问卷，完成后小助手会邀请你入群。
-
-<table>
-  <thead>
-    <tr>
-      <th align="center">企微小助手</th>
-      <th align="center">入群问卷</th>
-      <th align="center">微信公众号</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><img src="https://cdn.deepseek.com/harness/readme/community-wecom-assistant.png" alt="DeepSeek Harness 企微小助手二维码" width="180" height="180"></td>
-      <td align="center"><a href="https://trtgsjkv6r.feishu.cn/share/base/form/shrcnIt5twSVdLGD52KJBckGCgg"><img src="https://cdn.deepseek.com/harness/readme/community-wecom-survey.png" alt="DeepSeek Harness 入群问卷二维码" width="180" height="180"></a></td>
-      <td align="center"><img src="https://cdn.deepseek.com/harness/readme/community-wechat-official-account.png" alt="DeepSeek Harness 团队微信公众号二维码" width="180" height="180"></td>
-    </tr>
-  </tbody>
-</table>
-
-## 参与贡献
-
-参见 [CONTRIBUTING.md](CONTRIBUTING.zh.md)。
-
-## 开发
-
-请先阅读[开发指南](docs/development.zh.md)与[架构文档](docs/architecture.zh.md)。
-
-`pnpm run dev:web` 会在一个终端里完成构建、启动，并在源码修改时重建 client bundle；`make help` 列出 Web 与 Desktop 对应的 Make target。完整表格见开发指南的「应用命令」一节。
-
-面向 agent：请遵循 [AGENTS.md](AGENTS.md)。
-
-## 引用
-
-```bibtex
-@misc{deepseek-harness2026,
-  title={DeepSeek Harness: Everything is a Plugin},
-  author={DeepSeek-AI},
-  year={2026},
-  publisher={GitHub},
-  howpublished={\url{https://github.com/deepseek-ai/deepseek-harness}},
-}
-```
-
-## 许可证
-
-[MIT](LICENSE)
-
-第三方依赖及其许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+本仓库 fork 自 DeepSeek Harness，[许可证](LICENSE)和[第三方声明](THIRD_PARTY_NOTICES.md)适用于继承组件。FinStruct 业务代码位于 `scripts/jingguan/`、`packages/jingguan/`、`interface/` 和 `workspace/`；上游 Harness 文档与检查仍保留。

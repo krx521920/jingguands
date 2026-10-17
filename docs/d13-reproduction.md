@@ -1,19 +1,8 @@
 # D13 · 依赖 / 环境 / 许可证 / 复现说明
 
-> 魏文宇（抽取/编排侧）｜2026-10-09｜适用分支：`weiwenyu`
-> 本文是"从零克隆到全部成绩复现"的唯一入口说明。评测侧规程以宗 `zongbowen` 分支为准；
-> 解析侧可复现性以张 `sample/D13/D13-B1诊断与可复现性.md` 为准；本文覆盖**抽取侧全链**。
+> 魏文宇（抽取/编排侧）｜2026-10-09｜适用分支：`weiwenyu` 本文是"从零克隆到全部成绩复现"的唯一入口说明。评测侧规程以宗 `zongbowen` 分支为准； 解析侧可复现性以张 `sample/D13/D13-B1诊断与可复现性.md` 为准；本文覆盖**抽取侧全链**。
 >
-> **并包树（`delivery/v2.0`／`v2.0-delivery`）路径对照**（2026-10-10）：宗并包把我方 `evaluation/D*` 证据
-> 217 件按原路径并入 `evaluation/run-side/weiwenyu/`（字节不动，blob sha 复用），宗方正典仍在 `evaluation/` 原位。
-> `scripts/jingguan/lib/side_paths.mjs` 提供镜像解析：本文凡指向我方 `evaluation/D12/wei-runs/`、
-> `evaluation/D9/snapshot-paths.json`、`evaluation/D11/call-logs/` 等路径的命令，在并包树上**原样可跑**
-> （原址缺失自动落镜像，stderr 有 `[side]` 提示）；在 `weiwenyu` 分支上行为不变。
-> **阅读引用同理**：本文提到的 `evaluation/D12/wei-runs/README.md`、`evaluation/D11/README-firsttest-inputs.md`、
-> `evaluation/D11/call-logs/README.md`、`evaluation/D12/wei-runs/w6-perf-20page.md`、`evaluation/D9/snapshot-paths.json`
-> 等我方证据**原件在并包树位于 `evaluation/run-side/weiwenyu/` 对应子路径**（逐字节同源）；
-> `sample/D13/D13-B1诊断与可复现性.md` 属张 `zhangzhibo`/`sample` 分支（方案 A 不并入，见其分支）。E1 报告等写入件同理
-> 落镜像原位更新，不混入正典目录。
+> **并包树（`delivery/v2.0`／`v2.0-delivery`）路径对照**（2026-10-10）：宗并包把我方 `evaluation/D*` 证据 217 件按原路径并入 `evaluation/run-side/weiwenyu/`（字节不动，blob sha 复用），宗方正典仍在 `evaluation/` 原位。 `scripts/jingguan/lib/side_paths.mjs` 提供镜像解析：本文凡指向我方 `evaluation/D12/wei-runs/`、 `evaluation/D9/snapshot-paths.json`、`evaluation/D11/call-logs/` 等路径的命令，在并包树上**原样可跑** （原址缺失自动落镜像，stderr 有 `[side]` 提示）；在 `weiwenyu` 分支上行为不变。 **阅读引用同理**：本文提到的 `evaluation/D12/wei-runs/README.md`、`evaluation/D11/README-firsttest-inputs.md`、 `evaluation/D11/call-logs/README.md`、`evaluation/D12/wei-runs/w6-perf-20page.md`、`evaluation/D9/snapshot-paths.json` 等我方证据**原件在并包树位于 `evaluation/run-side/weiwenyu/` 对应子路径**（逐字节同源）； `sample/D13/D13-B1诊断与可复现性.md` 属张 `zhangzhibo`/`sample` 分支（方案 A 不并入，见其分支）。E1 报告等写入件同理 落镜像原位更新，不混入正典目录。
 
 ## 〇、产物地图（谁的分支放什么）
 
@@ -27,9 +16,7 @@
 
 ## 一、依赖
 
-**抽取/核验/归因/门禁全链：推荐 Node 24.x（团队实测 24.17/24.21），零 npm 依赖。**
-下限说明：抽取侧脚本自身仅用 Node 20.11+ 特性（import.meta.dirname/AbortSignal.any），但 vendored 方规则库（.mts 直跑）仅在 24.x 实测过——**不承诺 Node 20 原样可跑**（方的 D13 核验意见，已采纳）。
-所有脚本纯 Node 标准库（node:http / node:crypto / node:fs / node:child_process / fetch），`git clone` 后**不需要 `npm install`** 即可运行：
+**抽取/核验/归因/门禁全链：推荐 Node 24.x（团队实测 24.17/24.21），零 npm 依赖。** 下限说明：抽取侧脚本自身仅用 Node 20.11+ 特性（import.meta.dirname/AbortSignal.any），但 vendored 方规则库（.mts 直跑）仅在 24.x 实测过——**不承诺 Node 20 原样可跑**（方的 D13 核验意见，已采纳）。 所有脚本纯 Node 标准库（node:http / node:crypto / node:fs / node:child_process / fetch），`git clone` 后**不需要 `npm install`** 即可运行：
 
 ```bash
 node scripts/jingguan/gates.mjs        # 17 道门禁，一条命令
@@ -60,8 +47,7 @@ node scripts/jingguan/gates.mjs        # 17 道门禁，一条命令
 
 ### 其他
 
-- Git 建议设 `git config core.quotepath off`（中文路径明文显示，避免脚本转义问题）；
-  本仓库已带 `.gitattributes`（`tools/fang-matching/** -text`）防 vendored 包 CRLF 分叉。
+- Git 建议设 `git config core.quotepath off`（中文路径明文显示，避免脚本转义问题）； 本仓库已带 `.gitattributes`（`tools/fang-matching/** -text`）防 vendored 包 CRLF 分叉。
 - 平台：Windows 11 实测全程；路径统一 `node:path` 处理，macOS/Linux 无已知障碍。
 - 网络：GitHub 不稳时 `git config http.version HTTP/1.1`；模型调用走 api.deepseek.com。
 
@@ -81,10 +67,7 @@ git checkout weiwenyu
 node scripts/jingguan/gates.mjs
 ```
 
-评测侧文件（用例/评分器）**不在我分支**——门禁首次运行自动从 `origin/zongbowen` 物化到
-`runs/.tmp-eval/`（git show 字节精确，来源 sha 记 `runs/.tmp-eval/.provenance.json`），
-无需手工步骤。门禁含：契约五方机检、出处断言、宗 20 条格式、gold 一致性、行为回归、
-封存回放 20/20、D8 13/13、D9 20/20（含 W7 合计勾稽记录）、D10 10/10、D11 缺陷固化等。
+评测侧文件（用例/评分器）**不在我分支**——门禁首次运行自动从 `origin/zongbowen` 物化到 `runs/.tmp-eval/`（git show 字节精确，来源 sha 记 `runs/.tmp-eval/.provenance.json`）， 无需手工步骤。门禁含：契约五方机检、出处断言、宗 20 条格式、gold 一致性、行为回归、 封存回放 20/20、D8 13/13、D9 20/20（含 W7 合计勾稽记录）、D10 10/10、D11 缺陷固化等。
 
 ### 4.2 零成本重放 437/437（无需 API 密钥的确定性证明）
 
@@ -95,21 +78,13 @@ node scripts/jingguan/run_batch.mjs \
   --cache-dir evaluation/D12/wei-runs/cache-snapshot-d12 --jobs 4
 ```
 
-D12 冻结缓存快照（31 条＋SHA256SUMS）：模型响应字节与 D12-A 基线一致。
-**已实测（2026-10-09，批次 runs/batch-20261009T112750）**：按本节命令全量重放，
-events 与 D12-A 基线 **31/31 逐字节一致**、模型调用 30/30 缓存命中（第 31 份为扫描降级件，
-设计上不调用）。三组运行与比对报告见 `evaluation/D12/wei-runs/README.md`。
+D12 冻结缓存快照（31 条＋SHA256SUMS）：模型响应字节与 D12-A 基线一致。 **已实测（2026-10-09，批次 runs/batch-20261009T112750）**：按本节命令全量重放， events 与 D12-A 基线 **31/31 逐字节一致**、模型调用 30/30 缓存命中（第 31 份为扫描降级件， 设计上不调用）。三组运行与比对报告见 `evaluation/D12/wei-runs/README.md`。
 
-> **D17 不变量后的口径更新（2026-10-10，41d57c87）**：无值族 standardized 恒 false 的
-> 裁定落地后，当前代码重放 vs D12-A＝**28/31 逐字节＋4 处无值字段 standardized 标志翻正**
-> （PLD-008.announcement_date／PLD-009 E03.start_date／AWD-002 E01+E02.contract_signed，
-> 全部翻回 false 并记 call_log.repairs；值层 31/31 不变）。重放确定性不受影响：同代码
-> 两跑 events 仍 31/31 逐字节一致（2026-10-10 双跑实测）。
+> **D17 不变量后的口径更新（2026-10-10，41d57c87）**：无值族 standardized 恒 false 的 裁定落地后，当前代码重放 vs D12-A＝**28/31 逐字节＋4 处无值字段 standardized 标志翻正** （PLD-008.announcement_date／PLD-009 E03.start_date／AWD-002 E01+E02.contract_signed， 全部翻回 false 并记 call_log.repairs；值层 31/31 不变）。重放确定性不受影响：同代码 两跑 events 仍 31/31 逐字节一致（2026-10-10 双跑实测）。
 
 ### 4.3 冷跑（需要密钥）：修后基线 / 并发 / 重放三组
 
-命令与判据见 `evaluation/D12/wei-runs/README.md`——A：`--jobs 1` 冷跑对首测冻结值层
-437/437；B：`--jobs 4` 对 A 值层 437/437（零并发缺陷）；C：同缓存重放 events 逐字节一致。
+命令与判据见 `evaluation/D12/wei-runs/README.md`——A：`--jobs 1` 冷跑对首测冻结值层 437/437；B：`--jobs 4` 对 A 值层 437/437（零并发缺陷）；C：同缓存重放 events 逐字节一致。
 
 ### 4.4 首测五段评测（宗口径）
 
@@ -117,8 +92,7 @@ events 与 D12-A 基线 **31/31 逐字节一致**、模型调用 30/30 缓存命
 git fetch origin zongbowen && git checkout origin/zongbowen -- evaluation/D9 evaluation/D8 evaluation/D10 evaluation/D11/firsttest-envelopes
 ```
 
-然后按 `evaluation/D11/README-firsttest-inputs.md` 的 ①–⑤ 命令执行（封存 20 / D8 13 /
-D9 20 / D10 10）。评测侧正典在 zongbowen 分支，也可直接在该分支运行。
+然后按 `evaluation/D11/README-firsttest-inputs.md` 的 ①–⑤ 命令执行（封存 20 / D8 13 / D9 20 / D10 10）。评测侧正典在 zongbowen 分支，也可直接在该分支运行。
 
 ### 4.5 N09 抽取 HTTP 入口（Web/CLI 同源）
 
@@ -133,9 +107,7 @@ curl -X POST localhost:8788/extract -d '{"event_type":"pledge","parse_path":"cor
 
 评测侧裁定归宗；抽取侧的入口、标识与落盘约定如下，评测 README 可直接引用：
 
-1. **入口命令**（逐份独立、干净环境；事件类型**必须显式指定**——陌生样例文件名不含
-   pledge/equity/award 关键字，`run_batch` 的文件名推断对它们会返回 null 并跳过，实测
-   STR-04/05/06 文件名均无法推断）：
+1. **入口命令**（逐份独立、干净环境；事件类型**必须显式指定**——陌生样例文件名不含 pledge/equity/award 关键字，`run_batch` 的文件名推断对它们会返回 null 并跳过，实测 STR-04/05/06 文件名均无法推断）：
    ```bash
    node scripts/jingguan/run_extract.mjs --parse <样例.parse.json> --event-type <pledge|equity_change|award_contract>
    ```

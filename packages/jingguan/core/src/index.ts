@@ -199,12 +199,33 @@ export type EventEnvelope = {
   schema_version: '0.3'
   run_id: string
   is_mock: boolean
-  source: { file_id: string | null, file_name: string | null, file_sha256: string | null, parse_meta: { parser_version: string | null, page_count: number | null, blocks?: Array<Record<string, JsonValue>> | null } | null }
+  source: {
+    file_id: string | null
+    file_name: string | null
+    file_sha256: string | null
+    parse_meta: {
+      parser_version: string | null
+      page_count: number | null
+      blocks?: Array<Record<string, JsonValue>> | null
+    } | null
+  }
   events: Event[]
-  run_meta: { entry: 'cli' | 'web' | 'tool', model: string | null, started_at: string, duration_ms: number | null, code_version?: string, interface_version?: string, errors: string[] }
+  run_meta: {
+    entry: 'cli' | 'web' | 'tool'
+    model: string | null
+    started_at: string
+    duration_ms: number | null
+    code_version?: string
+    interface_version?: string
+    errors: string[]
+  }
 }
 
-/** 按注册表生成全 not_mentioned 的字段骨架（模型/规则抽取的起始容器）。 */
+/**
+ * 按注册表生成全 not_mentioned 的字段骨架（模型/规则抽取的起始容器）。
+ * @param eventType 决定字段、单位与分母要求的事件类型。
+ * @returns 独立字段对象组成的字典；值与引文尚未抽取。
+ */
 export function skeletonFields(eventType: EventType): Record<string, FieldValue> {
   const fields: Record<string, FieldValue> = {}
   for (const [fieldName, spec] of Object.entries(FIELD_REGISTRY[eventType])) {
@@ -228,7 +249,11 @@ export function skeletonFields(eventType: EventType): Record<string, FieldValue>
 /** strict 开关供 validateEnvelope 使用（模块级，D2 改为随调用传入）。 */
 let configStrict = true
 
-/** 结构校验：返回问题清单（空数组＝合规）。问题如实上报，不静默修正。 */
+/**
+ * 结构校验：返回问题清单（空数组＝合规）。问题如实上报，不静默修正。
+ * @param envelope 按 v0.3 事件格式检查的信封；严格字段检查使用当前插件配置。
+ * @returns 检出的结构问题；不修改输入，也不验证引文是否命中原文。
+ */
 export function validateEnvelope(envelope: EventEnvelope): string[] {
   const issues: string[] = []
   if (envelope.schema_version !== '0.3') issues.push(`schema_version 应为 "0.3"，实际 ${JSON.stringify(envelope.schema_version)}`)
@@ -253,7 +278,7 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
       }
       if (value.status === 'extracted') {
         if (value.provenance.length === 0) issues.push(`${fieldWhere} status=extracted 但无出处`)
-        else if (!value.provenance.some((p) => p.quote.trim().length > 0)) issues.push(`${fieldWhere} 出处缺 quote`)
+        else if (!value.provenance.some(p => p.quote.trim().length > 0)) issues.push(`${fieldWhere} 出处缺 quote`)
       }
       for (const [j, p] of value.provenance.entries()) {
         if (p.region === null || p.region === undefined || p.region.length < 4) continue
@@ -298,7 +323,7 @@ export function apply(ctx: Context, config: Config): void {
       render: (_args, value) => {
         // output.schema 为运行时 JSON Schema 声明，InferValue 对 {type:'object'} 裸节点推不出成员——
         // 这里按 execute 的实际返回结构收窄（值类型问题不改变运行时行为）
-        const v = value as { envelope: EventEnvelope, issues: string[] }
+        const v = value as { envelope: EventEnvelope; issues: string[] }
         return [{
           type: 'text',
           text: `v0.3 信封已生成（${v.envelope.is_mock ? 'mock 骨架' : '真实抽取'}）：${v.envelope.events.length} 个事件，问题 ${v.issues.length} 条`,

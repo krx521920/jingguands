@@ -1,12 +1,10 @@
 # D9 · B 归因流程与调用轨迹（提前于 10-05 交付）
 
-> 交付人：魏文宇　日期：2026-10-04　状态：引擎＋单测＋门禁就绪，待接方 D9 归因规则库与宗 20 条归因用例
-> 任务表 D9 魏："编排归因/核验工具；模型可解释但不得覆盖确定性规则判定。"
+> 交付人：魏文宇　日期：2026-10-04　状态：引擎＋单测＋门禁就绪，待接方 D9 归因规则库与宗 20 条归因用例 任务表 D9 魏："编排归因/核验工具；模型可解释但不得覆盖确定性规则判定。"
 
 ## 一、工具
 
-`scripts/jingguan/attribute_b.mjs`——输入 B 报告（verify_crossdoc 产出），对每条矛盾/证据不足
-输出**确定性归因**＋**调用轨迹**（trace：规则、输入值、引文、结论，逐条可审计）。
+`scripts/jingguan/attribute_b.mjs`——输入 B 报告（verify_crossdoc 产出），对每条矛盾/证据不足 输出**确定性归因**＋**调用轨迹**（trace：规则、输入值、引文、结论，逐条可审计）。
 
 ```bash
 node scripts/jingguan/attribute_b.mjs --report runs/D8-b-report-20261004.json [--rules <规则模块>] [--out <out.json>]
@@ -25,8 +23,7 @@ node scripts/jingguan/attribute_b.mjs --report runs/D8-b-report-20261004.json [-
 | 7 | ROUNDING_TOLERANCE | 口径差异·约数/舍入 | 相对差 ≤0.5% |
 | 8 | UNEXPLAINED_DISCREPANCY | **无法解释·保留疑点** | 以上皆不中——按方 D9 原则"不能解释则保留疑点"，不自动定矛盾 |
 
-顺序原则：可解释口径最优先（同句不同数若属量级错配仍归口径）；真矛盾从严——只有
-"同一原句不同数值"才自动判真矛盾，其余疑点留给人工/更正线索。
+顺序原则：可解释口径最优先（同句不同数若属量级错配仍归口径）；真矛盾从严——只有 "同一原句不同数值"才自动判真矛盾，其余疑点留给人工/更正线索。
 
 ## 三、插件接口（方 D9 归因规则库接入点）
 
@@ -39,80 +36,44 @@ export const attributeRules = [{
 }]
 ```
 
-插件规则**先于**内置链执行（规则库同为确定性规则）；插件异常逐条捕获记入 trace
-不炸整跑（B2 精神），并落回内置链。`model_explanation` 字段接口预留（LLM 解释只附加、
-**永不覆盖**规则判定——当前恒 null）。
+插件规则**先于**内置链执行（规则库同为确定性规则）；插件异常逐条捕获记入 trace 不炸整跑（B2 精神），并落回内置链。`model_explanation` 字段接口预留（LLM 解释只附加、 **永不覆盖**规则判定——当前恒 null）。
 
 ## 四、验证
 
-- **单测 11 组**（`test_attribution.mjs`，已入第 14 道门禁）：万/亿错配、累计 vs 单次
-  （科创新材真实数字 8,427,900=四分项之和）、币种（AWD-007 真实数字 317,915,000 vs
-  173,800,000）、同句不同数、时点衔接（鸿路真实数字 744,970,839→753,463,864）、舍入、
-  无法解释保留疑点、证据不足不猜、插件优先＋轨迹、插件异常隔离、无差异空报告。
-- **真实报告**：宗 13 组 B 报告 → 1 条归因（PAIR-013 → insufficient_evidence，
-  `runs/D8-attribution-20261004.json`）；其余 12 组 0 矛盾（引擎零误报的副产品）。
+- **单测 11 组**（`test_attribution.mjs`，已入第 14 道门禁）：万/亿错配、累计 vs 单次 （科创新材真实数字 8,427,900=四分项之和）、币种（AWD-007 真实数字 317,915,000 vs 173,800,000）、同句不同数、时点衔接（鸿路真实数字 744,970,839→753,463,864）、舍入、 无法解释保留疑点、证据不足不猜、插件优先＋轨迹、插件异常隔离、无差异空报告。
+- **真实报告**：宗 13 组 B 报告 → 1 条归因（PAIR-013 → insufficient_evidence， `runs/D8-attribution-20261004.json`）；其余 12 组 0 矛盾（引擎零误报的副产品）。
 
 ## 五、明日接线清单（D9 正式日）
 
-1. **方**归因规则库（单位/币种/税口径/分母/累计/时间）→ 以 `--rules` 接入，单测里
-   FANG_TAX_CALIBER 桩已验证通路。
-2. **宗** 20 条归因用例（正常进展/更正/口径差异/真矛盾）→ 作为归因回归集；鸿路
-   "区间披露 vs 单次触及"（runs/d8-demo-20261004/demo-report-5groups-record.json）
-   可直接作"口径差异"候选用例。
+1. **方**归因规则库（单位/币种/税口径/分母/累计/时间）→ 以 `--rules` 接入，单测里 FANG_TAX_CALIBER 桩已验证通路。
+2. **宗** 20 条归因用例（正常进展/更正/口径差异/真矛盾）→ 作为归因回归集；鸿路 "区间披露 vs 单次触及"（runs/d8-demo-20261004/demo-report-5groups-record.json） 可直接作"口径差异"候选用例。
 3. **陈**：trace/attribution 字段进核验清单页（双侧证据视图的"差异归因"列）。
-4. 更正（correction）类归因当前落在 UNEXPLAINED（保留疑点）——待宗用例给出更正的
-   判别特征（公告编号继任/更正公告标题）后升级为独立规则。
+4. 更正（correction）类归因当前落在 UNEXPLAINED（保留疑点）——待宗用例给出更正的 判别特征（公告编号继任/更正公告标题）后升级为独立规则。
 
 ## 六、宗 D9 20 条归因用例接入（2026-10-05，当日完成）
 
 宗交付（88d8e545，已按 git hash --no-filters 字节一致引入 evaluation/D9/）当日接入：
 
-- **runner**（`scripts/jingguan/run_d9_rules.mjs`）：消费 rules-cases.dev.json，产出宗 §五约定的
-  B 侧归因报告（corroborated/explainable_difference/restated/conflict/insufficient）。
-  判定链只读 sides 数据（值/字段/主体/引文/块）——**期望标签（expected_verdict/category/
-  attribution_basis）不进入判定**；顺序：空值→币种折合→单侧（主体可锚=部分覆盖/不可锚=证据不足）
-  →字段口径（本次vs累计/分母/含税）→显式更正→合计形态→同主体等值互证→合计语境→反向咬合→
-  量级/舍入/时点→矛盾候选（须双侧证据，缺则 insufficient）。
-- **成绩**：`score-rules.mjs --strict` **PASS 20/20（0 fail 0 not_run，矛盾误报 0 漏报 0）**；
-  判定分布与期望全等（互证 5/可解释 11/证据不足 2/更正 1/真矛盾 1）。
-  证据：runs/D9-rules-report-20261005.json＋runs/D9-rules-score-20261005.json。
+- **runner**（`scripts/jingguan/run_d9_rules.mjs`）：消费 rules-cases.dev.json，产出宗 §五约定的 B 侧归因报告（corroborated/explainable_difference/restated/conflict/insufficient）。 判定链只读 sides 数据（值/字段/主体/引文/块）——**期望标签（expected_verdict/category/ attribution_basis）不进入判定**；顺序：空值→币种折合→单侧（主体可锚=部分覆盖/不可锚=证据不足） →字段口径（本次vs累计/分母/含税）→显式更正→合计形态→同主体等值互证→合计语境→反向咬合→ 量级/舍入/时点→矛盾候选（须双侧证据，缺则 insufficient）。
+- **成绩**：`score-rules.mjs --strict` **PASS 20/20（0 fail 0 not_run，矛盾误报 0 漏报 0）**； 判定分布与期望全等（互证 5/可解释 11/证据不足 2/更正 1/真矛盾 1）。 证据：runs/D9-rules-report-20261005.json＋runs/D9-rules-score-20261005.json。
 - **门禁第 16 道**：`test_d9_rules.mjs`（runner＋严格评分，临时报告用后即删）。
-- 修正记录：首跑 19/20——D9-RULE-003（于春生增持股数两文档一致）被"合计语境"分支误截；
-  链序修正为"同主体等值互证先于合计语境"（合计字样是语境描述，不改变该主体数值一致性）。
+- 修正记录：首跑 19/20——D9-RULE-003（于春生增持股数两文档一致）被"合计语境"分支误截； 链序修正为"同主体等值互证先于合计语境"（合计字样是语境描述，不改变该主体数值一致性）。
 
 ## 七、宗 v0.2 重锚版消费＋块内容级硬校验（2026-10-05）
 
-宗 5d1b06f0 按张/魏重锚清单修正 5 处 block_id（RULE-009→b00015、RULE-010×2→b00025/b00084、
-RULE-012×2→b00026/b00027；歧义处 50,350,000 由宗人工定为 b00084）——当日消费：
+宗 5d1b06f0 按张/魏重锚清单修正 5 处 block_id（RULE-009→b00015、RULE-010×2→b00025/b00084、 RULE-012×2→b00026/b00027；歧义处 50,350,000 由宗人工定为 b00084）——当日消费：
 
 - re-vendor 字节一致（git hash --no-filters 校验）。
-- **`--verify-blocks` 块内容级硬校验上线**（主源＝批次信封 parse_meta.blocks，不依赖张包
-  再生成）：NFKC＋去空白归一后 quote∈block 逐真实侧验证——**30 个真实侧全部 true、0 false**
-  （含宗新锚的 5 处；RULE-017 扫描降级侧与 SYNTH-* 受控项按设计豁免记 null）。
-- 真实语料 conflict 的双侧证据从"报告层存在性"升为"块内容级"：任一侧不可验证 →
-  evidence_verified=false。--bilateral 标注层保留（张包待按 v0.2 再生成）。
-- v0.2 + --verify-blocks：宗评分 --strict **PASS 20/20**；门禁 16 升级（块级 true=30/false=0
-  入断言）。证据：runs/D9-rules-report-v02-20261005.json。
+- **`--verify-blocks` 块内容级硬校验上线**（主源＝批次信封 parse_meta.blocks，不依赖张包 再生成）：NFKC＋去空白归一后 quote∈block 逐真实侧验证——**30 个真实侧全部 true、0 false** （含宗新锚的 5 处；RULE-017 扫描降级侧与 SYNTH-* 受控项按设计豁免记 null）。
+- 真实语料 conflict 的双侧证据从"报告层存在性"升为"块内容级"：任一侧不可验证 → evidence_verified=false。--bilateral 标注层保留（张包待按 v0.2 再生成）。
+- v0.2 + --verify-blocks：宗评分 --strict **PASS 20/20**；门禁 16 升级（块级 true=30/false=0 入断言）。证据：runs/D9-rules-report-v02-20261005.json。
 
 ## 八、方 D9 归因规则库全接入（2026-10-05 当日）
 
-方 a7b60a2d（vendor tools/fang-attribution/ 58 文件字节一致，含其 vendor_D8 依赖；其 57/57 自测过），
-其"待协同事项"给魏的两项接口当日落地：
+方 a7b60a2d（vendor tools/fang-attribution/ 58 文件字节一致，含其 vendor_D8 依赖；其 57/57 自测过）， 其"待协同事项"给魏的两项接口当日落地：
 
-1. **B 报告路径**：verify_crossdoc 新增 `--d9-enrich`——冲突附 `d9_input`（两侧
-   unit/raw_value/block_id/page/quote，与 values 逐项对齐）＋组级 `d9_context={documents,parses}`。
-   端到端实证：注入真冲突（EQC-002 蔚文绪 shares_after 改 1 位）→ 富化 B 报告 →
-   `attribute_b --rules 方wei_adapter_D9.mjs` → **plugin:FANG_D9_EVIDENCE_FIRST 判 true_conflict**
-   （其 SAME_BASIS_CONFLICT 规则）。判定零变化（回归：13/13＋3/3 保持）。
-2. **用例直通路径**：run_d9_rules 新增 `--rules <attributeCase 模块>`＋`--envelopes`＋
-   `--parses-map`（全保真原始解析文件映射 runs/D9-parses-map.json，10/11 案例覆盖——
-   信封内嵌块是精简版无 source_type/table_ref，方库 cell 级核验必须用原始解析）。
-   **结果 18/20 与方自跑逐字一致**（5 互证/11 可解释/4 不足；019/020 受控缺事实判
-   insufficient＝其自报边界，非接口缺陷）。证据 runs/D9-rules-fanglib-20261005.json。
+1. **B 报告路径**：verify_crossdoc 新增 `--d9-enrich`——冲突附 `d9_input`（两侧 unit/raw_value/block_id/page/quote，与 values 逐项对齐）＋组级 `d9_context={documents,parses}`。 端到端实证：注入真冲突（EQC-002 蔚文绪 shares_after 改 1 位）→ 富化 B 报告 → `attribute_b --rules 方wei_adapter_D9.mjs` → **plugin:FANG_D9_EVIDENCE_FIRST 判 true_conflict** （其 SAME_BASIS_CONFLICT 规则）。判定零变化（回归：13/13＋3/3 保持）。
+2. **用例直通路径**：run_d9_rules 新增 `--rules <attributeCase 模块>`＋`--envelopes`＋ `--parses-map`（全保真原始解析文件映射 runs/D9-parses-map.json，10/11 案例覆盖—— 信封内嵌块是精简版无 source_type/table_ref，方库 cell 级核验必须用原始解析）。 **结果 18/20 与方自跑逐字一致**（5 互证/11 可解释/4 不足；019/020 受控缺事实判 insufficient＝其自报边界，非接口缺陷）。证据 runs/D9-rules-fanglib-20261005.json。
 3. **门禁**：test_d9_rules 增方库直通断言（分布对齐其自跑＋019/020 诚实 insufficient）。
 
-**宗 D7 裁决已落签（发现于 5073ffc7 内 evaluation/integration/D7-normalization-adjudication.md）：
-方案 C 分层**——强锚(cell 三重)＝extracted/strong、中锚(header_path，现行)＝**extracted 不降级**
-/medium、弱锚＝extracted/weak、无锚/冲突＝needs_review，新增 `unit_basis`＋`evidence_strength`
-两字段（契约变更）。宗已复核我证据页 181/103/78/0 全部一致。实施（抽取期分层打标＋gold 契约
-扩展＋check-strength-tier.mjs 对接）列 D10。
+**宗 D7 裁决已落签（发现于 5073ffc7 内 evaluation/integration/D7-normalization-adjudication.md）： 方案 C 分层**——强锚(cell 三重)＝extracted/strong、中锚(header_path，现行)＝**extracted 不降级** /medium、弱锚＝extracted/weak、无锚/冲突＝needs_review，新增 `unit_basis`＋`evidence_strength` 两字段（契约变更）。宗已复核我证据页 181/103/78/0 全部一致。实施（抽取期分层打标＋gold 契约 扩展＋check-strength-tier.mjs 对接）列 D10。

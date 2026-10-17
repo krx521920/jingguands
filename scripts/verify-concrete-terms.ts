@@ -5,8 +5,10 @@ import { lstatSync, readFileSync, readlinkSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { historicalSchemaRegion } from './historical-schema-region.ts'
+import { parseFinStructExceptions, matchesFinStructException, validateFinStructExceptions } from './finstruct-doc-exceptions.ts'
 
 const root = resolve(import.meta.dirname, '..')
+const finStructExceptions = parseFinStructExceptions(readFileSync(resolve(root, 'scripts/finstruct-doc-exceptions.json'), 'utf8'))
 const blockedTerm = 'prove' + 'nance'
 const excludedPrefixes = ['vendor/', '.agents/notes/archived/'] as const
 
@@ -34,10 +36,11 @@ function containsBlockedTerm(value: string): boolean {
  * Find the blocked term in one maintained tracked file.
  * @param file - repository-relative tracked path.
  * @param source - text contents or symlink target.
- * @returns violations outside vendored sources, frozen Agent Notes, historical schemas and their checked generated regions.
+ * @returns Violations outside vendor, frozen notes, historical schema regions, and reviewed FinStruct protocol contents.
  */
 export function findConcreteTermViolations(file: string, source: string): ConcreteTermViolation[] {
   if (isExcluded(file)) return []
+  if (matchesFinStructException(file, source, 'protocol', finStructExceptions)) return []
   const violations: ConcreteTermViolation[] = []
   if (containsBlockedTerm(file)) violations.push({ file, line: null })
   const lines = source.split(/\r?\n/u)
@@ -78,8 +81,12 @@ export function readTrackedSource(repoRoot: string, file: string): string | unde
 }
 
 function scanRepository(repoRoot: string): ConcreteTermViolation[] {
+  const errors = validateFinStructExceptions(finStructExceptions, file => readTrackedSource(repoRoot, file))
+  if (errors.length > 0) throw new Error(errors.join('\n'))
   const violations: ConcreteTermViolation[] = []
   for (const file of trackedFiles(repoRoot)) {
+    // The validated inventory contains exact file paths, not authored terminology.
+    if (file === 'scripts/finstruct-doc-exceptions.json') continue
     const source = readTrackedSource(repoRoot, file)
     if (source === undefined) continue
     violations.push(...findConcreteTermViolations(file, source))
@@ -92,7 +99,7 @@ const isMain = invokedPath !== undefined && import.meta.url === pathToFileURL(re
 if (isMain) {
   const violations = scanRepository(root)
   if (violations.length === 0) {
-    console.log(`verify-concrete-terms: maintained tracked files contain no ${blockedTerm}.`)
+    console.log(`verify-concrete-terms: no unreviewed ${blockedTerm}; ${Object.keys(finStructExceptions.protocol).length} content-bound protocol exceptions validated.`)
   } else {
     console.error(`verify-concrete-terms: ${blockedTerm} is forbidden; name the exact source, field, identity, or evidence:`)
     for (const violation of violations) {

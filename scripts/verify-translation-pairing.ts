@@ -13,6 +13,7 @@
 import { existsSync, globSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { basename, join, resolve, sep } from 'node:path'
 import { gitIndexPaths, readGitIndexBlob } from './translation-pairing-git.ts'
+import { parseFinStructExceptions, validateFinStructExceptions, finStructDocumentExclusionErrors } from './finstruct-doc-exceptions.ts'
 import {
   computeTranslationPairingRecord,
   parseTranslationPairingRecord,
@@ -84,7 +85,15 @@ const manifestContent = readRepositoryFile('scripts/translation-pairing.manifest
 if (manifestContent === undefined) {
   throw new Error('scripts/translation-pairing.manifest.json is missing from the selected content plane')
 }
+const exceptionContent = readRepositoryFile('scripts/finstruct-doc-exceptions.json')
+if (exceptionContent === undefined) throw new Error('FinStruct document review inventory is missing')
+const documentExceptions = parseFinStructExceptions(exceptionContent.toString('utf8'))
+const documentReviewErrors = validateFinStructExceptions({ protocol: {}, records: {}, teamDocuments: documentExceptions.teamDocuments },
+  file => readRepositoryFile(file)?.toString('utf8'))
+if (documentReviewErrors.length > 0) throw new Error(documentReviewErrors.join('\n'))
 const manifest = parseTranslationPairingManifest(manifestContent.toString('utf8'))
+const exclusionErrors = finStructDocumentExclusionErrors(manifest.excluded, documentExceptions)
+if (exclusionErrors.length > 0) throw new Error(exclusionErrors.join('\n'))
 const isTranslationPairSource = translationPairSourcePredicate(manifest)
 
 /**

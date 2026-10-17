@@ -1,0 +1,10 @@
+# Bilingual-pair consistency record for START-HERE.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write START-HERE.md
+/finstruct-demo-startup-guide:
+  en: 2af5dc9ce3344486
+  zh: 7175a6c847c96ebc
+/finstruct-demo-startup-guide/troubleshooting-and-acceptance:
+  en: f5a6d402b7b89e7c
+  zh: 6d8575ed30db57ad

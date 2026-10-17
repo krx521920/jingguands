@@ -13,7 +13,10 @@ export type SerializedTextRefNode = SerializedTextNode
 
 /** One matched plain-text reference as a styled, fully editable text node. */
 export class TextRefNode extends TextNode {
-  /** Lexical node registry type tag. */
+  /**
+   * Lexical node registry type tag.
+   * @returns The stable `composer-text-ref` serialization tag.
+   */
   static override getType(): string {
     return 'composer-text-ref'
   }
@@ -41,7 +44,10 @@ export class TextRefNode extends TextNode {
     return node
   }
 
-  /** Serialize to the JSON node form. */
+  /**
+   * Serialize to the JSON node form.
+   * @returns TextNode data with the text-reference type tag.
+   */
   override exportJSON(): SerializedTextRefNode {
     return {
       ...super.exportJSON(),
@@ -49,7 +55,11 @@ export class TextRefNode extends TextNode {
     }
   }
 
-  /** Style the span the base TextNode mounts. */
+  /**
+   * Style the span the base TextNode mounts.
+   * @param config - Editor configuration passed to the base TextNode renderer.
+   * @returns The reference-styled text element with spell checking disabled.
+   */
   override createDOM(config: EditorConfig): HTMLElement {
     const el = super.createDOM(config)
     el.className = clsx(el.className, css.reference, css.textRef, this.getTextContent().startsWith('/') && css.openable)
@@ -58,12 +68,18 @@ export class TextRefNode extends TextNode {
     return el
   }
 
-  /** Entity nodes never merge with plain siblings (the transform owns their bounds). */
+  /**
+   * Entity nodes never merge with plain siblings (the transform owns their bounds).
+   * @returns True to retain the text-entity boundary.
+   */
   override isTextEntity(): true {
     return true
   }
 
-  /** Editing continues inside; the transform re-evaluates match shape per edit. */
+  /**
+   * Editing continues inside; the transform re-evaluates match shape per edit.
+   * @returns True to permit insertion before this node's text.
+   */
   override canInsertTextBefore(): boolean {
     return true
   }

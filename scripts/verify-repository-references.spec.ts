@@ -44,6 +44,18 @@ function repository(test: TestContext) {
 }
 
 describe('maintained repository reference policy', () => {
+  it('retains local run versions while rejecting the same commit in other fields or prose', () => {
+    const commit = 'abc1234def5678'
+    const file = 'workspace/cjh/page_prototype/data/run.json'
+    const source = JSON.stringify({ schema_version: '0.3', run_meta: { code_version: commit }, note: commit }, null, 2)
+    expect(findRepositoryReferences(file, source, new Set([commit])))
+      .toEqual([{ file, line: 6, kind: 'commit-hash' }])
+    const url = JSON.stringify({ schema_version: '0.3', run_meta: { code_version: commit }, note: organizationUrl })
+    expect(findRepositoryReferences(file, url, new Set([commit])))
+      .toEqual([{ file, line: 1, kind: 'organization-url' }])
+    expect(findRepositoryReferences('docs/current.json', source, new Set([commit]))).toHaveLength(2)
+    expect(findRepositoryReferences(file, source + 'broken', new Set([commit]))).toHaveLength(2)
+  })
   it('permits only the independent kit repository and its source URLs', () => {
     for (const suffix of ['', '.git', '/tree/main/packages/entry']) {
       expect(findRepositoryReferences('package.json', `${organizationUrl}/libreoffice-kit${suffix}`, new Set())).toEqual([])

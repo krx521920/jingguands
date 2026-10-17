@@ -1,7 +1,6 @@
 # 方案 C 强度分布回传（宗校验器已可裁决，2026-10-06）
 
-> 回传人：魏文宇　对象：宗 check-strength-tier.mjs（等待项清偿：181 unknown→0）
-> 审计：runs/D7-normalization-audit-20261005.json（逐变更 evidence_strength＋unit_basis）
+> 回传人：魏文宇　对象：宗 check-strength-tier.mjs（等待项清偿：181 unknown→0） 审计：runs/D7-normalization-audit-20261005.json（逐变更 evidence_strength＋unit_basis）
 
 ## 终判数据（宗校验器输出 runs/strength-tier-check.json）
 
@@ -14,14 +13,9 @@
 
 ## 三个结论
 
-1. **方案 C 的正确性被实证**：方的 76 处 UNIT_MISSING 降级中 71 处实际是 cell 级强锚——
-   他判"无锚"是因为消费了我信封内的**精简块**（仅 7 键，无 source_type/table_ref）；
-   用原始解析分类后这些字段本应 strong。维持现行 gold＋D7 审计层的 D8 建议被数据确认。
-2. **信封内嵌块精简是根因之一**：建议后续 run_extract 的 parse_meta.blocks 保留
-   source_type/table_ref/header_path（体积换保真），或下游一律走 parses-map 原始文件。
-3. **真需要降级的只有 7 个字段**：EQC-010 的 5 个（段落裸数字无任何锚→none）＋
-   PLD-009 的 2 个（conflict）——**gold 是否对这 7 个字段改 needs_review 请宗定**；
-   若改，我半小时内出对照批次。
+1. **方案 C 的正确性被实证**：方的 76 处 UNIT_MISSING 降级中 71 处实际是 cell 级强锚—— 他判"无锚"是因为消费了我信封内的**精简块**（仅 7 键，无 source_type/table_ref）； 用原始解析分类后这些字段本应 strong。维持现行 gold＋D7 审计层的 D8 建议被数据确认。
+2. **信封内嵌块精简是根因之一**：建议后续 run_extract 的 parse_meta.blocks 保留 source_type/table_ref/header_path（体积换保真），或下游一律走 parses-map 原始文件。
+3. **真需要降级的只有 7 个字段**：EQC-010 的 5 个（段落裸数字无任何锚→none）＋ PLD-009 的 2 个（conflict）——**gold 是否对这 7 个字段改 needs_review 请宗定**； 若改，我半小时内出对照批次。
 
 ## 复现
 

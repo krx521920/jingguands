@@ -9193,6 +9193,19 @@ importers:
         specifier: workspace:*
         version: link:../../core/scope
 
+  packages/jingguan/core:
+    dependencies:
+      '@deepseek-ai/schemastery':
+        specifier: link:../../../vendor/schemastery
+        version: link:../../../vendor/schemastery
+    devDependencies:
+      '@deepseek-ai/cordis':
+        specifier: workspace:~
+        version: link:../../../vendor/cordis
+      '@deepseek-ai/dsh-tools':
+        specifier: workspace:*
+        version: link:../../core/tools
+
   packages/jobs/jobs:
     devDependencies:
       '@deepseek-ai/cordis':

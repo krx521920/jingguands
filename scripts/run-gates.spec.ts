@@ -266,6 +266,13 @@ describe('gate graph validation', () => {
     expect(ids).toContain('concrete-terms')
   })
 
+  it('executes FinStruct exception negative controls in the unchanged documentation test leaf', () => {
+    const gates = withPnpmEntrypoint(() => gatesForMode('doc-sync'))
+    expect(gates.find(gate => gate.id === 'doc-standard-tests')?.args)
+      .toContain('scripts/finstruct-doc-exceptions.spec.ts')
+    expect(gates).toHaveLength(42)
+  })
+
   it('checks retrospective releases alongside the current persistence history', () => {
     for (const mode of ['doc-sync', 'ci-static'] as const) {
       const ids = withPnpmEntrypoint(() => gatesForMode(mode).map(subject => subject.id))

@@ -4270,6 +4270,23 @@ export interface Config {
 ```
 <!-- END GENERATED config-catalog:@deepseek-ai/dsh-workspace-changes -->
 
+<!-- BEGIN GENERATED config-catalog:@jingguan/core -->
+<a id="jingguancore"></a>
+
+## `@jingguan/core`
+
+- `inject`: `tools`
+- `source`: [`packages/jingguan/core/src/index.ts:84`](../packages/jingguan/core/src/index.ts)
+
+```ts config-catalog
+/** 插件配置。 */
+export interface Config {
+  /** 严格模式：事件中出现注册表之外的字段名时报错。 */
+  strict: boolean
+}
+```
+<!-- END GENERATED config-catalog:@jingguan/core -->
+
 ## Loadable plugins with no config
 
 These load from a `cordis.yml` entry with no `config:` block; they declare no configuration API.

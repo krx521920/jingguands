@@ -1,0 +1,26 @@
+.review-intro{color:var(--ink-2);margin:0 0 24px;line-height:1.8}
+.review-card{border:1px solid var(--line);border-radius:16px;padding:24px;margin:20px 0;background:var(--paper)}
+.review-card header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.review-card h3,.pair h3{font-size:16px;margin:18px 0 10px}
+.review-sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
+.review-source{padding:16px;border:1px solid var(--line);border-radius:10px;min-width:0}
+.review-source .side{font-size:12px;color:var(--ink-2);font-weight:600}
+.review-source p{font-size:12px;overflow-wrap:anywhere;line-height:1.8;margin:7px 0}
+.review-source blockquote{font-size:14px;margin:12px 0;line-height:1.8;white-space:pre-wrap;max-height:160px;overflow:auto}
+.source-open,.source-field,.source-close{font:inherit;font-size:12px;padding:8px 12px;border:1px solid var(--act);border-radius:7px;background:transparent;color:var(--act);cursor:pointer}
+.source-open:hover,.source-field:hover{background:var(--paper-2)}
+.source-open:focus-visible,.source-field:focus-visible,.source-close:focus-visible{outline:2px solid var(--act);outline-offset:3px}
+.source-purpose{font-size:12px;color:var(--ink-3);line-height:1.8}
+.review-equation{font-size:20px;line-height:1.8;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.review-warning{color:var(--warn);font-size:13px;line-height:1.8}
+.controlled{border-color:var(--act);border-left-width:4px}
+.review-heading{margin-top:30px}
+.review-findings,.review-finding{padding:14px 0;border-top:1px solid var(--line);line-height:1.8;font-size:13px}
+.source-dialog{width:min(780px,calc(100vw - 36px));max-height:85vh;margin:auto;padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--paper);color:var(--ink);box-shadow:0 24px 80px #0003}
+.source-dialog::backdrop{background:#21182466}
+.source-dialog form{text-align:right}
+.source-dialog h2{font-size:22px;margin:0 0 20px}
+.source-dialog pre{font:inherit;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:2;margin:20px 0;max-height:48vh;overflow:auto}
+.source-dialog mark{background:#e7cdb1;color:#372b20}
+tr.frow.source-selected{outline:2px solid var(--act);outline-offset:-2px}
+@media(max-width:700px){.review-sources{grid-template-columns:1fr}.review-card{padding:16px}.review-equation{font-size:17px}.source-dialog{padding:20px}}

@@ -208,6 +208,7 @@ async function loadDataset(name) {
       $("#expCsv").href = `/api/export?dataset=${encodeURIComponent(name)}&format=csv`;
       $("#expJson").href = `/api/export?dataset=${encodeURIComponent(name)}&format=json`;
     }
+    return r;
   } catch (e) {
     $("#ledger").innerHTML = errHTML(e);
   }
@@ -260,7 +261,7 @@ function renderResult(r) {
         ? ids.map(id => `<span class="anchor" data-ev="${esc(id)}">${blockShort((r.evidences || []).find(e => e.evidence_id === id)?.block_id)}</span><sup>${evNo[id] || ""}</sup>`).join(" ")
         : `<span style="font-size:11px;color:var(--ink-3)">—</span>`;
       const delay = Math.round(Math.min(rowSeq++ * rowStep, 700));
-      return `<tr class="frow${st !== "success" ? " abn" : ""}" data-st="${st}" data-fn="${esc(fn)}" data-ev="${esc(ids[0] || "")}" style="animation-delay:${delay}ms">
+      return `<tr class="frow${st !== "success" ? " abn" : ""}" data-st="${st}" data-fn="${esc(fn)}" data-event="${esc(ev.event_id)}" data-ev="${esc(ids[0] || "")}" style="animation-delay:${delay}ms">
         <td class="fn">${esc(FIELD_TEXT[fn] || fn)}</td>
         <td class="fv">${valHTML}</td>
         <td><span class="state ${(STATUS[st] || [, "gray"])[1]}">${(STATUS[st] || [st])[0]}</span></td>
@@ -517,74 +518,10 @@ $("#drop").addEventListener("drop", e => uploadFiles(e.dataTransfer.files));
 
 /* ═══════════ 02 配对 ═══════════ */
 function renderPairs(d) {
-  const s = d.summary || {};
-  const rank = g => { const rel = (g.b && g.b.predicted_relation) || "unknown"; return rel === "unknown" ? 2 : rel === "related" ? 1 : 0; };
-  const ordered = [...(d.groups || [])].sort((a, b) => rank(b) - rank(a));
-  const groups = ordered.map((g, gi) => {
-    const rel = (g.b && g.b.predicted_relation) || "unknown";
-    const [relTxt, relCls] = REL_TEXT[rel] || ["证据不足", "unknown"];
-    const expTxt = (REL_TEXT[g.expected_relation] || [g.expected_relation])[0];
-    const members = (g.members || []).map((m, i) => `
-      <div class="m">
-        <div class="side">成员 ${String.fromCharCode(65 + i)}</div>
-        <div class="pm"><span class="k">issuer</span><span class="v strong">${esc(m.issuer_name || "—")}</span></div>
-        <div class="pm"><span class="k">issuer_code</span><span class="v">${esc(m.issuer_code || "—")}</span></div>
-        <div class="pm"><span class="k">notice_no</span><span class="v">${esc(m.notice_number || "—")}</span></div>
-        <div class="pm"><span class="k">sha256</span><span class="v">${esc(String(m.raw_sha256 || "").slice(0, 12) || "—")}…</span></div>
-      </div>`).join("");
-    const reasons = (g.b && g.b.reasons || []).map(r => `<span class="y"><b>${esc(r)}</b></span>`).join(" ");
-    return `<div class="pair${gi === 0 ? " feature" : ""}">
-      <div class="pair-head"><span class="pid">${esc(g.group_id)}</span><span class="t">${esc(g.test_purpose || "")}</span><span class="verdict ${relCls}">${relTxt}</span></div>
-      <div class="pair-cols">${members}</div>
-      <div class="basis"><span>预期：<b>${esc(expTxt)}</b></span>${reasons}${g.relation_basis ? `<span>${esc(g.relation_basis)}</span>` : ""}</div>
-      ${rel === "unknown" ? `<div class="redline">unknown → 「证据不足」，绝不渲染为「不同事件」；补齐原文锚点后自动重判。</div>` : ""}
-    </div>`;
-  }).join("");
-  const ceil = d.corpus_ceiling ? `<div class="redline" style="margin-top:26px">语料上限：${esc(d.corpus_ceiling.note || "")}</div>` : "";
-  const strip = `<div class="stats mini">
-    <div class="stat"><div class="n">${s.groups_total ?? (d.groups || []).length}<span class="u">组</span></div><div class="l">封存配对清单</div></div>
-    <div class="stat"><div class="n">${s.related_hit ?? 0}</div><div class="l">同一事件</div></div>
-    <div class="stat"><div class="n">${s.unrelated_clean ?? 0}</div><div class="l">不同事件</div></div>
-    <div class="stat"><div class="n">${s.insufficient_signalled ?? 1}</div><div class="l">证据不足 · 首卡特写</div></div>
-  </div>`;
-  $("#pairsList").innerHTML = strip + groups + ceil;
-  countUps(document.querySelector("#pairsList .stats"));
+  $("#pairsList").innerHTML = ReviewView.pairs(d);
 }
-
-/* ═══════════ 03 核验 ═══════════ */
 function renderVerify(d) {
-  const s = d.summary || {};
-  const items = (d.findings || []).map((f, i) => {
-    const [sevTxt, sevCls] = SEV_TEXT[f.severity] || [f.severity, "gray"];
-    return `<div class="vf${i === 0 ? " feature" : ""}"><div class="no">${String(i + 1).padStart(2, "0")}</div>
-      <div>
-        <div class="vf-main"><span class="msg">${esc(f.message)}</span><span class="state ${sevCls}">${sevTxt}</span><span class="vf-code">${esc(f.code)}</span></div>
-        <div class="vf-sub"><span>${esc(f.dataset)}${f.event_id ? " · " + esc(f.event_id) : ""}</span>${f.holder ? `<span>主体：${esc(f.holder)}</span>` : ""}${f.fields ? `<span>字段：${esc(f.fields.join(", "))}</span>` : ""}</div>
-      </div>
-    </div>`;
-  }).join("");
-  const corrs = (d.pairs || []).filter(p => (p.corroborations || []).length).slice(0, 4).map((p, i) => {
-    const c = p.corroborations[0];
-    const docs = c.docs || [];
-    return `<div class="vf"><div class="no">${String((d.findings || []).length + i + 1).padStart(2, "0")}</div>
-      <div>
-        <div class="vf-main"><span class="msg">互证点：${esc(c.entity)} · ${esc(FIELD_TEXT[c.field] || c.field)} 两侧一致</span><span class="state ok">一致</span><span class="vf-code">${esc(p.group_id)}</span></div>
-        <div class="ab">
-          <div class="q"><span class="side">A 侧 · ${esc(docs[0] || "")}</span>「${esc(c.quotes?.[0] ?? String(c.value ?? ""))}」</div>
-          <div class="q"><span class="side">B 侧 · ${esc(docs[1] || "")}</span>「${esc(c.quotes?.[1] ?? String(c.value ?? ""))}」</div>
-        </div>
-        <div class="sum">${esc(FIELD_TEXT[c.field] || c.field)} = <b>${esc(String(c.value ?? ""))}</b> ✓ 两份公告逐字一致</div>
-      </div>
-    </div>`;
-  }).join("");
-  const vstrip = `<div class="stats mini">
-    <div class="stat"><div class="n">${s.datasets_checked}</div><div class="l">数据集核验</div></div>
-    <div class="stat"><div class="n">${s.verified_events}</div><div class="l">事件通过</div></div>
-    <div class="stat"><div class="n">${s.review_events}</div><div class="l">待复核</div></div>
-    <div class="stat"><div class="n">${s.by_severity?.conflict ?? 0}</div><div class="l">矛盾</div></div>
-  </div>`;
-  $("#verifyList").innerHTML = vstrip + items + corrs;
-  countUps(document.querySelector("#verifyList .stats"));
+  $("#verifyList").innerHTML = ReviewView.verify(d, FIELD_TEXT);
 }
 
 /* ═══════════ 04 集成 ═══════════ */
@@ -669,3 +606,22 @@ ensure.pairs();   // 预热配对章
 $("#ledger").innerHTML = `<div class="err" style="color:var(--ink-3)">连接真实接口…</div>`;
 refreshDatasets().catch(e => { $("#ledger").innerHTML = errHTML(e); });
 renderHomeStats();
+
+/** Follow the selected source to its exact event/field, refusing stale or mismatched evidence. */
+async function openSourceField(source) {
+  if (!source?.source_verified || !/^[a-z0-9_-]+$/i.test(source.dataset || "")) return toastShow("出处不可定位");
+  wsClose();
+  const result = await loadDataset(source.dataset);
+  if (!result) return toastShow("数据集加载失败，未跳转到旧数据");
+  const event = (result.events || []).find(e => e.event_id === source.event_id);
+  const field = event?.fields?.[source.field];
+  const evidence = (result.evidences || []).find(e => evIds(field || {}).includes(e.evidence_id) && e.block_id === source.block_id && e.quote === source.quote && e.page === source.page);
+  if (!field || !evidence) return toastShow("该字段出处与当前数据不一致，请重新核验");
+  $("#wsSel").value = source.dataset;
+  activate("doc");
+  const row = [...document.querySelectorAll("tr.frow")].find(n => n.dataset.event === source.event_id && n.dataset.fn === source.field);
+  document.querySelectorAll(".source-selected").forEach(n => n.classList.remove("source-selected"));
+  if (row) { row.classList.add("source-selected"); row.scrollIntoView({ block: "center", behavior: "smooth" }); }
+  document.querySelectorAll(".note").forEach(n => n.classList.toggle("hl", n.dataset.ev === evidence.evidence_id));
+}
+ReviewView.bind(document, openSourceField);

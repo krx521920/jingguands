@@ -5,8 +5,10 @@ import { lstatSync, readFileSync, readlinkSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { canonicalReferenceText } from './verify-public-repository-links.ts'
+import { parseFinStructExceptions, matchesFinStructException, runtimeCodeVersionRanges, validateFinStructExceptions } from './finstruct-doc-exceptions.ts'
 
 const root = resolve(import.meta.dirname, '..')
+const finStructExceptions = parseFinStructExceptions(readFileSync(resolve(root, 'scripts/finstruct-doc-exceptions.json'), 'utf8'))
 const organization = ['deepseek', 'harness'].join('-')
 const organizationUrl = new RegExp(`\\bgithub\\.com/${organization}(?![a-z0-9-])`)
 // The independent kit repository owns the engine source and documentation.
@@ -34,7 +36,7 @@ function isMaintained(file: string): boolean {
  * @param file - Repository-relative path used in diagnostics and exclusions.
  * @param source - File text or a symlink's stored target.
  * @param commits - Lowercase, unambiguous full or abbreviated commit identifiers.
- * @returns One finding per line and reference kind; digests and other Git object types are accepted.
+ * @returns One finding per line and reference kind, excluding captured versions; digests and non-commit Git objects are accepted.
  */
 export function findRepositoryReferences(
   file: string,
@@ -43,13 +45,18 @@ export function findRepositoryReferences(
 ): RepositoryReference[] {
   if (!isMaintained(file)) return []
   const references: RepositoryReference[] = []
+  const recorded = matchesFinStructException(file, source, 'records', finStructExceptions)
+  const versionRanges = runtimeCodeVersionRanges(file, source)
+  let offset = 0
   for (const [index, line] of source.split('\n').entries()) {
     if (organizationUrl.test(canonicalReferenceText(line).replace(kitRepositoryUrl, ''))) {
       references.push({ file, line: index + 1, kind: 'organization-url' })
     }
-    if ([...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase()))) {
+    if (!recorded && [...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase())
+      && !versionRanges.some(([start, end]) => offset + match.index >= start && offset + match.index + match[0].length <= end))) {
       references.push({ file, line: index + 1, kind: 'commit-hash' })
     }
+    offset += line.length + 1
   }
   return references
 }
@@ -97,6 +104,11 @@ function repositoryCommits(repoRoot: string, sources: Iterable<string>): Set<str
  */
 export function scanRepositoryReferences(repoRoot: string): RepositoryReference[] {
   const sources = readMaintainedFiles(repoRoot)
+  if (resolve(repoRoot) === root) {
+    const errors = validateFinStructExceptions({ protocol: {}, records: finStructExceptions.records, teamDocuments: {} },
+      file => sources.get(file))
+    if (errors.length > 0) throw new Error(errors.join('\n'))
+  }
   const commits = repositoryCommits(repoRoot, sources.values())
   return [...sources].flatMap(([file, source]) => findRepositoryReferences(file, source, commits))
 }
@@ -105,7 +117,7 @@ const invokedPath = process.argv[1]
 if (invokedPath !== undefined && import.meta.url === pathToFileURL(resolve(invokedPath)).href) {
   const references = scanRepositoryReferences(root)
   if (references.length === 0) {
-    console.log('verify-repository-references: maintained files contain no repository commit identifiers or disallowed organization URLs.')
+    console.log('verify-repository-references: no unreviewed commit references or disallowed organization URLs; captured audit versions retained.')
   } else {
     console.error('verify-repository-references: use release tags or maintained repository links:')
     for (const { file, line, kind } of references) console.error(`  ${file}:${String(line)} ${kind}`)

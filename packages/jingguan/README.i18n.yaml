@@ -1,0 +1,25 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/jingguan/README.md
+/:
+  en: 79b91fab6735118e
+  zh: a573a7235819008f
+/jingguan-announcement-extraction:
+  en: b7f59cbc6d1e3430
+  zh: 7c9780b5a169585f
+/jingguan-announcement-extraction/summary:
+  en: e99d90334a8c8ff1
+  zh: b291af5a072f9389
+/jingguan-announcement-extraction/table-of-contents:
+  en: 09848f4d056e4fc1
+  zh: 8df6139cff0288f6
+/jingguan-announcement-extraction/packages:
+  en: 5de94143949bdbb2
+  zh: 081e0b75025bb14e
+/jingguan-announcement-extraction/related-documentation:
+  en: 0787a143afa3818e
+  zh: f039e76676576549
+/jingguan-announcement-extraction/dev-note:
+  en: b75c8458928b72b9
+  zh: 003ba4e17b4b5269

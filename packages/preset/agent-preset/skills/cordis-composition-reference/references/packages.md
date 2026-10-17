@@ -265,6 +265,12 @@ Every package below exports a Cordis plugin that a bundle patch can name in a Lo
 | `@deepseek-ai/dsh-user-approval` | yes | User-approval seam (ctx.approval) for the DeepSeek Harness: one-shot permission decisions dispatched to composed answerers over the approval/request waterfall, fail-closed by default |
 | `@deepseek-ai/dsh-user-questions` | no | Abstract user-questions seam (ctx.userQuestions) for asking the human during agent runs |
 
+## jingguan
+
+| Package | Config | Description |
+|---|---|---|
+| `@jingguan/core` | yes | 可信公告事件提取与跨文档核验——核心插件：事件 JSON 接口 v0.3 的工具注册与结构校验 |
+
 ## jobs
 
 | Package | Config | Description |

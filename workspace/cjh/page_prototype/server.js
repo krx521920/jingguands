@@ -17,6 +17,7 @@ const { handleMetrics } = require("./bridge/metrics.js");      // D11：真实�
 const registry = require("./bridge/metrics_registry.js");      // D12：指标单一真源（页面/材料共用口径）
 const extractor = require("./bridge/extractor.js");            // D12：抽取引擎适配层（预留魏 CLI 入口）
 const parityReport = require("./bridge/parity_report.js");    // D12：实际对照报告读取（三层措辞单一真源）
+const reviewEvidence = require("./bridge/review_evidence.js");
 const dataSource = require("./bridge/data_source.js");        // 2026-10-09：数据源单一真源（批次/口径/指纹）
 
 const ROOT = __dirname;                       // 工程根（相对锚点）
@@ -391,27 +392,19 @@ function localEnvelopeFor(caseId) {
   return null;
 }
 
-/** 本地信封代表原文锚点：第一个带 provenance.quote 的字段（双栏"原文"侧展示用）。 */
-function envelopeSnippet(caseId) {
-  const ds = localEnvelopeFor(caseId);
-  if (!ds) return null;
-  const file = path.join(DATA_DIR, ds + ".json");
-  if (!fs.existsSync(file)) return { dataset: ds, quote: null };
-  try {
-    const env = JSON.parse(fs.readFileSync(file, "utf8"));
-    for (const ev of env.events || []) {
-      for (const [fname, f] of Object.entries(ev.fields || {})) {
-        const p = (f.provenance || []).find(x => x.quote);
-        if (p) return { dataset: ds, event_id: ev.event_id, field: fname, quote: p.quote, page: p.page ?? null, block_id: p.block_id ?? null };
-      }
-    }
-    return { dataset: ds, quote: null };
-  } catch {
-    return { dataset: ds, quote: null, error: "local envelope parse failed" };
-  }
+/** Cache source envelopes within one HTTP response only. */
+function reviewSources() {
+  const cache = new Map();
+  const read = dataset => {
+    if (!/^[a-z0-9_-]+$/i.test(dataset)) throw new Error("invalid dataset");
+    if (!cache.has(dataset)) cache.set(dataset, JSON.parse(fs.readFileSync(path.join(DATA_DIR, dataset + ".json"), "utf8")));
+    return cache.get(dataset);
+  };
+  return { read, source: reviewEvidence.createResolver(read, localEnvelopeFor) };
 }
 
 function handlePairs(res) {
+  const evidence = reviewSources();
   const mf = path.join(PAIRS_DIR, "pairs_manifest.json");
   if (!fs.existsSync(mf)) return sendJSON(res, 404, { error: "配对清单缺失（data/pairs/pairs_manifest.json）" });
   try {
@@ -427,6 +420,7 @@ function handlePairs(res) {
       members: (g.members || []).map(cid => {
         const meta = (g.member_meta || []).find(x => x.case_id === cid) || {};
         const hash = (g.member_hashes || []).find(x => x.case_id === cid) || {};
+        const sources = reviewEvidence.memberSources(cid, byId.get(g.group_id), evidence.source, evidence.read, localEnvelopeFor);
         return {
           case_id: cid,
           issuer_name: meta.issuer_name || null,
@@ -436,7 +430,8 @@ function handlePairs(res) {
           notice_note: meta.notice_note || null,
           raw_sha256: hash.raw_sha256 || meta.raw_sha256 || null,
           gold_sha256: hash.gold_sha256 || meta.gold_sha256 || null,
-          local: envelopeSnippet(cid)
+          sources,
+          local: sources[0] || null
         };
       }),
       b: (() => {
@@ -519,6 +514,7 @@ function verifyFindingsOf(dataset, check) {
 }
 
 function handleVerify(res) {
+  const evidence = reviewSources();
   try {
     // ① 核验清单：扫全部 sidecar（坏 sidecar 计数不阻塞）
     const findings = [];
@@ -546,43 +542,25 @@ function handleVerify(res) {
       const rpt = JSON.parse(fs.readFileSync(rptFile, "utf8"));
       for (const r of rpt.results || []) {
         const cons = r.consistency || {};
-        const localOf = cid => {
-          const ds = localEnvelopeFor(cid);
-          return ds || null;
-        };
         pairs.push({
           group_id: r.group_id,
           predicted_relation: r.predicted_relation,
-          corroborations: (cons.corroborations || []).map(c => ({
-            ...c,                                        // 整条透传：simple（docs/quotes）与 group_total_matches_sum（aggregate/parts）两种形态都保留
-            pages: (c.docs || []).map(d => {
-              const ds = localOf(d);
-              if (!ds) return null;
-              const file2 = path.join(DATA_DIR, ds + ".json");
-              if (!fs.existsSync(file2)) return null;
-              try {
-                const env = JSON.parse(fs.readFileSync(file2, "utf8"));
-                // 找该实体该字段：holder=entity 且字段名匹配
-                for (const ev of env.events || []) {
-                  const holder = (ev.fields || {}).holder;
-                  if (holder && String(holder.value ?? holder.raw_value ?? "") !== String(c.entity)) continue;
-                  const p = provenanceOf(env, ev.event_id, c.field);
-                  if (p) return { dataset: ds, page: p.page, block_id: p.block_id };
-                }
-                return null;
-              } catch { return null; }
-            })
-          })),
+          corroborations: (cons.corroborations || []).map(c => reviewEvidence.enrichCorroboration(c, evidence.source)),
           conflicts: cons.conflicts || []
         });
       }
     }
+    let controlled = [], controlledError = null;
+    try { controlled = reviewEvidence.controlledCases(path.resolve(ROOT, "../../..")); }
+    catch (error) { controlledError = error.message; }
     const corroborationTotal = pairs.reduce((n, p) => n + p.corroborations.length, 0);
     const conflictTotal = pairs.reduce((n, p) => n + (Array.isArray(p.conflicts) ? p.conflicts.length : 0), 0);
     sendJSON(res, 200, {
       summary: { ...stats, corroboration_total: corroborationTotal, pair_conflict_total: conflictTotal },
       findings,
-      pairs
+      pairs,
+      controlled_cases: controlled,
+      controlled_error: controlledError
     });
   } catch (e) {
     sendJSON(res, 500, { error: "核验清单装配失败: " + e.message });

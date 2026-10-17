@@ -4,9 +4,7 @@
 
 ## 这是什么
 
-`scripts/jingguan/serve_extract.mjs`：把 A 流抽取器 `run_extract.mjs` 包装成本地 HTTP 端点。
-**页面侧不需要管线代码，只需要能发 HTTP 请求**——Web 与 CLI 从此消费同一抽取器、同一缓存，
-独立重跑对照（宗 C3 口径）可行。
+`scripts/jingguan/serve_extract.mjs`：把 A 流抽取器 `run_extract.mjs` 包装成本地 HTTP 端点。 **页面侧不需要管线代码，只需要能发 HTTP 请求**——Web 与 CLI 从此消费同一抽取器、同一缓存， 独立重跑对照（宗 C3 口径）可行。
 
 ## 启动（陈侧）
 
@@ -50,15 +48,12 @@ app.post('/api/extract', async (req, res) => {
 
 ## 已验证（2026-10-08，本机）
 
-- `POST /extract`（D4-PLD-001，默认冻结缓存）：cache hit，3 事件，
-  **events 与 D12-A（CLI --jobs 1 冷跑后重放）逐字节一致**——Web/CLI 同源同缓存即同结果的实证。
+- `POST /extract`（D4-PLD-001，默认冻结缓存）：cache hit，3 事件， **events 与 D12-A（CLI --jobs 1 冷跑后重放）逐字节一致**——Web/CLI 同源同缓存即同结果的实证。
 - 与 CLI 的差异仅在 `run_id`/`run_meta.started_at`/`duration_ms` 等时间戳类字段（任何两次运行必然不同）。
 
 ## 关于"原始 PDF"
 
-抽取器输入是**解析 JSON 或文本，不吃 PDF**（PDF→解析是张智博 finstruct 的链路）。
-C3 的 Web/CLI 对照用 parse JSON 输入即可闭环；若页面要支持 PDF 上传，需要另接张的解析服务，
-不在本入口范围。仓库目前无任何 PDF（全仓 find 无 *.pdf），原始 PDF 入库归张/宗议。
+抽取器输入是**解析 JSON 或文本，不吃 PDF**（PDF→解析是张智博 finstruct 的链路）。 C3 的 Web/CLI 对照用 parse JSON 输入即可闭环；若页面要支持 PDF 上传，需要另接张的解析服务， 不在本入口范围。仓库目前无任何 PDF（全仓 find 无 *.pdf），原始 PDF 入库归张/宗议。
 
 ## 并发与限制
 

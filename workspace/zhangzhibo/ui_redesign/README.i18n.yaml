@@ -1,0 +1,10 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write workspace/zhangzhibo/ui_redesign/README.md
+/finstruct-new-ui:
+  en: a16f6c3703d7abc9
+  zh: 0ddb24e581e579f0
+/finstruct-new-ui/review-sources-and-controlled-cases:
+  en: 4e4ffa0e2e6ab8ee
+  zh: 28f92b4ffe481551

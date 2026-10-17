@@ -1,0 +1,46 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/jingguan/core/README.md
+/:
+  en: 8f17e1f6086522ef
+  zh: 7a4abff39ebf728e
+/jingguan-core:
+  en: cbd85c46c7e01954
+  zh: 8392742aa7daed04
+/jingguan-core/summary:
+  en: 00f714f54086ba80
+  zh: 2ae70ac8390ce867
+/jingguan-core/table-of-contents:
+  en: e6747830a09a09aa
+  zh: d4642376b968a437
+/jingguan-core/use-this-package:
+  en: 7a611b015536f416
+  zh: 265e888537e94dca
+/jingguan-core/understand-the-implementation:
+  en: 66039cef4cec44cf
+  zh: 2782e944748b0716
+/jingguan-core/further-exploration:
+  en: b351c1f704cb0b5e
+  zh: 5c7e5ec0b0c70eb5
+/jingguan-core/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/jingguan-core/model-experience/announcement-tool-calls-and-results:
+  en: ec91087582b38a76
+  zh: c26c04240c750265
+/jingguan-core/model-experience/announcement-tool-calls-and-results/what-the-model-sees:
+  en: 5148b81247cd6230
+  zh: 03c66623fab355ca
+/jingguan-core/model-experience/announcement-tool-calls-and-results/token-effect:
+  en: da5ad773df1df98a
+  zh: b65044112451d990
+/jingguan-core/model-experience/announcement-tool-calls-and-results/kv-cache-effect:
+  en: 032ec3eab2510a4e
+  zh: 3845f2d7451147ae
+/jingguan-core/known-limitations-and-deferred-work:
+  en: 8625ce1049de8a17
+  zh: 22e3cab4163f9d61
+/jingguan-core/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

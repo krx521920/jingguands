@@ -86,58 +86,31 @@ node scripts/jingguan/verify_crossdoc.mjs --envelopes-dir runs/batch-20261003T16
 
 群指示三条＋B 兼容警告，全部执行并实证：
 
-1. **根因修复（fang_normalize.mjs）**：旧适配器多金额/折算文本取首数字＋整段匹配"元"——
-   双币种原文拼出"173800000×cny 且 standardized=true"（方专项回放证实连预置正确值都会被覆盖回）。
-   新路径：文内"折合人民币 Y 元"明示 → 选折合值；其他 ≥2 金额量级数值无明示 → 拒绝标准化。
-2. **W7 默认化（run_extract.mjs）**：D6-AWD-007 按 `字段修订建议_D6.json` proposed_fields 精确落实——
-   bid_amount 取 317,915,000/CNY、raw_value 改人民币子串（完整双币种引文留 provenance.quote）、
-   currency 配对 CNY。`JINGGUAN_CURRENCY_POLICY=legacy` 为逃生口。
-3. **B 流程字符串兼容（verify_crossdoc.mjs asNumber）**：数值锚点与实体字段值接受精确十进制字符串
-   （方 D6 标准化超精度值接口）；超精度字符串不降级浮点，避免跨信封伪相等。
-   实证：EQC-001 侧 16 个整数值字段全部字符串化后，判定相关/互证 9/矛盾 0 保持不变
-   （修复前同输入判定不相关/互证 0）。
-4. **统一批次重跑**：35 输入，AWD-007 修订进入输出、其余 29 份 gold 案例不受损；方的
-   checkAwardEnvelope 对新信封四类拦截码（MULTI_AMOUNT_OR_FX/CURRENCY_CONFLICT/
-   AMOUNT_VALUE_MISMATCH/FOREIGN_OR_UNKNOWN_CURRENCY）全部缺席。证据：批次报告与本节记录。
+1. **根因修复（fang_normalize.mjs）**：旧适配器多金额/折算文本取首数字＋整段匹配"元"—— 双币种原文拼出"173800000×cny 且 standardized=true"（方专项回放证实连预置正确值都会被覆盖回）。 新路径：文内"折合人民币 Y 元"明示 → 选折合值；其他 ≥2 金额量级数值无明示 → 拒绝标准化。
+2. **W7 默认化（run_extract.mjs）**：D6-AWD-007 按 `字段修订建议_D6.json` proposed_fields 精确落实—— bid_amount 取 317,915,000/CNY、raw_value 改人民币子串（完整双币种引文留 provenance.quote）、 currency 配对 CNY。`JINGGUAN_CURRENCY_POLICY=legacy` 为逃生口。
+3. **B 流程字符串兼容（verify_crossdoc.mjs asNumber）**：数值锚点与实体字段值接受精确十进制字符串 （方 D6 标准化超精度值接口）；超精度字符串不降级浮点，避免跨信封伪相等。 实证：EQC-001 侧 16 个整数值字段全部字符串化后，判定相关/互证 9/矛盾 0 保持不变 （修复前同输入判定不相关/互证 0）。
+4. **统一批次重跑**：35 输入，AWD-007 修订进入输出、其余 29 份 gold 案例不受损；方的 checkAwardEnvelope 对新信封四类拦截码（MULTI_AMOUNT_OR_FX/CURRENCY_CONFLICT/ AMOUNT_VALUE_MISMATCH/FOREIGN_OR_UNKNOWN_CURRENCY）全部缺席。证据：批次报告与本节记录。
 
 ## 八、宗 D8 配对集接入：第三态＋--strict 13/13（2026-10-04）
 
 宗交付（zongbowen@e758d43a，已按 git hash 字节一致引入 evaluation/D8/）点名的三条行动项落实：
 
-1. **第三态**：`verify_crossdoc.mjs` 任一成员 0 可用字段（pledge-scan-degrade 全页扫描降级
-   14 字段全 unreadable）→ `predicted_relation="unknown"`＋reasons=
-   `[INSUFFICIENT_SIGNALS, MEMBER_NO_USABLE_FIELDS:<case>]`——证据不足不得强行判 unrelated。
-   `--expect` 三态匹配（unrelated 加 0 矛盾条件），与宗 score-pairs.mjs 判定逐条对齐。
-2. **B 全量（含 scan-degrade）**：统一批次 35 输入重跑（batch-20261004T093750，436/437
-   仅 AWD-007 待 gold），13 组全量 B 报告：related 4/4＋unrelated 8/8 零矛盾＋insufficient 1/1。
-3. **版本追踪补洞**：扫描降级路径的 run_meta 原缺 code_version/interface_version 版本戳
-   （D8-PAIR-013 曾因此 version_traceability 不达标）——已补齐与正常路径同规格（9ee9d0a9）。
-4. **--strict 终审**：宗 score-pairs.mjs --strict **PASS 13/13（0 fail 0 not_run）**；已固化为
-   门禁第 13 道（scripts/jingguan/test_d8_pairing.mjs，临时报告用后即删）。
+1. **第三态**：`verify_crossdoc.mjs` 任一成员 0 可用字段（pledge-scan-degrade 全页扫描降级 14 字段全 unreadable）→ `predicted_relation="unknown"`＋reasons= `[INSUFFICIENT_SIGNALS, MEMBER_NO_USABLE_FIELDS:<case>]`——证据不足不得强行判 unrelated。 `--expect` 三态匹配（unrelated 加 0 矛盾条件），与宗 score-pairs.mjs 判定逐条对齐。
+2. **B 全量（含 scan-degrade）**：统一批次 35 输入重跑（batch-20261004T093750，436/437 仅 AWD-007 待 gold），13 组全量 B 报告：related 4/4＋unrelated 8/8 零矛盾＋insufficient 1/1。
+3. **版本追踪补洞**：扫描降级路径的 run_meta 原缺 code_version/interface_version 版本戳 （D8-PAIR-013 曾因此 version_traceability 不达标）——已补齐与正常路径同规格（9ee9d0a9）。
+4. **--strict 终审**：宗 score-pairs.mjs --strict **PASS 13/13（0 fail 0 not_run）**；已固化为 门禁第 13 道（scripts/jingguan/test_d8_pairing.mjs，临时报告用后即删）。
 
-对陈家浩的接口意义：B 报告 `predicted_relation` 现有三态 related/unrelated/unknown，
-PAIR-013 类证据不足可直接渲染"证据不足"，不再与"不同事件"混淆。
+对陈家浩的接口意义：B 报告 `predicted_relation` 现有三态 related/unrelated/unknown， PAIR-013 类证据不足可直接渲染"证据不足"，不再与"不同事件"混淆。
 
 ## 九、方 D8.2 完整入口接入：explainGroup 接管组级判定（2026-10-05）
 
-方接口书指出旧缺口："--matcher 只能替换字段对齐，matcher 即使返回空数组，旧的合计/互补分支
-仍执行，不能声称执行了方的三态规则。"本次按其推荐入口改造完毕：
+方接口书指出旧缺口："--matcher 只能替换字段对齐，matcher 即使返回空数组，旧的合计/互补分支 仍执行，不能声称执行了方的三态规则。"本次按其推荐入口改造完毕：
 
-1. **新入口**：`--matcher` 模块导出 `explainGroup(group, envelopes)` 即接管组级三态判定，
-   **先于任何数值/合计分支**执行；同时保留 `alignEvents`（字段对，双方共用同一模块）。
-   `b_run.matcher.capabilities` 记录模块能力。
-2. **数值核验门控**：只有 related（same）执行数值/合计核验；unknown/different 不进入。
-   组内逐对按插件 `document_pairs[].predicted_relation` 门控（non-same 对跳过勾稽/互补）。
-3. **守卫与审计并存**：引擎第三态守卫保留否决权（0 可用字段成员存在时插件非 unknown
-   判定被否决并记 `alignment.discrepancy`）；插件异常整组回退内置链不炸（`plugin_error`）；
-   内置判定留档 `alignment.builtin_relation` 对照；`association_explanation/relation_label/
-   ui_hint/member_meta` 原样透传（陈的关联解释数据源）。
+1. **新入口**：`--matcher` 模块导出 `explainGroup(group, envelopes)` 即接管组级三态判定， **先于任何数值/合计分支**执行；同时保留 `alignEvents`（字段对，双方共用同一模块）。 `b_run.matcher.capabilities` 记录模块能力。
+2. **数值核验门控**：只有 related（same）执行数值/合计核验；unknown/different 不进入。 组内逐对按插件 `document_pairs[].predicted_relation` 门控（non-same 对跳过勾稽/互补）。
+3. **守卫与审计并存**：引擎第三态守卫保留否决权（0 可用字段成员存在时插件非 unknown 判定被否决并记 `alignment.discrepancy`）；插件异常整组回退内置链不炸（`plugin_error`）； 内置判定留档 `alignment.builtin_relation` 对照；`association_explanation/relation_label/ ui_hint/member_meta` 原样透传（陈的关联解释数据源）。
 4. **验收**（tools/fang-matching/＝方包字节一致引入 645ab53c，.gitattributes -text 防换行分叉）：
    - 无插件回归零变化：封存 20/20、宗 --strict 13/13、演示 3/3。
-   - 接方插件：宗 13 组 **--strict PASS 13/13**，判定全部由插件规则码产出
-     （SIGNED_TRANSFER_BUNDLE_MATCH×4、DISTINCT_LISTED_INSTRUMENTS×3、
-     DISTINCT_PROCUREMENT_IDENTITIES×2、DISJOINT_EVENT_TYPES×3、
-     SOURCE_OR_EVIDENCE_UNAVAILABLE×1）——runs/fang-D8-plugin-report.json。
-   - 演示三组：DEMO-003 鸿路命中其规则 7 DISJOINT_DILUTION_INTERVALS（同公司被动稀释
-     区间不相交——留给他的挑战案例被其规则精确解决）；海正双组 SIGNED_TRANSFER_BUNDLE_MATCH。
+   - 接方插件：宗 13 组 **--strict PASS 13/13**，判定全部由插件规则码产出 （SIGNED_TRANSFER_BUNDLE_MATCH×4、DISTINCT_LISTED_INSTRUMENTS×3、 DISTINCT_PROCUREMENT_IDENTITIES×2、DISJOINT_EVENT_TYPES×3、 SOURCE_OR_EVIDENCE_UNAVAILABLE×1）——runs/fang-D8-plugin-report.json。
+   - 演示三组：DEMO-003 鸿路命中其规则 7 DISJOINT_DILUTION_INTERVALS（同公司被动稀释 区间不相交——留给他的挑战案例被其规则精确解决）；海正双组 SIGNED_TRANSFER_BUNDLE_MATCH。
    - 单测 7 组入第 15 道门禁（接管/拒数值/异常回退/守卫否决/无插件一致/双入口/逐对门控）。

@@ -12,6 +12,8 @@ The existing [concrete prose decision](2026-08-09-concrete-prose-names-actors-an
 
 ## Decision
 
+The [FinStruct compatibility decision](2026-10-17-finstruct-document-compatibility.md) defines content-bound exceptions for published event identifiers, audit versions and original-language team records; this general policy remains active.
+
 Maintained tracked paths and text must not contain that token in any case variant. Each use is replaced with the exact local concept, such as source-event references, provider metadata, model identity, context producer, configuration source, artifact identity, or recorded evidence.
 
 The rule applies to source, tests, documentation, active Agent Notes, prompts, snapshots, workflow files, scripts, identifiers, fields, exported types, and filenames. Because the repository is pre-release, coordinated public symbol and current durable-field renames are preferred over aliases. A compatibility reader may reconstruct the retired durable key at runtime without embedding the token in maintained text.

@@ -582,6 +582,10 @@ export class ReadStream extends Readable {
     options.signal?.addEventListener('abort', this.onAbort as () => void, { once: true })
   }
 
+  /**
+   * Open the input descriptor after checking the requested range and abort state.
+   * @param callback - Receives an opening error or completion before open and ready events.
+   */
   override _construct(callback: (error?: Error | null) => void): void {
     if (this.start < 0 || this.end < this.start) {
       callback(new RangeError('The value of "start" is out of range'))
@@ -605,6 +609,10 @@ export class ReadStream extends Readable {
     this.emit('ready')
   }
 
+  /**
+   * Read within the inclusive end offset, pushing EOF when the range or file ends.
+   * @param size - Maximum requested chunk size in bytes.
+   */
   override _read(size: number): void {
     if (this.fd === null) return
     const remaining = this.end === Number.POSITIVE_INFINITY ? size : Math.min(size, this.end - this.position + 1)
@@ -629,6 +637,11 @@ export class ReadStream extends Readable {
     this.push(buffer.subarray(0, count))
   }
 
+  /**
+   * Release the input descriptor and its abort listener.
+   * @param error - Failure that initiated destruction, or null for normal teardown.
+   * @param callback - Receives the original failure after descriptor cleanup completes.
+   */
   override _destroy(error: Error | null, callback: (error?: Error | null) => void): void {
     destroyFileStream(this, this.signal, this.onAbort, error, callback)
   }
@@ -675,6 +688,10 @@ export class WriteStream extends Writable {
     options.signal?.addEventListener('abort', this.onAbort as () => void, { once: true })
   }
 
+  /**
+   * Open the output descriptor and apply the configured starting offset.
+   * @param callback - Receives an opening error or completion before open and ready events.
+   */
   override _construct(callback: (error?: Error | null) => void): void {
     if (this.start !== undefined && this.start < 0) {
       callback(new RangeError('The value of "start" is out of range'))
@@ -699,6 +716,12 @@ export class WriteStream extends Writable {
     this.emit('ready')
   }
 
+  /**
+   * Write a chunk to the open VFS descriptor and update the byte count.
+   * @param chunk - Text or bytes to write.
+   * @param encoding - Encoding used when the chunk is text.
+   * @param callback - Receives write completion or failure.
+   */
   override _write(
     chunk: string | Uint8Array,
     encoding: BufferEncoding,
@@ -715,6 +738,11 @@ export class WriteStream extends Writable {
     }
   }
 
+  /**
+   * Release the output descriptor and its abort listener.
+   * @param error - Failure that initiated destruction, or null for normal teardown.
+   * @param callback - Receives the original failure after descriptor cleanup completes.
+   */
   override _destroy(error: Error | null, callback: (error: Error | null) => void): void {
     destroyFileStream(this, this.signal, this.onAbort, error, callback)
   }

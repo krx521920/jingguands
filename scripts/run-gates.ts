@@ -820,7 +820,7 @@ function docSyncLeafGates(options: {
     pnpmScript('skill-invocation-metadata', 'verify-skill-invocation-metadata', { label: 'skill invocation metadata', quick: true }),
     pnpmScript('translation-prompt', 'verify-translation-prompt', { label: 'translation prompt', quick: true }),
     pnpmScript('doc-budgets', 'verify-doc-budgets', { label: 'doc budgets', quick: true }),
-    pnpmExec('doc-standard-tests', ['vitest', 'run', 'scripts/doc-standard.spec.ts'], {
+    pnpmExec('doc-standard-tests', ['vitest', 'run', 'scripts/doc-standard.spec.ts', 'scripts/finstruct-doc-exceptions.spec.ts'], {
       label: 'documentation standard tests',
       quick: true,
     }),

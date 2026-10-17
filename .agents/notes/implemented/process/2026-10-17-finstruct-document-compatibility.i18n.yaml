@@ -1,0 +1,19 @@
+# Bilingual-pair consistency record for 2026-10-17-finstruct-document-compatibility.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write .agents/notes/implemented/process/2026-10-17-finstruct-document-compatibility.md
+/agent-note-finstruct-document-compatibility:
+  en: 9eba521be5f15505
+  zh: 071c473f1cacc42b
+/agent-note-finstruct-document-compatibility/problem:
+  en: f785f9efb35a54da
+  zh: 32ee26cd0228cdab
+/agent-note-finstruct-document-compatibility/decision:
+  en: d500b228c15851f0
+  zh: e297c2680f15d5bb
+/agent-note-finstruct-document-compatibility/alternatives-considered:
+  en: 444949bc0e247d52
+  zh: 337d7f6a87ba2e50
+/agent-note-finstruct-document-compatibility/consequences:
+  en: 41b60571e192d58f
+  zh: d882263f9fdf50ef

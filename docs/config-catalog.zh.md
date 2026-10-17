@@ -4272,6 +4272,23 @@ export interface Config {
 ```
 <!-- END GENERATED config-catalog:@deepseek-ai/dsh-workspace-changes -->
 
+<!-- BEGIN GENERATED config-catalog:@jingguan/core -->
+<a id="jingguancore"></a>
+
+## `@jingguan/core`
+
+- `inject`: `tools`
+- `source`: [`packages/jingguan/core/src/index.ts:84`](../packages/jingguan/core/src/index.ts)
+
+```ts config-catalog
+/** 插件配置。 */
+export interface Config {
+  /** 严格模式：事件中出现注册表之外的字段名时报错。 */
+  strict: boolean
+}
+```
+<!-- END GENERATED config-catalog:@jingguan/core -->
+
 ## 无配置的可加载插件
 
 这些插件通过 `cordis.yml` 中不含 `config:` 块的条目加载；它们未声明任何配置接口。
