@@ -16,9 +16,9 @@
     {
       "key": "field_accuracy",
       "name": "字段抽取准确率",
-      "value": 100,
+      "value": 99.54,
       "num": 436,
-      "den": 436,
+      "den": 438,
       "unit": "%",
       "batch": "权威批（D11 首测冻结）",
       "code_version": "weiwenyu@5f25133a",
@@ -145,15 +145,15 @@
       "unit": "%",
       "batch": "权威批（D11 首测冻结）",
       "code_version": "weiwenyu@5f25133a",
-      "evidence": "evaluation/2026-10-17-gold-review/gold-corrections-v1.2.json",
+      "evidence": "evaluation/2026-10-17-gold-review/gold-corrections-v1.3.json",
       "note": "分母＝信封填值数 437；与金标一致 436；**多填 1**。与『期望召回率』分母不同，不可互替"
     },
     {
       "key": "gold_expected_field_recall",
       "name": "Gold 期望字段召回率（相对当前 Gold）",
-      "value": 100,
+      "value": 99.54,
       "num": 436,
-      "den": 436,
+      "den": 438,
       "unit": "%",
       "batch": "权威批（D11 首测冻结）",
       "code_version": "weiwenyu@5f25133a",
@@ -203,8 +203,8 @@
         "key": "gold_expected_field_recall",
         "name": "Gold 期望字段召回率（相对当前 Gold）",
         "num": 436,
-        "den": 436,
-        "pct": 100,
+        "den": 438,
+        "pct": 99.54,
         "disclaimer": "分母＝当前 Gold 标注应有值；须带「相对当前 Gold」限定"
       }
     ],
@@ -218,10 +218,13 @@
     },
     "gold_corrections": [
       "evaluation/2026-10-15-caliber/gold-corrections-v1.1.json",
-      "evaluation/2026-10-17-gold-review/gold-corrections-v1.2.json"
+      "evaluation/2026-10-17-gold-review/gold-corrections-v1.3.json"
     ],
     "gold_corrections_applied": {
-      "count": 1,
+      "shrink": 1,
+      "grow": 2,
+      "extra_filled": 1,
+      "missed": 2,
       "note": "已从金标期望中扣除；信封多填数见 field_value_agreement"
     },
     "target_mapping": {
