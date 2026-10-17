@@ -50,6 +50,8 @@ const reg=J("evaluation/D12/results-zong-independent.json");
 const byt=J("evaluation/D12/results-C-byte-verification.json");
 
 const F=(o)=>o;
+// ★ 2026-10-17 修复（验收缺陷：成绩单改成 19/20 后仍显示 100%）：百分比一律由分子/分母实算，禁止字面量。
+const pct=(n,d)=>{ const N=Number(n),D=Number(d); return (Number.isFinite(N)&&Number.isFinite(D)&&D>0)? +(100*N/D).toFixed(2) : null; };
 const scores=[
  F({key:"field_accuracy",name:"字段抽取准确率",value:+(100*single.value_hit/single.gold_extracted_fields).toFixed(2),num:single.value_hit,den:single.gold_extracted_fields,unit:"%",
     batch:"权威批（D11 首测冻结）",code_version:"weiwenyu@"+single.frozen_source.commit,
@@ -97,6 +99,7 @@ const out={generated_on:new Date().toISOString().slice(0,10),by:"宗（评测侧
     {key:"scan_degrade",reason:"扫描件无独立分母",owner:"全员"},
     {key:"web_cli_independent",reason:"页面无 PDF、抽取管线在魏分支 ⇒ 未测",owner:"魏（提供入口）＋宗（判据）"}
   ]};
+for(const s of scores){ if(s.unit==="%"){ const v=pct(s.num,s.den); if(v!==null) s.value=v; } }
 out.caliber={version:"coverage-caliber/2026-10-15",
   decided_by:"宗（评测侧）",decision:"evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
   coverage_caliber:[
@@ -108,6 +111,14 @@ out.caliber={version:"coverage-caliber/2026-10-15",
   no_gold:{fields:14,note:"pledge-scan-degrade 原文缺陷件，无 Gold，单列"},
   gold_corrections:"evaluation/2026-10-15-caliber/gold-corrections-v1.1.json",
   target_mapping:{"90":"字段抽取准确率（不挂覆盖率）","98":"标准化正确率","95":"出处命中率"}};
+if(argv.includes("--self-check")){
+  const pcts=scores.filter(s=>s.unit==="%");
+  const bad=pcts.filter(s=>s.value!==pct(s.num,s.den));
+  const probe=pct(19,20);
+  const ok=bad.length===0 && probe===95;
+  console.log(JSON.stringify({self_check:ok?"PASS":"FAIL",percent_metrics:pcts.length,inconsistent:bad.map(s=>s.key),negative_control:"19/20 → "+probe+"% (必须 95，不是 100)"},null,2));
+  process.exit(ok?0:1);
+}
 const OUTJ=arg("--json",null), OUTM=arg("--md",null);
 if(OUTJ) fs.writeFileSync(OUTJ, JSON.stringify(out,null,2)+"\n","utf8");
 if(OUTM){
