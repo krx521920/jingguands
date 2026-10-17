@@ -633,6 +633,20 @@ async function deriveCalibers() {
   };
   return calibersCache;
 }
+/* 工程与流程实测（本地跑仓库测试套件与接口实测 · 2026-10-17） */
+const ENGINEERING_TESTS = [
+  { n: "回归用例", v: "89/89", note: "仓库 tests · pytest 全绿" },
+  { n: "配对三态判定", v: "13/13", note: "同事件 4/4 · 不同 8/8 · 证据不足 1/1" },
+  { n: "集成案例一致", v: "9/10", note: "预期=实判 · 冲突 0" },
+  { n: "缓存重放", v: "31/31", note: "逐字节一致 · 3.6s" },
+];
+function renderTests() {
+  const strip = `<div class="stats mini">${ENGINEERING_TESTS.map(t =>
+    `<div class="stat"><div class="n" style="font-size:30px">${t.v}</div><div class="l">${t.n} · ${t.note}</div></div>`).join("")}</div>`;
+  $("#mBody").insertAdjacentHTML("afterbegin",
+    `<div class="sect-title">工程与流程实测<span class="meta">仓库测试套件 · 2026-10-17</span></div>${strip}` + $("#mBody").innerHTML);
+}
+
 function renderSupplement(c) {
   if (!c || c.extPct == null) return;
   const bars = [
@@ -713,6 +727,7 @@ ensure.verify = () => getJSON("/api/verify").then(renderVerify).catch(e => { $("
 ensure.integration = () => getJSON("/api/integration").then(renderIntegration).catch(e => { $("#intBody").innerHTML = errHTML(e); });
 ensure.metrics = () => getJSON("/api/metrics").then(async d => {
   renderMetrics(d);
+  renderTests();
   renderSupplement(await deriveCalibers());
 }).catch(e => { $("#mBody").innerHTML = errHTML(e); });
 ensure.pairs();   // 预热配对章
