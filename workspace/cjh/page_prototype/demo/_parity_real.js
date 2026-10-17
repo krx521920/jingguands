@@ -330,19 +330,13 @@ function httpExport(dataset, format, port) {
 async function layer3_export(datasets, port) {
   const rows = [];
   for (const ds of datasets) {
-    // ★ 2026-10-10 步骤6-③ 修：本地侧必须走**与导出链路口径完全相同**的那条路——
-    //   原实现是 `toContract(readJson(path.join(DATA_DIR, ds + ".json")))`，
-    //   而 HTTP 侧是 server.js 的 `readDataset`（数据源经 data_source 解析、
-    //   返回 **view 投影**、并挂 extraction_engine）。两侧压根不是同一个对象，
-    //   比出 divergent 是**基准错配**，不是导出链路走样。
-    //   ★ 这里**不手抄** readDataset 的逻辑：手抄一份就等于多一份真源，
-    //     将来 readDataset 改字段名这里不会跟着改，divergent 会变成常亮红灯
-    //     （假警报比没有警报更糟）。改为**真的起一份服务**、复用其导出实现：
-    //     把 server.js 的 handleExport 所需依赖原样搬过来调。
+    // CSV 比较页面投影，JSON 比较 file provider 的原信封，与各自 HTTP 出口一致。
+    // 这里只验证同源序列化；不能作为 Web/CLI 独立抽取一致性的依据。
     const local = localExportView(ds);
+    const envelope = local ? require(path.join(ROOT, "bridge", "extractor.js")).PROVIDERS.file.run(ds).envelope : null;
     for (const fmt of ["csv", "json"]) {
       const mine = !local ? null
-        : (fmt === "csv" ? exportCsvBytes(local) : Buffer.from(JSON.stringify(local, null, 2), "utf8"));
+        : (fmt === "csv" ? exportCsvBytes(local) : Buffer.from(JSON.stringify(envelope, null, 2), "utf8"));
       const http = await httpExport(ds, fmt, port);
       const same = !!(http.ok && mine && sha256(mine) === sha256(http.body));
       rows.push({

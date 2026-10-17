@@ -41,13 +41,17 @@ catch (e) { console.log("⚠ metrics 实算失败（bridge 加载异常）：" +
 
 const stdReal = readJsonSafe(path.join(__dirname_fixed, "_standardized_real.json"));
 // ★ 2026-10-15：宗在正典子树（delivery/v2.0）新增 -20261015 版成绩单（含 gold_expected_field_recall、
-//   pending/无 Gold 分列、口径版本号）；读取优先级 20261015 → 20261012，两版都缺 ⇒ 退「未测」。
+//   pending/无 Gold 分列、口径版本号）；★ 2026-10-17：宗 Gold v1.2 后新增 -20261017 版
+//   （key 改名 field_value_agreement / gold_expected_field_recall，分母=信封填值数）。
+//   读取优先级 20261017 → 20261015 → 20261012，都缺 ⇒ 退「未测」。
 const SCORECARD_DIR = path.join(WS, "..", "..", "evaluation", "2026-10-12-scorecard");
+const SC_1017 = path.join(SCORECARD_DIR, "评分成绩单-20261017.json");
 const SC_1015 = path.join(SCORECARD_DIR, "评分成绩单-20261015.json");
 const SC_1012 = path.join(SCORECARD_DIR, "评分成绩单-20261012.json");
-const scorecard = readJsonSafe(SC_1015) || readJsonSafe(SC_1012);
-const scorecardVersion = fs.existsSync(SC_1015) ? "评分成绩单-20261015.json"
-  : (fs.existsSync(SC_1012) ? "评分成绩单-20261012.json" : null);
+const scorecard = readJsonSafe(SC_1017) || readJsonSafe(SC_1015) || readJsonSafe(SC_1012);
+const scorecardVersion = fs.existsSync(SC_1017) ? "评分成绩单-20261017.json"
+  : (fs.existsSync(SC_1015) ? "评分成绩单-20261015.json"
+    : (fs.existsSync(SC_1012) ? "评分成绩单-20261012.json" : null));
 const evCheck = readJsonSafe(path.join(__dirname_fixed, "_evidence_check.json"));
 const survey = readJsonSafe(path.join(__dirname_fixed, "_survey.json"));
 
@@ -69,7 +73,8 @@ const l1Pct = S ? S.l1_pct : null;
 const covNum = A ? A.status_extracted : null;
 const covDen = S ? S.fields_total : null;
 const covPct = S ? S.extracted_pct : null;
-const acc = sc("field_accuracy");
+// ★ 2026-10-17：新成绩单 key=field_value_agreement（436/437，分母=信封填值数）；旧版 key=field_accuracy
+const acc = sc("field_value_agreement") || sc("field_accuracy");
 const stdAcc = stdReal && stdReal.accuracy ? stdReal.accuracy : null;
 const stdCov = stdReal && stdReal.coverage ? stdReal.coverage : null;
 const l3 = metrics ? metrics.l3 : null;
@@ -209,9 +214,10 @@ const defects = [
     scope: "C2 高影响",
     known: "D2 新发现（我方 D11 首测实算）→ 2026-10-15 按权威批复算",
     metric: "覆盖率 " + covNum + "/" + covDen + " = " + covPct + "%（无对标目标，D17：覆盖率类不挂目标）；" +
-      "准确率 " + (acc ? acc.num + "/" + acc.den + " = " + acc.value + "%（目标 90 达标）" : "未测（成绩单缺档）"),
+      "字段值一致率 " + (acc ? acc.num + "/" + acc.den + " = " + acc.value + "%（目标 90 达标；分母=信封填值数，Gold v1.2 后多填 1 单列）" : "未测（成绩单缺档）"),
     evidence: "GET /api/metrics → cards[字段抽取覆盖率] 及 coverage_note；" +
-      "宗 2026-10-12 成绩单 field_coverage " + scStr("field_coverage") + "、field_accuracy " + scStr("field_accuracy"),
+      "宗成绩单（" + (scorecardVersion || "缺档") + "）field_coverage " + scStr("field_coverage") + "、" +
+      (sc("field_value_agreement") ? "field_value_agreement " + scStr("field_value_agreement") : "field_accuracy " + scStr("field_accuracy")),
     owner: OWNERS.B5,
     status: "已复算 · 准确率达标",
     statusNote:
@@ -220,7 +226,7 @@ const defects = [
       "★ 2026-10-15 新口径（demo 显示层，只看抽取效果）：排除原文缺陷 pledge-scan-degrade（14 字段全 unreadable、无解析产物）" +
       "与来源不清 DEMO-EQC-HL-0930（演示件，警告「未知来源」）后 437/592 = 73.82%，见 demo/_evidence_check.json → extraction_coverage。",
     action: "无需修复动作；覆盖率维持事实披露",
-    verify: "字段抽取准确率 ≥ 90%（现 " + (acc ? acc.value : "?") + "%）",
+    verify: "字段值一致率（相对当前 Gold）≥ 90%（现 " + (acc ? acc.value : "?") + "%）",
     due: "已闭环",
   },
   {
@@ -232,7 +238,7 @@ const defects = [
     scope: "C2 高影响（覆盖全部 31 份数据集）",
     known: "D2 新发现（我方 D11 首测实算）→ 2026-10-15 复算并降级",
     metric: "L1 = " + l1Pct + "%（" + l1Num + "/" + l1Den + "）；注意此指标 ≠ 字段抽取覆盖率 " + covPct +
-      "%（" + covNum + "/" + covDen + "）≠ 字段抽取准确率 " + (acc ? acc.num + "/" + acc.den : "?") + "，三个指标分列不可混用",
+      "%（" + covNum + "/" + covDen + "）≠ 字段值一致率 " + (acc ? acc.num + "/" + acc.den : "?") + "，三个指标分列不可混用",
     evidence: "GET /api/metrics → summary.l1_pct = " + l1Pct +
       "；逐数据集 l1_rate 见 demo/_evidence_check.json → per_dataset[].l1_rate",
     owner: OWNERS.B5,
@@ -347,7 +353,7 @@ md += "1. **已修复 / 已闭环条目是事实陈述**，不含催促评价；
 md += "2. **巡检「0 缺陷」≠ 验收通过**：接口层 31/31、页面层 console 错误 0，只说明页面实现无缺陷，不等于链路指标达标。\n";
 md += "3. **首测已不走（2026-10-15 领导裁定「真删」）**：旧池 data/ 的首测自测值（548 分母系列）全部作废，本表不再列举旧值；只引权威批 data_unified 实算值与宗 2026-10-12 成绩单，任何数字可回到上述数据源复现。缺陷登记项里出现的首测旧值是**历史问题描述**（说明该缺陷当年长什么样），不是现行结论。\n";
 md += "4. **「未核」绝不计入任何命中率分母**：无解析产物或 block_id 缺失的 provenance 不入 L3 分母（权威批 30/31 份信封自带 blocks；pledge-scan-degrade 无解析产物，已按 2026-10-15 新口径作「原文缺陷」排除，仅警告不计入）。\n";
-md += "5. **三个指标分列，不可混用**：字段抽取覆盖率（437/606，全部产出字段，含弃权）｜字段抽取准确率（437/437，Gold 期望字段，宗口径）｜溯源存在率 L1（449/606，有无 provenance）。\n";
+md += "5. **三个指标分列，不可混用**：字段抽取覆盖率（437/606，全部产出字段，含弃权）｜字段值一致率（436/437=99.77%，分母=信封填值数，多填 1 单列，相对当前 Gold；另期望字段召回率 436/436=100% 两行并报）｜溯源存在率 L1（449/606，有无 provenance）。\n";
 md += "6. **评测侧数字一律动态读成绩单**（evaluation/2026-10-12-scorecard，-20261015 优先、回退 -20261012），缺档即退「未测」，绝不按目标值填充。\n";
 md += "7. 本表由脚本生成，数据源可复现：`node demo/_evidence_check.js` + `node demo/_defects.js` + `node demo/_defect_owners.js` + `node demo/_sealed_diag3.js`。\n";
 

@@ -45,6 +45,7 @@ const LABELS = {
   expected_recall: "相对当前 Gold 的期望字段召回率",
   core_text_rate: "核心文本件槽位有值率",
   gold_value_match: "Gold 期望字段值一致率（当前 Gold 条件口径）",
+  gold_value_agreement: "字段值一致率（分母＝信封填值数，宗 2026-10-17 答辩口径）",
   scope_31: "31 份冻结批槽位",
   scope_30: "30 份有 Gold 的核心文本件",
   scope_gold: "Gold 期望字段全集",
@@ -56,28 +57,41 @@ const QUALIFIER = {
   conditional: "当前 Gold 条件口径",
   frozen_replay: "本批为公开语料冻结回放（非未见样本）",
   no_generalization: "不外推泛化",
-  pending_note: "Gold 待复核 11 项单列 pending（v1.1 校正后：D4-PLD-009 E03 end_date 由 needs_review 校正为 not_mentioned）；3 处状态差异已裁定（D6-AWD-002 E03/E04 信封 not_disclosed 待魏/张校正为 not_mentioned，两者都无值、不影响成绩）",
+  pending_note: "Gold 待复核 11 项单列 pending（v1.1 校正后：D4-PLD-009 E03 end_date 由 needs_review 校正为 not_mentioned）；3 处状态差异已裁定（D6-AWD-002 E03/E04 信封 not_disclosed 待魏/张校正为 not_mentioned，两者都无值、不影响成绩）；★ v1.2（10-17）：D6-AWD-002 E01 formal_award_notice_received 金标由值 false 改判 not_mentioned ⇒ 信封多填 1 单列，另有 E03/E04 contract_signed 归方裁定 pending（pending_for_fang）",
 };
 
-/** Gold v1.1 覆盖层路径（C2 规则下本机私有检出，由 demo/_fetch_eval_scores.js 按 sha 取件） */
+/** Gold v1.1 覆盖层路径（C2 规则下本机私有检出，由 demo/_fetch_eval_scores.js 按 sha 取件）
+ *  ★ 2026-10-17：新增 v1.2 覆盖层（宗 3497ab4f7，evaluation/2026-10-17-gold-review/）：
+ *    D6-AWD-002 E01 formal_award_notice_received 由值 false 校正为 not_mentioned ——
+ *    该校正使「金标期望」与「信封填值」出现差集，值一致率与召回率**两个分母必须分开报**
+ *    （一致率 436/437=99.77% 分母=信封填值数；召回 436/436=100%＋多填 1 单列）。
+ *    v1.2 的 from 是**值**（"false"）不是状态，applyGoldOverlay 按值匹配处理。 */
 const GOLD_OVERLAY_REL = path.join("2026-10-15-caliber", "gold-corrections-v1.1.json");
+const GOLD_OVERLAY_V12_REL = path.join("2026-10-17-gold-review", "gold-corrections-v1.2.json");
 
-/** 读 Gold v1.1 覆盖层；缺失/损坏 ⇒ available:false（调用方据此退回无覆盖层行为） */
-function readGoldOverlay() {
-  const p = path.join(EVAL, GOLD_OVERLAY_REL);
-  try {
-    const j = JSON.parse(fs.readFileSync(p, "utf8"));
-    if (!j || !Array.isArray(j.corrections)) return { available: false, why: "overlay 无 corrections 数组", applied: 0, errors: [] };
-    return { available: true, version: j.version || null, issued_by: j.issued_by || null,
-      path: GOLD_OVERLAY_REL, corrections: j.corrections, applied: 0, errors: [] };
-  } catch (e) {
-    return { available: false, why: "overlay 缺失或不可解析（未取件）——退回无覆盖层行为", applied: 0, errors: [] };
-  }
+/** 已知状态集：overlay.from 落在这个集合里按状态匹配，否则按值匹配（v1.2 形态） */
+const STATUS_SET = new Set(["extracted", "not_mentioned", "not_applicable", "not_disclosed", "needs_review", "unreadable"]);
+
+/** 读全部 Gold 覆盖层（v1.1 ＋ v1.2，按序链式应用）；缺失/损坏 ⇒ 该层 available:false */
+function readGoldOverlays() {
+  const readOne = (rel, ver) => {
+    try {
+      const j = JSON.parse(fs.readFileSync(path.join(EVAL, rel), "utf8"));
+      if (!j || !Array.isArray(j.corrections)) return { available: false, version: ver, why: "overlay 无 corrections 数组", path: rel, corrections: [], applied: 0, errors: [] };
+      return { available: true, version: j.version || ver, issued_by: j.issued_by || null,
+        path: rel, corrections: j.corrections, applied: 0, errors: [] };
+    } catch (e) {
+      return { available: false, version: ver, why: "overlay 缺失或不可解析（未取件）——该层退回无校正行为", path: rel, corrections: [], applied: 0, errors: [] };
+    }
+  };
+  return [readOne(GOLD_OVERLAY_REL, "v1.1"), readOne(GOLD_OVERLAY_V12_REL, "v1.2")];
 }
 
 /**
  * 把覆盖层应用到一个 Gold 信封对象（就地改 status，绝不新建/替换 Gold 文件）。
  * 每条 correction 断言 from 与现状一致；对不上记 error 不静默跳过。
+ * ★ v1.2 形态：from 是**值**（如 "false"）——匹配条件＝status=extracted 且值相等；
+ *   应用后 status 改为 to 并打 __v12_corrected 标记（值保留供审计，不进期望全集）。
  */
 function applyGoldOverlay(gj, caseId, overlay) {
   if (!overlay || !overlay.available) return { applied: 0, errors: [] };
@@ -89,11 +103,16 @@ function applyGoldOverlay(gj, caseId, overlay) {
     if (!ev) { errors.push(`${caseId} ${c.event_id}: Gold 无该事件，校正未应用`); continue; }
     const fv = ev.fields && ev.fields[c.field];
     if (!fv) { errors.push(`${caseId} ${c.event_id}.${c.field}: Gold 无该字段，校正未应用`); continue; }
-    if (fv.status !== c.from) {
-      errors.push(`${caseId} ${c.event_id}.${c.field}: 现状 ${fv.status} ≠ overlay.from ${c.from}，校正未应用`);
+    const fromIsStatus = STATUS_SET.has(String(c.from));
+    const ok = fromIsStatus
+      ? fv.status === c.from
+      : fv.status === "extracted" && String(fv.value).toLowerCase() === String(c.from).toLowerCase();
+    if (!ok) {
+      errors.push(`${caseId} ${c.event_id}.${c.field}: 现状 status=${fv.status} value=${JSON.stringify(fv.value)} ≠ overlay.from ${JSON.stringify(c.from)}，校正未应用`);
       continue;
     }
     fv.status = c.to;
+    if (!fromIsStatus) fv.__v12_corrected = true;   // 值形态校正：标记供期望全集扣除与多填单列
     applied++;
   }
   overlay.applied += applied;
@@ -123,12 +142,13 @@ function primaryEnvelopes() {
 }
 
 /** Gold 索引：按 source.file_id 配对（★不能用 file_name，Gold 沿用旧批次文件名）
- *  ★ 2026-10-15：读入后就地应用 Gold v1.1 覆盖层（overlay 与 Gold 现状不符记 error 不静默跳过）。 */
+ *  ★ 2026-10-15：读入后就地应用 Gold v1.1 覆盖层（overlay 与 Gold 现状不符记 error 不静默跳过）。
+ *  ★ 2026-10-17：v1.1 → v1.2 链式应用（v1.2 依赖 v1.1 后的现状），合并视图见 mergeOverlays。 */
 function loadGoldIndex() {
   const byFileId = new Map();
   const byCaseId = new Map();
   const bad = [];
-  const overlay = readGoldOverlay();
+  const overlays = readGoldOverlays();
   for (const dir of goldDirs()) {
     let files = [];
     try { files = fs.readdirSync(dir).filter(f => f.endsWith(".envelope.json")).sort(); }
@@ -138,14 +158,30 @@ function loadGoldIndex() {
       let gj = null;
       try { gj = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")); }
       catch (e) { bad.push({ dataset: caseId, why: "Gold 读取失败: " + e.message }); continue; }
-      applyGoldOverlay(gj, caseId, overlay);
+      for (const ov of overlays) applyGoldOverlay(gj, caseId, ov);
       const fid = gj.source && gj.source.file_id;
       if (!fid) { bad.push({ dataset: caseId, why: "Gold 缺 source.file_id，无法配对" }); continue; }
       if (!byFileId.has(fid)) byFileId.set(fid, { gold: gj, gold_case_id: caseId, dir });
       byCaseId.set(caseId, gj);
     }
   }
-  return { byFileId, byCaseId, bad, overlay };
+  return { byFileId, byCaseId, bad, overlay: mergeOverlays(overlays), overlays };
+}
+
+/** 把多层覆盖层合并成旧调用方习惯的单视图（available/applied/errors 聚合；overlays 明细保留） */
+function mergeOverlays(overlays) {
+  const applied = overlays.reduce((s, o) => s + (o.applied || 0), 0);
+  const errors = overlays.flatMap(o => (o.errors || []).map(e => `[${o.version}] ` + e));
+  const avail = overlays.filter(o => o.available);
+  return {
+    available: avail.length > 0,
+    version: avail.map(o => o.version).join("+") || null,
+    applied, errors,
+    overlays,
+    note: avail.length < overlays.length
+      ? "部分覆盖层未取件（跑 demo/_fetch_eval_scores.js --src zongbowen 取 Gold v1.2）——缺失层按无校正口径，不补数"
+      : null,
+  };
 }
 
 // ---------- 归一（与 demo/_retest_unified.js 原实现一致，全项目只此一份） ----------
@@ -218,6 +254,7 @@ function buildGoldExpected(envelopes, goldIndex) {
     recall_miss: [],            // 期望字段但引擎没抽到（原文存在却抽不出 ⇒ miss 必须扣分）
     value_match_num: 0,
     value_mismatch: [],
+    extra_filled: 0,            // ★ Gold v1.2：金标判无值（值形态校正）而信封填了值 ⇒ 多填，单列
     extra_candidates: [],       // Gold 判无值（未提及/不适用/未披露）而引擎却填了值 ⇒ 多抽候选
     miss_events: [],            // Gold 有事件、信封无该事件（旧实现丢分母的位置）
     pending_gold: 0,            // Gold 判 needs_review 的字段数（未裁定，单列）
@@ -306,6 +343,7 @@ function buildGoldExpected(envelopes, goldIndex) {
             const gfv = (gEv.fields || {})[fname];
             if (!gfv) continue;                                  // Gold 无此字段 ⇒ 字段集不一致，另见 unpairable
             if (gfv.status !== "extracted" && efv.status === "extracted" && hasEffectiveValue(pickVal(efv))) {
+              if (gfv.__v12_corrected) out.extra_filled++;       // ★ v1.2 值形态校正：金标改判 not_mentioned 而信封填值
               out.extra_candidates.push(`${id}.${gEv.event_id || k}.${fname}: 引擎填值 ${JSON.stringify(pickVal(efv))} 而 Gold 判 ${gfv.status}（不得挪入分子）`);
             }
             if (efv.status !== "extracted" && gfv.status !== efv.status) {
@@ -422,6 +460,10 @@ function computeCaliber(envelopes, opts) {
   const den = gold.expected_total;
   const recallPct = gold.available && den > 0 ? pct(gold.recall_num, den) : null;
   const matchPct = gold.available && den > 0 ? pct(gold.value_match_num, den) : null;
+  // ★ Gold v1.2（宗 10-17 答辩口径 §二）：值一致率分母＝信封填值数＝金标期望全集＋多填数；
+  //   召回率分母＝修订后金标期望全集。两行必须并报，不可互替。
+  const agreeDen = den + (gold.extra_filled || 0);
+  const agreePct = gold.available && agreeDen > 0 ? pct(gold.value_match_num, agreeDen) : null;
 
   return {
     generated_at: new Date().toISOString(),
@@ -461,6 +503,12 @@ function computeCaliber(envelopes, opts) {
       value_match: { num: gold.value_match_num, den, pct: matchPct,
         name: LABELS.gold_value_match,
         caliber: "Gold 期望字段中，值与单位都与 Gold 一致的字段数 / Gold 期望字段全集（分子条件与召回率不同，两者当前恰好同值，不得合并）" },
+      // ★ 2026-10-17 Gold v1.2：一致率分母＝信封填值数（期望全集＋多填），与 value_match 分母不同
+      extra_filled: gold.extra_filled,
+      value_agreement: { num: gold.value_match_num, den: agreeDen, pct: agreePct,
+        name: LABELS.gold_value_agreement,
+        caliber: "分母＝信封填值数（修订后金标期望 " + den + " ＋ 多填 " + (gold.extra_filled || 0) + "）；分子＝与金标 v1.2 值与单位一致的信封填值字段。"
+          + "多填 " + (gold.extra_filled || 0) + " 单列不得藏掉；与「期望字段召回率」分母不同、两行并报、不可互替（宗答辩口径 2026-10-17 §二，evidence=gold-corrections-v1.2.json）" },
       recall_miss: gold.recall_miss,
       value_mismatch: gold.value_mismatch,
       extra_candidates: gold.extra_candidates,
@@ -482,9 +530,9 @@ function computeCaliber(envelopes, opts) {
 
 module.exports = {
   LABELS, QUALIFIER,
-  ROOT, REPO, EVAL, GOLD_CASES, GOLD_OVERLAY_REL,
+  ROOT, REPO, EVAL, GOLD_CASES, GOLD_OVERLAY_REL, GOLD_OVERLAY_V12_REL,
   goldDirs, loadGoldIndex, defaultFrames, primaryEnvelopes,
-  readGoldOverlay, applyGoldOverlay,
+  readGoldOverlays, mergeOverlays, applyGoldOverlay,
   norm, normRatio, isRatioField, hasEffectiveValue, pickVal,
   evKey, isField,
   buildGoldExpected, slotScope, computeCaliber,

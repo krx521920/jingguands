@@ -9,7 +9,7 @@
 - **工作流 A（单文档抽取）**：公告 PDF/解析包 → 结构化事件（质押/股权变动/中标三类，37 字段 v0.3 契约）——每个字段带块级出处（block_id/页码/区域/表格 cell/引文），无依据不填值。
 - **工作流 B（跨文档核验）**：多份公告 → 同事件判定三态（related / unrelated / unknown，证据不足绝不硬判）＋数值互证/矛盾（先归因后矛盾：口径差异、累计口径、币种折算、合计勾稽、时点衔接、显式更正……不能解释则保留疑点）。
 
-## 实测成绩（全部可复跑：`node scripts/jingguan/gates.mjs`，17 道门禁；从零复现见 docs/d13-reproduction.md）
+## 实测成绩（全部可复跑：`node scripts/jingguan/gates.mjs`，19 道门禁；从零复现见 docs/d13-reproduction.md）
 
 | 项 | 成绩 |
 |---|---|
@@ -40,6 +40,10 @@ node scripts/jingguan/attribute_b.mjs --report <B报告.json>
 # 首测冻结（D11：一次命令出全套报告包）
 node scripts/jingguan/freeze_first_test.mjs
 ```
+
+扫描降级的每次 CLI 调用都原子分配独立输出目录；相同输入重复运行或多个进程共用输出根目录，不覆盖已有结果。信封与调用日志使用同一 `run_id`，无可读文本仍标为 `unreadable`，不调用模型。
+
+默认 `attribute_b.mjs` 只对摘要报告归因，不凭通用百分比容差或“约”字消除数值差异。缺少已核验的披露精度时保留为 `unexplained_needs_review`；带原文精度、单位和出处的精确舍入判定使用 `run_d9_rules.mjs --rules tools/fang-attribution/src_D9/attribution_D9.mjs --envelopes <信封目录>`。累计归因至少包含一个总数和两个分项，并要求十进制精确相等。
 
 ## 文档地图
 

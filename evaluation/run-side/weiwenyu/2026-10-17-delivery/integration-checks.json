@@ -1,0 +1,48 @@
+{
+  "http": {
+    "passed": 40,
+    "total": 40,
+    "dataset_count": 32,
+    "authoritative_count": 31,
+    "local_demo_count": 1
+  },
+  "concurrent_http": [
+    {
+      "passed": 40,
+      "failed": 0,
+      "failures": []
+    },
+    {
+      "passed": 40,
+      "failed": 0,
+      "failures": []
+    }
+  ],
+  "l3_before": {
+    "verdict": "divergent",
+    "identical": 8,
+    "comparable_total": 16,
+    "divergent": 8
+  },
+  "l3_after": {
+    "verdict": "idempotent",
+    "identical": 16,
+    "comparable_total": 16,
+    "divergent": 0
+  },
+  "step6": {
+    "passed": 7,
+    "failed": 0,
+    "stale_negative_control": "not run"
+  },
+  "limitations": [
+    "doc-sync failed: missing tsx/node_modules",
+    "No whole-repository TypeScript verification",
+    "No new MP4 review",
+    "No independent Web/CLI or generalization evaluation"
+  ],
+  "extraction_source_base": "b7f046fdf004155667c2ba601a62c9a5ffa4fbdf",
+  "local_extraction_code_version": "89a09d4a",
+  "extractor_sha256": "a896caf105a6d58b1f5154a780723e277e8eda5986a4ab5961dc09091f250fee",
+  "ui_source_sha256": "89a7c02a86f15dd84ac863a08b422d89a9f0b3fb11638421bee66a21d04cfacc"
+}

@@ -1,0 +1,15 @@
+{
+ "ran_on": "2026-10-15T14:56:31.454Z",
+ "note": "双口径：字节序敏感（严格）与事件自然键配对（仓库标准，D2 起 compare_runs 惯例）",
+ "D5-EQC-001": {
+  "natural_key_identical": true,
+  "diff_fields": []
+ },
+ "D6-AWD-002": {
+  "natural_key_identical": false,
+  "diff_fields": [
+   "award_contract|||深圳市地铁集团科技产业有限公司|",
+   "award_contract|||沈阳地铁集团有限公司|"
+  ]
+ }
+}

@@ -8,7 +8,11 @@
 > 217 件按原路径并入 `evaluation/run-side/weiwenyu/`（字节不动，blob sha 复用），宗方正典仍在 `evaluation/` 原位。
 > `scripts/jingguan/lib/side_paths.mjs` 提供镜像解析：本文凡指向我方 `evaluation/D12/wei-runs/`、
 > `evaluation/D9/snapshot-paths.json`、`evaluation/D11/call-logs/` 等路径的命令，在并包树上**原样可跑**
-> （原址缺失自动落镜像，stderr 有 `[side]` 提示）；在 `weiwenyu` 分支上行为不变。E1 报告等写入件同理
+> （原址缺失自动落镜像，stderr 有 `[side]` 提示）；在 `weiwenyu` 分支上行为不变。
+> **阅读引用同理**：本文提到的 `evaluation/D12/wei-runs/README.md`、`evaluation/D11/README-firsttest-inputs.md`、
+> `evaluation/D11/call-logs/README.md`、`evaluation/D12/wei-runs/w6-perf-20page.md`、`evaluation/D9/snapshot-paths.json`
+> 等我方证据**原件在并包树位于 `evaluation/run-side/weiwenyu/` 对应子路径**（逐字节同源）；
+> `sample/D13/D13-B1诊断与可复现性.md` 属张 `zhangzhibo`/`sample` 分支（方案 A 不并入，见其分支）。E1 报告等写入件同理
 > 落镜像原位更新，不混入正典目录。
 
 ## 〇、产物地图（谁的分支放什么）

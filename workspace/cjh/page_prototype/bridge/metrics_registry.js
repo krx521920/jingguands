@@ -50,6 +50,7 @@ function caliberValues() {
 // 指标类别定义 —— 三类不可互溶
 // ============================================================
 const CATEGORIES = {
+  delivery: { name: "本轮真实抽取验收", question: "页面与 CLI 能否独立复现？", denominator_rule: "分母仅为本轮三份公告的对照字段或重复运行次数", must_not_mix: "不与历史冻结批或 Gold 准确率混读" },
   accuracy: {
     name: "准确率",
     question: "抽出来的东西对不对？",
@@ -245,18 +246,22 @@ function anchorsFromArtifact() {
 
 const MEASURED = {
   // ---- 准确率 ----
-  // ★ 2026-10-15：不再硬编码 100/437 —— 现读 bridge/caliber.js 的 Gold 值一致率实算。
+  // ★ 2026-10-15：不再硬编码 100/437 —— 现读 bridge/caliber.js 的实算。
+  //   ★ 2026-10-17 Gold v1.2（宗答辩口径 §二）：字段值一致率分母＝信封填值数（437），
+  //   分子 436（D6-AWD-002 E01 金标改判 not_mentioned 而信封填 false ⇒ 多填 1 单列）。
   //   取不到（本机无 Gold / 分母 0）⇒ value=null ⇒ 自动落 not_covered（未测），绝不按 100% 填充。
   field_accuracy: (() => {
     const c = caliberValues();
-    const vm = c && c.gold && c.gold.is_measured ? c.gold.value_match : null;
+    const va = c && c.gold && c.gold.is_measured ? c.gold.value_agreement : null;
     return {
-      value: vm ? vm.pct : null, unit: "%", num: vm ? vm.num : null, den: vm ? vm.den : null,
+      value: va ? va.pct : null, unit: "%", num: va ? va.num : null, den: va ? va.den : null,
       source_script: "bridge/caliber.js（demo/_retest_unified.js 同源调它）",
-      evidence_kind: vm ? "field_by_field_vs_gold" : null,
-      note: vm
-        ? `Gold 期望字段中值与单位都一致的字段数 = ${vm.num}/${vm.den}（按 source.file_id 配对文件 + 业务键配对事件）。`
-          + `★ 与「Gold 期望字段召回率」分子条件不同（值一致 vs 抽得到），当前恰好同值，不得合并成一项`
+      evidence_kind: va ? "field_by_field_vs_gold" : null,
+      evidence: va ? "evaluation/2026-10-17-gold-review/gold-corrections-v1.2.json" : null,
+      note: va
+        ? `与金标 v1.2 一致的信封填值字段 = ${va.num}/${va.den}（分母＝信封填值数）。`
+          + `★ 多填 ${c.gold.extra_filled} 单列（D6-AWD-002 E01 formal_award_notice_received：金标改判 not_mentioned 而信封填 false）；`
+          + `★ 与「Gold 期望字段召回率」（${c.gold.recall.num}/${c.gold.recall.den}）分母不同，两行并报、不可互替`
         : "★ 未测：本机无 Gold（evaluation/D4|D5|D6/dev/gold）或分母为 0 —— 不得按 100% 或目标值填充",
     };
   })(),
@@ -270,11 +275,11 @@ const MEASURED = {
       evidence_kind: rc ? "gold_expected_field_recall" : null,
       note: rc
         ? `Gold 期望字段中引擎有效抽出（status=extracted 且有有效取值，0/false 亦算有值）= ${rc.num}/${rc.den}。`
-          + `未抽到 ${c.gold.recall_miss.length} 项已计入分母；多抽候选 ${c.gold.extra_candidates.length} 处。`
+          + `未抽到 ${c.gold.recall_miss.length} 项已计入分母；多填 ${c.gold.extra_filled} 单列（金标 v1.2 改判无值而信封填值，不进召回分母）。`
           + `限定语：${c.gold.qualification}`
           + (c.gold.overlay && c.gold.overlay.available
-            ? ` Gold v1.1 覆盖层已应用 ${c.gold.overlay.applied} 项（${c.gold.overlay.errors.length ? "错误 " + c.gold.overlay.errors.length + " 条" : "无错误"}）：pending Gold 12→11、D4-PLD-009 状态差异消除。`
-            : ` ★ Gold v1.1 覆盖层未取件（pending 按无校正口径 12 统计，跑 demo/_fetch_eval_scores.js 取件）。`)
+            ? ` Gold 覆盖层已应用 ${c.gold.overlay.applied} 项（${c.gold.overlay.version}；${c.gold.overlay.errors.length ? "错误 " + c.gold.overlay.errors.length + " 条" : "无错误"}）。`
+            : ` ★ Gold 覆盖层未取件（跑 demo/_fetch_eval_scores.js --src zongbowen）。`)
         : "★ 未测：本机无 Gold 或期望全集为 0 —— 不得按 100% 或目标值填充",
     };
   })(),
@@ -523,12 +528,12 @@ perf_20page: (() => {
 const REGISTRY = [
   // ---------- 准确率 ----------
   {
-    key: "field_accuracy", category: "accuracy", name: "字段抽取准确率",
-    target: null,
-    numerator: "与 Gold 标注值一致的字段数",
-    denominator: "有 Gold 人工标注的字段数（437）",
+    key: "field_accuracy", category: "accuracy", name: "字段值一致率（相对当前 Gold）",
+    target: 90,
+    numerator: "与金标 v1.2 值与单位一致的信封填值字段数",
+    denominator: "信封填值数（金标 v1.2 后 437＝期望 436＋多填 1，多填单列）",
     status: "measured",
-    caliber: "严格逐字段比对；与穷举最优匹配结果均 100%，撞键 0/48",
+    caliber: "严格逐字段比对（值+单位）；★ 2026-10-17 Gold v1.2 起按宗答辩口径 §二：分母＝信封填值数，与「期望字段召回率」分母不同、两行并报不可互替。总规划 90% 目标（别名「字段抽取准确率」）挂本项",
     blocked_by: null,
   },
   {
@@ -572,7 +577,7 @@ const REGISTRY = [
     evidence_kind: "gold_expected_field_recall",
     evidence_ref: "bridge/caliber.js（buildGoldExpected → computeCaliber）",
     blocked_by: "宗博文（Gold pending 11 项出口：86 条待裁定已复核——75 条弃权成立＋11 条维持 pending，见 evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md）",
-    note: "★ 引用必须同带限定语：「当前 Gold 条件口径 + 本批为公开语料冻结回放（非未见样本）+ 不外推泛化」。★ pending 11 项未出口前，437/437 只对无异议字段成立。★ 与 field_accuracy（值一致率）分子条件不同，当前恰好同值，不得合并。★ Gold v1.1 覆盖层（gold-corrections-v1.1.json）应用后 pending Gold 12→11",
+    note: "★ 引用必须同带限定语：「当前 Gold 条件口径 + 本批为公开语料冻结回放（非未见样本）+ 不外推泛化」。★ Gold v1.2（10-17）后期望全集 436：召回 436/436=100% 须与字段值一致率 436/437=99.77% 两行并报（多填 1 单列）。★ 与 field_accuracy（值一致率）分子条件不同，不得合并。★ 覆盖层 v1.1+v1.2 链式应用（gold-corrections-v1.1.json + gold-corrections-v1.2.json）",
   },
   {
     key: "abstain_correct", category: "coverage", name: "弃权正确率",
@@ -769,7 +774,7 @@ function list() {
   //   绝不按 100% 填充。这是「裁定给的数必须独立实算后才认」的落地形式。
   const evLive = l3FromMetrics();
   const injected = evLive ? { evidence_hit: evLive } : {};
-  return REGISTRY.map(r => {
+  const entries = REGISTRY.map(r => {
  const m = Object.assign({}, MEASURED[r.key] || {}, injected[r.key] || {});
     const value = m.value !== undefined ? m.value : null;
     return {
@@ -794,6 +799,8 @@ function list() {
       meets_target: (r.target != null && value != null) ? value >= r.target : null,
     };
   });
+  const { readDeliveryMetrics, overlayDeliveryMetrics } = require('./delivery_metrics.js');
+  return overlayDeliveryMetrics(entries, readDeliveryMetrics());
 }
 
 function get(key) { return list().find(r => r.key === key) || null; }

@@ -34,6 +34,9 @@ node server.js
   来源披露走响应头 `X-Export-Contract` / `X-Extraction-Engine`（**不进 JSON 体**：
   塞进 envelope 即违反契约；响应头值禁中文，已 encodeURIComponent）。
   防复发守卫：`demo/_roundtrip_check.js`（8 断言，含 3 条反证）。
+  交付树侧另有 `demo/_delivery_check.js`（魏）：隔离临时目录＋真实 HTTP 检查
+  32 份数据（31 权威＋1 演示件）回导与错误输入、服务存活；`_parity_real.js` 的 L3
+  按 JSON 信封／CSV 投影分别比较字节。
 - **`GET /api/result` 必须带 `dataset` 参数**，无参返 400（不静默回落演示件）。
   数据集名**大小写不敏感**（`d4-pld-001` 命中 `D4-PLD-001`，响应里带
   `extraction_engine.name_resolution` 如实告知归一化方式）；未命中返回 `suggestions[]` 候选提示。

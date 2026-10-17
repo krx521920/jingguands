@@ -103,11 +103,15 @@ assert(cal0.expected_total === 0 && cal0.no_gold.length === 1,
 const den0 = cal0.expected_total, pct0 = den0 ? +(cal0.recall_num / den0 * 100).toFixed(2) : null;
 assert(pct0 === null, "反证⑤-b 分母为 0 ⇒ 召回率判未测（null），不得显示 100%（实得 " + String(pct0) + "）");
 
-// ---------- 真实数据自洽：分母 437、且与「槽位 extracted」两个数各自独立 ----------
+// ---------- 真实数据自洽：分母 436＋多填 1、且与「槽位 extracted」两个数各自独立 ----------
 const real = caliber.buildGoldExpected(envelopes, realIndex);
 const slot = caliber.slotScope(envelopes);
 const engineExtracted = slot.by_status["extracted"] || 0;
-assert(real.expected_total === engineExtracted, "真实数据自洽：Gold 期望全集 " + real.expected_total + " 与槽位 extracted " + engineExtracted + " 当前同值（同值≠同源，见正证①②与反证③）");
+// ★ 2026-10-17 Gold v1.2：期望全集(436) 与 信封填值(437) 出现差集 ⇒ 多填 1 单列（宗答辩口径 §二）
+assert(real.expected_total + (real.extra_filled || 0) === engineExtracted,
+  "真实数据自洽：信封填值数 " + engineExtracted + " ＝ Gold 期望全集 " + real.expected_total + " ＋ 多填 " + (real.extra_filled || 0) + "（v1.2 差集单列，同值≠同源，见正证①②与反证③）");
+assert((real.extra_filled || 0) === 1,
+  "Gold v1.2 多填恰 1 条（D6-AWD-002 E01 formal_award_notice_received，实得 " + (real.extra_filled || 0) + "）");
 assert(real.miss_events.length === 0, "本批无「Gold 有事件而信封无」的整事件缺失（实得 " + real.miss_events.length + " 处）——若有，其期望字段必须计入分母", JSON.stringify(real.miss_events.slice(0, 3)));
 
 console.log("\n=== 汇总 ===  PASS " + pass + " / FAIL " + fail);

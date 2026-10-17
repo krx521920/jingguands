@@ -410,6 +410,11 @@ function computeMetrics(batchId) {
       gold_value_match_pct: vmatch.pct,
       gold_value_match_num: vmatch.num,
       gold_value_match_den: vmatch.den,
+      // ★ 2026-10-17 Gold v1.2：一致率分母＝信封填值数（宗答辩口径 §二），与 value_match 分母不同
+      gold_value_agreement_pct: cal.gold.value_agreement ? cal.gold.value_agreement.pct : null,
+      gold_value_agreement_num: cal.gold.value_agreement ? cal.gold.value_agreement.num : null,
+      gold_value_agreement_den: cal.gold.value_agreement ? cal.gold.value_agreement.den : null,
+      gold_extra_filled: cal.gold.extra_filled || 0,
       gold_available: cal.gold.available,
       gold_pending_fields: cal.gold.pending.gold,
       engine_pending_fields: cal.gold.pending.engine,
@@ -549,11 +554,11 @@ function handleMetrics(res, batchId) {
           "原文存在却抽不出（miss）已计入分母：" + cal.gold.recall_miss.length + " 项；多抽候选：" + cal.gold.extra_candidates.length + " 处",
           "未裁定 pending：Gold " + cal.gold.pending.gold + " 项 / 引擎 needs_review " + cal.gold.pending.engine + " 项（单列，不作头条）",
           cal.gold.overlay && cal.gold.overlay.available
-            ? "Gold v1.1 覆盖层已应用 " + cal.gold.overlay.applied + " 项（D4-PLD-009 E03 end_date needs_review→not_mentioned）" +
+            ? "Gold 覆盖层已应用 " + cal.gold.overlay.applied + " 项（" + cal.gold.overlay.version + "：v1.1 D4-PLD-009 E03 end_date needs_review→not_mentioned；v1.2 D6-AWD-002 E01 formal_award_notice_received 值 false→not_mentioned）" +
               (cal.gold.overlay.errors.length ? "；错误 " + cal.gold.overlay.errors.length + " 条" : "；无错误")
-            : "Gold v1.1 覆盖层未取件（pending 按无校正口径统计）",
+            : "Gold 覆盖层未取件（pending 按无校正口径统计）",
           "不可核（无 Gold）：" + cal.gold.no_gold_fields + " 字段（" + cal.gold.no_gold.map(x => x.dataset).join("、") + "）——不计入本项任何分子分母",
-          "值一致率（分子条件不同、当前恰好同值，不得合并）：" + vmatch.num + "/" + vmatch.den + " = " + vmatch.pct + "%",
+          "字段值一致率（分母＝信封填值数，两行并报、分母不同不得互替）：" + (cal.gold.value_agreement ? cal.gold.value_agreement.num + "/" + cal.gold.value_agreement.den + " = " + cal.gold.value_agreement.pct + "%（多填 " + (cal.gold.extra_filled || 0) + " 单列）" : "未测"),
         ],
         coverage_note: "★ 名称只能叫「相对当前 Gold 的期望字段召回率」，且必须同带限定语：" + cal.gold.qualification +
           "。★ 禁止通过修改引擎 status（如把字段改判 not_mentioned）来缩小分母" },
@@ -649,6 +654,7 @@ function handleMetrics(res, batchId) {
     })).sort((a, b) => (a.parser < b.parser ? -1 : 1));
 
     return sendJSON(res, 200, {
+      delivery_metrics: require("./delivery_metrics.js").readDeliveryMetrics(),
       generated_at: new Date().toISOString(),
       // ★ 2026-10-09：数据源披露段（领导 10-09 裁定③「页面可以暴露信息源」；
       //   宗 10-09 裁决要求附批次标识与锚点，见 data_source.js 的 ANCHOR）。

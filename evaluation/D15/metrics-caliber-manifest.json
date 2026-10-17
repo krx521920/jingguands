@@ -1,7 +1,7 @@
 {
   "note": "概念表：把『卡片上的名字』和『注册表里的 key』按**概念**配起来，避免同名不同义。每条写清口径类型、允许的目标、以及为什么必须对账。新增概念要写理由——不藏在启发式里。",
-  "updated_at": "2026-10-10",
-  "updated_by": "宗（评测侧，D17 标准化判据裁定）",
+  "updated_at": "2026-10-15",
+  "updated_by": "宗（评测侧，覆盖率分母口径裁定）",
   "concepts": [
     {
       "id": "extract_accuracy",
@@ -16,17 +16,23 @@
     },
     {
       "id": "extract_coverage",
-      "label": "字段抽取覆盖率",
+      "label": "契约字段全集槽位有值率（覆盖率类）",
       "kind": "coverage",
       "target": null,
       "allow_value_difference": false,
       "card_keys": [
-        "extracted_pct"
-      ],
-      "registry_keys": [
+        "extracted_pct",
+        "slot_value_rate",
+        "core_slot_value_rate",
         "field_coverage"
       ],
-      "why": "覆盖率＝产出取值/契约要求全集（含弃权），与准确率不是一回事；权威分母由 2026-10-09 裁决定为 606，615 只能写作『含演示件的扩大口径』。"
+      "registry_keys": [
+        "field_coverage",
+        "coverage_slot_value_rate",
+        "coverage_core_slot_rate"
+      ],
+      "why": "【2026-10-15 裁定】三个分母**不得同名替换**：①契约字段全集槽位有值率 437/606=72.11%（含弃权槽位）；②核心文本件槽位有值率 437/592=73.82%（排除扫描降级 14 槽位）；③Gold 期望字段召回率 437/437=100%（相对当前 Gold，见 gold_expected_recall 概念）。覆盖率无对标目标；总规划 90% 只挂字段抽取准确率。",
+      "ruling": "evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md"
     },
     {
       "id": "standardize_coverage",
@@ -70,6 +76,21 @@
         "evidence_hit"
       ],
       "why": "同名指标两个分母（卡片 39 条 / 1 份文档；注册表 241 条 / 10 份文档）会让评审无法核对；应统一到注册表的值并同屏写覆盖范围。"
+    },
+    {
+      "id": "gold_expected_recall",
+      "label": "Gold 期望字段召回率（相对当前 Gold）",
+      "kind": "recall",
+      "target": null,
+      "allow_value_difference": false,
+      "card_keys": [
+        "gold_expected_field_recall"
+      ],
+      "registry_keys": [
+        "gold_expected_field_recall"
+      ],
+      "ruling": "evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
+      "why": "【2026-10-15 裁定】分母＝当前 Gold 标注『应有值』的字段（本批 437）。**命名硬约束**：只能叫『相对当前 Gold 的期望字段召回率』，不得改名为『抽取覆盖率』或『原文全覆盖率』（否则该比率恒为 100%，属同义反复）。对外必须同时带『相对当前 Gold』与『本批为公开语料冻结回放、不外推泛化』两句限定。**漏抽必须留在分母**（本批 miss=0）；pending 12 项与无 Gold 14 项单列，不得静默跳过。"
     }
   ]
 }

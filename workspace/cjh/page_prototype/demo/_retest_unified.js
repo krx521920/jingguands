@@ -168,8 +168,10 @@ R.gold_missing = gold.miss_events.map(m => `${m.dataset} [${m.key}] #${m.index +
   .concat(gold.recall_miss);
 R.gold_no_gold = gold.no_gold.length;
 R.gold_no_gold_ids = gold.no_gold.map(x => x.dataset);
-R.gold_fields_total = gold.expected_total;                  // 期望全集（召回率分母）
-R.gold_match = gold.value_match_num;                        // 值+单位一致
+R.gold_fields_total = gold.expected_total;                  // 期望全集（召回率分母；Gold v1.2 后＝436）
+R.gold_match = gold.value_match_num;                        // 值+单位一致（金标期望集合内）
+R.gold_extra_filled = gold.extra_filled;                    // ★ Gold v1.2 多填单列（信封填值而金标改判无值）
+R.gold_agreement_den = gold.expected_total + gold.extra_filled; // ★ 一致率分母＝信封填值数（宗 10-17 口径）
 R.gold_mismatch = gold.value_mismatch;
 R.recall_num = gold.recall_num;                             // 有效抽出（status=extracted 且有值）
 R.recall_miss_n = gold.recall_miss.length;
@@ -278,6 +280,9 @@ const out = {
     prov_l1: pct(R.prov_l1_hit, R.prov_l1_den),
     expected_field_recall: pct(R.recall_num, R.gold_fields_total),
     gold_value_match: pct(R.gold_match, R.gold_fields_total),
+    // ★ Gold v1.2（宗 10-17 答辩口径 §二）：一致率分母＝信封填值数，两行并报不可互替
+    field_value_agreement: pct(R.gold_match, R.gold_agreement_den),
+    gold_extra_filled: R.gold_extra_filled,
     false_fill: pct(R.false_fill, R.false_fill_den),
   },
 };

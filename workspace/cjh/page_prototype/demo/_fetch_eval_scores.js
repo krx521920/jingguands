@@ -57,6 +57,10 @@ const WANT = [
   "D11/results/d9-v02-score.json",
   "D10/results/score-weiwenyu-bundle.json",
   "2026-10-12-scorecard/评分成绩单-20261015.json",
+  // ★ 2026-10-17：Gold v1.2（宗 3497ab4f7）——取件源须 --src zongbowen（delivery/v2.0 尚未含）
+  "2026-10-12-scorecard/评分成绩单-20261017.json",
+  "2026-10-17-gold-review/gold-corrections-v1.2.json",
+  "2026-10-17-gold-review/答辩最终口径-20261017.md",
   "2026-10-15-caliber/gold-corrections-v1.1.json",
   "2026-10-14-sprint/R1-评分器加固/严格评分实测-20261014.json",
   "2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",

@@ -1,1 +1,0 @@
-{"case_id":"D4-SCAN-001","source_fixture":"tests/fixtures/scanned_synthetic.pdf","parser_schema":"evidence/0.9","expected":{"page_form":"SCANNED","source_type":"scan_region","degraded":true,"missing_reason":"NOT_PARSED","text_raw":""},"scoring_policy":"scan challenge is scored separately; it must explicitly degrade and must not fabricate field values"}

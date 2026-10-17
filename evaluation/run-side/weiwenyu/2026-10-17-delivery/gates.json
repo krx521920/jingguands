@@ -1,0 +1,167 @@
+[
+  {
+    "name": "契约五方机检",
+    "args": [
+      "scripts/jingguan/test_contract_sync.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "✓ 契约五方一致：3 类事件 / 37 字段 / 6 状态 / schema v0.3"
+  },
+  {
+    "name": "出处断言单测",
+    "args": [
+      "scripts/jingguan/test_checks.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "全部通过：出处断言＋方向一致性单元测试"
+  },
+  {
+    "name": "标准化验收（方10用例）",
+    "args": [
+      "scripts/jingguan/test_normalization.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "全部通过：34 条（方轩诚 D1+D2 用例验收）"
+  },
+  {
+    "name": "宗20条格式测试",
+    "args": [
+      "corpus/zongbowen/tests/standardization-format.test.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "RESULT 20/20"
+  },
+  {
+    "name": "全量契约校验器",
+    "args": [
+      "scripts/jingguan/validate_envelope.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "全部通过：321 个文件"
+  },
+  {
+    "name": "Gold 一致性机检",
+    "args": [
+      "scripts/jingguan/check_gold.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "[汇总] 可支撑 59；quote小瑕疵 0；不可支撑（硬伤） 0"
+  },
+  {
+    "name": "抽取行为回归",
+    "args": [
+      "scripts/jingguan/test_regression.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "全部通过：抽取行为回归（5 场景）"
+  },
+  {
+    "name": "扫描并发与舍入保守判定",
+    "args": [
+      "scripts/jingguan/test_release_regressions.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "PASS 舍入：10/10 保留疑点，不套用通用百分比容差"
+  },
+  {
+    "name": "批量分母回归",
+    "args": [
+      "scripts/jingguan/test_batch_denominator.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "✓ 批量分母回归：7 输入全入分母（1 成功＋6 失败/跳过），失败隔离＋产物损坏路径（不炸整批）通过"
+  },
+  {
+    "name": "口径核对负例回归",
+    "args": [
+      "scripts/jingguan/test_coverage_sets.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "全部通过：9 项负例"
+  },
+  {
+    "name": "跨文档核验回放",
+    "args": [
+      "scripts/jingguan/verify_crossdoc.mjs",
+      "--envelopes-dir",
+      "runs/batch-20261003T160213/envelopes",
+      "--manifest",
+      "corpus/zongbowen/sealed/cross-doc-manifest.json",
+      "--expect"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "[封存回放] 相关命中 4/4｜无关零误报 16/16｜判定一致 20/20"
+  },
+  {
+    "name": "宗D8配对严格评分",
+    "args": [
+      "scripts/jingguan/test_d8_pairing.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "✓ 宗D8配对严格评分：13/13 全过（含 PAIR-013 证据不足第三态＋版本追踪）"
+  },
+  {
+    "name": "B归因引擎单测",
+    "args": [
+      "scripts/jingguan/test_attribution.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "✓ B 归因引擎单测：11 组用例全部通过（内置 7 规则＋插件优先＋异常隔离＋不足证据不猜）"
+  },
+  {
+    "name": "方D8完整入口单测",
+    "args": [
+      "scripts/jingguan/test_group_matcher.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "✓ explainGroup 完整入口单测：7 组用例全过（接管/拒数值/异常回退/守卫否决/无插件一致/双入口/逐对门控）"
+  },
+  {
+    "name": "宗D9归因用例",
+    "args": [
+      "scripts/jingguan/test_d9_rules.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "✓ 宗D9归因用例：20/20 全过（期望标签未进入判定；更正/真矛盾受控项含双侧证据；--bilateral 标注＋不可锚标记＋--verify-blocks 块级＋方库直通 18/20 对齐）"
+  },
+  {
+    "name": "D11缺陷定位固化",
+    "args": [
+      "scripts/jingguan/test_d11_defects.mjs"
+    ],
+    "exit_code": 0,
+    "signal": null,
+    "error": null,
+    "tail": "✓ D11 缺陷定位→修复闭环：症状固化＋修复转绿（AWD-002 零错）＋全量 437/437 零回归"
+  }
+]

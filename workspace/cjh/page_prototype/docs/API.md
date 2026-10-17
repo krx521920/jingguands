@@ -48,7 +48,7 @@ node server.js          # 或 pnpm start / npm start
 |---|---|---|
 | `GET /api/datasets` | `{ "source": "mock", "datasets": ["pledge", "share_change"] }` | 上传栏数据集下拉（自动列举 `data/*.json`） |
 | `GET /api/result?dataset=pledge` | 数据契约对象（见 §3，读数自动过转接口） | 结果+证据一次性拉取 |
-| `GET /api/export?dataset=x&format=json\|csv` | 附件下载（D3 新增） | 导出当前数据集：CSV=每字段一行（18 列，含出处/table_id/cell_ref/source_type/quote，RFC 4180 转义 + BOM）；CSV 走 view 投影（需 `data_mode` 列），与 `/api/result` 同源。**JSON=契约本体 envelope（v0.3，★ 2026-10-17 修复回环）**——与 `/api/upload` 导入契约同形状，**导出件可直接重新导入**（守卫 `demo/_roundtrip_check.js`）。响应头 `X-Export-Contract: v0.3-envelope`＋`X-Extraction-Engine`（ASCII 编码的引擎来源：engine/reruns_extraction/code_version/upstream_run_id/source_path；不进 JSON 体——envelope 契约 `additionalProperties=false` 禁止附加字段，响应头值禁中文故 encodeURIComponent） |
+| `GET /api/export?dataset=x&format=json\|csv` | 附件下载（D3 新增） | 导出当前数据集：CSV=每字段一行（18 列，含出处/table_id/cell_ref/source_type/quote，RFC 4180 转义 + BOM）；CSV 走 view 投影（需 `data_mode` 列），与 `/api/result` 同源。**JSON=契约本体 envelope（v0.3，★ 2026-10-17 修复回环）**——与 `/api/upload` 导入契约同形状，**导出件可直接重新导入**（守卫 `demo/_roundtrip_check.js`＋交付树侧 `demo/_delivery_check.js`）。响应头 `X-Export-Contract: v0.3-envelope`＋`X-Extraction-Engine`（ASCII 编码的引擎来源：engine/reruns_extraction/code_version/upstream_run_id/source_path；不进 JSON 体——envelope 契约 `additionalProperties=false` 禁止附加字段，响应头值禁中文故 encodeURIComponent） |
 | `GET /api/export?...&format=envelope` | — | **已合并**：10-17 起 `format=json` 即契约本体，不再单独区分 |
 | `GET /api/pairs`（D8） | `{ meta, summary, pairs[] }` | 跨文档配对三态视图：宗 13 组封存清单 × 魏 B 全量报告 + 本地原文锚点 |
 | `GET /api/verify`（D9） | `{ summary, findings[], pairs[] }` | 核验清单：方 sidecar 发现聚合（先归因）+ 张 provenance 出处 + 魏 B 互证点双侧证据 |

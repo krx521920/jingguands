@@ -1,0 +1,9 @@
+{
+  "name": "ui_redesign",
+  "private": true,
+  "description": "FinStruct 信析 · 新版 demoweb（静态托管 + /api 反代 page_prototype，零依赖）",
+  "scripts": {
+    "start": "node server.js",
+    "snapshot": "node make_snapshot.js"
+  }
+}

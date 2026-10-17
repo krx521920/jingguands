@@ -76,7 +76,7 @@ for (const [type, fields] of Object.entries(FIELD_REGISTRY)) {
 
 // ---------- 3b. 出处结构：schema provenance 键集 vs 插件 Provenance 接口 ----------
 const provSchemaKeys = new Set(Object.keys(schema.$defs.provenance.properties))
-const provInterfaceMatch = pluginSrc.match(/export interface Provenance \{([\s\S]*?)\}/)
+const provInterfaceMatch = pluginSrc.match(/export (?:interface Provenance|type Provenance =) \{([\s\S]*?)\}/)
 check(provInterfaceMatch !== null, '插件 TS 缺少 Provenance 接口')
 if (provInterfaceMatch !== null) {
   const pluginProvKeys = new Set([...provInterfaceMatch[1].matchAll(/^\s+(\w+)\??:/gm)].map((m) => m[1]))

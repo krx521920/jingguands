@@ -1,0 +1,375 @@
+{
+  "scope": "live_api.js non-comment line start offsets in V8 child-process ranges; not branch coverage",
+  "executed": 91,
+  "total": 92,
+  "lines": [
+    {
+      "line": 1,
+      "executed": true
+    },
+    {
+      "line": 2,
+      "executed": true
+    },
+    {
+      "line": 3,
+      "executed": true
+    },
+    {
+      "line": 4,
+      "executed": true
+    },
+    {
+      "line": 5,
+      "executed": true
+    },
+    {
+      "line": 6,
+      "executed": true
+    },
+    {
+      "line": 7,
+      "executed": true
+    },
+    {
+      "line": 8,
+      "executed": true
+    },
+    {
+      "line": 9,
+      "executed": true
+    },
+    {
+      "line": 10,
+      "executed": true
+    },
+    {
+      "line": 11,
+      "executed": true
+    },
+    {
+      "line": 12,
+      "executed": true
+    },
+    {
+      "line": 13,
+      "executed": true
+    },
+    {
+      "line": 14,
+      "executed": true
+    },
+    {
+      "line": 15,
+      "executed": true
+    },
+    {
+      "line": 16,
+      "executed": true
+    },
+    {
+      "line": 17,
+      "executed": true
+    },
+    {
+      "line": 18,
+      "executed": true
+    },
+    {
+      "line": 19,
+      "executed": true
+    },
+    {
+      "line": 20,
+      "executed": true
+    },
+    {
+      "line": 21,
+      "executed": true
+    },
+    {
+      "line": 22,
+      "executed": true
+    },
+    {
+      "line": 23,
+      "executed": true
+    },
+    {
+      "line": 24,
+      "executed": true
+    },
+    {
+      "line": 25,
+      "executed": true
+    },
+    {
+      "line": 26,
+      "executed": true
+    },
+    {
+      "line": 27,
+      "executed": true
+    },
+    {
+      "line": 28,
+      "executed": true
+    },
+    {
+      "line": 29,
+      "executed": true
+    },
+    {
+      "line": 30,
+      "executed": true
+    },
+    {
+      "line": 31,
+      "executed": true
+    },
+    {
+      "line": 32,
+      "executed": true
+    },
+    {
+      "line": 33,
+      "executed": true
+    },
+    {
+      "line": 38,
+      "executed": true
+    },
+    {
+      "line": 39,
+      "executed": true
+    },
+    {
+      "line": 40,
+      "executed": true
+    },
+    {
+      "line": 41,
+      "executed": true
+    },
+    {
+      "line": 42,
+      "executed": true
+    },
+    {
+      "line": 43,
+      "executed": true
+    },
+    {
+      "line": 44,
+      "executed": true
+    },
+    {
+      "line": 45,
+      "executed": true
+    },
+    {
+      "line": 46,
+      "executed": true
+    },
+    {
+      "line": 47,
+      "executed": true
+    },
+    {
+      "line": 48,
+      "executed": true
+    },
+    {
+      "line": 49,
+      "executed": true
+    },
+    {
+      "line": 50,
+      "executed": true
+    },
+    {
+      "line": 51,
+      "executed": true
+    },
+    {
+      "line": 52,
+      "executed": true
+    },
+    {
+      "line": 53,
+      "executed": true
+    },
+    {
+      "line": 54,
+      "executed": true
+    },
+    {
+      "line": 55,
+      "executed": true
+    },
+    {
+      "line": 56,
+      "executed": true
+    },
+    {
+      "line": 57,
+      "executed": true
+    },
+    {
+      "line": 58,
+      "executed": true
+    },
+    {
+      "line": 59,
+      "executed": true
+    },
+    {
+      "line": 60,
+      "executed": true
+    },
+    {
+      "line": 61,
+      "executed": true
+    },
+    {
+      "line": 62,
+      "executed": true
+    },
+    {
+      "line": 63,
+      "executed": true
+    },
+    {
+      "line": 64,
+      "executed": true
+    },
+    {
+      "line": 65,
+      "executed": true
+    },
+    {
+      "line": 66,
+      "executed": true
+    },
+    {
+      "line": 67,
+      "executed": true
+    },
+    {
+      "line": 68,
+      "executed": true
+    },
+    {
+      "line": 69,
+      "executed": true
+    },
+    {
+      "line": 70,
+      "executed": true
+    },
+    {
+      "line": 71,
+      "executed": true
+    },
+    {
+      "line": 72,
+      "executed": false
+    },
+    {
+      "line": 73,
+      "executed": true
+    },
+    {
+      "line": 74,
+      "executed": true
+    },
+    {
+      "line": 75,
+      "executed": true
+    },
+    {
+      "line": 76,
+      "executed": true
+    },
+    {
+      "line": 77,
+      "executed": true
+    },
+    {
+      "line": 78,
+      "executed": true
+    },
+    {
+      "line": 79,
+      "executed": true
+    },
+    {
+      "line": 80,
+      "executed": true
+    },
+    {
+      "line": 81,
+      "executed": true
+    },
+    {
+      "line": 82,
+      "executed": true
+    },
+    {
+      "line": 83,
+      "executed": true
+    },
+    {
+      "line": 84,
+      "executed": true
+    },
+    {
+      "line": 85,
+      "executed": true
+    },
+    {
+      "line": 86,
+      "executed": true
+    },
+    {
+      "line": 87,
+      "executed": true
+    },
+    {
+      "line": 88,
+      "executed": true
+    },
+    {
+      "line": 89,
+      "executed": true
+    },
+    {
+      "line": 90,
+      "executed": true
+    },
+    {
+      "line": 91,
+      "executed": true
+    },
+    {
+      "line": 92,
+      "executed": true
+    },
+    {
+      "line": 93,
+      "executed": true
+    },
+    {
+      "line": 94,
+      "executed": true
+    },
+    {
+      "line": 95,
+      "executed": true
+    },
+    {
+      "line": 96,
+      "executed": true
+    }
+  ]
+}

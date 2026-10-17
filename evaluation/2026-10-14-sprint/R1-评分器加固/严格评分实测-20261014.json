@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-10-14",
+  "dir": "evaluation/D11/firsttest-envelopes",
+  "excluded": "DEMO-EQC-HL-0930.json",
+  "result": "PASS",
+  "violations": 0,
+  "strict": {
+    "note": "严格分子＝quote 原文子串命中（hit_raw）；空白归一后命中的 hit_ws_only 单列，不并入严格分子",
+    "docs": 31,
+    "fields": 606,
+    "valued": 437,
+    "anchors": 451,
+    "hit_raw": 432,
+    "hit_ws_only": 19,
+    "miss": 0,
+    "fabricated_block": 0,
+    "arithmetic_violations": 0,
+    "valued_without_provenance": [],
+    "unreadable_with_value": []
+  },
+  "details": [],
+  "arithmetic_details": []
+}

@@ -14,6 +14,7 @@
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
 import { defineTool } from '@deepseek-ai/dsh-tools'
+import type { JsonValue } from '@deepseek-ai/dsh-util-values'
 import { spawn } from 'node:child_process'
 import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -58,12 +59,13 @@ async function extractViaCli(documentText: string, eventType: EventType, runId: 
       child.on('close', (code) => {
         clearTimeout(timer)
         const m = [...stdout.matchAll(/runs[\\/](\S+?)[\\/]events\.json/g)].pop()
-        if (code !== 0 || m === undefined) {
+        const runDir = m?.[1] // noUncheckedIndexedAccess：下标访问显式兜底
+        if (code !== 0 || runDir === undefined) {
           rejectPromise(new Error(`抽取 CLI 失败（exit=${code}）：${(stderr || stdout).split('\n').filter(Boolean).slice(-3).join(' | ').slice(0, 300)}`))
           return
         }
         try {
-          resolvePromise(JSON.parse(readFileSync(join(tmpDir, 'runs', m[1], 'events.json'), 'utf8')) as EventEnvelope)
+          resolvePromise(JSON.parse(readFileSync(join(tmpDir, 'runs', runDir, 'events.json'), 'utf8')) as EventEnvelope)
         } catch (err) {
           rejectPromise(new Error(`信封产物不可读：${String(err)}`))
         }
@@ -84,8 +86,8 @@ export interface Config {
   strict: boolean
 }
 
-/** Validated config. */
-export const Config: z<Config> = z.object({
+/** Validated config（z.object 的实例即 schemastery Schema；不再以值 z 作类型标注——那是 D1 期笔误，TS 报错源之一）。 */
+export const Config = z.object({
   strict: z.boolean().default(true),
 })
 
@@ -155,8 +157,13 @@ export const FIELD_REGISTRY: Record<EventType, Record<string, FieldSpec>> = {
   },
 }
 
-/** 出处结构（v0.3 含表格证据与来源类型）。 */
-export interface Provenance {
+/**
+ * 出处结构（v0.3 含表格证据与来源类型）。
+ * 信封四类型（Provenance/FieldValue/Event/EventEnvelope）用 type 别名而非 interface：
+ * 工具 output.schema 推断值类型是 Record<string, JsonValue>，只有对象字面量类型
+ * 能拿到隐式索引签名，interface 会拦下赋值（T-16 的 TS2352/TS2322 根因）。
+ */
+export type Provenance = {
   block_id: string | null
   source_type?: 'paragraph' | 'table' | 'cell' | 'scan_region' | 'document' | null
   page: number
@@ -167,7 +174,7 @@ export interface Provenance {
 }
 
 /** 任意字段值结构（见 interface/README.md FieldValue；v0.2 无 cumulative）。 */
-export interface FieldValue {
+export type FieldValue = {
   raw_value: string | null
   value: number | string | boolean | null
   unit: FieldSpec['unit']
@@ -179,7 +186,7 @@ export interface FieldValue {
 }
 
 /** 单个事件。 */
-export interface Event {
+export type Event = {
   event_id: string
   event_type: EventType
   fields: Record<string, FieldValue>
@@ -187,30 +194,33 @@ export interface Event {
   notes?: string | null
 }
 
-/** 输出信封（v0.2）。 */
-export interface EventEnvelope {
+/** 输出信封（v0.2）。blocks 是透传的解析块（纯 JSON 数据），按 JsonValue 记。 */
+export type EventEnvelope = {
   schema_version: '0.3'
   run_id: string
   is_mock: boolean
-  source: { file_id: string | null, file_name: string | null, file_sha256: string | null, parse_meta: { parser_version: string | null, page_count: number | null, blocks?: Array<Record<string, unknown>> | null } | null }
+  source: { file_id: string | null; file_name: string | null; file_sha256: string | null; parse_meta: { parser_version: string | null; page_count: number | null; blocks?: Array<Record<string, JsonValue>> | null } | null }
   events: Event[]
-  run_meta: { entry: 'cli' | 'web' | 'tool', model: string | null, started_at: string, duration_ms: number | null, code_version?: string, interface_version?: string, errors: string[] }
+  run_meta: { entry: 'cli' | 'web' | 'tool'; model: string | null; started_at: string; duration_ms: number | null; code_version?: string; interface_version?: string; errors: string[] }
 }
 
 /** 按注册表生成全 not_mentioned 的字段骨架（模型/规则抽取的起始容器）。 */
 export function skeletonFields(eventType: EventType): Record<string, FieldValue> {
   const fields: Record<string, FieldValue> = {}
   for (const [fieldName, spec] of Object.entries(FIELD_REGISTRY[eventType])) {
-    fields[fieldName] = {
+    const skeleton: FieldValue = {
       raw_value: null,
       value: null,
       unit: spec.unit,
       standardized: false,
       status: 'not_mentioned',
       provenance: [],
-      denominator: spec.fixedDenominator ?? (spec.requiresDenominator === true ? null : undefined),
       note: null,
     }
+    // exactOptionalPropertyTypes：可选键不落 undefined，按注册表条件赋键（JSON 形态不变）
+    if (spec.fixedDenominator) skeleton.denominator = spec.fixedDenominator
+    else if (spec.requiresDenominator === true) skeleton.denominator = null
+    fields[fieldName] = skeleton
   }
   return fields
 }
@@ -243,11 +253,11 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
       }
       if (value.status === 'extracted') {
         if (value.provenance.length === 0) issues.push(`${fieldWhere} status=extracted 但无出处`)
-        else if (!value.provenance.some((p) => p.quote.trim().length > 0)) issues.push(`${fieldWhere} 出处缺 quote`)
+        else if (!value.provenance.some(p => p.quote.trim().length > 0)) issues.push(`${fieldWhere} 出处缺 quote`)
       }
       for (const [j, p] of value.provenance.entries()) {
-        if (p.region === null || p.region === undefined) continue
-        const [left, top, right, bottom] = p.region
+        if (p.region === null || p.region === undefined || p.region.length < 4) continue
+        const [left = 0, top = 0, right = 0, bottom = 0] = p.region // noUncheckedIndexedAccess：解构显式兜底
         const regionWhere = `${fieldWhere}.provenance[${j}].region`
         if (left < 0 || top < 0) issues.push(`${regionWhere} 坐标为负`)
         if (left >= right) issues.push(`${regionWhere} left(${left}) ≥ right(${right})`)
@@ -281,14 +291,19 @@ export function apply(ctx: Context, config: Config): void {
       schema: {
         type: 'object', additionalProperties: false,
         properties: {
-          envelope: { type: 'object', description: 'v0.3 事件信封（is_mock 标注数据来源）' },
+          envelope: { type: 'object', additionalProperties: true, description: 'v0.3 事件信封（is_mock 标注数据来源）' },
           issues: { type: 'array', items: { type: 'string' }, description: '结构校验＋管线运行问题清单' },
         },
       },
-      render: (_args, value) => [{
-        type: 'text',
-        text: `v0.3 信封已生成（${value.envelope.is_mock ? 'mock 骨架' : '真实抽取'}）：${value.envelope.events.length} 个事件，问题 ${value.issues.length} 条`,
-      }],
+      render: (_args, value) => {
+        // output.schema 为运行时 JSON Schema 声明，InferValue 对 {type:'object'} 裸节点推不出成员——
+        // 这里按 execute 的实际返回结构收窄（值类型问题不改变运行时行为）
+        const v = value as { envelope: EventEnvelope; issues: string[] }
+        return [{
+          type: 'text',
+          text: `v0.3 信封已生成（${v.envelope.is_mock ? 'mock 骨架' : '真实抽取'}）：${v.envelope.events.length} 个事件，问题 ${v.issues.length} 条`,
+        }]
+      },
     },
     async execute(args) {
       const eventTypes = Object.keys(FIELD_REGISTRY) as EventType[]

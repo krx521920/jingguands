@@ -54,7 +54,7 @@ SUBTITLES = {
     "S04": "四级出处：文件·页·区域·行列（逐字段回溯到原文坐标）",
     "S05": "待复核 / 未提及：不猜不填零",
     "S06": "B 流：跨文档核对 · 13/13 · 4/4 · 8/8 · 1/1",
-    "S07": "准确率 437/437 = 100% · 覆盖 31/31 份",
+    "S07": "准确率(值一致) 436/437 = 99.77%（多填 1 单列）· 覆盖 31/31 份",
     "S08": "覆盖率 72.11%（437/606）· 溯源 74.09%（449/606）· 标准化 229/229",
     "S09": "弃权 169 条计入分母：弃权是正确行为，但仍是未覆盖",
     "S10": "权威批次：31 份 · 606 字段 · 数据可复算",
@@ -112,8 +112,15 @@ def live_subtitles(base):
     # S07 / S08 / S10：分母与比率一律现读，源数据在 summary
     if s.get("fields_total"):
         n = s["fields_total"]
-        acc = ""
-        out["S07"] = "准确率 437/437 = 100%% · 覆盖 %d 份 · 字段 %d" % (s.get("datasets") or 0, n)
+        # ★ 2026-10-17 Gold v1.2（宗答辩口径 §二）：S07 现读「字段值一致率」（分母＝信封填值数），
+        #   多填单列——旧写死 437/437=100% 已过期（实为 436/437=99.77%），不得回填。
+        if s.get("gold_value_agreement_den"):
+            out["S07"] = ("准确率(值一致) %d/%d = %.2f%%（多填 %d 单列）· 覆盖 %d 份"
+                          % (s["gold_value_agreement_num"], s["gold_value_agreement_den"],
+                             s["gold_value_agreement_pct"], s.get("gold_extra_filled") or 0,
+                             s.get("datasets") or 0))
+        else:
+            out["S07"] = "准确率(值一致)未测（Gold 缺失）· 覆盖 %d 份 · 字段 %d" % (s.get("datasets") or 0, n)
         out["S10"] = "权威批次：%s 份 · %d 字段 · 数据可复算" % (s.get("datasets"), n)
         if s.get("extracted_pct") is not None:
             out["S08"] = ("覆盖率 %.2f%%（437/%d）· 溯源 %.2f%%（%d/%d）· 标准化 229/229"

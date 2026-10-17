@@ -145,7 +145,8 @@ function cleanup(names) {
 
     // ★ A4B（10-17 新增）：导出件形状必须是契约本体而非 view 投影——
     //   view 投影（data_mode/evidences/bridge、缺顶层 is_mock/source）喂回导入闸门必被拒，
-    //   导出件导不回去＝回环断裂。与 demo/_roundtrip_check.js 互为双保险（那边验回导行为，这边验导出形状）。
+    //   导出件导不回去＝回环断裂。与 demo/_roundtrip_check.js（回导行为）＋交付树侧
+    //   demo/_delivery_check.js（32 份回导＋错误输入＋服务存活）互为多保险。
     const shapeObj = ex.json || {};
     const isEnvelope = typeof shapeObj.is_mock !== "undefined"
       && typeof shapeObj.source !== "undefined"

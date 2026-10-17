@@ -1,0 +1,15 @@
+run_id,data_mode,event_id,event_type,field,status,status_raw,value,normalized,normalized_unit,denominator,evidence_id,block_id,page,table_id,cell_ref,source_type,quote
+20261017T023720-award_contract-4318,real,E01,award_contract,bidder,success,extracted,扬州惠通科技股份有限公司,扬州惠通科技股份有限公司,,,ev-0001,dc1c912b9_p001_b00013,1,,,paragraph,中标单位仍为本公司
+20261017T023720-award_contract-4318,real,E01,award_contract,tenderer,success,extracted,图木舒克新纶化纤有限责任公司,图木舒克新纶化纤有限责任公司,,,ev-0002,dc1c912b9_p001_b00009,1,,,paragraph,招标单位为图木舒克新纶化纤有限责任公司
+20261017T023720-award_contract-4318,real,E01,award_contract,project_name,success,extracted,新纶化纤年产30万吨涤纶化纤项目,新纶化纤年产30万吨涤纶化纤项目,,,ev-0003,dc1c912b9_p001_b00009,1,,,paragraph,新纶化纤年产30万吨涤纶化纤项目
+20261017T023720-award_contract-4318,real,E01,award_contract,bid_amount,not_mentioned,not_mentioned,,,元,,,,,,,,
+20261017T023720-award_contract-4318,real,E01,award_contract,currency,not_mentioned,not_mentioned,,,,,,,,,,,
+20261017T023720-award_contract-4318,real,E01,award_contract,tax_included,not_mentioned,not_mentioned,,,,,,,,,,,
+20261017T023720-award_contract-4318,real,E01,award_contract,duration,not_mentioned,not_mentioned,,,,,,,,,,,
+20261017T023720-award_contract-4318,real,E01,award_contract,consortium_members,not_applicable,not_applicable,,,,,,,,,,,
+20261017T023720-award_contract-4318,real,E01,award_contract,consortium_shares,not_applicable,not_applicable,,,,,,,,,,,
+20261017T023720-award_contract-4318,real,E01,award_contract,bid_date,success,extracted,2026年9月26日,2026-09-26,,,ev-0004,dc1c912b9_p001_b00012,1,,,paragraph,2026年9月26日，在全国公共资源交易平台（兵团）兵团公共资源交易平台（https://ggzy.xjbt.gov.cn/）重新发布了相关中标结果公告
+20261017T023720-award_contract-4318,real,E01,award_contract,contract_signed,not_mentioned,not_mentioned,,,,,,,,,,,
+20261017T023720-award_contract-4318,real,E01,award_contract,formal_award_notice_received,success,extracted,尚未取得中标通知书,false,,,ev-0005,dc1c912b9_p001_b00006,1,,,paragraph,尚未取得中标通知书
+20261017T023720-award_contract-4318,real,E01,award_contract,price_adjustment_status,not_mentioned,not_mentioned,,,,,,,,,,,
+20261017T023720-award_contract-4318,real,E01,award_contract,recognized_revenue,not_mentioned,not_mentioned,,,元,,,,,,,,

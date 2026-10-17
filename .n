@@ -1,0 +1,3 @@
+[N09 抽取入口] http://127.0.0.1:8788/extract（仅本机监听）
+  缓存：evaluation/D12/wei-runs/cache-snapshot-d12
+  陈侧接入：server.js 代理 /api/extract → POST http://127.0.0.1:8788/extract
