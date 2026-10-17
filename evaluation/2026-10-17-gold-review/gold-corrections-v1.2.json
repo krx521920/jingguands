@@ -1,0 +1,33 @@
+{
+  "schema": "gold-corrections/1",
+  "version": "v1.2",
+  "issued_on": "2026-10-17",
+  "issued_by": "宗（评测侧 = Gold 责任方）",
+  "basis": "evaluation/2026-10-17-gold-review/金标复核表-D6-AWD-002-20261017.md",
+  "discipline": "不改冻结 Gold 文件、不改封存哈希锁、不回填历史首测结果；本文件为可消费的覆盖层（overlay）",
+  "corrections": [
+    {
+      "case_id": "D6-AWD-002",
+      "event_id": "E01",
+      "field": "formal_award_notice_received",
+      "from": "false",
+      "to": "not_mentioned",
+      "reason": "原句 p002_b00021-22 只点名「…25号线一期工程风机设备及服务采购项目尚未取得最终的中标通知书」，未提「风阀设备及服务采购项目」；把 E02（风机）的证据套给了 E01（风阀）",
+      "evidence_block": "dc0a3d5fb_p002_b00022"
+    }
+  ],
+  "effect": {
+    "gold_expected_valued_fields": { "before": 437, "after": 436 },
+    "envelope_valued_fields": 437,
+    "matched_filled_fields": { "before": 437, "after": 436 },
+    "extra_filled": { "before": 0, "after": 1 },
+    "reported_denominators": {
+      "field_value_agreement": "436/437 = 99.77% (分母=信封填值数)",
+      "gold_expected_recall": "436/436 = 100% (分母=修订后金标期望)，另单列 多填 1"
+    }
+  },
+  "pending_for_fang": [
+    { "case_id": "D6-AWD-002", "events": ["E03", "E04"], "field": "contract_signed", "current": "true",
+      "issue": "原文为组级「…项目部分已签订合同」，未细分到 (三)/(四)；若口径要求子项自身明示，应降为 needs_review" }
+  ]
+}

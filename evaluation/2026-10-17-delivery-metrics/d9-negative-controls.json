@@ -20,7 +20,7 @@
     "synthetic_controlled": false,
     "status": "fail",
     "notes": [
-      "COMPUTED_SUM_MISMATCH:group_sum_reconciliation",
+      "COMPUTED_SUM_MISMATCH:group_sum_reconciliation 8427900≠8427901",
       "COMPUTED_VS_AGGREGATE_MISMATCH:group_sum_reconciliation"
     ]
   },
@@ -37,7 +37,7 @@
       "QUOTE_NOT_IN_BLOCK:D5-EQC-001/d9d5be14f_p010_b00004"
     ],
     "wrong_sum_notes": [
-      "COMPUTED_SUM_MISMATCH:group_sum_reconciliation",
+      "COMPUTED_SUM_MISMATCH:group_sum_reconciliation 8427900≠8427901",
       "COMPUTED_VS_AGGREGATE_MISMATCH:group_sum_reconciliation"
     ]
   }

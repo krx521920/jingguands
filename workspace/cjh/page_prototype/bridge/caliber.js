@@ -56,11 +56,17 @@ const QUALIFIER = {
   conditional: "当前 Gold 条件口径",
   frozen_replay: "本批为公开语料冻结回放（非未见样本）",
   no_generalization: "不外推泛化",
-  pending_note: "Gold 待复核 11 项单列 pending（v1.1 校正后：D4-PLD-009 E03 end_date 由 needs_review 校正为 not_mentioned）；3 处状态差异已裁定（D6-AWD-002 E03/E04 信封 not_disclosed 待魏/张校正为 not_mentioned，两者都无值、不影响成绩）",
+  pending_note: "Gold 待复核 11 项单列 pending；v1.1 校正 D4-PLD-009 E03 end_date needs_review→not_mentioned；v1.3（2026-10-17 宗，取代 v1.2）校正 D6-AWD-002：E01 formal_award_notice_received false→not_mentioned（跨项目证据套用＝信封多填 1）、E01/E02 contract_signed not_disclosed→false（＝漏抽 2）——值一致 436/437＝99.77%，期望召回 436/438＝99.54%，两行并报",
 };
 
-/** Gold v1.1 覆盖层路径（C2 规则下本机私有检出，由 demo/_fetch_eval_scores.js 按 sha 取件） */
+/** Gold v1.1 覆盖层路径（status 层，C2 规则下本机私有检出，由 demo/_fetch_eval_scores.js 按 sha 取件） */
 const GOLD_OVERLAY_REL = path.join("2026-10-15-caliber", "gold-corrections-v1.1.json");
+
+/** Gold v1.3 算术层路径（2026-10-17 宗；supersede v1.2）：from/to 为值/状态混合形态，
+ *  不经 applyGoldOverlay 的 status 断言，按收缩/扩张（shrink/grow）调整分母分子——
+ *  与评测侧 build-scorecard.mjs 的 expectedTotal/matchedFilled 推导同构。 */
+const GOLD_ARITH_REL = path.join("2026-10-17-gold-review", "gold-corrections-v1.3.json");
+const NON_VALUED_STATUS_SET = new Set(["not_mentioned", "not_applicable", "not_disclosed", "needs_review", "unreadable"]);
 
 /** 读 Gold v1.1 覆盖层；缺失/损坏 ⇒ available:false（调用方据此退回无覆盖层行为） */
 function readGoldOverlay() {
@@ -72,6 +78,22 @@ function readGoldOverlay() {
       path: GOLD_OVERLAY_REL, corrections: j.corrections, applied: 0, errors: [] };
   } catch (e) {
     return { available: false, why: "overlay 缺失或不可解析（未取件）——退回无覆盖层行为", applied: 0, errors: [] };
+  }
+}
+
+/** 读 Gold v1.3 算术层；返回 shrink（期望→无值）/grow（无值→期望）计数与明细。
+ *  缺失 ⇒ available:false（口径退回 v1.1 终态，不猜数）。 */
+function readGoldArithmetic() {
+  try {
+    const j = JSON.parse(fs.readFileSync(path.join(EVAL, GOLD_ARITH_REL), "utf8"));
+    if (!j || !Array.isArray(j.corrections)) return { available: false, shrink: 0, grow: 0, corrections: [] };
+    const isNV = s => NON_VALUED_STATUS_SET.has(String(s));
+    const corrections = j.corrections;
+    return { available: true, version: j.version || "v1.3", path: GOLD_ARITH_REL, corrections,
+      shrink: corrections.filter(c => isNV(c.to) && !isNV(c.from)).length,
+      grow: corrections.filter(c => isNV(c.from) && !isNV(c.to)).length };
+  } catch (e) {
+    return { available: false, shrink: 0, grow: 0, corrections: [] };
   }
 }
 
@@ -417,6 +439,17 @@ function computeCaliber(envelopes, opts) {
   const goldIndex = o.goldIndex || loadGoldIndex();
   const gold = buildGoldExpected(envelopes, goldIndex);
   gold.pending_engine = slot.by_status["needs_review"] || 0;
+  // ★ 2026-10-17 金标 v1.3 算术层：收缩＝Gold 期望转无值（信封该处填值变多填），
+  // 扩张＝Gold 无值转期望（信封未填即漏抽）。仅调整口径数，不改任何 Gold/信封文件。
+  const arith = readGoldArithmetic();
+  gold.arithmetic = arith;
+  if (arith.available && arith.shrink + arith.grow > 0) {
+    gold.expected_total = gold.expected_total - arith.shrink + arith.grow;
+    gold.recall_num = Math.max(0, gold.recall_num - arith.shrink);
+    gold.value_match_num = Math.max(0, gold.value_match_num - arith.shrink);
+    gold.extra_filled_v13 = arith.shrink;
+    gold.missed_expected_v13 = arith.grow;
+  }
 
   const pct = (a, b) => (b ? +((a / b) * 100).toFixed(2) : null);
   const den = gold.expected_total;
@@ -450,6 +483,10 @@ function computeCaliber(envelopes, opts) {
       gold_dirs: gold.gold_dirs,
       // ★ Gold v1.1 覆盖层状态（应用条数/错误清单）——缺失即 available:false，pending 单列不补数
       overlay: gold.overlay,
+      // ★ Gold v1.3 算术层（shrink/grow 已计入上面 expected/recall/value_match 各数）
+      arithmetic: gold.arithmetic || { available: false },
+      extra_filled_v13: gold.extra_filled_v13 || 0,
+      missed_expected_v13: gold.missed_expected_v13 || 0,
       pair_key: gold.pair_key,
       event_key: gold.event_key,
       pairs: gold.pairs,
@@ -482,9 +519,9 @@ function computeCaliber(envelopes, opts) {
 
 module.exports = {
   LABELS, QUALIFIER,
-  ROOT, REPO, EVAL, GOLD_CASES, GOLD_OVERLAY_REL,
+  ROOT, REPO, EVAL, GOLD_CASES, GOLD_OVERLAY_REL, GOLD_ARITH_REL,
   goldDirs, loadGoldIndex, defaultFrames, primaryEnvelopes,
-  readGoldOverlay, applyGoldOverlay,
+  readGoldOverlay, readGoldArithmetic, applyGoldOverlay,
   norm, normRatio, isRatioField, hasEffectiveValue, pickVal,
   evKey, isField,
   buildGoldExpected, slotScope, computeCaliber,

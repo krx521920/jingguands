@@ -1,0 +1,46 @@
+{
+  "schema": "gold-corrections/1",
+  "version": "v1.3",
+  "supersedes": "v1.2",
+  "issued_on": "2026-10-17",
+  "issued_by": "宗（评测侧 = Gold 责任方）",
+  "basis": "evaluation/2026-10-17-gold-review/金标复核表-D6-AWD-002-20261017.md ＋ 弃权复核-第二批69条-20261017.csv",
+  "discipline": "不改冻结 Gold 文件、不改封存哈希锁、不回填历史首测结果；本文件为可消费的覆盖层（overlay）",
+  "corrections": [
+    {
+      "case_id": "D6-AWD-002", "event_id": "E01", "field": "formal_award_notice_received",
+      "from": "false", "to": "not_mentioned",
+      "reason": "原句只点名「…风机设备及服务采购项目尚未取得最终的中标通知书」，未提风阀项目（跨项目证据套用）",
+      "evidence_block": "dc0a3d5fb_p002_b00022"
+    },
+    {
+      "case_id": "D6-AWD-002", "event_id": "E01", "field": "contract_signed",
+      "from": "not_disclosed", "to": "false",
+      "reason": "原文「其他尚未签订正式合同」——深圳两项目明确未签，可直接判 false；原判 not_disclosed 属漏抽",
+      "evidence_block": "dc0a3d5fb_p002_b00022"
+    },
+    {
+      "case_id": "D6-AWD-002", "event_id": "E02", "field": "contract_signed",
+      "from": "not_disclosed", "to": "false",
+      "reason": "同上",
+      "evidence_block": "dc0a3d5fb_p002_b00022"
+    }
+  ],
+  "effect": {
+    "gold_expected_valued_fields": { "before": 437, "after": 438 },
+    "envelope_valued_fields": 437,
+    "matched_filled_fields": 436,
+    "extra_filled": 1,
+    "missed_expected": 2,
+    "reported": {
+      "field_value_agreement": "436/437 = 99.77% (分母=信封填值数)",
+      "gold_expected_recall": "436/438 = 99.54% (分母=修订后金标期望)",
+      "extra_filled": 1,
+      "missed": 2
+    }
+  },
+  "pending_for_fang": [
+    { "case_id": "D6-AWD-002", "events": ["E03", "E04"], "field": "contract_signed", "current": "true",
+      "issue": "原文为组级「…项目部分已签订合同」，未细分到 (三)/(四)；若口径要求子项自身明示，应降为 needs_review" }
+  ]
+}

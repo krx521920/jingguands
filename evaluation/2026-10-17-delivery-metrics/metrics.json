@@ -2,7 +2,7 @@
   "schema": "finstruct.delivery-metrics/1",
   "generated_on": "2026-10-17",
   "generator": "scripts/jingguan/build_delivery_metrics.mjs",
-  "integrated_from": "zongbowen@e4eed7dd48eef29637c2e4704716c214f0a6fc2f",
+  "integrated_from": "zongbowen@fe2b2cbcaf62f4bb1e9ffc312feb4d1fc6674641",
   "base_commit": "2606dc67ce867ffa41521341d4af8f70366dac11",
   "batch": {
     "id": "权威批（D11 首测冻结）",
@@ -18,9 +18,9 @@
     {
       "key": "field_accuracy",
       "name": "字段值一致率（相对当前 Gold）",
-      "value": 100,
-      "num": 437,
-      "den": 437,
+      "value": 99.54,
+      "num": 436,
+      "den": 438,
       "unit": "%",
       "batch": "D11 首测冻结 · 31 份（含 1 份扫描降级件）",
       "code_version": "weiwenyu@5f25133a",
@@ -116,7 +116,7 @@
       "den": 20,
       "unit": "%",
       "batch": "D9 开发用例 20 条（真实 18 / 受控 2）",
-      "code_version": "宗 e4eed7dd 基础＋输入完整性修复；实现哈希见本成绩单",
+      "code_version": "宗 fe2b2cbc 基础＋输入完整性修复；实现哈希见本成绩单",
       "evidence": "evaluation/2026-10-17-delivery-metrics/d9-score.json",
       "note": "误报 0 / 漏报 0；必需证据侧、非空引文及求和明细/合计均校验，漏跑单列。无信封受控侧告警，不计作严格原文已验证。",
       "group": "历史冻结批与专项结果",
@@ -185,23 +185,38 @@
       "direction": "lower"
     },
     {
-      "key": "gold_expected_field_recall",
-      "name": "Gold 期望字段召回率（相对当前 Gold）",
-      "value": 100,
-      "num": 437,
+      "key": "field_value_agreement",
+      "name": "字段值一致率（分母＝信封填值数）",
+      "value": 99.77,
+      "num": 436,
       "den": 437,
       "unit": "%",
       "batch": "权威批（D11 首测冻结）",
       "code_version": "weiwenyu@5f25133a",
-      "evidence": "evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
-      "note": "相对当前 Gold 的冻结回放；Gold 原文推导与 D6 项目归属仍待独立复核，不外推陌生公告。 本批恰与值一致率同值；召回与值正确是不同判据。",
+      "evidence": "evaluation/2026-10-17-gold-review/gold-corrections-v1.3.json",
+      "note": "分母＝信封填值数 437；与金标一致 436；**多填 1**。与『期望召回率』分母不同，不可互替",
       "group": "历史冻结批与专项结果",
       "target": null,
       "status": "measured"
     },
     {
-      "key": "web_cli_independent",
-      "name": "页面 / CLI 字段一致率",
+      "key": "gold_expected_field_recall",
+      "name": "Gold 期望字段召回率（相对当前 Gold）",
+      "value": 99.54,
+      "num": 436,
+      "den": 438,
+      "unit": "%",
+      "batch": "权威批（D11 首测冻结）",
+      "code_version": "weiwenyu@5f25133a",
+      "evidence": "evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
+      "note": "相对当前 Gold 的冻结回放；Gold 原文推导与 D6 项目归属仍待独立复核，不外推陌生公告。 漏抽 2（期望−命中）；本批恰与值一致率同值；召回与值正确是不同判据。",
+      "group": "历史冻结批与专项结果",
+      "target": null,
+      "status": "measured"
+    },
+    {
+      "key": "web_cli_same_result",
+      "name": "页面 / CLI 同源结果一致率",
       "num": 125,
       "den": 125,
       "value": 100,
@@ -212,7 +227,7 @@
       "batch": "2026-10-17 · 3 份公告 · 3 次页面 + 5 次 CLI 冷跑",
       "code_version": "dd04024ebb61 抽取实现；逐文件哈希见验收 manifest",
       "evidence": "evaluation/run-side/weiwenyu/2026-10-17-live-delivery/manifest.json",
-      "note": "按业务键比较 status/value/unit/standardized/denominator；run_id 独立、本地响应缓存禁用。不是 Gold 准确率或全文件字节一致。"
+      "note": "同源同函数幂等（same_source_same_result）：按业务键比较 status/value/unit/standardized/denominator，run_id 独立、本地响应缓存禁用。不是 Gold 准确率、不是独立抽取一致，也不作 web_cli_independent 销项。"
     },
     {
       "key": "live_evidence_strict",
@@ -325,16 +340,16 @@
     "scripts/jingguan/lib/notice_status.mjs": "88f46a1d928c5abf29d2c040aa3fcf2a4d5ac9b32db51b08872d56bc187e5dee",
     "evaluation/run-side/weiwenyu/2026-10-17-live-delivery/verify.mjs": "cca2e2cbfef23a256f82c254bf91b8ed975e7d36bde4ccc1169dd03cc85b4832",
     "evaluation/run-side/weiwenyu/2026-10-17-live-delivery/source-snapshots/notice_status.mjs": "26a651994532688d4d445dca0520272e9d022014e772b6cabe4238f733ca995d",
-    "evaluation/D9/score-rules.mjs": "2494b8bcda36a47672220408702adfba2147822c7bcb704724d6fead72932e2e",
-    "evaluation/2026-10-12-scorecard/build-scorecard.mjs": "edd1c54bf817c022f22daf063e8844eda1e5b55de1a5df0430453e6464b354ce",
+    "evaluation/D9/score-rules.mjs": "d57e9aff33d130b5547a9c592e03961a9219b623e73a5717a9f1e90fc8cb3e8a",
+    "evaluation/2026-10-12-scorecard/build-scorecard.mjs": "89d798e6d3796f6db0847d4a3db6942a69308afc38de3917eeedc5a278710172",
     "scripts/jingguan/run_d9_rules.mjs": "dd917106ef004a38fc34c02948f7df2e1c1209688aa8065d4e7ab341efe04917",
-    "scripts/jingguan/build_delivery_metrics.mjs": "de2c9fb85224a859c6c5d88e088dd94b67b86a83e67e08d553185344f8b950ee"
+    "scripts/jingguan/build_delivery_metrics.mjs": "47f0a0a0edb9f75aa287f8c3e2373327bf1f57fe28a2b81b9bc82fafde58a78f"
   },
   "limitations": "历史冻结批、本轮三份样例和 D9 开发用例分别统计。任何 100% 只覆盖对应批次与分母；Gold 独立复核、弃权正确率和陌生样例泛化未因此完成。旧 MP4 仍需重录。",
   "hash_normalization": "UTF-8 text with CRLF normalized to LF",
   "artifact_hashes": {
-    "d9-report.json": "434e3df15bccfe89e48c7648d3108cfa7f191b15217fd7a338e567b8ba62fcc9",
+    "d9-report.json": "1a0d51e95433ed81ff7031d1f187402b3a8c7d7e07f4a62abc8acf9763097912",
     "d9-score.json": "820481ed5ce89a86f17b24c59a62c519b0e53f832201d87f5b465fdbec060930",
-    "d9-negative-controls.json": "20750aced2ba3df62666d3e534b2805de9597457c74d161b13e942101b4d1a0a"
+    "d9-negative-controls.json": "70d8499ef747a5470f80dd0a8b3abd343a8180cbc49a317bf9d91f158c57ae35"
   }
 }

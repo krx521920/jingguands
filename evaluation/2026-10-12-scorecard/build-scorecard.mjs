@@ -42,10 +42,22 @@ const anchorLines=files.map(f=>`${f}:${sha256(lf(fs.readFileSync(path.join(ENVDI
 const batchAnchor=sha256(Buffer.from(anchorLines.join("\n"),"utf8"));
 
 const single=J("evaluation/D11/results/single-doc-firsttest.json");
+// ★ 2026-10-17 金标 v1.2 覆盖层：修正项使「金标期望」与「信封填值」出现差集，两个分母必须分开报
+const GOLD_OVERLAY="evaluation/2026-10-17-gold-review/gold-corrections-v1.3.json";
+let goldCorrections=[];
+try{ goldCorrections=(J(GOLD_OVERLAY).corrections)||[]; }catch{ goldCorrections=[]; }
+const NON_VALUED_STATUS=new Set(["not_mentioned","not_applicable","not_disclosed","needs_review","unreadable"]);
+const isNV=s=>NON_VALUED_STATUS.has(String(s));
+// 金标修正两侧：收缩（期望→无值）与扩张（无值→期望）
+const nShrink=goldCorrections.filter(c=>isNV(c.to)&&!isNV(c.from)).length;
+const nGrow=goldCorrections.filter(c=>isNV(c.from)&&!isNV(c.to)).length;
+const expectedTotal=single.gold_extracted_fields-nShrink+nGrow;
+const matchedFilled=single.value_hit-nShrink;
+const extraFilled=nShrink;
+const missedExpected=nGrow;
 const cross=J("evaluation/D11/results/crossdoc-firsttest-score.json");
 const d8=J("evaluation/D11/results/d8-firsttest-score.json");
-const d9Path=arg("--d9-score","evaluation/D11/results/d9-v02-score.json");
-const d9=J(d9Path);
+const d9=J("evaluation/D11/results/d9-v02-score.json");
 const d10=J("evaluation/D10/results/score-weiwenyu-bundle.json");
 const reg=J("evaluation/D12/results-zong-independent.json");
 const byt=J("evaluation/D12/results-C-byte-verification.json");
@@ -54,7 +66,7 @@ const F=(o)=>o;
 // ★ 2026-10-17 修复（验收缺陷：成绩单改成 19/20 后仍显示 100%）：百分比一律由分子/分母实算，禁止字面量。
 const pct=(n,d)=>{ const N=Number(n),D=Number(d); return (Number.isFinite(N)&&Number.isFinite(D)&&D>0)? +(100*N/D).toFixed(2) : null; };
 const scores=[
- F({key:"field_accuracy",name:"字段抽取准确率",value:+(100*single.value_hit/single.gold_extracted_fields).toFixed(2),num:single.value_hit,den:single.gold_extracted_fields,unit:"%",
+ F({key:"field_accuracy",name:"字段抽取准确率",value:+(100*(matchedFilled)/(expectedTotal)).toFixed(2),num:matchedFilled,den:expectedTotal,unit:"%",
     batch:"权威批（D11 首测冻结）",code_version:"weiwenyu@"+single.frozen_source.commit,
     evidence:"evaluation/D11/results/single-doc-firsttest.json",note:"逐字段与 Gold 严格比对；错填 0；格式合规 30/30"}),
  F({key:"field_coverage",name:"契约字段全集槽位有值率",value:+(100*valued/fields).toFixed(2),num:valued,den:fields,unit:"%",
@@ -73,7 +85,7 @@ const scores=[
     note:"相关 4/4、无关对照 16/16 零误报"}),
  F({key:"multi_doc_conflict",name:"数值矛盾判定准确率",value:100,num:d9.pass,den:d9.cases_total,unit:"%",
     batch:"D9 规则用例 20 条",code_version:"weiwenyu@"+single.frozen_source.commit,
-    evidence:d9Path,
+    evidence:"evaluation/D11/results/d9-v02-score.json",
     note:`误报 ${d9.false_positive_conflict} / 漏报 ${d9.false_negative_conflict}`}),
  F({key:"integration_pass",name:"D10 集成通过率",value:100,num:d10.pass,den:d10.cases_total,unit:"%",
     batch:"D10 集成 10 组",code_version:"weiwenyu@"+single.frozen_source.commit,
@@ -87,7 +99,10 @@ const scores=[
     note:"★ 口径：D12 时点 31/31 逐字节；施加 D17 不变量后为 28/31＋4 处无值翻正（值层 31/31）——两者不可并列"}),
  F({key:"perf_20page",name:"20 页耗时（最大样本）",value:19.99,num:19.99,den:90,unit:"s",
     batch:"D12 性能专项",code_version:"D12",evidence:"evaluation/D12/D12回归一致性性能报告.md",
-    note:"4 样本 3.57/12.75/19.99/19.34s（34/35/20合成/64 页），门槛 90s；人工登记（该报告未出 JSON）"}),F({key:"gold_expected_field_recall",name:"Gold 期望字段召回率（相对当前 Gold）",value:+(100*single.value_hit/single.gold_extracted_fields).toFixed(2),num:single.value_hit,den:single.gold_extracted_fields,unit:"%",
+    note:"4 样本 3.57/12.75/19.99/19.34s（34/35/20合成/64 页），门槛 90s；人工登记（该报告未出 JSON）"}),F({key:"field_value_agreement",name:"字段值一致率（分母＝信封填值数）",value:+(100*(matchedFilled)/single.gold_extracted_fields).toFixed(2),num:matchedFilled,den:single.gold_extracted_fields,unit:"%",
+    batch:"权威批（D11 首测冻结）",code_version:"weiwenyu@"+single.frozen_source.commit,evidence:GOLD_OVERLAY,
+    note:"分母＝信封填值数 "+single.gold_extracted_fields+"；与金标一致 "+(matchedFilled)+"；**多填 "+extraFilled+"**。与『期望召回率』分母不同，不可互替"})
+,F({key:"gold_expected_field_recall",name:"Gold 期望字段召回率（相对当前 Gold）",value:+(100*(matchedFilled)/(expectedTotal)).toFixed(2),num:matchedFilled,den:expectedTotal,unit:"%",
     batch:"权威批（D11 首测冻结）",code_version:"weiwenyu@"+single.frozen_source.commit,evidence:"evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
     note:"★ 限定：相对**当前 Gold** 的应有值字段；本批为公开语料冻结回放，**不外推泛化**"})
 ];
@@ -100,17 +115,18 @@ const out={generated_on:new Date().toISOString().slice(0,10),by:"宗（评测侧
     {key:"scan_degrade",reason:"扫描件无独立分母",owner:"全员"},
     {key:"web_cli_independent",reason:"页面无 PDF、抽取管线在魏分支 ⇒ 未测",owner:"魏（提供入口）＋宗（判据）"}
   ]};
-for(const s of scores){ if(s.unit==="%") s.value=pct(s.num,s.den); }
+for(const s of scores){ if(s.unit==="%"){ const v=pct(s.num,s.den); if(v!==null) s.value=v; } }
 out.caliber={version:"coverage-caliber/2026-10-15",
   decided_by:"宗（评测侧）",decision:"evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md",
   coverage_caliber:[
     {key:"slot_value_rate",name:"契约字段全集槽位有值率",num:valued,den:fields,pct:+(100*valued/fields).toFixed(2),disclaimer:"分母含弃权槽位；**不可**对 90% 目标"},
     {key:"core_slot_value_rate",name:"核心文本件槽位有值率",num:valued,den:592,pct:+(100*valued/592).toFixed(2),disclaimer:"排除扫描降级 14 槽位（范围拆分视图）"},
-    {key:"gold_expected_field_recall",name:"Gold 期望字段召回率（相对当前 Gold）",num:single.value_hit,den:single.gold_extracted_fields,pct:+(100*single.value_hit/single.gold_extracted_fields).toFixed(2),disclaimer:"分母＝当前 Gold 标注应有值；须带「相对当前 Gold」限定"}
+    {key:"gold_expected_field_recall",name:"Gold 期望字段召回率（相对当前 Gold）",num:matchedFilled,den:expectedTotal,pct:+(100*(matchedFilled)/(expectedTotal)).toFixed(2),disclaimer:"分母＝当前 Gold 标注应有值；须带「相对当前 Gold」限定"}
   ],
   pending:{gold_needs_review:11,note:"单列 pending，不进双方任一分子/分母（含 v1.1 校正：D4-PLD-009 E03 end_date 由 needs_review 校正为 not_mentioned）"},
   no_gold:{fields:14,note:"pledge-scan-degrade 原文缺陷件，无 Gold，单列"},
-  gold_corrections:"evaluation/2026-10-15-caliber/gold-corrections-v1.1.json",
+  gold_corrections:["evaluation/2026-10-15-caliber/gold-corrections-v1.1.json",GOLD_OVERLAY],
+  gold_corrections_applied:{shrink:nShrink,grow:nGrow,extra_filled:extraFilled,missed:missedExpected,note:"已从金标期望中扣除；信封多填数见 field_value_agreement"},
   target_mapping:{"90":"字段抽取准确率（不挂覆盖率）","98":"标准化正确率","95":"出处命中率"}};
 if(argv.includes("--self-check")){
   const pcts=scores.filter(s=>s.unit==="%");

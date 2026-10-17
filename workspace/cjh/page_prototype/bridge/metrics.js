@@ -413,6 +413,11 @@ function computeMetrics(batchId) {
       gold_available: cal.gold.available,
       gold_pending_fields: cal.gold.pending.gold,
       engine_pending_fields: cal.gold.pending.engine,
+      // 金标 v1.3 算术层（多填/漏抽与版本状态；available:false 表示未取件、口径退回 v1.1 终态）
+      gold_arithmetic_available: !!(cal.gold.arithmetic && cal.gold.arithmetic.available),
+      gold_arithmetic_version: cal.gold.arithmetic ? cal.gold.arithmetic.version : null,
+      gold_extra_filled_v13: cal.gold.extra_filled_v13 || 0,
+      gold_missed_expected_v13: cal.gold.missed_expected_v13 || 0,
       no_gold_fields: cal.gold.no_gold_fields,
       gold_expected_scopes: cal.ranges,
     },

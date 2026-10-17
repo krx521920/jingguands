@@ -524,12 +524,12 @@ perf_20page: (() => {
 const REGISTRY = [
   // ---------- 准确率 ----------
   {
-    key: "field_accuracy", category: "accuracy", name: "字段抽取准确率",
+    key: "field_accuracy", category: "accuracy", name: "字段值一致率（分母＝信封填值数）",
     target: null,
-    numerator: "与 Gold 标注值一致的字段数",
-    denominator: "有 Gold 人工标注的字段数（437）",
+    numerator: "与 Gold（v1.3 后）标注值一致的字段数",
+    denominator: "信封填值字段数（437）——金标 v1.3 后 436/437＝99.77%，多填 1（E01 通知书状态，Gold 转 not_mentioned）",
     status: "measured",
-    caliber: "严格逐字段比对；与穷举最优匹配结果均 100%，撞键 0/48",
+    caliber: "严格逐字段比对；与穷举最优匹配结果均一致，撞键 0/48；与『期望召回率』分母不同不可互替",
     blocked_by: null,
   },
   {
@@ -566,14 +566,14 @@ const REGISTRY = [
     key: "expected_field_recall", category: "coverage", name: "相对当前 Gold 的期望字段召回率",
     target: null,
     numerator: "Gold 期望字段中引擎有效抽出的字段数（status=extracted 且有有效取值；0/false 算有值）",
-    denominator: "Gold 期望字段全集（Gold 判 extracted 的字段；当前 437）——只由 Gold 清单决定",
+    denominator: "Gold 期望字段全集（Gold 判 extracted 的字段；金标 v1.3 后 438＝437−1＋2）——只由 Gold 清单决定",
     status: "measured",
     caliber: "分母只由 Gold 清单决定，「禁止用引擎 status 反推分母」（否则少抽一个字段分母就缩一格，永远 100%）。"
       + "原文存在却抽不出（miss）计入分母并扣分；公告未提及/不适用/未披露/未裁定不计入。",
     evidence_kind: "gold_expected_field_recall",
-    evidence_ref: "bridge/caliber.js（buildGoldExpected → computeCaliber）",
+    evidence_ref: "bridge/caliber.js（buildGoldExpected → computeCaliber＋v1.3 算术层）",
     blocked_by: "宗博文（Gold pending 11 项出口：86 条待裁定已复核——75 条弃权成立＋11 条维持 pending，见 evaluation/2026-10-15-caliber/裁定-覆盖率分母口径-20261015.md）",
-    note: "★ 引用必须同带限定语：「当前 Gold 条件口径 + 本批为公开语料冻结回放（非未见样本）+ 不外推泛化」。★ pending 11 项未出口前，437/437 只对无异议字段成立。★ 与 field_accuracy（值一致率）分子条件不同，当前恰好同值，不得合并。★ Gold v1.1 覆盖层（gold-corrections-v1.1.json）应用后 pending Gold 12→11",
+    note: "★ 引用必须同带限定语：「当前 Gold 条件口径 + 本批为公开语料冻结回放（非未见样本）+ 不外推泛化」。★ 金标 v1.3（2026-10-17，取代 v1.2）：436/438＝99.54%，多填 1／漏抽 2，两行与值一致率并报。★ 与 field_accuracy（值一致率）分母不同，不得合并。★ Gold 覆盖层：v1.1（status 层）＋v1.3（算术层）",
   },
   {
     key: "abstain_correct", category: "coverage", name: "弃权正确率",
