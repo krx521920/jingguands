@@ -42,8 +42,9 @@
     }).join('');
   }
   function controlled(c) {
-    return `<article class="review-card controlled" data-case="${esc(c.case_id)}"><header><span class="pid">${esc(c.case_id)}</span><span class="state warn">受控构造 · ${c.verdict === 'conflict' ? '数值冲突' : '待复核'}</span></header>
-      <h3>受控矛盾案例</h3><p>${esc(c.premise)}</p><p class="review-equation">${(c.sides || []).map(s => number(s.value)).join(' ↔ ')} 股 · 差 ${number(c.difference)} 股</p>
+    const verdictLabel = c.verdict === 'conflict' ? '数值冲突' : c.verdict === 'restated' ? '更正声明' : '待复核';
+    return `<article class="review-card controlled" data-case="${esc(c.case_id)}"><header><span class="pid">${esc(c.case_id)}</span><span class="state warn">受控构造 · ${verdictLabel}</span></header>
+      <h3>受控用例（${verdictLabel}）</h3><p>${esc(c.premise)}</p><p class="review-equation">${(c.sides || []).map(s => number(s.value)).join(' ↔ ')} 股 · 差 ${number(c.difference)} 股</p>
       <div class="review-sources">${(c.sides || []).map((s, i) => `<div class="review-source"><span class="side">${i === 0 ? 'A 侧' : 'B 侧'} · ${esc(s.case_id)}</span><p>${esc(s.entity)} · ${esc(s.field)}</p><blockquote>${esc(s.quote)}</blockquote><p>夹具锚点 ${esc(s.block_id)} · 无真实 PDF 页码</p></div>`).join('')}</div><p class="source-purpose">${esc(c.source)}；独立于 13 组公开配对，不计入真实公告配对统计。</p></article>`;
   }
   function verify(data, fields = {}) {
