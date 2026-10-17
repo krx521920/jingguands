@@ -1,0 +1,64 @@
+{
+  "source_hashes": {
+    "scripts/jingguan/run_extract.mjs": "6f2e705b336a1618ee60c9d2cc97258e47857e4ab5b1a7bc4b5a6d24e81cd015",
+    "scripts/jingguan/lib/notice_status.mjs": "26a651994532688d4d445dca0520272e9d022014e772b6cabe4238f733ca995d"
+  },
+  "runs": [
+    {
+      "file": "cli-D4-PLD-001-1.json",
+      "sha256": "ea15ce2f007d75f870d68d8e35ac2868fc82de022b04c6b4edb7fbe254e59faf",
+      "channel": "cli",
+      "case": "D4-PLD-001",
+      "run_id": "20261017T032949-pledge-3a82"
+    },
+    {
+      "file": "cli-D5-EQC-002-1.json",
+      "sha256": "4888d980351bcc9e9aba4b571f3f3a46ab091237c343c402f188d2723ccffdea",
+      "channel": "cli",
+      "case": "D5-EQC-002",
+      "run_id": "20261017T032949-equity_change-5e77"
+    },
+    {
+      "file": "cli-D6-AWD-002-1.json",
+      "sha256": "1b0e3c2be73f4bcdc68081630dda307c2d8d423a608bc9cc0d34963bfd8353fa",
+      "channel": "cli",
+      "case": "D6-AWD-002",
+      "run_id": "20261017T033000-award_contract-7355"
+    },
+    {
+      "file": "cli-D6-AWD-002-2.json",
+      "sha256": "664d97361c04df2ce4685d67d65d6cad58693b56abfcac2191c4a08c88086cc0",
+      "channel": "cli",
+      "case": "D6-AWD-002",
+      "run_id": "20261017T033008-award_contract-1273"
+    },
+    {
+      "file": "cli-D6-AWD-002-3.json",
+      "sha256": "d07fea1342c2297d51810fd32cba4050b9550fdbf3f040d8b0b4a3d80576686a",
+      "channel": "cli",
+      "case": "D6-AWD-002",
+      "run_id": "20261017T033012-award_contract-5b3f"
+    },
+    {
+      "file": "web-4bfa4cf9-98bc-4672-b631-abd388bba432.json",
+      "sha256": "5565672430d91f8ea39f6d286ea06a5b47bc84d1a5d484eb8c81318586d470c1",
+      "channel": "web",
+      "case": "D6-AWD-002",
+      "run_id": "20261017T033140-award_contract-001f"
+    },
+    {
+      "file": "web-ca936c9c-9df6-4629-b789-b5aa40fd0962.json",
+      "sha256": "6ec3f3c49f74e92537afc144d68b0a6a1d321a38c76ce4a463d7c20913aec478",
+      "channel": "web",
+      "case": "D4-PLD-001",
+      "run_id": "20261017T033010-pledge-f4ad"
+    },
+    {
+      "file": "web-e271bb61-dc66-4acc-91e0-f7ad16c44775.json",
+      "sha256": "6402adcdc411b4116837e77c438044eaabcc2c8368e255b0608ea4d758a2da6b",
+      "channel": "web",
+      "case": "D5-EQC-002",
+      "run_id": "20261017T033039-equity_change-2891"
+    }
+  ]
+}

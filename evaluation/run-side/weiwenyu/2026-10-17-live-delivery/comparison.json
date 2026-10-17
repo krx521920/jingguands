@@ -1,0 +1,240 @@
+{
+  "scope": "3 independent Web runs and 5 independent CLI runs; cold cache disabled; natural-key matching, status/value/unit/standardized/denominator exact equality",
+  "runs": [
+    {
+      "channel": "cli",
+      "case": "D4-PLD-001",
+      "run_id": "20261017T032949-pledge-3a82",
+      "is_mock": false,
+      "cache": {
+        "enabled": false,
+        "hit": null,
+        "key": null,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "error": null,
+      "events": 3,
+      "fields": 42,
+      "anchors": 39,
+      "bad_anchors": [],
+      "validation_errors": [],
+      "call_ms": 252
+    },
+    {
+      "channel": "cli",
+      "case": "D5-EQC-002",
+      "run_id": "20261017T032949-equity_change-5e77",
+      "is_mock": false,
+      "cache": {
+        "enabled": false,
+        "hit": null,
+        "key": null,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "error": null,
+      "events": 3,
+      "fields": 27,
+      "anchors": 27,
+      "bad_anchors": [],
+      "validation_errors": [],
+      "call_ms": 436
+    },
+    {
+      "channel": "cli",
+      "case": "D6-AWD-002",
+      "run_id": "20261017T033000-award_contract-7355",
+      "is_mock": false,
+      "cache": {
+        "enabled": false,
+        "hit": null,
+        "key": null,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "error": null,
+      "events": 4,
+      "fields": 56,
+      "anchors": 27,
+      "bad_anchors": [],
+      "validation_errors": [],
+      "call_ms": 135
+    },
+    {
+      "channel": "cli",
+      "case": "D6-AWD-002",
+      "run_id": "20261017T033008-award_contract-1273",
+      "is_mock": false,
+      "cache": {
+        "enabled": false,
+        "hit": null,
+        "key": null,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "error": null,
+      "events": 4,
+      "fields": 56,
+      "anchors": 27,
+      "bad_anchors": [],
+      "validation_errors": [],
+      "call_ms": 222
+    },
+    {
+      "channel": "cli",
+      "case": "D6-AWD-002",
+      "run_id": "20261017T033012-award_contract-5b3f",
+      "is_mock": false,
+      "cache": {
+        "enabled": false,
+        "hit": null,
+        "key": null,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "error": null,
+      "events": 4,
+      "fields": 56,
+      "anchors": 27,
+      "bad_anchors": [],
+      "validation_errors": [],
+      "call_ms": 394
+    },
+    {
+      "channel": "web",
+      "case": "D6-AWD-002",
+      "dataset": "web-4bfa4cf9-98bc-4672-b631-abd388bba432",
+      "receipt": "web-4bfa4cf9-98bc-4672-b631-abd388bba432.json",
+      "run_id": "20261017T033140-award_contract-001f",
+      "is_mock": false,
+      "cache": {
+        "enabled": false,
+        "hit": null,
+        "key": null,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "error": null,
+      "events": 4,
+      "fields": 56,
+      "anchors": 27,
+      "bad_anchors": [],
+      "validation_errors": [],
+      "call_ms": 136
+    },
+    {
+      "channel": "web",
+      "case": "D4-PLD-001",
+      "dataset": "web-ca936c9c-9df6-4629-b789-b5aa40fd0962",
+      "receipt": "web-ca936c9c-9df6-4629-b789-b5aa40fd0962.json",
+      "run_id": "20261017T033010-pledge-f4ad",
+      "is_mock": false,
+      "cache": {
+        "enabled": false,
+        "hit": null,
+        "key": null,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "error": null,
+      "events": 3,
+      "fields": 42,
+      "anchors": 39,
+      "bad_anchors": [],
+      "validation_errors": [],
+      "call_ms": 152
+    },
+    {
+      "channel": "web",
+      "case": "D5-EQC-002",
+      "dataset": "web-e271bb61-dc66-4acc-91e0-f7ad16c44775",
+      "receipt": "web-e271bb61-dc66-4acc-91e0-f7ad16c44775.json",
+      "run_id": "20261017T033039-equity_change-2891",
+      "is_mock": false,
+      "cache": {
+        "enabled": false,
+        "hit": null,
+        "key": null,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "error": null,
+      "events": 3,
+      "fields": 27,
+      "anchors": 27,
+      "bad_anchors": [],
+      "validation_errors": [],
+      "call_ms": 1151
+    }
+  ],
+  "web_cli": [
+    {
+      "case": "D6-AWD-002",
+      "web_run": "20261017T033140-award_contract-001f",
+      "cli_run": "20261017T033000-award_contract-7355",
+      "different_run_ids": true,
+      "input_source_sha_equal": true,
+      "fields_compared": 56,
+      "differences": []
+    },
+    {
+      "case": "D4-PLD-001",
+      "web_run": "20261017T033010-pledge-f4ad",
+      "cli_run": "20261017T032949-pledge-3a82",
+      "different_run_ids": true,
+      "input_source_sha_equal": true,
+      "fields_compared": 42,
+      "differences": []
+    },
+    {
+      "case": "D5-EQC-002",
+      "web_run": "20261017T033039-equity_change-2891",
+      "cli_run": "20261017T032949-equity_change-5e77",
+      "different_run_ids": true,
+      "input_source_sha_equal": true,
+      "fields_compared": 27,
+      "differences": []
+    }
+  ],
+  "cold_stability": [
+    {
+      "run_id": "20261017T033000-award_contract-7355",
+      "notice_fields": {
+        "award_contract|浙江金盾风机股份有限公司|深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风阀设备及服务采购项目": "not_mentioned/None",
+        "award_contract|浙江金盾风机股份有限公司|深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目": "extracted/false",
+        "award_contract|浙江金盾风机股份有限公司|沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目": "not_mentioned/None",
+        "award_contract|浙江金盾风机股份有限公司|沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目": "not_mentioned/None"
+      },
+      "full_value_differences_from_first": []
+    },
+    {
+      "run_id": "20261017T033008-award_contract-1273",
+      "notice_fields": {
+        "award_contract|浙江金盾风机股份有限公司|深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风阀设备及服务采购项目": "not_mentioned/None",
+        "award_contract|浙江金盾风机股份有限公司|深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目": "extracted/false",
+        "award_contract|浙江金盾风机股份有限公司|沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目": "not_mentioned/None",
+        "award_contract|浙江金盾风机股份有限公司|沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目": "not_mentioned/None"
+      },
+      "full_value_differences_from_first": []
+    },
+    {
+      "run_id": "20261017T033012-award_contract-5b3f",
+      "notice_fields": {
+        "award_contract|浙江金盾风机股份有限公司|深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风阀设备及服务采购项目": "not_mentioned/None",
+        "award_contract|浙江金盾风机股份有限公司|深圳市城市轨道交通15号线工程、西丽综合交通枢纽工程、25号线一期工程风机设备及服务采购项目": "extracted/false",
+        "award_contract|浙江金盾风机股份有限公司|沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（各类小风机、射流风机及管式消声器）项目": "not_mentioned/None",
+        "award_contract|浙江金盾风机股份有限公司|沈阳地铁9号线二期工程、沈阳地铁十号线（张沙布-丁香街）风水电工程暖通专业甲供设备（大型轴流风机、片式消声器）项目": "not_mentioned/None"
+      },
+      "full_value_differences_from_first": []
+    }
+  ]
+}

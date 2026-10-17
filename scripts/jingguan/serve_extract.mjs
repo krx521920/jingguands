@@ -122,7 +122,7 @@ async function runExtraction(body, reqId) {
     }
     // CLI 输出行的最后两个路径＝events.json 与 call_log.json
     const out = String(proc.stdout)
-    const paths = [...out.matchAll(/\[输出\]\s*(\S+)|\[日志\]\s*(\S+)/g)].map((m) => m[1] ?? m[2])
+    const paths = [...out.matchAll(/\[输出\]\s*([^\r\n]+)|\[日志\]\s*([^\r\n]+)/g)].map((m) => (m[1] ?? m[2]).trim())
     if (paths.length < 1) return { status: 500, error: `未找到产物路径：${out.slice(-300)}` }
     const eventsPath = resolve(REPO_ROOT, paths.find((p) => p.includes('events.json')))
     const envelope = JSON.parse(readFileSync(eventsPath, 'utf8'))
@@ -160,7 +160,7 @@ async function withSlot(fn) {
     if (next) next()
   }
 }
-createServer((req, res) => {
+const server = createServer((req, res) => {
   const json = (code, obj) => { res.writeHead(code, { 'Content-Type': 'application/json; charset=utf-8' }); res.end(JSON.stringify(obj)) }
   if (req.method === 'GET' && req.url === '/health') {
     return json(200, {
@@ -199,6 +199,7 @@ createServer((req, res) => {
   json(404, { ok: false, error: 'GET /health | POST /extract' })
 // W1（两天冲刺）：显式仅本机监听——不绑 0.0.0.0，抽取入口不接受局域网直连
 }).listen(args.port, '127.0.0.1', () => {
+  process.send?.({ type: 'ready', port: server.address().port })
   console.log(`[N09 抽取入口] http://127.0.0.1:${args.port}/extract（仅本机监听）`)
   console.log(`  缓存：${args.noCache ? '禁用（每次真实调用）' : (args.cacheDir ?? DEFAULT_CACHE)}`)
   console.log('  陈侧接入：server.js 代理 /api/extract → POST http://127.0.0.1:' + args.port + '/extract')

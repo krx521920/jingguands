@@ -1029,6 +1029,7 @@ module.exports = { readDataset, bridgeOf, processUploadFile, PORT, contractToCsv
 // `node server.js` 才起服务；被 require（守卫脚本/测试）时只拿到函数，不占端口。
 if (require.main === module) {
   server.listen(PORT, "127.0.0.1", () => {
+    process.send?.({ type: 'ready', port: server.address().port });
     const openDemo = process.argv.includes("--open-demo");
     console.log(`[cjh-page-prototype] http://127.0.0.1:${PORT}${openDemo ? "/demo.html" : "/"}`);
     const engines = extractor.describeEngines();
