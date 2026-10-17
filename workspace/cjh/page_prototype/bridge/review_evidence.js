@@ -50,7 +50,12 @@ function enrichCorroboration(c, source) {
     const unique = new Set(parts.map(p => `${p.doc}/${p.entity}`)).size === parts.length;
     const arithmetic = parts.length > 0 && aggregate && unique && [...parts, aggregate].every(p => Number.isSafeInteger(p.value)) && parts.reduce((sum, p) => sum + p.value, 0) === aggregate.value;
     const complete = !!arithmetic && [...parts, aggregate].every(p => p.source.source_verified && p.source.unit === aggregate.source.unit);
-    return { ...c, parts, aggregate, evidence_complete: complete };
+    // ★ 2026-10-17（陈 M-11 语义补全）：合计条目补 docs 与 kind_label——数值勾稽 ≠ 文字相等，
+    //   不得按普通互证（docs/quotes）渲染成「逐字一致」；docs 供页码富化与守卫断言。
+    const docs = [...new Set([...parts.map(p => p.doc), ...(aggregate ? [aggregate.doc] : [])])];
+    return { ...c, parts, aggregate, evidence_complete: complete,
+      kind_label: '合计勾稽一致', docs,
+      sum_check: { parts_sum: parts.reduce((sum, p) => sum + (Number.isSafeInteger(p.value) ? p.value : NaN), 0), aggregate_value: aggregate ? aggregate.value : null, ok: !!arithmetic } };
   }
   const sources = (c.docs || []).map((doc, i) => source(doc, { entity: c.entity, field: c.field, value: c.value, quote: c.quotes?.[i] ?? '' }));
   return { ...c, sources, pages: sources, evidence_complete: sources.length === 2 && new Set(c.docs).size === 2 && sources.every(s => s.source_verified) };
@@ -93,15 +98,24 @@ function controlledCases(root) {
   };
   const input = readSealed(path.join(root, casePath), card.input_hashes?.[casePath]);
   const report = readSealed(path.join(dir, 'd9-report.json'), card.artifact_hashes?.['d9-report.json']);
-  const fixture = input.cases.find(c => c.case_id === 'D9-RULE-020' && c.synthetic_controlled === true);
-  const result = report.cases.find(c => c.case_id === fixture?.case_id);
-  if (!fixture || !result || fixture.sides.length !== 2 || result.sides.length !== 2) throw new Error('受控矛盾案例缺失');
-  if (fixture.sides.some((s, i) => s.quote !== result.sides[i].quote || s.block_id !== result.sides[i].block_id || s.case_id !== result.sides[i].case_id || !Number.isSafeInteger(s.value))) throw new Error('受控案例与规则结果不匹配');
-  return [{ case_id: fixture.case_id, synthetic_controlled: true, pairing_tested: false,
-    verdict: result.verdict, attribution_code: result.attribution_code, attribution: result.attribution,
-    difference: Math.abs(fixture.sides[1].value - fixture.sides[0].value),
-    sides: fixture.sides.map(s => ({ ...s, page: null, block_verified: null })),
-    source: '已有 D9 规则结果回放', premise: '已设定同事件、同主体、同字段、同一时点；未测试自动配对；无真实 PDF' }];
+  // ★ 2026-10-17（陈 M-12 语义补全）：全部受控构造用例（019 restated／020 conflict）独立成段，
+  //   绝不混入公开 13 组配对；夹具锚（synth-*）无真实 PDF ⇒ page 恒 null，绝不伪造页码。
+  const fixtures = input.cases.filter(c => c.synthetic_controlled === true);
+  if (fixtures.length < 2) throw new Error('受控用例缺失（期望 019 restated＋020 conflict 至少各一）');
+  return fixtures.map(fixture => {
+    const result = report.cases.find(c => c.case_id === fixture.case_id);
+    if (!result || fixture.sides.length !== 2 || result.sides.length !== 2) throw new Error(`受控案例 ${fixture.case_id} 缺规则结果`);
+    if (fixture.sides.some((s, i) => s.quote !== result.sides[i].quote || s.block_id !== result.sides[i].block_id || s.case_id !== result.sides[i].case_id || !Number.isSafeInteger(s.value))) throw new Error(`受控案例 ${fixture.case_id} 与规则结果不匹配`);
+    const nums = fixture.sides.map(s => s.value);
+    return { case_id: fixture.case_id, category: fixture.category || null, expected_verdict: fixture.expected_verdict || null,
+      synthetic_controlled: true, pairing_tested: false,
+      no_real_pdf: fixture.sides.every(s => /^synth-/i.test(String(s.block_id || ''))),
+      verdict: result.verdict, attribution_code: result.attribution_code, attribution: result.attribution,
+      difference: Math.abs(nums[1] - nums[0]),
+      delta_check: { a: nums[0], b: nums[1], delta: Math.abs(nums[1] - nums[0]), ok: Number.isSafeInteger(nums[0]) && Number.isSafeInteger(nums[1]) },
+      sides: fixture.sides.map(s => ({ ...s, is_fixture_anchor: /^synth-/i.test(String(s.block_id || '')), page: null, provenance: null })),
+      source: '已有 D9 规则结果回放', premise: '已设定同事件、同主体、同字段、同一时点；未测试自动配对；无真实 PDF' };
+  });
 }
 
 module.exports = { createResolver, enrichCorroboration, memberSources, controlledCases };
