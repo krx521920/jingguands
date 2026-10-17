@@ -381,6 +381,10 @@ function handleUploadLog(res) {
 // ---- D8：跨文档配对视图（宗清单 × 魏B 全量报告 → 双栏分组页数据）----
 // 数据放 data/pairs/ 子目录：不进数据集下拉（listDatasets 只看 data/ 顶层 .json）。
 const PAIRS_DIR = path.join(DATA_DIR, "pairs");
+// ★ 2026-10-17 F-UI-02：受控核验用例的读取根（evaluation/ 按 C2 规则不入库，本机为私有检出）。
+//   退三级到仓库根（page_prototype → cjh → workspace → 根），与 metrics_registry.js 的 EVAL_DIR 同法。
+//   文件缺失时**如实报不可用**，绝不凭空造受控数据（铁律 3）。
+const EVAL_DIR = path.resolve(ROOT, "..", "..", "..", "evaluation");
 
 /** case_id → 本地信封数据集名（能对上才给原文锚点；对不上只给清单元数据，不硬凑）。 */
 function localEnvelopeFor(caseId) {
@@ -488,6 +492,33 @@ function provenanceOf(env, eventId, fieldName) {
   return null;
 }
 
+/** 按 doc(+entity)+field 富化一侧的原文锚点（页码/block/quote）。
+ *  ★ 2026-10-17 F-UI-01（方验收「合计卡片空引文仍称逐字一致」）：
+ *    合计互证 `group_total_matches_sum` 的条目**没有 `docs` 字段**，只有 aggregate/parts，
+ *    原 pages 富化走 `(c.docs || [])` ⇒ 空数组 ⇒ 页面按普通互证渲染 ⇒ 空引文＋空数值却打勾。
+ *  ★ 硬纪律（方原话）：**缺引文不得以数值充作原文** —— 找不到 provenance 就留 null + missing_reason，
+ *    绝不把 value 塞进 quote（那等于拿数字假冒原文引文）。 */
+function anchorOf(doc, entity, fieldName) {
+  const base = { doc: doc || null, entity: entity || null, field: fieldName || null, dataset: null, page: null, block_id: null, quote: null, missing_reason: null };
+  if (!doc) return Object.assign(base, { missing_reason: "no_doc" });
+  const ds = localEnvelopeFor(doc);
+  if (!ds) return Object.assign(base, { missing_reason: "no_local_envelope" });
+  const file = path.join(DATA_DIR, ds + ".json");
+  if (!fs.existsSync(file)) return Object.assign(base, { dataset: ds, missing_reason: "envelope_not_found" });
+  try {
+    const env = JSON.parse(fs.readFileSync(file, "utf8"));
+    for (const ev of env.events || []) {
+      const holder = (ev.fields || {}).holder;
+      if (entity && holder && String(holder.value ?? holder.raw_value ?? "") !== String(entity)) continue;
+      const p = provenanceOf(env, ev.event_id, fieldName);
+      if (p) return Object.assign(base, { dataset: ds, page: p.page, block_id: p.block_id, quote: p.quote, source_type: p.source_type });
+    }
+    return Object.assign(base, { dataset: ds, missing_reason: "no_provenance_for_entity_field" });
+  } catch {
+    return Object.assign(base, { dataset: ds, missing_reason: "envelope_parse_failed" });
+  }
+}
+
 /** 单个 sidecar → 核验清单条目（出处富化）。 */
 function verifyFindingsOf(dataset, check) {
   const file = path.join(DATA_DIR, dataset + ".json");
@@ -553,36 +584,118 @@ function handleVerify(res) {
         pairs.push({
           group_id: r.group_id,
           predicted_relation: r.predicted_relation,
-          corroborations: (cons.corroborations || []).map(c => ({
-            ...c,                                        // 整条透传：simple（docs/quotes）与 group_total_matches_sum（aggregate/parts）两种形态都保留
-            pages: (c.docs || []).map(d => {
-              const ds = localOf(d);
-              if (!ds) return null;
-              const file2 = path.join(DATA_DIR, ds + ".json");
-              if (!fs.existsSync(file2)) return null;
-              try {
-                const env = JSON.parse(fs.readFileSync(file2, "utf8"));
-                // 找该实体该字段：holder=entity 且字段名匹配
-                for (const ev of env.events || []) {
-                  const holder = (ev.fields || {}).holder;
-                  if (holder && String(holder.value ?? holder.raw_value ?? "") !== String(c.entity)) continue;
-                  const p = provenanceOf(env, ev.event_id, c.field);
-                  if (p) return { dataset: ds, page: p.page, block_id: p.block_id };
-                }
-                return null;
-              } catch { return null; }
-            })
-          })),
+          corroborations: (cons.corroborations || []).map(c => {
+            // 整条透传：simple（docs/quotes）与 group_total_matches_sum（aggregate/parts）两种形态都保留
+            const out = { ...c };
+            if (c.kind === "group_total_matches_sum") {
+              // ★ F-UI-01：合计勾稽形态 —— 补齐 aggregate/parts 各自的文档/主体/值/页码/block/quote。
+              //   原先这条因缺 `docs` 导致 pages 为空 ⇒ 页面显示空引文却打勾「逐字一致」。
+              out.kind_label = "合计勾稽一致";              // ★ 不得称「逐字一致」：这是数值勾稽，不是文字相等
+              out.aggregate = Object.assign({}, c.aggregate, { anchor: anchorOf(c.aggregate && c.aggregate.doc, null, c.field) });
+              out.parts = (c.parts || []).map(p => Object.assign({}, p, { anchor: anchorOf(p.doc, p.entity, c.field) }));
+              const docs = [...new Set([c.aggregate && c.aggregate.doc, ...(c.parts || []).map(p => p.doc)].filter(Boolean))];
+              out.docs = docs;                             // 补上原先缺失的 docs，页面据此渲染
+              out.pages = docs.map(d => {
+                const a = anchorOf(d, null, c.field);
+                return a.page ? { dataset: a.dataset, page: a.page, block_id: a.block_id } : null;
+              });
+              // 机检：四个加数之和是否等于合计（方的手工复核 3,680,700+2,975,600+430,000+1,341,600=8,427,900）
+              const partsSum = (c.parts || []).reduce((n, p) => n + Number(p.value || 0), 0);
+              const aggVal = Number(c.aggregate && c.aggregate.value);
+              out.sum_check = {
+                parts: (c.parts || []).map(p => ({ entity: p.entity, value: Number(p.value || 0) })),
+                parts_sum: partsSum,
+                aggregate_value: Number.isFinite(aggVal) ? aggVal : null,
+                ok: Number.isFinite(aggVal) ? partsSum === aggVal : false
+              };
+            } else {
+              out.kind_label = "双侧引文一致";
+              out.pages = (c.docs || []).map(d => {
+                const ds = localOf(d);
+                if (!ds) return null;
+                const file2 = path.join(DATA_DIR, ds + ".json");
+                if (!fs.existsSync(file2)) return null;
+                try {
+                  const env = JSON.parse(fs.readFileSync(file2, "utf8"));
+                  // 找该实体该字段：holder=entity 且字段名匹配
+                  for (const ev of env.events || []) {
+                    const holder = (ev.fields || {}).holder;
+                    if (holder && String(holder.value ?? holder.raw_value ?? "") !== String(c.entity)) continue;
+                    const p = provenanceOf(env, ev.event_id, c.field);
+                    if (p) return { dataset: ds, page: p.page, block_id: p.block_id };
+                  }
+                  return null;
+                } catch { return null; }
+              });
+            }
+            return out;
+          }),
           conflicts: cons.conflicts || []
         });
       }
     }
     const corroborationTotal = pairs.reduce((n, p) => n + p.corroborations.length, 0);
     const conflictTotal = pairs.reduce((n, p) => n + (Array.isArray(p.conflicts) ? p.conflicts.length : 0), 0);
+
+    // ③ 受控核验视图（★ 2026-10-17 F-UI-02）：D9 受控构造用例**独立成段**，
+    //    绝不混入原公开 13 组配对（方要求：勿篡改原 13 组的期望与分母）。
+    //    硬边界：受控块的 block_id 是夹具锚（synth-c / synth-d），**不是 PDF 块**
+    //    ⇒ page/provenance 一律 null，**绝不伪造真实页码**；必须带「（受控构造）」原文标签。
+    const ctrlFile = path.join(EVAL_DIR, "D9", "cases", "rules-cases.dev.json");
+    let controlled_cases = null;
+    let controlled_unavailable_reason = null;
+    try {
+      if (!fs.existsSync(ctrlFile)) throw new Error("受控用例文件缺失（evaluation/ 为 C2 私有检出，clone 后不存在）");
+      const cj = JSON.parse(fs.readFileSync(ctrlFile, "utf8"));
+      const allCases = (cj && cj.cases) || cj || [];
+      controlled_cases = allCases.filter(c => c.synthetic_controlled === true).map(c => {
+        const sides = (c.sides || []).map(s => {
+          const bid = String(s.block_id || "");
+          const isFixture = /^synth-/i.test(bid);
+          return {
+            case_id: s.case_id || null,
+            entity: s.entity || null,
+            field: s.field || null,
+            value: s.value ?? null,
+            raw_value: s.raw_value ?? null,
+            unit: s.unit ?? null,
+            quote: s.quote ?? null,             // 含「（受控构造）」标签，原样透传
+            block_id: s.block_id ?? null,
+            is_fixture_anchor: isFixture,        // true ⇒ 夹具锚，无真实 PDF
+            page: null,                          // ★ 受控件没有真实页码，留 null 不伪造
+            provenance: null
+          };
+        });
+        const nums = sides.map(s => Number(s.value)).filter(n => Number.isFinite(n));
+        const delta = nums.length === 2 ? Math.abs(nums[1] - nums[0]) : null;
+        return {
+          case_id: c.case_id || null,
+          category: c.category || null,
+          expected_verdict: c.expected_verdict || null,
+          synthetic_controlled: true,
+          no_real_pdf: sides.length > 0 && sides.every(s => s.is_fixture_anchor),
+          requires_dual_evidence: c.requires_dual_evidence === true,
+          attribution_basis: c.attribution_basis || null,
+          sides,
+          // 机检：差 200,000 股（方手工复核 5,200,000 − 5,000,000）
+          delta_check: { a: nums[0] ?? null, b: nums[1] ?? null, delta, ok: delta != null }
+        };
+      });
+    } catch (e) {
+      controlled_cases = null;
+      controlled_unavailable_reason = String((e && e.message) || e).slice(0, 200);
+    }
+
     sendJSON(res, 200, {
       summary: { ...stats, corroboration_total: corroborationTotal, pair_conflict_total: conflictTotal },
       findings,
-      pairs
+      pairs,
+      controlled: {
+        // 演示范围声明：受控构造 ≠ 真实公告自动配对能力，页面展示时必须连同此声明
+        scope_note: "受控构造用例（synthetic_controlled）：前提由用例给定（同事件/同主体/同字段/同时点），非真实公告自动配对结果；block_id 为夹具锚，无真实 PDF 页码。",
+        cases: controlled_cases,
+        unavailable_reason: controlled_unavailable_reason
+      }
     });
   } catch (e) {
     sendJSON(res, 500, { error: "核验清单装配失败: " + e.message });
