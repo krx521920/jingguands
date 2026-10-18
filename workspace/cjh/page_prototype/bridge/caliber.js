@@ -13,7 +13,7 @@
  *   4. **Gold v1.1 覆盖层**（2026-10-15 宗裁定，evaluation/2026-10-15-caliber/
  *      gold-corrections-v1.1.json）：按纪律**不改冻结 Gold 文件**，改为读 overlay
  *      应用（当前 1 项：D4-PLD-009 E03 end_date 由 needs_review 校正为
- *      not_mentioned）。overlay 缺失即退回无覆盖层行为，pending 单列不补数；
+ *      not_mentioned）。overlay 缺失或损坏即标未测，不能退回旧金标的满分；
  *      overlay 与 Gold 现状不符（from 对不上）记 errors，绝不静默跳过。
  *
  * 纪律（与全项目一致）：
@@ -33,6 +33,7 @@ const ROOT = path.resolve(__dirname, "..");                  // page_prototype/
 const REPO = path.resolve(ROOT, "..", "..", "..");            // jingguands/
 const EVAL = path.join(REPO, "evaluation");
 const GOLD_CASES = ["D4", "D5", "D6"];
+const metricSources = require("../../../../scripts/jingguan/lib/metric_sources.cjs");
 
 /**
  * 口径语义标签（上屏文案与材料引用共用，防止同一个数被叫成两个名字）
@@ -68,8 +69,11 @@ const GOLD_OVERLAY_REL = path.join("2026-10-15-caliber", "gold-corrections-v1.1.
 const GOLD_ARITH_REL = path.join("2026-10-17-gold-review", "gold-corrections-v1.3.json");
 const NON_VALUED_STATUS_SET = new Set(["not_mentioned", "not_applicable", "not_disclosed", "needs_review", "unreadable"]);
 
-/** 读 Gold v1.1 覆盖层；缺失/损坏 ⇒ available:false（调用方据此退回无覆盖层行为） */
+/** 读 Gold v1.1 覆盖层；缺失/损坏 ⇒ available:false（相关成绩不可用） */
 function readGoldOverlay() {
+  try { metricSources.loadGoldEvidence(REPO); } catch (error) {
+    return { available: false, why: error.message, applied: 0, errors: [error.message] };
+  }
   const p = path.join(EVAL, GOLD_OVERLAY_REL);
   try {
     const j = JSON.parse(fs.readFileSync(p, "utf8"));
@@ -77,14 +81,15 @@ function readGoldOverlay() {
     return { available: true, version: j.version || null, issued_by: j.issued_by || null,
       path: GOLD_OVERLAY_REL, corrections: j.corrections, applied: 0, errors: [] };
   } catch (e) {
-    return { available: false, why: "overlay 缺失或不可解析（未取件）——退回无覆盖层行为", applied: 0, errors: [] };
+    return { available: false, why: "必需 overlay 缺失或不可解析——相关成绩未测", applied: 0, errors: [] };
   }
 }
 
 /** 读 Gold v1.3 算术层；返回 shrink（期望→无值）/grow（无值→期望）计数与明细。
- *  缺失 ⇒ available:false（口径退回 v1.1 终态，不猜数）。 */
+ *  缺失 ⇒ available:false（相关成绩不可用，不回退旧分数）。 */
 function readGoldArithmetic() {
   try {
+    metricSources.loadGoldEvidence(REPO);
     const j = JSON.parse(fs.readFileSync(path.join(EVAL, GOLD_ARITH_REL), "utf8"));
     if (!j || !Array.isArray(j.corrections)) return { available: false, shrink: 0, grow: 0, corrections: [] };
     const isNV = s => NON_VALUED_STATUS_SET.has(String(s));
@@ -147,27 +152,11 @@ function primaryEnvelopes() {
 /** Gold 索引：按 source.file_id 配对（★不能用 file_name，Gold 沿用旧批次文件名）
  *  ★ 2026-10-15：读入后就地应用 Gold v1.1 覆盖层（overlay 与 Gold 现状不符记 error 不静默跳过）。 */
 function loadGoldIndex() {
-  const byFileId = new Map();
-  const byCaseId = new Map();
-  const bad = [];
-  const overlay = readGoldOverlay();
-  for (const dir of goldDirs()) {
-    let files = [];
-    try { files = fs.readdirSync(dir).filter(f => f.endsWith(".envelope.json")).sort(); }
-    catch (e) { continue; }
-    for (const f of files) {
-      const caseId = f.replace(/\.envelope\.json$/, "");
-      let gj = null;
-      try { gj = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")); }
-      catch (e) { bad.push({ dataset: caseId, why: "Gold 读取失败: " + e.message }); continue; }
-      applyGoldOverlay(gj, caseId, overlay);
-      const fid = gj.source && gj.source.file_id;
-      if (!fid) { bad.push({ dataset: caseId, why: "Gold 缺 source.file_id，无法配对" }); continue; }
-      if (!byFileId.has(fid)) byFileId.set(fid, { gold: gj, gold_case_id: caseId, dir });
-      byCaseId.set(caseId, gj);
-    }
+  try { return metricSources.loadGoldEvidence(REPO); }
+  catch (error) {
+    return { byFileId: new Map(), byCaseId: new Map(), bad: [{ why: error.message }],
+      overlay: { available: false, applied: 0, errors: [error.message] } };
   }
-  return { byFileId, byCaseId, bad, overlay };
 }
 
 // ---------- 归一（与 demo/_retest_unified.js 原实现一致，全项目只此一份） ----------
@@ -315,9 +304,10 @@ function buildGoldExpected(envelopes, goldIndex) {
           const en = isRatioField(fname) ? normRatio(ev2) : norm(ev2);
           const gn = isRatioField(fname) ? normRatio(gv2) : norm(gv2);
           const unitOk = (gfv.unit == null || efv.unit == null) ? true : String(gfv.unit) === String(efv.unit);
-          if (String(en) === String(gn) && unitOk) out.value_match_num++;
+          const denominatorOk = !isRatioField(fname) || (efv.denominator ?? null) === (gfv.denominator ?? null);
+          if (String(en) === String(gn) && unitOk && denominatorOk) out.value_match_num++;
           else {
-            out.value_mismatch.push(`${id}.${gEv.event_id || k}.${fname}: 信封=${JSON.stringify(en)}${unitOk ? "" : "(unit=" + efv.unit + ")"} vs Gold=${JSON.stringify(gn)}${unitOk ? "" : "(unit=" + gfv.unit + ")"}`);
+            out.value_mismatch.push(`${id}.${gEv.event_id || k}.${fname}: 信封=${JSON.stringify(en)}${unitOk ? "" : "(unit=" + efv.unit + ")"}${denominatorOk ? "" : "(denominator=" + efv.denominator + ")"} vs Gold=${JSON.stringify(gn)}${unitOk ? "" : "(unit=" + gfv.unit + ")"}${denominatorOk ? "" : "(denominator=" + gfv.denominator + ")"}`);
           }
         }
 
@@ -439,17 +429,10 @@ function computeCaliber(envelopes, opts) {
   const goldIndex = o.goldIndex || loadGoldIndex();
   const gold = buildGoldExpected(envelopes, goldIndex);
   gold.pending_engine = slot.by_status["needs_review"] || 0;
-  // ★ 2026-10-17 金标 v1.3 算术层：收缩＝Gold 期望转无值（信封该处填值变多填），
-  // 扩张＝Gold 无值转期望（信封未填即漏抽）。仅调整口径数，不改任何 Gold/信封文件。
-  const arith = readGoldArithmetic();
-  gold.arithmetic = arith;
-  if (arith.available && arith.shrink + arith.grow > 0) {
-    gold.expected_total = gold.expected_total - arith.shrink + arith.grow;
-    gold.recall_num = Math.max(0, gold.recall_num - arith.shrink);
-    gold.value_match_num = Math.max(0, gold.value_match_num - arith.shrink);
-    gold.extra_filled_v13 = arith.shrink;
-    gold.missed_expected_v13 = arith.grow;
-  }
+  // Both overlays have already been applied to the in-memory Gold fields.
+  gold.arithmetic = { available: gold.available, applied_to_fields: true };
+  gold.extra_filled_v13 = gold.extra_candidates.length;
+  gold.missed_expected_v13 = gold.recall_miss.length;
 
   const pct = (a, b) => (b ? +((a / b) * 100).toFixed(2) : null);
   const den = gold.expected_total;
@@ -495,6 +478,7 @@ function computeCaliber(envelopes, opts) {
         name: LABELS.expected_recall,
         caliber: "Gold 期望字段中，引擎 status=extracted 且有有效取值（0/false 亦算有值）的字段数 / Gold 期望字段全集。"
           + "分母只来自 Gold 清单，不由引擎 status 反推；原文存在却抽不出（miss）计入分母。" },
+      filled_value_match: { num: gold.value_match_num, den: slot.extracted, pct: gold.available ? pct(gold.value_match_num, slot.extracted) : null },
       value_match: { num: gold.value_match_num, den, pct: matchPct,
         name: LABELS.gold_value_match,
         caliber: "Gold 期望字段中，值与单位都与 Gold 一致的字段数 / Gold 期望字段全集（分子条件与召回率不同，两者当前恰好同值，不得合并）" },

@@ -17,7 +17,7 @@ node scripts/jingguan/start_demo.mjs --offline
 
 ## 证据与成绩
 
-实测分子、分母和批次以[交付成绩单](evaluation/2026-10-17-delivery-metrics/metrics.md)为准，三次页面、五次 CLI 验证见[独立运行回执](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md)。历史缓存批次不等于新的抽取，也不能证明陌生文档的准确率。不同批次不能合并成一个准确率结论。
+实测分子、分母和批次以[交付成绩单](evaluation/2026-10-17-delivery-metrics/metrics.md)为准，三次页面、五次 CLI 验证见[历史运行回执](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md)。不同运行编号对照的是同一抽取实现的两个入口。历史缓存批次不等于新的抽取，也不能证明陌生文档的准确率。不同批次不能合并成一个准确率结论。
 
 工作台支持导入事件 JSON、查看字段证据，以及导出 JSON / CSV。原文引文和页码、单元格引用依赖输入的解析结果。缺少可读文本和证据不足会明确保留为失败或弃权。
 

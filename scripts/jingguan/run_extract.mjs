@@ -26,6 +26,7 @@ import { normalizeFieldValue } from './lib/fang_normalize.mjs'
 import { checkProvenance, checkPageBounds, checkEquityDirection } from './lib/checks.mjs'
 import { sideResolve } from './lib/side_paths.mjs'
 import { stabilizeNoticeStatus } from './lib/notice_status.mjs'
+import { stabilizeContractStatus } from './lib/contract_status.mjs'
 
 const REPO_ROOT = resolve(import.meta.dirname, '..', '..')
 const SCHEMA = JSON.parse(readFileSync(resolve(REPO_ROOT, 'interface', 'event-envelope.schema.json'), 'utf8'))
@@ -1660,6 +1661,7 @@ async function main() {
   // ---- 宗 D5 冻结口径（0de17901 handoffs/D5-gold-decisions.md）四类确定性规则 ----
   applyGoldConventions(events, inputText, parseDoc, postErrors, repairs)
   stabilizeNoticeStatus(events, parseDoc?.blocks ?? [{ text_raw: inputText }], repairs)
+  stabilizeContractStatus(events, parseDoc?.blocks ?? [{ text_raw: inputText }], repairs)
 
   // 硬性规则 1 清扫：非 extracted/needs_review 状态禁止携带值（模型偶发把 "not_disclosed" 写进 value）
   for (const ev of events) {

@@ -37,6 +37,12 @@ const results = [
   runGate('Gold 一致性机检', ['scripts/jingguan/check_gold.mjs']),
   runGate('抽取行为回归', ['scripts/jingguan/test_regression.mjs']),
   runGate('扫描并发与舍入保守判定', ['scripts/jingguan/test_release_regressions.mjs']),
+  runGate('同名导入隔离与导出', ['--test', 'workspace/cjh/page_prototype/test_upload_collisions.cjs']),
+  runGate('合同状态原文规则', ['--test', 'scripts/jingguan/test_contract_notice_rules.mjs']),
+  runGate('成绩单数据源校验', ['--test', 'scripts/jingguan/test_metric_sources.mjs']),
+  runGate('交付成绩与失效检查', ['scripts/jingguan/test_delivery_metrics.mjs']),
+  runGate('交付页面与成绩发布', ['scripts/jingguan/test_delivery_publication.mjs']),
+  runGate('解析快照物化范围', ['--test', 'evaluation/D18/test-materialized-scope.mjs']),
   runGate('批量分母回归', ['scripts/jingguan/test_batch_denominator.mjs']),
   // 第18道（2026-10-15，方F1审计采纳）：口径核对器负例回归——v1 多抽死循环 bug 的防复发门
   runGate('口径核对负例回归', ['scripts/jingguan/test_coverage_sets.mjs']),

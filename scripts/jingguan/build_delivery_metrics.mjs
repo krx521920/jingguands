@@ -34,6 +34,7 @@ try {
   const base = JSON.parse(readFileSync(baseFile, 'utf8'))
   const inputs = ['evaluation/D11/results/single-doc-firsttest.json', 'evaluation/D11/results/crossdoc-firsttest-score.json', 'evaluation/D11/results/d8-firsttest-score.json', 'evaluation/D10/results/score-weiwenyu-bundle.json', 'evaluation/D12/results-zong-independent.json', 'evaluation/D12/results-C-byte-verification.json', 'evaluation/D9/cases/rules-cases.dev.json']
   for (const file of inputs) read(file)
+  for (const file of [...base.source_inputs, 'evaluation/2026-10-15-acceptance/性能-3份真实20页PDF实测-20261015.json']) hashes[file] = sha(readFileSync(join(root, file)))
   let anchors = 0, raw = 0, normalized = 0
   const folder = 'evaluation/D11/firsttest-envelopes'
   for (const file of readdirSync(join(root, folder)).filter(f => f.endsWith('.json') && f !== 'DEMO-EQC-HL-0930.json').sort()) {
@@ -52,31 +53,37 @@ try {
   const manifest = read(receipt + '/manifest.json')
   for (const item of manifest.runs) read(receipt + '/' + item.file)
   for (const file of Object.keys(manifest.source_hashes)) hashes[file] = sha(readFileSync(join(root, file)))
-  for (const file of [receipt + '/verify.mjs', receipt + '/source-snapshots/notice_status.mjs']) hashes[file] = sha(readFileSync(join(root, file)))
+  for (const file of [receipt + '/verify.mjs', receipt + '/source-snapshots/notice_status.mjs', receipt + '/source-snapshots/run_extract.mjs']) hashes[file] = sha(readFileSync(join(root, file)))
   for (const file of ['evaluation/D9/score-rules.mjs', 'evaluation/2026-10-12-scorecard/build-scorecard.mjs', 'scripts/jingguan/run_d9_rules.mjs', 'scripts/jingguan/build_delivery_metrics.mjs']) hashes[file] = sha(readFileSync(join(root, file)))
   const frozen = 'D11 首测冻结 · 31 份（含 1 份扫描降级件）'
-  const caveat = '相对当前 Gold 的冻结回放；Gold 原文推导与 D6 项目归属仍待独立复核，不外推陌生公告。'
+  const caveat = `相对金标 v1.3 的公开语料冻结回放，不外推陌生公告；多填 ${base.caliber.gold_corrections_applied.extra_filled}、漏抽 ${base.caliber.gold_corrections_applied.missed}，尚有未裁定项。`
   const scores = base.scores.map(s => ({ ...s, group: '历史冻结批与专项结果', target: null, status: s.value == null ? 'not_covered' : 'measured' }))
   const get = key => scores.find(s => s.key === key)
-  Object.assign(get('field_accuracy'), { name: '字段值一致率（相对当前 Gold）', target: 90, batch: frozen, note: caveat })
+  Object.assign(get('field_accuracy'), { name: '字段值一致率（分母为信封填值数）', target: 90, batch: frozen, note: caveat })
   const recall = get('gold_expected_field_recall')
-  Object.assign(recall, { note: caveat + ` 漏抽 ${recall.den - recall.num}（期望−命中）；本批恰与值一致率同值；召回与值正确是不同判据。` })
+  Object.assign(recall, { note: caveat + ` 漏抽 ${recall.den - recall.num}（期望−命中）；与值一致率的分母不同，必须分列。` })
   Object.assign(get('field_coverage'), { batch: frozen, note: '有值槽位 / 全部字段槽位，含弃权；不等于准确率，不挂 90% 达标线。' })
   Object.assign(get('value_layer_regression'), { name: '历史回归字段值一致率', note: 'D12-A 与首测冻结的全部字段槽位逐值比较，包含无值槽位；不等于非空 Gold 字段准确率。' })
   Object.assign(get('evidence_hit'), { name: '出处命中率（空白归一辅助）', num: normalized, den: anchors, value: pct(normalized, anchors), batch: frozen, note: '移除空白后比对；不能替代严格原文口径。证据源为信封自带解析块，不等于独立 PDF 复核。' })
   scores.splice(scores.indexOf(get('evidence_hit')), 0, { key: 'evidence_hit_strict', name: '出处命中率（严格原文）', num: raw, den: anchors, value: pct(raw, anchors), unit: '%', target: 95, status: 'measured', group: '历史冻结批与专项结果', batch: frozen, evidence: folder, code_version: 'build_delivery_metrics.mjs（输入哈希见本成绩单）', note: '引文须为所属解析块的原始子串；仅空白归一后命中的条目不计入分子。' })
   const cases = read('evaluation/D9/cases/rules-cases.dev.json')
   Object.assign(get('multi_doc_conflict'), { name: 'D9 规则用例通过率', batch: `D9 开发用例 ${cases.cases.length} 条（真实 ${cases.cases.filter(c => !c.synthetic_controlled).length} / 受控 ${cases.cases.filter(c => c.synthetic_controlled).length}）`, evidence: 'evaluation/2026-10-17-delivery-metrics/d9-score.json', code_version: '宗 fe2b2cbc 基础＋输入完整性修复；实现哈希见本成绩单', note: `误报 ${score.false_positive_conflict} / 漏报 ${score.false_negative_conflict}；必需证据侧、非空引文及求和明细/合计均校验，漏跑单列。无信封受控侧告警，不计作严格原文已验证。` })
-  Object.assign(get('perf_20page'), { target: 90, direction: 'lower', note: 'D12 历史性能记录，含 20 页合成件；19.99 秒为当时四样例最大值，不代表当前页面端到端时延。' })
+  Object.assign(get('perf_20page'), { target: null, direction: 'lower' })
+  scores.push({ key: 'perf_end_to_end', name: '20页 PDF 至页面结果全程耗时', num: null, den: null, value: null, unit: 's', target: 90, direction: 'lower', status: 'not_covered', group: '未测与能力边界', batch: '当前版本尚未独立计时', note: '整体目标90秒；历史抽取段不含PDF解析，不能替代当前PDF上传、解析、抽取到页面显示的全程实测。', evidence: 'evaluation/2026-10-15-acceptance/性能-3份真实20页PDF实测-20261015.json' })
+  Object.assign(get('abstain_reviewed_correct'), { group: '已复核弃权范围' })
   const liveBatch = '2026-10-17 · 3 份公告 · 3 次页面 + 5 次 CLI 冷跑'
   for (const [key, name, num, den, note] of [
     ['web_cli_same_result', '页面 / CLI 同源结果一致率', live.web_cli_fields_same, live.web_cli_fields_total, '同源同函数幂等（same_source_same_result）：按业务键比较 status/value/unit/standardized/denominator，run_id 独立、本地响应缓存禁用。不是 Gold 准确率、不是独立抽取一致，也不作 web_cli_independent 销项。'],
     ['live_evidence_strict', '本轮出处严格命中率', live.strict_anchors, live.strict_anchors, '8 次运行全部引文与所属原始解析块逐条比对；同一公告重复运行的出处分别计数，不是 240 个独立公告。'],
     ['award_cold_stability', 'D6-AWD-002 冷跑稳定性', live.cold_award_runs, live.cold_award_runs, '同一公告 3 次 CLI，56 字段按业务键一致；包含基准轮，不替换历史 10 份 × 3 轮结果，不外推全库。']
   ]) scores.push({ key, name, num, den, value: pct(num, den), unit: '%', target: null, status: 'measured', group: '本轮真实抽取验收', batch: liveBatch, code_version: 'dd04024ebb61 抽取实现；逐文件哈希见验收 manifest', evidence: receipt + '/manifest.json', note })
-  for (const [key, name, note] of [['abstain_correct', '弃权正确率', '缺少原文是否提及的完整独立金标；不得把共同待复核计为正确弃权。'], ['scan_degrade', '扫描 OCR 抽取能力', '当前只验证诚实降级；OCR 未交付。']]) scores.push({ key, name, num: null, den: null, value: null, unit: '%', target: null, status: 'not_covered', group: '未测与能力边界', batch: '未建立独立评测分母', evidence: 'evaluation/README.md', note })
-  const sheet = { schema: 'finstruct.delivery-metrics/1', generated_on: '2026-10-17', generator: 'scripts/jingguan/build_delivery_metrics.mjs', integrated_from: 'zongbowen@fe2b2cbcaf62f4bb1e9ffc312feb4d1fc6674641', base_commit: '2606dc67ce867ffa41521341d4af8f70366dac11', batch: base.batch, scores, input_hashes: hashes, limitations: '历史冻结批、本轮三份样例和 D9 开发用例分别统计。任何 100% 只覆盖对应批次与分母；Gold 独立复核、弃权正确率和陌生样例泛化未因此完成。旧 MP4 仍需重录。' }
+  for (const [key, name, note] of [['abstain_correct', '弃权正确率', '完整独立弃权评测仍未完成；已完成的两批原文复核另列，不把 pending 或无 Gold 计作正确。'], ['scan_degrade', '扫描 OCR 抽取能力', '当前只验证诚实降级；OCR 未交付。']]) scores.push({ key, name, num: null, den: null, value: null, unit: '%', target: null, status: 'not_covered', group: '未测与能力边界', batch: '未建立独立评测分母', evidence: 'evaluation/README.md', note })
+  const sheet = { schema: 'finstruct.delivery-metrics/1', generated_on: new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai' }).format(new Date()), generator: 'scripts/jingguan/build_delivery_metrics.mjs', integrated_from: 'zongbowen@fe2b2cbcaf62f4bb1e9ffc312feb4d1fc6674641', base_commit: '2606dc67ce867ffa41521341d4af8f70366dac11', batch: base.batch, scores, input_hashes: hashes, limitations: '历史冻结批、本轮三份样例和 D9 开发用例分别统计。任何百分比只覆盖对应批次与分母；两批弃权复核有条件列示，完整独立评测和陌生样例泛化未因此完成。旧 MP4 仍需重录。' }
   sheet.hash_normalization = 'UTF-8 text with CRLF normalized to LF'
+  sheet.input_sets = Object.fromEntries(['evaluation/D4/dev/gold', 'evaluation/D5/dev/gold', 'evaluation/D6/dev/gold', folder].map(dir => {
+    const suffix = dir === folder ? '.json' : '.envelope.json', excluded = dir === folder ? ['DEMO-EQC-HL-0930.json'] : []
+    return [dir, { suffix, excluded, files: readdirSync(join(root, dir)).filter(f => f.endsWith(suffix) && !excluded.includes(f)).sort() }]
+  }))
   sheet.artifact_hashes = Object.fromEntries(['d9-report.json', 'd9-score.json', 'd9-negative-controls.json'].map(file => [file, sha(readFileSync(join(out, file)))]))
   writeFileSync(join(out, 'metrics.json'), JSON.stringify(sheet, null, 2) + '\n')
   const rows = scores.map(s => `| ${s.name} | ${s.value == null ? '未测' : s.unit === '%' ? `${s.num}/${s.den} = ${s.value}%` : `${s.value} ${s.unit}`} | ${s.target == null ? '无达标线' : s.target + s.unit} | ${s.batch} | ${s.note} |`).join('\n')

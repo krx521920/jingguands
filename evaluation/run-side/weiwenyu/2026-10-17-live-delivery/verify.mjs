@@ -10,8 +10,12 @@ const hash = bytes => createHash('sha256').update(bytes).digest('hex')
 // The manifest identifies the implementation used by the eight original calls.
 // Preserve its exact source while separately replaying today's postprocessor below.
 for (const [file, expected] of Object.entries(manifest.source_hashes)) {
-  const historical = file === 'scripts/jingguan/lib/notice_status.mjs'
-    ? resolve(import.meta.dirname, 'source-snapshots/notice_status.mjs') : resolve(root, file)
+  const snapshots = {
+    'scripts/jingguan/lib/notice_status.mjs': 'notice_status.mjs',
+    'scripts/jingguan/run_extract.mjs': 'run_extract.mjs',
+  }
+  const historical = snapshots[file]
+    ? resolve(import.meta.dirname, 'source-snapshots', snapshots[file]) : resolve(root, file)
   assert.equal(hash(readFileSync(historical)), expected, 'historical extraction source changed: ' + file)
 }
 function key(e) {

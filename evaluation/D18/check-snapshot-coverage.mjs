@@ -14,6 +14,7 @@
 // 用法：
 //   node evaluation/D18/check-snapshot-coverage.mjs
 //   node evaluation/D18/check-snapshot-coverage.mjs --materialized <目录>
+//   node evaluation/D18/check-snapshot-coverage.mjs --materialized <目录> --materialized-scope selected --exclude DEMO-EQC-HL-0930
 //   node evaluation/D18/check-snapshot-coverage.mjs --self-test
 // 退出码：有未覆盖（非例外）或物化不符 → 1。
 "use strict";
@@ -22,6 +23,11 @@ const argv=process.argv.slice(2); const arg=(k,d)=>{const i=argv.indexOf(k);retu
 const MAN=arg("--manifest","evaluation/D18/snapshot-paths.weiwenyu-81a5698d.json");
 const ENV=arg("--envelopes","evaluation/D11/firsttest-envelopes");
 const MAT=arg("--materialized",null);
+const MAT_SCOPE=arg("--materialized-scope","all");
+if(!["all","selected"].includes(MAT_SCOPE)){
+  console.error("--materialized-scope must be all or selected");
+  process.exit(2);
+}
 const EXC=arg("--exclude",null);   // 排除某份信封（如 DEMO），用于按权威口径单独复核
 const OUT=arg("--json",null);
 const H=b=>crypto.createHash("sha256").update(b).digest("hex");
@@ -73,17 +79,21 @@ const byHow={sha:cov.filter(r=>r.how==="sha").length,exception:cov.filter(r=>r.h
 const anchorsTotal=cov.reduce((s,r)=>s+r.total_anchors,0);
 const anchorsCovered=cov.filter(r=>r.status==="COVERED").reduce((s,r)=>s+r.anchors,0);
 let mat=[];
+const selectedPaths=new Set(cov.filter(r=>r.status==="COVERED").map(r=>r.parse_path));
+const matDocs=MAT_SCOPE==="selected"?docs.filter(d=>selectedPaths.has(d.parse_path)):docs;
 if(MAT){
-  mat=docs.map(d=>{ const p=path.join(MAT,d.parse_path); if(!fs.existsSync(p)) return {case_id:d.case_id,status:"MISSING"};
+  mat=matDocs.map(d=>{ const p=path.join(MAT,d.parse_path); if(!fs.existsSync(p)) return {case_id:d.case_id,status:"MISSING"};
     return {case_id:d.case_id,status:H(fs.readFileSync(p))===d.parse_file_sha256?"MATCH":"MISMATCH"}; });
 }
 const matBad=mat.filter(r=>r.status!=="MATCH").length;
 const result=(badDocs.length||uncovered.length||matBad)?"FAIL":"PASS";
 const out={checked_on:new Date().toISOString().slice(0,10),manifest:MAN,envelopes:ENV,materialized:MAT,result,
+  materialized_scope:MAT_SCOPE,materialized_checked:mat.length,materialized_skipped:MAT?docs.length-mat.length:docs.length,
   manifest_docs:docs.length,manifest_bad:badDocs.length,join:byHow,
   anchors:{covered:anchorsCovered,total:anchorsTotal},covered_docs:cov.filter(r=>r.status==="COVERED").length,docs_total:cov.length,
   uncovered:uncovered.map(r=>r.envelope),materialized_bad:mat.map(r=>r).filter(r=>r.status!=="MATCH")};
 if(OUT) fs.writeFileSync(OUT,JSON.stringify(out,null,2)+"\n");
 console.log(JSON.stringify({result,manifest_docs:out.manifest_docs,join:byHow,covered_docs:out.covered_docs+"/"+out.docs_total,
+  materialized_scope:out.materialized_scope,materialized_checked:out.materialized_checked,materialized_skipped:out.materialized_skipped,
   anchors:out.anchors.covered+"/"+out.anchors.total,materialized_bad:matBad,uncovered:out.uncovered},null,2));
 process.exit(result==="PASS"?0:1);

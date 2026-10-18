@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write workspace/zhangzhibo/ui_redesign/README.md
 /finstruct-new-ui:
-  en: a16f6c3703d7abc9
-  zh: 0ddb24e581e579f0
+  en: 2d46285018d20a56
+  zh: 384c71110b1615c4
 /finstruct-new-ui/review-sources-and-controlled-cases:
-  en: 4e4ffa0e2e6ab8ee
-  zh: 28f92b4ffe481551
+  en: 96b05bc2221c45ee
+  zh: daa7acc72b120bb9

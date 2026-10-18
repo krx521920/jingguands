@@ -39,3 +39,16 @@
 1. 引入副本可能随魏分支演进过期——门会报清单自身的形态问题，但**不追远端**；若他更新清单，需重新引入并重跑（副本只作输入，不作真源）；
 2. D13 的 3 份陌生样例**不在清单内**（锁在我分支的 D13 锁 v2 下），L3 覆盖口径不得把它们算进分母；
 3. 扫描降级件本身 **0 条 provenance**（无文本层），所以例外对齐不会让锚点分母虚增。
+
+## 五、2026-10-18 物化复核范围
+
+`--materialized <目录>` 默认按 `all` 范围核对清单全部 34 份文件，`--exclude` 仅筛选参与覆盖统计的信封，不改变默认物化检查。当前 LF 仓库副本中 31 份正式/扫描快照哈希相符，3 份历史 DEMO raw JSON 与原清单的 CRLF 字节哈希不符，默认全清单检查仍如实失败。未改写或重新锁定历史清单。
+
+仅复核被选中信封实际引用的快照时，须显式指定范围：
+
+```sh
+node evaluation/D18/check-snapshot-coverage.mjs --materialized . --exclude DEMO-EQC-HL-0930 --materialized-scope selected
+node --test evaluation/D18/test-materialized-scope.mjs
+```
+
+该范围按覆盖 join 得到的 `parse_path` 选择，当前为 31 份（含扫描例外），跳过 3 份；输出 `materialized_scope`、`materialized_checked`、`materialized_skipped`。选中快照缺失或字节损坏仍失败，未覆盖信封仍失败；未知范围参数退出码为 2。省略 `--materialized` 只证明清单与信封的覆盖关系，不证明磁盘文件哈希。该选项不代表全 34 份物化检查通过。

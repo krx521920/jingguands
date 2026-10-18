@@ -251,22 +251,25 @@ let configStrict = true
 
 /**
  * 结构校验：返回问题清单（空数组＝合规）。问题如实上报，不静默修正。
- * @param envelope 按 v0.3 事件格式检查的信封；严格字段检查使用当前插件配置。
+ * @param envelope 事件结构已声明、版本尚待检查的信封；严格字段检查使用当前插件配置。
  * @returns 检出的结构问题；不修改输入，也不验证引文是否命中原文。
  */
-export function validateEnvelope(envelope: EventEnvelope): string[] {
+export function validateEnvelope(envelope: Omit<EventEnvelope, 'schema_version'> & { schema_version: unknown }): string[] {
   const issues: string[] = []
   if (envelope.schema_version !== '0.3') issues.push(`schema_version 应为 "0.3"，实际 ${JSON.stringify(envelope.schema_version)}`)
-  if (!Array.isArray(envelope.events)) issues.push('events 必须是数组')
+  if (!Array.isArray(envelope.events)) {
+    issues.push('events 必须是数组')
+    return issues
+  }
   const eventTypes = Object.keys(FIELD_REGISTRY) as EventType[]
   const nullValueStatuses = new Set<FieldStatus>(['not_disclosed', 'not_applicable', 'not_mentioned', 'unreadable'])
   envelope.events.forEach((event, index) => {
     const where = `events[${index}]`
     if (!eventTypes.includes(event.event_type)) {
-      issues.push(`${where}.event_type 非法：${String(event.event_type)}`)
+      issues.push(`${where}.event_type 非法：${event.event_type}`)
       return
     }
-    if (!/^E[0-9]+$/.test(event.event_id)) issues.push(`${where}.event_id 非法：${String(event.event_id)}（应形如 E01）`)
+    if (!/^E[0-9]+$/.test(event.event_id)) issues.push(`${where}.event_id 非法：${event.event_id}（应形如 E01）`)
     for (const [fieldName, value] of Object.entries(event.fields)) {
       const fieldWhere = `${where}.fields.${fieldName}`
       if (configStrict && !(fieldName in FIELD_REGISTRY[event.event_type])) {
@@ -281,7 +284,7 @@ export function validateEnvelope(envelope: EventEnvelope): string[] {
         else if (!value.provenance.some(p => p.quote.trim().length > 0)) issues.push(`${fieldWhere} 出处缺 quote`)
       }
       for (const [j, p] of value.provenance.entries()) {
-        if (p.region === null || p.region === undefined || p.region.length < 4) continue
+        if (p.region == null || p.region.length < 4) continue
         const [left = 0, top = 0, right = 0, bottom = 0] = p.region // noUncheckedIndexedAccess：解构显式兜底
         const regionWhere = `${fieldWhere}.provenance[${j}].region`
         if (left < 0 || top < 0) issues.push(`${regionWhere} 坐标为负`)

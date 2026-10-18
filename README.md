@@ -17,7 +17,7 @@ Open http://127.0.0.1:8762/ after the launcher reports readiness. Offline mode c
 
 ## Evidence and results
 
-Use the [delivery scorecard](evaluation/2026-10-17-delivery-metrics/metrics.md) for measured numerators, denominators and batches, and the [independent Web/CLI run receipt](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md) for the three-page / five-CLI verification. A historical cached batch is not a new extraction or evidence of accuracy on unseen documents. Do not combine different batches into a single accuracy claim.
+Use the [delivery scorecard](evaluation/2026-10-17-delivery-metrics/metrics.md) for measured numerators, denominators and batches, and the [historical Web/CLI run receipt](evaluation/run-side/weiwenyu/2026-10-17-live-delivery/README.md) for the three-page / five-CLI verification. Separate run IDs compare two entries into the same extraction implementation. A historical cached batch is not a new extraction or evidence of accuracy on unseen documents. Do not combine different batches into a single accuracy claim.
 
 The workbench imports event JSON, displays field evidence, and exports JSON / CSV. Source quotes and page/cell references depend on the supplied parser output. Missing readable text and insufficient evidence remain explicit failures or abstentions.
 

@@ -17,7 +17,7 @@ const manifest = { protocol: { [file]: digest(body) }, records: {}, teamDocument
 describe('reviewed FinStruct documentation exceptions', () => {
   it('validates staged review contents independently of dirty working-tree files', (test) => {
     const root = mkdtempSync(join(tmpdir(), 'finstruct-staged-docs-'))
-    test.onTestFinished(() => rmSync(root, { recursive: true, force: true }))
+    test.onTestFinished(() => { rmSync(root, { recursive: true, force: true }) })
     execFileSync('git', ['init', '--quiet', root])
     mkdirSync(join(root, 'interface'))
     mkdirSync(join(root, 'scripts'))

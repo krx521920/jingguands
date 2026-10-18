@@ -1,51 +1,51 @@
-# MP4 旁白与合成工具包 · 2026-10-17
+# Narration and MP4 assembly tutorial
 
-> 依据：宗《V2-审片实测-MP4-20261017》（全片数字静音 P0＋口径卡 P1，命令已给）＋《答辩最终口径-20261017》（金标 v1.3）。
-> 用途：给 `materials/项目演示-可信公告事件提取与跨文档核验.mp4`（6,791,589 B / 275.43 s）补旁白与口径卡。
-> **顺序：① 有麦克风的机器按《旁白分段脚本.md》录一条 wav → ② 跑两条命令 → ③ 成片替换 materials/ 原 MP4。**
+English | [中文](README.zh.md)
 
-## ① 录旁白（人工，约 5 分钟）
+Use FFmpeg and FFprobe on a machine with a microphone. This kit contains the six-second metrics card and [narration draft](旁白分段脚本.md); it does not contain a recorded narration WAV or an accepted final video. Re-record the current UI first. Adding narration to footage of the old UI does not complete the new demonstration.
 
-按《旁白分段脚本.md》六段时间窗朗读（或一次录完 4:35），保存为 `旁白.wav`（48 kHz 单声道即可）。
-脚本内容与 V1 讲解稿一致，数字已按金标 v1.3 终版口径改写。
+## 1. Prepare genuine recordings
 
-## ② 生成口径卡（6 s，一次性的可复现命令）
+Save the new screen recording as `materials/项目演示-重新录制.mp4` and genuine narration as `materials/旁白与合成工具包/旁白.wav`. Review the narration against the [current metrics](../../evaluation/2026-10-17-delivery-metrics/metrics.md): distinguish historical evidence from today's demonstration, keep denominators separate, and identify controlled examples. Review the existing draft before recording; its old timing windows need not match the new footage.
 
-```bash
-cd materials/旁白与合成工具包
-ffmpeg -y -f lavfi -i "color=c=0xFAF8F5:s=1920x1080:d=6:r=30" \
- -vf "drawtext=fontfile='C\:/Windows/Fonts/msyh.ttc':textfile=l1.txt:fontcolor=0x1A1A1A:fontsize=62:x=(w-text_w)/2:y=360,\
-drawtext=fontfile='C\:/Windows/Fonts/msyh.ttc':textfile=l2.txt:fontcolor=0x1A1A1A:fontsize=44:x=(w-text_w)/2:y=500,\
-drawtext=fontfile='C\:/Windows/Fonts/msyh.ttc':textfile=l3.txt:fontcolor=0x1A1A1A:fontsize=44:x=(w-text_w)/2:y=580,\
-drawtext=fontfile='C\:/Windows/Fonts/msyh.ttc':textfile=l4.txt:fontcolor=0x777777:fontsize=30:x=(w-text_w)/2:y=700" \
- -c:v libx264 -pix_fmt yuv420p card.mp4
+Record in 1080p where possible. Keep the recording plus the six-second card within 300 seconds. Narration should follow the actions and stop by the end of the video. The commands discard the recording's audio and use the supplied WAV; padding silence does not substitute for audible narration.
+
+## 2. Assemble without replacing the source
+
+Run these commands in PowerShell from this directory. FFmpeg must be available as `ffmpeg`, and FFprobe as `ffprobe`. The `-n` option refuses to overwrite existing outputs; review or choose a new output filename before another attempt. Original recordings and the existing project MP4 remain unchanged.
+
+```powershell
+$newCapture = '../项目演示-重新录制.mp4'
+$narration = './旁白.wav'
+$card = './card.mp4'
+foreach ($inputFile in @($newCapture, $narration, $card)) {
+  if (-not (Test-Path -LiteralPath $inputFile -PathType Leaf)) {
+    throw "Missing required recording or card: $inputFile"
+  }
+}
+ffmpeg -n -i $newCapture -i $card `
+  -filter_complex '[0:v]scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,setpts=PTS-STARTPTS[v0];[1:v]scale=1920:1080,setsar=1,fps=30,setpts=PTS-STARTPTS[v1];[v0][v1]concat=n=2:v=1:a=0[v]' `
+  -map '[v]' -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -an './silent-review.mp4'
+if ($LASTEXITCODE -ne 0) { throw 'Video assembly failed' }
+ffmpeg -n -i './silent-review.mp4' -i $narration `
+  -map 0:v:0 -map 1:a:0 -af apad -shortest `
+  -c:v copy -c:a aac -b:a 128k -movflags +faststart '../项目演示-终版候审.mp4'
+if ($LASTEXITCODE -ne 0) { throw 'Narration assembly failed' }
 ```
 
-（注：drawtext 的 `%` 需转义；l1-l4.txt 已用全角 ％ 规避——宗实测。）
+`apad` extends short narration with silence; `-shortest` then ends at the video boundary. Using `-shortest` without `apad` would stop at the end of a shorter WAV and could remove the appended card. Narration longer than the video is truncated, so check the spoken ending and shorten or re-record it if necessary.
 
-## ③ 合成成片（旁白＋口径卡一起进，总长 ≈281.4 s ≤5 min）
+## 3. Check the candidate before submission
 
-```bash
-cd materials/旁白与合成工具包
-# 步骤 1：原片＋口径卡拼接（画面段重编码一次，crf 20 视觉无损）
-ffmpeg -y -i ../项目演示-可信公告事件提取与跨文档核验.mp4 -i card.mp4 \
- -filter_complex "[0:v][1:v]concat=n=2:v=1:a=0[v]" \
- -map "[v]" -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -an silent.mp4
-# 步骤 2：混入旁白（音轨 AAC 128k；-shortest 防越界）
-ffmpeg -y -i silent.mp4 -i 旁白.wav -map 0:v -map 1:a \
- -c:v copy -c:a aac -b:a 128k -movflags +faststart -shortest ../项目演示-终版.mp4
+```powershell
+ffprobe -v error -show_entries format=duration,size -show_entries stream=codec_type,duration -of json '../项目演示-终版候审.mp4'
+ffmpeg -hide_banner -i '../项目演示-终版候审.mp4' -af volumedetect -vn -f null - 2>&1 | Select-String 'mean_volume|max_volume'
 ```
 
-## ④ 自检（提交前）
+Confirm duration is at most 300 seconds and size at most 500 MB. Play the complete candidate with sound, verify the current UI and evidence navigation, listen for intelligible narration, check subtitle and metric wording, and watch all six seconds of the closing card. A present audio stream or a volume reading alone does not prove acceptable narration. Complete two full rehearsals and record reviewer conclusions before selecting the submitted file.
 
-```bash
-ffprobe -v error -show_entries format=duration,size -of json ../项目演示-终版.mp4   # 时长 ≤300s、大小 ≤500MB
-ffmpeg -i ../项目演示-终版.mp4 -af volumedetect -f null - 2>&1 | grep mean_volume  # 不应再是 -91 dB
-```
+## Status
 
-## 状态
-
-- [x] 口径卡文本（l1-l4.txt，金标 v1.3 双口径）
-- [x] card.mp4 已生成并验过（6 s / 1080p30，命令可复现）
-- [ ] 旁白 wav（**待人工录音**——宗环境与本机均无可用音频设备路径，须有麦克风的人录）
-- [ ] 终版合成与替换（录完 5 分钟内完成）
+- Metrics text and `card.mp4` are available; the card alone is not a final demonstration.
+- New UI recording, genuine narration WAV, candidate assembly, full playback review, and two rehearsals remain human completion steps until actual evidence is recorded.
+- Keep the old MP4 as historical material. Submit a reviewed new candidate under its own name and record its hash; do not silently replace old evidence.

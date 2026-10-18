@@ -278,14 +278,16 @@ function safeDatasetName(filename) {
   return path.basename(filename).replace(/\.json$/i, "").replace(/[^a-zA-Z0-9_-]+/g, "-").replace(/^-+|-+$/g, "") || "upload";
 }
 
-/** 数据集名查重：data/ 下已存在则追加 -2、-3…，绝不静默覆盖既有数据集。
- *  ★ 2026-10-10 步骤6-⑤：查重**大小写不敏感** —— 文件系统大小写不敏感时会直接覆盖，
- *    读取侧又是大小写不敏感归一 ⇒ 不查就是静默覆盖既有数据集。 */
+/** 上传名称须避开所有已登记批次，防止新结果被同名冻结数据遮蔽。
+ *  大小写不敏感查重，直接读取目录以包含本批上传已落盘的文件。 */
 function dedupeDatasetName(base) {
   const taken = new Set(
-    fs.existsSync(DATA_DIR)
-      ? fs.readdirSync(DATA_DIR).filter(f => f.endsWith(".json")).map(f => path.basename(f, ".json").toLowerCase())
-      : []
+    Object.values(dataSource.BATCHES).flatMap(({ dir }) => {
+      const folder = path.join(ROOT, dir);
+      return fs.existsSync(folder)
+        ? fs.readdirSync(folder).filter(f => f.endsWith(".json")).map(f => path.basename(f, ".json").toLowerCase())
+        : [];
+    })
   );
   if (!taken.has(base.toLowerCase())) return base;
   for (let i = 2; ; i++) if (!taken.has((base + "-" + i).toLowerCase())) return base + "-" + i;

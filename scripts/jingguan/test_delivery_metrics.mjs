@@ -45,10 +45,14 @@ try {
     assert.equal(r.exit, 1, 'invalid report was accepted')
     assert.ok(r.result.rows.some(row => row.notes?.some(note => note.startsWith(reason))))
   })
-  const inputs = ['D11/firsttest-envelopes', 'D11/results/single-doc-firsttest.json', 'D11/results/crossdoc-firsttest-score.json', 'D11/results/d8-firsttest-score.json', 'D11/results/d9-v02-score.json', 'D10/results/score-weiwenyu-bundle.json', 'D12/results-zong-independent.json', 'D12/results-C-byte-verification.json']
+  const inputs = ['D11/firsttest-envelopes', 'D11/results/single-doc-firsttest.json', 'D11/results/crossdoc-firsttest-score.json', 'D11/results/d8-firsttest-score.json', 'D11/results/d9-v02-score.json', 'D10/results/score-weiwenyu-bundle.json', 'D12/results-zong-independent.json', 'D12/results-C-byte-verification.json', 'D4/dev/gold', 'D5/dev/gold', 'D6/dev/gold', '2026-10-15-caliber', '2026-10-17-gold-review']
   for (const file of inputs) {
     const dest = join(temp, 'evaluation', file); mkdirSync(dirname(dest), { recursive: true })
     cpSync(join(root, 'evaluation', file), dest, { recursive: true })
+  }
+  for (const stamp of ['20261008T150554', '20261008T150658']) {
+    const file = 'runs/batch-' + stamp + '/batch_report.json', dest = join(temp, file)
+    mkdirSync(dirname(dest), { recursive: true }); cpSync(join(root, file), dest)
   }
   const changedScore = join(temp, 'evaluation/D11/results/d9-v02-score.json')
   const inputScore = json(changedScore); inputScore.pass = 19; inputScore.fail = 1

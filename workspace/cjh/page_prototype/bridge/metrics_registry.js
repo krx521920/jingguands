@@ -250,14 +250,14 @@ const MEASURED = {
   //   取不到（本机无 Gold / 分母 0）⇒ value=null ⇒ 自动落 not_covered（未测），绝不按 100% 填充。
   field_accuracy: (() => {
     const c = caliberValues();
-    const vm = c && c.gold && c.gold.is_measured ? c.gold.value_match : null;
+    const vm = c && c.gold && c.gold.is_measured ? c.gold.filled_value_match : null;
     return {
       value: vm ? vm.pct : null, unit: "%", num: vm ? vm.num : null, den: vm ? vm.den : null,
       source_script: "bridge/caliber.js（demo/_retest_unified.js 同源调它）",
       evidence_kind: vm ? "field_by_field_vs_gold" : null,
       note: vm
-        ? `Gold 期望字段中值与单位都一致的字段数 = ${vm.num}/${vm.den}（按 source.file_id 配对文件 + 业务键配对事件）。`
-          + `★ 与「Gold 期望字段召回率」分子条件不同（值一致 vs 抽得到），当前恰好同值，不得合并成一项`
+        ? `填值与 Gold 规范值及单位一致的字段数 / 信封填值数 = ${vm.num}/${vm.den}（按 source.file_id 配对文件 + 业务键配对事件）。`
+          + `★ 与「Gold 期望字段召回率」分子条件不同（值一致 vs 抽得到），分母不同，不得合并成一项`
         : "★ 未测：本机无 Gold（evaluation/D4|D5|D6/dev/gold）或分母为 0 —— 不得按 100% 或目标值填充",
     };
   })(),
@@ -274,8 +274,8 @@ const MEASURED = {
           + `未抽到 ${c.gold.recall_miss.length} 项已计入分母；多抽候选 ${c.gold.extra_candidates.length} 处。`
           + `限定语：${c.gold.qualification}`
           + (c.gold.overlay && c.gold.overlay.available
-            ? ` Gold v1.1 覆盖层已应用 ${c.gold.overlay.applied} 项（${c.gold.overlay.errors.length ? "错误 " + c.gold.overlay.errors.length + " 条" : "无错误"}）：pending Gold 12→11、D4-PLD-009 状态差异消除。`
-            : ` ★ Gold v1.1 覆盖层未取件（pending 按无校正口径 12 统计，跑 demo/_fetch_eval_scores.js 取件）。`)
+            ? ` Gold v1.1/v1.3 覆盖层已应用 ${c.gold.overlay.applied} 项（${c.gold.overlay.errors.length ? "错误 " + c.gold.overlay.errors.length + " 条" : "无错误"}）：pending Gold 12→11、D4-PLD-009 状态差异消除。`
+            : ` ★ 必需 Gold 覆盖层不可用，相关成绩标未测。`)
         : "★ 未测：本机无 Gold 或期望全集为 0 —— 不得按 100% 或目标值填充",
     };
   })(),

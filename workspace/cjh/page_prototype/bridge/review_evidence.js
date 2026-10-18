@@ -113,7 +113,7 @@ function controlledCases(root) {
       verdict: result.verdict, attribution_code: result.attribution_code, attribution: result.attribution,
       difference: Math.abs(nums[1] - nums[0]),
       delta_check: { a: nums[0], b: nums[1], delta: Math.abs(nums[1] - nums[0]), ok: Number.isSafeInteger(nums[0]) && Number.isSafeInteger(nums[1]) },
-      sides: fixture.sides.map(s => ({ ...s, is_fixture_anchor: /^synth-/i.test(String(s.block_id || '')), page: null, block_verified: null, provenance: null })),
+      sides: fixture.sides.map(s => ({ ...s, is_fixture_anchor: /^synth-/i.test(String(s.block_id || '')), page: null, block_verified: null, [sourceKey]: null })),
       source: '已有 D9 规则结果回放', premise: '已设定同事件、同主体、同字段、同一时点；未测试自动配对；无真实 PDF' };
   });
 }
