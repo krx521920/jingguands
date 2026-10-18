@@ -7,23 +7,23 @@ import { spawnSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 const root = resolve(import.meta.dirname, '../..'), temp = mkdtempSync(join(tmpdir(), 'finstruct-source-tests-'))
 const json = file => JSON.parse(readFileSync(file, 'utf8'))
-const overlay = 'evaluation/2026-10-17-gold-review/gold-corrections-v1.3.json'
+const overlay = 'evaluation/2026-10-18-closure/gold-corrections-v1.4.json'
 const checks = [], failures = []
 function check(name, fn) { try { fn(); checks.push(name); console.log('PASS ' + name) } catch (e) { failures.push({ name, error: e.message }); console.log('FAIL ' + name + ': ' + e.message) } }
 function run(script, args = [], cwd = temp) { return spawnSync(process.execPath, [join(root, script), ...args], { cwd, encoding: 'utf8' }) }
 function copy(file) { const dest = join(temp, file); mkdirSync(dirname(dest), { recursive: true }); cpSync(join(root, file), dest, { recursive: true }) }
 function score() { const file = join(temp, 'score.json'); const r = run('evaluation/2026-10-12-scorecard/build-scorecard.mjs', ['--json', file]); return { ...r, data: r.status === 0 ? json(file) : null } }
 try {
-  for (const file of ['evaluation/D11/firsttest-envelopes', 'evaluation/D11/results', 'evaluation/D10/results', 'evaluation/D12/results-zong-independent.json', 'evaluation/D12/results-C-byte-verification.json', 'evaluation/D4/dev/gold', 'evaluation/D5/dev/gold', 'evaluation/D6/dev/gold', 'evaluation/2026-10-15-caliber', 'evaluation/2026-10-17-gold-review', 'runs/batch-20261008T150554/batch_report.json', 'runs/batch-20261008T150658/batch_report.json']) copy(file)
+  for (const file of ['evaluation/D11/firsttest-envelopes', 'evaluation/D11/results', 'evaluation/D10/results', 'evaluation/D12/results-zong-independent.json', 'evaluation/D12/results-C-byte-verification.json', 'evaluation/D4/dev/gold', 'evaluation/D5/dev/gold', 'evaluation/D6/dev/gold', 'evaluation/2026-10-15-caliber', 'evaluation/2026-10-17-gold-review', 'evaluation/2026-10-18-closure', 'corpus/zhangzhibo', 'runs/batch-20261008T150554/batch_report.json', 'runs/batch-20261008T150658/batch_report.json']) copy(file)
   const result = score(); assert.equal(result.status, 0, result.stderr)
   const metrics = Object.fromEntries(result.data.scores.map(s => [s.key, s]))
-  check('accuracy uses filled 437; recall uses Gold 438', () => {
-    assert.deepEqual([metrics.field_accuracy.num, metrics.field_accuracy.den, metrics.field_accuracy.value], [436, 437, 99.77])
-    assert.deepEqual([metrics.gold_expected_field_recall.num, metrics.gold_expected_field_recall.den], [436, 438])
+  check('accuracy uses filled 437; recall uses Gold 436', () => {
+    assert.deepEqual([metrics.field_accuracy.num, metrics.field_accuracy.den, metrics.field_accuracy.value], [434, 437, 99.31])
+    assert.deepEqual([metrics.gold_expected_field_recall.num, metrics.gold_expected_field_recall.den], [434, 436])
   })
   check('performance derives 19.342 seconds from recorded timings', () => { assert.equal(metrics.perf_20page.value, 19.342); assert.match(metrics.perf_20page.note, /不含 PDF|不含PDF/) })
-  check('reviewed abstentions expose 142/144 and exclude 11 pending, 14 unreviewable', () => {
-    const m = metrics.abstain_reviewed_correct; assert.ok(m); assert.deepEqual([m.num, m.den, m.value], [142, 144, 98.61]); assert.match(m.note, /155.*169/); assert.match(m.note, /11/); assert.match(m.note, /14/)
+  check('reviewed abstentions expose 153/155 with no pending reviews and 14 scan items excluded', () => {
+    const m = metrics.abstain_reviewed_correct; assert.ok(m); assert.deepEqual([m.num, m.den, m.value], [153, 155, 98.71]); assert.match(m.note, /169.*169/); assert.match(m.note, /11/); assert.match(m.note, /14/)
   })
   const original = readFileSync(join(temp, overlay))
   const performancePath = join(temp, 'runs/batch-20261008T150554/batch_report.json'), originalPerformance = readFileSync(performancePath)
@@ -55,7 +55,7 @@ try {
       const d = JSON.parse(originalGold); d.events[0].fields.tenderer.value = '独立错值对照主体'; writeFileSync(goldPath, JSON.stringify(d))
       const r = score(); assert.equal(r.status, 0, r.stderr)
       const recall = r.data.scores.find(s => s.key === 'gold_expected_field_recall'), caliber = r.data.caliber.coverage_caliber.find(s => s.key === 'gold_expected_field_recall')
-      assert.equal(caliber.num, recall.num); assert.equal(recall.num, 436); assert.equal(r.data.scores.find(s => s.key === 'field_accuracy').num, 435)
+      assert.equal(caliber.num, recall.num); assert.equal(recall.num, 434); assert.equal(r.data.scores.find(s => s.key === 'field_accuracy').num, 433)
     } finally { writeFileSync(goldPath, originalGold) }
   })
   check('ratio denominator mismatch reduces precision but preserves recall', () => {
@@ -63,8 +63,8 @@ try {
     try {
       const d = JSON.parse(original); d.events[0].fields.ratio_before.denominator = 'holder_shares'; writeFileSync(file, JSON.stringify(d))
       const r = score(); assert.equal(r.status, 0, r.stderr)
-      assert.equal(r.data.scores.find(s => s.key === 'field_accuracy').num, 435)
-      assert.equal(r.data.scores.find(s => s.key === 'gold_expected_field_recall').num, 436)
+      assert.equal(r.data.scores.find(s => s.key === 'field_accuracy').num, 433)
+      assert.equal(r.data.scores.find(s => s.key === 'gold_expected_field_recall').num, 434)
     } finally { writeFileSync(file, original) }
   })
   for (const [name, change] of [
@@ -83,7 +83,7 @@ try {
   const shared = json(join(generated, 'metrics.json'))
   check('historical extraction timing cannot pass the PDF-to-page target', () => {
     assert.equal(shared.scores.find(s => s.key === 'perf_20page').target, null)
-    const endToEnd = shared.scores.find(s => s.key === 'perf_end_to_end'); assert.ok(endToEnd); assert.equal(endToEnd.value, null); assert.equal(endToEnd.target, 90)
+    const endToEnd = shared.scores.find(s => s.key === 'perf_end_to_end'); assert.ok(endToEnd); assert.equal(endToEnd.value, 5.84); assert.equal(endToEnd.target, 90)
   })
   const require = createRequire(import.meta.url), { readDeliveryMetrics, overlayDeliveryMetrics } = require(join(root, 'workspace/cjh/page_prototype/bridge/delivery_metrics.js'))
   for (const file of Object.keys(shared.input_hashes)) copy(file)
@@ -93,8 +93,8 @@ try {
   })
   check('Gold, review rows, performance logs are fingerprinted', () => { for (const file of [overlay, 'evaluation/2026-10-15-caliber/gold-corrections-v1.1.json', 'evaluation/D6/dev/gold/D6-AWD-002.envelope.json', 'evaluation/2026-10-17-gold-review/弃权复核-第二批69条-20261017.csv', 'runs/batch-20261008T150554/batch_report.json']) assert.ok(shared.input_hashes[file], file) })
   check('modified Gold rejects stale displayed metrics', () => { try { writeFileSync(join(temp, overlay), '{}'); assert.match(readDeliveryMetrics(temp, join(generated, 'metrics.json')).error || '', /输入已变化/) } finally { writeFileSync(join(temp, overlay), original) } })
-  check('shared accuracy and reviewed abstentions preserve semantics', () => { assert.equal(shared.scores.find(s => s.key === 'field_accuracy').den, 437); assert.equal(shared.scores.find(s => s.key === 'abstain_reviewed_correct')?.den, 144) })
-  check('registry receives the additional reviewed metric', () => { assert.equal(overlayDeliveryMetrics([], shared).find(s => s.key === 'abstain_reviewed_correct')?.value, 98.61) })
+  check('shared accuracy and reviewed abstentions preserve semantics', () => { assert.equal(shared.scores.find(s => s.key === 'field_accuracy').den, 437); assert.equal(shared.scores.find(s => s.key === 'abstain_reviewed_correct')?.den, 155) })
+  check('registry receives the additional reviewed metric', () => { assert.equal(overlayDeliveryMetrics([], shared).find(s => s.key === 'abstain_reviewed_correct')?.value, 98.71) })
   console.log(JSON.stringify({ passed: checks.length, failed: failures.length, failures }))
   if (failures.length) process.exitCode = 1
 } finally { assert.equal(dirname(temp), resolve(tmpdir())); rmSync(temp, { recursive: true, force: true }) }

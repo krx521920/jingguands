@@ -6,7 +6,7 @@
 
 推荐在仓库根目录运行 `node scripts/jingguan/start_demo.mjs`，完整使用步骤见 [启动教程](../../../START-HERE.zh.md)。独立调试可运行 `node server.js`；默认 UI 8762，`UPSTREAM` 指向 `http://127.0.0.1:8642`，`EXTRACT_SERVICE_URL` 指向 `http://127.0.0.1:8788`。服务只监听 127.0.0.1。
 
-工作台支持三类内置解析样例、自己提供的解析 JSON 或全文，发起真实抽取后自动入库并显示新结果。原始 PDF 需先解析。已有事件信封使用独立导入区，不会再次调用模型。数据集是否模拟以 API 的 is_mock 元数据为准。
+工作台支持三类内置解析样例、自己提供的解析 JSON 或全文，发起真实抽取后自动入库并显示新结果。已有事件信封使用独立导入区，不会再次调用模型。数据集是否模拟以 API 的 is_mock 元数据为准。
 
 导入名称在全部已登记批次内按大小写不敏感规则查重。重名时分配数字后缀；页面及 JSON / CSV 导出使用返回的数据集名称定位新导入的运行。原有冻结文件保持不变。真实 HTTP 回归命令为 `node --test workspace/cjh/page_prototype/test_upload_collisions.cjs`。
 
@@ -35,3 +35,5 @@ D9-RULE-019 和 D9-RULE-020 在核对成绩单摘要后读取既有受控夹具�
 ```sh
 node --test workspace/zhangzhibo/ui_redesign/test_review.cjs workspace/zhangzhibo/ui_redesign/test_review_guards.cjs
 ```
+
+原始 PDF 可直接从工作台提交，经 `POST /api/live/parse` 在本机解析后抽取；先按启动教程安装 Python 依赖。限制为 20 MiB、200 页、两个并发解析任务、单次 60 秒。扫描内容标为无法读取，不包含 OCR。页面显示从点击至结果加载的全程耗时。

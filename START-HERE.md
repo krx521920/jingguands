@@ -12,7 +12,7 @@ This delivery includes Zhang Zhibo's new UI, Chen Jiahao's data and export servi
 
 The app also starts without a key: it can only view, import and export existing results, and the page explicitly reports that extraction is unavailable. Do not describe this viewing flow as a new extraction. Use `node scripts/jingguan/start_demo.mjs --offline` for explicit offline mode.
 
-Custom input can be either announcement text or the parser's evidence JSON; choose one and manually select one of the three event types. The page does not extract directly from raw PDFs. Parse PDFs with Zhang's parser first, or use the bundled parsed samples; plain text has no PDF coordinates. An event envelope JSON is an existing output and belongs in the separate import area.
+Custom input accepts a raw PDF, the parser's evidence JSON, or announcement text; choose one and select an event type. For PDFs, install Python 3.10+ and run `python -m pip install -r tools/finstruct-parser/requirements.txt`. `FINSTRUCT_PYTHON` optionally selects the Python executable. PDFs are limited to 20 MiB and 200 pages; parsing runs locally through the bundled original parser. Scanned regions are marked unreadable; OCR is not included. Plain text has no PDF coordinates. Existing event envelopes belong in the separate import area. The displayed full time includes reading, PDF parsing, extraction and dataset loading.
 
 ## Troubleshooting and acceptance
 

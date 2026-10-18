@@ -104,7 +104,7 @@ const scores=[
     batch:"2026-10-08 D12 抽取段性能专项",code_version:"D12",evidence:performance.sourceFiles.join("；"),
     note:"从两份原始 batch_report 的 duration_ms 取最大值；3份真实长公告及20页合成件，解析JSON载入至抽取落盘，不含PDF解析，不代表当前页面端到端时延。",samples:performance.samples}),
  F({key:"abstain_reviewed_correct",name:"弃权判定正确率（已判定范围）",value:pct(reviewed.correct,reviewed.decided),num:reviewed.correct,den:reviewed.decided,unit:"%",
-    batch:"2026-10-15／17 两批逐条原文复核",code_version:"Gold v1.3",evidence:sources.REVIEWS.join("；"),
+    batch:"2026-10-18 逐事件闭环复核",code_version:"Gold v1.4",evidence:sources.REVIEWS.join("；"),
     note:`已复核 ${reviewed.reviewed}/${reviewed.total}：${reviewed.correct} 成立、${reviewed.missed} 漏抽、${reviewed.pending} pending；${reviewed.unreviewable} 无Gold不可核。分母仅已判定者；不能替代完整独立弃权评测。${reviewed.scopeNote}`,scope:reviewed})
 ,F({key:"gold_expected_field_recall",name:"Gold 期望字段召回率（相对当前 Gold）",value:+(100*(matchedFilled)/(expectedTotal)).toFixed(2),num:gold.recall_num,den:expectedTotal,unit:"%",
     batch:"权威批（D11 首测冻结）",code_version:"weiwenyu@"+single.frozen_source.commit,evidence:GOLD_OVERLAY,
@@ -118,7 +118,7 @@ const out={generated_on:new Date().toISOString().slice(0,10),by:"宗（评测侧
   scores, not_covered:[
     {key:"abstain_correct",reason:"Gold 无「原文是否提及」逐条标注 ⇒ 不可核",owner:"宗（需补 Gold 维度）"},
     {key:"scan_degrade",reason:"扫描件无独立分母",owner:"全员"},
-    {key:"web_cli_independent",reason:"页面无 PDF、抽取管线在魏分支 ⇒ 未测",owner:"魏（提供入口）＋宗（判据）"}
+    {key:"web_cli_independent",reason:"本轮新增28页PDF页面/CLI独立请求9/9字段一致；仍共享同一实现，不替代独立实现评测",owner:"魏（提供入口）＋宗（判据）"}
   ]};
 for(const s of scores){ if(s.unit==="%"){ s.value=pct(s.num,s.den); } }
 out.caliber={version:"coverage-caliber/2026-10-15",
@@ -128,7 +128,7 @@ out.caliber={version:"coverage-caliber/2026-10-15",
     {key:"core_slot_value_rate",name:"核心文本件槽位有值率",num:valued,den:592,pct:+(100*valued/592).toFixed(2),disclaimer:"排除扫描降级 14 槽位（范围拆分视图）"},
     {key:"gold_expected_field_recall",name:"Gold 期望字段召回率（相对当前 Gold）",num:gold.recall_num,den:expectedTotal,pct:pct(gold.recall_num,expectedTotal),disclaimer:"分母＝当前 Gold 标注应有值；须带「相对当前 Gold」限定"}
   ],
-  pending:{gold_needs_review:11,note:"单列 pending，不进双方任一分子/分母（含 v1.1 校正：D4-PLD-009 E03 end_date 由 needs_review 校正为 not_mentioned）"},
+  pending:{gold_needs_review:13,review_pending:0,note:"11个条件日期与2个合同子项保留不确定状态，原文审查已完成；不把不确定字段判为有值。"},
   no_gold:{fields:14,note:"pledge-scan-degrade 原文缺陷件，无 Gold，单列"},
   gold_corrections:["evaluation/2026-10-15-caliber/gold-corrections-v1.1.json",GOLD_OVERLAY],
   gold_corrections_applied:{shrink:nShrink,grow:nGrow,extra_filled:extraFilled,missed:missedExpected,note:"已从金标期望中扣除；信封多填数见 field_value_agreement"},

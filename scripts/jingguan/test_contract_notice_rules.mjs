@@ -15,7 +15,7 @@ const sourceBlocks = read(parsePath).pages.flatMap(page => page.blocks)
 const selected = read(resolve(receipt, 'manifest.json')).runs.filter(run => run.case === 'D6-AWD-002')
 const sourceKey = 'prove' + 'nance'
 
-for (const run of selected) test(`recorded ${run.file}: CLI repairs both explicitly unsigned projects without changing the partial group`, () => {
+for (const run of selected) test(`recorded ${run.file}: CLI repairs both explicitly unsigned projects and preserves uncertainty in the partial group`, () => {
   const temp = mkdtempSync(join(tmpdir(), 'jingguan-contract-'))
   try {
     const loader = join(temp, 'recorded-fetch.mjs')
@@ -39,7 +39,7 @@ globalThis.fetch = async (url, options) => {
       const field = event.fields.contract_signed
       const priorEvent = expected.find(e => e.fields.project_name.value === name)
       for (const [fieldName, actual] of Object.entries(event.fields)) {
-        if (fieldName === 'contract_signed' && name.startsWith('深圳')) continue
+        if (fieldName === 'contract_signed') continue
         for (const key of ['status', 'value', 'unit', 'standardized', 'denominator']) {
           assert.deepEqual(actual[key], priorEvent.fields[fieldName][key], `${name}.${fieldName}.${key}`)
         }
@@ -51,9 +51,10 @@ globalThis.fetch = async (url, options) => {
         assert(field[sourceKey].some(p => p.quote.includes('截至本公告披露日')))
         for (const p of field[sourceKey]) assert(sourceBlocks.find(b => b.block_id === p.block_id)?.text_raw.includes(p.quote))
       } else {
-        const prior = priorEvent.fields.contract_signed
-        assert.equal(field.status, prior.status)
-        assert.equal(field.value, prior.value)
+        assert.equal(field.status, 'needs_review')
+        assert.equal(field.value, null)
+        assert(field[sourceKey].some(p => p.quote.includes('部分已签订合同')))
+        for (const p of field[sourceKey]) assert(sourceBlocks.find(b => b.block_id === p.block_id)?.text_raw.includes(p.quote))
       }
     }
   } finally { rmSync(temp, { recursive: true, force: true }) }
@@ -138,7 +139,7 @@ test('empty input and repeated application do not add repairs', () => {
   assert.equal(repairs.length, 1)
 })
 
-test('ten frozen award fixtures change only the two reviewed contract abstentions in memory', () => {
+test('ten frozen award fixtures apply reviewed unsigned and partial-group rules in memory', () => {
   const directory = resolve(root, 'workspace/cjh/page_prototype/data_unified')
   const files = readdirSync(directory).filter(name => /^D6-AWD-\d{3}\.json$/.test(name))
   assert.equal(files.length, 10)
@@ -150,10 +151,31 @@ test('ten frozen award fixtures change only the two reviewed contract abstention
     for (let i = 0; i < before.length; i++) {
       if (JSON.stringify(before[i]) === JSON.stringify(envelope.events[i])) continue
       changed.push(`${file}:${before[i].event_id}`)
-      assert.equal(envelope.events[i].fields.contract_signed.value, 'false')
+      assert.equal(envelope.events[i].fields.contract_signed.value, i < 2 ? 'false' : null)
       envelope.events[i].fields.contract_signed = before[i].fields.contract_signed
       assert.deepEqual(envelope.events[i], before[i])
     }
   }
-  assert.deepEqual(changed, ['D6-AWD-002.json:E01', 'D6-AWD-002.json:E02'])
+  assert.deepEqual(changed, ['D6-AWD-002.json:E01', 'D6-AWD-002.json:E02', 'D6-AWD-002.json:E03', 'D6-AWD-002.json:E04'])
+})
+
+test('group partial signing cannot support a child-level affirmative', () => {
+  const { events, blocks } = fixture()
+  Object.assign(events[1].fields.contract_signed, { status: 'extracted', value: 'true', raw_value: '部分已签订合同', standardized: true })
+  stabilizeContractStatus(events, blocks, [])
+  assert.equal(events[1].fields.contract_signed.status, 'needs_review')
+  assert.equal(events[1].fields.contract_signed.value, null)
+  assert.equal(events[1].fields.contract_signed.standardized, false)
+  const before = structuredClone(events)
+  stabilizeContractStatus(events, blocks, [])
+  assert.deepEqual(events, before)
+})
+
+test('a separately stated child contract remains affirmative', () => {
+  const { events, blocks } = fixture()
+  Object.assign(events[1].fields.contract_signed, { status: 'extracted', value: 'true' })
+  blocks.push({ ...blocks[1], block_id: 'child-signed', text_raw: `${events[1].fields.project_name.value}已签订正式合同。` })
+  stabilizeContractStatus(events, blocks, [])
+  assert.equal(events[1].fields.contract_signed.value, 'true')
+  assert.equal(events[1].fields.contract_signed.status, 'extracted')
 })

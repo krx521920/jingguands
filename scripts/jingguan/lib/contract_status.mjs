@@ -43,8 +43,8 @@ function belongsTo(project, group) {
     project.slice(0, match.index) + project.slice(match.index + match[0].length) === group)
 }
 
-/** Fill an unsigned status only for named projects outside an explicitly scoped partial-signing group.
- * Group members retain their existing status pending a separate subtype adjudication.
+/** Resolve scoped signing statements without assigning a group's partial signing to every child.
+ * Child affirmatives without their own source statement become unresolved, with the group evidence retained.
  * @param {object[]} events Extracted events, updated in place.
  * @param {object[]} blocks Source paragraph blocks in reading order.
  * @param {string[]} repairs Audit messages appended for changed fields.
@@ -64,18 +64,25 @@ export function stabilizeContractStatus(events, blocks, repairs) {
   }
   for (const [i, event] of awards.entries()) {
     const field = event.fields?.contract_signed, project = names[i]
-    if (!field || !['not_mentioned', 'not_disclosed'].includes(field.status) || project.length < 6) continue
+    if (!field || project.length < 6) continue
     if (names.filter(name => name === project).length !== 1 || statements.length === 0) continue
-    // Multiple declarations must agree on exclusion; a partial group never implies its child is unsigned.
-    if (statements.some(statement => belongsTo(project, statement.group))) continue
     const named = sources.find(window => window.text.includes(project))
     if (!named) continue
     // A conflicting explicit statement requires review, not an automatic overwrite of the abstention.
     if (sources.some(window => window.text.includes(project) && new RegExp(`${project.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:已经|已|现已)(?:签订|签署)(?:正式)?合同`).test(window.text))) continue
     const anchors = [...evidence(named, named.text.indexOf(project), project.length), ...statements.flatMap(statement => statement.anchors)]
     const unique = [...new Map(anchors.map(anchor => [anchor.block_id + '\0' + anchor.quote, anchor])).values()]
+    const partial = statements.filter(statement => belongsTo(project, statement.group))
+    if (partial.length) {
+      if (field.status !== 'extracted' || !['true', true].includes(field.value)) continue
+      Object.assign(field, { status: 'needs_review', value: null, raw_value: '部分已签订合同', standardized: false,
+        [sourceKey]: unique, note: '原文仅确认项目组部分已签，未将签约状态对应到本子项；不能将组级结论下推为本子项已签，也不能判为未签。' })
+      repairs.push(`[合同项目归属] ${event.event_id}.contract_signed → needs_review/null`)
+      continue
+    }
+    if (!['not_mentioned', 'not_disclosed'].includes(field.status)) continue
     Object.assign(field, { status: 'extracted', value: 'false', raw_value: '其他尚未签订正式合同', standardized: true,
-      [sourceKey]: unique, note: '本项目原文列名，且不属于“部分已签订合同”的例外项目组；依据同段“其他尚未签订正式合同”判定未签。例外组子项状态不在此规则裁定。' })
+      [sourceKey]: unique, note: '本项目原文列名，且不属于“部分已签订合同”的例外项目组；依据同段“其他尚未签订正式合同”判定未签。' })
     repairs.push(`[合同项目归属] ${event.event_id}.contract_signed → extracted/false`)
   }
 }

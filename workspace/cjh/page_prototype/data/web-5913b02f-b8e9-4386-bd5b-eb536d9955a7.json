@@ -1,0 +1,662 @@
+{
+  "schema_version": "0.3",
+  "run_id": "20261018T043229-award_contract-67b5",
+  "is_mock": false,
+  "source": {
+    "file_id": "sha256:0e4cf73739dbc1aa36f6dc32c04c70fe38908b8c45d4f8c5933a5487516bbf4c",
+    "file_name": "H-AWD-001.pdf",
+    "file_sha256": "0e4cf73739dbc1aa36f6dc32c04c70fe38908b8c45d4f8c5933a5487516bbf4c",
+    "parse_meta": {
+      "parser_version": "finstruct.parse/0.9.1",
+      "page_count": 2,
+      "blocks": [
+        {
+          "block_id": "d0e4cf737_p001_b00001",
+          "page": 1,
+          "role": "HEADER",
+          "text": "公告编号：2025-075",
+          "text_raw": "公告编号：2025-075 ",
+          "region": [
+            425.71,
+            43.99,
+            507.45,
+            53.97
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00002",
+          "page": 1,
+          "role": "HEADER",
+          "text": "",
+          "text_raw": " ",
+          "region": [
+            297.65,
+            57.77,
+            300.12,
+            66.77
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00003",
+          "page": 1,
+          "role": "BODY",
+          "text": "证券代码：874175        证券简称：中环洁        主办券商：招商证券",
+          "text_raw": "证券代码：874175        证券简称：中环洁        主办券商：招商证券  ",
+          "region": [
+            90.02,
+            73.81,
+            501.7,
+            113.19
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00004",
+          "page": 1,
+          "role": "BODY",
+          "text": "中环洁集团股份有限公司",
+          "text_raw": "中环洁集团股份有限公司 ",
+          "region": [
+            220.37,
+            127.4,
+            381.97,
+            141.44
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00005",
+          "page": 1,
+          "role": "BODY",
+          "text": "关于收到阜康市环卫保洁、绿化养护社会化购买服务项目中标通知",
+          "text_raw": "关于收到阜康市环卫保洁、绿化养护社会化购买服务项目中标通知",
+          "region": [
+            93.86,
+            158.6,
+            501.57,
+            172.64
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00006",
+          "page": 1,
+          "role": "BODY",
+          "text": "书的公告本公司及董事会全体成员保证公告内容的真实、准确和完整，没有虚假",
+          "text_raw": "书的公告  本公司及董事会全体成员保证公告内容的真实、准确和完整，没有虚假",
+          "region": [
+            119.66,
+            189.8,
+            491.66,
+            254.07
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00007",
+          "page": 1,
+          "role": "BODY",
+          "text": "记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带法律责任。",
+          "text_raw": "记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带法律责任。  ",
+          "region": [
+            90.02,
+            265.47,
+            491.66,
+            320.82
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00008",
+          "page": 1,
+          "role": "BODY",
+          "text": "中环洁集团股份有限公司（以下简称“公司”）于2025年6月16日收到",
+          "text_raw": "中环洁集团股份有限公司（以下简称“公司”）于2025年6月16日收到",
+          "region": [
+            114.02,
+            328.38,
+            498.1,
+            340.38
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00009",
+          "page": 1,
+          "role": "BODY",
+          "text": "阜康市环卫保洁、绿化养护社会化购买服务项目的《中标通知书》，中标金额为84,680,000.00元，现将主要情况公告如下：一、  项目基本情况",
+          "text_raw": "阜康市环卫保洁、绿化养护社会化购买服务项目的《中标通知书》，中标金额为84,680,000.00元，现将主要情况公告如下： 一、 项目基本情况 ",
+          "region": [
+            90.02,
+            351.78,
+            498.1,
+            411.41
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00010",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（一）项目名称：阜康市环卫保洁、绿化养护社会化购买服务项目",
+          "text_raw": "（一）项目名称：阜康市环卫保洁、绿化养护社会化购买服务项目 ",
+          "region": [
+            114.02,
+            421.98,
+            468.1,
+            433.98
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00011",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（二）项目编号：XYCG2025-02",
+          "text_raw": "（二）项目编号：XYCG2025-02 ",
+          "region": [
+            114.02,
+            445.38,
+            282.05,
+            457.38
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00012",
+          "page": 1,
+          "role": "SECTION",
+          "text": "（三）招标单位：阜康市城市管理局",
+          "text_raw": "（三）招标单位：阜康市城市管理局 ",
+          "region": [
+            114.02,
+            468.8,
+            312.05,
+            480.8
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00013",
+          "page": 1,
+          "role": "BODY",
+          "text": "（四）中标金额：84,680,000.00元（大写：捌仟肆佰陆拾捌万元整）（五）服务期限：3年（此次预算为一年的金额，合同一年一签）",
+          "text_raw": "（四）中标金额：84,680,000.00元（大写：捌仟肆佰陆拾捌万元整） （五）服务期限：3年（此次预算为一年的金额，合同一年一签） ",
+          "region": [
+            114.02,
+            492.2,
+            480.1,
+            527.6
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00014",
+          "page": 1,
+          "role": "SECTION",
+          "text": "二、  项目中标对公司的影响",
+          "text_raw": "二、 项目中标对公司的影响 ",
+          "region": [
+            90.02,
+            539,
+            258.53,
+            551.83
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00015",
+          "page": 1,
+          "role": "BODY",
+          "text": "上述中标项目属于公司的主营业务，将对后续公司市场开拓产生积极影",
+          "text_raw": "上述中标项目属于公司的主营业务，将对后续公司市场开拓产生积极影",
+          "region": [
+            114.02,
+            562.4,
+            486.02,
+            574.4
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00016",
+          "page": 1,
+          "role": "BODY",
+          "text": "响，并对公司未来经营业绩产生积极的促进作用。三、  风险提示",
+          "text_raw": "响，并对公司未来经营业绩产生积极的促进作用。 三、 风险提示 ",
+          "region": [
+            90.02,
+            585.8,
+            360.07,
+            622.03
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00017",
+          "page": 1,
+          "role": "BODY",
+          "text": "截至目前，上述中标项目尚未签订正式合同，合同条款存在不确定性，项",
+          "text_raw": "截至目前，上述中标项目尚未签订正式合同，合同条款存在不确定性，项",
+          "region": [
+            114.02,
+            632.6,
+            498.07,
+            644.6
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00018",
+          "page": 1,
+          "role": "BODY",
+          "text": "目具体内容将以最终签署的正式合同为准。敬请投资者谨慎决策，注意防范投资风险。四、  备查文件",
+          "text_raw": "目具体内容将以最终签署的正式合同为准。敬请投资者谨慎决策，注意防范投资风险。 四、 备查文件 ",
+          "region": [
+            90.02,
+            656.03,
+            498.02,
+            715.66
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00019",
+          "page": 1,
+          "role": "BODY",
+          "text": "《中标通知书》",
+          "text_raw": "《中标通知书》  ",
+          "region": [
+            90.02,
+            726.23,
+            204.05,
+            757.23
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p002_b00001",
+          "page": 2,
+          "role": "HEADER",
+          "text": "公告编号：2025-075中环洁集团股份有限公司",
+          "text_raw": "公告编号：2025-075     中环洁集团股份有限公司 ",
+          "region": [
+            90.02,
+            43.99,
+            511.42,
+            136.59
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p002_b00002",
+          "page": 2,
+          "role": "BODY",
+          "text": "董事会",
+          "text_raw": "董事会 ",
+          "region": [
+            469.42,
+            147.99,
+            511.42,
+            159.99
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        },
+        {
+          "block_id": "d0e4cf737_p002_b00003",
+          "page": 2,
+          "role": "BODY",
+          "text": "2025年6月16日",
+          "text_raw": "2025年6月16日  ",
+          "region": [
+            90.02,
+            171.39,
+            511.42,
+            202.39
+          ],
+          "source_type": "paragraph",
+          "table_ref": null,
+          "header_path": null
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_type": "award_contract",
+      "fields": {
+        "bidder": {
+          "raw_value": "中环洁集团股份有限公司",
+          "value": "中环洁集团股份有限公司",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00008",
+              "page": 1,
+              "region": [
+                114.02,
+                328.38,
+                498.1,
+                340.38
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "中环洁集团股份有限公司（以下简称“公司”）于2025年6月16日收到"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tenderer": {
+          "raw_value": "阜康市城市管理局",
+          "value": "阜康市城市管理局",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00012",
+              "page": 1,
+              "region": [
+                114.02,
+                468.8,
+                312.05,
+                480.8
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "（三）招标单位：阜康市城市管理局"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "project_name": {
+          "raw_value": "阜康市环卫保洁、绿化养护社会化购买服务项目",
+          "value": "阜康市环卫保洁、绿化养护社会化购买服务项目",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00010",
+              "page": 1,
+              "region": [
+                114.02,
+                421.98,
+                468.1,
+                433.98
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "（一）项目名称：阜康市环卫保洁、绿化养护社会化购买服务项目"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "bid_amount": {
+          "raw_value": "84,680,000.00元",
+          "value": 84680000,
+          "unit": "cny",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00013",
+              "page": 1,
+              "region": [
+                114.02,
+                492.2,
+                480.1,
+                527.6
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "（四）中标金额：84,680,000.00元（大写：捌仟肆佰陆拾捌万元整）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "currency": {
+          "raw_value": "元",
+          "value": "CNY",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00013",
+              "page": 1,
+              "region": [
+                114.02,
+                492.2,
+                480.1,
+                527.6
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "（四）中标金额：84,680,000.00元（大写：捌仟肆佰陆拾捌万元整）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "tax_included": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "duration": {
+          "raw_value": "3年（此次预算为一年的金额，合同一年一签）",
+          "value": "3年（此次预算为一年的金额，合同一年一签）",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00013",
+              "page": 1,
+              "region": [
+                114.02,
+                492.2,
+                480.1,
+                527.6
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "（五）服务期限：3年（此次预算为一年的金额，合同一年一签）"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_members": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "consortium_shares": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_applicable",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "bid_date": {
+          "raw_value": "2025年6月16日",
+          "value": "2025-06-16",
+          "unit": "date",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00008",
+              "page": 1,
+              "region": [
+                114.02,
+                328.38,
+                498.1,
+                340.38
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "于2025年6月16日收到"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "contract_signed": {
+          "raw_value": "尚未签订正式合同",
+          "value": "false",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00017",
+              "page": 1,
+              "region": [
+                114.02,
+                632.6,
+                498.07,
+                644.6
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "截至目前，上述中标项目尚未签订正式合同"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "formal_award_notice_received": {
+          "raw_value": "收到……《中标通知书》",
+          "value": "true",
+          "unit": "text",
+          "standardized": true,
+          "status": "extracted",
+          "provenance": [
+            {
+              "block_id": "d0e4cf737_p001_b00009",
+              "page": 1,
+              "region": [
+                90.02,
+                351.78,
+                498.1,
+                411.41
+              ],
+              "table_id": null,
+              "cell_ref": null,
+              "source_type": "paragraph",
+              "quote": "阜康市环卫保洁、绿化养护社会化购买服务项目的《中标通知书》"
+            }
+          ],
+          "denominator": null,
+          "note": null
+        },
+        "price_adjustment_status": {
+          "raw_value": null,
+          "value": null,
+          "unit": "text",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        },
+        "recognized_revenue": {
+          "raw_value": null,
+          "value": null,
+          "unit": "cny",
+          "standardized": false,
+          "status": "not_mentioned",
+          "provenance": [],
+          "denominator": null,
+          "note": null
+        }
+      },
+      "extraction_method": "model",
+      "notes": null
+    }
+  ],
+  "run_meta": {
+    "entry": "cli",
+    "model": "deepseek-chat",
+    "started_at": "2026-10-18T04:32:29.190Z",
+    "duration_ms": 4144,
+    "code_version": "dev",
+    "interface_version": "v0.3",
+    "errors": []
+  }
+}

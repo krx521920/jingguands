@@ -1,0 +1,27 @@
+{
+  "schema": "finstruct.receipt-files/1",
+  "files": {
+    "abstention-review.json": "97f6f7d3868ce4c9aa76e47f8297c6a9d60c393d9503b50df6b57e05254e9024",
+    "gold-corrections-v1.4.json": "6789bc07f650f47d8779b7587fe6410247972a4081f6285c33767831b808afc9",
+    "heldout/gold.json": "594d4303b27cf1730bcf678c9bcfa8c7aa155d14e12cc08b256ab16e0ba55cb3",
+    "heldout/H-AWD-001.parse.json": "4d65f9572c4248dee6b0c03d0df385332827a3c9471fa09dd074ddd1684ffb1c",
+    "heldout/H-AWD-001.pdf": "0e4cf73739dbc1aa36f6dc32c04c70fe38908b8c45d4f8c5933a5487516bbf4c",
+    "heldout/H-EQC-001.parse.json": "cfd213ef9722035da1687a42b54c75d67bd1a04306f1dec55e172359b5c46999",
+    "heldout/H-EQC-001.pdf": "dfdde18ae2398a2080b67b3d2e627b3b0c19ecc175accb014b94e3036c0292fe",
+    "heldout/H-PLD-001.parse.json": "7f6c6eebb8d2ef99caa5c49d250add6697a2a7a91a958685a9c54fdc064b034b",
+    "heldout/H-PLD-001.pdf": "f8311b7c42292edcbaf0172cdbf96906b7856477de86d0769b5b340acb73411c",
+    "heldout/manifest.json": "5b3a865da690fc5f72fd0afefe6436edb428768c748071aa5146390684154d51",
+    "heldout/pre-call-lock.json": "738cc091bf7adf6e5e1cf0646f9649547cf1544acf213e5977e638847e251ae5",
+    "historical-byte-restoration.json": "829daa02434f2aa7d84daaf25026fb6f798bfda69e56f33866637ccbf952671c",
+    "live/browser-timings.json": "b326149aa46286712dbd9e1a03e7c8f7e13ac1dcfb9cdaff591295e049719d19",
+    "live/H-AWD-001.timing.png": "748e4a24ff14bc7a15b1a11ee00839369bd2f7c346e1942ade64566bba86906c",
+    "live/H-AWD-001.web.json": "a9f534b3429a9f0f7b450c1876b9bccce3213ccda7421da25fc7679d2354d3e6",
+    "live/H-EQC-001.cli.call-log.json": "0aa6cbe799d4cc95d2fcb0d1be1f454daa3377a930373e6d43e84ddd11e71a0b",
+    "live/H-EQC-001.cli.events.json": "63fbec3e4acfd8f6194ed01d2394add6abc8bb46a995c2e88d8e3ef8134256ae",
+    "live/H-EQC-001.timing.png": "a3ea2d961ed3100172df21754402ee652fc864f6bd39fa91d835a2b32f0bdbaf",
+    "live/H-EQC-001.web.json": "764fbacdb27dc08d2d578834af9b345f5aa44178120e0c8af1f53205e67a4a21",
+    "live/H-PLD-001.timing.png": "d74372e1f8427867527d9c90640fc53ffee65d9238ba0d5a04f80f341d6a7657",
+    "live/H-PLD-001.web.json": "15c80f3fc12df80867f7261540b5e720ff4caec41fba05ce826a096ac9886d58",
+    "live/results.json": "1a25d4c013da79dd068caa4ba585bfaff688062b7fd44c72f8eea03c38683f81"
+  }
+}

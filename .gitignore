@@ -70,3 +70,7 @@ runs/web-live/
 .git_*.json
 .git_*.md
 .git_*.py
+
+# Original announcement PDFs stay in the local delivery; manifest URLs and hashes are public.
+evaluation/2026-10-18-closure/heldout/*.pdf
+tools/finstruct-parser/**/__pycache__/

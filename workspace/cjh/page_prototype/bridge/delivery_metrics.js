@@ -14,7 +14,8 @@ function readDeliveryMetrics(root = REPO, file = path.join(root, 'evaluation/202
       if (JSON.stringify(actual) !== JSON.stringify(set.files)) throw new Error('输入集合已变化，请重新生成成绩单：' + dir);
     }
     for (const [relative, expected] of Object.entries(sheet.input_hashes)) {
-      const actual = crypto.createHash('sha256').update(fs.readFileSync(path.resolve(root, relative), 'utf8').replace(/\r\n/g, '\n')).digest('hex');
+      const bytes = fs.readFileSync(path.resolve(root, relative));
+      const actual = crypto.createHash('sha256').update(relative.endsWith('.png') ? bytes : bytes.toString('utf8').replace(/\r\n/g, '\n')).digest('hex');
       if (actual !== expected) throw new Error('输入已变化，请重新生成成绩单：' + relative);
     }
     for (const [relative, expected] of Object.entries(sheet.artifact_hashes || {})) {

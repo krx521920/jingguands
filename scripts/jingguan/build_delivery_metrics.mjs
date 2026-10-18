@@ -56,7 +56,7 @@ try {
   for (const file of [receipt + '/verify.mjs', receipt + '/source-snapshots/notice_status.mjs', receipt + '/source-snapshots/run_extract.mjs']) hashes[file] = sha(readFileSync(join(root, file)))
   for (const file of ['evaluation/D9/score-rules.mjs', 'evaluation/2026-10-12-scorecard/build-scorecard.mjs', 'scripts/jingguan/run_d9_rules.mjs', 'scripts/jingguan/build_delivery_metrics.mjs']) hashes[file] = sha(readFileSync(join(root, file)))
   const frozen = 'D11 首测冻结 · 31 份（含 1 份扫描降级件）'
-  const caveat = `相对金标 v1.3 的公开语料冻结回放，不外推陌生公告；多填 ${base.caliber.gold_corrections_applied.extra_filled}、漏抽 ${base.caliber.gold_corrections_applied.missed}，尚有未裁定项。`
+  const caveat = `相对金标 v1.4 的公开语料冻结回放，不外推陌生公告；多填 ${base.caliber.gold_corrections_applied.extra_filled}、漏抽 ${base.caliber.gold_corrections_applied.missed}，组级部分已签不下推子项，条件日期保留不确定状态。`
   const scores = base.scores.map(s => ({ ...s, group: '历史冻结批与专项结果', target: null, status: s.value == null ? 'not_covered' : 'measured' }))
   const get = key => scores.find(s => s.key === key)
   Object.assign(get('field_accuracy'), { name: '字段值一致率（分母为信封填值数）', target: 90, batch: frozen, note: caveat })
@@ -69,7 +69,17 @@ try {
   const cases = read('evaluation/D9/cases/rules-cases.dev.json')
   Object.assign(get('multi_doc_conflict'), { name: 'D9 规则用例通过率', batch: `D9 开发用例 ${cases.cases.length} 条（真实 ${cases.cases.filter(c => !c.synthetic_controlled).length} / 受控 ${cases.cases.filter(c => c.synthetic_controlled).length}）`, evidence: 'evaluation/2026-10-17-delivery-metrics/d9-score.json', code_version: '宗 fe2b2cbc 基础＋输入完整性修复；实现哈希见本成绩单', note: `误报 ${score.false_positive_conflict} / 漏报 ${score.false_negative_conflict}；必需证据侧、非空引文及求和明细/合计均校验，漏跑单列。无信封受控侧告警，不计作严格原文已验证。` })
   Object.assign(get('perf_20page'), { target: null, direction: 'lower' })
-  scores.push({ key: 'perf_end_to_end', name: '20页 PDF 至页面结果全程耗时', num: null, den: null, value: null, unit: 's', target: 90, direction: 'lower', status: 'not_covered', group: '未测与能力边界', batch: '当前版本尚未独立计时', note: '整体目标90秒；历史抽取段不含PDF解析，不能替代当前PDF上传、解析、抽取到页面显示的全程实测。', evidence: 'evaluation/2026-10-15-acceptance/性能-3份真实20页PDF实测-20261015.json' })
+  const timingFile = 'evaluation/2026-10-18-closure/live/browser-timings.json'
+  const timing = read(timingFile)
+  const measured = timing.runs.find(r => r.case === 'H-EQC-001')
+  assert.ok(measured?.pages >= 20 && Number.isFinite(measured.seconds) && measured.seconds > 0)
+  for (const key of ['receipt', 'screenshot']) {
+    const file = 'evaluation/2026-10-18-closure/live/' + measured[key]
+    const bytes = readFileSync(join(root, file))
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), measured[key + '_sha256'], 'Timing source changed: ' + file)
+    hashes[file] = key === 'screenshot' ? createHash('sha256').update(bytes).digest('hex') : sha(bytes)
+  }
+  scores.push({ key: 'perf_end_to_end', name: '28页 PDF 至页面结果全程耗时', num: 1, den: 1, value: measured.seconds, unit: 's', target: 90, direction: 'lower', status: 'measured', group: '2026-10-18 新样例实测', batch: 'H-EQC-001 · 本机单次页面运行', note: '包含上传、PDF解析、模型抽取和结果加载；performance.now计时，页面显示至0.01秒。仅此环境单次结果，不代表耗时分布或所有公告。截图和独立日志哈希已核对。', evidence: timingFile })
   Object.assign(get('abstain_reviewed_correct'), { group: '已复核弃权范围' })
   const liveBatch = '2026-10-17 · 3 份公告 · 3 次页面 + 5 次 CLI 冷跑'
   for (const [key, name, num, den, note] of [
@@ -78,7 +88,7 @@ try {
     ['award_cold_stability', 'D6-AWD-002 冷跑稳定性', live.cold_award_runs, live.cold_award_runs, '同一公告 3 次 CLI，56 字段按业务键一致；包含基准轮，不替换历史 10 份 × 3 轮结果，不外推全库。']
   ]) scores.push({ key, name, num, den, value: pct(num, den), unit: '%', target: null, status: 'measured', group: '本轮真实抽取验收', batch: liveBatch, code_version: 'dd04024ebb61 抽取实现；逐文件哈希见验收 manifest', evidence: receipt + '/manifest.json', note })
   for (const [key, name, note] of [['abstain_correct', '弃权正确率', '完整独立弃权评测仍未完成；已完成的两批原文复核另列，不把 pending 或无 Gold 计作正确。'], ['scan_degrade', '扫描 OCR 抽取能力', '当前只验证诚实降级；OCR 未交付。']]) scores.push({ key, name, num: null, den: null, value: null, unit: '%', target: null, status: 'not_covered', group: '未测与能力边界', batch: '未建立独立评测分母', evidence: 'evaluation/README.md', note })
-  const sheet = { schema: 'finstruct.delivery-metrics/1', generated_on: new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai' }).format(new Date()), generator: 'scripts/jingguan/build_delivery_metrics.mjs', integrated_from: 'zongbowen@fe2b2cbcaf62f4bb1e9ffc312feb4d1fc6674641', base_commit: '2606dc67ce867ffa41521341d4af8f70366dac11', batch: base.batch, scores, input_hashes: hashes, limitations: '历史冻结批、本轮三份样例和 D9 开发用例分别统计。任何百分比只覆盖对应批次与分母；两批弃权复核有条件列示，完整独立评测和陌生样例泛化未因此完成。旧 MP4 仍需重录。' }
+  const sheet = { schema: 'finstruct.delivery-metrics/1', generated_on: new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai' }).format(new Date()), generator: 'scripts/jingguan/build_delivery_metrics.mjs', integrated_from: 'zongbowen@fe2b2cbcaf62f4bb1e9ffc312feb4d1fc6674641', base_commit: '2606dc67ce867ffa41521341d4af8f70366dac11', batch: base.batch, scores, input_hashes: hashes, limitations: '历史冻结批、本轮三份样例和 D9 开发用例分别统计。任何百分比只覆盖对应批次与分母；两批弃权复核有条件列示，完整独立评测和陌生样例泛化未因此完成。完整逐事件复核记录见 evaluation/2026-10-18-closure；视频和本轮陌生样例见最终交付记录。' }
   sheet.hash_normalization = 'UTF-8 text with CRLF normalized to LF'
   sheet.input_sets = Object.fromEntries(['evaluation/D4/dev/gold', 'evaluation/D5/dev/gold', 'evaluation/D6/dev/gold', folder].map(dir => {
     const suffix = dir === folder ? '.json' : '.envelope.json', excluded = dir === folder ? ['DEMO-EQC-HL-0930.json'] : []

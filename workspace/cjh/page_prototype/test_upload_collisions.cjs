@@ -12,12 +12,15 @@ const envelope = id => ({ ...structuredClone(fixture), run_id: id });
 
 async function withServer(run, extraSeeds = []) {
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'finstruct-upload-collisions-'));
-  const page = path.join(temp, 'page_prototype');
+  const page = path.join(temp, 'workspace/cjh/page_prototype');
   let child, exited, stderr = '';
   try {
-    fs.mkdirSync(page);
+    fs.mkdirSync(page, { recursive: true });
+    const metricLib = path.join(temp, 'scripts/jingguan/lib');
+    fs.mkdirSync(metricLib, { recursive: true });
+    fs.cpSync(path.resolve(__dirname, '../../../scripts/jingguan/lib'), metricLib, { recursive: true });
     for (const item of ['server.js', 'bridge']) fs.cpSync(path.join(__dirname, item), path.join(page, item), { recursive: true });
-    fs.cpSync(path.join(__dirname, '../spec'), path.join(temp, 'spec'), { recursive: true });
+    fs.cpSync(path.join(__dirname, '../spec'), path.join(page, '../spec'), { recursive: true });
     for (const dir of ['data', 'data_unified', 'public']) fs.mkdirSync(path.join(page, dir));
     const seeds = [['data_unified/D4-PLD-001.json', 'frozen-original'], ['data/legacy-upload.json', 'legacy-original'], ...extraSeeds];
     const protectedFiles = new Map();

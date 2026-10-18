@@ -1,0 +1,56 @@
+{
+  "schema": "gold-corrections/1",
+  "version": "v1.4",
+  "supersedes": "v1.3",
+  "issued_on": "2026-10-18",
+  "issued_by": "Codex（按用户接管剩余任务的授权进行原文裁定；非独立人工金标）",
+  "basis": "corpus/zhangzhibo/d6/parse-official/D6-AWD-002.parse.json，第二页 b00021—b00022",
+  "discipline": "不改冻结 Gold 文件、不改封存哈希锁、不回填历史首测结果；本文件为可消费的覆盖层（overlay）",
+  "corrections": [
+    {
+      "case_id": "D6-AWD-002",
+      "event_id": "E01",
+      "field": "formal_award_notice_received",
+      "from": "false",
+      "to": "not_mentioned",
+      "reason": "原句只点名「…风机设备及服务采购项目尚未取得最终的中标通知书」，未提风阀项目（跨项目证据套用）",
+      "evidence_block": "dc0a3d5fb_p002_b00022"
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "event_id": "E01",
+      "field": "contract_signed",
+      "from": "not_disclosed",
+      "to": "false",
+      "reason": "原文「其他尚未签订正式合同」——深圳两项目明确未签，可直接判 false；原判 not_disclosed 属漏抽",
+      "evidence_block": "dc0a3d5fb_p002_b00022"
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "event_id": "E02",
+      "field": "contract_signed",
+      "from": "not_disclosed",
+      "to": "false",
+      "reason": "同上",
+      "evidence_block": "dc0a3d5fb_p002_b00022"
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "event_id": "E03",
+      "field": "contract_signed",
+      "from": "true",
+      "to": "needs_review",
+      "reason": "原文只说沈阳项目组部分已签，未明示对应子项；不能从组级部分事实推定该子项已签，也不能判为未签。审查已完成，字段保持不确定。",
+      "evidence_block": "dc0a3d5fb_p002_b00021 / dc0a3d5fb_p002_b00022"
+    },
+    {
+      "case_id": "D6-AWD-002",
+      "event_id": "E04",
+      "field": "contract_signed",
+      "from": "true",
+      "to": "needs_review",
+      "reason": "原文只说沈阳项目组部分已签，未明示对应子项；不能从组级部分事实推定该子项已签，也不能判为未签。审查已完成，字段保持不确定。",
+      "evidence_block": "dc0a3d5fb_p002_b00021 / dc0a3d5fb_p002_b00022"
+    }
+  ]
+}

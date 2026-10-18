@@ -3,8 +3,9 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
+const { createHash } = require('node:crypto');
 const { FIELD_REGISTRY, STATUSES, checkRegistry } = require('./registry.mjs');
-const OVERLAYS = ['evaluation/2026-10-15-caliber/gold-corrections-v1.1.json', 'evaluation/2026-10-17-gold-review/gold-corrections-v1.3.json'];
+const OVERLAYS = ['evaluation/2026-10-15-caliber/gold-corrections-v1.1.json', 'evaluation/2026-10-18-closure/gold-corrections-v1.4.json'];
 const PERFORMANCE = ['runs/batch-20261008T150554/batch_report.json', 'runs/batch-20261008T150658/batch_report.json'];
 const REVIEWS = ['evaluation/2026-10-15-caliber/source-review.csv', 'evaluation/2026-10-17-gold-review/弃权复核-第二批69条-20261017.csv'];
 const NO_VALUE = new Set(['not_mentioned', 'not_applicable', 'not_disclosed', 'needs_review', 'unreadable']);
@@ -44,7 +45,7 @@ function loadGoldEvidence(root) {
   for (const [index, file] of OVERLAYS.entries()) {
     const overlay = readJson(root, file);
     assert.equal(overlay.schema, 'gold-corrections/1', file + ': invalid schema');
-    assert.equal(overlay.version, index === 0 ? 'v1.1' : 'v1.3', file + ': unexpected version');
+    assert.equal(overlay.version, index === 0 ? 'v1.1' : 'v1.4', file + ': unexpected version');
     assert.ok(Array.isArray(overlay.corrections) && overlay.corrections.length, file + ': corrections required');
     for (const c of overlay.corrections) {
       const key = `${c.case_id}/${c.event_id}/${c.field}`;
@@ -64,7 +65,7 @@ function loadGoldEvidence(root) {
     sourceFiles.push(file);
   }
   sourceFiles.push('scripts/jingguan/lib/registry.mjs');
-  return { byCaseId, byFileId, sourceFiles, corrections, bad: [], overlay: { available: true, version: 'v1.1 + v1.3', applied: corrections.length, errors: [], paths: OVERLAYS } };
+  return { byCaseId, byFileId, sourceFiles, corrections, bad: [], overlay: { available: true, version: 'v1.1 + v1.4', applied: corrections.length, errors: [], paths: OVERLAYS } };
 }
 
 /** Parse quoted CSV records, including commas, escaped quotes and embedded newlines. */
@@ -89,12 +90,14 @@ function reviewedAbstentions(root, abstentions, goldIndex = loadGoldEvidence(roo
   let correct = 0, missed = 0, pending = 0;
   const available = new Set(), groups = new Map(), sourceFiles = [...REVIEWS];
   let unreviewable = 0, counted = 0;
+  const frozenSlots = new Map();
   const folder = 'evaluation/D11/firsttest-envelopes';
   for (const file of fs.readdirSync(path.join(root, folder)).filter(f => f.endsWith('.json') && f !== 'DEMO-EQC-HL-0930.json')) {
     const relative = folder + '/' + file, envelope = readJson(root, relative); sourceFiles.push(relative);
     for (const event of envelope.events) for (const [field, value] of Object.entries(event.fields)) {
       if (value.value !== null && value.value !== undefined && value.value !== '') continue;
       counted++;
+      frozenSlots.set([file.replace('.json', ''), event.event_id, field].join('/'), value);
       if (!goldIndex.byFileId.has(envelope.source?.file_id)) { unreviewable++; continue; }
       const key = [file.replace('.json', ''), event.event_id, field].join('/');
       assert.ok(!available.has(key), 'duplicate frozen review slot'); available.add(key);
@@ -124,7 +127,30 @@ function reviewedAbstentions(root, abstentions, goldIndex = loadGoldEvidence(roo
   const reviewed = first.length + second.length;
   for (const [group, count] of groups) assert.equal(consumed.get(group), count, 'review group is incomplete: ' + group);
   assert.equal(reviewed + unreviewable, abstentions, 'reviewed and no-Gold scopes must partition the frozen abstentions');
-  return { correct, missed, pending, reviewed, total: abstentions, unreviewable, decided: correct + missed, withoutEventId, sourceFiles, scopeNote: '第二批缺少事件ID的行按文档/字段剩余槽位数量对账，不能声称逐事件定位完整。' };
+  const closureFile = 'evaluation/2026-10-18-closure/abstention-review.json';
+  const closure = readJson(root, closureFile); sourceFiles.push(closureFile);
+  assert.equal(closure.schema, 'finstruct.abstention-review/1');
+  for (const [file, expected] of Object.entries(closure.input_hashes)) {
+    assert.equal(createHash('sha256').update(fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n/g, '\n')).digest('hex'), expected, 'review source changed: ' + file);
+    sourceFiles.push(file);
+  }
+  let decidedCorrect = 0, decidedMissed = 0, scan = 0;
+  for (const row of closure.rows) {
+    const key = [row.case_id, row.event_id, row.field].join('/'), slot = frozenSlots.get(key);
+    assert.ok(slot, 'unknown or duplicate closure slot: ' + key); frozenSlots.delete(key);
+    assert.equal(row.envelope_status, slot.status); assert.equal(row.envelope_value, slot.value);
+    assert.ok(row.reason && row.prior_review, 'review reason required');
+    if (row.decision === 'scan_degradation') { assert.equal(slot.status, 'unreadable'); scan++; }
+    else {
+      assert.ok(row.source_parse && closure.input_hashes[row.source_parse], 'review source is not fingerprinted');
+      if (row.decision === 'correct_abstention') decidedCorrect++;
+      else { assert.equal(row.decision, 'missed_value'); decidedMissed++; }
+    }
+  }
+  assert.equal(frozenSlots.size, 0, 'closure review is incomplete');
+  assert.equal(scan, unreviewable);
+  assert.deepEqual(closure.counts, { correct_abstention: decidedCorrect, missed_value: decidedMissed, scan_degradation: scan });
+  return { correct: decidedCorrect, missed: decidedMissed, pending: 0, reviewed: closure.rows.length, total: abstentions, unreviewable: scan, decided: decidedCorrect + decidedMissed, withoutEventId: 0, sourceFiles, scopeNote: '逐事件ID补齐并复核11个条件日期；14项扫描降级单列。属于AI辅助原文复核，不是独立人工盲测。' };
 }
 
 /** Return the slowest recorded extraction-stage wall time, preserving the historical scope. */

@@ -1,0 +1,170 @@
+﻿case_id,event_id,field,envelope_status,decision,reason
+D4-PLD-001,E01,pledge_amount,not_mentioned,correct_abstention,"原文出现「对应融资余额为人民币31,500万元」——属**到期/汇总口径的融资余额**，不是本次质押金额"
+D4-PLD-001,E01,end_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D4-PLD-001,E02,pledge_amount,not_mentioned,correct_abstention,同上：融资余额属累计到期口径，非本次质押金额
+D4-PLD-001,E02,end_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D4-PLD-001,E03,pledge_amount,not_mentioned,correct_abstention,同上：融资余额属累计到期口径，非本次质押金额
+D4-PLD-001,E03,end_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D4-PLD-002,E01,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部88个块中检索无命中
+D4-PLD-003,E01,pledge_amount,not_mentioned,correct_abstention,"原文「未来半年内到期的质押股份…对应的融资额28,808.00万元」——是**到期存量口径**的融资额，非本次质押金额；同页「本次股份质押融资」句未给金额"
+D4-PLD-003,E01,end_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D4-PLD-004,E01,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部105个块中检索无命中
+D4-PLD-004,E01,end_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D4-PLD-005,E01,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部79个块中检索无命中
+D4-PLD-005,E02,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部79个块中检索无命中
+D4-PLD-005,E02,purpose,not_mentioned,correct_abstention,命中的是表头『质押用途』，取值单元格错位为『光线控股』，无实际用途内容
+D4-PLD-006,E01,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部95个块中检索无命中
+D4-PLD-007,E01,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部187个块中检索无命中
+D4-PLD-007,E01,end_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D4-PLD-008,E01,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部93个块中检索无命中
+D4-PLD-008,E01,end_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D4-PLD-008,E01,announcement_date,not_mentioned,correct_abstention,命中的 2026-09-15 是『前次公告披露日』，非本公告披露日期
+D4-PLD-009,E01,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部96个块中检索无命中
+D4-PLD-009,E02,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部96个块中检索无命中
+D4-PLD-009,E03,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部96个块中检索无命中
+D4-PLD-009,E03,start_date,not_mentioned,correct_abstention,命中的是表头『质押/展期起始日』，且 E03 为解除质押事件，该行无值
+D4-PLD-009,E03,end_date,not_mentioned,correct_abstention,原文「质押到期日2028年9月21日」经查属 **E01 新质押**（E01.end_date 已正确抽取 2028-09-21）；本事件为解除质押，原文未给其到期日
+D4-PLD-009,E03,purpose,not_mentioned,correct_abstention,命中的是表头『质押融资资金用途』，该行无值
+D4-PLD-010,E01,pledge_amount,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部104个块中检索无命中
+D4-PLD-010,E01,end_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D5-EQC-003,E01,shares_before,not_mentioned,correct_abstention,原文给出的是收购方 于春生/蔚文绪/蔚文举 的持股；本事件持有人是『四个出让方合计』，未给其合计持股
+D5-EQC-003,E01,shares_after,not_mentioned,correct_abstention,命中的是『权益变动后的持续督导』无关句
+D5-EQC-003,E01,ratio_before,not_mentioned,correct_abstention,同上（给的是收购方口径比例）
+D5-EQC-003,E01,ratio_after,not_mentioned,correct_abstention,同上
+D5-EQC-004,E01,change_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D5-EQC-005,E01,change_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D5-EQC-010,E01,change_date,needs_review,correct_abstention,原文仅给解除质押或完成过户的条件日期，未给确定年月日；保留原文并置 needs_review/null 正确。字段不确定性不等于复核尚未完成。
+D6-AWD-001,E01,bid_amount,not_mentioned,correct_abstention,原文『项目名称、标段名称、中标价等未发生变化』——提到中标价存在但未给数值（须回前次公告取）
+D6-AWD-001,E01,currency,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-001,E01,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部27个块中检索无命中
+D6-AWD-001,E01,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部27个块中检索无命中
+D6-AWD-001,E01,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-001,E01,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-001,E01,contract_signed,not_disclosed,correct_abstention,原文「其合同的履行不影响公司经营独立性」为假设句，未说是否已签；亦无『不予披露』明示
+D6-AWD-001,E01,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-001,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部27个块中检索无命中
+D6-AWD-002,E01,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E01,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E01,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-002,E01,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-002,E01,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E01,contract_signed,not_disclosed,missed_value,原文 p002_b00022「其他尚未签订正式合同」⇒ 深圳两项目未签，可直接判 false；信封与金标均弃权
+D6-AWD-002,E01,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-002,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E02,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E02,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E02,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-002,E02,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-002,E02,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E02,contract_signed,not_disclosed,missed_value,同上
+D6-AWD-002,E02,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-002,E02,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E03,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E03,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E03,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-002,E03,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-002,E03,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E03,formal_award_notice_received,not_disclosed,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E03,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-002,E03,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E04,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E04,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E04,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-002,E04,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-002,E04,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E04,formal_award_notice_received,not_disclosed,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-002,E04,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-002,E04,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部47个块中检索无命中
+D6-AWD-003,E01,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-003,E01,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-003,E01,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-003,E01,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-003,E01,formal_award_notice_received,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-003,E01,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-003,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-003,E02,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-003,E02,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-003,E02,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-003,E02,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-003,E02,formal_award_notice_received,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-003,E02,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-003,E02,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-003,E03,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-003,E03,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-003,E03,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-003,E03,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-003,E03,formal_award_notice_received,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-003,E03,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-003,E03,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部82个块中检索无命中
+D6-AWD-004,E01,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-004,E01,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-004,E01,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部78个块中检索无命中
+D6-AWD-004,E01,formal_award_notice_received,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-004,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部78个块中检索无命中
+D6-AWD-005,E01,consortium_shares,not_mentioned,correct_abstention,确为联合体（三家），但未给份额比例
+D6-AWD-005,E01,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部80个块中检索无命中
+D6-AWD-005,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部80个块中检索无命中
+D6-AWD-006,E01,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部13个块中检索无命中
+D6-AWD-006,E01,consortium_shares,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-006,E01,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部13个块中检索无命中
+D6-AWD-006,E01,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-006,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部13个块中检索无命中
+D6-AWD-007,E01,tenderer,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-007,E01,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部10个块中检索无命中
+D6-AWD-007,E01,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部10个块中检索无命中
+D6-AWD-007,E01,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-007,E01,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-007,E01,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部10个块中检索无命中
+D6-AWD-007,E01,formal_award_notice_received,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-007,E01,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-007,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部10个块中检索无命中
+D6-AWD-008,E01,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部24个块中检索无命中
+D6-AWD-008,E01,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-008,E01,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-008,E01,bid_date,not_mentioned,correct_abstention,原文「公司已于2026年9月15日披露《关于子公司收到中标结果的提示性公告》」——该日期是**前次公告的披露日**，不是中标本项目的中标日期
+D6-AWD-008,E01,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-008,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部24个块中检索无命中
+D6-AWD-009,E01,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E01,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E01,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-009,E01,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-009,E01,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E01,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-009,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E02,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E02,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E02,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-009,E02,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-009,E02,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E02,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-009,E02,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E03,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E03,duration,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E03,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-009,E03,consortium_shares,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-009,E03,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-009,E03,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-009,E03,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部40个块中检索无命中
+D6-AWD-010,E01,tenderer,not_disclosed,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-010,E01,bid_amount,not_mentioned,correct_abstention,原文『采购金额以实际收运为准』——明确给不出确定数值
+D6-AWD-010,E01,currency,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-010,E01,tax_included,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部31个块中检索无命中
+D6-AWD-010,E01,consortium_members,not_applicable,correct_abstention,投标人为单一主体（无『联合体』字样），联合体字段不适用
+D6-AWD-010,E01,consortium_shares,not_applicable,correct_abstention,『招标方保留调整公司份额的权利』指业务量份额，非联合体份额
+D6-AWD-010,E01,bid_date,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部31个块中检索无命中
+D6-AWD-010,E01,price_adjustment_status,not_mentioned,correct_abstention,按本字段目标信息形态在全部块中检索无命中
+D6-AWD-010,E01,recognized_revenue,not_mentioned,correct_abstention,按本字段的目标信息形态（非单字关键词）在全部31个块中检索无命中
+pledge-scan-degrade,E01,direction,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledgor,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledgee,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledged_shares_this_time,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledged_shares_cumulative,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledged_ratio_this_time_of_held,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledged_ratio_this_time_of_total,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledged_ratio_cumulative_of_held,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledged_ratio_cumulative_of_total,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,pledge_amount,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,start_date,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,end_date,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,purpose,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。
+pledge-scan-degrade,E01,announcement_date,unreadable,scan_degradation,扫描故障样例未提供可读原文；无法读取标记成立，但无语义金标，不混入文本弃权准确率。

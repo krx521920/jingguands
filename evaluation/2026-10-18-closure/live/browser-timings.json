@@ -1,0 +1,42 @@
+{
+  "schema": "finstruct.browser-timings/1",
+  "measurement": "performance.now from submit handler start through PDF upload/parse, model request, dataset load and activation; rounded to 0.01 s in UI",
+  "environment": "Windows 11, Node 24.17.0, Python 3.13.9 with original finstruct parser; local UI 8763; 2026-10-18",
+  "cache": "local response cache disabled; provider-side prompt caching is not controlled",
+  "scope": "one run per PDF; not a performance distribution or guarantee",
+  "runs": [
+    {
+      "case": "H-PLD-001",
+      "pages": 2,
+      "seconds": 6.17,
+      "run_id": "20261018T042836-pledge-1c2a",
+      "receipt": "H-PLD-001.web.json",
+      "receipt_sha256": "15c80f3fc12df80867f7261540b5e720ff4caec41fba05ce826a096ac9886d58",
+      "screenshot": "H-PLD-001.timing.png",
+      "screenshot_sha256": "d74372e1f8427867527d9c90640fc53ffee65d9238ba0d5a04f80f341d6a7657",
+      "captured_at": "2026-10-18T04:29:25.815Z"
+    },
+    {
+      "case": "H-EQC-001",
+      "pages": 28,
+      "seconds": 5.84,
+      "run_id": "20261018T043053-equity_change-23b8",
+      "receipt": "H-EQC-001.web.json",
+      "receipt_sha256": "764fbacdb27dc08d2d578834af9b345f5aa44178120e0c8af1f53205e67a4a21",
+      "screenshot": "H-EQC-001.timing.png",
+      "screenshot_sha256": "a3ea2d961ed3100172df21754402ee652fc864f6bd39fa91d835a2b32f0bdbaf",
+      "captured_at": "2026-10-18T04:32:13.513Z"
+    },
+    {
+      "case": "H-AWD-001",
+      "pages": 2,
+      "seconds": 6.42,
+      "run_id": "20261018T043229-award_contract-67b5",
+      "receipt": "H-AWD-001.web.json",
+      "receipt_sha256": "a9f534b3429a9f0f7b450c1876b9bccce3213ccda7421da25fc7679d2354d3e6",
+      "screenshot": "H-AWD-001.timing.png",
+      "screenshot_sha256": "748e4a24ff14bc7a15b1a11ee00839369bd2f7c346e1942ade64566bba86906c",
+      "captured_at": "2026-10-18T04:33:54.684Z"
+    }
+  ]
+}

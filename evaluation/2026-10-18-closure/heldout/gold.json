@@ -1,0 +1,199 @@
+{
+  "schema": "finstruct.holdout-gold/1",
+  "created_before_model_calls": "2026-10-18T04:25:27.507373+00:00",
+  "reviewer": "Codex source annotation before outputs; not independent human Gold",
+  "fields": 37,
+  "scope": "3 newly selected public PDFs, 37 explicitly pre-registered field assertions; small-sample diagnostic only",
+  "cases": {
+    "H-PLD-001": {
+      "event_type": "pledge",
+      "match": {
+        "pledgor": "贺宪宁"
+      },
+      "source_pages": [
+        1,
+        2
+      ],
+      "fields": {
+        "direction": {
+          "value": "pledge"
+        },
+        "pledgor": {
+          "value": "贺宪宁"
+        },
+        "pledgee": {
+          "value": "上海矽睿科技股份有限公司"
+        },
+        "pledged_shares_this_time": {
+          "value": "14722421"
+        },
+        "pledged_shares_cumulative": {
+          "value": "14722421"
+        },
+        "pledged_ratio_this_time_of_held": {
+          "value": "25",
+          "denominator": "holder_shares"
+        },
+        "pledged_ratio_this_time_of_total": {
+          "value": "6.43",
+          "denominator": "total_share_capital"
+        },
+        "pledged_ratio_cumulative_of_held": {
+          "value": "25",
+          "denominator": "holder_shares"
+        },
+        "pledged_ratio_cumulative_of_total": {
+          "value": "6.43",
+          "denominator": "total_share_capital"
+        },
+        "pledge_amount": {
+          "value": null,
+          "statuses": [
+            "not_mentioned"
+          ]
+        },
+        "start_date": {
+          "value": "2025-08-07"
+        },
+        "end_date": {
+          "value": null,
+          "statuses": [
+            "not_disclosed",
+            "not_mentioned"
+          ]
+        },
+        "purpose": {
+          "value": "配合协议转让"
+        },
+        "announcement_date": {
+          "value": "2025-08-08"
+        }
+      }
+    },
+    "H-EQC-001": {
+      "event_type": "equity_change",
+      "match": {
+        "holder": "贺宪宁",
+        "direction": "decrease"
+      },
+      "source_pages": [
+        2,
+        7,
+        8,
+        9
+      ],
+      "scope": "主披露义务人第一期拟转让的9字段；受让方、表决权委托和第二期不纳入这9字段准确率，额外事件单列。两个比例必须同为未扣回购的总股本口径。",
+      "fields": {
+        "holder": {
+          "value": "贺宪宁"
+        },
+        "direction": {
+          "value": "decrease"
+        },
+        "shares_before": {
+          "value": "58889686"
+        },
+        "shares_after": {
+          "value": "44167265"
+        },
+        "ratio_before": {
+          "value": "25.72",
+          "denominator": "total_share_capital"
+        },
+        "ratio_after": {
+          "value": "19.29",
+          "denominator": "total_share_capital"
+        },
+        "change_shares": {
+          "value": "14722421"
+        },
+        "method": {
+          "value": "协议转让"
+        },
+        "change_date": {
+          "value": null,
+          "statuses": [
+            "needs_review",
+            "not_disclosed",
+            "not_mentioned"
+          ]
+        }
+      },
+      "date_basis": "协议签署日2025-08-05并非已完成过户日；报告第2页明确审批及过户尚待完成。"
+    },
+    "H-AWD-001": {
+      "event_type": "award_contract",
+      "match": {
+        "project_name": "阜康市环卫保洁、绿化养护社会化购买服务项目"
+      },
+      "source_pages": [
+        1,
+        2
+      ],
+      "fields": {
+        "bidder": {
+          "value": "中环洁集团股份有限公司"
+        },
+        "tenderer": {
+          "value": "阜康市城市管理局"
+        },
+        "project_name": {
+          "value": "阜康市环卫保洁、绿化养护社会化购买服务项目"
+        },
+        "bid_amount": {
+          "value": "84680000"
+        },
+        "currency": {
+          "value": "CNY"
+        },
+        "tax_included": {
+          "value": null,
+          "statuses": [
+            "not_mentioned",
+            "not_disclosed"
+          ]
+        },
+        "duration": {
+          "value": "3年",
+          "contains": true
+        },
+        "consortium_members": {
+          "value": null,
+          "statuses": [
+            "not_applicable",
+            "not_mentioned"
+          ]
+        },
+        "consortium_shares": {
+          "value": null,
+          "statuses": [
+            "not_applicable",
+            "not_mentioned"
+          ]
+        },
+        "bid_date": {
+          "value": "2025-06-16"
+        },
+        "contract_signed": {
+          "value": "false"
+        },
+        "formal_award_notice_received": {
+          "value": "true"
+        },
+        "price_adjustment_status": {
+          "value": null,
+          "statuses": [
+            "not_mentioned",
+            "not_disclosed"
+          ]
+        },
+        "recognized_revenue": {
+          "value": null,
+          "statuses": [
+            "not_mentioned"
+          ]
+        }
+      }
+    }
+  }
+}

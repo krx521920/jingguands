@@ -17,3 +17,10 @@ docs/persistence-changes/historical-formats/*.schema.json linguist-generated=tru
 # 方 D8 matching 包 vendor（字节一致引入自 feature/fang-rules@645ab53c）——
 # 该包 JSON 内含 CRLF，关闭文本规整避免与原分支 blob 分叉。
 tools/fang-matching/** -text
+
+runs/d8-demo-20261004/raw/DEMO-EQC-HL-0930.raw.json -text whitespace=cr-at-eol
+runs/d8-demo-20261004/raw/DEMO-EQC-HL-SIMPLE.raw.json -text whitespace=cr-at-eol
+runs/d8-demo-20261004/raw/DEMO-EQC-HZ-RESULT.raw.json -text whitespace=cr-at-eol
+
+# These captured JSON receipts are hashed as exact bytes before Git staging.
+evaluation/2026-10-18-closure/**/*.json -text whitespace=cr-at-eol

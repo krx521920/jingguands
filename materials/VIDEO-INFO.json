@@ -1,0 +1,19 @@
+{
+  "schema": "finstruct.video-delivery/1",
+  "file": "FinStruct-demo-20261018.mp4",
+  "sha256": "f47d7875ea7fe5e3fc96cfa4259423de9510ac60e7b8e3859b6617cb84f8f281",
+  "bytes": 11446321,
+  "duration_seconds": 278.083333,
+  "video": "H.264 / 1920x1080 / 24fps",
+  "audio": "AAC / 48000Hz / stereo",
+  "narration": "Windows Microsoft Huihui Desktop, synthetic Chinese speech",
+  "captions": "FinStruct-demo.zh.srt; sentence timing measured from source audio clips",
+  "visuals": "Actual local UI captures in segmented order; edited waiting sections; not continuous desktop recording",
+  "validation": {
+    "full_decode_exit": 0,
+    "silent_sections_at_least_2_seconds": 0,
+    "sampled_decoded_frames": 11,
+    "hyperframes_check": "passed: no layout or lint issues; 25/25 contrast checks"
+  },
+  "scope": "Three new public-announcement runs, saved cross-document results, controlled cases separately labelled, JSON roundtrip and scan degradation; limitations included in narration."
+}

@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write START-HERE.md
 /finstruct-demo-startup-guide:
-  en: 2af5dc9ce3344486
-  zh: 7175a6c847c96ebc
+  en: feaec6ea8f42f1cd
+  zh: c2c3f1f06e2db6e3
 /finstruct-demo-startup-guide/troubleshooting-and-acceptance:
   en: f5a6d402b7b89e7c
   zh: 6d8575ed30db57ad

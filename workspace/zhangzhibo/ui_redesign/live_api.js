@@ -52,7 +52,7 @@ module.exports = async function liveApi(req, res) {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Content-Disposition': `attachment; filename="${id}.json"` });
     return res.end(fs.readFileSync(file));
   }
-  if (url.pathname !== '/api/live/extract' || req.method !== 'POST') return send(res, 404, { error: '未知真实抽取接口' });
+  if (!['/api/live/extract', '/api/live/parse'].includes(url.pathname) || req.method !== 'POST') return send(res, 404, { error: '未知真实抽取接口' });
   if ((req.headers.origin && req.headers.origin !== `http://${req.headers.host}`) || req.headers['sec-fetch-site'] === 'cross-site') return send(res, 403, { error: '仅接受本机页面的同源抽取请求' });
   if (!String(req.headers['content-type']).includes('application/json')) return send(res, 415, { error: '请提交 JSON' });
   const id = 'web-' + randomUUID(), started = new Date().toISOString();
@@ -60,6 +60,7 @@ module.exports = async function liveApi(req, res) {
   try {
     const body = await readJSON(req);
     if (!body || typeof body !== 'object' || Array.isArray(body)) throw fail(400, '需要抽取输入对象');
+    if (url.pathname === '/api/live/parse') return send(res, 200, await require('./pdf_input.js')(body));
     let input;
     if (body.sample) {
       const sample = SAMPLES.find(s => s.id === body.sample);

@@ -1,0 +1,29 @@
+{
+  "method": "Restore CRLF bytes against unchanged historical SHA256; JSON semantics unchanged",
+  "files": [
+    {
+      "path": "runs/d8-demo-20261004/raw/DEMO-EQC-HL-0930.raw.json",
+      "expected": "6c54be72d555bb475131536afdd8607ffb102f9263e9b8f889fc595a4ed9a1f7",
+      "actual": "81d5bff8b55b0b5219ab1d6c9ecc658e59debd6dfce471ac7d408387791ae11e",
+      "matching_line_ending": [
+        "crlf"
+      ]
+    },
+    {
+      "path": "runs/d8-demo-20261004/raw/DEMO-EQC-HL-SIMPLE.raw.json",
+      "expected": "8de322b3668743344c6870ad2260951cdaadf4d47335ee00de2b92d8c847a842",
+      "actual": "ad0db6ddd1769c424087e6d561a70fbf7a1eb830fc10b6a218f50d4b8eacfb85",
+      "matching_line_ending": [
+        "crlf"
+      ]
+    },
+    {
+      "path": "runs/d8-demo-20261004/raw/DEMO-EQC-HZ-RESULT.raw.json",
+      "expected": "a18772768eb1becfb45a86b4cb4b7717be9ad37206039cc2cd0aeb295995a278",
+      "actual": "6b77be1ae3a3ea06bb5e87f6fc37465b3f82066f5f2c5dca688abd95edbe881b",
+      "matching_line_ending": [
+        "crlf"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "case": "H-PLD-001",
+    "event_type": "pledge",
+    "url": "https://static.cninfo.com.cn/finalpage/2025-08-08/1224440115.PDF",
+    "sha256": "f8311b7c42292edcbaf0172cdbf96906b7856477de86d0769b5b340acb73411c",
+    "pages": 2,
+    "bytes": 248346
+  },
+  {
+    "case": "H-EQC-001",
+    "event_type": "equity_change",
+    "url": "https://static.cninfo.com.cn/finalpage/2025-08-07/1224426661.PDF",
+    "sha256": "dfdde18ae2398a2080b67b3d2e627b3b0c19ecc175accb014b94e3036c0292fe",
+    "pages": 28,
+    "bytes": 538736
+  },
+  {
+    "case": "H-AWD-001",
+    "event_type": "award_contract",
+    "url": "https://static.cninfo.com.cn/finalpage/2025-06-16/1223888930.PDF",
+    "sha256": "0e4cf73739dbc1aa36f6dc32c04c70fe38908b8c45d4f8c5933a5487516bbf4c",
+    "pages": 2,
+    "bytes": 117023
+  }
+]

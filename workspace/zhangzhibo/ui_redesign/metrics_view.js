@@ -11,7 +11,7 @@
     return (metric.direction === 'lower' ? metric.value <= metric.target : metric.value >= metric.target) ? '达标' : '未达标';
   }
   function ratio(metric) {
-    if (metric.unit === 's') return '历史性能实测';
+    if (metric.unit === 's') return '性能实测';
     return Number.isFinite(metric.num) && Number.isFinite(metric.den) && metric.den > 0 ? `${metric.num}/${metric.den}` : '分母未建立';
   }
   function value(metric) { return metric.value == null ? '—' : esc(metric.value) + esc(metric.unit || ''); }

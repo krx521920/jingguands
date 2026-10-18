@@ -43,6 +43,13 @@ const { once } = require('node:events');
     assert.equal((await health.json()).ready, true);
     const samples = await (await request('/api/live/samples')).json();
     assert.equal(samples.samples.length, 3);
+    const pdfBytes = fs.readFileSync(path.join(repo, 'scripts/jingguan/fixtures/parser-two-page.pdf'));
+    const parsedPdf = await request('/api/live/parse', { pdf_base64: pdfBytes.toString('base64'), file_name: 'award.pdf' });
+    assert.equal(parsedPdf.status, 200, await parsedPdf.clone().text());
+    assert.equal((await parsedPdf.json()).parse.pages.length, 2);
+    assert.equal(calls, 0, 'PDF parsing alone never calls a model');
+    assert.equal((await request('/api/live/parse', { pdf_base64: '?' })).status, 400);
+    assert.equal((await request('/api/live/parse', {}, { Origin: 'https://example.com' })).status, 403);
     for (const sample of samples.samples) {
       const result = await request('/api/live/extract', { sample: sample.id });
       assert.equal(result.status, 200, await result.clone().text());

@@ -458,6 +458,18 @@ $("#wsClear").addEventListener("click", e => {
 
 /* ═══════════ 工作台：真实上传 ═══════════ */
 const fileInput = $("#wsFile");
+async function readAnnouncementFile(file) {
+  if (file.size > 40 * 1024 * 1024) throw new Error('解析文件超过 40 MiB');
+  if (!/\.pdf$/i.test(file.name)) return JSON.parse(await file.text());
+  if (file.size > 20 * 1024 * 1024) throw new Error('PDF 不得超过 20 MiB');
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  let binary = '';
+  for (let i = 0; i < bytes.length; i += 8192) binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
+  const response = await fetch('/api/live/parse', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ file_name: file.name, pdf_base64: btoa(binary) }) });
+  const result = await response.json();
+  if (!response.ok || !result.ok) throw new Error(result.error || 'PDF 解析失败');
+  return result.parse;
+}
 $("#liveSample").addEventListener('change', () => { $("#liveCustom").hidden = $("#liveSample").value !== 'custom'; });
 async function checkLive() {
   try {
@@ -471,24 +483,26 @@ $("#liveForm").addEventListener('submit', async e => {
   e.preventDefault();
   const button = $("#liveRun"), status = $("#liveStatus"), log = $("#liveLog");
   button.disabled = true; log.hidden = true;
+  const startedAt = performance.now();
   status.textContent = '正在独立抽取，通常需要 10–90 秒，请勿重复提交…';
   try {
     let body;
     if ($("#liveSample").value !== 'custom') body = { sample: $("#liveSample").value };
     else {
       const file = $("#liveParse").files[0], text = $("#liveText").value.trim();
-      if (file && text) throw new Error('解析 JSON 与公告全文请只选择一种。');
+      if (file && text) throw new Error('PDF / 解析 JSON 与公告全文请只选择一种。');
       body = { event_type: $("#liveType").value };
-      if (file) { if (file.size > 40 * 1024 * 1024) throw new Error('解析文件超过 40 MiB'); body.parse = JSON.parse(await file.text()); }
+      if (file) { status.textContent = '正在读取并解析公告文件…'; body.parse = await readAnnouncementFile(file); }
       else body.text = text;
     }
+    status.textContent = '输入已就绪，正在调用模型抽取，请勿重复提交…';
     const response = await fetch('/api/live/extract', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     const result = await response.json();
     if (result.log_url) { log.href = result.log_url; log.hidden = false; }
     if (!response.ok || !result.ok) throw new Error(result.error || '抽取失败');
     await refreshDatasets(result.dataset);
     activate('doc');
-    status.textContent = `抽取完成 · ${result.run_id} · 未使用缓存${result.errors.length ? ` · ${result.errors.length} 项需复核，请查看结果及日志` : ''}`;
+    status.textContent = `抽取完成 · ${result.run_id} · 全程 ${((performance.now() - startedAt) / 1000).toFixed(2)} 秒 · 未使用缓存${result.errors.length ? ` · ${result.errors.length} 项需复核，请查看结果及日志` : ''}`;
     toastShow('已加载新结果，可查看证据、导出 JSON / CSV');
   } catch (error) { status.textContent = '抽取失败：' + error.message; }
   finally { button.disabled = false; }

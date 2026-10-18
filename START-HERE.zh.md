@@ -12,7 +12,7 @@
 
 没有密钥也能启动：此时只能查看、导入和导出已有结果，页面明确显示抽取服务未就绪。不要把这种查看过程写成“重新抽取”。显式离线启动使用 `node scripts/jingguan/start_demo.mjs --offline`。
 
-自己的输入可以是公告全文或解析器的 evidence JSON，二者择一；三种事件类型需手动选择。页面不接受原始 PDF 直接抽取。PDF 须先由张的解析器处理，或使用包内解析样例；纯文本输入没有 PDF 坐标。事件信封 JSON 是已有输出，使用单独的导入区。
+自己的输入支持原始 PDF、解析器的 evidence JSON 或公告全文，三者择一，并手动选择事件类型。PDF 需要 Python 3.10+，运行 `python -m pip install -r tools/finstruct-parser/requirements.txt` 安装依赖；可用 `FINSTRUCT_PYTHON` 指定 Python 程序。PDF 限制为 20 MiB、200 页，使用包内原解析器在本机处理。扫描区域标为无法读取，未包含 OCR。纯文本没有 PDF 坐标。事件信封 JSON 属于已有输出，使用单独的导入区。页面全程耗时包含读取、PDF 解析、抽取和结果加载。
 
 ## 故障与验收
 

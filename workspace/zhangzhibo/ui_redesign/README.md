@@ -6,7 +6,7 @@ The interface is based on Zhang Zhibo's delivered `workspace/zhangzhibo/ui_redes
 
 Run `node scripts/jingguan/start_demo.mjs` at the repository root; see the [startup guide](../../../START-HERE.md) for full instructions. For standalone debugging, run `node server.js`; the UI defaults to 8762, `UPSTREAM` to `http://127.0.0.1:8642`, and `EXTRACT_SERVICE_URL` to `http://127.0.0.1:8788`. The server listens only on 127.0.0.1.
 
-The workbench accepts three built-in parsed samples, custom parsed JSON or full text. Real extraction automatically stores and displays new results. Parse raw PDFs first. Existing event envelopes use the separate import area without another model call. The API's is_mock metadata determines whether a dataset is simulated.
+The workbench accepts three built-in parsed samples, custom parsed JSON or full text. Real extraction automatically stores and displays new results. Raw PDFs are parsed locally through `POST /api/live/parse` before extraction; install the Python dependencies described in the startup guide. The limit is 20 MiB, 200 pages, two concurrent parses and 60 seconds per parse. Scanned content is marked unreadable; OCR is not included. Existing event envelopes use the separate import area without another model call. The API's is_mock metadata determines whether a dataset is simulated.
 
 Imports receive unique names across all registered batches, ignoring letter case. A colliding name receives a numeric suffix; the returned dataset selects the imported run in the page and JSON / CSV exports. Existing frozen files remain intact. The real HTTP regression is `node --test workspace/cjh/page_prototype/test_upload_collisions.cjs`.
 

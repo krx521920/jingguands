@@ -713,17 +713,17 @@ table.cases td.mono { font-family: var(--mono); font-size: 11.5px; color: var(--
         <option value="D4-PLD-001">内置样例 · 股份质押</option>
         <option value="D5-EQC-002">内置样例 · 股权变动</option>
         <option value="D6-AWD-002">内置样例 · 多项目中标</option>
-        <option value="custom">自己的公告全文 / 解析 JSON</option>
+        <option value="custom">自己的 PDF / 公告全文 / 解析 JSON</option>
       </select>
       <div id="liveCustom" hidden>
         <label for="liveType">事件类型</label>
         <select class="sel" id="liveType"><option value="pledge">股份质押</option><option value="equity_change">股权变动</option><option value="award_contract">中标合同</option></select>
         <label for="liveText" style="display:block;margin-top:10px">公告全文</label>
-        <textarea id="liveText" rows="5" style="width:100%;box-sizing:border-box;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px" placeholder="粘贴公告全文，或选择下方解析 JSON（两者择一）"></textarea>
-        <label for="liveParse">解析 JSON（evidence 格式）</label>
-        <input type="file" id="liveParse" accept=".json">
+        <textarea id="liveText" rows="5" style="width:100%;box-sizing:border-box;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px" placeholder="粘贴公告全文，或选择下方 PDF / 解析 JSON（两者择一）"></textarea>
+        <label for="liveParse">PDF（最多 20 MiB、200 页）或解析 JSON</label>
+        <input type="file" id="liveParse" accept=".pdf,.json">
       </div>
-      <p class="hint">每次重新调用模型，不读缓存。内置样例及解析 JSON 支持页码与原文证据；纯文本无 PDF 坐标。PDF 请先用解析器处理。</p>
+      <p class="hint">每次重新调用模型，不读缓存。PDF 在本机解析后抽取，需 Python 解析依赖；扫描区域标为无法读取，不声称完成 OCR。纯文本无 PDF 坐标。全程计时从点击开始到结果显示。</p>
       <button type="submit" class="btn" id="liveRun">开始真实抽取</button>
       <p id="liveStatus" class="hint" role="status" aria-live="polite"></p>
       <a id="liveLog" hidden download>下载本次独立日志</a>

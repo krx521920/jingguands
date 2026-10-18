@@ -14,7 +14,7 @@ export interface FinStructExceptions {
 
 const kinds = ['protocol', 'records', 'teamDocuments'] as const
 const ownedRoots = ['corpus/', 'evaluation/', 'interface/', 'runs/', 'scripts/jingguan/',
-  'packages/jingguan/', 'workspace/cjh/', 'workspace/zhangzhibo/', 'tools/fang-', 'tools/zhang-', '.github/tdd/wei-']
+  'packages/jingguan/', 'workspace/cjh/', 'workspace/zhangzhibo/', 'tools/fang-', 'tools/zhang-', 'tools/finstruct-parser/', '.github/tdd/wei-']
 // Dated delivery pages and the existing team's design/implementation notes only.
 const ownedDoc = new RegExp('^docs/(?:' + [
   String.raw`[GKSTV]\d[^/]*|ce37[^/]*|d\d[^/]*|draft-README`,

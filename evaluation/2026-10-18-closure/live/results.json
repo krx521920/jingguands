@@ -1,0 +1,903 @@
+{
+  "schema": "finstruct.holdout-result/1",
+  "scope": "3 newly selected public PDFs, 37 explicitly pre-registered field assertions; small-sample diagnostic only",
+  "gold_sha256": "594d4303b27cf1730bcf678c9bcfa8c7aa155d14e12cc08b256ab16e0ba55cb3",
+  "model_requests": 4,
+  "web_runs": 3,
+  "cli_runs": 1,
+  "field_assertions": {
+    "passed": 37,
+    "total": 37
+  },
+  "strict_anchors": {
+    "passed": 30,
+    "total": 30
+  },
+  "web_cli_fields": {
+    "same": 9,
+    "total": 9
+  },
+  "rows": [
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "direction",
+      "pass": true,
+      "expected": {
+        "value": "pledge"
+      },
+      "actual": {
+        "value": "pledge",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledgor",
+      "pass": true,
+      "expected": {
+        "value": "贺宪宁"
+      },
+      "actual": {
+        "value": "贺宪宁",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledgee",
+      "pass": true,
+      "expected": {
+        "value": "上海矽睿科技股份有限公司"
+      },
+      "actual": {
+        "value": "上海矽睿科技股份有限公司",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_shares_this_time",
+      "pass": true,
+      "expected": {
+        "value": "14722421"
+      },
+      "actual": {
+        "value": 14722421,
+        "status": "extracted",
+        "unit": "shares",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_shares_cumulative",
+      "pass": true,
+      "expected": {
+        "value": "14722421"
+      },
+      "actual": {
+        "value": 14722421,
+        "status": "extracted",
+        "unit": "shares",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "pass": true,
+      "expected": {
+        "value": "25",
+        "denominator": "holder_shares"
+      },
+      "actual": {
+        "value": 25,
+        "status": "extracted",
+        "unit": "percent",
+        "standardized": true,
+        "denominator": "holder_shares"
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "pass": true,
+      "expected": {
+        "value": "6.43",
+        "denominator": "total_share_capital"
+      },
+      "actual": {
+        "value": 6.43,
+        "status": "extracted",
+        "unit": "percent",
+        "standardized": true,
+        "denominator": "total_share_capital"
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "pass": true,
+      "expected": {
+        "value": "25",
+        "denominator": "holder_shares"
+      },
+      "actual": {
+        "value": 25,
+        "status": "extracted",
+        "unit": "percent",
+        "standardized": true,
+        "denominator": "holder_shares"
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "pass": true,
+      "expected": {
+        "value": "6.43",
+        "denominator": "total_share_capital"
+      },
+      "actual": {
+        "value": 6.43,
+        "status": "extracted",
+        "unit": "percent",
+        "standardized": true,
+        "denominator": "total_share_capital"
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledge_amount",
+      "pass": true,
+      "expected": {
+        "value": null,
+        "statuses": [
+          "not_mentioned"
+        ]
+      },
+      "actual": {
+        "value": null,
+        "status": "not_mentioned",
+        "unit": "cny",
+        "standardized": false,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "start_date",
+      "pass": true,
+      "expected": {
+        "value": "2025-08-07"
+      },
+      "actual": {
+        "value": "2025-08-07",
+        "status": "extracted",
+        "unit": "date",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "end_date",
+      "pass": true,
+      "expected": {
+        "value": null,
+        "statuses": [
+          "not_disclosed",
+          "not_mentioned"
+        ]
+      },
+      "actual": {
+        "value": null,
+        "status": "not_mentioned",
+        "unit": "date",
+        "standardized": false,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "purpose",
+      "pass": true,
+      "expected": {
+        "value": "配合协议转让"
+      },
+      "actual": {
+        "value": "配合协议转让",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "announcement_date",
+      "pass": true,
+      "expected": {
+        "value": "2025-08-08"
+      },
+      "actual": {
+        "value": "2025-08-08",
+        "status": "extracted",
+        "unit": "date",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "holder",
+      "pass": true,
+      "expected": {
+        "value": "贺宪宁"
+      },
+      "actual": {
+        "value": "贺宪宁",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "direction",
+      "pass": true,
+      "expected": {
+        "value": "decrease"
+      },
+      "actual": {
+        "value": "decrease",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "shares_before",
+      "pass": true,
+      "expected": {
+        "value": "58889686"
+      },
+      "actual": {
+        "value": 58889686,
+        "status": "extracted",
+        "unit": "shares",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "shares_after",
+      "pass": true,
+      "expected": {
+        "value": "44167265"
+      },
+      "actual": {
+        "value": 44167265,
+        "status": "extracted",
+        "unit": "shares",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "ratio_before",
+      "pass": true,
+      "expected": {
+        "value": "25.72",
+        "denominator": "total_share_capital"
+      },
+      "actual": {
+        "value": 25.72,
+        "status": "extracted",
+        "unit": "percent",
+        "standardized": true,
+        "denominator": "total_share_capital"
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "ratio_after",
+      "pass": true,
+      "expected": {
+        "value": "19.29",
+        "denominator": "total_share_capital"
+      },
+      "actual": {
+        "value": 19.29,
+        "status": "extracted",
+        "unit": "percent",
+        "standardized": true,
+        "denominator": "total_share_capital"
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "change_shares",
+      "pass": true,
+      "expected": {
+        "value": "14722421"
+      },
+      "actual": {
+        "value": 14722421,
+        "status": "extracted",
+        "unit": "shares",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "method",
+      "pass": true,
+      "expected": {
+        "value": "协议转让"
+      },
+      "actual": {
+        "value": "协议转让",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "change_date",
+      "pass": true,
+      "expected": {
+        "value": null,
+        "statuses": [
+          "needs_review",
+          "not_disclosed",
+          "not_mentioned"
+        ]
+      },
+      "actual": {
+        "value": null,
+        "status": "needs_review",
+        "unit": "date_range",
+        "standardized": false,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "bidder",
+      "pass": true,
+      "expected": {
+        "value": "中环洁集团股份有限公司"
+      },
+      "actual": {
+        "value": "中环洁集团股份有限公司",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "tenderer",
+      "pass": true,
+      "expected": {
+        "value": "阜康市城市管理局"
+      },
+      "actual": {
+        "value": "阜康市城市管理局",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "project_name",
+      "pass": true,
+      "expected": {
+        "value": "阜康市环卫保洁、绿化养护社会化购买服务项目"
+      },
+      "actual": {
+        "value": "阜康市环卫保洁、绿化养护社会化购买服务项目",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "bid_amount",
+      "pass": true,
+      "expected": {
+        "value": "84680000"
+      },
+      "actual": {
+        "value": 84680000,
+        "status": "extracted",
+        "unit": "cny",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "currency",
+      "pass": true,
+      "expected": {
+        "value": "CNY"
+      },
+      "actual": {
+        "value": "CNY",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "tax_included",
+      "pass": true,
+      "expected": {
+        "value": null,
+        "statuses": [
+          "not_mentioned",
+          "not_disclosed"
+        ]
+      },
+      "actual": {
+        "value": null,
+        "status": "not_mentioned",
+        "unit": "text",
+        "standardized": false,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "duration",
+      "pass": true,
+      "expected": {
+        "value": "3年",
+        "contains": true
+      },
+      "actual": {
+        "value": "3年（此次预算为一年的金额，合同一年一签）",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "consortium_members",
+      "pass": true,
+      "expected": {
+        "value": null,
+        "statuses": [
+          "not_applicable",
+          "not_mentioned"
+        ]
+      },
+      "actual": {
+        "value": null,
+        "status": "not_applicable",
+        "unit": "text",
+        "standardized": false,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "consortium_shares",
+      "pass": true,
+      "expected": {
+        "value": null,
+        "statuses": [
+          "not_applicable",
+          "not_mentioned"
+        ]
+      },
+      "actual": {
+        "value": null,
+        "status": "not_applicable",
+        "unit": "text",
+        "standardized": false,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "bid_date",
+      "pass": true,
+      "expected": {
+        "value": "2025-06-16"
+      },
+      "actual": {
+        "value": "2025-06-16",
+        "status": "extracted",
+        "unit": "date",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "contract_signed",
+      "pass": true,
+      "expected": {
+        "value": "false"
+      },
+      "actual": {
+        "value": "false",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "formal_award_notice_received",
+      "pass": true,
+      "expected": {
+        "value": "true"
+      },
+      "actual": {
+        "value": "true",
+        "status": "extracted",
+        "unit": "text",
+        "standardized": true,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "price_adjustment_status",
+      "pass": true,
+      "expected": {
+        "value": null,
+        "statuses": [
+          "not_mentioned",
+          "not_disclosed"
+        ]
+      },
+      "actual": {
+        "value": null,
+        "status": "not_mentioned",
+        "unit": "text",
+        "standardized": false,
+        "denominator": null
+      }
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "recognized_revenue",
+      "pass": true,
+      "expected": {
+        "value": null,
+        "statuses": [
+          "not_mentioned"
+        ]
+      },
+      "actual": {
+        "value": null,
+        "status": "not_mentioned",
+        "unit": "cny",
+        "standardized": false,
+        "denominator": null
+      }
+    }
+  ],
+  "anchors": [
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "df8311b7c_p001_b00007",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledgor",
+      "block_id": "df8311b7c_p001_b00020",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledgee",
+      "block_id": "df8311b7c_p001_b00029",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_shares_this_time",
+      "block_id": "df8311b7c_p001_b00022",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_shares_cumulative",
+      "block_id": "df8311b7c_p001_b00035",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_ratio_this_time_of_held",
+      "block_id": "df8311b7c_p001_b00023",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_ratio_this_time_of_total",
+      "block_id": "df8311b7c_p001_b00024",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_ratio_cumulative_of_held",
+      "block_id": "df8311b7c_p001_b00035",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "pledged_ratio_cumulative_of_total",
+      "block_id": "df8311b7c_p001_b00035",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "start_date",
+      "block_id": "df8311b7c_p001_b00027",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "purpose",
+      "block_id": "df8311b7c_p001_b00030",
+      "pass": true
+    },
+    {
+      "case": "H-PLD-001",
+      "event_id": "E01",
+      "field": "announcement_date",
+      "block_id": "df8311b7c_p002_b00038",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "holder",
+      "block_id": "ddfdde18a_p001_b00003",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "direction",
+      "block_id": "ddfdde18a_p001_b00003",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "shares_before",
+      "block_id": "ddfdde18a_p007_b00027",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "shares_after",
+      "block_id": "ddfdde18a_p007_b00031",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "ratio_before",
+      "block_id": "ddfdde18a_p007_b00028",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "ratio_after",
+      "block_id": "ddfdde18a_p007_b00032",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "change_shares",
+      "block_id": "ddfdde18a_p026_b00037",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "method",
+      "block_id": "ddfdde18a_p001_b00003",
+      "pass": true
+    },
+    {
+      "case": "H-EQC-001",
+      "event_id": "E01",
+      "field": "change_date",
+      "block_id": "ddfdde18a_p026_b00042",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "bidder",
+      "block_id": "d0e4cf737_p001_b00008",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "tenderer",
+      "block_id": "d0e4cf737_p001_b00012",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "project_name",
+      "block_id": "d0e4cf737_p001_b00010",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "bid_amount",
+      "block_id": "d0e4cf737_p001_b00013",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "currency",
+      "block_id": "d0e4cf737_p001_b00013",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "duration",
+      "block_id": "d0e4cf737_p001_b00013",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "bid_date",
+      "block_id": "d0e4cf737_p001_b00008",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "contract_signed",
+      "block_id": "d0e4cf737_p001_b00017",
+      "pass": true
+    },
+    {
+      "case": "H-AWD-001",
+      "event_id": "E01",
+      "field": "formal_award_notice_received",
+      "block_id": "d0e4cf737_p001_b00009",
+      "pass": true
+    }
+  ],
+  "web_cli_comparison": [
+    {
+      "field": "holder",
+      "same": true
+    },
+    {
+      "field": "direction",
+      "same": true
+    },
+    {
+      "field": "shares_before",
+      "same": true
+    },
+    {
+      "field": "shares_after",
+      "same": true
+    },
+    {
+      "field": "ratio_before",
+      "same": true
+    },
+    {
+      "field": "ratio_after",
+      "same": true
+    },
+    {
+      "field": "change_shares",
+      "same": true
+    },
+    {
+      "field": "method",
+      "same": true
+    },
+    {
+      "field": "change_date",
+      "same": true
+    }
+  ],
+  "caveat": "Small pre-annotated diagnostic by the same agent; not an independent human benchmark. Text exact-match mismatches are retained."
+}

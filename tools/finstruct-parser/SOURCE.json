@@ -1,0 +1,46 @@
+{
+  "source": "krx521920/jingguands zhangzhibo parser, preserved from local parser audit 2026-10-14",
+  "files": [
+    {
+      "path": "src/finstruct/__init__.py",
+      "sha256": "71f61f0bba82b86b27e8df8e8d5f384f130db4d0cce556518a179e76e5b764d0"
+    },
+    {
+      "path": "src/finstruct/parse/columns.py",
+      "sha256": "a83070a4d73ca306c27de078e0bb48fb2f72c964249abb4758a473a206093093"
+    },
+    {
+      "path": "src/finstruct/parse/doc_form.py",
+      "sha256": "ffc9ead25251b21a597488beaeaa6e3d056b7c5f2d754030ecfee4e973c99419"
+    },
+    {
+      "path": "src/finstruct/parse/evidence.py",
+      "sha256": "9ebddfa5c503cc344a3a6883fd89d41c722d6481a575db85a8ac79028b8ea648"
+    },
+    {
+      "path": "src/finstruct/parse/parse_pdf.py",
+      "sha256": "ea429c86f6c7722a6bd2f337a951a7b890037988c78868a447c903a5a5130f00"
+    },
+    {
+      "path": "src/finstruct/parse/scan.py",
+      "sha256": "8a0cc740d68b69b4215359a3d32dd104dcaa92458045bc6d86b54dce7c0d20ff"
+    },
+    {
+      "path": "src/finstruct/parse/table_detect.py",
+      "sha256": "7b43f251f0bb3c770885413cc6e685e3e6b06246347274aecdd71217df34353e"
+    },
+    {
+      "path": "src/finstruct/parse/table_link.py",
+      "sha256": "e97254174b6ee28f0cc0b95dcda7f355017311cf6191afbe80ae7ed72aab8d9c"
+    },
+    {
+      "path": "src/finstruct/parse/text_layer.py",
+      "sha256": "d6db22b2bef02ed4c596741c61187c123b27deba0d6adcff16ff4962c4f3d11e"
+    },
+    {
+      "path": "src/finstruct/parse/__init__.py",
+      "sha256": "be6faaaaf8084448c32296370443e7ddecd811239bc148993ceefe84671d004d"
+    }
+  ],
+  "changes": "none"
+}

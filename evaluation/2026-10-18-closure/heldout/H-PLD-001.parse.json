@@ -1,0 +1,3315 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "df8311b7c",
+    "file_id": "sha256:f8311b7c42292edcbaf0172cdbf96906b7856477de86d0769b5b340acb73411c",
+    "file_name": "H-PLD-001.pdf",
+    "file_sha256": "f8311b7c42292edcbaf0172cdbf96906b7856477de86d0769b5b340acb73411c",
+    "file_size": 248346,
+    "page_count": 2,
+    "parsed_at": "2026-10-18T12:25:31+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.9.1"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.32,
+      "height": 841.92,
+      "form_evidence": {
+        "text_chars": 581,
+        "text_area_ratio": 0.1821,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "df8311b7c_p001_b00001",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "证券代码：300572          证券简称：安车检测        公告编号：2025-033",
+          "text_raw": "证券代码：300572          证券简称：安车检测        公告编号：2025-033 ",
+          "region": [
+            90.02,
+            85.59,
+            511.42,
+            97.59
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00002",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "深圳市安车检测股份有限公司",
+          "text_raw": "  深圳市安车检测股份有限公司 ",
+          "region": [
+            180.14,
+            118.67,
+            424.27,
+            174.76
+          ],
+          "table_ref": null,
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00003",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "关于公司控股股东、实际控制人部分股份质押的公告",
+          "text_raw": "关于公司控股股东、实际控制人部分股份质押的公告  ",
+          "region": [
+            90.02,
+            195.76,
+            514.42,
+            241.83
+          ],
+          "table_ref": null,
+          "font_size": 18.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00004",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "本公司及董事会全体成员保证信息披露内容的真实、准确和完整，没有虚",
+          "text_raw": "本公司及董事会全体成员保证信息披露内容的真实、准确和完整，没有虚",
+          "region": [
+            118.7,
+            249.87,
+            500.17,
+            261.87
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00005",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "假记载、误导性陈述或重大遗漏。",
+          "text_raw": "假记载、误导性陈述或重大遗漏。 ",
+          "region": [
+            94.7,
+            273.3,
+            280.73,
+            285.3
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00006",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "深圳市安车检测股份有限公司（以下简称“公司”）于近日获悉公司控股股",
+          "text_raw": "深圳市安车检测股份有限公司（以下简称“公司”）于近日获悉公司控股股",
+          "region": [
+            111.02,
+            304.98,
+            505.38,
+            316.98
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00007",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "东、实际控制人贺宪宁先生将其所持有的本公司部分股份办理了质押手续，具体事项如下：",
+          "text_raw": "东、实际控制人贺宪宁先生将其所持有的本公司部分股份办理了质押手续，具体事项如下： ",
+          "region": [
+            90.02,
+            328.38,
+            505.25,
+            363.78
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00008",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "一、股东股份质押的基本情况",
+          "text_raw": "一、股东股份质押的基本情况 ",
+          "region": [
+            111.02,
+            382.98,
+            273.65,
+            394.98
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00009",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东 名称 ",
+          "region": [
+            89.62,
+            408.65,
+            123.98,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00010",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是否为控股股东或第一大股东及其一致行动人",
+          "text_raw": "是否为控股股东或第一大股东及其一致行动人 ",
+          "region": [
+            123.98,
+            408.65,
+            179.06,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c003",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东或第一大股东及其一致行动人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00011",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质押股数（股）",
+          "text_raw": "质押股数 （股） ",
+          "region": [
+            179.06,
+            408.65,
+            231.17,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c005",
+            "cell_ref": "r1c3",
+            "row": 0,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押股数（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00012",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "本次质押占其所持股份比例（%）",
+          "text_raw": "本次质押占其所持股份比例（%） ",
+          "region": [
+            231.17,
+            408.65,
+            265.85,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c007",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00013",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占公司总股本比例（%）",
+          "text_raw": "占公司总股本比例（%） ",
+          "region": [
+            265.85,
+            408.65,
+            307.13,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c009",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00014",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是否为限售股",
+          "text_raw": "是否为限售股 ",
+          "region": [
+            307.13,
+            408.65,
+            333.19,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c011",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00015",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是否为补充质押",
+          "text_raw": "是否为补充质押 ",
+          "region": [
+            333.19,
+            408.65,
+            360.55,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c013",
+            "cell_ref": "r1c7",
+            "row": 0,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为补充质押"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00016",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质押开始日期",
+          "text_raw": "质押开始日期",
+          "region": [
+            360.55,
+            408.65,
+            393.07,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c015",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押开始日期"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00017",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质押到期日",
+          "text_raw": "质押到 期日 ",
+          "region": [
+            393.07,
+            408.65,
+            423.79,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c017",
+            "cell_ref": "r1c9",
+            "row": 0,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00018",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质权人",
+          "text_raw": "质权人 ",
+          "region": [
+            423.79,
+            408.65,
+            463.18,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c019",
+            "cell_ref": "r1c10",
+            "row": 0,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00019",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "质押用途",
+          "text_raw": "质押 用途 ",
+          "region": [
+            463.18,
+            408.65,
+            505.98,
+            512.35
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c021",
+            "cell_ref": "r1c11",
+            "row": 0,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押用途"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00020",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "贺宪宁",
+          "text_raw": "贺宪宁 ",
+          "region": [
+            89.62,
+            512.35,
+            123.98,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c002",
+            "cell_ref": "r2c1",
+            "row": 1,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00021",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "是",
+          "text_raw": "是 ",
+          "region": [
+            123.98,
+            512.35,
+            179.06,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c004",
+            "cell_ref": "r2c2",
+            "row": 1,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为控股股东或第一大股东及其一致行动人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00022",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "14,722,421",
+          "text_raw": "14,722,421 ",
+          "region": [
+            179.06,
+            512.35,
+            231.17,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c006",
+            "cell_ref": "r2c3",
+            "row": 1,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押股数（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00023",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "25.00",
+          "text_raw": "25.00 ",
+          "region": [
+            231.17,
+            512.35,
+            265.85,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c008",
+            "cell_ref": "r2c4",
+            "row": 1,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00024",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "6.43",
+          "text_raw": "6.43 ",
+          "region": [
+            265.85,
+            512.35,
+            307.13,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c010",
+            "cell_ref": "r2c5",
+            "row": 1,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00025",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否 ",
+          "region": [
+            307.13,
+            512.35,
+            333.19,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c012",
+            "cell_ref": "r2c6",
+            "row": 1,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为限售股"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00026",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "否",
+          "text_raw": "否 ",
+          "region": [
+            333.19,
+            512.35,
+            360.55,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c014",
+            "cell_ref": "r2c7",
+            "row": 1,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "是否为补充质押"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00027",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "2025年8月7日",
+          "text_raw": "2025年 8月7日 ",
+          "region": [
+            360.55,
+            512.35,
+            393.07,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c016",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押开始日期"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00028",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "-",
+          "text_raw": "- ",
+          "region": [
+            393.07,
+            512.35,
+            423.79,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c018",
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押到期日"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00029",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "上海矽睿科技股份有限公司",
+          "text_raw": "上海矽睿科技股份有限公司 ",
+          "region": [
+            423.79,
+            512.35,
+            463.18,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c020",
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质权人"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00030",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "配合协议转让",
+          "text_raw": "配合协议转让 ",
+          "region": [
+            463.18,
+            512.35,
+            505.98,
+            580.99
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p001_t001",
+            "cell_id": "df8311b7c_p001_t001_c022",
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "质押用途"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00031",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "注：持股比例以上市公司总股本228,988,812股计算，未扣除回购专用证券账户股数，以下均同。",
+          "text_raw": "注：持股比例以上市公司总股本228,988,812股计算，未扣除回购专用证券账户股数，以下均同。 ",
+          "region": [
+            111.02,
+            596.3,
+            502.6,
+            605.3
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00032",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "",
+          "text_raw": " ",
+          "region": [
+            111.02,
+            627.53,
+            115.52,
+            636.53
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00033",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "二、股东股份累计质押的基本情况",
+          "text_raw": "二、股东股份累计质押的基本情况 ",
+          "region": [
+            111.02,
+            657.23,
+            297.77,
+            669.23
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00034",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "截至本公告披露之日，贺宪宁先生合计持有本公司股份 58,889,686 股，占",
+          "text_raw": "截至本公告披露之日，贺宪宁先生合计持有本公司股份58,889,686股，占",
+          "region": [
+            111.02,
+            688.43,
+            505.42,
+            700.43
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p001_b00035",
+          "doc_id": "df8311b7c",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "公司总股本的比例为25.72%，合计质押的公司股份总数为14,722,421股，占其合计持有公司股份总数的25.00%，占公司总股本的比例为6.43%。详见下表：",
+          "text_raw": "公司总股本的比例为25.72%，合计质押的公司股份总数为14,722,421股，占其合计持有公司股份总数的25.00%，占公司总股本的比例为6.43%。详见下表： ",
+          "region": [
+            90.02,
+            711.83,
+            505.42,
+            747.23
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "df8311b7c_p001_t001",
+          "page": 1,
+          "region": [
+            89.62,
+            408.65,
+            505.98,
+            580.99
+          ],
+          "n_rows": 2,
+          "n_cols": 11,
+          "continued_from": null
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "form": "TEXT",
+      "width": 595.32,
+      "height": 841.92,
+      "form_evidence": {
+        "text_chars": 488,
+        "text_area_ratio": 0.1376,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "df8311b7c_p002_b00001",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "股东名称",
+          "text_raw": "股东名称 ",
+          "region": [
+            95.18,
+            72.24,
+            136.1,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c001",
+            "cell_ref": "r1c1",
+            "row": 0,
+            "col": 0,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 0,
+                "cell_ref": "r2c1"
+              }
+            ],
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00002",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持股数量（股）",
+          "text_raw": "持股数量 （股） ",
+          "region": [
+            136.1,
+            72.24,
+            182.18,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c003",
+            "cell_ref": "r1c2",
+            "row": 0,
+            "col": 1,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 1,
+                "cell_ref": "r2c2"
+              }
+            ],
+            "header_path": "持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00003",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "持  股 比例（%）",
+          "text_raw": " 持  股 比例（%）",
+          "region": [
+            182.18,
+            72.24,
+            208.85,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c005",
+            "cell_ref": "r1c3",
+            "row": 0,
+            "col": 2,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 2,
+                "cell_ref": "r2c3"
+              }
+            ],
+            "header_path": "持  股 比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00004",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "本次质押前质押股份数量（股）",
+          "text_raw": "本次质押前质押股份 数量 （股）",
+          "region": [
+            208.85,
+            72.24,
+            238.85,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c007",
+            "cell_ref": "r1c4",
+            "row": 0,
+            "col": 3,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 3,
+                "cell_ref": "r2c4"
+              }
+            ],
+            "header_path": "本次质押前质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00005",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "本次质押后质押股份数量（股）",
+          "text_raw": "本次质押后质押股份数量  （股）  ",
+          "region": [
+            238.85,
+            72.24,
+            291.41,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c009",
+            "cell_ref": "r1c5",
+            "row": 0,
+            "col": 4,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 4,
+                "cell_ref": "r2c5"
+              }
+            ],
+            "header_path": "本次质押后质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00006",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占其所持股份比例（%）",
+          "text_raw": "占其所持 股份比例（%） ",
+          "region": [
+            291.41,
+            72.24,
+            334.63,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c011",
+            "cell_ref": "r1c6",
+            "row": 0,
+            "col": 5,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 5,
+                "cell_ref": "r2c6"
+              }
+            ],
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00007",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占公司总股本比例（%）",
+          "text_raw": "占公司总股本比例（%） ",
+          "region": [
+            334.63,
+            72.24,
+            370.27,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c013",
+            "cell_ref": "r1c7",
+            "row": 0,
+            "col": 6,
+            "rowspan": 2,
+            "colspan": 1,
+            "covers": [
+              {
+                "row": 1,
+                "col": 6,
+                "cell_ref": "r2c7"
+              }
+            ],
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00008",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "已质押股份情况",
+          "text_raw": "已质押股份情况",
+          "region": [
+            370.27,
+            72.24,
+            433.63,
+            105.86
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c015",
+            "cell_ref": "r1c8",
+            "row": 0,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 8,
+                "cell_ref": "r1c9"
+              }
+            ],
+            "header_path": "已质押股份情况/已质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00009",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "未质押股份情况",
+          "text_raw": " 未质押股份情况 ",
+          "region": [
+            433.63,
+            72.24,
+            505.42,
+            105.86
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c020",
+            "cell_ref": "r1c10",
+            "row": 0,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 2,
+            "covers": [
+              {
+                "row": 0,
+                "col": 10,
+                "cell_ref": "r1c11"
+              }
+            ],
+            "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00010",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "已质押股份限售和冻结数量（股）",
+          "text_raw": "已质押股份限售和冻结数量（股） ",
+          "region": [
+            370.27,
+            105.86,
+            409.39,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c016",
+            "cell_ref": "r2c8",
+            "row": 1,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00011",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占已质押股份比例（%）",
+          "text_raw": "占已质押股份比例（%）",
+          "region": [
+            409.39,
+            105.86,
+            433.63,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c018",
+            "cell_ref": "r2c9",
+            "row": 1,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/占已质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00012",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "未质押股份限售和冻结数量（股）",
+          "text_raw": "未质押股份限售和冻结数量（股） ",
+          "region": [
+            433.63,
+            105.86,
+            481.18,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c021",
+            "cell_ref": "r2c10",
+            "row": 1,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00013",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "占未质押股份比例（%）",
+          "text_raw": "占未质押股份 比例（%）",
+          "region": [
+            481.18,
+            105.86,
+            505.42,
+            209.66
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c023",
+            "cell_ref": "r2c11",
+            "row": 1,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/占未质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00014",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "",
+          "text_raw": " ",
+          "region": [
+            504.1,
+            185.25,
+            508.6,
+            194.25
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00015",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "贺宪宁",
+          "text_raw": "贺宪宁 ",
+          "region": [
+            95.18,
+            209.66,
+            136.1,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c002",
+            "cell_ref": "r3c1",
+            "row": 2,
+            "col": 0,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "股东名称"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00016",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "58,889,686",
+          "text_raw": "58,889,686",
+          "region": [
+            136.1,
+            209.66,
+            182.18,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c004",
+            "cell_ref": "r3c2",
+            "row": 2,
+            "col": 1,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持股数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00017",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "25.72",
+          "text_raw": " 25.72",
+          "region": [
+            182.18,
+            209.66,
+            208.85,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c006",
+            "cell_ref": "r3c3",
+            "row": 2,
+            "col": 2,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "持  股 比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00018",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": " 0 ",
+          "region": [
+            208.85,
+            209.66,
+            238.85,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c008",
+            "cell_ref": "r3c4",
+            "row": 2,
+            "col": 3,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押前质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00019",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "14,722,421",
+          "text_raw": "14,722,421 ",
+          "region": [
+            238.85,
+            209.66,
+            291.41,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c010",
+            "cell_ref": "r3c5",
+            "row": 2,
+            "col": 4,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "本次质押后质押股份数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00020",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "25.00",
+          "text_raw": "25.00 ",
+          "region": [
+            291.41,
+            209.66,
+            334.63,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c012",
+            "cell_ref": "r3c6",
+            "row": 2,
+            "col": 5,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占其所持股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00021",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "6.43",
+          "text_raw": "6.43 ",
+          "region": [
+            334.63,
+            209.66,
+            370.27,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c014",
+            "cell_ref": "r3c7",
+            "row": 2,
+            "col": 6,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "占公司总股本比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00022",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0 ",
+          "region": [
+            370.27,
+            209.66,
+            409.39,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c017",
+            "cell_ref": "r3c8",
+            "row": 2,
+            "col": 7,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/已质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00023",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0 ",
+          "region": [
+            409.39,
+            209.66,
+            433.63,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c019",
+            "cell_ref": "r3c9",
+            "row": 2,
+            "col": 8,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "已质押股份情况/占已质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00024",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0 ",
+          "region": [
+            433.63,
+            209.66,
+            481.18,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c022",
+            "cell_ref": "r3c10",
+            "row": 2,
+            "col": 9,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/未质押股份限售和冻结数量（股）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00025",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "cell",
+          "role": "BODY",
+          "text": "0",
+          "text_raw": "0 ",
+          "region": [
+            481.18,
+            209.66,
+            505.42,
+            248.78
+          ],
+          "table_ref": {
+            "table_id": "df8311b7c_p002_t001",
+            "cell_id": "df8311b7c_p002_t001_c024",
+            "cell_ref": "r3c11",
+            "row": 2,
+            "col": 10,
+            "rowspan": 1,
+            "colspan": 1,
+            "covers": null,
+            "header_path": "未质押股份情况/占未质押股份比例（%）"
+          },
+          "font_size": null,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00026",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "",
+          "text_raw": " ",
+          "region": [
+            90.02,
+            263.38,
+            95.3,
+            273.94
+          ],
+          "table_ref": null,
+          "font_size": 10.56,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00027",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "三、其他说明",
+          "text_raw": "三、其他说明 ",
+          "region": [
+            111.02,
+            293.82,
+            189.38,
+            305.82
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00028",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、贺宪宁先生本次质押股份系因《股份转让协议》约定的需履行的必要程",
+          "text_raw": "1、贺宪宁先生本次质押股份系因《股份转让协议》约定的需履行的必要程",
+          "region": [
+            114.02,
+            325.02,
+            504.99,
+            337.02
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00029",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "序，其所质押的股份不存在平仓风险，质押风险在可控范围内，不会对公司生产经营、公司治理等产生不利影响。",
+          "text_raw": "序，其所质押的股份不存在平仓风险，质押风险在可控范围内，不会对公司生产经营、公司治理等产生不利影响。 ",
+          "region": [
+            90.02,
+            348.42,
+            505.34,
+            383.82
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00030",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2、公司将持续关注贺宪宁先生股份质押情况及质押风险情况，并严格遵守",
+          "text_raw": "2、公司将持续关注贺宪宁先生股份质押情况及质押风险情况，并严格遵守",
+          "region": [
+            114.02,
+            403.02,
+            504.99,
+            415.02
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00031",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "相关法律法规的规定，及时履行信息披露义务，敬请投资者注意投资风险。",
+          "text_raw": "相关法律法规的规定，及时履行信息披露义务，敬请投资者注意投资风险。  ",
+          "region": [
+            90.02,
+            426.42,
+            498.1,
+            438.42
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00032",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "",
+          "text_raw": " ",
+          "region": [
+            114.02,
+            457.64,
+            120.02,
+            469.64
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00033",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "四、备查文件",
+          "text_raw": "四、备查文件 ",
+          "region": [
+            111.02,
+            488.84,
+            189.38,
+            500.84
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00034",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "1、《证券质押及司法冻结明细表》。",
+          "text_raw": "1、《证券质押及司法冻结明细表》。 ",
+          "region": [
+            111.02,
+            520.04,
+            315.05,
+            532.04
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00035",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "特此公告",
+          "text_raw": "特此公告 ",
+          "region": [
+            111.02,
+            551.24,
+            165.02,
+            563.24
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00036",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "",
+          "text_raw": " ",
+          "region": [
+            111.02,
+            582.44,
+            117.02,
+            594.44
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00037",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "深圳市安车检测股份有限公司",
+          "text_raw": "深圳市安车检测股份有限公司 ",
+          "region": [
+            349.39,
+            613.67,
+            511.42,
+            625.67
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "df8311b7c_p002_b00038",
+          "doc_id": "df8311b7c",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "董事会2025年8月8日",
+          "text_raw": "董事会                                                            2025年8月8日 ",
+          "region": [
+            90.02,
+            644.87,
+            511.42,
+            685.06
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "df8311b7c_p002_t001",
+          "page": 2,
+          "region": [
+            95.18,
+            72.24,
+            505.42,
+            248.78
+          ],
+          "n_rows": 3,
+          "n_cols": 11,
+          "continued_from": null
+        }
+      ]
+    }
+  ],
+  "reading_order": [
+    "df8311b7c_p001_b00001",
+    "df8311b7c_p001_b00002",
+    "df8311b7c_p001_b00003",
+    "df8311b7c_p001_b00004",
+    "df8311b7c_p001_b00005",
+    "df8311b7c_p001_b00006",
+    "df8311b7c_p001_b00007",
+    "df8311b7c_p001_b00008",
+    "df8311b7c_p001_b00009",
+    "df8311b7c_p001_b00010",
+    "df8311b7c_p001_b00011",
+    "df8311b7c_p001_b00012",
+    "df8311b7c_p001_b00013",
+    "df8311b7c_p001_b00014",
+    "df8311b7c_p001_b00015",
+    "df8311b7c_p001_b00016",
+    "df8311b7c_p001_b00017",
+    "df8311b7c_p001_b00018",
+    "df8311b7c_p001_b00019",
+    "df8311b7c_p001_b00020",
+    "df8311b7c_p001_b00021",
+    "df8311b7c_p001_b00022",
+    "df8311b7c_p001_b00023",
+    "df8311b7c_p001_b00024",
+    "df8311b7c_p001_b00025",
+    "df8311b7c_p001_b00026",
+    "df8311b7c_p001_b00027",
+    "df8311b7c_p001_b00028",
+    "df8311b7c_p001_b00029",
+    "df8311b7c_p001_b00030",
+    "df8311b7c_p001_b00031",
+    "df8311b7c_p001_b00032",
+    "df8311b7c_p001_b00033",
+    "df8311b7c_p001_b00034",
+    "df8311b7c_p001_b00035",
+    "df8311b7c_p002_b00001",
+    "df8311b7c_p002_b00002",
+    "df8311b7c_p002_b00003",
+    "df8311b7c_p002_b00004",
+    "df8311b7c_p002_b00005",
+    "df8311b7c_p002_b00006",
+    "df8311b7c_p002_b00007",
+    "df8311b7c_p002_b00008",
+    "df8311b7c_p002_b00009",
+    "df8311b7c_p002_b00010",
+    "df8311b7c_p002_b00011",
+    "df8311b7c_p002_b00012",
+    "df8311b7c_p002_b00013",
+    "df8311b7c_p002_b00014",
+    "df8311b7c_p002_b00015",
+    "df8311b7c_p002_b00016",
+    "df8311b7c_p002_b00017",
+    "df8311b7c_p002_b00018",
+    "df8311b7c_p002_b00019",
+    "df8311b7c_p002_b00020",
+    "df8311b7c_p002_b00021",
+    "df8311b7c_p002_b00022",
+    "df8311b7c_p002_b00023",
+    "df8311b7c_p002_b00024",
+    "df8311b7c_p002_b00025",
+    "df8311b7c_p002_b00026",
+    "df8311b7c_p002_b00027",
+    "df8311b7c_p002_b00028",
+    "df8311b7c_p002_b00029",
+    "df8311b7c_p002_b00030",
+    "df8311b7c_p002_b00031",
+    "df8311b7c_p002_b00032",
+    "df8311b7c_p002_b00033",
+    "df8311b7c_p002_b00034",
+    "df8311b7c_p002_b00035",
+    "df8311b7c_p002_b00036",
+    "df8311b7c_p002_b00037",
+    "df8311b7c_p002_b00038"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:f8311b7c42292edcbaf0172cdbf96906b7856477de86d0769b5b340acb73411c",
+      "file_name": "H-PLD-001.pdf",
+      "file_sha256": "f8311b7c42292edcbaf0172cdbf96906b7856477de86d0769b5b340acb73411c",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.9.1",
+        "page_count": 2,
+        "blocks": [
+          {
+            "block_id": "df8311b7c_p001_b00001",
+            "page": 1,
+            "role": "BODY",
+            "text": "证券代码：300572          证券简称：安车检测        公告编号：2025-033",
+            "text_raw": "证券代码：300572          证券简称：安车检测        公告编号：2025-033 ",
+            "region": [
+              90.02,
+              85.59,
+              511.42,
+              97.59
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00002",
+            "page": 1,
+            "role": "BODY",
+            "text": "深圳市安车检测股份有限公司",
+            "text_raw": "  深圳市安车检测股份有限公司 ",
+            "region": [
+              180.14,
+              118.67,
+              424.27,
+              174.76
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "关于公司控股股东、实际控制人部分股份质押的公告",
+            "text_raw": "关于公司控股股东、实际控制人部分股份质押的公告  ",
+            "region": [
+              90.02,
+              195.76,
+              514.42,
+              241.83
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "本公司及董事会全体成员保证信息披露内容的真实、准确和完整，没有虚",
+            "text_raw": "本公司及董事会全体成员保证信息披露内容的真实、准确和完整，没有虚",
+            "region": [
+              118.7,
+              249.87,
+              500.17,
+              261.87
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00005",
+            "page": 1,
+            "role": "BODY",
+            "text": "假记载、误导性陈述或重大遗漏。",
+            "text_raw": "假记载、误导性陈述或重大遗漏。 ",
+            "region": [
+              94.7,
+              273.3,
+              280.73,
+              285.3
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00006",
+            "page": 1,
+            "role": "BODY",
+            "text": "深圳市安车检测股份有限公司（以下简称“公司”）于近日获悉公司控股股",
+            "text_raw": "深圳市安车检测股份有限公司（以下简称“公司”）于近日获悉公司控股股",
+            "region": [
+              111.02,
+              304.98,
+              505.38,
+              316.98
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00007",
+            "page": 1,
+            "role": "BODY",
+            "text": "东、实际控制人贺宪宁先生将其所持有的本公司部分股份办理了质押手续，具体事项如下：",
+            "text_raw": "东、实际控制人贺宪宁先生将其所持有的本公司部分股份办理了质押手续，具体事项如下： ",
+            "region": [
+              90.02,
+              328.38,
+              505.25,
+              363.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00008",
+            "page": 1,
+            "role": "SECTION",
+            "text": "一、股东股份质押的基本情况",
+            "text_raw": "一、股东股份质押的基本情况 ",
+            "region": [
+              111.02,
+              382.98,
+              273.65,
+              394.98
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00009",
+            "page": 1,
+            "role": "BODY",
+            "text": "股东名称",
+            "text_raw": "股东 名称 ",
+            "region": [
+              89.62,
+              408.65,
+              123.98,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00010",
+            "page": 1,
+            "role": "BODY",
+            "text": "是否为控股股东或第一大股东及其一致行动人",
+            "text_raw": "是否为控股股东或第一大股东及其一致行动人 ",
+            "region": [
+              123.98,
+              408.65,
+              179.06,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00011",
+            "page": 1,
+            "role": "BODY",
+            "text": "质押股数（股）",
+            "text_raw": "质押股数 （股） ",
+            "region": [
+              179.06,
+              408.65,
+              231.17,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00012",
+            "page": 1,
+            "role": "BODY",
+            "text": "本次质押占其所持股份比例（%）",
+            "text_raw": "本次质押占其所持股份比例（%） ",
+            "region": [
+              231.17,
+              408.65,
+              265.85,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00013",
+            "page": 1,
+            "role": "BODY",
+            "text": "占公司总股本比例（%）",
+            "text_raw": "占公司总股本比例（%） ",
+            "region": [
+              265.85,
+              408.65,
+              307.13,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00014",
+            "page": 1,
+            "role": "BODY",
+            "text": "是否为限售股",
+            "text_raw": "是否为限售股 ",
+            "region": [
+              307.13,
+              408.65,
+              333.19,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00015",
+            "page": 1,
+            "role": "BODY",
+            "text": "是否为补充质押",
+            "text_raw": "是否为补充质押 ",
+            "region": [
+              333.19,
+              408.65,
+              360.55,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00016",
+            "page": 1,
+            "role": "BODY",
+            "text": "质押开始日期",
+            "text_raw": "质押开始日期",
+            "region": [
+              360.55,
+              408.65,
+              393.07,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00017",
+            "page": 1,
+            "role": "BODY",
+            "text": "质押到期日",
+            "text_raw": "质押到 期日 ",
+            "region": [
+              393.07,
+              408.65,
+              423.79,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00018",
+            "page": 1,
+            "role": "BODY",
+            "text": "质权人",
+            "text_raw": "质权人 ",
+            "region": [
+              423.79,
+              408.65,
+              463.18,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00019",
+            "page": 1,
+            "role": "BODY",
+            "text": "质押用途",
+            "text_raw": "质押 用途 ",
+            "region": [
+              463.18,
+              408.65,
+              505.98,
+              512.35
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00020",
+            "page": 1,
+            "role": "BODY",
+            "text": "贺宪宁",
+            "text_raw": "贺宪宁 ",
+            "region": [
+              89.62,
+              512.35,
+              123.98,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00021",
+            "page": 1,
+            "role": "BODY",
+            "text": "是",
+            "text_raw": "是 ",
+            "region": [
+              123.98,
+              512.35,
+              179.06,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00022",
+            "page": 1,
+            "role": "BODY",
+            "text": "14,722,421",
+            "text_raw": "14,722,421 ",
+            "region": [
+              179.06,
+              512.35,
+              231.17,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00023",
+            "page": 1,
+            "role": "BODY",
+            "text": "25.00",
+            "text_raw": "25.00 ",
+            "region": [
+              231.17,
+              512.35,
+              265.85,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00024",
+            "page": 1,
+            "role": "BODY",
+            "text": "6.43",
+            "text_raw": "6.43 ",
+            "region": [
+              265.85,
+              512.35,
+              307.13,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00025",
+            "page": 1,
+            "role": "BODY",
+            "text": "否",
+            "text_raw": "否 ",
+            "region": [
+              307.13,
+              512.35,
+              333.19,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00026",
+            "page": 1,
+            "role": "BODY",
+            "text": "否",
+            "text_raw": "否 ",
+            "region": [
+              333.19,
+              512.35,
+              360.55,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00027",
+            "page": 1,
+            "role": "BODY",
+            "text": "2025年8月7日",
+            "text_raw": "2025年 8月7日 ",
+            "region": [
+              360.55,
+              512.35,
+              393.07,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00028",
+            "page": 1,
+            "role": "BODY",
+            "text": "-",
+            "text_raw": "- ",
+            "region": [
+              393.07,
+              512.35,
+              423.79,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00029",
+            "page": 1,
+            "role": "BODY",
+            "text": "上海矽睿科技股份有限公司",
+            "text_raw": "上海矽睿科技股份有限公司 ",
+            "region": [
+              423.79,
+              512.35,
+              463.18,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00030",
+            "page": 1,
+            "role": "BODY",
+            "text": "配合协议转让",
+            "text_raw": "配合协议转让 ",
+            "region": [
+              463.18,
+              512.35,
+              505.98,
+              580.99
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00031",
+            "page": 1,
+            "role": "BODY",
+            "text": "注：持股比例以上市公司总股本228,988,812股计算，未扣除回购专用证券账户股数，以下均同。",
+            "text_raw": "注：持股比例以上市公司总股本228,988,812股计算，未扣除回购专用证券账户股数，以下均同。 ",
+            "region": [
+              111.02,
+              596.3,
+              502.6,
+              605.3
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00032",
+            "page": 1,
+            "role": "BODY",
+            "text": "",
+            "text_raw": " ",
+            "region": [
+              111.02,
+              627.53,
+              115.52,
+              636.53
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00033",
+            "page": 1,
+            "role": "SECTION",
+            "text": "二、股东股份累计质押的基本情况",
+            "text_raw": "二、股东股份累计质押的基本情况 ",
+            "region": [
+              111.02,
+              657.23,
+              297.77,
+              669.23
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00034",
+            "page": 1,
+            "role": "BODY",
+            "text": "截至本公告披露之日，贺宪宁先生合计持有本公司股份 58,889,686 股，占",
+            "text_raw": "截至本公告披露之日，贺宪宁先生合计持有本公司股份58,889,686股，占",
+            "region": [
+              111.02,
+              688.43,
+              505.42,
+              700.43
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p001_b00035",
+            "page": 1,
+            "role": "BODY",
+            "text": "公司总股本的比例为25.72%，合计质押的公司股份总数为14,722,421股，占其合计持有公司股份总数的25.00%，占公司总股本的比例为6.43%。详见下表：",
+            "text_raw": "公司总股本的比例为25.72%，合计质押的公司股份总数为14,722,421股，占其合计持有公司股份总数的25.00%，占公司总股本的比例为6.43%。详见下表： ",
+            "region": [
+              90.02,
+              711.83,
+              505.42,
+              747.23
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00001",
+            "page": 2,
+            "role": "BODY",
+            "text": "股东名称",
+            "text_raw": "股东名称 ",
+            "region": [
+              95.18,
+              72.24,
+              136.1,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00002",
+            "page": 2,
+            "role": "BODY",
+            "text": "持股数量（股）",
+            "text_raw": "持股数量 （股） ",
+            "region": [
+              136.1,
+              72.24,
+              182.18,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00003",
+            "page": 2,
+            "role": "BODY",
+            "text": "持  股 比例（%）",
+            "text_raw": " 持  股 比例（%）",
+            "region": [
+              182.18,
+              72.24,
+              208.85,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00004",
+            "page": 2,
+            "role": "BODY",
+            "text": "本次质押前质押股份数量（股）",
+            "text_raw": "本次质押前质押股份 数量 （股）",
+            "region": [
+              208.85,
+              72.24,
+              238.85,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00005",
+            "page": 2,
+            "role": "BODY",
+            "text": "本次质押后质押股份数量（股）",
+            "text_raw": "本次质押后质押股份数量  （股）  ",
+            "region": [
+              238.85,
+              72.24,
+              291.41,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00006",
+            "page": 2,
+            "role": "BODY",
+            "text": "占其所持股份比例（%）",
+            "text_raw": "占其所持 股份比例（%） ",
+            "region": [
+              291.41,
+              72.24,
+              334.63,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00007",
+            "page": 2,
+            "role": "BODY",
+            "text": "占公司总股本比例（%）",
+            "text_raw": "占公司总股本比例（%） ",
+            "region": [
+              334.63,
+              72.24,
+              370.27,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00008",
+            "page": 2,
+            "role": "BODY",
+            "text": "已质押股份情况",
+            "text_raw": "已质押股份情况",
+            "region": [
+              370.27,
+              72.24,
+              433.63,
+              105.86
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00009",
+            "page": 2,
+            "role": "BODY",
+            "text": "未质押股份情况",
+            "text_raw": " 未质押股份情况 ",
+            "region": [
+              433.63,
+              72.24,
+              505.42,
+              105.86
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00010",
+            "page": 2,
+            "role": "BODY",
+            "text": "已质押股份限售和冻结数量（股）",
+            "text_raw": "已质押股份限售和冻结数量（股） ",
+            "region": [
+              370.27,
+              105.86,
+              409.39,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00011",
+            "page": 2,
+            "role": "BODY",
+            "text": "占已质押股份比例（%）",
+            "text_raw": "占已质押股份比例（%）",
+            "region": [
+              409.39,
+              105.86,
+              433.63,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00012",
+            "page": 2,
+            "role": "BODY",
+            "text": "未质押股份限售和冻结数量（股）",
+            "text_raw": "未质押股份限售和冻结数量（股） ",
+            "region": [
+              433.63,
+              105.86,
+              481.18,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00013",
+            "page": 2,
+            "role": "BODY",
+            "text": "占未质押股份比例（%）",
+            "text_raw": "占未质押股份 比例（%）",
+            "region": [
+              481.18,
+              105.86,
+              505.42,
+              209.66
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00014",
+            "page": 2,
+            "role": "BODY",
+            "text": "",
+            "text_raw": " ",
+            "region": [
+              504.1,
+              185.25,
+              508.6,
+              194.25
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00015",
+            "page": 2,
+            "role": "BODY",
+            "text": "贺宪宁",
+            "text_raw": "贺宪宁 ",
+            "region": [
+              95.18,
+              209.66,
+              136.1,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00016",
+            "page": 2,
+            "role": "BODY",
+            "text": "58,889,686",
+            "text_raw": "58,889,686",
+            "region": [
+              136.1,
+              209.66,
+              182.18,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00017",
+            "page": 2,
+            "role": "BODY",
+            "text": "25.72",
+            "text_raw": " 25.72",
+            "region": [
+              182.18,
+              209.66,
+              208.85,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00018",
+            "page": 2,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": " 0 ",
+            "region": [
+              208.85,
+              209.66,
+              238.85,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00019",
+            "page": 2,
+            "role": "BODY",
+            "text": "14,722,421",
+            "text_raw": "14,722,421 ",
+            "region": [
+              238.85,
+              209.66,
+              291.41,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00020",
+            "page": 2,
+            "role": "BODY",
+            "text": "25.00",
+            "text_raw": "25.00 ",
+            "region": [
+              291.41,
+              209.66,
+              334.63,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00021",
+            "page": 2,
+            "role": "BODY",
+            "text": "6.43",
+            "text_raw": "6.43 ",
+            "region": [
+              334.63,
+              209.66,
+              370.27,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00022",
+            "page": 2,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0 ",
+            "region": [
+              370.27,
+              209.66,
+              409.39,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00023",
+            "page": 2,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0 ",
+            "region": [
+              409.39,
+              209.66,
+              433.63,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00024",
+            "page": 2,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0 ",
+            "region": [
+              433.63,
+              209.66,
+              481.18,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00025",
+            "page": 2,
+            "role": "BODY",
+            "text": "0",
+            "text_raw": "0 ",
+            "region": [
+              481.18,
+              209.66,
+              505.42,
+              248.78
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00026",
+            "page": 2,
+            "role": "BODY",
+            "text": "",
+            "text_raw": " ",
+            "region": [
+              90.02,
+              263.38,
+              95.3,
+              273.94
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00027",
+            "page": 2,
+            "role": "SECTION",
+            "text": "三、其他说明",
+            "text_raw": "三、其他说明 ",
+            "region": [
+              111.02,
+              293.82,
+              189.38,
+              305.82
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00028",
+            "page": 2,
+            "role": "BODY",
+            "text": "1、贺宪宁先生本次质押股份系因《股份转让协议》约定的需履行的必要程",
+            "text_raw": "1、贺宪宁先生本次质押股份系因《股份转让协议》约定的需履行的必要程",
+            "region": [
+              114.02,
+              325.02,
+              504.99,
+              337.02
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00029",
+            "page": 2,
+            "role": "BODY",
+            "text": "序，其所质押的股份不存在平仓风险，质押风险在可控范围内，不会对公司生产经营、公司治理等产生不利影响。",
+            "text_raw": "序，其所质押的股份不存在平仓风险，质押风险在可控范围内，不会对公司生产经营、公司治理等产生不利影响。 ",
+            "region": [
+              90.02,
+              348.42,
+              505.34,
+              383.82
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00030",
+            "page": 2,
+            "role": "BODY",
+            "text": "2、公司将持续关注贺宪宁先生股份质押情况及质押风险情况，并严格遵守",
+            "text_raw": "2、公司将持续关注贺宪宁先生股份质押情况及质押风险情况，并严格遵守",
+            "region": [
+              114.02,
+              403.02,
+              504.99,
+              415.02
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00031",
+            "page": 2,
+            "role": "BODY",
+            "text": "相关法律法规的规定，及时履行信息披露义务，敬请投资者注意投资风险。",
+            "text_raw": "相关法律法规的规定，及时履行信息披露义务，敬请投资者注意投资风险。  ",
+            "region": [
+              90.02,
+              426.42,
+              498.1,
+              438.42
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00032",
+            "page": 2,
+            "role": "BODY",
+            "text": "",
+            "text_raw": " ",
+            "region": [
+              114.02,
+              457.64,
+              120.02,
+              469.64
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00033",
+            "page": 2,
+            "role": "SECTION",
+            "text": "四、备查文件",
+            "text_raw": "四、备查文件 ",
+            "region": [
+              111.02,
+              488.84,
+              189.38,
+              500.84
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00034",
+            "page": 2,
+            "role": "BODY",
+            "text": "1、《证券质押及司法冻结明细表》。",
+            "text_raw": "1、《证券质押及司法冻结明细表》。 ",
+            "region": [
+              111.02,
+              520.04,
+              315.05,
+              532.04
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00035",
+            "page": 2,
+            "role": "BODY",
+            "text": "特此公告",
+            "text_raw": "特此公告 ",
+            "region": [
+              111.02,
+              551.24,
+              165.02,
+              563.24
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00036",
+            "page": 2,
+            "role": "BODY",
+            "text": "",
+            "text_raw": " ",
+            "region": [
+              111.02,
+              582.44,
+              117.02,
+              594.44
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00037",
+            "page": 2,
+            "role": "BODY",
+            "text": "深圳市安车检测股份有限公司",
+            "text_raw": "深圳市安车检测股份有限公司 ",
+            "region": [
+              349.39,
+              613.67,
+              511.42,
+              625.67
+            ]
+          },
+          {
+            "block_id": "df8311b7c_p002_b00038",
+            "page": 2,
+            "role": "BODY",
+            "text": "董事会2025年8月8日",
+            "text_raw": "董事会                                                            2025年8月8日 ",
+            "region": [
+              90.02,
+              644.87,
+              511.42,
+              685.06
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [],
+    "warnings": []
+  }
+}

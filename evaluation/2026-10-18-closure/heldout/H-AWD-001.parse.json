@@ -1,0 +1,939 @@
+{
+  "schema_version": "evidence/0.9",
+  "doc": {
+    "doc_id": "d0e4cf737",
+    "file_id": "sha256:0e4cf73739dbc1aa36f6dc32c04c70fe38908b8c45d4f8c5933a5487516bbf4c",
+    "file_name": "H-AWD-001.pdf",
+    "file_sha256": "0e4cf73739dbc1aa36f6dc32c04c70fe38908b8c45d4f8c5933a5487516bbf4c",
+    "file_size": 117023,
+    "page_count": 2,
+    "parsed_at": "2026-10-18T12:25:28+08:00",
+    "parser": {
+      "name": "finstruct.parse",
+      "version": "0.9.1"
+    },
+    "coord_system": {
+      "unit": "pdf_point",
+      "unit_zh": "PDF 点（1 pt = 1/72 英寸）",
+      "origin": "top_left",
+      "origin_zh": "页面左上角，y 轴向下为正",
+      "field": "region",
+      "order": [
+        "left",
+        "top",
+        "right",
+        "bottom"
+      ],
+      "normalize_hint": "屏幕坐标 = region / [page.width, page.height] × 显示尺寸"
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "form": "TEXT",
+      "width": 595.32,
+      "height": 841.92,
+      "form_evidence": {
+        "text_chars": 590,
+        "text_area_ratio": 0.2148,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R1_text_layer",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d0e4cf737_p001_b00001",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "公告编号：2025-075",
+          "text_raw": "公告编号：2025-075 ",
+          "region": [
+            425.71,
+            43.99,
+            507.45,
+            53.97
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00002",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "",
+          "text_raw": " ",
+          "region": [
+            297.65,
+            57.77,
+            300.12,
+            66.77
+          ],
+          "table_ref": null,
+          "font_size": 9.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00003",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "证券代码：874175        证券简称：中环洁        主办券商：招商证券",
+          "text_raw": "证券代码：874175        证券简称：中环洁        主办券商：招商证券  ",
+          "region": [
+            90.02,
+            73.81,
+            501.7,
+            113.19
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00004",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "中环洁集团股份有限公司",
+          "text_raw": "中环洁集团股份有限公司 ",
+          "region": [
+            220.37,
+            127.4,
+            381.97,
+            141.44
+          ],
+          "table_ref": null,
+          "font_size": 14.04,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00005",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "关于收到阜康市环卫保洁、绿化养护社会化购买服务项目中标通知",
+          "text_raw": "关于收到阜康市环卫保洁、绿化养护社会化购买服务项目中标通知",
+          "region": [
+            93.86,
+            158.6,
+            501.57,
+            172.64
+          ],
+          "table_ref": null,
+          "font_size": 14.04,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00006",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "书的公告本公司及董事会全体成员保证公告内容的真实、准确和完整，没有虚假",
+          "text_raw": "书的公告  本公司及董事会全体成员保证公告内容的真实、准确和完整，没有虚假",
+          "region": [
+            119.66,
+            189.8,
+            491.66,
+            254.07
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00007",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带法律责任。",
+          "text_raw": "记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带法律责任。  ",
+          "region": [
+            90.02,
+            265.47,
+            491.66,
+            320.82
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00008",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "中环洁集团股份有限公司（以下简称“公司”）于2025年6月16日收到",
+          "text_raw": "中环洁集团股份有限公司（以下简称“公司”）于2025年6月16日收到",
+          "region": [
+            114.02,
+            328.38,
+            498.1,
+            340.38
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00009",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "阜康市环卫保洁、绿化养护社会化购买服务项目的《中标通知书》，中标金额为84,680,000.00元，现将主要情况公告如下：一、  项目基本情况",
+          "text_raw": "阜康市环卫保洁、绿化养护社会化购买服务项目的《中标通知书》，中标金额为84,680,000.00元，现将主要情况公告如下： 一、 项目基本情况 ",
+          "region": [
+            90.02,
+            351.78,
+            498.1,
+            411.41
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00010",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（一）项目名称：阜康市环卫保洁、绿化养护社会化购买服务项目",
+          "text_raw": "（一）项目名称：阜康市环卫保洁、绿化养护社会化购买服务项目 ",
+          "region": [
+            114.02,
+            421.98,
+            468.1,
+            433.98
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00011",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（二）项目编号：XYCG2025-02",
+          "text_raw": "（二）项目编号：XYCG2025-02 ",
+          "region": [
+            114.02,
+            445.38,
+            282.05,
+            457.38
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00012",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "（三）招标单位：阜康市城市管理局",
+          "text_raw": "（三）招标单位：阜康市城市管理局 ",
+          "region": [
+            114.02,
+            468.8,
+            312.05,
+            480.8
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00013",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "（四）中标金额：84,680,000.00元（大写：捌仟肆佰陆拾捌万元整）（五）服务期限：3年（此次预算为一年的金额，合同一年一签）",
+          "text_raw": "（四）中标金额：84,680,000.00元（大写：捌仟肆佰陆拾捌万元整） （五）服务期限：3年（此次预算为一年的金额，合同一年一签） ",
+          "region": [
+            114.02,
+            492.2,
+            480.1,
+            527.6
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00014",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "SECTION",
+          "text": "二、  项目中标对公司的影响",
+          "text_raw": "二、 项目中标对公司的影响 ",
+          "region": [
+            90.02,
+            539.0,
+            258.53,
+            551.83
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00015",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "上述中标项目属于公司的主营业务，将对后续公司市场开拓产生积极影",
+          "text_raw": "上述中标项目属于公司的主营业务，将对后续公司市场开拓产生积极影",
+          "region": [
+            114.02,
+            562.4,
+            486.02,
+            574.4
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00016",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "响，并对公司未来经营业绩产生积极的促进作用。三、  风险提示",
+          "text_raw": "响，并对公司未来经营业绩产生积极的促进作用。 三、 风险提示 ",
+          "region": [
+            90.02,
+            585.8,
+            360.07,
+            622.03
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00017",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "截至目前，上述中标项目尚未签订正式合同，合同条款存在不确定性，项",
+          "text_raw": "截至目前，上述中标项目尚未签订正式合同，合同条款存在不确定性，项",
+          "region": [
+            114.02,
+            632.6,
+            498.07,
+            644.6
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00018",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "目具体内容将以最终签署的正式合同为准。敬请投资者谨慎决策，注意防范投资风险。四、  备查文件",
+          "text_raw": "目具体内容将以最终签署的正式合同为准。敬请投资者谨慎决策，注意防范投资风险。 四、 备查文件 ",
+          "region": [
+            90.02,
+            656.03,
+            498.02,
+            715.66
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p001_b00019",
+          "doc_id": "d0e4cf737",
+          "page": 1,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "《中标通知书》",
+          "text_raw": "《中标通知书》  ",
+          "region": [
+            90.02,
+            726.23,
+            204.05,
+            757.23
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    },
+    {
+      "page": 2,
+      "form": "MIXED",
+      "width": 595.32,
+      "height": 841.92,
+      "form_evidence": {
+        "text_chars": 46,
+        "text_area_ratio": 0.0126,
+        "image_area_ratio": 0.0,
+        "ink_ratio": null,
+        "rule": "R4_fallback_mixed",
+        "thresholds": {
+          "text_chars_min": 80,
+          "text_area_ratio_min": 0.02,
+          "scanned_chars_max": 20,
+          "image_area_ratio_min": 0.5,
+          "watermark_image_area_ratio_min": 0.3,
+          "ink_ratio_min": 0.01
+        }
+      },
+      "columns": [],
+      "blocks": [
+        {
+          "block_id": "d0e4cf737_p002_b00001",
+          "doc_id": "d0e4cf737",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "HEADER",
+          "text": "公告编号：2025-075中环洁集团股份有限公司",
+          "text_raw": "公告编号：2025-075     中环洁集团股份有限公司 ",
+          "region": [
+            90.02,
+            43.99,
+            511.42,
+            136.59
+          ],
+          "table_ref": null,
+          "font_size": 9.78,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p002_b00002",
+          "doc_id": "d0e4cf737",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "董事会",
+          "text_raw": "董事会 ",
+          "region": [
+            469.42,
+            147.99,
+            511.42,
+            159.99
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        },
+        {
+          "block_id": "d0e4cf737_p002_b00003",
+          "doc_id": "d0e4cf737",
+          "page": 2,
+          "type": "TEXT",
+          "source_type": "paragraph",
+          "role": "BODY",
+          "text": "2025年6月16日",
+          "text_raw": "2025年6月16日  ",
+          "region": [
+            90.02,
+            171.39,
+            511.42,
+            202.39
+          ],
+          "table_ref": null,
+          "font_size": 12.0,
+          "source": "TEXT_LAYER",
+          "ocr_confidence": null,
+          "degraded": false,
+          "missing_reason": null
+        }
+      ],
+      "tables": []
+    }
+  ],
+  "reading_order": [
+    "d0e4cf737_p001_b00001",
+    "d0e4cf737_p001_b00002",
+    "d0e4cf737_p001_b00003",
+    "d0e4cf737_p001_b00004",
+    "d0e4cf737_p001_b00005",
+    "d0e4cf737_p001_b00006",
+    "d0e4cf737_p001_b00007",
+    "d0e4cf737_p001_b00008",
+    "d0e4cf737_p001_b00009",
+    "d0e4cf737_p001_b00010",
+    "d0e4cf737_p001_b00011",
+    "d0e4cf737_p001_b00012",
+    "d0e4cf737_p001_b00013",
+    "d0e4cf737_p001_b00014",
+    "d0e4cf737_p001_b00015",
+    "d0e4cf737_p001_b00016",
+    "d0e4cf737_p001_b00017",
+    "d0e4cf737_p001_b00018",
+    "d0e4cf737_p001_b00019",
+    "d0e4cf737_p002_b00001",
+    "d0e4cf737_p002_b00002",
+    "d0e4cf737_p002_b00003"
+  ],
+  "handoff": {
+    "target_contract": "interface/event-envelope.schema.json v0.1",
+    "source": {
+      "file_id": "sha256:0e4cf73739dbc1aa36f6dc32c04c70fe38908b8c45d4f8c5933a5487516bbf4c",
+      "file_name": "H-AWD-001.pdf",
+      "file_sha256": "0e4cf73739dbc1aa36f6dc32c04c70fe38908b8c45d4f8c5933a5487516bbf4c",
+      "parse_meta": {
+        "parser_version": "finstruct.parse/0.9.1",
+        "page_count": 2,
+        "blocks": [
+          {
+            "block_id": "d0e4cf737_p001_b00001",
+            "page": 1,
+            "role": "HEADER",
+            "text": "公告编号：2025-075",
+            "text_raw": "公告编号：2025-075 ",
+            "region": [
+              425.71,
+              43.99,
+              507.45,
+              53.97
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00002",
+            "page": 1,
+            "role": "HEADER",
+            "text": "",
+            "text_raw": " ",
+            "region": [
+              297.65,
+              57.77,
+              300.12,
+              66.77
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00003",
+            "page": 1,
+            "role": "BODY",
+            "text": "证券代码：874175        证券简称：中环洁        主办券商：招商证券",
+            "text_raw": "证券代码：874175        证券简称：中环洁        主办券商：招商证券  ",
+            "region": [
+              90.02,
+              73.81,
+              501.7,
+              113.19
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00004",
+            "page": 1,
+            "role": "BODY",
+            "text": "中环洁集团股份有限公司",
+            "text_raw": "中环洁集团股份有限公司 ",
+            "region": [
+              220.37,
+              127.4,
+              381.97,
+              141.44
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00005",
+            "page": 1,
+            "role": "BODY",
+            "text": "关于收到阜康市环卫保洁、绿化养护社会化购买服务项目中标通知",
+            "text_raw": "关于收到阜康市环卫保洁、绿化养护社会化购买服务项目中标通知",
+            "region": [
+              93.86,
+              158.6,
+              501.57,
+              172.64
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00006",
+            "page": 1,
+            "role": "BODY",
+            "text": "书的公告本公司及董事会全体成员保证公告内容的真实、准确和完整，没有虚假",
+            "text_raw": "书的公告  本公司及董事会全体成员保证公告内容的真实、准确和完整，没有虚假",
+            "region": [
+              119.66,
+              189.8,
+              491.66,
+              254.07
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00007",
+            "page": 1,
+            "role": "BODY",
+            "text": "记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带法律责任。",
+            "text_raw": "记载、误导性陈述或者重大遗漏，并对其内容的真实性、准确性和完整性承担个别及连带法律责任。  ",
+            "region": [
+              90.02,
+              265.47,
+              491.66,
+              320.82
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00008",
+            "page": 1,
+            "role": "BODY",
+            "text": "中环洁集团股份有限公司（以下简称“公司”）于2025年6月16日收到",
+            "text_raw": "中环洁集团股份有限公司（以下简称“公司”）于2025年6月16日收到",
+            "region": [
+              114.02,
+              328.38,
+              498.1,
+              340.38
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00009",
+            "page": 1,
+            "role": "BODY",
+            "text": "阜康市环卫保洁、绿化养护社会化购买服务项目的《中标通知书》，中标金额为84,680,000.00元，现将主要情况公告如下：一、  项目基本情况",
+            "text_raw": "阜康市环卫保洁、绿化养护社会化购买服务项目的《中标通知书》，中标金额为84,680,000.00元，现将主要情况公告如下： 一、 项目基本情况 ",
+            "region": [
+              90.02,
+              351.78,
+              498.1,
+              411.41
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00010",
+            "page": 1,
+            "role": "SECTION",
+            "text": "（一）项目名称：阜康市环卫保洁、绿化养护社会化购买服务项目",
+            "text_raw": "（一）项目名称：阜康市环卫保洁、绿化养护社会化购买服务项目 ",
+            "region": [
+              114.02,
+              421.98,
+              468.1,
+              433.98
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00011",
+            "page": 1,
+            "role": "SECTION",
+            "text": "（二）项目编号：XYCG2025-02",
+            "text_raw": "（二）项目编号：XYCG2025-02 ",
+            "region": [
+              114.02,
+              445.38,
+              282.05,
+              457.38
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00012",
+            "page": 1,
+            "role": "SECTION",
+            "text": "（三）招标单位：阜康市城市管理局",
+            "text_raw": "（三）招标单位：阜康市城市管理局 ",
+            "region": [
+              114.02,
+              468.8,
+              312.05,
+              480.8
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00013",
+            "page": 1,
+            "role": "BODY",
+            "text": "（四）中标金额：84,680,000.00元（大写：捌仟肆佰陆拾捌万元整）（五）服务期限：3年（此次预算为一年的金额，合同一年一签）",
+            "text_raw": "（四）中标金额：84,680,000.00元（大写：捌仟肆佰陆拾捌万元整） （五）服务期限：3年（此次预算为一年的金额，合同一年一签） ",
+            "region": [
+              114.02,
+              492.2,
+              480.1,
+              527.6
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00014",
+            "page": 1,
+            "role": "SECTION",
+            "text": "二、  项目中标对公司的影响",
+            "text_raw": "二、 项目中标对公司的影响 ",
+            "region": [
+              90.02,
+              539.0,
+              258.53,
+              551.83
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00015",
+            "page": 1,
+            "role": "BODY",
+            "text": "上述中标项目属于公司的主营业务，将对后续公司市场开拓产生积极影",
+            "text_raw": "上述中标项目属于公司的主营业务，将对后续公司市场开拓产生积极影",
+            "region": [
+              114.02,
+              562.4,
+              486.02,
+              574.4
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00016",
+            "page": 1,
+            "role": "BODY",
+            "text": "响，并对公司未来经营业绩产生积极的促进作用。三、  风险提示",
+            "text_raw": "响，并对公司未来经营业绩产生积极的促进作用。 三、 风险提示 ",
+            "region": [
+              90.02,
+              585.8,
+              360.07,
+              622.03
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00017",
+            "page": 1,
+            "role": "BODY",
+            "text": "截至目前，上述中标项目尚未签订正式合同，合同条款存在不确定性，项",
+            "text_raw": "截至目前，上述中标项目尚未签订正式合同，合同条款存在不确定性，项",
+            "region": [
+              114.02,
+              632.6,
+              498.07,
+              644.6
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00018",
+            "page": 1,
+            "role": "BODY",
+            "text": "目具体内容将以最终签署的正式合同为准。敬请投资者谨慎决策，注意防范投资风险。四、  备查文件",
+            "text_raw": "目具体内容将以最终签署的正式合同为准。敬请投资者谨慎决策，注意防范投资风险。 四、 备查文件 ",
+            "region": [
+              90.02,
+              656.03,
+              498.02,
+              715.66
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p001_b00019",
+            "page": 1,
+            "role": "BODY",
+            "text": "《中标通知书》",
+            "text_raw": "《中标通知书》  ",
+            "region": [
+              90.02,
+              726.23,
+              204.05,
+              757.23
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p002_b00001",
+            "page": 2,
+            "role": "HEADER",
+            "text": "公告编号：2025-075中环洁集团股份有限公司",
+            "text_raw": "公告编号：2025-075     中环洁集团股份有限公司 ",
+            "region": [
+              90.02,
+              43.99,
+              511.42,
+              136.59
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p002_b00002",
+            "page": 2,
+            "role": "BODY",
+            "text": "董事会",
+            "text_raw": "董事会 ",
+            "region": [
+              469.42,
+              147.99,
+              511.42,
+              159.99
+            ]
+          },
+          {
+            "block_id": "d0e4cf737_p002_b00003",
+            "page": 2,
+            "role": "BODY",
+            "text": "2025年6月16日",
+            "text_raw": "2025年6月16日  ",
+            "region": [
+              90.02,
+              171.39,
+              511.42,
+              202.39
+            ]
+          }
+        ]
+      }
+    },
+    "provenance_from_block": {
+      "block_id": "block.block_id",
+      "page": "block.page",
+      "region": "block.region",
+      "quote": "block.text_raw",
+      "source_type": "block.source_type",
+      "document_id": "block.doc_id",
+      "table": "block.table_ref.table_id",
+      "cell": "block.table_ref.cell_id"
+    },
+    "field_aliases": {
+      "region": {
+        "parser": "region",
+        "wei": "region",
+        "zong": "bbox"
+      },
+      "text_raw": {
+        "parser": "text_raw",
+        "wei": "quote",
+        "zong": "excerpt"
+      },
+      "doc_id": {
+        "parser": "doc_id",
+        "wei": "source.file_id（形态为 sha256:<hex>，见 handoff.source.file_id）",
+        "zong": "document_id"
+      },
+      "source_type": {
+        "parser": "source_type",
+        "zong": "source_type",
+        "wei": "（未定义）"
+      },
+      "table_ref": {
+        "parser": "table_ref.table_id / cell_id",
+        "zong": "table / cell",
+        "wei": "（未定义）"
+      }
+    },
+    "blocks_path": "pages[].blocks[]",
+    "warnings": [
+      "parse_meta.blocks 是 pages[].blocks[] 的精简副本（block_id/page/role/text/text_raw/region）。页级细节（font_size/source/table_ref/form_evidence）只在 pages[] 里。",
+      "provenance.quote 请取 block.text_raw —— text 在跨行西文处会补空格，不是逐字原文。"
+    ]
+  },
+  "quality": {
+    "degraded": false,
+    "degrade_reasons": [
+      "page 2: page form=MIXED：该页文本层稀疏（46 字符），已按可读部分产出块；未检出图片承载的不可读区域，故没有可标注的降级区域"
+    ],
+    "warnings": []
+  }
+}
